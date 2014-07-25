@@ -1,0 +1,1954 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width" />
+
+<meta name="Description" content="An Intent is a messaging object you can use to request an action from another app component . Although intents facilitate communication between components in several ways, there are three fundamental use-cases: An Activity represents a single screen in…">
+<link rel="shortcut icon" type="image/x-icon" href="../../favicon.ico" />
+<title>Intents and Intent Filters | Android Developers</title>
+
+<!-- STYLESHEETS -->
+<link rel="stylesheet"
+href="http://fonts.googleapis.com/css?family=Roboto+Condensed">
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:light,regular,medium,thin,italic,mediumitalic,bold"
+  title="roboto">
+<link href="../../assets/css/default.css" rel="stylesheet" type="text/css">
+
+
+
+<!-- JAVASCRIPT -->
+<script src="http://www.google.com/jsapi" type="text/javascript"></script>
+<script src="../../assets/js/android_3p-bundle.js" type="text/javascript"></script>
+<script type="text/javascript">
+  var toRoot = "../../";
+  var metaTags = ["intentfilter"];
+  var devsite = false;
+</script>
+<script src="../../assets/js/docs.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-5831155-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+
+<body class="gc-documentation 
+
+develop guide" itemscope itemtype="http://schema.org/Article">
+
+<a name="top"></a>
+
+  <!-- Header -->
+  <div id="header-wrapper">
+    <div id="header">
+      <div class="wrap" id="header-wrap">
+        <div class="col-3 logo">
+          <a href="../../index.html">
+            <img src="../../assets/images/dac_logo.png"
+                srcset="../../assets/images/dac_logo@2x.png 2x"
+                width="123" height="25" alt="Android Developers" />
+          </a>
+          <div class="btn-quicknav" id="btn-quicknav">
+            <a href="#" class="arrow-inactive">Quicknav</a>
+            <a href="#" class="arrow-active">Quicknav</a>
+          </div>
+        </div>
+        <ul class="nav-x col-9">
+            <li class="design">
+              <a href="../../design/index.html"
+              zh-tw-lang="設計"
+              zh-cn-lang="设计"
+              ru-lang="Проектирование"
+              ko-lang="디자인"
+              ja-lang="設計"
+              es-lang="Diseñar"
+              >Design</a></li>
+            <li class="develop"><a href="../../develop/index.html"
+              zh-tw-lang="開發"
+              zh-cn-lang="开发"
+              ru-lang="Разработка"
+              ko-lang="개발"
+              ja-lang="開発"
+              es-lang="Desarrollar"
+              >Develop</a></li>
+            <li class="distribute last"><a href="../../distribute/googleplay/index.html"
+              zh-tw-lang="發佈"
+              zh-cn-lang="分发"
+              ru-lang="Распространение"
+              ko-lang="배포"
+              ja-lang="配布"
+              es-lang="Distribuir"
+              >Distribute</a></li>
+        </ul>
+
+
+        
+        
+<div class="menu-container">
+  <div class="moremenu">
+    <div id="more-btn"></div>
+  </div>
+  <div class="morehover" id="moremenu">
+    <div class="top"></div>
+    <div class="mid">
+      <div class="header">Links</div>
+      <ul>
+        <li><a href="https://play.google.com/apps/publish/" target="_googleplay">Google Play Developer Console</a></li>
+        <li><a href="http://android-developers.blogspot.com/">Android Developers Blog</a></li>
+        <li><a href="../../about/index.html">About Android</a></li>
+      </ul>
+      <div class="header">Android Sites</div>
+      <ul>
+        <li><a href="http://www.android.com">Android.com</a></li>
+        <li class="active"><a>Android Developers</a></li>
+        <li><a href="http://source.android.com">Android Open Source Project</a></li>
+      </ul>
+
+      
+      
+      
+      <br class="clearfix" />
+    </div><!-- end 'mid' -->
+    <div class="bottom"></div>
+  </div><!-- end 'moremenu' -->
+
+  <div class="search" id="search-container">
+    <div class="search-inner">
+      <div id="search-btn"></div>
+      <div class="left"></div>
+      <form onsubmit="return submit_search()">
+        <input id="search_autocomplete" type="text" value="" autocomplete="off" name="q"
+          onfocus="search_focus_changed(this, true)" onblur="search_focus_changed(this, false)"
+          onkeydown="return search_changed(event, true, '../../')"
+          onkeyup="return search_changed(event, false, '../../')" />
+      </form>
+      <div class="right"></div>
+      <a class="close hide">close</a>
+      <div class="left"></div>
+      <div class="right"></div>
+    </div><!-- end search-inner -->
+  </div><!-- end search-container -->
+
+  <div class="search_filtered_wrapper reference">
+    <div class="suggest-card reference no-display">
+      <ul class="search_filtered">
+      </ul>
+    </div>
+  </div>
+
+  <div class="search_filtered_wrapper docs">
+    <div class="suggest-card dummy no-display">&nbsp;</div>
+    <div class="suggest-card develop no-display">
+      <ul class="search_filtered">
+      </ul>
+      <div class="child-card guides no-display">
+      </div>
+      <div class="child-card training no-display">
+      </div>
+      <div class="child-card samples no-display">
+      </div>
+    </div>
+    <div class="suggest-card design no-display">
+      <ul class="search_filtered">
+      </ul>
+    </div>
+    <div class="suggest-card distribute no-display">
+      <ul class="search_filtered">
+      </ul>
+    </div>
+  </div>
+</div><!-- end menu-container (search and menu widget) -->
+
+
+
+        <!-- Expanded quicknav -->
+        <div id="quicknav" class="col-9">
+          <ul>
+            <li class="design">
+              <ul>
+                <li><a href="../../design/index.html">Get Started</a></li>
+                <li><a href="../../design/style/index.html">Style</a></li>
+                <li><a href="../../design/patterns/index.html">Patterns</a></li>
+                <li><a href="../../design/building-blocks/index.html">Building Blocks</a></li>
+                <li><a href="../../design/downloads/index.html">Downloads</a></li>
+                <li><a href="../../design/videos/index.html">Videos</a></li>
+              </ul>
+            </li>
+            <li class="develop">
+              <ul>
+                <li><a href="../../training/index.html"
+                  zh-tw-lang="訓練課程"
+                  zh-cn-lang="培训"
+                  ru-lang="Курсы"
+                  ko-lang="교육"
+                  ja-lang="トレーニング"
+                  es-lang="Capacitación"
+                  >Training</a></li>
+                <li><a href="../../guide/index.html"
+                  zh-tw-lang="API 指南"
+                  zh-cn-lang="API 指南"
+                  ru-lang="Руководства по API"
+                  ko-lang="API 가이드"
+                  ja-lang="API ガイド"
+                  es-lang="Guías de la API"
+                  >API Guides</a></li>
+                <li><a href="../../reference/packages.html"
+                  zh-tw-lang="參考資源"
+                  zh-cn-lang="参考"
+                  ru-lang="Справочник"
+                  ko-lang="참조문서"
+                  ja-lang="リファレンス"
+                  es-lang="Referencia"
+                  >Reference</a></li>
+                <li><a href="../../tools/index.html"
+                  zh-tw-lang="相關工具"
+                  zh-cn-lang="工具"
+                  ru-lang="Инструменты"
+                  ko-lang="도구"
+                  ja-lang="ツール"
+                  es-lang="Herramientas"
+                  >Tools</a>
+                  <ul><li><a href="../../sdk/index.html">Get the SDK</a></li></ul>
+                </li>
+                <li><a href="../../google/index.html">Google Services</a>
+                </li>
+                
+              </ul>
+            </li>
+            <li class="distribute last">
+              <ul>
+                <li><a href="../../distribute/googleplay/index.html">Google Play</a></li>
+                <li><a href="../../distribute/essentials/index.html">Essentials</a></li>
+                <li><a href="../../distribute/users/index.html">Get Users</a></li>
+                <li><a href="../../distribute/engage/index.html">Engage &amp; Retain</a></li>
+                <li><a href="../../distribute/monetize/index.html">Monetize</a></li>
+                <li><a href="../../distribute/tools/index.html">Tools &amp; Reference</a></li>
+                <li><a href="../../distribute/stories/index.html">Developer Stories</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div><!-- /Expanded quicknav -->
+      </div><!-- end header-wrap.wrap -->
+    </div><!-- end header -->
+
+  
+    <!-- Secondary x-nav -->
+    <div id="nav-x">
+        <div class="wrap">
+            <ul class="nav-x col-9 develop" style="width:100%">
+                <li class="training"><a href="../../training/index.html"
+                  zh-tw-lang="訓練課程"
+                  zh-cn-lang="培训"
+                  ru-lang="Курсы"
+                  ko-lang="교육"
+                  ja-lang="トレーニング"
+                  es-lang="Capacitación"
+                  >Training</a></li>
+                <li class="guide"><a href="../../guide/index.html"
+                  zh-tw-lang="API 指南"
+                  zh-cn-lang="API 指南"
+                  ru-lang="Руководства по API"
+                  ko-lang="API 가이드"
+                  ja-lang="API ガイド"
+                  es-lang="Guías de la API"
+                  >API Guides</a></li>
+                <li class="reference"><a href="../../reference/packages.html"
+                  zh-tw-lang="參考資源"
+                  zh-cn-lang="参考"
+                  ru-lang="Справочник"
+                  ko-lang="참조문서"
+                  ja-lang="リファレンス"
+                  es-lang="Referencia"
+                  >Reference</a></li>
+                <li class="tools"><a href="../../tools/index.html"
+                  zh-tw-lang="相關工具"
+                  zh-cn-lang="工具"
+                  ru-lang="Инструменты"
+                  ko-lang="도구"
+                  ja-lang="ツール"
+                  es-lang="Herramientas"
+                  >Tools</a></li>
+                <li class="google"><a href="../../google/index.html"
+                  >Google Services</a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+    <!-- /Sendondary x-nav -->
+
+  
+
+    <div id="searchResults" class="wrap" style="display:none;">
+      <h2 id="searchTitle">Results</h2>
+      <div id="leftSearchControl" class="search-control">Loading...</div>
+    </div>
+  </div> <!--end header-wrapper -->
+
+  <div id="sticky-header">
+    <div>
+      <a class="logo" href="#top"></a>
+      <a class="top" href="#top"></a>
+      <ul class="breadcrumb">
+        
+        <li class="current">Intents and Intent Filters</li>
+      </ul>
+    </div>
+  </div>
+
+
+
+
+  <div class="wrap clearfix" id="body-content">
+    <div class="col-4" id="side-nav" itemscope itemtype="http://schema.org/SiteNavigationElement">
+      <div id="devdoc-nav" class="scroll-pane">
+
+
+<ul id="nav">
+
+  <li class="nav-section">
+    <div class="nav-section-header"><a href="../../guide/index.html">
+        <span class="en">Introduction</span>
+      </a></div>
+    <ul>
+      <li><a href="../../guide/components/fundamentals.html">
+            <span class="en">App Fundamentals</span></a>
+      </li>
+      <li><a href="../../guide/practices/compatibility.html">
+            <span class="en">Device Compatibility</span>
+          </a></li>
+      <li><a href="../../guide/topics/security/permissions.html">
+          <span class="en">System Permissions</span>
+        </a>
+      </li>
+    </ul>
+  </li>
+
+
+  <li class="nav-section">
+    <div class="nav-section-header"><a href="../../guide/components/index.html">
+        <span class="en">App Components</span>
+      </a></div>
+    <ul>
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../guide/components/intents-filters.html">
+            <span class="en">Intents and Intent Filters</span>
+          </a></div>
+        <ul>
+          <li><a href="../../guide/components/intents-common.html">
+            <span class="en">Common Intents</span>
+          </a></li>
+        </ul>
+      </li>
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../guide/components/activities.html">
+            <span class="en">Activities</span>
+          </a></div>
+        <ul>
+          <li><a href="../../guide/components/fragments.html">
+              <span class="en">Fragments</span>
+            </a></li>
+          <li><a href="../../guide/components/loaders.html">
+              <span class="en">Loaders</span>
+            </a></li>
+          <li><a href="../../guide/components/tasks-and-back-stack.html">
+              <span class="en">Tasks and Back Stack</span>
+            </a></li>
+        </ul>
+      </li>
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../guide/components/services.html">
+            <span class="en">Services</span>
+          </a></div>
+        <ul>
+          <li><a href="../../guide/components/bound-services.html">
+              <span class="en">Bound Services</span>
+            </a></li>
+          <li><a href="../../guide/components/aidl.html">
+              <span class="en">AIDL</span>
+            </a></li>
+        </ul>
+      </li>
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../guide/topics/providers/content-providers.html">
+            <span class="en">Content Providers</span>
+          </a></div>
+        <ul>
+          <li><a href="../../guide/topics/providers/content-provider-basics.html">
+              <span class="en">Content Provider Basics</span>
+            </a></li>
+          <li><a href="../../guide/topics/providers/content-provider-creating.html">
+              <span class="en">Creating a Content Provider</span>
+            </a></li>
+          <li><a href="../../guide/topics/providers/calendar-provider.html">
+              <span class="en">Calendar Provider</span>
+            </a></li>
+          <li><a href="../../guide/topics/providers/contacts-provider.html">
+              <span class="en">Contacts Provider</span>
+            </a></li>
+          <li><a href="../../guide/topics/providers/document-provider.html">
+              <span class="en">Storage Access Framework</span>
+            </a></li>
+        </ul>
+      </li>
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../guide/topics/appwidgets/index.html">
+            <span class="en">App Widgets</span>
+          </a></div>
+        <ul>
+          <li><a href="../../guide/topics/appwidgets/host.html">
+              <span class="en">App Widget Host</span>
+            </a></li>
+        </ul>
+      </li>
+      <li><a href="../../guide/components/processes-and-threads.html">
+          <span class="en">Processes and Threads</span>
+        </a>
+      </li>
+    </ul>
+  </li>
+
+
+  <li class="nav-section">
+    <div class="nav-section-header"><a href="../../guide/topics/resources/index.html">
+         <span class="en">App Resources</span>
+       </a></div>
+    <ul>
+      <li><a href="../../guide/topics/resources/overview.html">
+          <span class="en">Overview</span>
+        </a></li>
+        <li><a href="../../guide/topics/resources/providing-resources.html">
+          <span class="en">Providing Resources</span>
+        </a></li>
+      <li><a href="../../guide/topics/resources/accessing-resources.html">
+          <span class="en">Accessing Resources</span>
+        </a></li>
+      <li><a href="../../guide/topics/resources/runtime-changes.html">
+            <span class="en">Handling Runtime Changes</span>
+          </a></li>
+      <li><a href="../../guide/topics/resources/localization.html">
+          <span class="en">Localization</span>
+        </a></li>
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../guide/topics/resources/available-resources.html">
+            <span class="en">Resource Types</span>
+          </a></div>
+        <ul>
+          <li><a href="../../guide/topics/resources/animation-resource.html">Animation</a></li>
+          <li><a href="../../guide/topics/resources/color-list-resource.html">Color State List</a></li>
+          <li><a href="../../guide/topics/resources/drawable-resource.html">Drawable</a></li>
+          <li><a href="../../guide/topics/resources/layout-resource.html">Layout</a></li>
+          <li><a href="../../guide/topics/resources/menu-resource.html">Menu</a></li>
+          <li><a href="../../guide/topics/resources/string-resource.html">String</a></li>
+          <li><a href="../../guide/topics/resources/style-resource.html">Style</a></li>
+          <li><a href="../../guide/topics/resources/more-resources.html">More Types</a></li>
+        </ul>
+      </li><!-- end of resource types -->
+    </ul>
+  </li><!-- end of app resources -->
+
+
+
+  <li class="nav-section">
+  <div class="nav-section-header"><a href="../../guide/topics/manifest/manifest-intro.html">
+      <span class="en">App Manifest</span>
+    </a></div>
+    <ul>
+      <li><a href="../../guide/topics/manifest/action-element.html">&lt;action&gt;</a></li>
+      <li><a href="../../guide/topics/manifest/activity-element.html">&lt;activity&gt;</a></li>
+      <li><a href="../../guide/topics/manifest/activity-alias-element.html">&lt;activity-alias&gt;</a></li>
+      <li><a href="../../guide/topics/manifest/application-element.html">&lt;application&gt;</a></li>
+      <li><a href="../../guide/topics/manifest/category-element.html">&lt;category&gt;</a></li>
+      <li><a href="../../guide/topics/manifest/compatible-screens-element.html">&lt;compatible-screens&gt;</a></li>
+      <li><a href="../../guide/topics/manifest/data-element.html">&lt;data&gt;</a></li>
+      <li><a href="../../guide/topics/manifest/grant-uri-permission-element.html">&lt;grant-uri-permission&gt;</a></li>
+      <li><a href="../../guide/topics/manifest/instrumentation-element.html">&lt;instrumentation&gt;</a></li>
+      <li><a href="../../guide/topics/manifest/intent-filter-element.html">&lt;intent-filter&gt;</a></li>
+      <li><a href="../../guide/topics/manifest/manifest-element.html">&lt;manifest&gt;</a></li>
+      <li><a href="../../guide/topics/manifest/meta-data-element.html">&lt;meta-data&gt;</a></li>
+      <li><a href="../../guide/topics/manifest/path-permission-element.html">&lt;path-permission&gt;</a></li>
+      <li><a href="../../guide/topics/manifest/permission-element.html">&lt;permission&gt;</a></li>
+      <li><a href="../../guide/topics/manifest/permission-group-element.html">&lt;permission-group&gt;</a></li>
+      <li><a href="../../guide/topics/manifest/permission-tree-element.html">&lt;permission-tree&gt;</a></li>
+      <li><a href="../../guide/topics/manifest/provider-element.html">&lt;provider&gt;</a></li>
+      <li><a href="../../guide/topics/manifest/receiver-element.html">&lt;receiver&gt;</a></li>
+      <li><a href="../../guide/topics/manifest/service-element.html">&lt;service&gt;</a></li>
+      <li><a href="../../guide/topics/manifest/supports-gl-texture-element.html">&lt;supports-gl-texture&gt;</a></li>
+      <li><a href="../../guide/topics/manifest/supports-screens-element.html">&lt;supports-screens&gt;</a></li><!-- ##api level 4## -->
+      <li><a href="../../guide/topics/manifest/uses-configuration-element.html">&lt;uses-configuration&gt;</a></li>
+      <li><a href="../../guide/topics/manifest/uses-feature-element.html">&lt;uses-feature&gt;</a></li> <!-- ##api level 4## -->
+      <li><a href="../../guide/topics/manifest/uses-library-element.html">&lt;uses-library&gt;</a></li>
+      <li><a href="../../guide/topics/manifest/uses-permission-element.html">&lt;uses-permission&gt;</a></li>
+      <li><a href="../../guide/topics/manifest/uses-sdk-element.html">&lt;uses-sdk&gt;</a></li>
+    </ul>
+  </li><!-- end of the manifest file -->
+
+
+
+  <li class="nav-section">
+    <div class="nav-section-header"><a href="../../guide/topics/ui/index.html">
+        <span class="en">User Interface</span>
+      </a></div>
+    <ul>
+      <li><a href="../../guide/topics/ui/overview.html">
+          <span class="en">Overview</span>
+        </a></li>
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../guide/topics/ui/declaring-layout.html">
+            <span class="en">Layouts</span>
+          </a></div>
+        <ul>
+          <li><a href="../../guide/topics/ui/layout/linear.html">
+              <span class="en">Linear Layout</span>
+            </a></li>
+          <li><a href="../../guide/topics/ui/layout/relative.html">
+              <span class="en">Relative Layout</span>
+            </a></li>
+       <!--
+          <li><a href="../../guide/topics/ui/layout/grid.html">
+              <span class="en">Grid Layout</span>
+            </a></li>
+       -->
+          <li><a href="../../guide/topics/ui/layout/listview.html">
+              <span class="en">List View</span>
+            </a></li>
+          <li><a href="../../guide/topics/ui/layout/gridview.html">
+              <span class="en">Grid View</span>
+            </a></li>
+        </ul>
+      </li>
+
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../guide/topics/ui/controls.html">
+            <span class="en">Input Controls</span>
+          </a></div>
+        <ul>
+          <li><a href="../../guide/topics/ui/controls/button.html">
+              <span class="en">Buttons</span>
+            </a></li>
+          <li><a href="../../guide/topics/ui/controls/text.html">
+              <span class="en">Text Fields</span>
+            </a></li>
+          <li><a href="../../guide/topics/ui/controls/checkbox.html">
+              <span class="en">Checkboxes</span>
+            </a></li>
+          <li><a href="../../guide/topics/ui/controls/radiobutton.html">
+              <span class="en">Radio Buttons</span>
+            </a></li>
+          <li><a href="../../guide/topics/ui/controls/togglebutton.html">
+              <span class="en">Toggle Buttons</span>
+            </a></li>
+          <li><a href="../../guide/topics/ui/controls/spinner.html">
+              <span class="en">Spinners</span>
+            </a></li>
+          <li><a href="../../guide/topics/ui/controls/pickers.html">
+              <span class="en">Pickers</span>
+            </a></li>
+<!--
+          <li><a href="../../guide/topics/ui/controls/progress.html">
+              <span class="en">Seek and Progress Bars</span>
+            </a></li>
+-->
+        </ul>
+      </li>
+      <li><a href="../../guide/topics/ui/ui-events.html">
+          <span class="en">Input Events</span>
+        </a></li>
+      <li><a href="../../guide/topics/ui/menus.html">
+          <span class="en">Menus</span></span>
+          </a></li>
+      <li><a href="../../guide/topics/ui/actionbar.html">
+           <span class="en">Action Bar</span>
+          </a></li>
+      <li><a href="../../guide/topics/ui/settings.html">
+            <span class="en">Settings</span>
+          </a></li>
+      <li><a href="../../guide/topics/ui/dialogs.html">
+           <span class="en">Dialogs</span>
+          </a></li>
+      <li><a href="../../guide/topics/ui/notifiers/notifications.html">
+          <span class="en">Notifications</span>
+        </a></li>
+      <li><a href="../../guide/topics/ui/notifiers/toasts.html">
+          <span class="en">Toasts</span>
+        </a></li>
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../guide/topics/search/index.html">
+            <span class="en">Search</span>
+          </a></div>
+          <ul>
+            <li><a href="../../guide/topics/search/search-dialog.html">Creating a Search Interface</a></li>
+            <li><a href="../../guide/topics/search/adding-recent-query-suggestions.html">Adding Recent Query Suggestions</a></li>
+            <li><a href="../../guide/topics/search/adding-custom-suggestions.html">Adding Custom Suggestions</a></li>
+            <li><a href="../../guide/topics/search/searchable-config.html">Searchable Configuration</a></li>
+          </ul>
+      </li>
+      <li><a href="../../guide/topics/ui/drag-drop.html">
+          <span class="en">Drag and Drop</span>
+        </a></li>
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../guide/topics/ui/accessibility/index.html">
+            <span class="en">Accessibility</span>
+          </a></div>
+        <ul>
+          <li><a href="../../guide/topics/ui/accessibility/apps.html">
+              <span class="en">Making Applications Accessible</span>
+            </a></li>
+          <li><a href="../../guide/topics/ui/accessibility/checklist.html">
+              <span class="en">Accessibility Developer Checklist</span>
+            </a></li>
+          <li><a href="../../guide/topics/ui/accessibility/services.html">
+              <span class="en">Building Accessibility Services</span>
+            </a></li>
+        </ul>
+      </li>
+      <li><a href="../../guide/topics/ui/themes.html">
+          <span class="en">Styles and Themes</span>
+        </a></li>
+      <li><a href="../../guide/topics/ui/custom-components.html">
+          <span class="en">Custom Components</span>
+        </a></li>
+    </ul>
+  </li><!-- end of User Interface -->
+
+   <li class="nav-section">
+      <div class="nav-section-header"><a href="../../guide/topics/graphics/index.html">
+          <span class="en">Animation and Graphics</span>
+        </a></div>
+      <ul>
+      <li class="nav-section">
+        <li><a href="../../guide/topics/graphics/overview.html">
+            <span class="en">Overview</span>
+          </a></li>
+        <li><a href="../../guide/topics/graphics/prop-animation.html">
+            <span class="en">Property Animation</span>
+          </a></li>
+        <li><a href="../../guide/topics/graphics/view-animation.html">
+            <span class="en">View Animation</span>
+          </a></li>
+        <li><a href="../../guide/topics/graphics/drawable-animation.html">
+            <span class="en">Drawable Animation</span>
+          </a></li>
+        <li><a href="../../guide/topics/graphics/2d-graphics.html">
+            <span class="en">Canvas and Drawables</span>
+          </a></li>
+        <li><a href="../../guide/topics/graphics/opengl.html">
+            <span class="en">OpenGL ES</span>
+          </a></li>
+        <li><a href="../../guide/topics/graphics/hardware-accel.html">
+            <span class="en">Hardware Acceleration</span>
+          </a></li>
+       </ul>
+    </li><!-- end of graphics and animation-->
+
+   <li class="nav-section">
+            <div class="nav-section-header"><a href="../../guide/topics/renderscript/index.html">
+              <span class="en">Computation</span>
+            </a></div>
+            <ul>
+              <li><a href="../../guide/topics/renderscript/compute.html">
+                    <span class="en">RenderScript</span></a>
+                  </li>
+
+              <li><a href="../../guide/topics/renderscript/advanced.html">
+                    <span class="en">Advanced RenderScript</span></a>
+                  </li>
+              <li><a href="../../guide/topics/renderscript/reference.html">
+                    <span class="en">Runtime API Reference</span></a>
+              </li>
+             </ul>
+   </li>
+      <li class="nav-section">
+          <div class="nav-section-header"><a href="../../guide/topics/media/index.html">
+            <span class="en">Media and Camera</span>
+          </a></div>
+          <ul>
+            <li><a href="../../guide/topics/media/mediaplayer.html">
+                  <span class="en">Media Playback</span></a>
+                </li>
+            <li><a href="../../guide/topics/media/mediarouter.html">
+                  <span class="en">Media Router</span></a>
+                </li>
+            <li><a href="../../guide/topics/media/mediarouteprovider.html">
+                  <span class="en">Media Route Provider</span></a>
+                </li>
+            <li><a href="../../guide/appendix/media-formats.html">
+                   <span class="en">Supported Media Formats</span></a>
+                </li>
+            <li><a href="../../guide/topics/media/audio-capture.html">
+                  <span class="en">Audio Capture</span></a>
+                </li>
+            <li><a href="../../guide/topics/media/jetplayer.html">
+                  <span class="en">JetPlayer</span></a>
+                </li>
+            <li><a href="../../guide/topics/media/camera.html">
+                  <span class="en">Camera</span></a>
+                </li>
+          </ul>
+      </li><!-- end of media and camera -->
+
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../guide/topics/sensors/index.html">
+              <span class="en">Location and Sensors</span>
+              </a></div>
+        <ul>
+          <li><a href="../../guide/topics/location/index.html">
+               <span class="en">Location and Maps</span>
+             </a>
+          <li><a href="../../guide/topics/location/strategies.html">
+               <span class="en">Location Strategies</span>
+             </a></li>
+          <li><a href="../../guide/topics/sensors/sensors_overview.html">
+              <span class="en">Sensors Overview</span>
+            </a></li>
+          <li><a href="../../guide/topics/sensors/sensors_motion.html">
+              <span class="en">Motion Sensors</span>
+            </a></li>
+          <li><a href="../../guide/topics/sensors/sensors_position.html">
+              <span class="en">Position Sensors</span>
+            </a></li>
+          <li><a href="../../guide/topics/sensors/sensors_environment.html">
+              <span class="en">Environment Sensors</span>
+            </a></li>
+        </ul>
+      </li><!-- end of location and sensors -->
+
+
+
+<li class="nav-section">
+        <div class="nav-section-header"><a href="../../guide/topics/connectivity/index.html">
+               <span class="en">Connectivity</span>
+             </a></div>
+        <ul>
+          <li class="nav-section">
+        <div class="nav-section-header"><a href="../../guide/topics/connectivity/bluetooth.html">
+          <span class="en">Bluetooth</span></a>
+        </div>
+        <ul>
+          <li><a href="../../guide/topics/connectivity/bluetooth-le.html">Bluetooth Low Energy</a></li>
+        </ul>
+      </li>
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../guide/topics/connectivity/nfc/index.html">
+          <span class="en">NFC</span></a>
+        </div>
+        <ul>
+          <li><a href="../../guide/topics/connectivity/nfc/nfc.html">NFC Basics</a></li>
+          <li><a href="../../guide/topics/connectivity/nfc/advanced-nfc.html">Advanced NFC</a></li>
+          <li><a href="../../guide/topics/connectivity/nfc/hce.html">Host-based Card Emulation</a></li>
+        </ul>
+      </li>
+      <li><a href="../../guide/topics/connectivity/wifip2p.html">
+            <span class="en">Wi-Fi P2P</span></a>
+          </li>
+      <li class="nav-section">
+          <div class="nav-section-header"><a href="../../guide/topics/connectivity/usb/index.html">
+            <span class="en">USB</span></a>
+          </div>
+            <ul>
+              <li><a href="../../guide/topics/connectivity/usb/accessory.html">Accessory</a></li>
+              <li><a href="../../guide/topics/connectivity/usb/host.html">Host</a></li>
+            </ul>
+     </li>
+     <li><a href="../../guide/topics/connectivity/sip.html">
+            <span class="en">SIP</span>
+          </a>
+     </li>
+
+    </ul>
+  </li><!-- end of connectivity -->
+
+
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../guide/topics/text/index.html">
+            <span class="en">Text and Input</span>
+        </a></div>
+        <ul>
+          <li><a href="../../guide/topics/text/copy-paste.html">
+              <span class="en">Copy and Paste</span>
+            </a></li>
+          <li><a href="../../guide/topics/text/creating-input-method.html">
+              <span class="en">Creating an IME</span>
+            </a></li>
+          <li><a href="../../guide/topics/text/spell-checker-framework.html">
+              <span class="en">Spelling Checker</span>
+            </a></li>
+        </ul>
+      </li><!-- end of text and input -->
+
+     <li class="nav-section">
+      <div class="nav-section-header"><a href="../../guide/topics/data/index.html">
+          <span class="en">Data Storage</span>
+        </a></div>
+      <ul>
+         <li><a href="../../guide/topics/data/data-storage.html">
+            <span class="en">Storage Options</span>
+           </a></li>
+        <li><a href="../../guide/topics/data/backup.html">
+            <span class="en">Data Backup</span>
+          </a></li>
+        <li><a href="../../guide/topics/data/install-location.html">
+            <span class="en">App Install Location</span>
+          </a></li>
+      </ul>
+    </li><!-- end of data storage -->
+
+
+  <li class="nav-section">
+           <div class="nav-section-header"><a href="../../guide/topics/admin/index.html">
+               <span class="en">Administration</span>
+             </a></div>
+           <ul>
+              <li>
+                <a href="../../guide/topics/admin/device-admin.html">
+                <span class="en">Device Policies</span></a>
+              </li>
+            <!--
+              <li>
+                <a href="../../guide/topics/admin/keychain.html">
+                <span class="en">Certificate Store</span></a>
+              </li>
+            -->
+           </ul>
+  </li><!-- end of administration -->
+
+  <li class="nav-section">
+    <div class="nav-section-header"><a href="../../guide/webapps/index.html">
+    <span class="en">Web Apps</span>
+    </a></div>
+    <ul>
+      <li><a href="../../guide/webapps/targeting.html">
+            <span class="en">Supporting Different Screens in Web Apps</span>
+          </a></li>
+      <li><a href="../../guide/webapps/webview.html">
+            <span class="en">Building Web Apps in WebView</span>
+          </a></li>
+      <li><a href="../../guide/webapps/migrating.html">
+            <span class="en">Migrating to WebView in Android 4.4</span>
+          </a></li>
+      <li><a href="../../guide/webapps/debugging.html">
+            <span class="en">Debugging Web Apps</span>
+          </a></li>
+      <li><a href="../../guide/webapps/best-practices.html">
+            <span class="en">Best Practices for Web Apps</span>
+          </a></li>
+    </ul>
+  </li><!-- end of web apps -->
+
+  <li class="nav-section">
+    <div class="nav-section-header"><a href="../../guide/practices/index.html">
+      <span class="en">Best Practices</span>
+      <span class="de" style="display:none">Bewährte Verfahren</span>
+      <span class="es" style="display:none">Prácticas recomendadas</span>
+      <span class="fr" style="display:none">Meilleures pratiques</span>
+      <span class="it" style="display:none">Best practice</span>
+      <span class="ja" style="display:none">ベスト プラクティス</span>
+      <span class="zh-cn" style="display:none">最佳实践</span>
+      <span class="zh-tw" style="display:none">最佳實務</span>
+    </div></a>
+    <ul>
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../guide/practices/screens_support.html">
+          <span class="en">Supporting Multiple Screens</span>
+        </a></div>
+        <ul>
+          <li><a href="../../guide/practices/screens-distribution.html">
+            <span class="en">Distributing to Specific Screens</span>
+          </a></li>
+          <li><a href="../../guide/practices/screen-compat-mode.html">
+            <span class="en">Screen Compatibility Mode</span>
+          </a></li>
+        </ul>
+      </li>
+      <li><a href="../../guide/practices/tablets-and-handsets.html">
+            <span class="en">Supporting Tablets and Handsets</span>
+          </a></li>
+
+    </ul>
+  </li>
+
+
+</ul>
+
+
+<script type="text/javascript">
+<!--
+    buildToggleLists();
+    changeNavLang(getLangPref());
+//-->
+</script>
+
+
+        
+
+      </div>
+    </div> <!-- end side-nav -->
+    <script>
+      $(document).ready(function() {
+        scrollIntoView("devdoc-nav");
+        });
+    </script>
+
+
+
+
+<div class="col-12" id="doc-col" >
+
+
+
+
+  
+    
+      
+        <h1 itemprop="name" >Intents and Intent Filters</h1>
+      
+    
+  
+
+
+  
+  <div id="jd-content">
+
+
+    <div class="jd-descr" itemprop="articleBody">
+    <div id="qv-wrapper">
+<div id="qv">
+
+<h2>In this document</h2>
+<ol>
+  <li><a href="#Types">Intent Types</a></li>
+  <li><a href="#Building">Building an Intent</a>
+    <ol>
+      <li><a href="#ExampleExplicit">Example explicit intent</a></li>
+      <li><a href="#ExampleSend">Example implicit intent</a></li>
+      <li><a href="#ForceChooser">Forcing an app chooser</a></li>
+    </ol>
+  </li>
+  <li><a href="#Receiving">Receiving an Implicit Intent</a>
+    <ol>
+      <li><a href="#ExampleFilters">Example filters</a></li>
+    </ol>
+  </li>
+  <li><a href="#PendingIntent">Using a Pending Intent</a></li>
+  <li><a href="#Resolution">Intent Resolution</a>
+    <ol>
+      <li><a href="#ActionTest">Action test</a></li>
+      <li><a href="#CategoryTest">Category test</a></li>
+      <li><a href="#DataTest">Data test</a></li>
+      <li><a href="#imatch">Intent matching</a></li>
+    </ol>
+  </li>
+</ol>
+
+<h2>See also</h2>
+<ol>
+<li><a href="../../training/basics/intents/index.html">Interacting with Other Apps</a></li>
+<li><a href="../../training/sharing/index.html">Sharing Content</a></li>
+</ol>
+
+</div>
+</div>
+
+
+
+
+<p>An <code><a href="../../reference/android/content/Intent.html">Intent</a></code> is a messaging object you can use to request an action
+from another <a href="../../guide/components/fundamentals.html#Components">app component</a>.
+Although intents facilitate communication between components in several ways, there are three
+fundamental use-cases:</p>
+
+<ul>
+<li><b>To start an activity:</b>
+<p>An <code><a href="../../reference/android/app/Activity.html">Activity</a></code> represents a single screen in an app. You can start a new
+instance of an <code><a href="../../reference/android/app/Activity.html">Activity</a></code> by passing an <code><a href="../../reference/android/content/Intent.html">Intent</a></code>
+to <code><a href="../../reference/android/content/Context.html#startActivity(android.content.Intent)">startActivity()</a></code>. The <code><a href="../../reference/android/content/Intent.html">Intent</a></code>
+describes the activity to start and carries any necessary data.</p>
+
+<p>If you want to receive a result from the activity when it finishes,
+call <code><a href="../../reference/android/app/Activity.html#startActivityForResult(android.content.Intent, int)">startActivityForResult()</a></code>. Your activity receives the result
+as a separate <code><a href="../../reference/android/content/Intent.html">Intent</a></code> object in your activity's <code><a href="../../reference/android/app/Activity.html#onActivityResult(int, int, android.content.Intent)">onActivityResult()</a></code> callback.
+For more information, see the <a
+href="../../guide/components/activities.html">Activities</a> guide.</p></li>
+
+<li><b>To start a service:</b>
+<p>A <code><a href="../../reference/android/app/Service.html">Service</a></code> is a component that performs operations in the background
+without a user interface. You can start a service to perform a one-time operation
+(such as download a file) by passing an <code><a href="../../reference/android/content/Intent.html">Intent</a></code>
+to <code><a href="../../reference/android/content/Context.html#startService(android.content.Intent)">startService()</a></code>. The <code><a href="../../reference/android/content/Intent.html">Intent</a></code>
+describes the service to start and carries any necessary data.</p>
+
+<p>If the service is designed with a client-server interface, you can bind to the service
+from another component by passing an <code><a href="../../reference/android/content/Intent.html">Intent</a></code> to <code><a href="../../reference/android/content/Context.html#bindService(android.content.Intent, android.content.ServiceConnection, int)">bindService()</a></code></code>. For more information, see the <a
+href="../../guide/components/services.html">Services</a> guide.</p></li>
+
+<li><b>To deliver a broadcast:</b>
+<p>A broadcast is a message that any app can receive. The system delivers various
+broadcasts for system events, such as when the system boots up or the device starts charging.
+You can deliver a broadcast to other apps by passing an <code><a href="../../reference/android/content/Intent.html">Intent</a></code>
+to <code><a href="../../reference/android/content/Context.html#sendBroadcast(android.content.Intent)">sendBroadcast()</a></code>,
+<code><a href="../../reference/android/content/Context.html#sendOrderedBroadcast(android.content.Intent, java.lang.String)">sendOrderedBroadcast()</a></code>, or <code><a href="../../reference/android/content/Context.html#sendStickyBroadcast(android.content.Intent)">sendStickyBroadcast()</a></code>.</p>
+</li>
+</ul>
+
+
+
+
+<h2 id="Types">Intent Types</h2>
+
+<p>There are two types of intents:</p>
+
+<ul>
+<li><b>Explicit intents</b> specify the component to start by name (the
+fully-qualified class name). You'll typically use an explicit intent to start a component in
+your own app, because you know the class name of the activity or service you want to start. For
+example, start a new activity in response to a user action or start a service to download
+a file in the background.</li>
+
+<li><b>Implicit intents</b> do not name a specific component, but instead declare a general action
+to perform, which allows a component from another app to handle it. For example, if you want to
+show the user a location on a map, you can use an implicit intent to request that another capable
+app show a specified location on a map.</li>
+</ul>
+
+<p>When you create an explicit intent to start an activity or service, the system immediately
+starts the app component specified in the <code><a href="../../reference/android/content/Intent.html">Intent</a></code> object.</p>
+
+<div class="figure" style="width:446px">
+<img src="../../images/components/intent-filters@2x.png" width="446" alt=""/>
+<p class="img-caption"><strong>Figure 1.</strong> Illustration of how an implicit intent is
+delivered through the system to start another activity: <b>[1]</b> <em>Activity A</em> creates an
+<code><a href="../../reference/android/content/Intent.html">Intent</a></code> with an action description and passes it to <code><a href="../../reference/android/content/Context.html#startActivity(android.content.Intent)">startActivity()</a></code>. <b>[2]</b> The Android System searches all
+apps for an intent filter that matches the intent. When a match is found, <b>[3]</b> the system
+starts the matching activity (<em>Activity B</em>) by invoking its <code><a href="../../reference/android/app/Activity.html#onCreate(android.os.Bundle)">onCreate()</a></code> method and passing it the <code><a href="../../reference/android/content/Intent.html">Intent</a></code>.
+</p>
+</div>
+
+<p>When you create an implicit intent, the Android system finds the appropriate component to start
+by comparing the contents of the intent to the <em>intent filters</em> declared in the <a href=
+"../../guide/topics/manifest/manifest-intro.html">manifest file</a> of other apps on the
+device. If the intent matches an intent filter, the system starts that component and delivers it
+the <code><a href="../../reference/android/content/Intent.html">Intent</a></code> object. If multiple intent filters are compatible, the system
+displays a dialog so the user can pick which app to use.</p>
+
+<p>An intent filter is an expression in an app's manifest file that
+specifies the type of intents that the component
+would like to receive. For instance, by declaring an intent filter for an activity,
+you make it possible for other apps to directly start your activity with a certain kind of intent.
+Likewise, if you do <em>not</em> declare any intent filters for an activity, then it can be started
+only with an explicit intent.</p>
+
+<p class="caution"><strong>Caution:</strong> To ensure your app is secure, always use an explicit
+intent when starting a <code><a href="../../reference/android/app/Service.html">Service</a></code> and do not
+declare intent filters for your services. Using an implicit intent to start a service is a
+security hazard because you cannot be certain what service will respond to the intent,
+and the user cannot see which service starts.</p>
+
+
+
+
+
+<h2 id="Building">Building an Intent</h2>
+
+<p>An <code><a href="../../reference/android/content/Intent.html">Intent</a></code> object carries information that the Android system uses
+to determine which component to start (such as the exact component name or component
+category that should receive the intent), plus information that the recipient component uses in
+order to properly perform the action (such as the action to take and the data to act upon).</p>
+
+
+<p>The primary information contained in an <code><a href="../../reference/android/content/Intent.html">Intent</a></code> is the following:</p>
+
+<dl>
+
+<dt><b>Component name</b></dt>
+<dd>The name of the component to start.
+
+<p>This is optional, but it's the critical piece of information that makes an intent
+<b>explicit</b>, meaning that the intent should be delivered only to the app component
+defined by the component name. Without a component name, the intent is <b>implicit</b> and the
+system decides which component should receive the intent based on the other intent information
+(such as the action, data, and category&mdash;described below). So if you need to start a specific
+component in your app, you should specify the component name.</p>
+
+<p class="note"><strong>Note:</strong> When starting a <code><a href="../../reference/android/app/Service.html">Service</a></code>, you should
+<strong>always specify the component name</strong>. Otherwise, you cannot be certain what service
+will respond to the intent, and the user cannot see which service starts.</p>
+
+<p>This field of the <code><a href="../../reference/android/content/Intent.html">Intent</a></code> is a
+<code><a href="../../reference/android/content/ComponentName.html">ComponentName</a></code> object, which you can specify using a fully
+qualified class name of the target component, including the package name of the app. For example,
+<code>com.example.ExampleActivity</code>. You can set the component name with <code><a href="../../reference/android/content/Intent.html#setComponent(android.content.ComponentName)">setComponent()</a></code>, <code><a href="../../reference/android/content/Intent.html#setClass(android.content.Context, java.lang.Class<?>)">setClass()</a></code>, <code><a href="../../reference/android/content/Intent.html#setClassName(java.lang.String, java.lang.String)">setClassName()</a></code>, or with the
+<code><a href="../../reference/android/content/Intent.html">Intent</a></code> constructor.</p>
+
+</dd>
+
+<p><dt><b>Action</b></dt>
+<dd>A string that specifies the generic action to perform (such as <em>view</em> or <em>pick</em>).
+
+<p>In the case of a broadcast intent, this is the action that took place and is being reported.
+The action largely determines how the rest of the intent is structured&mdash;particularly
+what is contained in the data and extras.
+
+<p>You can specify your own actions for use by intents within your app (or for use by other
+apps to invoke components in your app), but you should usually use action constants
+defined by the <code><a href="../../reference/android/content/Intent.html">Intent</a></code> class or other framework classes. Here are some
+common actions for starting an activity:</p>
+
+<dl>
+<dt><code><a href="../../reference/android/content/Intent.html#ACTION_VIEW">ACTION_VIEW</a></code></dt>
+   <dd>Use this action in an intent with <code><a href="../../reference/android/content/Context.html#startActivity(android.content.Intent)">startActivity()</a></code> when you have some information that
+   an activity can show to the user, such as a photo to view in a gallery app, or an address to
+   view in a map app.</dd>
+
+<dt><code><a href="../../reference/android/content/Intent.html#ACTION_SEND">ACTION_SEND</a></code></dt>
+   <dd>Also known as the "share" intent, you should use this in an intent with <code><a href="../../reference/android/content/Context.html#startActivity(android.content.Intent)">startActivity()</a></code> when you have some data that the user can
+   share through another app, such as an email app or social sharing app.</dd>
+</dl>
+
+<p>See the <code><a href="../../reference/android/content/Intent.html">Intent</a></code> class reference for more
+constants that define generic actions.  Other actions are defined
+elsewhere in the Android framework, such as in <code><a href="../../reference/android/provider/Settings.html">Settings</a></code> for actions
+that open specific screens in the system's Settings app.</p>
+
+<p>You can specify the action for an intent with <code><a href="../../reference/android/content/Intent.html#setAction(java.lang.String)">setAction()</a></code> or with an <code><a href="../../reference/android/content/Intent.html">Intent</a></code> constructor.</p>
+
+<p>If you define your own actions, be sure to include your app's package name
+as a prefix. For example:</p>
+<pre>static final String ACTION_TIMETRAVEL = "com.example.action.TIMETRAVEL";</pre>
+</dd>
+
+<dt><b>Data</b></dt>
+<dd>The URI (a <code><a href="../../reference/android/net/Uri.html">Uri</a></code> object) that references the data to be acted on and/or the
+MIME type of that data. The type of data supplied is generally dictated by the intent's action. For
+example, if the action is <code><a href="../../reference/android/content/Intent.html#ACTION_EDIT">ACTION_EDIT</a></code>, the data should contain the
+URI of the document to edit.
+
+<p>When creating an intent,
+it's often important to specify the type of data (its MIME type) in addition to its URI.
+For example, an activity that's able to display images probably won't be able
+to play an audio file, even though the URI formats could be similar.
+So specifying the MIME type of your data helps the Android
+system find the best component to receive your intent.
+However, the MIME type can sometimes be inferred from the URI&mdash;particularly when the data is a
+<code>content:</code> URI, which indicates the data is located on the device and controlled by a
+<code><a href="../../reference/android/content/ContentProvider.html">ContentProvider</a></code>, which makes the data MIME type visible to the system.</p>
+
+<p>To set only the data URI, call <code><a href="../../reference/android/content/Intent.html#setData(android.net.Uri)">setData()</a></code>.
+To set only the MIME type, call <code><a href="../../reference/android/content/Intent.html#setType(java.lang.String)">setType()</a></code>. If necessary, you
+can set both explicitly with <code><a href="../../reference/android/content/Intent.html#setDataAndType(android.net.Uri, java.lang.String)">setDataAndType()</a></code>.</p>
+
+<p class="caution"><strong>Caution:</strong> If you want to set both the URI and MIME type,
+<strong>do not</strong> call <code><a href="../../reference/android/content/Intent.html#setData(android.net.Uri)">setData()</a></code> and
+<code><a href="../../reference/android/content/Intent.html#setType(java.lang.String)">setType()</a></code> because they each nullify the value of the other.
+Always use <code><a href="../../reference/android/content/Intent.html#setDataAndType(android.net.Uri, java.lang.String)">setDataAndType()</a></code> to set both
+URI and MIME type.</p>
+</dd>
+
+<p><dt><b>Category</b></dt>
+<dd>A string containing additional information about the kind of component
+that should handle the intent.  Any number of category descriptions can be
+placed in an intent, but most intents do not require a category.
+Here are some common categories:
+
+<dl>
+<dt><code><a href="../../reference/android/content/Intent.html#CATEGORY_BROWSABLE">CATEGORY_BROWSABLE</a></code></dt>
+  <dd>The target activity allows itself to be started by a web browser to display data
+       referenced by a link&mdash;such as an image or an e-mail message.
+  </dd>
+<dt><code><a href="../../reference/android/content/Intent.html#CATEGORY_LAUNCHER">CATEGORY_LAUNCHER</a></code></dt>
+  <dd>The activity is the initial activity of a task and is listed in
+       the system's application launcher.
+  </dd>
+</dl>
+
+<p>See the <code><a href="../../reference/android/content/Intent.html">Intent</a></code> class description for the full list of
+categories.</p>
+
+<p>You can specify a category with <code><a href="../../reference/android/content/Intent.html#addCategory(java.lang.String)">addCategory()</a></code>.</p>
+</dd>
+</dl>
+
+
+<p>These properties listed above (component name, action, data, and category) represent the
+defining characteristics of an intent. By reading these properties, the Android system
+is able to resolve which app component it should start.</p>
+
+<p>However, an intent can carry additional information that does not affect
+how it is resolved to an app component. An intent can also supply:</p>
+
+<dl>
+<dt><b>Extras</b></dt>
+<dd>Key-value pairs that carry additional information required to accomplish the requested action.
+Just as some actions use particular kinds of data URIs, some actions also use particular extras.
+
+<p>You can add extra data with various <code><a href="../../reference/android/content/Intent.html#putExtra(java.lang.String, android.os.Bundle)">putExtra()</a></code> methods,
+each accepting two parameters: the key name and the value.
+You can also create a <code><a href="../../reference/android/os/Bundle.html">Bundle</a></code> object with all the extra data, then insert
+the <code><a href="../../reference/android/os/Bundle.html">Bundle</a></code> in the <code><a href="../../reference/android/content/Intent.html">Intent</a></code> with <code><a href="../../reference/android/content/Intent.html#putExtras(android.content.Intent)">putExtras()</a></code>.</p>
+
+<p>For example, when creating an intent to send an email with
+<code><a href="../../reference/android/content/Intent.html#ACTION_SEND">ACTION_SEND</a></code>, you can specify the "to" recipient with the
+<code><a href="../../reference/android/content/Intent.html#EXTRA_EMAIL">EXTRA_EMAIL</a></code> key, and specify the "subject" with the
+<code><a href="../../reference/android/content/Intent.html#EXTRA_SUBJECT">EXTRA_SUBJECT</a></code> key.</p>
+
+<p>The <code><a href="../../reference/android/content/Intent.html">Intent</a></code> class specifies many <code>EXTRA_*</code> constants
+for standardized data types. If you need to declare your own extra keys (for intents that
+your app receives), be sure to include your app's package name
+as a prefix. For example:</p>
+<pre>static final String EXTRA_GIGAWATTS = "com.example.EXTRA_GIGAWATTS";</pre>
+</dd>
+
+<dt><b>Flags</b></dt>
+<dd>Flags defined in the <code><a href="../../reference/android/content/Intent.html">Intent</a></code> class that function as metadata for the
+intent. The flags may instruct the Android system how to launch an activity (for example, which
+<a href="../../guide/components/tasks-and-back-stack.html">task</a> the activity should belong
+to) and how to treat it after it's launched (for example, whether it belongs in the list of recent
+activities).
+
+<p>For more information, see the <code><a href="../../reference/android/content/Intent.html#setFlags(int)">setFlags()</a></code> method.</p>
+</dd>
+
+</dl>
+
+
+
+
+<h3 id="ExampleExplicit">Example explicit intent</h3>
+
+<p>An explicit intent is one that you use to launch a specific app component, such as
+a particular activity or service in your app. To create an explicit intent, define
+the component name for the <code><a href="../../reference/android/content/Intent.html">Intent</a></code> object&mdash;all
+other intent properties are optional.</p>
+
+<p>For example, if you built a service in your app, named <code>DownloadService</code>,
+designed to download a file from the web, you can start it with the following code:</p>
+
+<pre>
+// Executed in an Activity, so 'this' is the <code><a href="../../reference/android/content/Context.html">Context</a></code>
+// The fileUrl is a string URL, such as "http://www.example.com/image.png"
+Intent downloadIntent = new Intent(this, DownloadService.class);
+downloadIntent.setData(<code><a href="../../reference/android/net/Uri.html#parse(java.lang.String)">Uri.parse</a></code>(fileUrl));
+startService(downloadIntent);
+</pre>
+
+<p>The <code><a href="../../reference/android/content/Intent.html#Intent(android.content.Context, java.lang.Class<?>)">Intent(Context, Class)</a></code>
+constructor supplies the app <code><a href="../../reference/android/content/Context.html">Context</a></code> and the
+component a <code><a href="../../reference/java/lang/Class.html">Class</a></code> object. As such,
+this intent explicitly starts the <code>DownloadService</code> class in the app.</p>
+
+<p>For more information about building and starting a service, see the
+<a href="../../guide/components/services.html">Services</a> guide.</p>
+
+
+
+
+<h3 id="ExampleSend">Example implicit intent</h3>
+
+<p>An implicit intent specifies an action that can invoke any app on the device able
+to perform the action. Using an implicit intent is useful when your app cannot perform the
+action, but other apps probably can and you'd like the user to pick which app to use.</p>
+
+<p>For example, if you have content you want the user to share with other people, create an intent
+with the <code><a href="../../reference/android/content/Intent.html#ACTION_SEND">ACTION_SEND</a></code> action
+and add extras that specify the content to share. When you call
+<code><a href="../../reference/android/content/Context.html#startActivity(android.content.Intent)">startActivity()</a></code> with that intent, the user can
+pick an app through which to share the content.</p>
+
+<p class="caution"><strong>Caution:</strong> It's possible that a user won't have <em>any</em>
+apps that handle the implicit intent you send to <code><a href="../../reference/android/content/Context.html#startActivity(android.content.Intent)">startActivity()</a></code>. If that happens, the call will fail and your app will crash. To verify
+that an activity will receive the intent, call <code><a href="../../reference/android/content/Intent.html#resolveActivity(android.content.pm.PackageManager)">resolveActivity()</a></code> on your <code><a href="../../reference/android/content/Intent.html">Intent</a></code> object. If the result is non-null,
+then there is at least one app that can handle the intent and it's safe to call
+<code><a href="../../reference/android/content/Context.html#startActivity(android.content.Intent)">startActivity()</a></code>. If the result is null,
+you should not use the intent and, if possible, you should disable the feature that issues
+the intent.</p>
+
+
+<pre>
+// Create the text message with a string
+Intent sendIntent = new Intent();
+sendIntent.setAction(Intent.ACTION_SEND);
+sendIntent.putExtra(Intent.EXTRA_TEXT, textMessage);
+sendIntent.setType(<code><a href="../../reference/org/apache/http/protocol/HTTP.html#PLAIN_TEXT_TYPE">HTTP.PLAIN_TEXT_TYPE</a></code>); // "text/plain" MIME type
+
+// Verify that the intent will resolve to an activity
+if (sendIntent.resolveActivity(getPackageManager()) != null) {
+    startActivity(sendIntent);
+}
+</pre>
+
+<p class="note"><strong>Note:</strong> In this case, a URI is not used, but the intent's data type
+is declared to specify the content carried by the extras.</p>
+
+
+<p>When <code><a href="../../reference/android/content/Context.html#startActivity(android.content.Intent)">startActivity()</a></code> is called, the system
+examines all of the installed apps to determine which ones can handle this kind of intent (an
+intent with the <code><a href="../../reference/android/content/Intent.html#ACTION_SEND">ACTION_SEND</a></code> action and that carries "text/plain"
+data). If there's only one app that can handle it, that app opens immediately and is given the
+intent. If multiple activities accept the intent, the system
+displays a dialog so the user can pick which app to use..</p>
+
+
+<div class="figure" style="width:200px">
+  <img src="../../images/training/basics/intent-chooser.png" alt="">
+  <p class="img-caption"><strong>Figure 2.</strong> A chooser dialog.</p>
+</div>
+
+<h3 id="ForceChooser">Forcing an app chooser</h3>
+
+<p>When there is more than one app that responds to your implicit intent,
+the user can select which app to use and make that app the default choice for the
+action. This is nice when performing an action for which the user
+probably wants to use the same app from now on, such as when opening a web page (users
+often prefer just one web browser) .</p>
+
+<p>However, if multiple apps can respond to the intent and the user might want to use a different
+app each time, you should explicitly show a chooser dialog. The chooser dialog asks the
+user to select which app to use for the action every time (the user cannot select a default app for
+the action). For example, when your app performs "share" with the <code><a href="../../reference/android/content/Intent.html#ACTION_SEND">ACTION_SEND</a></code> action, users may want to share using a different app depending
+on their current situation, so you should always use the chooser dialog, as shown in figure 2.</p>
+
+
+
+
+<p>To show the chooser, create an <code><a href="../../reference/android/content/Intent.html">Intent</a></code> using <code><a href="../../reference/android/content/Intent.html#createChooser(android.content.Intent, java.lang.CharSequence)">createChooser()</a></code> and pass it to <code><a href="../../reference/android/app/Activity.html#startActivity(android.content.Intent)">startActivity()</a></code>. For example:</p>
+
+<pre>
+Intent intent = new Intent(Intent.ACTION_SEND);
+...
+
+// Always use string resources for UI text.
+// This says something like "Share this photo with"
+String title = getResources().getString(R.string.chooser_title);
+// Create intent to show chooser
+Intent chooser = Intent.createChooser(intent, title);
+
+// Verify the intent will resolve to at least one activity
+if (sendIntent.resolveActivity(getPackageManager()) != null) {
+    startActivity(sendIntent);
+}
+</pre>
+
+<p>This displays a dialog with a list of apps that respond to the intent passed to the <code><a href="../../reference/android/content/Intent.html#createChooser(android.content.Intent, java.lang.CharSequence)">createChooser()</a></code> method and uses the supplied text as the
+dialog title.</p>
+
+
+
+
+
+
+
+
+
+<h2 id="Receiving">Receiving an Implicit Intent</h2>
+
+<p>To advertise which implicit intents your app can receive, declare one or more intent filters for
+each of your app components with an <a href=
+"../../guide/topics/manifest/intent-filter-element.html"><code>&lt;intent-filter&gt;</code></a>
+element in your <a href="../../guide/topics/manifest/manifest-intro.html">manifest file</a>.
+Each intent filter specifies the type of intents it accepts based on the intent's action,
+data, and category. The system will deliver an implicit intent to your app component only if the
+intent can pass through one of your intent filters.</p>
+
+<p class="note"><strong>Note:</strong> An explicit intent is always delivered to its target,
+regardless of any intent filters the component declares.</p>
+
+<p>An app component should declare separate filters for each unique job it can do.
+For example, one activity in an image gallery app may have two filters: one filter
+to view an image, and another filter to edit an image. When the activity starts,
+it inspects the <code><a href="../../reference/android/content/Intent.html">Intent</a></code> and decides how to behave based on the information
+in the <code><a href="../../reference/android/content/Intent.html">Intent</a></code> (such as to show the editor controls or not).</p>
+
+<p>Each intent filter is defined by an <a
+href="../../guide/topics/manifest/intent-filter-element.html"><code>&lt;intent-filter></code></a>
+element in the app's manifest file, nested in the corresponding app component (such
+as an <a href="../../guide/topics/manifest/activity-element.html"><code>&lt;activity></code></a>
+element). Inside the <a
+href="../../guide/topics/manifest/intent-filter-element.html"><code>&lt;intent-filter></code></a>,
+you can specify the type of intents to accept using one or more
+of these three elements:</p>
+
+<dl>
+<dt><a href="../../guide/topics/manifest/action-element.html"><code>&lt;action></code></a></dt>
+  <dd>Declares the intent action accepted, in the <code>name</code> attribute. The value
+  must be the literal string value of an action, not the class constant.</dd>
+<dt><a href="../../guide/topics/manifest/data-element.html"><code>&lt;data></code></a></dt>
+  <dd>Declares the type of data accepted, using one or more attributes that specify various
+  aspects of the data URI (<code>scheme</code>, <code>host</code>, <code>port</code>,
+  <code>path</code>, etc.) and MIME type.</dd>
+<dt><a href="../../guide/topics/manifest/category-element.html"><code>&lt;category></code></a></dt>
+  <dd>Declares the intent category accepted, in the <code>name</code> attribute. The value
+  must be the literal string value of an action, not the class constant.
+
+  <p class="note"><strong>Note:</strong> In order to receive implicit intents, you
+  <strong>must include</strong> the
+  <code><a href="../../reference/android/content/Intent.html#CATEGORY_DEFAULT">CATEGORY_DEFAULT</a></code> category in the intent filter. The methods
+  <code><a href="../../reference/android/app/Activity.html#startActivity(android.content.Intent)">startActivity()</a></code> and
+  <code><a href="../../reference/android/app/Activity.html#startActivityForResult(android.content.Intent, int)">startActivityForResult()</a></code> treat all intents
+  as if they declared the <code><a href="../../reference/android/content/Intent.html#CATEGORY_DEFAULT">CATEGORY_DEFAULT</a></code> category.
+  If you do not declare this category in your intent filter, no implicit intents will resolve to
+  your activity.</p>
+  </dd>
+</dl>
+
+<p>For example, here's an activity declaration with an intent filter to receive an
+<code><a href="../../reference/android/content/Intent.html#ACTION_SEND">ACTION_SEND</a></code> intent when the data type is text:</p>
+
+<pre>
+&lt;activity android:name="ShareActivity">
+    &lt;intent-filter>
+        &lt;action android:name="android.intent.action.SEND"/>
+        &lt;category android:name="android.intent.category.DEFAULT"/>
+        &lt;data android:mimeType="text/plain"/>
+    &lt;/intent-filter>
+&lt;/activity>
+</pre>
+
+<p>It's okay to create a filter that includes more than one instance of
+<a href="../../guide/topics/manifest/action-element.html"><code>&lt;action></code></a>,
+<a href="../../guide/topics/manifest/data-element.html"><code>&lt;data></code></a>, or
+<a href="../../guide/topics/manifest/category-element.html"><code>&lt;category></code></a>.
+If you do, you simply need to be certain that the component can handle any and all combinations
+of those filter elements.</p>
+
+<p>When you want to handle multiple kinds of intents, but only in specific combinations of
+action, data, and category type, then you need to create multiple intent filters.</p>
+
+
+<div class="sidebox-wrapper">
+<div class="sidebox">
+<h2>Restricting access to components</h2>
+<p>Using an intent filter is not a secure way to prevent other apps from starting
+your components. Although intent filters restrict a component to respond to only
+certain kinds of implicit intents, another app can potentially start your app component
+by using an explicit intent if the developer determines your component names.
+If it's important that <em>only your own app</em> is able to start one of your components,
+set the <a href="../../guide/topics/manifest/activity-element.html#exported"><code>exported</code></a> attribute to <code>"false"</code> for that component.
+</p>
+</div>
+</div>
+
+<p>An implicit intent is tested against a filter by comparing the intent to each of the
+three elements. To be delivered to the component, the intent must pass all three tests.
+If it fails to match even one of them, the Android system won't deliver the intent to the
+component.  However, because a component may have multiple intent filters, an intent that does
+not pass through one of a component's filters might make it through on another filter.
+More information about how the system resolves intents is provided in the section below
+about <a href="#Resolution">Intent Resolution</a>.</p>
+
+<p class="caution"><strong>Caution:</strong> To avoid inadvertently running a different app's
+<code><a href="../../reference/android/app/Service.html">Service</a></code>, always use an explicit intent to start your own service and do not
+declare intent filters for your service.</p>
+
+<p class="note"><strong>Note:</strong>
+For all activities, you must declare your intent filters in the manifest file.
+However, filters for broadcast receivers can be registered dynamically by calling
+<code><a href="../../reference/android/content/Context.html#registerReceiver(android.content.BroadcastReceiver, android.content.IntentFilter, java.lang.String, android.os.Handler)">registerReceiver()</a></code>. You can then unregister the receiver with <code><a href="../../reference/android/content/Context.html#unregisterReceiver(android.content.BroadcastReceiver)">unregisterReceiver()</a></code>. Doing so allows your app
+to listen for specific broadcasts during only a specified period of time while your app
+is running.</p>
+
+
+
+
+
+
+
+<h3 id="ExampleFilters">Example filters</h3>
+
+<p>To better understand some of the intent filter behaviors, look at the following snippet
+from the manifest file of a social-sharing app.</p>
+
+<pre>
+&lt;activity android:name="MainActivity">
+    &lt;!-- This activity is the main entry, should appear in app launcher -->
+    &lt;intent-filter>
+        &lt;action android:name="android.intent.action.MAIN" />
+        &lt;category android:name="android.intent.category.LAUNCHER" />
+    &lt;/intent-filter>
+&lt;/activity>
+
+&lt;activity android:name="ShareActivity">
+    &lt;!-- This activity handles "SEND" actions with text data -->
+    &lt;intent-filter&gt;
+        &lt;action android:name="android.intent.action.SEND"/>
+        &lt;category android:name="android.intent.category.DEFAULT"/>
+        &lt;data android:mimeType="text/plain"/>
+    &lt;/intent-filter&gt;
+    &lt;!-- This activity also handles "SEND" and "SEND_MULTIPLE" with media data -->
+    &lt;intent-filter&gt;
+        &lt;action android:name="android.intent.action.SEND"/>
+        &lt;action android:name="android.intent.action.SEND_MULTIPLE"/>
+        &lt;category android:name="android.intent.category.DEFAULT"/>
+        &lt;data android:mimeType="application/vnd.google.panorama360+jpg"/>
+        &lt;data android:mimeType="image/*"/>
+        &lt;data android:mimeType="video/*"/>
+    &lt;/intent-filter&gt;
+&lt;/activity&gt;
+</pre>
+
+<p>The first activity, <code>MainActivity</code>, is the app's main entry point&mdash;the activity that
+opens when the user initially launches the app with the launcher icon:</p>
+<ul>
+  <li>The <code><a href="../../reference/android/content/Intent.html#ACTION_MAIN">ACTION_MAIN</a></code> action
+  indicates this is the main entry point and does not expect any intent data.</li>
+  <li>The <code><a href="../../reference/android/content/Intent.html#CATEGORY_LAUNCHER">CATEGORY_LAUNCHER</a></code> category indicates that this activity's
+  icon should be placed in the system's app launcher. If the <a
+  href="../../guide/topics/manifest/activity-element.html"><code>&lt;activity></code></a> element
+  does not specify an icon with <code>icon</code>, then the system uses the icon from the <a
+  href="../../guide/topics/manifest/application-element.html"><code>&lt;application></code></a>
+  element.</li>
+</ul>
+<p>These two must be paired together in order for the activity to appear in the app launcher.</p>
+
+<p>The second activity, <code>ShareActivity</code>, is intended to facilitate sharing text and media
+content. Although users might enter this activity by navigating to it from <code>MainActivity</code>,
+they can also enter <code>ShareActivity</code> directly from another app that issues an implicit
+intent matching one of the two intent filters.</p>
+
+<p class="note"><strong>Note:</strong> The MIME type,
+<a href="https://developers.google.com/panorama/android/"><code>application/vnd.google.panorama360+jpg</code></a>, is a special data type that specifies
+panoramic photos, which you can handle with the <a
+href="../../reference/com/google/android/gms/panorama/package-summary.html">Google
+panorama</a> APIs.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="PendingIntent">Using a Pending Intent</h2>
+
+<p>A <code><a href="../../reference/android/app/PendingIntent.html">PendingIntent</a></code> object is a wrapper around an <code><a href="../../reference/android/content/Intent.html">Intent</a></code> object. The primary purpose of a <code><a href="../../reference/android/app/PendingIntent.html">PendingIntent</a></code>
+is to grant permission to a foreign application
+to use the contained <code><a href="../../reference/android/content/Intent.html">Intent</a></code> as if it were executed from your
+app's own process.</p>
+
+<p>Major use cases for a pending intent include:</p>
+<ul>
+  <li>Declare an intent to be executed when the user performs an action with your <a
+  href="../../guide/topics/ui/notifiers/notifications.html">Notification</a>
+  (the Android system's <code><a href="../../reference/android/app/NotificationManager.html">NotificationManager</a></code>
+  executes the <code><a href="../../reference/android/content/Intent.html">Intent</a></code>).
+  <li>Declare an intent to be executed when the user performs an action with your
+  <a href="../../guide/topics/appwidgets/index.html">App Widget</a>
+  (the Home screen app executes the <code><a href="../../reference/android/content/Intent.html">Intent</a></code>).
+  <li>Declare an intent to be executed at a specified time in the future (the Android
+  system's <code><a href="../../reference/android/app/AlarmManager.html">AlarmManager</a></code> executes the <code><a href="../../reference/android/content/Intent.html">Intent</a></code>).
+</ul>
+
+<p>Because each <code><a href="../../reference/android/content/Intent.html">Intent</a></code> object is designed to be handled by a specific
+type of app component (either an <code><a href="../../reference/android/app/Activity.html">Activity</a></code>, a <code><a href="../../reference/android/app/Service.html">Service</a></code>, or
+a <code><a href="../../reference/android/content/BroadcastReceiver.html">BroadcastReceiver</a></code>), so too must a <code><a href="../../reference/android/app/PendingIntent.html">PendingIntent</a></code> be
+created with the same consideration. When using a pending intent, your app will not
+execute the intent with a call such as <code><a href="../../reference/android/content/Context.html#startActivity(android.content.Intent)">startActivity()</a></code>. You must instead declare the intended component type when you create the
+<code><a href="../../reference/android/app/PendingIntent.html">PendingIntent</a></code> by calling the respective creator method:</p>
+
+<ul>
+  <li><code><a href="../../reference/android/app/PendingIntent.html#getActivity(android.content.Context, int, android.content.Intent, int)">PendingIntent.getActivity()</a></code> for an
+  <code><a href="../../reference/android/content/Intent.html">Intent</a></code> that starts an <code><a href="../../reference/android/app/Activity.html">Activity</a></code>.</li>
+  <li><code><a href="../../reference/android/app/PendingIntent.html#getService(android.content.Context, int, android.content.Intent, int)">PendingIntent.getService()</a></code> for an
+  <code><a href="../../reference/android/content/Intent.html">Intent</a></code> that starts a <code><a href="../../reference/android/app/Service.html">Service</a></code>.</li>
+  <li><code><a href="../../reference/android/app/PendingIntent.html#getBroadcast(android.content.Context, int, android.content.Intent, int)">PendingIntent.getBroadcast()</a></code> for a
+  <code><a href="../../reference/android/content/Intent.html">Intent</a></code> that starts an <code><a href="../../reference/android/content/BroadcastReceiver.html">BroadcastReceiver</a></code>.</li>
+</ul>
+
+<p>Unless your app is <em>receiving</em> pending intents from other apps,
+the above methods to create a <code><a href="../../reference/android/app/PendingIntent.html">PendingIntent</a></code> are the only
+<code><a href="../../reference/android/app/PendingIntent.html">PendingIntent</a></code> methods you'll probably ever need.</p>
+
+<p>Each method takes the current app <code><a href="../../reference/android/content/Context.html">Context</a></code>, the
+<code><a href="../../reference/android/content/Intent.html">Intent</a></code> you want to wrap, and one or more flags that specify
+how the intent should be used (such as whether the intent can be used more than once).</p>
+
+<p>More information about using pending intents is provided with the documentation for each
+of the respective use cases, such as in the <a
+href="../../guide/topics/ui/notifiers/notifications.html">Notifications</a>
+and <a href="../../guide/topics/appwidgets/index.html">App Widgets</a> API guides.</p>
+
+
+
+
+
+
+
+<h2 id="Resolution">Intent Resolution</h2>
+
+
+<p>When the system receives an implicit intent to start an activity, it searches for the
+best activity for the intent by comparing the intent to intent filters based on three aspects:</p>
+
+<ul>
+  <li>The intent action
+  <li>The intent data (both URI and data type)
+  <li>The intent category
+</ul>
+
+<p>The following sections describe how an intents are matched to the appropriate component(s)
+in terms of how the intent filter is declared in an app's manifest file.</p>
+
+
+<h3 id="ActionTest">Action test</h3>
+
+<p>To specify accepted intent actions, an intent filter can declare zero or more
+<a href="../../guide/topics/manifest/action-element.html"><code>&lt;action&gt;</code></a> elements.  For example:</p>
+
+<pre>
+&lt;intent-filter&gt;
+    &lt;action android:name="android.intent.action.EDIT" /&gt;
+    &lt;action android:name="android.intent.action.VIEW" /&gt;
+    ...
+&lt;/intent-filter&gt;
+</pre>
+
+<p>To get through this filter, the action specified in the <code><a href="../../reference/android/content/Intent.html">Intent</a></code>
+  must match one of the actions listed in the filter.</p>
+
+<p>If the filter does not list any actions, there is nothing for an
+intent to match, so all intents fail the test. However, if an <code><a href="../../reference/android/content/Intent.html">Intent</a></code>
+does not specify an action, it will pass the test (as long as the filter
+contains at least one action).</p>
+
+
+
+<h3 id="CategoryTest">Category test</h3>
+
+<p>To specify accepted intent categories, an intent filter can declare zero or more
+<a href="../../guide/topics/manifest/category-element.html"><code>&lt;category&gt;</code></a> elements.  For example:</p>
+
+<pre>
+&lt;intent-filter&gt;
+    &lt;category android:name="android.intent.category.DEFAULT" /&gt;
+    &lt;category android:name="android.intent.category.BROWSABLE" /&gt;
+    ...
+&lt;/intent-filter&gt;
+</pre>
+
+<p>For an intent to pass the category test, every category in the <code><a href="../../reference/android/content/Intent.html">Intent</a></code>
+must match a category in the filter. The reverse is not necessary&mdash;the intent filter may
+declare more categories than are specified in the <code><a href="../../reference/android/content/Intent.html">Intent</a></code> and the
+<code><a href="../../reference/android/content/Intent.html">Intent</a></code> will still pass. Therefore, an intent with no categories should
+always pass this test, regardless of what categories are declared in the filter.</p>
+
+<p class="note"><strong>Note:</strong>
+Android automatically applies the the <code><a href="../../reference/android/content/Intent.html#CATEGORY_DEFAULT">CATEGORY_DEFAULT</a></code> category
+to all implicit intents passed to <code><a href="../../reference/android/content/Context.html#startActivity(android.content.Intent)">startActivity()</a></code> and <code><a href="../../reference/android/app/Activity.html#startActivityForResult(android.content.Intent, int)">startActivityForResult()</a></code>.
+So if you want your activity to receive implicit intents, it must
+include a category for <code>"android.intent.category.DEFAULT"</code> in its intent filters (as
+shown in the previous <code>&lt;intent-filter></code> example.</p>
+
+
+
+<h3 id="DataTest">Data test</h3>
+
+<p>To specify accepted intent data, an intent filter can declare zero or more
+<a href="../../guide/topics/manifest/data-element.html"><code>&lt;data&gt;</code></a> elements.  For example:</p>
+
+<pre>
+&lt;intent-filter&gt;
+    &lt;data android:mimeType="video/mpeg" android:scheme="http" ... /&gt;
+    &lt;data android:mimeType="audio/mpeg" android:scheme="http" ... /&gt;
+    ...
+&lt;/intent-filter&gt;
+</pre>
+
+<p>Each <code><a href="../../guide/topics/manifest/data-element.html">&lt;data&gt;</a></code>
+element can specify a URI structure and a data type (MIME media type).  There are separate
+attributes &mdash; <code>scheme</code>, <code>host</code>, <code>port</code>,
+and <code>path</code> &mdash; for each part of the URI:
+</p>
+
+<p style="margin-left: 2em"><code>&lt;scheme>://&lt;host>:&lt;port>/&lt;path></code></p>
+
+<p>
+For example:
+</p>
+
+<p style="margin-left: 2em"><code>content://com.example.project:200/folder/subfolder/etc</code></p>
+
+<p>In this URI, the scheme is <code>content</code>, the host is <code>com.example.project</code>,
+the port is <code>200</code>, and the path is <code>folder/subfolder/etc</code>.
+</p>
+
+<p>Each of these attributes is optional in a <a
+href="../../guide/topics/manifest/data-element.html"><code>&lt;data></code></a> element,
+but there are linear dependencies:</p>
+<ul>
+  <li>If a scheme is not specified, the host is ignored.</li>
+  <li>If a host is not specified, the port is ignored.</li>
+  <li>If both the scheme and host are not specified, the path is ignored.</li>
+</ul>
+
+<p>When the URI in an intent is compared to a URI specification in a filter,
+it's compared only to the parts of the URI included in the filter. For example:</p>
+<ul>
+  <li>If a filter specifies only a scheme, all URIs with that scheme match
+the filter.</li>
+  <li>If a filter specifies a scheme and an authority but no path, all URIs
+with the same scheme and authority pass the filter, regardless of their paths.</li>
+  <li>If a filter specifies a scheme, an authority, and a path, only URIs with the same scheme,
+authority, and path pass the filter.</li>
+</ul>
+
+<p class="note"><strong>Note:</strong> A path specification can
+contain a wildcard asterisk (*) to require only a partial match of the path name.</p>
+
+<p>The data test compares both the URI and the MIME type in the intent to a URI
+and MIME type specified in the filter.  The rules are as follows:
+</p>
+
+<ol type="a">
+<li>An intent that contains neither a URI nor a MIME type passes the
+test only if the filter does not specify any URIs or MIME types.</li>
+
+<li>An intent that contains a URI but no MIME type (neither explicit nor inferable from the
+URI) passes the test only if its URI matches the filter's URI format
+and the filter likewise does not specify a MIME type.</li>
+
+<li>An intent that contains a MIME type but not a URI passes the test
+only if the filter lists the same MIME type and does not specify a URI format.</li>
+
+<li>An intent that contains both a URI and a MIME type (either explicit or inferable from the
+URI) passes the MIME type part of the test only if that
+type matches a type listed in the filter.  It passes the URI part of the test
+either if its URI matches a URI in the filter or if it has a <code>content:</code>
+or <code>file:</code> URI and the filter does not specify a URI.  In other words,
+a component is presumed to support <code>content:</code> and <code>file:</code> data if
+its filter lists <em>only</em> a MIME type.</p></li>
+</ol>
+
+<p>
+This last rule, rule (d), reflects the expectation
+that components are able to get local data from a file or content provider.
+Therefore, their filters can list just a data type and do not need to explicitly
+name the <code>content:</code> and <code>file:</code> schemes.
+This is a typical case.  A <a
+href="../../guide/topics/manifest/data-element.html"><code>&lt;data></code></a> element
+like the following, for example, tells Android that the component can get image data from a content
+provider and display it:
+</p>
+
+<pre>
+&lt;intent-filter&gt;
+    &lt;data android:mimeType="image/*" /&gt;
+    ...
+&lt;/intent-filter&gt;</pre>
+
+<p>
+Because most available data is dispensed by content providers, filters that
+specify a data type but not a URI are perhaps the most common.
+</p>
+
+<p>
+Another common configuration is filters with a scheme and a data type.  For
+example, a <a
+href="../../guide/topics/manifest/data-element.html"><code>&lt;data></code></a>
+element like the following tells Android that
+the component can retrieve video data from the network in order to perform the action:
+</p>
+
+<pre>
+&lt;intent-filter&gt;
+    &lt;data android:scheme="http" android:type="video/*" /&gt;
+    ...
+&lt;/intent-filter&gt;</pre>
+
+
+
+<h3 id="imatch">Intent matching</h3>
+
+<p>Intents are matched against intent filters not only to discover a target
+component to activate, but also to discover something about the set of
+components on the device.  For example, the Home app populates the app launcher
+by finding all the  activities with intent filters that specify the
+<code><a href="../../reference/android/content/Intent.html#ACTION_MAIN">ACTION_MAIN</a></code> action and
+<code><a href="../../reference/android/content/Intent.html#CATEGORY_LAUNCHER">CATEGORY_LAUNCHER</a></code> category.</p>
+
+<p>Your application can use intent matching in a similar way.
+The <code><a href="../../reference/android/content/pm/PackageManager.html">PackageManager</a></code> has a set of <code>query...()</code>
+methods that return all components that can accept a particular intent, and
+a similar series of <code>resolve...()</code> methods that determine the best
+component to respond to an intent.  For example,
+<code><a href="../../reference/android/content/pm/PackageManager.html#queryIntentActivities(android.content.Intent, int)">queryIntentActivities()</a></code> returns a list of all activities that can perform
+the intent passed as an argument, and <code><a href="../../reference/android/content/pm/PackageManager.html#queryIntentServices(android.content.Intent, int)">queryIntentServices()</a></code> returns a similar list of services.
+Neither method activates the components; they just list the ones that
+can respond.  There's a similar method,
+<code><a href="../../reference/android/content/pm/PackageManager.html#queryBroadcastReceivers(android.content.Intent, int)">queryBroadcastReceivers()</a></code>, for broadcast receivers.
+</p>
+
+
+
+
+
+    </div>
+
+      <div class="content-footer layout-content-row"
+                    itemscope itemtype="http://schema.org/SiteNavigationElement">
+        <div class="layout-content-col col-8" style="padding-top:4px">
+          
+            <div class="g-plusone" data-size="medium"></div>
+          
+        </div>
+        
+        <div class="paging-links layout-content-col col-4">
+          
+        </div>
+        
+      </div>
+
+      
+      
+
+  </div> <!-- end jd-content -->
+
+<div id="footer" class="wrap" >
+        
+
+  <div id="copyright">
+    
+  Except as noted, this content is 
+  licensed under <a href="http://creativecommons.org/licenses/by/2.5/">
+  Creative Commons Attribution 2.5</a>. For details and 
+  restrictions, see the <a href="../../license.html">Content 
+  License</a>.
+  </div>
+
+
+  <div id="footerlinks">
+    
+  <p>
+    <a href="../../about/index.html">About Android</a>&nbsp;&nbsp;|&nbsp;
+    <a href="../../legal.html">Legal</a>&nbsp;&nbsp;|&nbsp;
+    <a href="../../support.html">Support</a>
+  </p>
+  </div>
+
+</div> <!-- end footer -->
+</div><!-- end doc-content -->
+
+<!-- Start of Tag -->
+<script type="text/javascript">
+var axel = Math.random() + "";
+var a = axel * 10000000000000;
+document.write('<iframe src="https://2507573.fls.doubleclick.net/activityi;src=2507573;type=other026;cat=googl348;ord=' + a + '?" width="1" height="1" frameborder="0" style="display:none"></iframe>');
+</script>
+<noscript>
+<iframe src="https://2507573.fls.doubleclick.net/activityi;src=2507573;type=other026;cat=googl348;ord=1?" width="1" height="1" frameborder="0" style="display:none"></iframe>
+</noscript>
+<!-- End of Tag -->
+
+
+</div> <!-- end body-content --> 
+
+
+
+
+
+  <script src="https://developer.android.com/ytblogger_lists_unified.js" type="text/javascript"></script>
+  <script src="../../jd_lists_unified.js" type="text/javascript"></script>
+  <script src="../../jd_extras.js" type="text/javascript"></script>
+  <script src="../../jd_collections.js" type="text/javascript"></script>
+  <script src="../../jd_tag_helpers.js" type="text/javascript"></script>
+
+</body>
+</html>
+
+
+

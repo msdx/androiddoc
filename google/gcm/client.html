@@ -1,0 +1,1414 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width" />
+
+<meta name="Description" content="A GCM client is a GCM-enabled app that runs on an Android device. To write your client code, we recommend that you use the GoogleCloudMessaging APIs. The client helper library that was offered in previous versions of GCM still works, but it has been superseded…">
+<link rel="shortcut icon" type="image/x-icon" href="../../favicon.ico" />
+<title>Implementing GCM Client | Android Developers</title>
+
+<!-- STYLESHEETS -->
+<link rel="stylesheet"
+href="http://fonts.googleapis.com/css?family=Roboto+Condensed">
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:light,regular,medium,thin,italic,mediumitalic,bold"
+  title="roboto">
+<link href="../../assets/css/default.css" rel="stylesheet" type="text/css">
+
+
+
+<!-- JAVASCRIPT -->
+<script src="http://www.google.com/jsapi" type="text/javascript"></script>
+<script src="../../assets/js/android_3p-bundle.js" type="text/javascript"></script>
+<script type="text/javascript">
+  var toRoot = "../../";
+  var metaTags = ["cloud","push","messaging"];
+  var devsite = false;
+</script>
+<script src="../../assets/js/docs.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-5831155-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+
+<body class="gc-documentation 
+
+google" itemscope itemtype="http://schema.org/Article">
+
+<a name="top"></a>
+
+  <!-- Header -->
+  <div id="header-wrapper">
+    <div id="header">
+      <div class="wrap" id="header-wrap">
+        <div class="col-3 logo">
+          <a href="../../index.html">
+            <img src="../../assets/images/dac_logo.png"
+                srcset="../../assets/images/dac_logo@2x.png 2x"
+                width="123" height="25" alt="Android Developers" />
+          </a>
+          <div class="btn-quicknav" id="btn-quicknav">
+            <a href="#" class="arrow-inactive">Quicknav</a>
+            <a href="#" class="arrow-active">Quicknav</a>
+          </div>
+        </div>
+        <ul class="nav-x col-9">
+            <li class="design">
+              <a href="../../design/index.html"
+              zh-tw-lang="設計"
+              zh-cn-lang="设计"
+              ru-lang="Проектирование"
+              ko-lang="디자인"
+              ja-lang="設計"
+              es-lang="Diseñar"
+              >Design</a></li>
+            <li class="develop"><a href="../../develop/index.html"
+              zh-tw-lang="開發"
+              zh-cn-lang="开发"
+              ru-lang="Разработка"
+              ko-lang="개발"
+              ja-lang="開発"
+              es-lang="Desarrollar"
+              >Develop</a></li>
+            <li class="distribute last"><a href="../../distribute/googleplay/index.html"
+              zh-tw-lang="發佈"
+              zh-cn-lang="分发"
+              ru-lang="Распространение"
+              ko-lang="배포"
+              ja-lang="配布"
+              es-lang="Distribuir"
+              >Distribute</a></li>
+        </ul>
+
+
+        
+        
+<div class="menu-container">
+  <div class="moremenu">
+    <div id="more-btn"></div>
+  </div>
+  <div class="morehover" id="moremenu">
+    <div class="top"></div>
+    <div class="mid">
+      <div class="header">Links</div>
+      <ul>
+        <li><a href="https://play.google.com/apps/publish/" target="_googleplay">Google Play Developer Console</a></li>
+        <li><a href="http://android-developers.blogspot.com/">Android Developers Blog</a></li>
+        <li><a href="../../about/index.html">About Android</a></li>
+      </ul>
+      <div class="header">Android Sites</div>
+      <ul>
+        <li><a href="http://www.android.com">Android.com</a></li>
+        <li class="active"><a>Android Developers</a></li>
+        <li><a href="http://source.android.com">Android Open Source Project</a></li>
+      </ul>
+
+      
+      
+      
+      <br class="clearfix" />
+    </div><!-- end 'mid' -->
+    <div class="bottom"></div>
+  </div><!-- end 'moremenu' -->
+
+  <div class="search" id="search-container">
+    <div class="search-inner">
+      <div id="search-btn"></div>
+      <div class="left"></div>
+      <form onsubmit="return submit_search()">
+        <input id="search_autocomplete" type="text" value="" autocomplete="off" name="q"
+          onfocus="search_focus_changed(this, true)" onblur="search_focus_changed(this, false)"
+          onkeydown="return search_changed(event, true, '../../')"
+          onkeyup="return search_changed(event, false, '../../')" />
+      </form>
+      <div class="right"></div>
+      <a class="close hide">close</a>
+      <div class="left"></div>
+      <div class="right"></div>
+    </div><!-- end search-inner -->
+  </div><!-- end search-container -->
+
+  <div class="search_filtered_wrapper reference">
+    <div class="suggest-card reference no-display">
+      <ul class="search_filtered">
+      </ul>
+    </div>
+  </div>
+
+  <div class="search_filtered_wrapper docs">
+    <div class="suggest-card dummy no-display">&nbsp;</div>
+    <div class="suggest-card develop no-display">
+      <ul class="search_filtered">
+      </ul>
+      <div class="child-card guides no-display">
+      </div>
+      <div class="child-card training no-display">
+      </div>
+      <div class="child-card samples no-display">
+      </div>
+    </div>
+    <div class="suggest-card design no-display">
+      <ul class="search_filtered">
+      </ul>
+    </div>
+    <div class="suggest-card distribute no-display">
+      <ul class="search_filtered">
+      </ul>
+    </div>
+  </div>
+</div><!-- end menu-container (search and menu widget) -->
+
+
+
+        <!-- Expanded quicknav -->
+        <div id="quicknav" class="col-9">
+          <ul>
+            <li class="design">
+              <ul>
+                <li><a href="../../design/index.html">Get Started</a></li>
+                <li><a href="../../design/style/index.html">Style</a></li>
+                <li><a href="../../design/patterns/index.html">Patterns</a></li>
+                <li><a href="../../design/building-blocks/index.html">Building Blocks</a></li>
+                <li><a href="../../design/downloads/index.html">Downloads</a></li>
+                <li><a href="../../design/videos/index.html">Videos</a></li>
+              </ul>
+            </li>
+            <li class="develop">
+              <ul>
+                <li><a href="../../training/index.html"
+                  zh-tw-lang="訓練課程"
+                  zh-cn-lang="培训"
+                  ru-lang="Курсы"
+                  ko-lang="교육"
+                  ja-lang="トレーニング"
+                  es-lang="Capacitación"
+                  >Training</a></li>
+                <li><a href="../../guide/index.html"
+                  zh-tw-lang="API 指南"
+                  zh-cn-lang="API 指南"
+                  ru-lang="Руководства по API"
+                  ko-lang="API 가이드"
+                  ja-lang="API ガイド"
+                  es-lang="Guías de la API"
+                  >API Guides</a></li>
+                <li><a href="../../reference/packages.html"
+                  zh-tw-lang="參考資源"
+                  zh-cn-lang="参考"
+                  ru-lang="Справочник"
+                  ko-lang="참조문서"
+                  ja-lang="リファレンス"
+                  es-lang="Referencia"
+                  >Reference</a></li>
+                <li><a href="../../tools/index.html"
+                  zh-tw-lang="相關工具"
+                  zh-cn-lang="工具"
+                  ru-lang="Инструменты"
+                  ko-lang="도구"
+                  ja-lang="ツール"
+                  es-lang="Herramientas"
+                  >Tools</a>
+                  <ul><li><a href="../../sdk/index.html">Get the SDK</a></li></ul>
+                </li>
+                <li><a href="../../google/index.html">Google Services</a>
+                </li>
+                
+              </ul>
+            </li>
+            <li class="distribute last">
+              <ul>
+                <li><a href="../../distribute/googleplay/index.html">Google Play</a></li>
+                <li><a href="../../distribute/essentials/index.html">Essentials</a></li>
+                <li><a href="../../distribute/users/index.html">Get Users</a></li>
+                <li><a href="../../distribute/engage/index.html">Engage &amp; Retain</a></li>
+                <li><a href="../../distribute/monetize/index.html">Monetize</a></li>
+                <li><a href="../../distribute/tools/index.html">Tools &amp; Reference</a></li>
+                <li><a href="../../distribute/stories/index.html">Developer Stories</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div><!-- /Expanded quicknav -->
+      </div><!-- end header-wrap.wrap -->
+    </div><!-- end header -->
+
+  
+    <!-- Secondary x-nav -->
+    <div id="nav-x">
+        <div class="wrap">
+            <ul class="nav-x col-9 develop" style="width:100%">
+                <li class="training"><a href="../../training/index.html"
+                  zh-tw-lang="訓練課程"
+                  zh-cn-lang="培训"
+                  ru-lang="Курсы"
+                  ko-lang="교육"
+                  ja-lang="トレーニング"
+                  es-lang="Capacitación"
+                  >Training</a></li>
+                <li class="guide"><a href="../../guide/index.html"
+                  zh-tw-lang="API 指南"
+                  zh-cn-lang="API 指南"
+                  ru-lang="Руководства по API"
+                  ko-lang="API 가이드"
+                  ja-lang="API ガイド"
+                  es-lang="Guías de la API"
+                  >API Guides</a></li>
+                <li class="reference"><a href="../../reference/packages.html"
+                  zh-tw-lang="參考資源"
+                  zh-cn-lang="参考"
+                  ru-lang="Справочник"
+                  ko-lang="참조문서"
+                  ja-lang="リファレンス"
+                  es-lang="Referencia"
+                  >Reference</a></li>
+                <li class="tools"><a href="../../tools/index.html"
+                  zh-tw-lang="相關工具"
+                  zh-cn-lang="工具"
+                  ru-lang="Инструменты"
+                  ko-lang="도구"
+                  ja-lang="ツール"
+                  es-lang="Herramientas"
+                  >Tools</a></li>
+                <li class="google"><a href="../../google/index.html"
+                  >Google Services</a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+    <!-- /Sendondary x-nav -->
+
+  
+
+    <div id="searchResults" class="wrap" style="display:none;">
+      <h2 id="searchTitle">Results</h2>
+      <div id="leftSearchControl" class="search-control">Loading...</div>
+    </div>
+  </div> <!--end header-wrapper -->
+
+  <div id="sticky-header">
+    <div>
+      <a class="logo" href="#top"></a>
+      <a class="top" href="#top"></a>
+      <ul class="breadcrumb">
+        
+        <li class="current">Implementing GCM Client</li>
+      </ul>
+    </div>
+  </div>
+
+
+
+
+  <div class="wrap clearfix" id="body-content">
+    <div class="col-4" id="side-nav" itemscope itemtype="http://schema.org/SiteNavigationElement">
+      <div id="devdoc-nav" class="scroll-pane">
+
+
+
+<ul id="nav">
+
+  <li class="nav-section">
+    <div class="nav-section-header empty"><a href="../../google/index.html">
+          <span class="en">Overview</span>
+      </a></div>
+  </li>
+
+  <li class="nav-section">
+    <div class="nav-section-header empty"><a href="../../google/play-services/games.html">
+          <span class="en">Games</span>
+      </a></div>
+  </li>
+  <li class="nav-section">
+    <div class="nav-section-header empty"><a href="../../google/play-services/location.html">
+          <span class="en">Location</span>
+      </a></div>
+  </li>
+  <li class="nav-section">
+    <div class="nav-section-header empty"><a href="../../google/play-services/plus.html">
+          <span class="en">Google+</span>
+                </a></div>
+  </li>
+  <li class="nav-section">
+    <div class="nav-section-header empty"><a href="../../google/play-services/maps.html">
+          <span class="en">Maps</span>
+      </a></div>
+  </li>
+  <li class="nav-section">
+    <div class="nav-section-header empty"><a href="../../google/play-services/drive.html">
+          <span class="en">Drive</span>
+      </a></div>
+  </li>
+  <li class="nav-section">
+    <div class="nav-section-header empty"><a href="../../google/play-services/cast.html">
+          <span class="en">Cast</span>
+      </a></div>
+  </li>
+  <li class="nav-section">
+    <div class="nav-section-header"><a href="../../google/play-services/ads.html">
+      <span class="en">Ads</span></a>
+    </div>
+    <ul>
+      <li><a href="../../google/play-services/id.html">
+          <span class="en">Advertising ID</span></a>
+      </li>
+    </ul>
+  </li>
+  <li class="nav-section">
+    <div class="nav-section-header empty"><a href="../../google/play-services/wallet.html">
+          <span class="en">Wallet</span>
+      </a></div>
+  </li>
+
+
+  <li class="nav-section">
+    <div class="nav-section-header"><a href="../../google/play-services/index.html">
+      <span class="en">Google Play Services</span></a>
+    </div>
+    <ul>
+      <li><a href="../../google/play-services/setup.html">
+          <span class="en">Setup</span></a>
+      </li>
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../google/auth/api-client.html">
+          <span class="en">Accessing Google Play Services APIs</span></a>
+        </div>
+        <ul>
+          <li>
+            <a href="../../google/auth/http-auth.html">
+              <span class="en">Authorizing with Google for REST APIs</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+      <li id="gms-tree-list" class="nav-section">
+        <div class="nav-section-header">
+          <a href="../../reference/gms-packages.html">
+            <span class="en">Reference</span>
+          </a>
+        <div>
+      </li>
+    </ul>
+  </li>
+
+
+  <li class="nav-section">
+    <div class="nav-section-header"><a href="../../google/play/billing/index.html">
+      <span class="en">Google Play In-app Billing</span></a>
+    </div>
+    <ul>
+      <li><a href="../../google/play/billing/billing_overview.html">
+              <span class="en">Overview</span></a>
+      </li>
+      <li class="nav-section"><div class="nav-section-header"><a href="../../google/play/billing/api.html">
+              <span class="en">Version 3 API</span></a></div>
+              <ul>
+              <li><a href="../../google/play/billing/billing_integrate.html">
+              <span class="en">Implementing the API</span></a></li>
+              <li><a href="../../google/play/billing/billing_reference.html">
+              <span class="en">Reference</span></a></li>
+              </ul>
+      </li>
+      <li class="nav-section"><div class="nav-section-header"><a href="../../google/play/billing/v2/api.html">
+              <span class="en">Version 2 API</span></a></div>
+              <ul>
+              <li><a href="../../google/play/billing/v2/billing_integrate.html">
+              <span class="en">Implementing the API</span></a></li>
+              <li><a href="../../google/play/billing/v2/billing_subscriptions.html">
+              <span class="en">Subscriptions</span></a></li>
+              <li><a href="../../google/play/billing/v2/billing_reference.html">
+              <span class="en">Reference</span></a></li>
+              </ul>
+      </li>
+      <li><a href="../../google/play/billing/billing_subscriptions.html">
+              <span class="en">Subscriptions</span></a>
+      </li>
+      <li><a href="../../google/play/billing/billing_best_practices.html">
+              <span class="en">Security and Design</span></a>
+      </li>
+      <li><a href="../../google/play/billing/billing_testing.html">
+              <span class="en">Testing In-app Billing</span></a>
+      </li>
+      <li><a href="../../google/play/billing/billing_admin.html">
+              <span class="en">Administering In-app Billing</span></a>
+      </li>
+      <li><a href="../../google/play/billing/gp-purchase-status-api.html">
+              <span class="en">Purchase Status API</span></a>
+      </li>
+      <li><a href="../../google/play/billing/versions.html">
+              <span class="en">Version Notes</span></a>
+      </li>
+    </ul>
+  </li>
+
+
+
+   <li class="nav-section">
+      <div class="nav-section-header"><a href="../../google/gcm/index.html">
+        <span class="en">Google Cloud Messaging</span></a>
+      </div>
+      <ul>
+        <li><a href="../../google/gcm/gcm.html">
+            <span class="en">Overview</span></a>
+        </li>
+        <li><a href="../../google/gcm/gs.html">
+            <span class="en">Getting Started</span></a>
+        </li>
+        <li><a href="../../google/gcm/client.html">
+            <span class="en">Implementing GCM Client</span></a>
+        </li>
+        <li class="nav-section"><div class="nav-section-header"><a href="../../google/gcm/server.html">
+              <span class="en">Implementing GCM Server</span></a></div>
+              <ul>
+              <li><a href="../../google/gcm/ccs.html">
+              <span class="en">CCS (XMPP)</span></a></li>
+              <li><a href="../../google/gcm/http.html">
+              <span class="en">HTTP</span></a></li>
+              </ul>
+        </li>
+        <li><a href="../../google/gcm/notifications.html">
+              <span class="en">User Notifications</span></a>
+        </li>
+        <li><a href="../../google/gcm/adv.html">
+            <span class="en">Advanced Topics</span></a>
+        </li>
+        <li><a href="../../google/gcm/c2dm.html">
+            <span class="en">Migration</span></a>
+        </li>
+        <li id="gcm-tree-list" class="nav-section">
+          <div class="nav-section-header">
+            <a href="../../reference/gcm-packages.html">
+              <span class="en">Reference</span>
+            </a>
+          <div>
+        </li>
+      </ul>
+  </li>
+
+  <li class="nav-section">
+    <div class="nav-section-header"><a href="../../google/play/dist.html">
+      <span class="en">Google Play Distribution</span></a>
+    </div>
+    <ul>
+      <li><a href="../../google/play/filters.html">
+          <span class="en">Filters on Google Play</span></a>
+      </li>
+
+      <li><a href="../../google/play/publishing/multiple-apks.html">
+          <span class="en">Multiple APK Support</span></a>
+      </li>
+      <li><a href="../../google/play/expansion-files.html">
+          <span class="en">APK Expansion Files</span></a>
+      </li>
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../google/play/licensing/index.html">
+          <span class="en">Application Licensing</span></a>
+        </div>
+        <ul>
+          <li><a href="../../google/play/licensing/overview.html">
+              <span class="en">Licensing Overview</span></a>
+          </li>
+          <li><a href="../../google/play/licensing/setting-up.html">
+              <span class="en">Setting Up for Licensing</span></a>
+          </li>
+          <li><a href="../../google/play/licensing/adding-licensing.html">
+              <span class="en">Adding Licensing to Your App</span></a>
+          </li>
+          <li><a href="../../google/play/licensing/licensing-reference.html">
+              <span class="en">Licensing Reference</span></a>
+          </li>
+        </ul>
+      </li>
+
+  <li class="nav-section">
+    <div class="nav-section-header"><a href="../../google/backup/index.html">
+      Android Backup Service</a>
+    </div>
+    <ul>
+      <li><a href="../../google/backup/signup.html">
+          Register</a>
+      </li>
+    </ul>
+  </li>
+
+  </ul>
+
+</li>
+
+
+
+</ul>
+
+<script type="text/javascript">
+<!--
+    buildToggleLists();
+    changeNavLang(getLangPref());
+//-->
+</script>
+
+
+        
+
+      </div>
+      <script type="text/javascript">
+       showGoogleRefTree();
+    
+      </script>
+    </div> <!-- end side-nav -->
+    <script>
+      $(document).ready(function() {
+        scrollIntoView("devdoc-nav");
+        });
+    </script>
+
+
+
+
+<div class="col-12" id="doc-col" >
+
+
+
+
+  
+    
+      
+        <h1 itemprop="name" >Implementing GCM Client</h1>
+      
+    
+  
+
+
+  
+  <div id="jd-content">
+
+
+    <div class="jd-descr" itemprop="articleBody">
+    <div id="qv-wrapper">
+<div id="qv">
+
+
+<h2>In this document</h2>
+
+<ol class="toc">
+<li><a href="#play-services">Set Up Google Play Services</a></li>
+<li><a href="#manifest">Edit Your Application's Manifest</a></li>
+<li><a href="#app">Write Your Application</a>
+  <ol class="toc">
+    <li><a href="#sample-play">Check for Google Play Services APK</a></li>
+    <li><a href="#sample-register">Register for GCM</a></li>
+    <li><a href="#sample-send">Send a message</a></li>
+    <li><a href="#sample-receive">Receive a message</a></li>
+  </ol>
+  <li><a href="#run">Running the Sample</a></li>
+  <li><a href="#stats">Viewing Statistics</a></li>
+</li>
+
+</ol>
+
+<h2>See Also</h2>
+
+<ol class="toc">
+<li><a href="gs.html">Getting Started</a></li>
+<li><a href="server.html">Implementing GCM Server</a></li>
+</ol>
+
+</div>
+</div>
+
+<p>A GCM client is a GCM-enabled app that runs on an Android device. To write your
+client code, we recommend that you use the
+<a href="../../reference/com/google/android/gms/gcm/GoogleCloudMessaging.html">
+<code>GoogleCloudMessaging</code></a> APIs.
+The client helper library that was offered in previous versions of GCM still works,
+but it has been superseded by the more efficient
+<a href="../../reference/com/google/android/gms/gcm/GoogleCloudMessaging.html">
+<code>GoogleCloudMessaging</code></a> APIs.</p>
+
+<p>A full GCM implementation requires both a client implementation and a server
+implementation. For more
+information about implementing the server side, see <a href="server.html">
+Implementing GCM Server</a>.</p>
+
+<p>The following sections walk you through the steps involved in writing a GCM
+client-side application. Your client app can be arbitrarily complex, but at bare
+minimum, a GCM client app must include code to register (and thereby get a
+registration ID), and a broadcast receiver to receive messages sent by GCM.
+</p>
+
+<h2 id="play-services">Step 1: Set Up Google Play Services</h2>
+
+<p>To write your client application, use the
+<a href="../../reference/com/google/android/gms/gcm/GoogleCloudMessaging.html">
+<code>GoogleCloudMessaging</code></a> API.
+To use this API, you must set up your project to use the Google Play services SDK,
+as described in <a href="/google/play-services/setup.html">Setup Google Play
+Services SDK</a>.</p>
+
+<p class="note"><strong>Caution:</strong> When you add the Play Services library to
+your project, be sure to add it <em>with resources</em>, as described in
+<a href="../../google/play-services/setup.html#Setup">
+Setup Google Play Services SDK</a>. The key point is that you must
+<em>reference</em> the library&mdash;simply adding a <code>.jar</code> file to
+your Eclipse project will not work. You must follow the directions
+for referencing a library, or your app won't be able to access
+the library's resources, and it won't run properly.
+If you're using Android Studio, this is the string to add to the
+<code>dependency</code> section of your application's <code>build.gradle</code> file:</p>
+
+<pre>dependencies {
+  compile "com.google.android.gms:play-services:3.1.+"
+}
+</pre>
+
+
+<h2 id="manifest">Step 2: Edit Your Application's Manifest</h2>
+
+<p>Add the following to your application's manifest:</p>
+<ul>
+  <li>The <code>com.google.android.c2dm.permission.RECEIVE</code> permission so
+the Android application can register and receive messages.</li>
+  <li>The <code>android.permission.INTERNET</code> permission so the Android
+application can send the registration ID to the 3rd party server.</li>
+  <li>The <code>android.permission.GET_ACCOUNTS</code> permission as GCM requires
+a Google account (necessary only if if the device is running a version lower than
+Android 4.0.4)</li>
+  <li>The <code>android.permission.WAKE_LOCK</code> permission so the application
+can keep the processor from sleeping when a message is received. Optional&mdash;use
+only if the app wants to keep the device from sleeping.</li>
+  <li>An <code>applicationPackage + &quot;.permission.C2D_MESSAGE&quot;</code>
+permission to prevent other Android applications from registering and receiving
+the Android application's messages. The permission name must exactly match this
+pattern&mdash;otherwise the Android application will not receive the messages.</li>
+   <li>A receiver for <code>com.google.android.c2dm.intent.RECEIVE</code>, with
+the category set
+as <code>applicationPackage</code>. The receiver should require the
+<code>com.google.android.c2dm.SEND</code> permission, so that only the GCM
+Framework can send a message to it. If your app uses an <code><a href="../../reference/android/app/IntentService.html">IntentService</a></code>
+(not required, but a common pattern), this receiver should be an instance of
+<code><a href="../../reference/android/support/v4/content/WakefulBroadcastReceiver.html">WakefulBroadcastReceiver</a></code>.
+A <code><a href="../../reference/android/support/v4/content/WakefulBroadcastReceiver.html">WakefulBroadcastReceiver</a></code> takes care of
+creating and managing a
+<a href="../../reference/android/os/PowerManager.html#PARTIAL_WAKE_LOCK">
+partial wake lock</a> for your app.</li>
+
+<li>A <code><a href="../../reference/android/app/Service.html">Service</a></code> (typically an <code><a href="../../reference/android/app/IntentService.html">IntentService</a></code>)
+to which the <code><a href="../../reference/android/support/v4/content/WakefulBroadcastReceiver.html">WakefulBroadcastReceiver</a></code> passes off
+the work of handling the GCM message, while ensuring that the device does not
+go back to sleep in the process. Including an <code><a href="../../reference/android/app/IntentService.html">IntentService</a></code> is
+optional&mdash;you could choose to process your messages in a regular
+<code><a href="../../reference/android/content/BroadcastReceiver.html">BroadcastReceiver</a></code> instead, but realistically, most apps will
+use a <code><a href="../../reference/android/app/IntentService.html">IntentService</a></code>.
+</li>
+  <li>If the GCM feature is critical to the Android application's function, be sure to
+set <code>android:minSdkVersion=&quot;8&quot;</code> or higher in the manifest. This
+ensures that the Android application cannot be installed in an environment in which it
+could not run properly. </li>
+</ul>
+
+<p>Here are excerpts from a sample manifest that supports GCM:</p>
+
+<pre class="prettyprint pretty-xml">
+&lt;manifest package="com.example.gcm" ...&gt;
+
+    &lt;uses-sdk android:minSdkVersion="8" android:targetSdkVersion="17"/&gt;
+    &lt;uses-permission android:name="android.permission.INTERNET" /&gt;
+    &lt;uses-permission android:name="android.permission.GET_ACCOUNTS" /&gt;
+    &lt;uses-permission android:name="android.permission.WAKE_LOCK" /&gt;
+    &lt;uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" /&gt;
+
+    &lt;permission android:name="com.example.gcm.permission.C2D_MESSAGE"
+        android:protectionLevel="signature" /&gt;
+    &lt;uses-permission android:name="com.example.gcm.permission.C2D_MESSAGE" /&gt;
+
+    &lt;application ...&gt;
+        &lt;receiver
+            android:name=".GcmBroadcastReceiver"
+            android:permission="com.google.android.c2dm.permission.SEND" &gt;
+            &lt;intent-filter&gt;
+                &lt;action android:name="com.google.android.c2dm.intent.RECEIVE" /&gt;
+                &lt;category android:name="com.example.gcm" /&gt;
+            &lt;/intent-filter&gt;
+        &lt;/receiver&gt;
+        &lt;service android:name=".GcmIntentService" /&gt;
+    &lt;/application&gt;
+
+&lt;/manifest&gt;
+</pre>
+
+<h2 id="app"> Step 3: Write Your Application</h2>
+
+<p>Finally, write your application. This section features a sample client
+application that illustrates how to use the
+<a href="../../reference/com/google/android/gms/gcm/GoogleCloudMessaging.html">
+<code>GoogleCloudMessaging</code></a> APIs. The sample consists of a main activity
+(<code>DemoActivity</code>), a <code><a href="../../reference/android/support/v4/content/WakefulBroadcastReceiver.html">WakefulBroadcastReceiver</a></code>
+(<code>GcmBroadcastReceiver</code>), and an <code><a href="../../reference/android/app/IntentService.html">IntentService</a></code>
+(<code>GcmIntentService</code>). You can find the complete source code for this sample at the
+<a href="http://code.google.com/p/gcm">open source site</a>.</p>
+
+<p>Note the following:</p>
+
+<ul>
+  <li>Among other things, the sample illustrates registration and upstream
+(device-to-cloud) messaging. Upstream messaging only applies to apps that are running against a
+<a href="ccs.html">CCS</a> (XMPP) server; HTTP-based servers don't support upstream messaging.</li>
+  <li>The <a href="../../reference/com/google/android/gms/gcm/GoogleCloudMessaging.html">
+  <code>GoogleCloudMessaging</code></a>
+registration APIs replace the old registration process, which was based on the
+now-obsolete client helper library. While the old registration process still works,
+we encourage you to use the newer
+<a href="../../reference/com/google/android/gms/gcm/GoogleCloudMessaging.html">
+<code>GoogleCloudMessaging</code></a>
+registration APIs, regardless of your underlying server.</li>
+</ul>
+
+<h3 id="sample-play">Check for Google Play Services APK</h3>
+
+<p>As described in <a href="../../google/play-services/setup.html">
+Setup Google Play Services SDK</a>, apps that rely on the Play Services SDK
+should always check the device for a compatible Google Play services APK before
+accessing Google Play services features. In the sample app this check is done in
+two places: in the main activity's <code>onCreate()</code> method, and in its
+<code>onResume()</code> method. The check in <code>onCreate()</code> ensures that the app
+can't be used without a successful check. The check in <code>onResume()</code> ensures
+that if the user returns to the running app through some other means, such as
+through the back button, the check is still performed. If the
+device doesn't have a compatible Google Play services APK, your app can call
+<code>GooglePlayServicesUtil.getErrorDialog()</code> to allow users to download the
+APK from the Google Play Store or enable it in the device's system settings.
+For example:</p>
+
+<pre>private final static int PLAY_SERVICES_RESOLUTION_REQUEST = 9000;
+...
+&#64;Override
+public void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+
+    setContentView(R.layout.main);
+    mDisplay = (TextView) findViewById(R.id.display);
+
+    context = getApplicationContext();
+
+    // Check device for Play Services APK.
+    if (checkPlayServices()) {
+        // If this check succeeds, proceed with normal processing.
+        // Otherwise, prompt user to get valid Play Services APK.
+        ...
+    }
+}
+
+// You need to do the Play Services APK check here too.
+&#64;Override
+protected void onResume() {
+    super.onResume();
+    checkPlayServices();
+}
+
+/**
+ * Check the device to make sure it has the Google Play Services APK. If
+ * it doesn't, display a dialog that allows users to download the APK from
+ * the Google Play Store or enable it in the device's system settings.
+ */
+private boolean checkPlayServices() {
+    int resultCode = GooglePlayServicesUtil.isGooglePlayServicesAvailable(this);
+    if (resultCode != ConnectionResult.SUCCESS) {
+        if (GooglePlayServicesUtil.isUserRecoverableError(resultCode)) {
+            GooglePlayServicesUtil.getErrorDialog(resultCode, this,
+                    PLAY_SERVICES_RESOLUTION_REQUEST).show();
+        } else {
+            Log.i(TAG, "This device is not supported.");
+            finish();
+        }
+        return false;
+    }
+    return true;
+}</pre>
+
+<h3 id="sample-register">Register for GCM</h3>
+<p>An Android application needs to register with GCM servers before it can receive
+messages. When an app registers, it receives a registration ID, which it can then
+store for future use. In the following snippet the <code>onCreate()</code> method in the sample app's
+main activity checks to see if the app is already registered with GCM and with
+the server:</p>
+
+<pre>/**
+ * Main UI for the demo app.
+ */
+public class DemoActivity extends Activity {
+
+    public static final String EXTRA_MESSAGE = "message";
+    public static final String PROPERTY_REG_ID = "registration_id";
+    private static final String PROPERTY_APP_VERSION = "appVersion";
+    private final static int PLAY_SERVICES_RESOLUTION_REQUEST = 9000;
+
+    /**
+     * Substitute you own sender ID here. This is the project number you got
+     * from the API Console, as described in "Getting Started."
+     */
+    String SENDER_ID = "Your-Sender-ID";
+
+    /**
+     * Tag used on log messages.
+     */
+    static final String TAG = "GCMDemo";
+
+    TextView mDisplay;
+    GoogleCloudMessaging gcm;
+    AtomicInteger msgId = new AtomicInteger();
+    SharedPreferences prefs;
+    Context context;
+
+    String regid;
+
+    &#64;Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        setContentView(R.layout.main);
+        mDisplay = (TextView) findViewById(R.id.display);
+
+        context = getApplicationContext();
+
+        // Check device for Play Services APK. If check succeeds, proceed with
+        //  GCM registration.
+        if (checkPlayServices()) {
+            gcm = GoogleCloudMessaging.getInstance(this);
+            regid = getRegistrationId(context);
+
+            if (regid.isEmpty()) {
+                registerInBackground();
+            }
+        } else {
+            Log.i(TAG, "No valid Google Play Services APK found.");
+        }
+    }
+...
+}</pre>
+
+<p>The app calls <code>getRegistrationId()</code> to see whether there is an existing
+registration ID stored in shared preferences:</p>
+
+<pre>/**
+ * Gets the current registration ID for application on GCM service.
+ * &lt;p&gt;
+ * If result is empty, the app needs to register.
+ *
+ * &#64;return registration ID, or empty string if there is no existing
+ *         registration ID.
+ */
+private String getRegistrationId(Context context) {
+    final SharedPreferences prefs = getGCMPreferences(context);
+    String registrationId = prefs.getString(PROPERTY_REG_ID, "");
+    if (registrationId.isEmpty()) {
+        Log.i(TAG, "Registration not found.");
+        return "";
+    }
+    // Check if app was updated; if so, it must clear the registration ID
+    // since the existing regID is not guaranteed to work with the new
+    // app version.
+    int registeredVersion = prefs.getInt(PROPERTY_APP_VERSION, Integer.MIN_VALUE);
+    int currentVersion = getAppVersion(context);
+    if (registeredVersion != currentVersion) {
+        Log.i(TAG, "App version changed.");
+        return "";
+    }
+    return registrationId;
+}
+...
+/**
+ * &#64;return Application's {&#64;code SharedPreferences}.
+ */
+private SharedPreferences getGCMPreferences(Context context) {
+    // This sample app persists the registration ID in shared preferences, but
+    // how you store the regID in your app is up to you.
+    return getSharedPreferences(DemoActivity.class.getSimpleName(),
+            Context.MODE_PRIVATE);
+}</pre>
+
+<p>If the registration ID doesn't exist or the app was updated,
+<code>getRegistrationId()</code> returns an empty string
+to indicate that the app needs to get a new regID. <code>getRegistrationId()</code> calls
+the following method to check the app version:</p>
+
+<pre>/**
+ * &#64;return Application's version code from the {&#64;code PackageManager}.
+ */
+private static int getAppVersion(Context context) {
+    try {
+        PackageInfo packageInfo = context.getPackageManager()
+                .getPackageInfo(context.getPackageName(), 0);
+        return packageInfo.versionCode;
+    } catch (NameNotFoundException e) {
+        // should never happen
+        throw new RuntimeException("Could not get package name: " + e);
+    }
+}</pre>
+
+
+<p>If there isn't a valid existing registration ID, <code>DemoActivity</code> calls the
+following <code>registerInBackground()</code> method to register. Note that because the GCM
+methods <code>register()</code> and <code>unregister()</code> are blocking, this has to
+take place on a background thread. This sample uses <code><a href="../../reference/android/os/AsyncTask.html">AsyncTask</a></code>
+to accomplish this:</p>
+
+<pre>
+/**
+ * Registers the application with GCM servers asynchronously.
+ * &lt;p&gt;
+ * Stores the registration ID and app versionCode in the application's
+ * shared preferences.
+ */
+private void registerInBackground() {
+    new AsyncTask<Void, Void, String>() {
+        &#64;Override
+        protected String doInBackground(Void... params) {
+            String msg = "";
+            try {
+                if (gcm == null) {
+                    gcm = GoogleCloudMessaging.getInstance(context);
+                }
+                regid = gcm.register(SENDER_ID);
+                msg = "Device registered, registration ID=" + regid;
+
+                // You should send the registration ID to your server over HTTP,
+                // so it can use GCM/HTTP or CCS to send messages to your app.
+                // The request to your server should be authenticated if your app
+                // is using accounts.
+                sendRegistrationIdToBackend();
+
+                // For this demo: we don't need to send it because the device
+                // will send upstream messages to a server that echo back the
+                // message using the 'from' address in the message.
+
+                // Persist the regID - no need to register again.
+                storeRegistrationId(context, regid);
+            } catch (IOException ex) {
+                msg = "Error :" + ex.getMessage();
+                // If there is an error, don't just keep trying to register.
+                // Require the user to click a button again, or perform
+                // exponential back-off.
+            }
+            return msg;
+        }
+
+        &#64;Override
+        protected void onPostExecute(String msg) {
+            mDisplay.append(msg + "\n");
+        }
+    }.execute(null, null, null);
+    ...
+}</pre>
+
+<p>Once you've received your registration ID, send it to your server:</p>
+<pre>
+/**
+ * Sends the registration ID to your server over HTTP, so it can use GCM/HTTP
+ * or CCS to send messages to your app. Not needed for this demo since the
+ * device sends upstream messages to a server that echoes back the message
+ * using the 'from' address in the message.
+ */
+private void sendRegistrationIdToBackend() {
+    // Your implementation here.
+}</pre>
+
+<p>After registering, the app calls <code>storeRegistrationId()</code> to store the
+registration ID in shared preferences for future use. This is just one way of
+persisting a regID. You might choose to use a different approach in your app:</p>
+
+<pre>/**
+ * Stores the registration ID and app versionCode in the application's
+ * {&#64;code SharedPreferences}.
+ *
+ * &#64;param context application's context.
+ * &#64;param regId registration ID
+ */
+private void storeRegistrationId(Context context, String regId) {
+    final SharedPreferences prefs = getGCMPreferences(context);
+    int appVersion = getAppVersion(context);
+    Log.i(TAG, "Saving regId on app version " + appVersion);
+    SharedPreferences.Editor editor = prefs.edit();
+    editor.putString(PROPERTY_REG_ID, regId);
+    editor.putInt(PROPERTY_APP_VERSION, appVersion);
+    editor.commit();
+}</pre>
+
+<h3 id="sample-send">Send a message</h3>
+<p>When the user clicks the app's <strong>Send</strong> button, the app sends an
+upstream message using the
+<a href="../../reference/com/google/android/gms/gcm/GoogleCloudMessaging.html">
+<code>GoogleCloudMessaging</code></a> APIs. In order to receive the upstream message,
+your server should be connected to CCS. You can use one of the demo servers in
+<a href="ccs.html#implement">Implementing an XMPP-based App Server</a> to run the sample and connect
+to CCS.</p>
+
+<pre>public void onClick(final View view) {
+    if (view == findViewById(R.id.send)) {
+        new AsyncTask<Void, Void, String>() {
+            &#64;Override
+            protected String doInBackground(Void... params) {
+                String msg = "";
+                try {
+                    Bundle data = new Bundle();
+                        data.putString("my_message", "Hello World");
+                        data.putString("my_action",
+                                "com.google.android.gcm.demo.app.ECHO_NOW");
+                        String id = Integer.toString(msgId.incrementAndGet());
+                        gcm.send(SENDER_ID + "@gcm.googleapis.com", id, data);
+                        msg = "Sent message";
+                } catch (IOException ex) {
+                    msg = "Error :" + ex.getMessage();
+                }
+                return msg;
+            }
+
+            &#64;Override
+            protected void onPostExecute(String msg) {
+                mDisplay.append(msg + "\n");
+            }
+        }.execute(null, null, null);
+    } else if (view == findViewById(R.id.clear)) {
+        mDisplay.setText("");
+    }
+}</pre>
+
+<h3 id="sample-receive">Receive a message</h3>
+
+<p>As described above in <a href="#manifest">Step 2</a>, the app includes a
+<code><a href="../../reference/android/support/v4/content/WakefulBroadcastReceiver.html">WakefulBroadcastReceiver</a></code> for the <code>com.google.android.c2dm.intent.RECEIVE</code>
+intent. A broadcast receiver is the mechanism GCM uses to deliver messages. When <code>onClick()</code>
+calls <code>gcm.send()</code>, it triggers the broadcast receiver's <code>onReceive()</code>
+method, which has the responsibility of making sure that the GCM message gets handled.</p>
+<p>A <code><a href="../../reference/android/support/v4/content/WakefulBroadcastReceiver.html">WakefulBroadcastReceiver</a></code> is a special type of
+broadcast receiver that takes care of
+creating and managing a
+<a href="../../reference/android/os/PowerManager.html#PARTIAL_WAKE_LOCK">
+partial wake lock</a> for your app.
+It passes off the work of processing the GCM message to a
+<code><a href="../../reference/android/app/Service.html">Service</a></code> (typically an
+<code><a href="../../reference/android/app/IntentService.html">IntentService</a></code>), while ensuring that the device does not
+go back to sleep in the transition. If you don't hold a wake lock while transitioning
+the work to a service, you are effectively allowing the device to go back to sleep before
+the work completes. The net result is that the app might not finish processing
+the GCM message until some arbitrary point in the future, which is not what you want.</p>
+
+<p class="note"><strong>Note:</strong> Using <code><a href="../../reference/android/support/v4/content/WakefulBroadcastReceiver.html">WakefulBroadcastReceiver</a></code>
+is not a requirement. If you have a relatively simple app that doesn't require
+a service, you can intercept the GCM message in a regular <code><a href="../../reference/android/content/BroadcastReceiver.html">BroadcastReceiver</a></code>
+and do your processing there. Once you get the intent that GCM passes into
+your broadcast receiver's <code>onReceive()</code> method, what you do with it
+is up to you.</p>
+
+<p>This snippet starts <code>GcmIntentService</code> with the method
+<code><a href="../../reference/android/support/v4/content/WakefulBroadcastReceiver.html#startWakefulService(android.content.Context, android.content.Intent)">startWakefulService()</a></code>.
+This method is comparable to <code><a href="../../reference/android/content/Context.html#startService(android.content.Intent)">startService()</a></code>, except that
+the <code><a href="../../reference/android/support/v4/content/WakefulBroadcastReceiver.html">WakefulBroadcastReceiver</a></code> is holding a
+wake lock when the service starts. The intent that is passed with
+<code><a href="../../reference/android/support/v4/content/WakefulBroadcastReceiver.html#startWakefulService(android.content.Context, android.content.Intent)">startWakefulService()</a></code>
+holds an extra identifying the wake lock:</p>
+
+
+<pre>public class GcmBroadcastReceiver extends WakefulBroadcastReceiver {
+    &#64;Override
+    public void onReceive(Context context, Intent intent) {
+        // Explicitly specify that GcmIntentService will handle the intent.
+        ComponentName comp = new ComponentName(context.getPackageName(),
+                GcmIntentService.class.getName());
+        // Start the service, keeping the device awake while it is launching.
+        startWakefulService(context, (intent.setComponent(comp)));
+        setResultCode(Activity.RESULT_OK);
+    }
+}</pre>
+
+<p>The intent service shown below does the actual work of handling the GCM
+message. When the service is finished, it calls
+<code><a href="../../reference/android/support/v4/content/WakefulBroadcastReceiver.html#completeWakefulIntent(android.content.Intent)">GcmBroadcastReceiver.completeWakefulIntent()</a></code>
+to release the wake lock. The
+<code><a href="../../reference/android/support/v4/content/WakefulBroadcastReceiver.html#completeWakefulIntent(android.content.Intent)">completeWakefulIntent()</a></code>
+method has as its parameter the same intent that was
+passed in from the <code><a href="../../reference/android/support/v4/content/WakefulBroadcastReceiver.html">WakefulBroadcastReceiver</a></code>.
+</p>
+
+<p>This snippet processes the GCM message based on message type, and posts the
+result in a notification. But what you do with GCM messages in your app is up to
+you&mdash;the possibilities are endless. For example, the message might be a ping,
+telling the app to sync to a server to retrieve new content, or it might be a
+chat message that you display in the UI.</p>
+
+<pre>
+public class GcmIntentService extends IntentService {
+    public static final int NOTIFICATION_ID = 1;
+    private NotificationManager mNotificationManager;
+    NotificationCompat.Builder builder;
+
+    public GcmIntentService() {
+        super("GcmIntentService");
+    }
+
+    &#64;Override
+    protected void onHandleIntent(Intent intent) {
+        Bundle extras = intent.getExtras();
+        GoogleCloudMessaging gcm = GoogleCloudMessaging.getInstance(this);
+        // The getMessageType() intent parameter must be the intent you received
+        // in your BroadcastReceiver.
+        String messageType = gcm.getMessageType(intent);
+
+        if (!extras.isEmpty()) {  // has effect of unparcelling Bundle
+            /*
+             * Filter messages based on message type. Since it is likely that GCM
+             * will be extended in the future with new message types, just ignore
+             * any message types you're not interested in, or that you don't
+             * recognize.
+             */
+            if (GoogleCloudMessaging.
+                    MESSAGE_TYPE_SEND_ERROR.equals(messageType)) {
+                sendNotification("Send error: " + extras.toString());
+            } else if (GoogleCloudMessaging.
+                    MESSAGE_TYPE_DELETED.equals(messageType)) {
+                sendNotification("Deleted messages on server: " +
+                        extras.toString());
+            // If it's a regular GCM message, do some work.
+            } else if (GoogleCloudMessaging.
+                    MESSAGE_TYPE_MESSAGE.equals(messageType)) {
+                // This loop represents the service doing some work.
+                for (int i=0; i<5; i++) {
+                    Log.i(TAG, "Working... " + (i+1)
+                            + "/5 @ " + SystemClock.elapsedRealtime());
+                    try {
+                        Thread.sleep(5000);
+                    } catch (InterruptedException e) {
+                    }
+                }
+                Log.i(TAG, "Completed work @ " + SystemClock.elapsedRealtime());
+                // Post notification of received message.
+                sendNotification("Received: " + extras.toString());
+                Log.i(TAG, "Received: " + extras.toString());
+            }
+        }
+        // Release the wake lock provided by the WakefulBroadcastReceiver.
+        GcmBroadcastReceiver.completeWakefulIntent(intent);
+    }
+
+    // Put the message into a notification and post it.
+    // This is just one simple example of what you might choose to do with
+    // a GCM message.
+    private void sendNotification(String msg) {
+        mNotificationManager = (NotificationManager)
+                this.getSystemService(Context.NOTIFICATION_SERVICE);
+
+        PendingIntent contentIntent = PendingIntent.getActivity(this, 0,
+                new Intent(this, DemoActivity.class), 0);
+
+        NotificationCompat.Builder mBuilder =
+                new NotificationCompat.Builder(this)
+        .setSmallIcon(R.drawable.ic_stat_gcm)
+        .setContentTitle("GCM Notification")
+        .setStyle(new NotificationCompat.BigTextStyle()
+        .bigText(msg))
+        .setContentText(msg);
+
+        mBuilder.setContentIntent(contentIntent);
+        mNotificationManager.notify(NOTIFICATION_ID, mBuilder.build());
+    }
+}</pre>
+
+<h2 id="run">Running the Sample</h2>
+
+<p>To run the sample:</p>
+
+<ol>
+  <li>Follow the instructions in <a href="gs.html">Getting Started</a> to get your sender ID and
+  API key.</li>
+  <li>Implement your client app, as described in this document. You can find the complete source
+  code for the client app at the <a href="http://code.google.com/p/gcm">open source site</a>.</li>
+  <li>Run one of the demo servers (Java or Python) provided in
+<a href="ccs.html#implement">Implementing an XMPP-based App Server</a>. Whichever demo server you
+ choose, don't forget to edit its code before running it to supply
+your sender ID and API key.
+</li>
+
+</ol>
+
+<h2 id="stats">Viewing Statistics</h2>
+
+<p>To view  statistics and any error messages for your GCM applications:</p>
+<ol>
+  <li> Go to the <code><a href="http://play.google.com/apps/publish">Developer Console</a></code>.</li>
+  <li>Login with your developer account.
+  <p>You will see a page that has a list of all of your apps.</p></li>
+  <li> Click on the &quot;statistics&quot; link next to the app for which you
+want to view GCM stats.
+  <p>Now you are on the statistics page.</p> </li>
+  <li>Go to the drop-down menu and select the GCM metric you want to view.
+  </li>
+</ol>
+<p class="note"><strong>Note:</strong> Stats on the Google API Console are not
+enabled for GCM. You must use the <a href="http://play.google.com/apps/publish">Developer Console</a>.</p>
+
+
+    </div>
+
+      <div class="content-footer layout-content-row"
+                    itemscope itemtype="http://schema.org/SiteNavigationElement">
+        <div class="layout-content-col col-9" style="padding-top:4px">
+          
+            <div class="g-plusone" data-size="medium"></div>
+          
+        </div>
+        
+        <div class="paging-links layout-content-col col-4">
+          
+        </div>
+        
+      </div>
+
+      
+      
+
+  </div> <!-- end jd-content -->
+
+<div id="footer" class="wrap" >
+        
+
+  <div id="copyright">
+    
+  Except as noted, this content is 
+  licensed under <a href="http://creativecommons.org/licenses/by/2.5/">
+  Creative Commons Attribution 2.5</a>. For details and 
+  restrictions, see the <a href="../../license.html">Content 
+  License</a>.
+  </div>
+
+
+  <div id="footerlinks">
+    
+  <p>
+    <a href="../../about/index.html">About Android</a>&nbsp;&nbsp;|&nbsp;
+    <a href="../../legal.html">Legal</a>&nbsp;&nbsp;|&nbsp;
+    <a href="../../support.html">Support</a>
+  </p>
+  </div>
+
+</div> <!-- end footer -->
+</div><!-- end doc-content -->
+
+<!-- Start of Tag -->
+<script type="text/javascript">
+var axel = Math.random() + "";
+var a = axel * 10000000000000;
+document.write('<iframe src="https://2507573.fls.doubleclick.net/activityi;src=2507573;type=other026;cat=googl348;ord=' + a + '?" width="1" height="1" frameborder="0" style="display:none"></iframe>');
+</script>
+<noscript>
+<iframe src="https://2507573.fls.doubleclick.net/activityi;src=2507573;type=other026;cat=googl348;ord=1?" width="1" height="1" frameborder="0" style="display:none"></iframe>
+</noscript>
+<!-- End of Tag -->
+
+
+</div> <!-- end body-content --> 
+
+
+
+
+
+  <script src="https://developer.android.com/ytblogger_lists_unified.js" type="text/javascript"></script>
+  <script src="../../jd_lists_unified.js" type="text/javascript"></script>
+  <script src="../../jd_extras.js" type="text/javascript"></script>
+  <script src="../../jd_collections.js" type="text/javascript"></script>
+  <script src="../../jd_tag_helpers.js" type="text/javascript"></script>
+
+</body>
+</html>
+
+
+

@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width" />
+
+<meta name="Description" content="Learn about the Developer Console, your home for app publishing on Google Play.">
+<link rel="shortcut icon" type="image/x-icon" href="../../favicon.ico" />
+<title>Developer Console | Android Developers</title>
+
+<!-- STYLESHEETS -->
+<link rel="stylesheet"
+href="http://fonts.googleapis.com/css?family=Roboto+Condensed">
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:light,regular,medium,thin,italic,mediumitalic,bold"
+  title="roboto">
+<link href="../../assets/css/default.css" rel="stylesheet" type="text/css">
+
+
+
+<!-- JAVASCRIPT -->
+<script src="http://www.google.com/jsapi" type="text/javascript"></script>
+<script src="../../assets/js/android_3p-bundle.js" type="text/javascript"></script>
+<script type="text/javascript">
+  var toRoot = "../../";
+  var metaTags = [];
+  var devsite = false;
+</script>
+<script src="../../assets/js/docs.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-5831155-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+
+<body class="gc-documentation 
+
+distribute googleplay" itemscope itemtype="http://schema.org/Article">
+
+<a name="top"></a>
+
+  <!-- Header -->
+  <div id="header-wrapper">
+    <div id="header">
+      <div class="wrap" id="header-wrap">
+        <div class="col-3 logo">
+          <a href="../../index.html">
+            <img src="../../assets/images/dac_logo.png"
+                srcset="../../assets/images/dac_logo@2x.png 2x"
+                width="123" height="25" alt="Android Developers" />
+          </a>
+          <div class="btn-quicknav" id="btn-quicknav">
+            <a href="#" class="arrow-inactive">Quicknav</a>
+            <a href="#" class="arrow-active">Quicknav</a>
+          </div>
+        </div>
+        <ul class="nav-x col-9">
+            <li class="design">
+              <a href="../../design/index.html"
+              zh-tw-lang="設計"
+              zh-cn-lang="设计"
+              ru-lang="Проектирование"
+              ko-lang="디자인"
+              ja-lang="設計"
+              es-lang="Diseñar"
+              >Design</a></li>
+            <li class="develop"><a href="../../develop/index.html"
+              zh-tw-lang="開發"
+              zh-cn-lang="开发"
+              ru-lang="Разработка"
+              ko-lang="개발"
+              ja-lang="開発"
+              es-lang="Desarrollar"
+              >Develop</a></li>
+            <li class="distribute last"><a href="../../distribute/googleplay/index.html"
+              zh-tw-lang="發佈"
+              zh-cn-lang="分发"
+              ru-lang="Распространение"
+              ko-lang="배포"
+              ja-lang="配布"
+              es-lang="Distribuir"
+              >Distribute</a></li>
+        </ul>
+
+
+        
+        
+<div class="menu-container">
+  <div class="moremenu">
+    <div id="more-btn"></div>
+  </div>
+  <div class="morehover" id="moremenu">
+    <div class="top"></div>
+    <div class="mid">
+      <div class="header">Links</div>
+      <ul>
+        <li><a href="https://play.google.com/apps/publish/" target="_googleplay">Google Play Developer Console</a></li>
+        <li><a href="http://android-developers.blogspot.com/">Android Developers Blog</a></li>
+        <li><a href="../../about/index.html">About Android</a></li>
+      </ul>
+      <div class="header">Android Sites</div>
+      <ul>
+        <li><a href="http://www.android.com">Android.com</a></li>
+        <li class="active"><a>Android Developers</a></li>
+        <li><a href="http://source.android.com">Android Open Source Project</a></li>
+      </ul>
+
+      
+      
+      
+      <br class="clearfix" />
+    </div><!-- end 'mid' -->
+    <div class="bottom"></div>
+  </div><!-- end 'moremenu' -->
+
+  <div class="search" id="search-container">
+    <div class="search-inner">
+      <div id="search-btn"></div>
+      <div class="left"></div>
+      <form onsubmit="return submit_search()">
+        <input id="search_autocomplete" type="text" value="" autocomplete="off" name="q"
+          onfocus="search_focus_changed(this, true)" onblur="search_focus_changed(this, false)"
+          onkeydown="return search_changed(event, true, '../../')"
+          onkeyup="return search_changed(event, false, '../../')" />
+      </form>
+      <div class="right"></div>
+      <a class="close hide">close</a>
+      <div class="left"></div>
+      <div class="right"></div>
+    </div><!-- end search-inner -->
+  </div><!-- end search-container -->
+
+  <div class="search_filtered_wrapper reference">
+    <div class="suggest-card reference no-display">
+      <ul class="search_filtered">
+      </ul>
+    </div>
+  </div>
+
+  <div class="search_filtered_wrapper docs">
+    <div class="suggest-card dummy no-display">&nbsp;</div>
+    <div class="suggest-card develop no-display">
+      <ul class="search_filtered">
+      </ul>
+      <div class="child-card guides no-display">
+      </div>
+      <div class="child-card training no-display">
+      </div>
+      <div class="child-card samples no-display">
+      </div>
+    </div>
+    <div class="suggest-card design no-display">
+      <ul class="search_filtered">
+      </ul>
+    </div>
+    <div class="suggest-card distribute no-display">
+      <ul class="search_filtered">
+      </ul>
+    </div>
+  </div>
+</div><!-- end menu-container (search and menu widget) -->
+
+
+
+        <!-- Expanded quicknav -->
+        <div id="quicknav" class="col-9">
+          <ul>
+            <li class="design">
+              <ul>
+                <li><a href="../../design/index.html">Get Started</a></li>
+                <li><a href="../../design/style/index.html">Style</a></li>
+                <li><a href="../../design/patterns/index.html">Patterns</a></li>
+                <li><a href="../../design/building-blocks/index.html">Building Blocks</a></li>
+                <li><a href="../../design/downloads/index.html">Downloads</a></li>
+                <li><a href="../../design/videos/index.html">Videos</a></li>
+              </ul>
+            </li>
+            <li class="develop">
+              <ul>
+                <li><a href="../../training/index.html"
+                  zh-tw-lang="訓練課程"
+                  zh-cn-lang="培训"
+                  ru-lang="Курсы"
+                  ko-lang="교육"
+                  ja-lang="トレーニング"
+                  es-lang="Capacitación"
+                  >Training</a></li>
+                <li><a href="../../guide/index.html"
+                  zh-tw-lang="API 指南"
+                  zh-cn-lang="API 指南"
+                  ru-lang="Руководства по API"
+                  ko-lang="API 가이드"
+                  ja-lang="API ガイド"
+                  es-lang="Guías de la API"
+                  >API Guides</a></li>
+                <li><a href="../../reference/packages.html"
+                  zh-tw-lang="參考資源"
+                  zh-cn-lang="参考"
+                  ru-lang="Справочник"
+                  ko-lang="참조문서"
+                  ja-lang="リファレンス"
+                  es-lang="Referencia"
+                  >Reference</a></li>
+                <li><a href="../../tools/index.html"
+                  zh-tw-lang="相關工具"
+                  zh-cn-lang="工具"
+                  ru-lang="Инструменты"
+                  ko-lang="도구"
+                  ja-lang="ツール"
+                  es-lang="Herramientas"
+                  >Tools</a>
+                  <ul><li><a href="../../sdk/index.html">Get the SDK</a></li></ul>
+                </li>
+                <li><a href="../../google/index.html">Google Services</a>
+                </li>
+                
+              </ul>
+            </li>
+            <li class="distribute last">
+              <ul>
+                <li><a href="../../distribute/googleplay/index.html">Google Play</a></li>
+                <li><a href="../../distribute/essentials/index.html">Essentials</a></li>
+                <li><a href="../../distribute/users/index.html">Get Users</a></li>
+                <li><a href="../../distribute/engage/index.html">Engage &amp; Retain</a></li>
+                <li><a href="../../distribute/monetize/index.html">Monetize</a></li>
+                <li><a href="../../distribute/tools/index.html">Tools &amp; Reference</a></li>
+                <li><a href="../../distribute/stories/index.html">Developer Stories</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div><!-- /Expanded quicknav -->
+      </div><!-- end header-wrap.wrap -->
+    </div><!-- end header -->
+
+  
+    <!-- Secondary distribute x-nav -->
+    <div id="nav-x">
+        <div class="wrap">
+            <ul class="nav-x distribute">
+                <li class="googleplay"><a href="../../distribute/googleplay/index.html"
+                  >Google Play</a></li>
+                <li class="essentials"><a href="../../distribute/essentials/index.html"
+                  >Essentials</a></li>
+                <li class="users"><a href="../../distribute/users/index.html"
+                  >Get Users</a></li>
+                <li class="engage"><a href="../../distribute/engage/index.html"
+                  >Engage &amp; Retain</a></li>
+                <li class="monetize"><a href="../../distribute/monetize/index.html"
+                  >Monetize</a>
+                </li>
+                <li class="disttools"><a href="../../distribute/tools/index.html"
+                  >Tools</a>
+                </li>
+                <li class="stories"><a href="../../distribute/stories/index.html"
+                  >Stories</a>
+                </li>
+            </ul>
+            <a href="https://play.google.com/apps/publish/" class="developer-console-btn">Developer Console</a>
+        </div> <!-- /Secondary distribute x-nav -->
+    </div>
+  
+
+    <div id="searchResults" class="wrap" style="display:none;">
+      <h2 id="searchTitle">Results</h2>
+      <div id="leftSearchControl" class="search-control">Loading...</div>
+    </div>
+  </div> <!--end header-wrapper -->
+
+  <div id="sticky-header">
+    <div>
+      <a class="logo" href="#top"></a>
+      <a class="top" href="#top"></a>
+      <ul class="breadcrumb">
+        
+        <li class="current">Developer Console</li>
+      </ul>
+    </div>
+  </div>
+
+
+
+
+  <div class="wrap clearfix" id="body-content">
+    <div class="col-3" id="side-nav" itemscope itemtype="http://schema.org/SiteNavigationElement">
+      <div id="devdoc-nav" class="scroll-pane">
+<ul id="nav">
+
+  <li class="nav-section">
+    <div class="nav-section empty" style="font-weight:normal"><a href="../../distribute/googleplay/about.html">
+            <span class="en">The Google Play Opportunity</span></a>
+    </div>
+  </li>
+  <li class="nav-section">
+    <div class="nav-section empty" style="font-weight:normal"><a href="../../distribute/googleplay/start.html">
+            <span class="en">Get Started with Publishing</span>
+          </a>
+    </div>
+  </li>
+  <li class="nav-section">
+    <div class="nav-section empty" style="font-weight:normal"><a href="../../distribute/googleplay/developer-console.html">
+          <span class="en">Developer Console</span>
+        </a>
+    </div>
+  </li>
+  <li class="nav-section">
+    <div class="nav-section empty" style="font-weight:normal"><a href="../../distribute/googleplay/edu/about.html">
+          <span class="en">Google Play for Education</span>
+        </a>
+    </div>
+  </li>
+  <li class="nav-section">
+    <div class="nav-section empty" style="font-weight:normal"><a href="../../distribute/googleplay/edu/start.html">
+          <span class="en">Get Started with Education</span>
+        </a>
+    </div>
+  </li>
+  <li class="nav-section">
+    <div class="nav-section empty" style="font-weight:normal"><a href="../../distribute/googleplay/edu/faq.html">
+          <span class="en">Education FAQ</span>
+        </a>
+    </div>
+  </li>
+</ul>
+
+
+<script type="text/javascript">
+<!--
+    buildToggleLists();
+    changeNavLang(getLangPref());
+//-->
+</script>
+
+
+      </div>
+    </div> <!-- end side-nav -->
+    <script>
+      $(document).ready(function() {
+        scrollIntoView("devdoc-nav");
+        });
+    </script>
+
+
+
+
+<div class="col-13" id="doc-col" >
+
+
+
+
+  
+    
+      
+        <h1 itemprop="name" >Developer Console</h1>
+      
+    
+  
+
+
+  
+  <div id="jd-content">
+
+
+    <div class="jd-descr" itemprop="articleBody">
+    <div id="qv-wrapper">           
+  <div id="qv">
+    <h2>Publishing Features</h2>
+    <ol>
+      <li><a href="#allapps">All Applications</a></li>
+      <li><a href="#account-details">Your Account Details</a></li>
+      <li><a href="#merchant-account">Linking Your Merchant Account</a></li>
+      <li><a href="#multiple-user-accounts">Multiple User Accounts</a></li>
+      <li><a href="#alpha-beta">Alpha and Beta Testing</a></li>
+      <li><a href="#staged-rollouts">Staged Rollouts</a></li>
+      <li><a href="#multiple-apk">Multiple APK Support</a></li>
+      <li><a href="#selling-pricing-your-products">Selling and Pricing</a></li>
+      <li><a href="#in-app-products">In-App Products</a></li>
+      <li><a href="#distribution-controls">Distribution Controls</a></li>
+      <li><a href="#reviews-reports">User Reviews, Crash Reports</a></li>
+      <li><a href="#app-stats">App Stats</a></li>
+      <li><a href="#related-resources">Related Resources</a></li>
+    </ol>
+  </div>
+</div>
+
+<p>
+  The <a href="https://play.google.com/apps/publish/">Google Play Developer
+  Console</a> is your home for publishing operations and tools.
+</p>
+<!-- <img src="../../images/gp-dc-startscreen.jpg" style="width:480px;" /> -->
+<img src="../../images/gp-devconsole-home.png" style="width:480px;">
+<p>
+  Upload apps, build your product pages, configure prices and distribution, and
+  publish. You can manage all phases of publishing on Google Play through the
+  Developer Console, from any web browser.
+</p>
+
+<p>
+  Once you've <a href=
+  "../../distribute/googleplay/start.html">registered</a> and received
+  verification by email, you can sign in to your Google Play Developer Console.
+</p>
+
+<div class="headerLine clearfloat">
+  <h1 id="allapps">
+    All Applications
+  </h1>
+
+  <hr>
+</div>
+
+<p>
+  Start in All Applications, which gives you a quick overview of your apps,
+  lets you jump to stats, reviews, and product details, or upload a new app.
+</p>
+
+<div style="padding:1em 0em 0em 0em;">
+  <img src="../../images/gp-dc-home.png" class="border-img">
+</div>
+
+<div class="headerLine clearfloat" style="margin-top:-6px">
+  <h1 id="account-details">
+    Your Account Details
+  </h1>
+
+  <hr>
+</div>
+
+<p>
+  Specify basic developer profile information about yourself or your company on
+  the accounts detail page. This identifies you to Google Play and your
+  customers. You can go back at any time to edit the information and change
+  your settings.
+</p>
+
+<div>
+  <img src="../../images/gp-dc-profile.png" class="frame">
+</div>
+
+<p>
+  Your developer profile contains:
+</p>
+
+<ul>
+  <li>
+    <p>
+      Developer name &mdash; displayed on your store listing page and elsewhere
+      on Google Play.
+    </p>
+  </li>
+
+  <li>
+    <p>
+      Contact information &mdash; used by Google only, it isn't seen by your
+      customers.
+    </p>
+  </li>
+
+  <li>
+    <p>
+      Web site URL &mdash; displayed on your store listing page.
+    </p>
+  </li>
+</ul>
+
+<p>
+  On the account details page you can also add restricted access for marketers
+  and other teams, register for a merchant account, or set up test accounts for
+  Google Play licensing.
+</p>
+
+<div class="headerLine clearfloat">
+  <h1 id="merchant-account">
+    Linking Your Merchant Account
+  </h1>
+
+  <hr>
+</div>
+
+<p>
+  If you want to sell apps or in-app products, link your Google Wallet Merchant
+  Account to your developer profile. Google Play uses the linked merchant
+  account for financial and tax identification, as well as for monthly payouts
+  from sales.
+</p>
+
+<div class="headerLine clearfloat">
+  <h1 id="multiple-user-accounts">
+    Multiple User Accounts
+  </h1>
+
+  <hr>
+</div>
+
+<p>
+  Set up user accounts for other team members to access different parts of your
+  Developer Console.
+</p>
+
+<div style="width:550px;">
+  <img src="../../images/gp-dc-invite.png" class="frame">
+</div>
+
+<p>
+  The first account registered is the <em>account owner</em>, with full access
+  to all parts of the console. The owner can add <em>user accounts</em> and
+  manage console access.
+</p>
+
+<p>
+  For example, an owner can grant users access to publishing and app
+  configuration, but not to financial reports. Learn how to <a href=
+  "https://support.google.com/googleplay/android-developer/answer/2528691">set
+  up multiple accounts</a> now.
+</p>
+
+<div class="headerLine clearfloat">
+  <h1 id="store-listing-details">
+    Store Listing Details
+  </h1>
+
+  <hr>
+</div>
+
+<p>
+  Use the Developer Console to set up a <em>Store Listing page</em>. This is
+  the home for your app in Google Play. It's the page users see on their mobile
+  phones or on the web to learn about your app and download it.
+</p>
+
+<p>
+  Upload custom brand assets, screenshots, and videos to highlight what's great
+  about your app. Provide a localized description, add notes about the latest
+  version, and more. You can update your store listing at any time.
+</p>
+
+<div>
+  <img src="../../images/gp-dc-details.png" class="frame">
+</div>
+
+<div class="headerLine clearfloat">
+  <h1 id="upload-instantly-publish">
+    Upload and Instantly Publish
+  </h1>
+
+  <hr>
+</div>
+
+<p>
+  From the Developer Console you can quickly upload and publish a release-ready
+  Android application package file. The app is a <em>draft</em> until you
+  publish it, at which time Google Play makes your store listing page and app
+  available to users&mdash;your app appears in the store listings within hours,
+  not weeks.
+</p>
+
+<p>
+  Once your app is published, you can update it as often as you want: Change
+  prices, configuration, and distribution options at any time, without needing
+  to update your app binary.
+</p>
+
+<p>
+  As you add features or address code issues, you can publish an updated binary
+  at any time. The new version is available almost immediately and existing
+  customers are notified that an update is ready for download. Users can also
+  accept automatic updates to your app, so that your updates are delivered and
+  installed as soon as you publish them. You can unpublish your apps app at any
+  time.
+</p>
+
+<div class="headerLine clearfloat">
+  <h1 id="alpha-beta">
+    Alpha and Beta Testing
+  </h1>
+
+  <hr>
+</div>
+
+<p>
+  It's always valuable to get real-world feedback from users, especially before
+  launch. Google Play makes it easy to distribute pre-release versions of your
+  app to alpha and beta test groups anywhere in the world.
+</p>
+
+<p>
+  In the <strong>APK</strong> section of your Google Play Developer Console
+  you’ll find the <strong>Alpha Testing</strong> and <strong>Beta
+  Testing</strong> tabs. Here you can upload versions of your apps’ APK files
+  and define a list of testers as a <a href=
+  "https://support.google.com/groups/answer/46601">Google Group</a> or <a href=
+  "https://support.google.com/plus/topic/2888488">Google+ Community</a>. Once
+  this is done you’ll receive a URL that you forward to your testers, from
+  which they can opt-in to the testing program.
+</p>
+
+<div>
+  <img src="../../images/gp-dc-ab.png" class="frame">
+</div>
+
+<p>
+  After opting-in, your testers then go to your app’s product page and when
+  they download the app Google Play will deliver them the alpha or beta version
+  as appropriate. Incidentally, if a user happens to be opted-in to both your
+  testing groups, Google Play will always deliver them the alpha test version.
+</p>
+
+<p>
+  Note that users cannot provide feedback and reviews on alpha and beta
+  versions of your apps. To gather feedback you could used the <a href=
+  "https://support.google.com/groups/answer/46601">Google Group</a> or <a href=
+  "https://support.google.com/plus/topic/2888488">Google+ Community</a>, or
+  setup an email address or your own website.
+</p>
+
+<p>
+  You can use these testing programs to <a href=
+  "../../distribute/essentials/optimizing-your-app.html">optimize your
+  apps</a>, help with <a href=
+  "../../distribute/users/expand-to-new-markets.html">rollout to new
+  markets</a>, and start <a href=
+  "../../distribute/users/build-community.html">building your
+  community</a>. There is also more information on using beta test in the
+  <a href="../../distribute/tools/launch-checklist.html">Launch
+  Checklist</a> and <a href=
+  "../../distribute/tools/localization-checklist.html">Localization
+  Checklist</a>.
+</p>
+
+<div class="headerLine clearfloat">
+  <h1 id="staged-rollouts">
+    Staged Rollouts
+  </h1>
+
+  <hr>
+</div>
+
+<p>
+  You can also stage the rollout of your apps using the Production tab in the
+  APK section of your Google Play Developer Console. Here you can define the
+  percentage of user who’ll be able to download your app.
+</p>
+
+<p>
+  Staging your rollout will help limit the impact of unexpected bugs or server
+  load and enable you to gauge user feedback with an unbiased sample of users.
+  Users can rate and review your apps during staged roll outs, so if you’re
+  hesitant, start your rollout to a small percentage of users. Be sure to watch
+  for and respond to any negative reviews.
+</p>
+
+<p>
+  Note that rollbacks aren’t supported due to the <a href=
+  "../../tools/publishing/versioning.html">app versioning requirements</a>
+  of the Android platform. If you need to rollback, consider launching a
+  previous APK with a new version number. However, this practice should be used
+  only as a last resort, as users will lose access to new features and your old
+  app may not be forward-compatible with your server changes or data formats,
+  so be sure to run <a href="#alpha-beta">alpha and beta tests</a> of your
+  updates.
+</p>
+
+<div class="headerLine clearfloat">
+  <h1 id="multiple-apk">
+    Multiple APK Support
+  </h1>
+
+  <hr>
+</div>
+
+<p>
+  In most cases, a single app package (APK) is all you need, and it’s usually
+  the easiest way to manage and maintain the app. However, if you need to
+  deliver a different APK to different devices, Google Play provides a way to
+  do that.
+</p>
+
+<p>
+  <em>Multiple APK support</em> lets you create multiple app packages that use
+  the same package name but differ in their OpenGL texture compression formats,
+  screen-size support, or Android platform versions supported. You can simply
+  upload all the APKs under a single product listing and Google Play selects
+  the best ones to deliver to users, based on the characteristics of their
+  devices.
+</p>
+
+<p>
+  You can also upload up to two secondary downloads for each published APK,
+  including multiple APKs, using the <em>APK Expansion Files</em> option. Each
+  expansion file can be up to 2GB and contain any type of code or assets.
+  Google Play hosts them for free and handles the download of the files as part
+  of the normal app installation.
+</p>
+
+<div class="headerLine clearfloat">
+  <h1 id="selling-pricing-your-products">
+    Selling and Pricing Your Products
+  </h1>
+
+  <hr>
+</div>
+
+<div class="figure-right">
+  <img src="../../images/gp-buyer-currency.png" class="frame">
+</div>
+
+<p>
+  You have tools to set prices for your apps and in-app products. Your app can
+  be free to download or priced, requiring payment before download.
+</p>
+
+<ul>
+  <li>If you publish your app as free, it must <strong>remain free for the life
+  of the app</strong>. Free apps can be downloaded by all users in Google Play.
+  </li>
+
+  <li>If you publish it as priced, you can later change it to free. Priced apps
+  can be purchased and downloaded only by users who have registered a form of
+  payment in Google Play.
+  </li>
+</ul>
+
+<div class="sidebox-wrapper" style="float:right;">
+  <div class="sidebox">
+    <p>
+      See <a href=
+      "http://support.google.com/googleplay/android-developer/bin/answer.py?hl=en&amp;answer=138294&amp;topic=2365624&amp;ctx=topic">
+      Supported locations for distributing applications</a> for a list of
+      countries where you can distribute or sell your apps.
+    </p>
+  </div>
+</div>
+
+<p>
+  You can also offer in-app products and subscriptions, whether the app is free
+  or priced. Set prices separately for priced apps, in-app products, and
+  subscriptions.
+</p>
+
+<p>
+  When users browse your app product pages or initiate a purchase, Google Play
+  shows them the price they’ll be charged in their local currency.
+</p>
+
+<p>
+  For each product, you initially set a default price in your own currency. If
+  you do no more, Google Play will automatically set local prices once a month
+  based on the US-Dollar price for your app.
+</p>
+
+<p>
+  However, Google Play gives you complete control over how you price your
+  products in each country. To start you can manually set fixed local prices
+  from the default price, using the <strong>auto-convert prices now</strong>
+  feature. You can then review these prices and set new ones for any countries
+  you wish &mdash; the price for each country is independent, so you can adjust
+  one price without affecting others. For most countries, the price you set is
+  the final price charged to users, including taxes.
+</p>
+
+<p>
+  For more on pricing your apps, see <a href=
+  "../../distribute/users/expand-to-new-markets.html#localize-your-google-play-listing">
+  Expand into New Markets</a>.
+</p>
+
+<div class="headerLine clearfloat">
+  <h1 id="in-app-products">
+    In-app Products
+  </h1>
+
+  <hr>
+</div>
+
+<p>
+  You can sell in-app products and subscriptions using <a href=
+  "../../google/play/billing/index.html">Google Play In-app Billing</a> as
+  a way to monetize your apps. In-app products are one-time purchases, while
+  subscriptions are recurring charges on a monthly or annual basis.
+</p>
+
+<p>
+  In the <strong>In-app Products</strong> section for a specific published or
+  draft APK you:
+</p>
+
+<ul>
+  <li>Create product lists for in-app products and subscriptions.
+  </li>
+
+  <li>Set prices.
+  </li>
+
+  <li>Publish the products with the app or withdraw obsolete products.
+  </li>
+</ul>
+
+<p>
+  For details on how to implement In-app Billing, see the <a href=
+  "../../google/play/billing/index.html">In-app Billing</a> developer
+  documentation. You make use of in-app products in the <a href=
+  "../../distribute/monetize/premium.html">Premium</a>, <a href=
+  "../../distribute/monetize/freemium.html">Freemium</a>, and <a href=
+  "../../distribute/monetize/subscriptions.html">Subscription</a>
+  monetization models
+</p>
+
+<div class="headerLine clearfloat">
+  <h1 id="distribution-controls">
+    Distribution Controls
+  </h1>
+
+  <hr>
+</div>
+
+<p>
+  Manage which countries and territories your apps will distribute to. For some
+  countries, you can choose which carriers you want to target. You can also see
+  the list of devices your app is available for, based on any distribution
+  rules declared in its manifest file.
+</p>
+
+<h3 id="geotargeting">
+  Geographic targeting
+</h3>
+
+<p>
+  You can use controls in the Google Play Developer Console to easily manage
+  the geographic distribution of your apps, without any changes in your
+  application binary. You can specify which countries and territories you want
+  to distribute to, and even which carriers (for some countries).
+</p>
+
+<p>
+  When users visit the store, Google Play makes sure that they are in one of
+  your targeted countries before downloading your app. You can change your
+  country and carrier targeting at any time just by saving changes in the
+  Google Play Developer Console.
+</p>
+
+<div class="figure-right" style="width:500px;">
+  <img src="../../images/gp-supported-dev-requirements.png" class="frame">
+</div>
+
+<p>
+  To help you market to users around the world, you can <a href=
+  "../../distribute/tools/launch-checklist.html#start-localization">localize
+  your store listing</a>, including app details and description, promotional
+  graphics, screenshots, and more.
+</p>
+
+<h3 id="captargeting">
+  Capabilities targeting
+</h3>
+
+<p>
+  Google Play also lets you control distribution according to device features
+  or capabilities that your app depends on. There are several types of
+  dependencies that the app can define in its manifest, such as hardware
+  features, OpenGL texture compression formats, libraries, Android platform
+  versions, and others.
+</p>
+
+<p>
+  When you upload your app, Google Play reads the dependencies and sets up any
+  necessary distribution rules. For technical information about declaring
+  dependencies, read <a href="../../google/play/filters.html">Filters on
+  Google Play</a>.
+</p>
+
+<p>
+  For pinpoint control over distribution, Google Play lets you see all of the
+  devices your app is available to based on its dependencies (if any). From the
+  Google Play Developer Console, you can list the supported devices and even
+  exclude specific devices if needed.
+</p>
+
+<div class="headerLine clearfloat">
+  <h1 id="reviews-reports">
+    User Reviews and Crash Reports
+  </h1>
+
+  <hr>
+</div>
+
+<div class="figure-right" style="width:500px;">
+  <img src="../../images/gp-dc-reviews.png" class="frame">
+  <p class="img-caption">
+    The User reviews section gives you access to user reviews for a specific
+    app. You can filter reviews in a number of ways to locate issues more
+    easily and support your customers more effectively.
+  </p>
+</div>
+
+<p>
+  Google Play makes it easy for users to submit reviews of your app for the
+  benefit of other users. The reviews give you usability feedback, support
+  requests, and details of important functionality issues direct from your
+  customers.
+</p>
+
+<p>
+  Use crash reports for debugging and improving your app. You can see crash
+  reports with stack trace and other data, submitted automatically from Android
+  devices.
+</p>
+
+<div class="headerLine clearfloat">
+  <h1 id="app-stats">
+    App Statistics
+  </h1>
+
+  <hr>
+</div>
+
+<div class="figure" style="width:500px">
+  <img src="../../images/gp-dc-stats.png">
+  <p class="img-caption">
+    <b>App statistics page</b>: Shows you a variety of statistics about a
+    specific app's installation performance.
+  </p>
+</div>
+
+<p>
+  You get detailed statistics on the install performance of your app.
+</p>
+
+<p>
+  See installation metrics measured by unique users as well as by unique
+  devices. View active installs, total installs, upgrades, daily installs and
+  uninstalls, and metrics about ratings.
+</p>
+
+<p>
+  Zoom into the installation numbers by metric, including Android platform
+  version, device, country, language, app version, and carrier. View the
+  installation data for each dimension on timeline charts.
+</p>
+
+<p>
+  These charts highlight your app’s installation peaks and longer-term trends.
+  They help you learn your user’s adoption behavior, correlate statistics to
+  promotions, see the effect of app improvements, and other factors. Focus in
+  on data inside a dimension by adding specific points to the timeline.
+</p>
+
+<div class="dynamic-grid">
+<div class="headerLine clearfloat">
+<h1 id="related-resources">Related Resources</h1><hr/>
+</div>
+
+<div class="resource-widget resource-flow-layout col-13"
+  data-query="collection:distribute/googleplay/developerconsole"
+  data-sortOrder="-timestamp"
+  data-cardSizes="9x3"
+  data-maxResults="6"></div>
+  </div>
+    </div>
+
+      <div class="content-footer layout-content-row"
+                    itemscope itemtype="http://schema.org/SiteNavigationElement">
+        <div class="layout-content-col col-9" style="padding-top:4px">
+          
+            <div class="g-plusone" data-size="medium"></div>
+          
+        </div>
+        
+        <div class="paging-links layout-content-col col-4">
+          
+        </div>
+        
+      </div>
+
+      
+      
+
+  </div> <!-- end jd-content -->
+
+<div id="footer" class="wrap" >
+        
+
+  <div id="copyright">
+    
+  Except as noted, this content is 
+  licensed under <a href="http://creativecommons.org/licenses/by/2.5/">
+  Creative Commons Attribution 2.5</a>. For details and 
+  restrictions, see the <a href="../../license.html">Content 
+  License</a>.
+  </div>
+
+
+  <div id="footerlinks">
+    
+  <p>
+    <a href="../../about/index.html">About Android</a>&nbsp;&nbsp;|&nbsp;
+    <a href="../../legal.html">Legal</a>&nbsp;&nbsp;|&nbsp;
+    <a href="../../support.html">Support</a>
+  </p>
+  </div>
+
+</div> <!-- end footer -->
+</div><!-- end doc-content -->
+
+<!-- Start of Tag -->
+<script type="text/javascript">
+var axel = Math.random() + "";
+var a = axel * 10000000000000;
+document.write('<iframe src="https://2507573.fls.doubleclick.net/activityi;src=2507573;type=other026;cat=googl348;ord=' + a + '?" width="1" height="1" frameborder="0" style="display:none"></iframe>');
+</script>
+<noscript>
+<iframe src="https://2507573.fls.doubleclick.net/activityi;src=2507573;type=other026;cat=googl348;ord=1?" width="1" height="1" frameborder="0" style="display:none"></iframe>
+</noscript>
+<!-- End of Tag -->
+
+
+</div> <!-- end body-content --> 
+
+
+
+
+
+  <script src="https://developer.android.com/ytblogger_lists_unified.js" type="text/javascript"></script>
+  <script src="../../jd_lists_unified.js" type="text/javascript"></script>
+  <script src="../../jd_extras.js" type="text/javascript"></script>
+  <script src="../../jd_collections.js" type="text/javascript"></script>
+  <script src="../../jd_tag_helpers.js" type="text/javascript"></script>
+
+</body>
+</html>
+
+
+

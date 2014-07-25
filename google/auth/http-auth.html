@@ -1,0 +1,1261 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width" />
+
+<meta name="Description" content="When you want your Android app to access Google APIs using the user&#39;s Google account over HTTP, the GoogleAuthUtil class and related APIs provide your users a secure and consistent experience for picking an account and retrieving an OAuth 2.0 token…">
+<link rel="shortcut icon" type="image/x-icon" href="../../favicon.ico" />
+<title>Authorizing with Google for REST APIs | Android Developers</title>
+
+<!-- STYLESHEETS -->
+<link rel="stylesheet"
+href="http://fonts.googleapis.com/css?family=Roboto+Condensed">
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:light,regular,medium,thin,italic,mediumitalic,bold"
+  title="roboto">
+<link href="../../assets/css/default.css" rel="stylesheet" type="text/css">
+
+
+
+<!-- JAVASCRIPT -->
+<script src="http://www.google.com/jsapi" type="text/javascript"></script>
+<script src="../../assets/js/android_3p-bundle.js" type="text/javascript"></script>
+<script type="text/javascript">
+  var toRoot = "../../";
+  var metaTags = ["oauth2.0","googleauthutil"];
+  var devsite = false;
+</script>
+<script src="../../assets/js/docs.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-5831155-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+
+<body class="gc-documentation 
+
+google" itemscope itemtype="http://schema.org/Article">
+
+<a name="top"></a>
+
+  <!-- Header -->
+  <div id="header-wrapper">
+    <div id="header">
+      <div class="wrap" id="header-wrap">
+        <div class="col-3 logo">
+          <a href="../../index.html">
+            <img src="../../assets/images/dac_logo.png"
+                srcset="../../assets/images/dac_logo@2x.png 2x"
+                width="123" height="25" alt="Android Developers" />
+          </a>
+          <div class="btn-quicknav" id="btn-quicknav">
+            <a href="#" class="arrow-inactive">Quicknav</a>
+            <a href="#" class="arrow-active">Quicknav</a>
+          </div>
+        </div>
+        <ul class="nav-x col-9">
+            <li class="design">
+              <a href="../../design/index.html"
+              zh-tw-lang="設計"
+              zh-cn-lang="设计"
+              ru-lang="Проектирование"
+              ko-lang="디자인"
+              ja-lang="設計"
+              es-lang="Diseñar"
+              >Design</a></li>
+            <li class="develop"><a href="../../develop/index.html"
+              zh-tw-lang="開發"
+              zh-cn-lang="开发"
+              ru-lang="Разработка"
+              ko-lang="개발"
+              ja-lang="開発"
+              es-lang="Desarrollar"
+              >Develop</a></li>
+            <li class="distribute last"><a href="../../distribute/googleplay/index.html"
+              zh-tw-lang="發佈"
+              zh-cn-lang="分发"
+              ru-lang="Распространение"
+              ko-lang="배포"
+              ja-lang="配布"
+              es-lang="Distribuir"
+              >Distribute</a></li>
+        </ul>
+
+
+        
+        
+<div class="menu-container">
+  <div class="moremenu">
+    <div id="more-btn"></div>
+  </div>
+  <div class="morehover" id="moremenu">
+    <div class="top"></div>
+    <div class="mid">
+      <div class="header">Links</div>
+      <ul>
+        <li><a href="https://play.google.com/apps/publish/" target="_googleplay">Google Play Developer Console</a></li>
+        <li><a href="http://android-developers.blogspot.com/">Android Developers Blog</a></li>
+        <li><a href="../../about/index.html">About Android</a></li>
+      </ul>
+      <div class="header">Android Sites</div>
+      <ul>
+        <li><a href="http://www.android.com">Android.com</a></li>
+        <li class="active"><a>Android Developers</a></li>
+        <li><a href="http://source.android.com">Android Open Source Project</a></li>
+      </ul>
+
+      
+      
+      
+      <br class="clearfix" />
+    </div><!-- end 'mid' -->
+    <div class="bottom"></div>
+  </div><!-- end 'moremenu' -->
+
+  <div class="search" id="search-container">
+    <div class="search-inner">
+      <div id="search-btn"></div>
+      <div class="left"></div>
+      <form onsubmit="return submit_search()">
+        <input id="search_autocomplete" type="text" value="" autocomplete="off" name="q"
+          onfocus="search_focus_changed(this, true)" onblur="search_focus_changed(this, false)"
+          onkeydown="return search_changed(event, true, '../../')"
+          onkeyup="return search_changed(event, false, '../../')" />
+      </form>
+      <div class="right"></div>
+      <a class="close hide">close</a>
+      <div class="left"></div>
+      <div class="right"></div>
+    </div><!-- end search-inner -->
+  </div><!-- end search-container -->
+
+  <div class="search_filtered_wrapper reference">
+    <div class="suggest-card reference no-display">
+      <ul class="search_filtered">
+      </ul>
+    </div>
+  </div>
+
+  <div class="search_filtered_wrapper docs">
+    <div class="suggest-card dummy no-display">&nbsp;</div>
+    <div class="suggest-card develop no-display">
+      <ul class="search_filtered">
+      </ul>
+      <div class="child-card guides no-display">
+      </div>
+      <div class="child-card training no-display">
+      </div>
+      <div class="child-card samples no-display">
+      </div>
+    </div>
+    <div class="suggest-card design no-display">
+      <ul class="search_filtered">
+      </ul>
+    </div>
+    <div class="suggest-card distribute no-display">
+      <ul class="search_filtered">
+      </ul>
+    </div>
+  </div>
+</div><!-- end menu-container (search and menu widget) -->
+
+
+
+        <!-- Expanded quicknav -->
+        <div id="quicknav" class="col-9">
+          <ul>
+            <li class="design">
+              <ul>
+                <li><a href="../../design/index.html">Get Started</a></li>
+                <li><a href="../../design/style/index.html">Style</a></li>
+                <li><a href="../../design/patterns/index.html">Patterns</a></li>
+                <li><a href="../../design/building-blocks/index.html">Building Blocks</a></li>
+                <li><a href="../../design/downloads/index.html">Downloads</a></li>
+                <li><a href="../../design/videos/index.html">Videos</a></li>
+              </ul>
+            </li>
+            <li class="develop">
+              <ul>
+                <li><a href="../../training/index.html"
+                  zh-tw-lang="訓練課程"
+                  zh-cn-lang="培训"
+                  ru-lang="Курсы"
+                  ko-lang="교육"
+                  ja-lang="トレーニング"
+                  es-lang="Capacitación"
+                  >Training</a></li>
+                <li><a href="../../guide/index.html"
+                  zh-tw-lang="API 指南"
+                  zh-cn-lang="API 指南"
+                  ru-lang="Руководства по API"
+                  ko-lang="API 가이드"
+                  ja-lang="API ガイド"
+                  es-lang="Guías de la API"
+                  >API Guides</a></li>
+                <li><a href="../../reference/packages.html"
+                  zh-tw-lang="參考資源"
+                  zh-cn-lang="参考"
+                  ru-lang="Справочник"
+                  ko-lang="참조문서"
+                  ja-lang="リファレンス"
+                  es-lang="Referencia"
+                  >Reference</a></li>
+                <li><a href="../../tools/index.html"
+                  zh-tw-lang="相關工具"
+                  zh-cn-lang="工具"
+                  ru-lang="Инструменты"
+                  ko-lang="도구"
+                  ja-lang="ツール"
+                  es-lang="Herramientas"
+                  >Tools</a>
+                  <ul><li><a href="../../sdk/index.html">Get the SDK</a></li></ul>
+                </li>
+                <li><a href="../../google/index.html">Google Services</a>
+                </li>
+                
+              </ul>
+            </li>
+            <li class="distribute last">
+              <ul>
+                <li><a href="../../distribute/googleplay/index.html">Google Play</a></li>
+                <li><a href="../../distribute/essentials/index.html">Essentials</a></li>
+                <li><a href="../../distribute/users/index.html">Get Users</a></li>
+                <li><a href="../../distribute/engage/index.html">Engage &amp; Retain</a></li>
+                <li><a href="../../distribute/monetize/index.html">Monetize</a></li>
+                <li><a href="../../distribute/tools/index.html">Tools &amp; Reference</a></li>
+                <li><a href="../../distribute/stories/index.html">Developer Stories</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div><!-- /Expanded quicknav -->
+      </div><!-- end header-wrap.wrap -->
+    </div><!-- end header -->
+
+  
+    <!-- Secondary x-nav -->
+    <div id="nav-x">
+        <div class="wrap">
+            <ul class="nav-x col-9 develop" style="width:100%">
+                <li class="training"><a href="../../training/index.html"
+                  zh-tw-lang="訓練課程"
+                  zh-cn-lang="培训"
+                  ru-lang="Курсы"
+                  ko-lang="교육"
+                  ja-lang="トレーニング"
+                  es-lang="Capacitación"
+                  >Training</a></li>
+                <li class="guide"><a href="../../guide/index.html"
+                  zh-tw-lang="API 指南"
+                  zh-cn-lang="API 指南"
+                  ru-lang="Руководства по API"
+                  ko-lang="API 가이드"
+                  ja-lang="API ガイド"
+                  es-lang="Guías de la API"
+                  >API Guides</a></li>
+                <li class="reference"><a href="../../reference/packages.html"
+                  zh-tw-lang="參考資源"
+                  zh-cn-lang="参考"
+                  ru-lang="Справочник"
+                  ko-lang="참조문서"
+                  ja-lang="リファレンス"
+                  es-lang="Referencia"
+                  >Reference</a></li>
+                <li class="tools"><a href="../../tools/index.html"
+                  zh-tw-lang="相關工具"
+                  zh-cn-lang="工具"
+                  ru-lang="Инструменты"
+                  ko-lang="도구"
+                  ja-lang="ツール"
+                  es-lang="Herramientas"
+                  >Tools</a></li>
+                <li class="google"><a href="../../google/index.html"
+                  >Google Services</a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+    <!-- /Sendondary x-nav -->
+
+  
+
+    <div id="searchResults" class="wrap" style="display:none;">
+      <h2 id="searchTitle">Results</h2>
+      <div id="leftSearchControl" class="search-control">Loading...</div>
+    </div>
+  </div> <!--end header-wrapper -->
+
+  <div id="sticky-header">
+    <div>
+      <a class="logo" href="#top"></a>
+      <a class="top" href="#top"></a>
+      <ul class="breadcrumb">
+        
+        <li class="current">Authorizing with Google for REST APIs</li>
+      </ul>
+    </div>
+  </div>
+
+
+
+
+  <div class="wrap clearfix" id="body-content">
+    <div class="col-4" id="side-nav" itemscope itemtype="http://schema.org/SiteNavigationElement">
+      <div id="devdoc-nav" class="scroll-pane">
+
+
+
+<ul id="nav">
+
+  <li class="nav-section">
+    <div class="nav-section-header empty"><a href="../../google/index.html">
+          <span class="en">Overview</span>
+      </a></div>
+  </li>
+
+  <li class="nav-section">
+    <div class="nav-section-header empty"><a href="../../google/play-services/games.html">
+          <span class="en">Games</span>
+      </a></div>
+  </li>
+  <li class="nav-section">
+    <div class="nav-section-header empty"><a href="../../google/play-services/location.html">
+          <span class="en">Location</span>
+      </a></div>
+  </li>
+  <li class="nav-section">
+    <div class="nav-section-header empty"><a href="../../google/play-services/plus.html">
+          <span class="en">Google+</span>
+                </a></div>
+  </li>
+  <li class="nav-section">
+    <div class="nav-section-header empty"><a href="../../google/play-services/maps.html">
+          <span class="en">Maps</span>
+      </a></div>
+  </li>
+  <li class="nav-section">
+    <div class="nav-section-header empty"><a href="../../google/play-services/drive.html">
+          <span class="en">Drive</span>
+      </a></div>
+  </li>
+  <li class="nav-section">
+    <div class="nav-section-header empty"><a href="../../google/play-services/cast.html">
+          <span class="en">Cast</span>
+      </a></div>
+  </li>
+  <li class="nav-section">
+    <div class="nav-section-header"><a href="../../google/play-services/ads.html">
+      <span class="en">Ads</span></a>
+    </div>
+    <ul>
+      <li><a href="../../google/play-services/id.html">
+          <span class="en">Advertising ID</span></a>
+      </li>
+    </ul>
+  </li>
+  <li class="nav-section">
+    <div class="nav-section-header empty"><a href="../../google/play-services/wallet.html">
+          <span class="en">Wallet</span>
+      </a></div>
+  </li>
+
+
+  <li class="nav-section">
+    <div class="nav-section-header"><a href="../../google/play-services/index.html">
+      <span class="en">Google Play Services</span></a>
+    </div>
+    <ul>
+      <li><a href="../../google/play-services/setup.html">
+          <span class="en">Setup</span></a>
+      </li>
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../google/auth/api-client.html">
+          <span class="en">Accessing Google Play Services APIs</span></a>
+        </div>
+        <ul>
+          <li>
+            <a href="../../google/auth/http-auth.html">
+              <span class="en">Authorizing with Google for REST APIs</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+      <li id="gms-tree-list" class="nav-section">
+        <div class="nav-section-header">
+          <a href="../../reference/gms-packages.html">
+            <span class="en">Reference</span>
+          </a>
+        <div>
+      </li>
+    </ul>
+  </li>
+
+
+  <li class="nav-section">
+    <div class="nav-section-header"><a href="../../google/play/billing/index.html">
+      <span class="en">Google Play In-app Billing</span></a>
+    </div>
+    <ul>
+      <li><a href="../../google/play/billing/billing_overview.html">
+              <span class="en">Overview</span></a>
+      </li>
+      <li class="nav-section"><div class="nav-section-header"><a href="../../google/play/billing/api.html">
+              <span class="en">Version 3 API</span></a></div>
+              <ul>
+              <li><a href="../../google/play/billing/billing_integrate.html">
+              <span class="en">Implementing the API</span></a></li>
+              <li><a href="../../google/play/billing/billing_reference.html">
+              <span class="en">Reference</span></a></li>
+              </ul>
+      </li>
+      <li class="nav-section"><div class="nav-section-header"><a href="../../google/play/billing/v2/api.html">
+              <span class="en">Version 2 API</span></a></div>
+              <ul>
+              <li><a href="../../google/play/billing/v2/billing_integrate.html">
+              <span class="en">Implementing the API</span></a></li>
+              <li><a href="../../google/play/billing/v2/billing_subscriptions.html">
+              <span class="en">Subscriptions</span></a></li>
+              <li><a href="../../google/play/billing/v2/billing_reference.html">
+              <span class="en">Reference</span></a></li>
+              </ul>
+      </li>
+      <li><a href="../../google/play/billing/billing_subscriptions.html">
+              <span class="en">Subscriptions</span></a>
+      </li>
+      <li><a href="../../google/play/billing/billing_best_practices.html">
+              <span class="en">Security and Design</span></a>
+      </li>
+      <li><a href="../../google/play/billing/billing_testing.html">
+              <span class="en">Testing In-app Billing</span></a>
+      </li>
+      <li><a href="../../google/play/billing/billing_admin.html">
+              <span class="en">Administering In-app Billing</span></a>
+      </li>
+      <li><a href="../../google/play/billing/gp-purchase-status-api.html">
+              <span class="en">Purchase Status API</span></a>
+      </li>
+      <li><a href="../../google/play/billing/versions.html">
+              <span class="en">Version Notes</span></a>
+      </li>
+    </ul>
+  </li>
+
+
+
+   <li class="nav-section">
+      <div class="nav-section-header"><a href="../../google/gcm/index.html">
+        <span class="en">Google Cloud Messaging</span></a>
+      </div>
+      <ul>
+        <li><a href="../../google/gcm/gcm.html">
+            <span class="en">Overview</span></a>
+        </li>
+        <li><a href="../../google/gcm/gs.html">
+            <span class="en">Getting Started</span></a>
+        </li>
+        <li><a href="../../google/gcm/client.html">
+            <span class="en">Implementing GCM Client</span></a>
+        </li>
+        <li class="nav-section"><div class="nav-section-header"><a href="../../google/gcm/server.html">
+              <span class="en">Implementing GCM Server</span></a></div>
+              <ul>
+              <li><a href="../../google/gcm/ccs.html">
+              <span class="en">CCS (XMPP)</span></a></li>
+              <li><a href="../../google/gcm/http.html">
+              <span class="en">HTTP</span></a></li>
+              </ul>
+        </li>
+        <li><a href="../../google/gcm/notifications.html">
+              <span class="en">User Notifications</span></a>
+        </li>
+        <li><a href="../../google/gcm/adv.html">
+            <span class="en">Advanced Topics</span></a>
+        </li>
+        <li><a href="../../google/gcm/c2dm.html">
+            <span class="en">Migration</span></a>
+        </li>
+        <li id="gcm-tree-list" class="nav-section">
+          <div class="nav-section-header">
+            <a href="../../reference/gcm-packages.html">
+              <span class="en">Reference</span>
+            </a>
+          <div>
+        </li>
+      </ul>
+  </li>
+
+  <li class="nav-section">
+    <div class="nav-section-header"><a href="../../google/play/dist.html">
+      <span class="en">Google Play Distribution</span></a>
+    </div>
+    <ul>
+      <li><a href="../../google/play/filters.html">
+          <span class="en">Filters on Google Play</span></a>
+      </li>
+
+      <li><a href="../../google/play/publishing/multiple-apks.html">
+          <span class="en">Multiple APK Support</span></a>
+      </li>
+      <li><a href="../../google/play/expansion-files.html">
+          <span class="en">APK Expansion Files</span></a>
+      </li>
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../google/play/licensing/index.html">
+          <span class="en">Application Licensing</span></a>
+        </div>
+        <ul>
+          <li><a href="../../google/play/licensing/overview.html">
+              <span class="en">Licensing Overview</span></a>
+          </li>
+          <li><a href="../../google/play/licensing/setting-up.html">
+              <span class="en">Setting Up for Licensing</span></a>
+          </li>
+          <li><a href="../../google/play/licensing/adding-licensing.html">
+              <span class="en">Adding Licensing to Your App</span></a>
+          </li>
+          <li><a href="../../google/play/licensing/licensing-reference.html">
+              <span class="en">Licensing Reference</span></a>
+          </li>
+        </ul>
+      </li>
+
+  <li class="nav-section">
+    <div class="nav-section-header"><a href="../../google/backup/index.html">
+      Android Backup Service</a>
+    </div>
+    <ul>
+      <li><a href="../../google/backup/signup.html">
+          Register</a>
+      </li>
+    </ul>
+  </li>
+
+  </ul>
+
+</li>
+
+
+
+</ul>
+
+<script type="text/javascript">
+<!--
+    buildToggleLists();
+    changeNavLang(getLangPref());
+//-->
+</script>
+
+
+        
+
+      </div>
+      <script type="text/javascript">
+       showGoogleRefTree();
+    
+      </script>
+    </div> <!-- end side-nav -->
+    <script>
+      $(document).ready(function() {
+        scrollIntoView("devdoc-nav");
+        });
+    </script>
+
+
+
+
+<div class="col-12" id="doc-col" >
+
+
+
+
+  
+    
+      
+        <h1 itemprop="name" >Authorizing with Google for REST APIs</h1>
+      
+    
+  
+
+
+  
+  <div id="jd-content">
+
+
+    <div class="jd-descr" itemprop="articleBody">
+    <div id="qv-wrapper">
+  <div id="qv">
+
+<h2>In this document</h2>
+<ol>
+  <li><a href="#Register">Register Your App</a></li>
+  <li><a href="#AccountPicker">Invoke the Account Picker</a></li>
+  <li><a href="#AccountName">Retrieve the Account Name</a></li>
+  <li><a href="#ExtendAsyncTask">Extend AsyncTask to Get the Auth Token</a></li>
+  <li><a href="#HandleExceptions">Handle Exceptions</a></li>
+</ol>
+<h2>Try it out</h2>
+
+<div class="download-box">
+<a href="http://developer.android.com/shareables/training/GoogleAuth.zip"
+  class="button">Download the sample app</a>
+<p class="filename">GoogleAuth.zip</p>
+</div>
+
+</div>
+</div>
+
+<p>When you want your Android app to access Google APIs using the user's Google account over
+HTTP, the <a href=
+"../../reference/com/google/android/gms/auth/GoogleAuthUtil.html"><code>GoogleAuthUtil</code></a>
+class and related APIs provide your users a secure and consistent experience for picking an
+account and retrieving an OAuth 2.0 token for your app.</p>
+
+<p>You can then use that token in your HTTP-based communications with Google API services
+that are not included in the <a href="../../google/play-services/index.html">Google Play
+services</a> library, such as the Blogger or Translate APIs.</p>
+
+<p class="note"><strong>Note:</strong> An OAuth 2.0 token using <a href=
+"../../reference/com/google/android/gms/auth/GoogleAuthUtil.html"><code>GoogleAuthUtil</code></a>
+is required only for certain types of Google
+APIs that you need to access over HTTP. If you're instead using the <a
+href="../../google/play-services/index.html">Google Play services library</a> to access Google
+APIs such as <a href="../../google/play-services/plus.html">Google+</a> or <a
+href="../../google/play-services/games.html">Play Games</a>, you don't need an OAuth 2.0
+token and you can instead access these services using the <code>GoogleApiClient</code>. For more
+information, read <a href="../../google/auth/api-client.html">Accessing Google Play
+Services APIs</a>.</p>
+
+<p>To get started with <a href=
+"../../reference/com/google/android/gms/auth/GoogleAuthUtil.html"><code>GoogleAuthUtil</code></a>
+for accessing Google's REST APIs, you must set up your Android app project with the Google Play
+services library. Follow the procedures in <a href=
+"../../google/play-services/setup.html">Setup Google Play Services SDK</a>.</p>
+
+
+
+
+<h2 id="Register">Register Your App</h2>
+
+<p>Before you can publish an app that retrieves an OAuth 2.0 token for Google REST APIs,
+you must register your Android app with the Google Cloud Console by providing your app's
+package name and the SHA1 fingerprint of the keystore with which you sign your release APK.</p>
+
+<p class="caution"><strong>Caution:</strong> While you are testing an APK that's <a
+href="../../tools/publishing/app-signing.html#debugmode">signed with a
+debug key</a>, Google does not require that your app be registered in Google Cloud Console. However,
+your app must be registered in Google Cloud Console in order to continue working once it is
+<a href="../../tools/publishing/app-signing.html#releasemode">signed
+with a release key</a>.</p>
+
+<p>To register your Android app with Google Cloud Console:</p>
+
+<ol>
+<li>Visit <a href="https://cloud.google.com/console" class="external-link" target="_blank"
+>Google Cloud Console</a>.
+<li>If you have an existing project to which you're adding an Android app, select the project.
+Otherwise, click <strong>Create project</strong> at the top, enter your project name and ID,
+then click <strong>Create</strong>.
+<p class="note"><strong>Note:</strong> The name you provide for the project is the name that
+appears to users in the Google Settings app in the list of <em>Connected apps</em>.</p>
+<li>In the left-side navigation, select <strong>APIs &amp; auth</strong>.
+<li>Enable the API you'd like to use by setting the Status to <strong>ON</strong>.
+
+<li>In the left-side navigation, select <strong>Credentials</strong>.
+<li>Click <strong>Create new client ID</strong> or <strong>Create new key</strong>
+as appropriate for your app.</li>
+<li>Complete the form that appears by filling in your Android app details.
+<p>To get the SHA1 fingerprint for your app, run the following command in a terminal:
+<pre class="no-pretty-print">
+keytool -exportcert -alias &lt;keystore_alias> -keystore &lt;keystore_path> -list -v
+</pre>
+<p>For example, you're using a debug-key with Eclipse, then the command looks like this:</p>
+<pre class="no-pretty-print">
+keytool -exportcert -alias androiddebugkey-keystore ~/.android/debug.keystore -list -v
+</pre>
+<p>Then the keystore password is "android".</p>
+</li>
+<li>Click <strong>Create</strong>.
+</ol>
+
+<p>The Credentials page then provides the available credentials such as an OAuth 2.0 client ID and
+an Android Key, but you don't need these to authorize your Android users. Simply registering your
+app with the package name and SHA1 makes the Google services accessible by your app.
+
+
+<p>To acquire the OAuth 2.0 token that will grant you access to Google APIs over HTTP, you need to
+first identify the user's Google account with which you'll query the servers. For this task, the
+Google Play services library provides a convenient account picker dialog you can invoke using
+<a href="../../reference/com/google/android/gms/common/AccountPicker.html"><code>AccountPicker</code></a>. The result delivered to your activity from the account picker is the account
+name you'll use to request the OAuth 2.0 token in the next lesson.</p>
+
+<p class="note"><strong>Note:</strong> In order to use the APIs discussed here, you must
+include the Google Play services library with your project. If you haven't set up your project
+with the library yet, read the guide to <a
+href="../../google/play-services/setup.html">Setup Google Play Services SDK</a>.</p>
+
+
+
+<h2 id="AccountPicker">Invoke the Account Picker</h2>
+
+<p>To open the account picker dialog that's managed by the Google Play services library, call
+<code><a href="../../reference/android/app/Activity.html#startActivityForResult(android.content.Intent, int)">startActivityForResult()</a></code> using an <code><a href="../../reference/android/content/Intent.html">Intent</a></code> returned by <a href=
+"../../reference/com/google/android/gms/common/AccountPicker.html#newChooseAccountIntent(android.accounts.Account,%20java.util.ArrayList%3Candroid.accounts.Account%3E,%20java.lang.String[],%20boolean,%20java.lang.String,%20java.lang.String,%20java.lang.String[],%20android.os.Bundle)">
+<code>AccountPicker.newChooseAccountIntent</code></a>.</p>
+
+
+<p>For example:</p>
+<pre>
+static final int REQUEST_CODE_PICK_ACCOUNT = 1000;
+
+private void pickUserAccount() {
+    String[] accountTypes = new String[]{"com.google"};
+    Intent intent = AccountPicker.newChooseAccountIntent(null, null,
+            accountTypes, false, null, null, null, null);
+    startActivityForResult(intent, REQUEST_CODE_PICK_ACCOUNT);
+}
+</pre>
+
+<p>When this code executes, a dialog appears for the user to pick an account. When the user
+selects the account, your activity receives the result in the <code><a href="../../reference/android/app/Activity.html#onActivityResult(int, int, android.content.Intent)">onActivityResult()</a></code> callback.</p>
+
+<p>Most apps should pass the <a href=
+"../../reference/com/google/android/gms/common/AccountPicker.html#newChooseAccountIntent(android.accounts.Account,%20java.util.ArrayList%3Candroid.accounts.Account%3E,%20java.lang.String[],%20boolean,%20java.lang.String,%20java.lang.String,%20java.lang.String[],%20android.os.Bundle)">
+<code>newChooseAccountIntent()</code></a> method the same arguments shown in the above example,
+which indicate that:</p>
+
+
+<ul>
+<li>There is no currently selected account.</li>
+<li>There is no restricted list of accounts.</li>
+<li>The dialog should list only accounts from the "com.google" domain.</li>
+<li>Don't prompt the user to pick an account if there's only one available account (just use that
+one). However, even if only one account currently exists, the dialog may include an option for the
+user to add a new account.</li>
+<li>There is no custom title for the dialog.</li>
+<li>There is no specific auth token type required.</li>
+<li>There are no restrictions based on account features.</li>
+<li>There are no authenticator-specific options.</li>
+</ul>
+
+<p>For more details about these arguments, see the <a href=
+"../../reference/com/google/android/gms/common/AccountPicker.html#newChooseAccountIntent(android.accounts.Account,%20java.util.ArrayList%3Candroid.accounts.Account%3E,%20java.lang.String[],%20boolean,%20java.lang.String,%20java.lang.String,%20java.lang.String[],%20android.os.Bundle)">
+<code>newChooseAccountIntent()</code></a> method documentation.</p>
+
+
+
+
+<h2 id="AccountName">Retrieve the Account Name</h2>
+
+<p>Once the user selects an account, your activity receives a call to its
+<code><a href="../../reference/android/app/Activity.html#onActivityResult(int, int, android.content.Intent)">onActivityResult()</a></code> method. The received
+<code><a href="../../reference/android/content/Intent.html">Intent</a></code> includes an extra for
+<code><a href="../../reference/android/accounts/AccountManager.html#KEY_ACCOUNT_NAME">KEY_ACCOUNT_NAME</a></code>, specifying the account name
+(an email address) you must use to acquire the OAuth 2.0 token.</p>
+
+<p>Here's an example implementation of the callback <code><a href="../../reference/android/app/Activity.html#onActivityResult(int, int, android.content.Intent)">onActivityResult()</a></code> that receives the selected account:</p>
+
+<pre>
+String mEmail; // Received from <a href=
+"../../reference/com/google/android/gms/common/AccountPicker.html#newChooseAccountIntent(android.accounts.Account,%20java.util.ArrayList%3Candroid.accounts.Account%3E,%20java.lang.String[],%20boolean,%20java.lang.String,%20java.lang.String,%20java.lang.String[],%20android.os.Bundle)"
+><code>newChooseAccountIntent()</code></a>; passed to <a href=
+"../../reference/com/google/android/gms/auth/GoogleAuthUtil.html#getToken(android.content.Context,%20java.lang.String,%20java.lang.String)"><code>getToken()</code></a>
+
+&#64;Override
+protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    if (requestCode == REQUEST_CODE_PICK_ACCOUNT) {
+        // Receiving a result from the AccountPicker
+        if (resultCode == RESULT_OK) {
+            mEmail = data.getStringExtra(AccountManager.KEY_ACCOUNT_NAME);
+            // With the account name acquired, go get the auth token
+            getUsername();
+        } else if (resultCode == RESULT_CANCELED) {
+            // The account picker dialog closed without selecting an account.
+            // Notify users that they must pick an account to proceed.
+            Toast.makeText(this, R.string.pick_account, Toast.LENGTH_SHORT).show();
+        }
+    }
+    // Later, more code will go here to handle the result from some exceptions...
+}
+</pre>
+
+<p>You can now pass the account name held by <code>mEmail</code> to <a href=
+"../../reference/com/google/android/gms/auth/GoogleAuthUtil.html#getToken(android.content.Context,%20java.lang.String,%20java.lang.String)">
+<code>GoogleAuthUtil.getToken()</code></a> (which is what the <code>getUsername()</code> method
+does), but because it performs network transactions, this method should not be called from the
+UI thread. The next lesson shows how to create an <code><a href="../../reference/android/os/AsyncTask.html">AsyncTask</a></code> to get the auth token
+on a separate thread.</p>
+
+
+<p>Once you have retrieved the account name for the user's Google account, you can call <a href=
+"../../reference/com/google/android/gms/auth/GoogleAuthUtil.html#getToken(android.content.Context,%20java.lang.String,%20java.lang.String)">
+<code>GoogleAuthUtil.getToken()</code></a>, which returns the access token string required by Google API
+services.</p>
+
+
+<p>Calling this method is generally a straightforward procedure, but you must be
+aware that:</p>
+<ul>
+<li>The <a href=
+"../../reference/com/google/android/gms/auth/GoogleAuthUtil.html#getToken(android.content.Context,%20java.lang.String,%20java.lang.String)">
+<code>GoogleAuthUtil.getToken()</code></a> method requires a network connection, so your app must
+acquire the <code><a href="../../reference/android/Manifest.permission.html#INTERNET">INTERNET</a></code> permission. You should also check whether
+the device has a network connection at runtime by querying <code><a href="../../reference/android/net/NetworkInfo.html">NetworkInfo</a></code>, which
+requires that your app also acquire the <code><a href="../../reference/android/Manifest.permission.html#ACCESS_NETWORK_STATE">ACCESS_NETWORK_STATE</a></code>
+permissions&mdash;for more details, read <a href=
+"../../training/basics/network-ops/connecting.html">Connecting to the Network</a>.</li>
+<li>Because the <a href=
+"../../reference/com/google/android/gms/auth/GoogleAuthUtil.html#getToken(android.content.Context,%20java.lang.String,%20java.lang.String)">
+<code>GoogleAuthUtil.getToken()</code></a> method performs a synchronous network transaction, you should
+always perform this call from a worker thread to avoid blocking your app's UI thread.</li>
+<li>As is true when performing any network transaction, you should be prepared to handle
+exceptions that may occur. There are also specific exceptions that
+<a href=
+"../../reference/com/google/android/gms/auth/GoogleAuthUtil.html#getToken(android.content.Context,%20java.lang.String,%20java.lang.String)">
+<code>GoogleAuthUtil.getToken()</code></a> may throw, defined as <a href=
+"../../reference/com/google/android/gms/auth/GoogleAuthException.html"><code>GoogleAuthException</code></a> objects.</li>
+</ul>
+
+<p>This lesson shows how you can gracefully handle these concerns by performing authentication in
+an <code><a href="../../reference/android/os/AsyncTask.html">AsyncTask</a></code> and providing users with the appropriate information and available
+actions during known exceptions.</p>
+
+<p class="note"><strong>Note:</strong> The code shown in this lesson, using <a href=
+"../../reference/com/google/android/gms/auth/GoogleAuthUtil.html#getToken(android.content.Context,%20java.lang.String,%20java.lang.String)"><code>GoogleAuthUtil.getToken()</code></a>,
+is appropriate when you will be requesting the OAuth token from an <code><a href="../../reference/android/app/Activity.html">Activity</a></code>.
+However, if you need to request the OAuth token from a <code><a href="../../reference/android/app/Service.html">Service</a></code>, then you
+should instead use <a
+href="../../reference/com/google/android/gms/auth/GoogleAuthUtil.html#getTokenWithNotification(android.content.Context, java.lang.String, java.lang.String, android.os.Bundle)"><code>getTokenWithNotification()</code></a>. This method works the same as <a href=
+"../../reference/com/google/android/gms/auth/GoogleAuthUtil.html#getToken(android.content.Context,%20java.lang.String,%20java.lang.String)"><code>GoogleAuthUtil.getToken()</code></a>, but if an error occurs, it
+also creates an appropriate
+<a href="../../guide/topics/ui/notifiers/notifications.html">notification</a>
+that allows the user can recover from the error.
+The sample available for download above includes code showing how to use this method instead.</p>
+
+
+<h2 id="ExtendAsyncTask">Extend AsyncTask to Get the Auth Token</h2>
+
+<p>The <code><a href="../../reference/android/os/AsyncTask.html">AsyncTask</a></code> class provides a simple way to create a worker thread for jobs
+that should not run on your UI thread. This lesson focuses on how to create such a thread
+to get your auth token; for a more complete discussion about <code><a href="../../reference/android/os/AsyncTask.html">AsyncTask</a></code>,
+read <a href="../../training/articles/perf-anr.html">Keeping Your
+App Responsive</a> and the <code><a href="../../reference/android/os/AsyncTask.html">AsyncTask</a></code> class reference.</p>
+
+
+<p>The <code><a href="../../reference/android/os/AsyncTask.html#doInBackground(Params...)">doInBackground()</a></code> method in your <code><a href="../../reference/android/os/AsyncTask.html">AsyncTask</a></code> class is where you should call the <a href=
+"../../reference/com/google/android/gms/auth/GoogleAuthUtil.html#getToken(android.content.Context,%20java.lang.String,%20java.lang.String)">
+<code>GoogleAuthUtil.getToken()</code></a> method. You can also use it to catch some of the generic
+exceptions that may occur during your network transactions.</p>
+
+<p>For example, here's part of an <code><a href="../../reference/android/os/AsyncTask.html">AsyncTask</a></code> subclass that calls <a href=
+"../../reference/com/google/android/gms/auth/GoogleAuthUtil.html#getToken(android.content.Context,%20java.lang.String,%20java.lang.String)">
+<code>GoogleAuthUtil.getToken()</code></a>:</p>
+
+<pre>
+public class GetUsernameTask extends AsyncTask<Void, Void, Void>{
+    Activity mActivity;
+    String mScope;
+    String mEmail;
+
+    GetUsernameTask(Activity activity, String name, String scope) {
+        this.mActivity = activity;
+        this.mScope = scope;
+        this.mEmail = name;
+    }
+
+    /**
+     * Executes the asynchronous job. This runs when you call execute()
+     * on the AsyncTask instance.
+     */
+    &#64;Override
+    protected Void doInBackground(Void... params) {
+        try {
+            String token = fetchToken();
+            if (token != null) {
+                // <b>Insert the good stuff here.</b>
+                // Use the token to access the user's Google data.
+                ...
+            }
+        } catch (IOException e) {
+            // The fetchToken() method handles Google-specific exceptions,
+            // so this indicates something went wrong at a higher level.
+            // TIP: Check for network connectivity before starting the AsyncTask.
+            ...
+        }
+        return null;
+    }
+
+    /**
+     * Gets an authentication token from Google and handles any
+     * GoogleAuthException that may occur.
+     */
+    protected String fetchToken() throws IOException {
+        try {
+            <b>return GoogleAuthUtil.getToken(mActivity, mEmail, mScope);</b>
+        } catch (UserRecoverableAuthException userRecoverableException) {
+            // GooglePlayServices.apk is either old, disabled, or not present
+            // so we need to show the user some UI in the activity to recover.
+            mActivity.handleException(userRecoverableException);
+        } catch (GoogleAuthException fatalException) {
+            // Some other type of unrecoverable exception has occurred.
+            // Report and log the error as appropriate for your app.
+            ...
+        }
+        return null;
+    }
+    ...
+}
+</pre>
+
+<p>In order to call <a href=
+"../../reference/com/google/android/gms/auth/GoogleAuthUtil.html#getToken(android.content.Context,%20java.lang.String,%20java.lang.String)">
+<code>GoogleAuthUtil.getToken()</code></a>, you must provide the app <code><a href="../../reference/android/content/Context.html">Context</a></code>,
+the account name retrieved from the account picker, and the scope for your auth
+token request. The above sample code (and the attached sample) defines these arguments with
+class members that the host activity passes to
+the <code><a href="../../reference/android/os/AsyncTask.html">AsyncTask</a></code> class constructor.</p>
+
+<p class="note"><strong>Note:</strong>
+As shown by the <code>fetchToken()</code> method above, you must handle
+special exceptions that may occur during the <a href=
+"../../reference/com/google/android/gms/auth/GoogleAuthUtil.html#getToken(android.content.Context,%20java.lang.String,%20java.lang.String)">
+<code>GoogleAuthUtil.getToken()</code></a> method. The next section shows how you should
+respond to these exceptions.</p>
+
+<p>Once you have an <code><a href="../../reference/android/os/AsyncTask.html">AsyncTask</a></code> subclass defined,
+you can instantiate and execute an instance after you get the user's
+account name from the account picker.
+For example, back in the <code><a href="../../reference/android/app/Activity.html">Activity</a></code> class you can do something like this:</p>
+
+<pre>
+String mEmail; // Received from <a href=
+"../../reference/com/google/android/gms/common/AccountPicker.html#newChooseAccountIntent(android.accounts.Account,%20java.util.ArrayList%3Candroid.accounts.Account%3E,%20java.lang.String[],%20boolean,%20java.lang.String,%20java.lang.String,%20java.lang.String[],%20android.os.Bundle)"
+><code>newChooseAccountIntent()</code></a>; passed to <a href=
+"../../reference/com/google/android/gms/auth/GoogleAuthUtil.html#getToken(android.content.Context,%20java.lang.String,%20java.lang.String)"><code>getToken()</code></a>
+private static final String SCOPE =
+        "oauth2:https://www.googleapis.com/auth/userinfo.profile";
+
+/**
+ * Attempts to retrieve the username.
+ * If the account is not yet known, invoke the picker. Once the account is known,
+ * start an instance of the AsyncTask to get the auth token and do work with it.
+ */
+private void getUsername() {
+    if (mEmail == null) {
+        pickUserAccount();
+    } else {
+        if (isDeviceOnline()) {
+            <b>new GetUsernameTask(HelloActivity.this, mEmail, SCOPE).execute();</b>
+        } else {
+            Toast.makeText(this, R.string.not_online, Toast.LENGTH_LONG).show();
+        }
+    }
+}
+</pre>
+
+<p>The <code>pickUserAccount()</code> method is shown in the first lesson, <a
+href="../../training/auth-google/picking-account.html">Picking the User's Account</a>.
+
+<p>For information about how to check whether the device is currently online (as performed by
+the <code>isDeviceOnline()</code> method above), see the attached sample app or the
+<a href=
+"../../training/basics/network-ops/connecting.html">Connecting to the Network</a> lesson.</p>
+
+<p>The only part left is how you should handle the exceptions that may occur when you call
+<a href=
+"../../reference/com/google/android/gms/auth/GoogleAuthUtil.html#getToken(android.content.Context,%20java.lang.String,%20java.lang.String)">
+<code>GoogleAuthUtil.getToken()</code></a>.</p>
+
+
+
+
+<h2 id="HandleExceptions">Handle Exceptions</h2>
+
+<p>As shown in the <code>fetchToken()</code> method above, you must catch all occurrences of <a href=
+"../../reference/com/google/android/gms/auth/GoogleAuthException.html"><code>GoogleAuthException</code></a> when you call <a href=
+"../../reference/com/google/android/gms/auth/GoogleAuthUtil.html#getToken(android.content.Context,%20java.lang.String,%20java.lang.String)">
+<code>GoogleAuthUtil.getToken()</code></a>.</p>
+
+<p>To provide users information and a proper solution to issues that may occur while acquiring the
+auth token, it's important that you properly handle the following subclasses of <a href=
+"../../reference/com/google/android/gms/auth/GoogleAuthException.html"><code>GoogleAuthException</code></a>:</p>
+
+
+<dl>
+<dt><a href="../../reference/com/google/android/gms/auth/UserRecoverableAuthException.html"><code>UserRecoverableAuthException</code></a></dt>
+  <dd>This is an error that users can resolve through some verification. For example, users may
+  need to confirm that your app is allowed to access their Google data or they may need to re-enter
+  their account password. When you receive this exception, call <a href=
+"../../reference/com/google/android/gms/auth/UserRecoverableAuthException.html#getIntent()"><code>getIntent()</code></a> on the instance and pass the returned <code><a href="../../reference/android/content/Intent.html">Intent</a></code> to <code><a href="../../reference/android/app/Activity.html#startActivityForResult(android.content.Intent, int)">startActivityForResult()</a></code> to give users the opportunity
+to solve the problem, such as by logging in.</dd>
+
+<dt><a href="../../reference/com/google/android/gms/auth/GooglePlayServicesAvailabilityException.html"><code>GooglePlayServicesAvailabilityException</code></a></dt>
+    <dd>This is a specific type of <a
+    href="../../reference/com/google/android/gms/auth/UserRecoverableAuthException.html"><code>UserRecoverableAuthException</code></a> indicating that the user's current version
+of Google Play services is outdated. Although the recommendation above for
+<a href="../../reference/com/google/android/gms/auth/UserRecoverableAuthException.html"><code>UserRecoverableAuthException</code></a> also works for this exception, calling <code><a href="../../reference/android/app/Activity.html#startActivityForResult(android.content.Intent, int)">startActivityForResult()</a></code> will immediately send users
+ to Google Play Store to install an update, which may be confusing. So you should instead call <a
+ href="../../reference/com/google/android/gms/auth/GooglePlayServicesAvailabilityException.html#getConnectionStatusCode()">
+<code>getConnectionStatusCode()</code></a> and pass the result to <a href=
+"../../reference/com/google/android/gms/common/GooglePlayServicesUtil.html#getErrorDialog(int,%20android.app.Activity,%20int,%20android.content.DialogInterface.OnCancelListener)">
+<code>GooglePlayServicesUtil.getErrorDialog()</code></a>. This returns a <code><a href="../../reference/android/app/Dialog.html">Dialog</a></code>
+that includes an appropriate message and a button to take users to Google Play Store so they
+can install an update.</dd>
+</dl>
+
+<p>For example, the <code>fetchToken()</code> method in the above sample code catches any
+occurrence of <a
+href="../../reference/com/google/android/gms/auth/UserRecoverableAuthException.html"><code>UserRecoverableAuthException</code></a> and passes it back to the activity with a method called
+<code>handleException()</code>. Here's what that method in the activity may look like:</p>
+
+
+<pre>
+static final int REQUEST_CODE_RECOVER_FROM_PLAY_SERVICES_ERROR = 1001;
+
+/**
+ * This method is a hook for background threads and async tasks that need to
+ * provide the user a response UI when an exception occurs.
+ */
+public void handleException(final Exception e) {
+    // Because this call comes from the AsyncTask, we must ensure that the following
+    // code instead executes on the UI thread.
+    runOnUiThread(new Runnable() {
+        &#64;Override
+        public void run() {
+            if (e instanceof GooglePlayServicesAvailabilityException) {
+                // The Google Play services APK is old, disabled, or not present.
+                // Show a dialog created by Google Play services that allows
+                // the user to update the APK
+                int statusCode = ((GooglePlayServicesAvailabilityException)e)
+                        .getConnectionStatusCode();
+                Dialog dialog = GooglePlayServicesUtil.getErrorDialog(statusCode,
+                        HelloActivity.this,
+                        REQUEST_CODE_RECOVER_FROM_PLAY_SERVICES_ERROR);
+                dialog.show();
+            } else if (e instanceof UserRecoverableAuthException) {
+                // Unable to authenticate, such as when the user has not yet granted
+                // the app access to the account, but the user can fix this.
+                // Forward the user to an activity in Google Play services.
+                Intent intent = ((UserRecoverableAuthException)e).getIntent();
+                startActivityForResult(intent,
+                        REQUEST_CODE_RECOVER_FROM_PLAY_SERVICES_ERROR);
+            }
+        }
+    });
+}
+</pre>
+
+<p>Notice that in both cases, the <code>REQUEST_CODE_RECOVER_FROM_PLAY_SERVICES_ERROR</code>
+request code is passed with the request to handle the exception with a dialog or activity.
+This way, when the user completes the appropriate action to resolve the exception,
+your <code><a href="../../reference/android/app/Activity.html#onActivityResult(int, int, android.content.Intent)">onActivityResult()</a></code> method receives an
+intent that includes this request code and you can try to acquire the auth
+token again.</p>
+
+
+<p>For example, the following code is a complete implementation of <code><a href="../../reference/android/app/Activity.html#onActivityResult(int, int, android.content.Intent)">onActivityResult()</a></code> that handles results for
+both the <code>REQUEST_CODE_PICK_ACCOUNT</code> action (shown in the previous lesson, <a
+href="../../training/auth-google/picking-account.html">Picking the User's Account</a>)
+and the <code>REQUEST_CODE_RECOVER_FROM_PLAY_SERVICES_ERROR</code> action, which occurs after the user
+completes one of the actions above to resolve an exception.</p>
+
+
+<pre>
+&#64;Override
+protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    if (requestCode == REQUEST_CODE_PICK_ACCOUNT) {
+        // Receiving a result from the AccountPicker
+        if (resultCode == RESULT_OK) {
+            mEmail = data.getStringExtra(AccountManager.KEY_ACCOUNT_NAME);
+            // With the account name acquired, go get the auth token
+            getUsername();
+        } else if (resultCode == RESULT_CANCELED) {
+            // The account picker dialog closed without selecting an account.
+            // Notify users that they must pick an account to proceed.
+            Toast.makeText(this, R.string.pick_account, Toast.LENGTH_SHORT).show();
+        }
+    } else if ((requestCode == REQUEST_CODE_RECOVER_FROM_AUTH_ERROR ||
+            requestCode == REQUEST_CODE_RECOVER_FROM_PLAY_SERVICES_ERROR)
+            && resultCode == RESULT_OK) {
+        // Receiving a result that follows a GoogleAuthException, try auth again
+        getUsername();
+    }
+}
+</pre>
+
+<p>For a complete set of code that acquires the OAuth token and queries a Google service
+over HTTP (including how to use <a
+href="../../reference/com/google/android/gms/auth/GoogleAuthUtil.html#getTokenWithNotification(android.content.Context, java.lang.String, java.lang.String, android.os.Bundle)"><code>getTokenWithNotification()</code></a> when you need to acquire the token from
+a <code><a href="../../reference/android/app/Service.html">Service</a></code>), see the sample app available for download at the top
+of this page.</p>
+
+
+
+
+    </div>
+
+      <div class="content-footer layout-content-row"
+                    itemscope itemtype="http://schema.org/SiteNavigationElement">
+        <div class="layout-content-col col-9" style="padding-top:4px">
+          
+            <div class="g-plusone" data-size="medium"></div>
+          
+        </div>
+        
+        <div class="paging-links layout-content-col col-4">
+          
+        </div>
+        
+      </div>
+
+      
+      
+
+  </div> <!-- end jd-content -->
+
+<div id="footer" class="wrap" >
+        
+
+  <div id="copyright">
+    
+  Except as noted, this content is 
+  licensed under <a href="http://creativecommons.org/licenses/by/2.5/">
+  Creative Commons Attribution 2.5</a>. For details and 
+  restrictions, see the <a href="../../license.html">Content 
+  License</a>.
+  </div>
+
+
+  <div id="footerlinks">
+    
+  <p>
+    <a href="../../about/index.html">About Android</a>&nbsp;&nbsp;|&nbsp;
+    <a href="../../legal.html">Legal</a>&nbsp;&nbsp;|&nbsp;
+    <a href="../../support.html">Support</a>
+  </p>
+  </div>
+
+</div> <!-- end footer -->
+</div><!-- end doc-content -->
+
+<!-- Start of Tag -->
+<script type="text/javascript">
+var axel = Math.random() + "";
+var a = axel * 10000000000000;
+document.write('<iframe src="https://2507573.fls.doubleclick.net/activityi;src=2507573;type=other026;cat=googl348;ord=' + a + '?" width="1" height="1" frameborder="0" style="display:none"></iframe>');
+</script>
+<noscript>
+<iframe src="https://2507573.fls.doubleclick.net/activityi;src=2507573;type=other026;cat=googl348;ord=1?" width="1" height="1" frameborder="0" style="display:none"></iframe>
+</noscript>
+<!-- End of Tag -->
+
+
+</div> <!-- end body-content --> 
+
+
+
+
+
+  <script src="https://developer.android.com/ytblogger_lists_unified.js" type="text/javascript"></script>
+  <script src="../../jd_lists_unified.js" type="text/javascript"></script>
+  <script src="../../jd_extras.js" type="text/javascript"></script>
+  <script src="../../jd_collections.js" type="text/javascript"></script>
+  <script src="../../jd_tag_helpers.js" type="text/javascript"></script>
+
+</body>
+</html>
+
+
+

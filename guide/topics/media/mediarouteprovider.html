@@ -1,0 +1,1515 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width" />
+
+<meta name="Description" content="Users want to play media content from their Android devices bigger, brighter, and louder on connected playback devices such as televisions, stereos, and home theater equipment. As a manufacturer of these devices, allowing Android users to instantly show…">
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico" />
+<title>Media Route Provider | Android Developers</title>
+
+<!-- STYLESHEETS -->
+<link rel="stylesheet"
+href="http://fonts.googleapis.com/css?family=Roboto+Condensed">
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:light,regular,medium,thin,italic,mediumitalic,bold"
+  title="roboto">
+<link href="../../../assets/css/default.css" rel="stylesheet" type="text/css">
+
+
+
+<!-- JAVASCRIPT -->
+<script src="http://www.google.com/jsapi" type="text/javascript"></script>
+<script src="../../../assets/js/android_3p-bundle.js" type="text/javascript"></script>
+<script type="text/javascript">
+  var toRoot = "../../../";
+  var metaTags = ["mediarouteprovider","mediacontrolintent"];
+  var devsite = false;
+</script>
+<script src="../../../assets/js/docs.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-5831155-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+
+<body class="gc-documentation 
+
+develop guide" itemscope itemtype="http://schema.org/Article">
+
+<a name="top"></a>
+
+  <!-- Header -->
+  <div id="header-wrapper">
+    <div id="header">
+      <div class="wrap" id="header-wrap">
+        <div class="col-3 logo">
+          <a href="../../../index.html">
+            <img src="../../../assets/images/dac_logo.png"
+                srcset="../../../assets/images/dac_logo@2x.png 2x"
+                width="123" height="25" alt="Android Developers" />
+          </a>
+          <div class="btn-quicknav" id="btn-quicknav">
+            <a href="#" class="arrow-inactive">Quicknav</a>
+            <a href="#" class="arrow-active">Quicknav</a>
+          </div>
+        </div>
+        <ul class="nav-x col-9">
+            <li class="design">
+              <a href="../../../design/index.html"
+              zh-tw-lang="設計"
+              zh-cn-lang="设计"
+              ru-lang="Проектирование"
+              ko-lang="디자인"
+              ja-lang="設計"
+              es-lang="Diseñar"
+              >Design</a></li>
+            <li class="develop"><a href="../../../develop/index.html"
+              zh-tw-lang="開發"
+              zh-cn-lang="开发"
+              ru-lang="Разработка"
+              ko-lang="개발"
+              ja-lang="開発"
+              es-lang="Desarrollar"
+              >Develop</a></li>
+            <li class="distribute last"><a href="../../../distribute/googleplay/index.html"
+              zh-tw-lang="發佈"
+              zh-cn-lang="分发"
+              ru-lang="Распространение"
+              ko-lang="배포"
+              ja-lang="配布"
+              es-lang="Distribuir"
+              >Distribute</a></li>
+        </ul>
+
+
+        
+        
+<div class="menu-container">
+  <div class="moremenu">
+    <div id="more-btn"></div>
+  </div>
+  <div class="morehover" id="moremenu">
+    <div class="top"></div>
+    <div class="mid">
+      <div class="header">Links</div>
+      <ul>
+        <li><a href="https://play.google.com/apps/publish/" target="_googleplay">Google Play Developer Console</a></li>
+        <li><a href="http://android-developers.blogspot.com/">Android Developers Blog</a></li>
+        <li><a href="../../../about/index.html">About Android</a></li>
+      </ul>
+      <div class="header">Android Sites</div>
+      <ul>
+        <li><a href="http://www.android.com">Android.com</a></li>
+        <li class="active"><a>Android Developers</a></li>
+        <li><a href="http://source.android.com">Android Open Source Project</a></li>
+      </ul>
+
+      
+      
+      
+      <br class="clearfix" />
+    </div><!-- end 'mid' -->
+    <div class="bottom"></div>
+  </div><!-- end 'moremenu' -->
+
+  <div class="search" id="search-container">
+    <div class="search-inner">
+      <div id="search-btn"></div>
+      <div class="left"></div>
+      <form onsubmit="return submit_search()">
+        <input id="search_autocomplete" type="text" value="" autocomplete="off" name="q"
+          onfocus="search_focus_changed(this, true)" onblur="search_focus_changed(this, false)"
+          onkeydown="return search_changed(event, true, '../../../')"
+          onkeyup="return search_changed(event, false, '../../../')" />
+      </form>
+      <div class="right"></div>
+      <a class="close hide">close</a>
+      <div class="left"></div>
+      <div class="right"></div>
+    </div><!-- end search-inner -->
+  </div><!-- end search-container -->
+
+  <div class="search_filtered_wrapper reference">
+    <div class="suggest-card reference no-display">
+      <ul class="search_filtered">
+      </ul>
+    </div>
+  </div>
+
+  <div class="search_filtered_wrapper docs">
+    <div class="suggest-card dummy no-display">&nbsp;</div>
+    <div class="suggest-card develop no-display">
+      <ul class="search_filtered">
+      </ul>
+      <div class="child-card guides no-display">
+      </div>
+      <div class="child-card training no-display">
+      </div>
+      <div class="child-card samples no-display">
+      </div>
+    </div>
+    <div class="suggest-card design no-display">
+      <ul class="search_filtered">
+      </ul>
+    </div>
+    <div class="suggest-card distribute no-display">
+      <ul class="search_filtered">
+      </ul>
+    </div>
+  </div>
+</div><!-- end menu-container (search and menu widget) -->
+
+
+
+        <!-- Expanded quicknav -->
+        <div id="quicknav" class="col-9">
+          <ul>
+            <li class="design">
+              <ul>
+                <li><a href="../../../design/index.html">Get Started</a></li>
+                <li><a href="../../../design/style/index.html">Style</a></li>
+                <li><a href="../../../design/patterns/index.html">Patterns</a></li>
+                <li><a href="../../../design/building-blocks/index.html">Building Blocks</a></li>
+                <li><a href="../../../design/downloads/index.html">Downloads</a></li>
+                <li><a href="../../../design/videos/index.html">Videos</a></li>
+              </ul>
+            </li>
+            <li class="develop">
+              <ul>
+                <li><a href="../../../training/index.html"
+                  zh-tw-lang="訓練課程"
+                  zh-cn-lang="培训"
+                  ru-lang="Курсы"
+                  ko-lang="교육"
+                  ja-lang="トレーニング"
+                  es-lang="Capacitación"
+                  >Training</a></li>
+                <li><a href="../../../guide/index.html"
+                  zh-tw-lang="API 指南"
+                  zh-cn-lang="API 指南"
+                  ru-lang="Руководства по API"
+                  ko-lang="API 가이드"
+                  ja-lang="API ガイド"
+                  es-lang="Guías de la API"
+                  >API Guides</a></li>
+                <li><a href="../../../reference/packages.html"
+                  zh-tw-lang="參考資源"
+                  zh-cn-lang="参考"
+                  ru-lang="Справочник"
+                  ko-lang="참조문서"
+                  ja-lang="リファレンス"
+                  es-lang="Referencia"
+                  >Reference</a></li>
+                <li><a href="../../../tools/index.html"
+                  zh-tw-lang="相關工具"
+                  zh-cn-lang="工具"
+                  ru-lang="Инструменты"
+                  ko-lang="도구"
+                  ja-lang="ツール"
+                  es-lang="Herramientas"
+                  >Tools</a>
+                  <ul><li><a href="../../../sdk/index.html">Get the SDK</a></li></ul>
+                </li>
+                <li><a href="../../../google/index.html">Google Services</a>
+                </li>
+                
+              </ul>
+            </li>
+            <li class="distribute last">
+              <ul>
+                <li><a href="../../../distribute/googleplay/index.html">Google Play</a></li>
+                <li><a href="../../../distribute/essentials/index.html">Essentials</a></li>
+                <li><a href="../../../distribute/users/index.html">Get Users</a></li>
+                <li><a href="../../../distribute/engage/index.html">Engage &amp; Retain</a></li>
+                <li><a href="../../../distribute/monetize/index.html">Monetize</a></li>
+                <li><a href="../../../distribute/tools/index.html">Tools &amp; Reference</a></li>
+                <li><a href="../../../distribute/stories/index.html">Developer Stories</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div><!-- /Expanded quicknav -->
+      </div><!-- end header-wrap.wrap -->
+    </div><!-- end header -->
+
+  
+    <!-- Secondary x-nav -->
+    <div id="nav-x">
+        <div class="wrap">
+            <ul class="nav-x col-9 develop" style="width:100%">
+                <li class="training"><a href="../../../training/index.html"
+                  zh-tw-lang="訓練課程"
+                  zh-cn-lang="培训"
+                  ru-lang="Курсы"
+                  ko-lang="교육"
+                  ja-lang="トレーニング"
+                  es-lang="Capacitación"
+                  >Training</a></li>
+                <li class="guide"><a href="../../../guide/index.html"
+                  zh-tw-lang="API 指南"
+                  zh-cn-lang="API 指南"
+                  ru-lang="Руководства по API"
+                  ko-lang="API 가이드"
+                  ja-lang="API ガイド"
+                  es-lang="Guías de la API"
+                  >API Guides</a></li>
+                <li class="reference"><a href="../../../reference/packages.html"
+                  zh-tw-lang="參考資源"
+                  zh-cn-lang="参考"
+                  ru-lang="Справочник"
+                  ko-lang="참조문서"
+                  ja-lang="リファレンス"
+                  es-lang="Referencia"
+                  >Reference</a></li>
+                <li class="tools"><a href="../../../tools/index.html"
+                  zh-tw-lang="相關工具"
+                  zh-cn-lang="工具"
+                  ru-lang="Инструменты"
+                  ko-lang="도구"
+                  ja-lang="ツール"
+                  es-lang="Herramientas"
+                  >Tools</a></li>
+                <li class="google"><a href="../../../google/index.html"
+                  >Google Services</a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+    <!-- /Sendondary x-nav -->
+
+  
+
+    <div id="searchResults" class="wrap" style="display:none;">
+      <h2 id="searchTitle">Results</h2>
+      <div id="leftSearchControl" class="search-control">Loading...</div>
+    </div>
+  </div> <!--end header-wrapper -->
+
+  <div id="sticky-header">
+    <div>
+      <a class="logo" href="#top"></a>
+      <a class="top" href="#top"></a>
+      <ul class="breadcrumb">
+        
+        <li class="current">Media Route Provider</li>
+      </ul>
+    </div>
+  </div>
+
+
+
+
+  <div class="wrap clearfix" id="body-content">
+    <div class="col-4" id="side-nav" itemscope itemtype="http://schema.org/SiteNavigationElement">
+      <div id="devdoc-nav" class="scroll-pane">
+
+
+<ul id="nav">
+
+  <li class="nav-section">
+    <div class="nav-section-header"><a href="../../../guide/index.html">
+        <span class="en">Introduction</span>
+      </a></div>
+    <ul>
+      <li><a href="../../../guide/components/fundamentals.html">
+            <span class="en">App Fundamentals</span></a>
+      </li>
+      <li><a href="../../../guide/practices/compatibility.html">
+            <span class="en">Device Compatibility</span>
+          </a></li>
+      <li><a href="../../../guide/topics/security/permissions.html">
+          <span class="en">System Permissions</span>
+        </a>
+      </li>
+    </ul>
+  </li>
+
+
+  <li class="nav-section">
+    <div class="nav-section-header"><a href="../../../guide/components/index.html">
+        <span class="en">App Components</span>
+      </a></div>
+    <ul>
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../../guide/components/intents-filters.html">
+            <span class="en">Intents and Intent Filters</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../guide/components/intents-common.html">
+            <span class="en">Common Intents</span>
+          </a></li>
+        </ul>
+      </li>
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../../guide/components/activities.html">
+            <span class="en">Activities</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../guide/components/fragments.html">
+              <span class="en">Fragments</span>
+            </a></li>
+          <li><a href="../../../guide/components/loaders.html">
+              <span class="en">Loaders</span>
+            </a></li>
+          <li><a href="../../../guide/components/tasks-and-back-stack.html">
+              <span class="en">Tasks and Back Stack</span>
+            </a></li>
+        </ul>
+      </li>
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../../guide/components/services.html">
+            <span class="en">Services</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../guide/components/bound-services.html">
+              <span class="en">Bound Services</span>
+            </a></li>
+          <li><a href="../../../guide/components/aidl.html">
+              <span class="en">AIDL</span>
+            </a></li>
+        </ul>
+      </li>
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../../guide/topics/providers/content-providers.html">
+            <span class="en">Content Providers</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../guide/topics/providers/content-provider-basics.html">
+              <span class="en">Content Provider Basics</span>
+            </a></li>
+          <li><a href="../../../guide/topics/providers/content-provider-creating.html">
+              <span class="en">Creating a Content Provider</span>
+            </a></li>
+          <li><a href="../../../guide/topics/providers/calendar-provider.html">
+              <span class="en">Calendar Provider</span>
+            </a></li>
+          <li><a href="../../../guide/topics/providers/contacts-provider.html">
+              <span class="en">Contacts Provider</span>
+            </a></li>
+          <li><a href="../../../guide/topics/providers/document-provider.html">
+              <span class="en">Storage Access Framework</span>
+            </a></li>
+        </ul>
+      </li>
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../../guide/topics/appwidgets/index.html">
+            <span class="en">App Widgets</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../guide/topics/appwidgets/host.html">
+              <span class="en">App Widget Host</span>
+            </a></li>
+        </ul>
+      </li>
+      <li><a href="../../../guide/components/processes-and-threads.html">
+          <span class="en">Processes and Threads</span>
+        </a>
+      </li>
+    </ul>
+  </li>
+
+
+  <li class="nav-section">
+    <div class="nav-section-header"><a href="../../../guide/topics/resources/index.html">
+         <span class="en">App Resources</span>
+       </a></div>
+    <ul>
+      <li><a href="../../../guide/topics/resources/overview.html">
+          <span class="en">Overview</span>
+        </a></li>
+        <li><a href="../../../guide/topics/resources/providing-resources.html">
+          <span class="en">Providing Resources</span>
+        </a></li>
+      <li><a href="../../../guide/topics/resources/accessing-resources.html">
+          <span class="en">Accessing Resources</span>
+        </a></li>
+      <li><a href="../../../guide/topics/resources/runtime-changes.html">
+            <span class="en">Handling Runtime Changes</span>
+          </a></li>
+      <li><a href="../../../guide/topics/resources/localization.html">
+          <span class="en">Localization</span>
+        </a></li>
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../../guide/topics/resources/available-resources.html">
+            <span class="en">Resource Types</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../guide/topics/resources/animation-resource.html">Animation</a></li>
+          <li><a href="../../../guide/topics/resources/color-list-resource.html">Color State List</a></li>
+          <li><a href="../../../guide/topics/resources/drawable-resource.html">Drawable</a></li>
+          <li><a href="../../../guide/topics/resources/layout-resource.html">Layout</a></li>
+          <li><a href="../../../guide/topics/resources/menu-resource.html">Menu</a></li>
+          <li><a href="../../../guide/topics/resources/string-resource.html">String</a></li>
+          <li><a href="../../../guide/topics/resources/style-resource.html">Style</a></li>
+          <li><a href="../../../guide/topics/resources/more-resources.html">More Types</a></li>
+        </ul>
+      </li><!-- end of resource types -->
+    </ul>
+  </li><!-- end of app resources -->
+
+
+
+  <li class="nav-section">
+  <div class="nav-section-header"><a href="../../../guide/topics/manifest/manifest-intro.html">
+      <span class="en">App Manifest</span>
+    </a></div>
+    <ul>
+      <li><a href="../../../guide/topics/manifest/action-element.html">&lt;action&gt;</a></li>
+      <li><a href="../../../guide/topics/manifest/activity-element.html">&lt;activity&gt;</a></li>
+      <li><a href="../../../guide/topics/manifest/activity-alias-element.html">&lt;activity-alias&gt;</a></li>
+      <li><a href="../../../guide/topics/manifest/application-element.html">&lt;application&gt;</a></li>
+      <li><a href="../../../guide/topics/manifest/category-element.html">&lt;category&gt;</a></li>
+      <li><a href="../../../guide/topics/manifest/compatible-screens-element.html">&lt;compatible-screens&gt;</a></li>
+      <li><a href="../../../guide/topics/manifest/data-element.html">&lt;data&gt;</a></li>
+      <li><a href="../../../guide/topics/manifest/grant-uri-permission-element.html">&lt;grant-uri-permission&gt;</a></li>
+      <li><a href="../../../guide/topics/manifest/instrumentation-element.html">&lt;instrumentation&gt;</a></li>
+      <li><a href="../../../guide/topics/manifest/intent-filter-element.html">&lt;intent-filter&gt;</a></li>
+      <li><a href="../../../guide/topics/manifest/manifest-element.html">&lt;manifest&gt;</a></li>
+      <li><a href="../../../guide/topics/manifest/meta-data-element.html">&lt;meta-data&gt;</a></li>
+      <li><a href="../../../guide/topics/manifest/path-permission-element.html">&lt;path-permission&gt;</a></li>
+      <li><a href="../../../guide/topics/manifest/permission-element.html">&lt;permission&gt;</a></li>
+      <li><a href="../../../guide/topics/manifest/permission-group-element.html">&lt;permission-group&gt;</a></li>
+      <li><a href="../../../guide/topics/manifest/permission-tree-element.html">&lt;permission-tree&gt;</a></li>
+      <li><a href="../../../guide/topics/manifest/provider-element.html">&lt;provider&gt;</a></li>
+      <li><a href="../../../guide/topics/manifest/receiver-element.html">&lt;receiver&gt;</a></li>
+      <li><a href="../../../guide/topics/manifest/service-element.html">&lt;service&gt;</a></li>
+      <li><a href="../../../guide/topics/manifest/supports-gl-texture-element.html">&lt;supports-gl-texture&gt;</a></li>
+      <li><a href="../../../guide/topics/manifest/supports-screens-element.html">&lt;supports-screens&gt;</a></li><!-- ##api level 4## -->
+      <li><a href="../../../guide/topics/manifest/uses-configuration-element.html">&lt;uses-configuration&gt;</a></li>
+      <li><a href="../../../guide/topics/manifest/uses-feature-element.html">&lt;uses-feature&gt;</a></li> <!-- ##api level 4## -->
+      <li><a href="../../../guide/topics/manifest/uses-library-element.html">&lt;uses-library&gt;</a></li>
+      <li><a href="../../../guide/topics/manifest/uses-permission-element.html">&lt;uses-permission&gt;</a></li>
+      <li><a href="../../../guide/topics/manifest/uses-sdk-element.html">&lt;uses-sdk&gt;</a></li>
+    </ul>
+  </li><!-- end of the manifest file -->
+
+
+
+  <li class="nav-section">
+    <div class="nav-section-header"><a href="../../../guide/topics/ui/index.html">
+        <span class="en">User Interface</span>
+      </a></div>
+    <ul>
+      <li><a href="../../../guide/topics/ui/overview.html">
+          <span class="en">Overview</span>
+        </a></li>
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../../guide/topics/ui/declaring-layout.html">
+            <span class="en">Layouts</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../guide/topics/ui/layout/linear.html">
+              <span class="en">Linear Layout</span>
+            </a></li>
+          <li><a href="../../../guide/topics/ui/layout/relative.html">
+              <span class="en">Relative Layout</span>
+            </a></li>
+       <!--
+          <li><a href="../../../guide/topics/ui/layout/grid.html">
+              <span class="en">Grid Layout</span>
+            </a></li>
+       -->
+          <li><a href="../../../guide/topics/ui/layout/listview.html">
+              <span class="en">List View</span>
+            </a></li>
+          <li><a href="../../../guide/topics/ui/layout/gridview.html">
+              <span class="en">Grid View</span>
+            </a></li>
+        </ul>
+      </li>
+
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../../guide/topics/ui/controls.html">
+            <span class="en">Input Controls</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../guide/topics/ui/controls/button.html">
+              <span class="en">Buttons</span>
+            </a></li>
+          <li><a href="../../../guide/topics/ui/controls/text.html">
+              <span class="en">Text Fields</span>
+            </a></li>
+          <li><a href="../../../guide/topics/ui/controls/checkbox.html">
+              <span class="en">Checkboxes</span>
+            </a></li>
+          <li><a href="../../../guide/topics/ui/controls/radiobutton.html">
+              <span class="en">Radio Buttons</span>
+            </a></li>
+          <li><a href="../../../guide/topics/ui/controls/togglebutton.html">
+              <span class="en">Toggle Buttons</span>
+            </a></li>
+          <li><a href="../../../guide/topics/ui/controls/spinner.html">
+              <span class="en">Spinners</span>
+            </a></li>
+          <li><a href="../../../guide/topics/ui/controls/pickers.html">
+              <span class="en">Pickers</span>
+            </a></li>
+<!--
+          <li><a href="../../../guide/topics/ui/controls/progress.html">
+              <span class="en">Seek and Progress Bars</span>
+            </a></li>
+-->
+        </ul>
+      </li>
+      <li><a href="../../../guide/topics/ui/ui-events.html">
+          <span class="en">Input Events</span>
+        </a></li>
+      <li><a href="../../../guide/topics/ui/menus.html">
+          <span class="en">Menus</span></span>
+          </a></li>
+      <li><a href="../../../guide/topics/ui/actionbar.html">
+           <span class="en">Action Bar</span>
+          </a></li>
+      <li><a href="../../../guide/topics/ui/settings.html">
+            <span class="en">Settings</span>
+          </a></li>
+      <li><a href="../../../guide/topics/ui/dialogs.html">
+           <span class="en">Dialogs</span>
+          </a></li>
+      <li><a href="../../../guide/topics/ui/notifiers/notifications.html">
+          <span class="en">Notifications</span>
+        </a></li>
+      <li><a href="../../../guide/topics/ui/notifiers/toasts.html">
+          <span class="en">Toasts</span>
+        </a></li>
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../../guide/topics/search/index.html">
+            <span class="en">Search</span>
+          </a></div>
+          <ul>
+            <li><a href="../../../guide/topics/search/search-dialog.html">Creating a Search Interface</a></li>
+            <li><a href="../../../guide/topics/search/adding-recent-query-suggestions.html">Adding Recent Query Suggestions</a></li>
+            <li><a href="../../../guide/topics/search/adding-custom-suggestions.html">Adding Custom Suggestions</a></li>
+            <li><a href="../../../guide/topics/search/searchable-config.html">Searchable Configuration</a></li>
+          </ul>
+      </li>
+      <li><a href="../../../guide/topics/ui/drag-drop.html">
+          <span class="en">Drag and Drop</span>
+        </a></li>
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../../guide/topics/ui/accessibility/index.html">
+            <span class="en">Accessibility</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../guide/topics/ui/accessibility/apps.html">
+              <span class="en">Making Applications Accessible</span>
+            </a></li>
+          <li><a href="../../../guide/topics/ui/accessibility/checklist.html">
+              <span class="en">Accessibility Developer Checklist</span>
+            </a></li>
+          <li><a href="../../../guide/topics/ui/accessibility/services.html">
+              <span class="en">Building Accessibility Services</span>
+            </a></li>
+        </ul>
+      </li>
+      <li><a href="../../../guide/topics/ui/themes.html">
+          <span class="en">Styles and Themes</span>
+        </a></li>
+      <li><a href="../../../guide/topics/ui/custom-components.html">
+          <span class="en">Custom Components</span>
+        </a></li>
+    </ul>
+  </li><!-- end of User Interface -->
+
+   <li class="nav-section">
+      <div class="nav-section-header"><a href="../../../guide/topics/graphics/index.html">
+          <span class="en">Animation and Graphics</span>
+        </a></div>
+      <ul>
+      <li class="nav-section">
+        <li><a href="../../../guide/topics/graphics/overview.html">
+            <span class="en">Overview</span>
+          </a></li>
+        <li><a href="../../../guide/topics/graphics/prop-animation.html">
+            <span class="en">Property Animation</span>
+          </a></li>
+        <li><a href="../../../guide/topics/graphics/view-animation.html">
+            <span class="en">View Animation</span>
+          </a></li>
+        <li><a href="../../../guide/topics/graphics/drawable-animation.html">
+            <span class="en">Drawable Animation</span>
+          </a></li>
+        <li><a href="../../../guide/topics/graphics/2d-graphics.html">
+            <span class="en">Canvas and Drawables</span>
+          </a></li>
+        <li><a href="../../../guide/topics/graphics/opengl.html">
+            <span class="en">OpenGL ES</span>
+          </a></li>
+        <li><a href="../../../guide/topics/graphics/hardware-accel.html">
+            <span class="en">Hardware Acceleration</span>
+          </a></li>
+       </ul>
+    </li><!-- end of graphics and animation-->
+
+   <li class="nav-section">
+            <div class="nav-section-header"><a href="../../../guide/topics/renderscript/index.html">
+              <span class="en">Computation</span>
+            </a></div>
+            <ul>
+              <li><a href="../../../guide/topics/renderscript/compute.html">
+                    <span class="en">RenderScript</span></a>
+                  </li>
+
+              <li><a href="../../../guide/topics/renderscript/advanced.html">
+                    <span class="en">Advanced RenderScript</span></a>
+                  </li>
+              <li><a href="../../../guide/topics/renderscript/reference.html">
+                    <span class="en">Runtime API Reference</span></a>
+              </li>
+             </ul>
+   </li>
+      <li class="nav-section">
+          <div class="nav-section-header"><a href="../../../guide/topics/media/index.html">
+            <span class="en">Media and Camera</span>
+          </a></div>
+          <ul>
+            <li><a href="../../../guide/topics/media/mediaplayer.html">
+                  <span class="en">Media Playback</span></a>
+                </li>
+            <li><a href="../../../guide/topics/media/mediarouter.html">
+                  <span class="en">Media Router</span></a>
+                </li>
+            <li><a href="../../../guide/topics/media/mediarouteprovider.html">
+                  <span class="en">Media Route Provider</span></a>
+                </li>
+            <li><a href="../../../guide/appendix/media-formats.html">
+                   <span class="en">Supported Media Formats</span></a>
+                </li>
+            <li><a href="../../../guide/topics/media/audio-capture.html">
+                  <span class="en">Audio Capture</span></a>
+                </li>
+            <li><a href="../../../guide/topics/media/jetplayer.html">
+                  <span class="en">JetPlayer</span></a>
+                </li>
+            <li><a href="../../../guide/topics/media/camera.html">
+                  <span class="en">Camera</span></a>
+                </li>
+          </ul>
+      </li><!-- end of media and camera -->
+
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../../guide/topics/sensors/index.html">
+              <span class="en">Location and Sensors</span>
+              </a></div>
+        <ul>
+          <li><a href="../../../guide/topics/location/index.html">
+               <span class="en">Location and Maps</span>
+             </a>
+          <li><a href="../../../guide/topics/location/strategies.html">
+               <span class="en">Location Strategies</span>
+             </a></li>
+          <li><a href="../../../guide/topics/sensors/sensors_overview.html">
+              <span class="en">Sensors Overview</span>
+            </a></li>
+          <li><a href="../../../guide/topics/sensors/sensors_motion.html">
+              <span class="en">Motion Sensors</span>
+            </a></li>
+          <li><a href="../../../guide/topics/sensors/sensors_position.html">
+              <span class="en">Position Sensors</span>
+            </a></li>
+          <li><a href="../../../guide/topics/sensors/sensors_environment.html">
+              <span class="en">Environment Sensors</span>
+            </a></li>
+        </ul>
+      </li><!-- end of location and sensors -->
+
+
+
+<li class="nav-section">
+        <div class="nav-section-header"><a href="../../../guide/topics/connectivity/index.html">
+               <span class="en">Connectivity</span>
+             </a></div>
+        <ul>
+          <li class="nav-section">
+        <div class="nav-section-header"><a href="../../../guide/topics/connectivity/bluetooth.html">
+          <span class="en">Bluetooth</span></a>
+        </div>
+        <ul>
+          <li><a href="../../../guide/topics/connectivity/bluetooth-le.html">Bluetooth Low Energy</a></li>
+        </ul>
+      </li>
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../../guide/topics/connectivity/nfc/index.html">
+          <span class="en">NFC</span></a>
+        </div>
+        <ul>
+          <li><a href="../../../guide/topics/connectivity/nfc/nfc.html">NFC Basics</a></li>
+          <li><a href="../../../guide/topics/connectivity/nfc/advanced-nfc.html">Advanced NFC</a></li>
+          <li><a href="../../../guide/topics/connectivity/nfc/hce.html">Host-based Card Emulation</a></li>
+        </ul>
+      </li>
+      <li><a href="../../../guide/topics/connectivity/wifip2p.html">
+            <span class="en">Wi-Fi P2P</span></a>
+          </li>
+      <li class="nav-section">
+          <div class="nav-section-header"><a href="../../../guide/topics/connectivity/usb/index.html">
+            <span class="en">USB</span></a>
+          </div>
+            <ul>
+              <li><a href="../../../guide/topics/connectivity/usb/accessory.html">Accessory</a></li>
+              <li><a href="../../../guide/topics/connectivity/usb/host.html">Host</a></li>
+            </ul>
+     </li>
+     <li><a href="../../../guide/topics/connectivity/sip.html">
+            <span class="en">SIP</span>
+          </a>
+     </li>
+
+    </ul>
+  </li><!-- end of connectivity -->
+
+
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../../guide/topics/text/index.html">
+            <span class="en">Text and Input</span>
+        </a></div>
+        <ul>
+          <li><a href="../../../guide/topics/text/copy-paste.html">
+              <span class="en">Copy and Paste</span>
+            </a></li>
+          <li><a href="../../../guide/topics/text/creating-input-method.html">
+              <span class="en">Creating an IME</span>
+            </a></li>
+          <li><a href="../../../guide/topics/text/spell-checker-framework.html">
+              <span class="en">Spelling Checker</span>
+            </a></li>
+        </ul>
+      </li><!-- end of text and input -->
+
+     <li class="nav-section">
+      <div class="nav-section-header"><a href="../../../guide/topics/data/index.html">
+          <span class="en">Data Storage</span>
+        </a></div>
+      <ul>
+         <li><a href="../../../guide/topics/data/data-storage.html">
+            <span class="en">Storage Options</span>
+           </a></li>
+        <li><a href="../../../guide/topics/data/backup.html">
+            <span class="en">Data Backup</span>
+          </a></li>
+        <li><a href="../../../guide/topics/data/install-location.html">
+            <span class="en">App Install Location</span>
+          </a></li>
+      </ul>
+    </li><!-- end of data storage -->
+
+
+  <li class="nav-section">
+           <div class="nav-section-header"><a href="../../../guide/topics/admin/index.html">
+               <span class="en">Administration</span>
+             </a></div>
+           <ul>
+              <li>
+                <a href="../../../guide/topics/admin/device-admin.html">
+                <span class="en">Device Policies</span></a>
+              </li>
+            <!--
+              <li>
+                <a href="../../../guide/topics/admin/keychain.html">
+                <span class="en">Certificate Store</span></a>
+              </li>
+            -->
+           </ul>
+  </li><!-- end of administration -->
+
+  <li class="nav-section">
+    <div class="nav-section-header"><a href="../../../guide/webapps/index.html">
+    <span class="en">Web Apps</span>
+    </a></div>
+    <ul>
+      <li><a href="../../../guide/webapps/targeting.html">
+            <span class="en">Supporting Different Screens in Web Apps</span>
+          </a></li>
+      <li><a href="../../../guide/webapps/webview.html">
+            <span class="en">Building Web Apps in WebView</span>
+          </a></li>
+      <li><a href="../../../guide/webapps/migrating.html">
+            <span class="en">Migrating to WebView in Android 4.4</span>
+          </a></li>
+      <li><a href="../../../guide/webapps/debugging.html">
+            <span class="en">Debugging Web Apps</span>
+          </a></li>
+      <li><a href="../../../guide/webapps/best-practices.html">
+            <span class="en">Best Practices for Web Apps</span>
+          </a></li>
+    </ul>
+  </li><!-- end of web apps -->
+
+  <li class="nav-section">
+    <div class="nav-section-header"><a href="../../../guide/practices/index.html">
+      <span class="en">Best Practices</span>
+      <span class="de" style="display:none">Bewährte Verfahren</span>
+      <span class="es" style="display:none">Prácticas recomendadas</span>
+      <span class="fr" style="display:none">Meilleures pratiques</span>
+      <span class="it" style="display:none">Best practice</span>
+      <span class="ja" style="display:none">ベスト プラクティス</span>
+      <span class="zh-cn" style="display:none">最佳实践</span>
+      <span class="zh-tw" style="display:none">最佳實務</span>
+    </div></a>
+    <ul>
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../../guide/practices/screens_support.html">
+          <span class="en">Supporting Multiple Screens</span>
+        </a></div>
+        <ul>
+          <li><a href="../../../guide/practices/screens-distribution.html">
+            <span class="en">Distributing to Specific Screens</span>
+          </a></li>
+          <li><a href="../../../guide/practices/screen-compat-mode.html">
+            <span class="en">Screen Compatibility Mode</span>
+          </a></li>
+        </ul>
+      </li>
+      <li><a href="../../../guide/practices/tablets-and-handsets.html">
+            <span class="en">Supporting Tablets and Handsets</span>
+          </a></li>
+
+    </ul>
+  </li>
+
+
+</ul>
+
+
+<script type="text/javascript">
+<!--
+    buildToggleLists();
+    changeNavLang(getLangPref());
+//-->
+</script>
+
+
+        
+
+      </div>
+    </div> <!-- end side-nav -->
+    <script>
+      $(document).ready(function() {
+        scrollIntoView("devdoc-nav");
+        });
+    </script>
+
+
+
+
+<div class="col-12" id="doc-col" >
+
+
+
+
+  
+    
+      
+        <h1 itemprop="name" >Media Route Provider</h1>
+      
+    
+  
+
+
+  
+  <div id="jd-content">
+
+
+    <div class="jd-descr" itemprop="articleBody">
+    <div id="qv-wrapper">
+  <div id="qv">
+    <h2>In this document</h2>
+    <ol>
+      <li><a href="#overview">Overview</a>
+        <ol>
+          <li><a href="#dist">Distribution of route providers</a></li>
+          <li><a href="#playback-types">Types of playback</a></li>
+          <li><a href="#mr-packages">Media router packages</a></li>
+        </ol>
+      </li>
+      <li><a href="#provider-service">Creating a Provider Service</a></li>
+      <li><a href="#route-caps">Specifying Route Capabilities</a>
+        <ol>
+          <li><a href="#route-cat">Route categories</a></li>
+          <li><a href="#media-types">Media types and protocols</a></li>
+          <li><a href="#playback-ctrls">Playback controls</a></li>
+          <li><a href="#mrpd">MediaRouteProviderDescriptor</a></li>
+        </ol>
+      </li>
+      <li><a href="#ctrl-routes">Controlling Routes</a></li>
+    </ol>
+    <h2>Key Classes</h2>
+    <ol>
+      <li><code><a href="../../../reference/android/support/v7/media/MediaRouteProvider.html">MediaRouteProvider</a></code></li>
+      <li><code><a href="../../../reference/android/support/v7/media/MediaRouteProviderDescriptor.html">MediaRouteProviderDescriptor</a></code></li>
+      <li><code><a href="../../../reference/android/support/v7/media/MediaRouteProvider.RouteController.html">RouteController</a></code></li>
+    </ol>
+    <h2>Related Samples</h2>
+    <ol>
+      <li><a href="../../../samples/MediaRouter/index.html">MediaRouter</a></li>
+    </ol>
+  </div>
+</div>
+
+<p>Users want to play media content from their Android devices bigger, brighter, and louder on
+  connected playback devices such as televisions, stereos,
+  and home theater equipment. As a manufacturer of these devices, allowing Android users to
+  instantly show a picture, play a song, or share a video for friends and family using your product
+  can make it much more compelling and engaging.</p>
+
+<p>The Android media router framework allows manufacturers to enable playback on their devices
+  through a standardized interface called a <code><a href="../../../reference/android/support/v7/media/MediaRouteProvider.html">MediaRouteProvider</a></code>.
+  A route provider defines a common interface for playing media on a receiver device, making it
+  possible to play media on your equipment from any Android application that supports media
+  routes.</p>
+
+<p>This guide discusses how to create a media route provider for a receiver device and make it
+  available to other media playback applications that run on Android.</p>
+
+<h2 id="overview">Overview</h2>
+
+<p>The Android media router framework enables media app developers and media playback device
+  manufacturers to connect through a common API and common user interface. App developers that
+  implement a <code><a href="../../../reference/android/support/v7/media/MediaRouter.html">MediaRouter</a></code> interface can then connect to the
+  framework and play content to devices that participate in the media router framework. Media
+  playback device manufacturers can participate in the framework by publishing a <code><a href="../../../reference/android/support/v7/media/MediaRouteProvider.html">MediaRouteProvider</a></code> that allows other applications to connect to and
+  play media on the receiver devices. Figure 1 illustrates how an app connects to a receiving
+  device through the media router framework.</p>
+
+<img src="../../../images/mediarouter/media-route-provider-framework.png" alt="" id="figure1"/>
+<p class="img-caption">
+  <strong>Figure 1.</strong> Overview of how media route provider classes provide communication
+  from a media app to a receiver device.
+</p>
+
+<p>When you build a media route provider for your receiver device, the provider serves the
+following purposes:</p>
+
+<ul>
+  <li>Describe and publish the capabilities of the receiver device so other apps can discover it
+    and use its playback features.</li>
+  <li>Wrap the programming interface of the receiver device and its communication
+    transport mechanisms to make the device compatible with the media router framework.</li>
+</ul>
+
+
+<h3 id="dist">Distribution of route providers</h3>
+
+<p>A media route provider is distributed as part of an Android app. Your route provider can be
+  made available to other apps by extending
+  <code><a href="../../../reference/android/support/v7/media/MediaRouteProviderService.html">MediaRouteProviderService</a></code> or wrapping your implementation of
+  <code><a href="../../../reference/android/support/v7/media/MediaRouteProvider.html">MediaRouteProvider</a></code> with your own service and declaring an intent
+  filter for the media route provider. These steps allow other apps to discover and make use of
+  your media route.</p>
+
+<p>
+  <strong>Note:</strong> The app containing the media route provider can also include a
+  <a href="../../../guide/topics/media/mediarouter.html">MediaRouter</a> interface to the
+  route provider, but this is not required.
+</p>
+
+
+<h3 id="playback-types">Types of playback</h3>
+
+<p>There are two main types of playback supported by the media router framework. A media route
+  provider can support one or both types of playback, depending on the capabilities of your playback
+  equipment and the functionality you want to support:</p>
+
+<ul>
+  <li><strong>Remote Playback</strong> — This approach uses the receiver device to handle the
+    content data retrieval, decoding, and playback, while an Android device in the user's hand is
+    used as a remote control. This approach is used by Android apps that support
+    <a href="https://developers.google.com/cast/">Google Cast</a>.</li>
+  <li><strong>Secondary Output</strong> — With this approach, the Android media application
+    retrieves, renders and streams video or music directly to the receiver device. This approach is
+    used to support Wireless Display output on Android.</li>
+</ul>
+
+
+<h3 id="mr-packages">Media router packages</h3>
+
+<p>
+  The media router APIs are provided as part of the Android Support Library version 18 and higher,
+  in the <a href="../../../tools/support-library/features.html#v7-mediarouter">v7-mediarouter</a>
+  support library. You should use the classes in the
+  <code><a href="../../../reference/android/support/v7/media/package-summary.html">android.support.v7.media</a></code> package for media route provider functions.
+  These APIs are compatible with devices running Android 2.1 (API level 7) and higher.
+</p>
+
+<p class="caution">
+  <strong>Caution:</strong> There is another set of media router APIs provided in the
+  <code><a href="../../../reference/android/media/package-summary.html">android.media</a></code> class package that have been superseded by the
+  <a href="../../../tools/support-library/features.html#v7-mediarouter">v7-mediarouter</a>
+  support library. You <em>should not</em> use the <code><a href="../../../reference/android/media/package-summary.html">android.media</a></code> classes for
+  implementing media route provider functions.
+</p>
+
+<p>In order to use the <code><a href="../../../reference/android/support/v7/media/package-summary.html">android.support.v7.media</a></code> media router classes, you
+  must add the <a href="../../../tools/support-library/features.html#v7-mediarouter"
+  >v7-mediarouter support library package</a> to your app development project. For more
+  information on adding support libraries to your app development project, see
+  <a href="../../../tools/support-library/setup.html">Support Library Setup</a>.
+</p>
+
+
+<h2 id="provider-service">Creating a Provider Service</h2>
+
+<p>The media router framework must be able to discover and connect to your media route provider
+  to allow other applications to use your route. In order to do this, the media router framework
+  looks for apps that declare a media route provider intent action. When another app wants to
+  connect to your provider, the framework must be able to invoke and connect to it, so your provider
+  must be encapsulated in a <code><a href="../../../reference/android/app/Service.html">Service</a></code>.</p>
+
+<p>The following example code shows the declaration of a media route provider service and the
+  intent filter in a manifest, which allows it to be discovered and used by the media router
+  framework:</p>
+
+<pre>
+&lt;service android:name=".provider.SampleMediaRouteProviderService"
+    android:label="&#64;string/sample_media_route_provider_service"
+    android:process=":mrp"&gt;
+    &lt;intent-filter&gt;
+        &lt;action android:name="android.media.MediaRouteProviderService" /&gt;
+    &lt;/intent-filter&gt;
+&lt;/service&gt;
+</pre>
+
+<p>This manifest example declares a service that wraps the actual media route provider classes.
+  The Android media router framework provides the
+  <code><a href="../../../reference/android/support/v7/media/MediaRouteProviderService.html">MediaRouteProviderService</a></code> class for use as a service wrapper for
+  media route providers. The following example code demonstrates how to use this wrapper
+  class:</p>
+
+<pre>
+public class SampleMediaRouteProviderService extends MediaRouteProviderService {
+
+    &#64;Override
+    public MediaRouteProvider onCreateMediaRouteProvider() {
+        return new SampleMediaRouteProvider(this);
+    }
+}
+</pre>
+
+
+<h2 id="route-caps">Specifying Route Capabilities</h2>
+
+<p>Apps connecting to the media router framework can discover your media route through your
+  app's manifest declarations, but they also need to know the capabilities of the media routes you
+  are providing. Media routes can be of different types and have different features, and other apps
+  need to be able to discover these details to determine if they are compatible with your route.</p>
+
+<p>The media router framework allows you to define and publish the capabilities of your media
+  route through <code><a href="../../../reference/android/content/IntentFilter.html">IntentFilter</a></code> objects, <code><a href="../../../reference/android/support/v7/media/MediaRouteDescriptor.html">MediaRouteDescriptor</a></code> objects and a <code><a href="../../../reference/android/support/v7/media/MediaRouteProviderDescriptor.html">MediaRouteProviderDescriptor</a></code>. This section explains how to use these
+  classes to publish the details of your media route for other apps.</p>
+
+
+<h3 id="route-cat">Route categories</h3>
+
+<p>As part of the programmatic description of your media route provider, you must specify
+  whether your provider supports remote playback, secondary output, or both. These are the route
+  categories provided by the media router framework:</p>
+
+<ul>
+  <li><code><a href="../../../reference/android/support/v7/media/MediaControlIntent.html#CATEGORY_LIVE_AUDIO">CATEGORY_LIVE_AUDIO</a></code>
+    &mdash; Output of audio to a secondary output device, such as a wireless-enabled music system.
+    </li>
+  <li><code><a href="../../../reference/android/support/v7/media/MediaControlIntent.html#CATEGORY_LIVE_VIDEO">CATEGORY_LIVE_VIDEO</a></code>
+    &mdash; Output of video to a secondary output device, such as Wireless Display devices.</li>
+  <li><code><a href="../../../reference/android/support/v7/media/MediaControlIntent.html#CATEGORY_REMOTE_PLAYBACK">CATEGORY_REMOTE_PLAYBACK</a></code> &mdash; Play video or audio on a separate device which handles media
+    retrieval, decoding, and playback, such as
+    <a href="https://www.google.com/url?q=http://www.google.com/chromecast">Chromecast</a> devices.
+    </li>
+</ul>
+
+<p>In order to include these settings in a description of your media route, you insert them into
+  an <code><a href="../../../reference/android/content/IntentFilter.html">IntentFilter</a></code> object, which you later add to a
+  <code><a href="../../../reference/android/support/v7/media/MediaRouteDescriptor.html">MediaRouteDescriptor</a></code> object:</p>
+
+<pre>
+public final class SampleMediaRouteProvider extends MediaRouteProvider {
+    private static final ArrayList&lt;IntentFilter&gt; CONTROL_FILTERS_BASIC;
+    static {
+        IntentFilter videoPlayback = new IntentFilter();
+        <strong>videoPlayback.addCategory(MediaControlIntent.CATEGORY_REMOTE_PLAYBACK);</strong>
+        CONTROL_FILTERS_BASIC = new ArrayList&lt;IntentFilter&gt;();
+        CONTROL_FILTERS_BASIC.add(videoPlayback);
+    }
+}
+
+</pre>
+
+<p>If you specify the <code><a href="../../../reference/android/support/v7/media/MediaControlIntent.html#CATEGORY_REMOTE_PLAYBACK">CATEGORY_REMOTE_PLAYBACK</a></code> intent, you must also define what media types and
+  playback controls are supported by your media route provider. The next section describes how to
+  specify these settings for your device.</p>
+
+
+<h3 id="media-types">Media types and protocols</h3>
+
+<p>A media route provider for a remote playback device must specify the media types and transfer
+  protocols it supports. You specify these settings using the <code><a href="../../../reference/android/content/IntentFilter.html">IntentFilter</a></code>
+  class and the <code><a href="../../../reference/android/content/IntentFilter.html#addDataScheme(java.lang.String)">addDataScheme()</a></code> and
+  <code><a href="../../../reference/android/content/IntentFilter.html#addDataType(java.lang.String)">addDataType()</a></code> methods of that object. The
+  following code snippet demonstrates how to define an intent filter for supporting remote video
+  playback using http, https, and Real Time Streaming Protocol (RTSP):</p>
+
+<pre>
+public final class SampleMediaRouteProvider extends MediaRouteProvider {
+
+    private static final ArrayList&lt;IntentFilter&gt; CONTROL_FILTERS_BASIC;
+
+    static {
+        IntentFilter videoPlayback = new IntentFilter();
+        videoPlayback.addCategory(MediaControlIntent.CATEGORY_REMOTE_PLAYBACK);
+        videoPlayback.addAction(MediaControlIntent.ACTION_PLAY);
+        videoPlayback.addDataScheme("http");
+        videoPlayback.addDataScheme("https");
+        videoPlayback.addDataScheme("rtsp");
+        addDataTypeUnchecked(videoPlayback, "video/*");
+        CONTROL_FILTERS_BASIC = new ArrayList&lt;IntentFilter&gt;();
+        CONTROL_FILTERS_BASIC.add(videoPlayback);
+    }
+    ...
+
+    private static void addDataTypeUnchecked(IntentFilter filter, String type) {
+        try {
+            filter.addDataType(type);
+        } catch (MalformedMimeTypeException ex) {
+            throw new RuntimeException(ex);
+        }
+    }
+}
+
+</pre>
+
+
+<h3 id="playback-ctrls">Playback controls</h3>
+
+<p>A media route provider that offers remote playback must specify the types of media controls
+  it supports. These are the general types of control that media routes can provide:</p>
+
+<ul>
+  <li><strong>Playback controls</strong>, such as play, pause, rewind, and fast-forward.</li>
+  <li><strong>Queuing features</strong>, which allow the sending app to add and remove items
+    from a playlist which is maintained by the receiver device.</li>
+  <li><strong>Session features</strong>, which prevent sending apps from interfering with each
+    other by having the receiver device provide a session id to the requesting app and then checking
+    that id with each subsequent playback control request.</li>
+</ul>
+
+<p>The following code example demonstrates how to construct an intent filter for supporting
+  basic media route playback controls:</p>
+
+<pre>
+public final class SampleMediaRouteProvider extends MediaRouteProvider {
+    private static final ArrayList&lt;IntentFilter&gt; CONTROL_FILTERS_BASIC;
+    static {
+        ...
+        IntentFilter playControls = new IntentFilter();
+        playControls.addCategory(MediaControlIntent.CATEGORY_REMOTE_PLAYBACK);
+        playControls.addAction(MediaControlIntent.ACTION_SEEK);
+        playControls.addAction(MediaControlIntent.ACTION_GET_STATUS);
+        playControls.addAction(MediaControlIntent.ACTION_PAUSE);
+        playControls.addAction(MediaControlIntent.ACTION_RESUME);
+        playControls.addAction(MediaControlIntent.ACTION_STOP);
+        CONTROL_FILTERS_BASIC = new ArrayList&lt;IntentFilter&gt;();
+        CONTROL_FILTERS_BASIC.add(videoPlayback);
+        CONTROL_FILTERS_BASIC.add(playControls);
+    }
+    ...
+}
+</pre>
+
+<p>For more information about the available playback control intents, see the
+  <code><a href="../../../reference/android/support/v7/media/MediaControlIntent.html">MediaControlIntent</a></code> class.</p>
+
+
+<h3 id="mrpd">MediaRouteProviderDescriptor</h3>
+
+<p>After defining the capabilities of your media route using <code><a href="../../../reference/android/content/IntentFilter.html">IntentFilter</a></code> objects, you can then create a descriptor object for publishing to
+  the Android media router framework. This descriptor object contains the specifics of your media
+  route's capabilities so that other applications can determine how to interact with your media
+  route.</p>
+
+<p>The following example code demonstrates how to add the previously created intent filters to a
+  <code><a href="../../../reference/android/support/v7/media/MediaRouteProviderDescriptor.html">MediaRouteProviderDescriptor</a></code> and set the descriptor for use by
+  the media router framework:</p>
+
+<pre>
+public SampleMediaRouteProvider(Context context) {
+    super(context);
+    publishRoutes();
+}
+
+private void publishRoutes() {
+    Resources r = getContext().getResources();
+    // Create a route descriptor using previously created IntentFilters
+    MediaRouteDescriptor routeDescriptor = new MediaRouteDescriptor.Builder(
+            VARIABLE_VOLUME_BASIC_ROUTE_ID,
+            r.getString(R.string.variable_volume_basic_route_name))
+            .setDescription(r.getString(R.string.sample_route_description))
+            .addControlFilters(CONTROL_FILTERS_BASIC)
+            .setPlaybackStream(AudioManager.STREAM_MUSIC)
+            .setPlaybackType(MediaRouter.RouteInfo.PLAYBACK_TYPE_REMOTE)
+            .setVolumeHandling(MediaRouter.RouteInfo.PLAYBACK_VOLUME_VARIABLE)
+            .setVolumeMax(VOLUME_MAX)
+            .setVolume(mVolume)
+            .build();
+    // Add the route descriptor to the provider descriptor
+    MediaRouteProviderDescriptor providerDescriptor =
+            new MediaRouteProviderDescriptor.Builder()
+            .addRoute(routeDescriptor)
+            .build();
+
+    // Publish the descriptor to the framework
+    setDescriptor(providerDescriptor);
+}
+</pre>
+
+<p>For more information on the available descriptor settings, see the reference documentation
+  for <code><a href="../../../reference/android/support/v7/media/MediaRouteDescriptor.html">MediaRouteDescriptor</a></code> and <code><a href="../../../reference/android/support/v7/media/MediaRouteProviderDescriptor.html">MediaRouteProviderDescriptor</a></code>.</p>
+
+
+<h2 id="ctrl-routes">Controlling Routes</h2>
+
+<p>When an application connects to your media route provider, the provider receives playback
+  commands through the media router framework sent to your route by other apps. To handle these
+  requests, you must provide an implementation of a <code><a href="../../../reference/android/support/v7/media/MediaRouteProvider.RouteController.html">MediaRouteProvider.RouteController</a></code> class, which processes the commands
+  and handles the actual communication to your receiver device.</p>
+
+<p>The media router framework calls the <code><a href="../../../reference/android/support/v7/media/MediaRouteProvider.html#onCreateRouteController(java.lang.String)">onCreateRouteController()</a></code>
+  method of your route provider to obtain an instance of this class and then routes requests to it.
+  These are the key methods of the <code><a href="../../../reference/android/support/v7/media/MediaRouteProvider.RouteController.html">MediaRouteProvider.RouteController</a></code> class, which you must implement for
+  your media route provider:</p>
+
+<ul>
+  <li><code><a href="../../../reference/android/support/v7/media/MediaRouteProvider.RouteController.html#onSelect()">onSelect()</a></code>
+    &mdash; Called when an application selects your route for playback. You use this method to do
+    any preparation work that may be required before media playback begins.</li>
+  <li><code><a href="../../../reference/android/support/v7/media/MediaRouteProvider.RouteController.html#onControlRequest(android.content.Intent, android.support.v7.media.MediaRouter.ControlRequestCallback)">onControlRequest()</a></code> &mdash; Sends specific playback commands to the receiving device.</li>
+  <li><code><a href="../../../reference/android/support/v7/media/MediaRouteProvider.RouteController.html#onSetVolume(int)">onSetVolume()</a></code> &mdash; Sends a request to the receiving device to set the playback volume to a
+    specific value.</li>
+  <li><code><a href="../../../reference/android/support/v7/media/MediaRouteProvider.RouteController.html#onUpdateVolume(int)">onUpdateVolume()</a></code> &mdash; Sends a request to the receiving device to modify the playback
+    volume by a specified amount.</li>
+  <li><code><a href="../../../reference/android/support/v7/media/MediaRouteProvider.RouteController.html#onUnselect()">onUnselect()</a></code> &mdash; Called when an application unselects a route.</li>
+  <li><code><a href="../../../reference/android/support/v7/media/MediaRouteProvider.RouteController.html#onRelease()">onRelease()</a></code>
+    &mdash; Called when the route is no longer needed by the framework, allowing it to free its
+    resources.</li>
+</ul>
+
+<p>All playback control requests, except for volume changes, are directed to the <code><a href="../../../reference/android/support/v7/media/MediaRouteProvider.RouteController.html#onControlRequest(android.content.Intent, android.support.v7.media.MediaRouter.ControlRequestCallback)">onControlRequest()</a></code>
+  method. Your implementation of this method must parse the control requests and respond to them
+  appropriately. Here is an example implementation of this method which processes commands for a
+  remote playback media route:</p>
+
+<pre>
+private final class SampleRouteController extends
+        MediaRouteProvider.RouteController {
+    ...
+
+    &#64;Override
+    public boolean onControlRequest(Intent intent, ControlRequestCallback callback) {
+
+        String action = intent.getAction();
+
+        if (intent.hasCategory(MediaControlIntent.CATEGORY_REMOTE_PLAYBACK)) {
+            boolean success = false;
+            if (action.equals(MediaControlIntent.ACTION_PLAY)) {
+                success = handlePlay(intent, callback);
+            } else if (action.equals(MediaControlIntent.ACTION_ENQUEUE)) {
+                success = handleEnqueue(intent, callback);
+            } else if (action.equals(MediaControlIntent.ACTION_REMOVE)) {
+                success = handleRemove(intent, callback);
+            } else if (action.equals(MediaControlIntent.ACTION_SEEK)) {
+                success = handleSeek(intent, callback);
+            } else if (action.equals(MediaControlIntent.ACTION_GET_STATUS)) {
+                success = handleGetStatus(intent, callback);
+            } else if (action.equals(MediaControlIntent.ACTION_PAUSE)) {
+                success = handlePause(intent, callback);
+            } else if (action.equals(MediaControlIntent.ACTION_RESUME)) {
+                success = handleResume(intent, callback);
+            } else if (action.equals(MediaControlIntent.ACTION_STOP)) {
+                success = handleStop(intent, callback);
+            } else if (action.equals(MediaControlIntent.ACTION_START_SESSION)) {
+                success = handleStartSession(intent, callback);
+            } else if (action.equals(MediaControlIntent.ACTION_GET_SESSION_STATUS)) {
+                success = handleGetSessionStatus(intent, callback);
+            } else if (action.equals(MediaControlIntent.ACTION_END_SESSION)) {
+                success = handleEndSession(intent, callback);
+            }
+
+            Log.d(TAG, mSessionManager.toString());
+            return success;
+        }
+        return false;
+    }
+    ...
+}
+</pre>
+
+<p>It is important to understand that the <code><a href="../../../reference/android/support/v7/media/MediaRouteProvider.RouteController.html">MediaRouteProvider.RouteController</a></code> class is intended to act as a wrapper
+  for the API to your media playback equipment. The implementation of the methods in this class is
+  entirely dependent on the programmatic interface provided by your receiving device.</p>
+
+    </div>
+
+      <div class="content-footer layout-content-row"
+                    itemscope itemtype="http://schema.org/SiteNavigationElement">
+        <div class="layout-content-col col-8" style="padding-top:4px">
+          
+            <div class="g-plusone" data-size="medium"></div>
+          
+        </div>
+        
+        <div class="paging-links layout-content-col col-4">
+          
+        </div>
+        
+      </div>
+
+      
+      
+
+  </div> <!-- end jd-content -->
+
+<div id="footer" class="wrap" >
+        
+
+  <div id="copyright">
+    
+  Except as noted, this content is 
+  licensed under <a href="http://creativecommons.org/licenses/by/2.5/">
+  Creative Commons Attribution 2.5</a>. For details and 
+  restrictions, see the <a href="../../../license.html">Content 
+  License</a>.
+  </div>
+
+
+  <div id="footerlinks">
+    
+  <p>
+    <a href="../../../about/index.html">About Android</a>&nbsp;&nbsp;|&nbsp;
+    <a href="../../../legal.html">Legal</a>&nbsp;&nbsp;|&nbsp;
+    <a href="../../../support.html">Support</a>
+  </p>
+  </div>
+
+</div> <!-- end footer -->
+</div><!-- end doc-content -->
+
+<!-- Start of Tag -->
+<script type="text/javascript">
+var axel = Math.random() + "";
+var a = axel * 10000000000000;
+document.write('<iframe src="https://2507573.fls.doubleclick.net/activityi;src=2507573;type=other026;cat=googl348;ord=' + a + '?" width="1" height="1" frameborder="0" style="display:none"></iframe>');
+</script>
+<noscript>
+<iframe src="https://2507573.fls.doubleclick.net/activityi;src=2507573;type=other026;cat=googl348;ord=1?" width="1" height="1" frameborder="0" style="display:none"></iframe>
+</noscript>
+<!-- End of Tag -->
+
+
+</div> <!-- end body-content --> 
+
+
+
+
+
+  <script src="https://developer.android.com/ytblogger_lists_unified.js" type="text/javascript"></script>
+  <script src="../../../jd_lists_unified.js" type="text/javascript"></script>
+  <script src="../../../jd_extras.js" type="text/javascript"></script>
+  <script src="../../../jd_collections.js" type="text/javascript"></script>
+  <script src="../../../jd_tag_helpers.js" type="text/javascript"></script>
+
+</body>
+</html>
+
+
+

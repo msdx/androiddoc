@@ -1,0 +1,1646 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width" />
+
+<meta name="Description" content="The GCM Cloud Connection Server (CCS) is an XMPP endpoint that provides a persistent, asynchronous, bidirectional connection to Google servers. The connection can be used to send and receive messages between your server and your users&#39; GCM-connected…">
+<link rel="shortcut icon" type="image/x-icon" href="../../favicon.ico" />
+<title>GCM Cloud Connection Server (XMPP) | Android Developers</title>
+
+<!-- STYLESHEETS -->
+<link rel="stylesheet"
+href="http://fonts.googleapis.com/css?family=Roboto+Condensed">
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:light,regular,medium,thin,italic,mediumitalic,bold"
+  title="roboto">
+<link href="../../assets/css/default.css" rel="stylesheet" type="text/css">
+
+
+
+<!-- JAVASCRIPT -->
+<script src="http://www.google.com/jsapi" type="text/javascript"></script>
+<script src="../../assets/js/android_3p-bundle.js" type="text/javascript"></script>
+<script type="text/javascript">
+  var toRoot = "../../";
+  var metaTags = [];
+  var devsite = false;
+</script>
+<script src="../../assets/js/docs.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-5831155-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+
+<body class="gc-documentation 
+
+google" itemscope itemtype="http://schema.org/Article">
+
+<a name="top"></a>
+
+  <!-- Header -->
+  <div id="header-wrapper">
+    <div id="header">
+      <div class="wrap" id="header-wrap">
+        <div class="col-3 logo">
+          <a href="../../index.html">
+            <img src="../../assets/images/dac_logo.png"
+                srcset="../../assets/images/dac_logo@2x.png 2x"
+                width="123" height="25" alt="Android Developers" />
+          </a>
+          <div class="btn-quicknav" id="btn-quicknav">
+            <a href="#" class="arrow-inactive">Quicknav</a>
+            <a href="#" class="arrow-active">Quicknav</a>
+          </div>
+        </div>
+        <ul class="nav-x col-9">
+            <li class="design">
+              <a href="../../design/index.html"
+              zh-tw-lang="設計"
+              zh-cn-lang="设计"
+              ru-lang="Проектирование"
+              ko-lang="디자인"
+              ja-lang="設計"
+              es-lang="Diseñar"
+              >Design</a></li>
+            <li class="develop"><a href="../../develop/index.html"
+              zh-tw-lang="開發"
+              zh-cn-lang="开发"
+              ru-lang="Разработка"
+              ko-lang="개발"
+              ja-lang="開発"
+              es-lang="Desarrollar"
+              >Develop</a></li>
+            <li class="distribute last"><a href="../../distribute/googleplay/index.html"
+              zh-tw-lang="發佈"
+              zh-cn-lang="分发"
+              ru-lang="Распространение"
+              ko-lang="배포"
+              ja-lang="配布"
+              es-lang="Distribuir"
+              >Distribute</a></li>
+        </ul>
+
+
+        
+        
+<div class="menu-container">
+  <div class="moremenu">
+    <div id="more-btn"></div>
+  </div>
+  <div class="morehover" id="moremenu">
+    <div class="top"></div>
+    <div class="mid">
+      <div class="header">Links</div>
+      <ul>
+        <li><a href="https://play.google.com/apps/publish/" target="_googleplay">Google Play Developer Console</a></li>
+        <li><a href="http://android-developers.blogspot.com/">Android Developers Blog</a></li>
+        <li><a href="../../about/index.html">About Android</a></li>
+      </ul>
+      <div class="header">Android Sites</div>
+      <ul>
+        <li><a href="http://www.android.com">Android.com</a></li>
+        <li class="active"><a>Android Developers</a></li>
+        <li><a href="http://source.android.com">Android Open Source Project</a></li>
+      </ul>
+
+      
+      
+      
+      <br class="clearfix" />
+    </div><!-- end 'mid' -->
+    <div class="bottom"></div>
+  </div><!-- end 'moremenu' -->
+
+  <div class="search" id="search-container">
+    <div class="search-inner">
+      <div id="search-btn"></div>
+      <div class="left"></div>
+      <form onsubmit="return submit_search()">
+        <input id="search_autocomplete" type="text" value="" autocomplete="off" name="q"
+          onfocus="search_focus_changed(this, true)" onblur="search_focus_changed(this, false)"
+          onkeydown="return search_changed(event, true, '../../')"
+          onkeyup="return search_changed(event, false, '../../')" />
+      </form>
+      <div class="right"></div>
+      <a class="close hide">close</a>
+      <div class="left"></div>
+      <div class="right"></div>
+    </div><!-- end search-inner -->
+  </div><!-- end search-container -->
+
+  <div class="search_filtered_wrapper reference">
+    <div class="suggest-card reference no-display">
+      <ul class="search_filtered">
+      </ul>
+    </div>
+  </div>
+
+  <div class="search_filtered_wrapper docs">
+    <div class="suggest-card dummy no-display">&nbsp;</div>
+    <div class="suggest-card develop no-display">
+      <ul class="search_filtered">
+      </ul>
+      <div class="child-card guides no-display">
+      </div>
+      <div class="child-card training no-display">
+      </div>
+      <div class="child-card samples no-display">
+      </div>
+    </div>
+    <div class="suggest-card design no-display">
+      <ul class="search_filtered">
+      </ul>
+    </div>
+    <div class="suggest-card distribute no-display">
+      <ul class="search_filtered">
+      </ul>
+    </div>
+  </div>
+</div><!-- end menu-container (search and menu widget) -->
+
+
+
+        <!-- Expanded quicknav -->
+        <div id="quicknav" class="col-9">
+          <ul>
+            <li class="design">
+              <ul>
+                <li><a href="../../design/index.html">Get Started</a></li>
+                <li><a href="../../design/style/index.html">Style</a></li>
+                <li><a href="../../design/patterns/index.html">Patterns</a></li>
+                <li><a href="../../design/building-blocks/index.html">Building Blocks</a></li>
+                <li><a href="../../design/downloads/index.html">Downloads</a></li>
+                <li><a href="../../design/videos/index.html">Videos</a></li>
+              </ul>
+            </li>
+            <li class="develop">
+              <ul>
+                <li><a href="../../training/index.html"
+                  zh-tw-lang="訓練課程"
+                  zh-cn-lang="培训"
+                  ru-lang="Курсы"
+                  ko-lang="교육"
+                  ja-lang="トレーニング"
+                  es-lang="Capacitación"
+                  >Training</a></li>
+                <li><a href="../../guide/index.html"
+                  zh-tw-lang="API 指南"
+                  zh-cn-lang="API 指南"
+                  ru-lang="Руководства по API"
+                  ko-lang="API 가이드"
+                  ja-lang="API ガイド"
+                  es-lang="Guías de la API"
+                  >API Guides</a></li>
+                <li><a href="../../reference/packages.html"
+                  zh-tw-lang="參考資源"
+                  zh-cn-lang="参考"
+                  ru-lang="Справочник"
+                  ko-lang="참조문서"
+                  ja-lang="リファレンス"
+                  es-lang="Referencia"
+                  >Reference</a></li>
+                <li><a href="../../tools/index.html"
+                  zh-tw-lang="相關工具"
+                  zh-cn-lang="工具"
+                  ru-lang="Инструменты"
+                  ko-lang="도구"
+                  ja-lang="ツール"
+                  es-lang="Herramientas"
+                  >Tools</a>
+                  <ul><li><a href="../../sdk/index.html">Get the SDK</a></li></ul>
+                </li>
+                <li><a href="../../google/index.html">Google Services</a>
+                </li>
+                
+              </ul>
+            </li>
+            <li class="distribute last">
+              <ul>
+                <li><a href="../../distribute/googleplay/index.html">Google Play</a></li>
+                <li><a href="../../distribute/essentials/index.html">Essentials</a></li>
+                <li><a href="../../distribute/users/index.html">Get Users</a></li>
+                <li><a href="../../distribute/engage/index.html">Engage &amp; Retain</a></li>
+                <li><a href="../../distribute/monetize/index.html">Monetize</a></li>
+                <li><a href="../../distribute/tools/index.html">Tools &amp; Reference</a></li>
+                <li><a href="../../distribute/stories/index.html">Developer Stories</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div><!-- /Expanded quicknav -->
+      </div><!-- end header-wrap.wrap -->
+    </div><!-- end header -->
+
+  
+    <!-- Secondary x-nav -->
+    <div id="nav-x">
+        <div class="wrap">
+            <ul class="nav-x col-9 develop" style="width:100%">
+                <li class="training"><a href="../../training/index.html"
+                  zh-tw-lang="訓練課程"
+                  zh-cn-lang="培训"
+                  ru-lang="Курсы"
+                  ko-lang="교육"
+                  ja-lang="トレーニング"
+                  es-lang="Capacitación"
+                  >Training</a></li>
+                <li class="guide"><a href="../../guide/index.html"
+                  zh-tw-lang="API 指南"
+                  zh-cn-lang="API 指南"
+                  ru-lang="Руководства по API"
+                  ko-lang="API 가이드"
+                  ja-lang="API ガイド"
+                  es-lang="Guías de la API"
+                  >API Guides</a></li>
+                <li class="reference"><a href="../../reference/packages.html"
+                  zh-tw-lang="參考資源"
+                  zh-cn-lang="参考"
+                  ru-lang="Справочник"
+                  ko-lang="참조문서"
+                  ja-lang="リファレンス"
+                  es-lang="Referencia"
+                  >Reference</a></li>
+                <li class="tools"><a href="../../tools/index.html"
+                  zh-tw-lang="相關工具"
+                  zh-cn-lang="工具"
+                  ru-lang="Инструменты"
+                  ko-lang="도구"
+                  ja-lang="ツール"
+                  es-lang="Herramientas"
+                  >Tools</a></li>
+                <li class="google"><a href="../../google/index.html"
+                  >Google Services</a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+    <!-- /Sendondary x-nav -->
+
+  
+
+    <div id="searchResults" class="wrap" style="display:none;">
+      <h2 id="searchTitle">Results</h2>
+      <div id="leftSearchControl" class="search-control">Loading...</div>
+    </div>
+  </div> <!--end header-wrapper -->
+
+  <div id="sticky-header">
+    <div>
+      <a class="logo" href="#top"></a>
+      <a class="top" href="#top"></a>
+      <ul class="breadcrumb">
+        
+        <li class="current">GCM Cloud Connection Server (XMPP)</li>
+      </ul>
+    </div>
+  </div>
+
+
+
+
+  <div class="wrap clearfix" id="body-content">
+    <div class="col-4" id="side-nav" itemscope itemtype="http://schema.org/SiteNavigationElement">
+      <div id="devdoc-nav" class="scroll-pane">
+
+
+
+<ul id="nav">
+
+  <li class="nav-section">
+    <div class="nav-section-header empty"><a href="../../google/index.html">
+          <span class="en">Overview</span>
+      </a></div>
+  </li>
+
+  <li class="nav-section">
+    <div class="nav-section-header empty"><a href="../../google/play-services/games.html">
+          <span class="en">Games</span>
+      </a></div>
+  </li>
+  <li class="nav-section">
+    <div class="nav-section-header empty"><a href="../../google/play-services/location.html">
+          <span class="en">Location</span>
+      </a></div>
+  </li>
+  <li class="nav-section">
+    <div class="nav-section-header empty"><a href="../../google/play-services/plus.html">
+          <span class="en">Google+</span>
+                </a></div>
+  </li>
+  <li class="nav-section">
+    <div class="nav-section-header empty"><a href="../../google/play-services/maps.html">
+          <span class="en">Maps</span>
+      </a></div>
+  </li>
+  <li class="nav-section">
+    <div class="nav-section-header empty"><a href="../../google/play-services/drive.html">
+          <span class="en">Drive</span>
+      </a></div>
+  </li>
+  <li class="nav-section">
+    <div class="nav-section-header empty"><a href="../../google/play-services/cast.html">
+          <span class="en">Cast</span>
+      </a></div>
+  </li>
+  <li class="nav-section">
+    <div class="nav-section-header"><a href="../../google/play-services/ads.html">
+      <span class="en">Ads</span></a>
+    </div>
+    <ul>
+      <li><a href="../../google/play-services/id.html">
+          <span class="en">Advertising ID</span></a>
+      </li>
+    </ul>
+  </li>
+  <li class="nav-section">
+    <div class="nav-section-header empty"><a href="../../google/play-services/wallet.html">
+          <span class="en">Wallet</span>
+      </a></div>
+  </li>
+
+
+  <li class="nav-section">
+    <div class="nav-section-header"><a href="../../google/play-services/index.html">
+      <span class="en">Google Play Services</span></a>
+    </div>
+    <ul>
+      <li><a href="../../google/play-services/setup.html">
+          <span class="en">Setup</span></a>
+      </li>
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../google/auth/api-client.html">
+          <span class="en">Accessing Google Play Services APIs</span></a>
+        </div>
+        <ul>
+          <li>
+            <a href="../../google/auth/http-auth.html">
+              <span class="en">Authorizing with Google for REST APIs</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+      <li id="gms-tree-list" class="nav-section">
+        <div class="nav-section-header">
+          <a href="../../reference/gms-packages.html">
+            <span class="en">Reference</span>
+          </a>
+        <div>
+      </li>
+    </ul>
+  </li>
+
+
+  <li class="nav-section">
+    <div class="nav-section-header"><a href="../../google/play/billing/index.html">
+      <span class="en">Google Play In-app Billing</span></a>
+    </div>
+    <ul>
+      <li><a href="../../google/play/billing/billing_overview.html">
+              <span class="en">Overview</span></a>
+      </li>
+      <li class="nav-section"><div class="nav-section-header"><a href="../../google/play/billing/api.html">
+              <span class="en">Version 3 API</span></a></div>
+              <ul>
+              <li><a href="../../google/play/billing/billing_integrate.html">
+              <span class="en">Implementing the API</span></a></li>
+              <li><a href="../../google/play/billing/billing_reference.html">
+              <span class="en">Reference</span></a></li>
+              </ul>
+      </li>
+      <li class="nav-section"><div class="nav-section-header"><a href="../../google/play/billing/v2/api.html">
+              <span class="en">Version 2 API</span></a></div>
+              <ul>
+              <li><a href="../../google/play/billing/v2/billing_integrate.html">
+              <span class="en">Implementing the API</span></a></li>
+              <li><a href="../../google/play/billing/v2/billing_subscriptions.html">
+              <span class="en">Subscriptions</span></a></li>
+              <li><a href="../../google/play/billing/v2/billing_reference.html">
+              <span class="en">Reference</span></a></li>
+              </ul>
+      </li>
+      <li><a href="../../google/play/billing/billing_subscriptions.html">
+              <span class="en">Subscriptions</span></a>
+      </li>
+      <li><a href="../../google/play/billing/billing_best_practices.html">
+              <span class="en">Security and Design</span></a>
+      </li>
+      <li><a href="../../google/play/billing/billing_testing.html">
+              <span class="en">Testing In-app Billing</span></a>
+      </li>
+      <li><a href="../../google/play/billing/billing_admin.html">
+              <span class="en">Administering In-app Billing</span></a>
+      </li>
+      <li><a href="../../google/play/billing/gp-purchase-status-api.html">
+              <span class="en">Purchase Status API</span></a>
+      </li>
+      <li><a href="../../google/play/billing/versions.html">
+              <span class="en">Version Notes</span></a>
+      </li>
+    </ul>
+  </li>
+
+
+
+   <li class="nav-section">
+      <div class="nav-section-header"><a href="../../google/gcm/index.html">
+        <span class="en">Google Cloud Messaging</span></a>
+      </div>
+      <ul>
+        <li><a href="../../google/gcm/gcm.html">
+            <span class="en">Overview</span></a>
+        </li>
+        <li><a href="../../google/gcm/gs.html">
+            <span class="en">Getting Started</span></a>
+        </li>
+        <li><a href="../../google/gcm/client.html">
+            <span class="en">Implementing GCM Client</span></a>
+        </li>
+        <li class="nav-section"><div class="nav-section-header"><a href="../../google/gcm/server.html">
+              <span class="en">Implementing GCM Server</span></a></div>
+              <ul>
+              <li><a href="../../google/gcm/ccs.html">
+              <span class="en">CCS (XMPP)</span></a></li>
+              <li><a href="../../google/gcm/http.html">
+              <span class="en">HTTP</span></a></li>
+              </ul>
+        </li>
+        <li><a href="../../google/gcm/notifications.html">
+              <span class="en">User Notifications</span></a>
+        </li>
+        <li><a href="../../google/gcm/adv.html">
+            <span class="en">Advanced Topics</span></a>
+        </li>
+        <li><a href="../../google/gcm/c2dm.html">
+            <span class="en">Migration</span></a>
+        </li>
+        <li id="gcm-tree-list" class="nav-section">
+          <div class="nav-section-header">
+            <a href="../../reference/gcm-packages.html">
+              <span class="en">Reference</span>
+            </a>
+          <div>
+        </li>
+      </ul>
+  </li>
+
+  <li class="nav-section">
+    <div class="nav-section-header"><a href="../../google/play/dist.html">
+      <span class="en">Google Play Distribution</span></a>
+    </div>
+    <ul>
+      <li><a href="../../google/play/filters.html">
+          <span class="en">Filters on Google Play</span></a>
+      </li>
+
+      <li><a href="../../google/play/publishing/multiple-apks.html">
+          <span class="en">Multiple APK Support</span></a>
+      </li>
+      <li><a href="../../google/play/expansion-files.html">
+          <span class="en">APK Expansion Files</span></a>
+      </li>
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../google/play/licensing/index.html">
+          <span class="en">Application Licensing</span></a>
+        </div>
+        <ul>
+          <li><a href="../../google/play/licensing/overview.html">
+              <span class="en">Licensing Overview</span></a>
+          </li>
+          <li><a href="../../google/play/licensing/setting-up.html">
+              <span class="en">Setting Up for Licensing</span></a>
+          </li>
+          <li><a href="../../google/play/licensing/adding-licensing.html">
+              <span class="en">Adding Licensing to Your App</span></a>
+          </li>
+          <li><a href="../../google/play/licensing/licensing-reference.html">
+              <span class="en">Licensing Reference</span></a>
+          </li>
+        </ul>
+      </li>
+
+  <li class="nav-section">
+    <div class="nav-section-header"><a href="../../google/backup/index.html">
+      Android Backup Service</a>
+    </div>
+    <ul>
+      <li><a href="../../google/backup/signup.html">
+          Register</a>
+      </li>
+    </ul>
+  </li>
+
+  </ul>
+
+</li>
+
+
+
+</ul>
+
+<script type="text/javascript">
+<!--
+    buildToggleLists();
+    changeNavLang(getLangPref());
+//-->
+</script>
+
+
+        
+
+      </div>
+      <script type="text/javascript">
+       showGoogleRefTree();
+    
+      </script>
+    </div> <!-- end side-nav -->
+    <script>
+      $(document).ready(function() {
+        scrollIntoView("devdoc-nav");
+        });
+    </script>
+
+
+
+
+<div class="col-12" id="doc-col" >
+
+
+
+
+  
+    
+      
+        <h1 itemprop="name" >GCM Cloud Connection Server (XMPP)</h1>
+      
+    
+  
+
+
+  
+  <div id="jd-content">
+
+
+    <div class="jd-descr" itemprop="articleBody">
+    <div id="qv-wrapper">
+<div id="qv">
+
+
+<h2>In this document</h2>
+
+<ol class="toc">
+  <li><a href="#connecting">Establishing a Connection</a>
+    <ol class="toc">
+      <li><a href="#auth">Authentication</a></li>
+      </ol>
+      </li>
+    <li><a href="#format">Message Format</a>
+      <ol class="toc">
+        <li><a href="#request">Request format</a></li>
+        <li><a href="#response">Response format</a></li>
+      </ol>
+      </li>
+  <li><a href="#upstream">Upstream Messages</a> </li>
+  <li><a href="#flow">Flow Control</a> </li>
+  <li><a href="#implement">Implementing an XMPP-based App Server</a>
+    <ol class="toc">
+      <li><a href="#smack">Java sample using the Smack library</a></li>
+      <li><a href="#python">Python sample</a></li>
+    </ol>
+  </li>
+</ol>
+
+<h2>See Also</h2>
+
+<ol class="toc">
+<li><a href="../../google/gcm/http.html">HTTP</a></li>
+<li><a href="../../google/gcm/gs.html">Getting Started</a></li>
+<li><a href="../../google/gcm/server.html">Implementing GCM Server</a></li>
+<li><a href="../../google/gcm/client.html">Implementing GCM Client</a></li>
+<li><a href="https://services.google.com/fb/forms/gcm/" class="external-link"
+target="_android">CCS and User Notifications Signup Form</a></li>
+</ol>
+
+</div>
+</div>
+
+<p class="note"><strong>Note:</strong> To try out this feature, sign up using
+<a href="https://services.google.com/fb/forms/gcm/">this form</a>.</p>
+
+<p>The GCM Cloud Connection Server (CCS) is an XMPP endpoint that provides a
+persistent, asynchronous, bidirectional connection to Google servers. The
+connection can be used to send and receive messages between your server and
+your users' GCM-connected devices.</p>
+
+<p>You can continue to use the HTTP request mechanism to send messages to GCM
+servers, side-by-side with CCS which uses XMPP. Some of the benefits of CCS include:</p>
+
+<ul>
+  <li>The asynchronous nature of XMPP allows you to send more messages with fewer
+resources.</li>
+  <li>Communication is bidirectional&mdash;not only can your server send messages
+to the device, but the device can send messages back to your server.</li>
+  <li>The device can send messages back using the same connection used for receiving,
+thereby improving battery life.</li>
+</ul>
+
+<p>The upstream messaging (device-to-cloud) feature of CCS is part of the Google
+Play services platform. Upstream messaging is available through the
+<a href="../../reference/com/google/android/gms/gcm/GoogleCloudMessaging.html">
+<code>GoogleCloudMessaging</code></a>
+APIs. For examples, see
+<a href="#implement">Implementing an XMPP-based App Server</a>.</p>
+
+<p class="note"><strong>Note:</strong> See
+<a href="server.html#params">Implementing GCM Server</a> for a list of all the message
+parameters and which connection server(s) supports them.</p>
+
+<h2 id="connecting">Establishing a Connection</h2>
+
+<p>CCS just uses XMPP as an authenticated transport layer, so you can use most
+XMPP libraries to manage the connection. For an example, see <a href="#smack">
+Java sample using the Smack library</a>.</p>
+
+<p>The CCS XMPP endpoint runs at <code>gcm.googleapis.com:5235</code>. When testing
+functionality (with non-production users), you should instead connect to
+<code>gcm-staging.googleapis.com:5236</code> (note the different port). Testing on
+staging (a smaller environment where the latest CCS builds run) is beneficial
+both for isolating real users from test code, as well as for early detection of
+unexpected behavior changes.</p>
+
+<p>The connection has two important requirements:</p>
+
+<ul>
+  <li>You must initiate a Transport Layer Security (TLS) connection. Note that
+  CCS doesn't currently support the <a href="http://xmpp.org/rfcs/rfc3920.html"
+  class="external-link" target="_android">STARTTLS extension</a>.</li>
+  <li>CCS requires a SASL PLAIN authentication mechanism using
+  <code>&lt;your_GCM_Sender_Id&gt;&#64;gcm.googleapis.com</code> (GCM sender ID)
+  and the API key as the password, where the sender ID and API key are the same
+  as described in <a href="gs.html">Getting Started</a>.</li>
+</ul>
+
+<p>If at any point the connection fails, you should immediately reconnect.
+There is no need to back off after a disconnect that happens after
+authentication.</p>
+
+<h3 id="auth">Authentication</h3>
+
+<p>The following snippets illustrate how to perform authentication in CCS.</p>
+<h4>Client</h4>
+<pre>&lt;stream:stream to=&quot;gcm.googleapis.com&quot; 
+        version=&quot;1.0&quot; xmlns=&quot;jabber:client&quot; 
+        xmlns:stream=&quot;http://etherx.jabber.org/streams&quot;/&gt;
+</pre>
+<h4>Server</h4>
+<pre>&lt;str:features xmlns:str=&quot;http://etherx.jabber.org/streams&quot;&gt;
+ &lt;mechanisms xmlns=&quot;urn:ietf:params:xml:ns:xmpp-sasl&quot;&gt;
+   &lt;mechanism&gt;X-OAUTH2&lt;/mechanism&gt;
+   &lt;mechanism&gt;X-GOOGLE-TOKEN&lt;/mechanism&gt;
+   &lt;mechanism&gt;PLAIN&lt;/mechanism&gt;
+ &lt;/mechanisms&gt;
+&lt;/str:features&gt;
+</pre>
+
+<h4>Client</h4>
+<pre>&lt;auth mechanism=&quot;PLAIN&quot;
+xmlns=&quot;urn:ietf:params:xml:ns:xmpp-sasl&quot;&gt;MTI2MjAwMzQ3OTMzQHByb2plY3RzLmdjbS5hb
+mFTeUIzcmNaTmtmbnFLZEZiOW1oekNCaVlwT1JEQTJKV1d0dw==&lt;/auth&gt;
+</pre>
+
+<h4>Server</h4>
+<pre>&lt;success xmlns=&quot;urn:ietf:params:xml:ns:xmpp-sasl&quot;/&gt;</pre>
+
+<h2 id="format">Message Format</h2>
+<p>Once the XMPP connection is established, CCS and your server use normal XMPP
+<code>&lt;message&gt;</code> stanzas to send JSON-encoded messages back and
+forth. The body of the <code>&lt;message&gt;</code> must be:</p>
+<pre>
+&lt;gcm xmlns:google:mobile:data&gt;
+    <em>JSON payload</em>
+&lt;/gcm&gt;
+</pre>
+
+<p>The JSON payload for regular GCM messages is similar to
+<a href="http.html#request">what the GCM http endpoint uses</a>, with these
+exceptions:</p>
+<ul>
+  <li>There is no support for multiple recipients.</li>
+  <li><code>to</code> is used instead of <code>registration_ids</code>.</li>
+  <li>CCS adds the field <code>message_id</code>, which is required. This ID uniquely
+identifies the message in an XMPP connection. The ACK or NACK from CCS uses the
+<code>message_id</code> to identify a message sent from 3rd-party app servers to CCS.
+Therefore, it's important that this <code>message_id</code> not only be unique, but
+always present.</li>
+</ul>
+
+<p>In addition to regular GCM messages, control messages are sent, indicated by
+the <code>message_type</code> field in the JSON object. The value can be either
+'ack' or 'nack', or 'control' (see formats below). Any GCM message with an
+unknown <code>message_type</code> can be ignored by your server.</p>
+
+<p>For each device message your app server receives from CCS, it needs to send
+an ACK message.
+It never needs to send a NACK message. If you don't send an ACK for a message,
+CCS will just resend it.
+</p>
+<p>CCS also sends an ACK or NACK for each server-to-device message. If you do not
+receive either, it means that the TCP connection was closed in the middle of the
+operation and your server needs to resend the messages. See
+<a href="#flow">Flow Control</a> for details.
+</p>
+
+<p class="note"><strong>Note:</strong> See
+<a href="server.html#params">Implementing GCM Server</a> for a list of all the message
+parameters and which connection server(s) supports them.</p>
+
+<h3 id="request">Request format</h3>
+
+<p>Here is an XMPP stanza containing the JSON message from a 3rd-party app server to CCS:
+
+</p>
+<pre>&lt;message id=&quot;&quot;&gt;
+  &lt;gcm xmlns=&quot;google:mobile:data&quot;&gt;
+  {
+      &quot;to&quot;:&quot;REGISTRATION_ID&quot;,  // &quot;to&quot; replaces &quot;registration_ids&quot;
+      &quot;message_id&quot;:&quot;m-1366082849205&quot; // new required field
+      &quot;data&quot;:
+      {
+          &quot;hello&quot;:&quot;world&quot;,
+      }
+      &quot;time_to_live&quot;:&quot;600&quot;,
+      &quot;delay_while_idle&quot;: true/false
+  }
+  &lt;/gcm&gt;
+&lt;/message&gt;
+</pre>
+
+<h3 id="response">Response format</h3>
+
+<p>A CCS response can have 3 possible forms. The first one is a regular 'ack'
+message. But when the response contains an error, there are 2
+different forms the message can take, described below.</p>
+
+<h4 id="ack">ACK message</h4>
+
+<p>Here is an XMPP stanza containing the ACK/NACK message from CCS to 3rd-party app server:
+</p>
+<pre>&lt;message id=&quot;&quot;&gt;
+  &lt;gcm xmlns=&quot;google:mobile:data&quot;&gt;
+  {
+      &quot;from&quot;:&quot;REGID&quot;,
+      &quot;message_id&quot;:&quot;m-1366082849205&quot;
+      &quot;message_type&quot;:&quot;ack&quot;
+  }
+  &lt;/gcm&gt;
+&lt;/message&gt;
+</pre>
+
+<h4 id="nack">NACK message</h4>
+
+<p>A NACK error is a regular XMPP message in which the <code>message_type</code> status
+message is &quot;nack&quot;. A NACK message contains:</p>
+<ul>
+<li>Nack error code.</li>
+<li>Nack error description.</li>
+</ul>
+
+<p>Below are some examples.</p>
+
+<p>Bad registration:</p>
+<pre>&lt;message&gt;
+  &lt;data:gcm xmlns:data=&quot;google:mobile:data&quot;&gt;
+  {
+    &quot;error&quot;:&quot;BAD_REGISTRATION&quot;,  // error code
+    &quot;message_id&quot;:&quot;msgId1&quot;,
+    &quot;from&quot;:&quot;PA91bHFOtaQGSwupt5l1og&quot;,
+    &quot;message_type&quot;:&quot;nack&quot;
+  }
+  &lt;/data:gcm&gt;
+&lt;/message&gt;</pre>
+
+<p>Invalid "time to live":</p>
+
+<pre>&lt;message&gt;
+  &lt;data:gcm xmlns:data=&quot;google:mobile:data&quot;&gt;
+  {
+     &quot;error&quot;:&quot;InvalidJson : INVALID_TTL : Invalid value (-1) for \&quot;time_to_live\&quot;: must be between 0 and \&quot;2419200\&quot;\n&quot;,
+     &quot;message_id&quot;:&quot;msgId1&quot;,
+     &quot;from&quot;:&quot;APA91bHFOtaQGSwupt5l1og&quot;,
+     &quot;message_type&quot;:&quot;nack&quot;
+  }
+  &lt;/data:gcm&gt;
+&lt;/message&gt;</pre>
+
+<p>JSON type error:</p>
+
+<pre>&lt;message&gt;
+  &lt;data:gcm xmlns:data=&quot;google:mobile:data&quot;&gt;
+  {
+     &quot;error&quot;:&quot;InvalidJson : JSON_TYPE_ERROR : Field \&quot;delay_while_idle\&quot; must be a JSON java.lang.Boolean: not-boolean-user-supplied-value\n&quot;,
+     &quot;message_id&quot;:&quot;msgId1&quot;,
+     &quot;from&quot;:&quot;APA91bHFOtaQGSwupt5l1og&quot;,
+     &quot;message_type&quot;:&quot;nack&quot;
+  }
+  &lt;/data:gcm&gt;
+&lt;/message&gt;</pre>
+
+
+<p>The following table lists NACK error codes. Unless otherwise
+indicated, a NACKed message should not be retried. Unexpected NACK error codes
+should be treated the same as <code>INTERNAL_SERVER_ERROR</code>.</p>
+
+<p class="table-caption" id="table1">
+  <strong>Table 1.</strong> NACK error codes.</p>
+
+<table border="1">
+<tr>
+<th>Error Code</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><code>BAD_ACK</code></td>
+<td>The ACK message is improperly formed.</td>
+</tr>
+<tr>
+<td><code>BAD_REGISTRATION</code></td>
+<td>The device has a registration ID, but it's invalid or expired.</td>
+</tr>
+<tr>
+<td><code>CONNECTION_DRAINING</code></td>
+<td>The message couldn't be processed because the connection is draining. The
+message should be immediately retried over another connection.</td>
+</tr>
+<tr>
+<td><code>DEVICE_UNREGISTERED</code></td>
+<td>The device is not registered.</td>
+</tr>
+<tr>
+<td><code>INTERNAL_SERVER_ERROR</code></td>
+<td>The server encountered an error while trying to process the request.</td>
+</tr>
+<tr>
+<td><code>INVALID_JSON</code></td>
+<td>The JSON message payload was not valid.</td>
+</tr>
+<tr>
+<td><code>QUOTA_EXCEEDED</code></td>
+<td>The rate of messages to a particular registration ID (in other words, to a
+sender/device pair) is too high. If you want to retry the message, try using a slower
+rate.</td>
+</tr>
+<tr>
+<td><code>SERVICE_UNAVAILABLE</code></td>
+<td>CCS is not currently able to process the message. The
+message should be retried over the same connection using exponential backoff
+with an initial delay of 1 second.</td>
+</tr>
+</table>
+
+<h4 id="stanza">Stanza error</h4>
+
+<p>You can also get a stanza error in certain cases.
+A stanza error contains:</p>
+<ul>
+<li>Stanza error code.</li>
+<li>Stanza error description (free text).</li>
+</ul>
+<p>For example:</p>
+
+<pre>&lt;message id=&quot;3&quot; type=&quot;error&quot; to=&quot;123456789@gcm.googleapis.com/ABC&quot;&gt;
+  &lt;gcm xmlns=&quot;google:mobile:data&quot;&gt;
+     {&quot;random&quot;: &quot;text&quot;}
+  &lt;/gcm&gt;
+  &lt;error code=&quot;400&quot; type=&quot;modify&quot;&gt;
+    &lt;bad-request xmlns=&quot;urn:ietf:params:xml:ns:xmpp-stanzas&quot;/&gt;
+    &lt;text xmlns=&quot;urn:ietf:params:xml:ns:xmpp-stanzas&quot;&gt;
+      InvalidJson: JSON_PARSING_ERROR : Missing Required Field: message_id\n
+    &lt;/text&gt;
+  &lt;/error&gt;
+&lt;/message&gt;
+</pre>
+
+<h4 id="control">Control messages</h4>
+
+<p>Periodically, CCS needs to close down a connection to perform load balancing. Before it
+closes the connection, CCS sends a <code>CONNECTION_DRAINING</code> message to indicate that the connection is being drained
+and will be closed soon. "Draining" refers to shutting off the flow of messages coming into a
+connection, but allowing whatever is already in the pipeline to continue. When you receive
+a <code>CONNECTION_DRAINING</code> message, you should immediately begin sending messages to another CCS
+connection, opening a new connection if necessary. You should, however, keep the original
+connection open and continue receiving messages that may come over the connection (and
+ACKing them)&mdash;CCS will handle initiating a connection close when it is ready.</p>
+
+<p>The <code>CONNECTION_DRAINING</code> message looks like this:</p>
+<pre>&lt;message&gt;
+  &lt;data:gcm xmlns:data=&quot;google:mobile:data&quot;&gt;
+  {
+    &quot;message_type&quot;:&quot;control&quot;
+    &quot;control_type&quot;:&quot;CONNECTION_DRAINING&quot;
+  }
+  &lt;/data:gcm&gt;
+&lt;/message&gt;</pre>
+
+<p><code>CONNECTION_DRAINING</code> is currently the only <code>control_type</code> supported.</p>
+
+<h2 id="upstream">Upstream Messages</h2>
+
+<p>Using CCS and the
+<a href="../../reference/com/google/android/gms/gcm/GoogleCloudMessaging.html">
+<code>GoogleCloudMessaging</code></a>
+API, you can send messages from a user's device to the cloud.</p>
+
+<p>Here is how you send an upstream message using the
+<a href="../../reference/com/google/android/gms/gcm/GoogleCloudMessaging.html">
+<code>GoogleCloudMessaging</code></a>
+API. For a complete example, see <a href="client.html">Implementing GCM Client</a>:</p>
+
+<pre>GoogleCloudMessaging gcm = GoogleCloudMessaging.get(context);
+String GCM_SENDER_ID = "Your-Sender-ID";
+AtomicInteger msgId = new AtomicInteger();
+String id = Integer.toString(msgId.incrementAndGet());
+Bundle data = new Bundle();
+// Bundle data consists of a key-value pair
+data.putString("hello", "world");
+// "time to live" parameter
+// This is optional. It specifies a value in seconds up to 4 weeks.
+int ttl = [0 seconds, 4 weeks]
+
+gcm.send(GCM_SENDER_ID + "&#64;gcm.googleapis.com", id, ttl, data);
+</pre>
+
+<p>This call generates the necessary XMPP stanza for sending the upstream message.
+The message goes from the app on the device to CCS to the 3rd-party app server.
+The stanza has the following format:</p>
+
+<pre>&lt;message id=&quot;&quot;&gt;
+  &lt;gcm xmlns=&quot;google:mobile:data&quot;&gt;
+  {
+      &quot;category&quot;:&quot;com.example.yourapp&quot;, // to know which app sent it
+      &quot;data&quot;:
+      {
+          &quot;hello&quot;:&quot;world&quot;,
+      },
+      &quot;message_id&quot;:&quot;m-123&quot;,
+      &quot;from&quot;:&quot;REGID&quot;
+  }
+  &lt;/gcm&gt;
+&lt;/message&gt;</pre>
+
+<p>Here is the format of the ACK expected by CCS from 3rd-party app servers in
+response to the above message:</p>
+
+<pre>&lt;message id=&quot;&quot;&gt;
+  &lt;gcm xmlns=&quot;google:mobile:data&quot;&gt;
+  {
+      &quot;to&quot;:&quot;REGID&quot;,
+      &quot;message_id&quot;:&quot;m-123&quot;
+      &quot;message_type&quot;:&quot;ack&quot;
+  }
+  &lt;/gcm&gt;
+&lt;/message&gt;</pre>
+
+<h2 id="flow">Flow Control</h2>
+
+<p>Every message sent to CCS receives either an ACK or a NACK response. Messages
+that haven't received one of these responses are considered pending. If the pending
+message count reaches 100, the 3rd-party app server should stop sending new messages
+and wait for CCS to acknowledge some of the existing pending messages as illustrated in
+figure 1:</p>
+
+<img src="../../images/gcm/CCS-ack.png">
+
+<p class="img-caption">
+  <strong>Figure 1.</strong> Message/ack flow.
+</p>
+
+<p>Conversely, to avoid overloading the 3rd-party app server, CCS will stop sending
+if there are too many unacknowledged messages. Therefore, the 3rd-party app server
+should "ACK" upstream messages, received from the client application via CCS, as soon as possible
+to maintain a constant flow of incoming messages. The aforementioned pending message limit doesn't
+apply to these ACKs. Even if the pending message count reaches 100, the 3rd-party app server
+should continue sending ACKs for messages received from CCS to avoid blocking delivery of new
+upstream messages.</p>
+
+<p>ACKs are only valid within the context of one connection. If the connection is
+closed before a message can be ACKed, the 3rd-party app server should wait for CCS
+to resend the upstream message before ACKing it again. Similarly, all pending messages for which an
+ACK/NACK was not received from CCS before the connection was closed should be sent again.
+</p>
+
+<h2 id="implement">Implementing an XMPP-based App Server</h2>
+
+<p>This section gives examples of implementing an app server that works with CCS.
+Note that a full GCM implementation requires a client-side implementation, in
+addition to the server. For more information, see <a href="client.html">
+Implementing GCM Client</a>.</a>
+
+<h3 id="smack">Java sample using the Smack library</h3>
+
+<p>Here is a sample app server written in Java, using the
+<a href="http://www.igniterealtime.org/projects/smack/">Smack</a> library.</p>
+
+<pre>import org.jivesoftware.smack.ConnectionConfiguration;
+import org.jivesoftware.smack.ConnectionConfiguration.SecurityMode;
+import org.jivesoftware.smack.ConnectionListener;
+import org.jivesoftware.smack.PacketInterceptor;
+import org.jivesoftware.smack.PacketListener;
+import org.jivesoftware.smack.XMPPConnection;
+import org.jivesoftware.smack.XMPPException;
+import org.jivesoftware.smack.filter.PacketTypeFilter;
+import org.jivesoftware.smack.packet.DefaultPacketExtension;
+import org.jivesoftware.smack.packet.Message;
+import org.jivesoftware.smack.packet.Packet;
+import org.jivesoftware.smack.packet.PacketExtension;
+import org.jivesoftware.smack.provider.PacketExtensionProvider;
+import org.jivesoftware.smack.provider.ProviderManager;
+import org.jivesoftware.smack.util.StringUtils;
+import org.json.simple.JSONValue;
+import org.json.simple.parser.ParseException;
+import org.xmlpull.v1.XmlPullParser;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+import javax.net.ssl.SSLSocketFactory;
+/**
+ * Sample Smack implementation of a client for GCM Cloud Connection Server.
+ *
+ * &lt;p&gt;For illustration purposes only.
+ */
+public class SmackCcsClient {
+
+  Logger logger = Logger.getLogger(&quot;SmackCcsClient&quot;);
+
+  public static final String GCM_SERVER = &quot;gcm.googleapis.com&quot;;
+  public static final int GCM_PORT = 5235;
+
+  public static final String GCM_ELEMENT_NAME = &quot;gcm&quot;;
+  public static final String GCM_NAMESPACE = &quot;google:mobile:data&quot;;
+
+  static Random random = new Random();
+  XMPPConnection connection;
+  ConnectionConfiguration config;
+
+  /**
+   * XMPP Packet Extension for GCM Cloud Connection Server.
+   */
+  class GcmPacketExtension extends DefaultPacketExtension {
+    String json;
+
+    public GcmPacketExtension(String json) {
+      super(GCM_ELEMENT_NAME, GCM_NAMESPACE);
+      this.json = json;
+    }
+
+    public String getJson() {
+      return json;
+    }
+
+    &#64;Override
+    public String toXML() {
+      return String.format(&quot;&lt;%s xmlns=\&quot;%s\&quot;&gt;%s&lt;/%s&gt;&quot;, GCM_ELEMENT_NAME,
+          GCM_NAMESPACE, json, GCM_ELEMENT_NAME);
+    }
+
+    &#64;SuppressWarnings(&quot;unused&quot;)
+    public Packet toPacket() {
+      return new Message() {
+        // Must override toXML() because it includes a &lt;body&gt;
+        &#64;Override
+        public String toXML() {
+
+          StringBuilder buf = new StringBuilder();
+          buf.append(&quot;&lt;message&quot;);
+          if (getXmlns() != null) {
+            buf.append(&quot; xmlns=\&quot;&quot;).append(getXmlns()).append(&quot;\&quot;&quot;);
+          }
+          if (getLanguage() != null) {
+            buf.append(&quot; xml:lang=\&quot;&quot;).append(getLanguage()).append(&quot;\&quot;&quot;);
+          }
+          if (getPacketID() != null) {
+            buf.append(&quot; id=\&quot;&quot;).append(getPacketID()).append(&quot;\&quot;&quot;);
+          }
+          if (getTo() != null) {
+            buf.append(&quot; to=\&quot;&quot;).append(StringUtils.escapeForXML(getTo())).append(&quot;\&quot;&quot;);
+          }
+          if (getFrom() != null) {
+            buf.append(&quot; from=\&quot;&quot;).append(StringUtils.escapeForXML(getFrom())).append(&quot;\&quot;&quot;);
+          }
+          buf.append(&quot;&gt;&quot;);
+          buf.append(GcmPacketExtension.this.toXML());
+          buf.append(&quot;&lt;/message&gt;&quot;);
+          return buf.toString();
+        }
+      };
+    }
+  }
+
+  public SmackCcsClient() {
+    // Add GcmPacketExtension
+    ProviderManager.getInstance().addExtensionProvider(GCM_ELEMENT_NAME,
+        GCM_NAMESPACE, new PacketExtensionProvider() {
+
+      &#64;Override
+      public PacketExtension parseExtension(XmlPullParser parser)
+          throws Exception {
+        String json = parser.nextText();
+        GcmPacketExtension packet = new GcmPacketExtension(json);
+        return packet;
+      }
+    });
+  }
+
+  /**
+   * Returns a random message id to uniquely identify a message.
+   *
+   * &lt;p&gt;Note:
+   * This is generated by a pseudo random number generator for illustration purpose,
+   * and is not guaranteed to be unique.
+   *
+   */
+  public String getRandomMessageId() {
+    return &quot;m-&quot; + Long.toString(random.nextLong());
+  }
+
+  /**
+   * Sends a downstream GCM message.
+   */
+  public void send(String jsonRequest) {
+    Packet request = new GcmPacketExtension(jsonRequest).toPacket();
+    connection.sendPacket(request);
+  }
+
+  /**
+   * Handles an upstream data message from a device application.
+   *
+   * &lt;p&gt;This sample echo server sends an echo message back to the device.
+   * Subclasses should override this method to process an upstream message.
+   */
+  public void handleIncomingDataMessage(Map&lt;String, Object&gt; jsonObject) {
+    String from = jsonObject.get(&quot;from&quot;).toString();
+
+    // PackageName of the application that sent this message.
+    String category = jsonObject.get(&quot;category&quot;).toString();
+
+    // Use the packageName as the collapseKey in the echo packet
+    String collapseKey = &quot;echo:CollapseKey&quot;;
+    &#64;SuppressWarnings(&quot;unchecked&quot;)
+    Map&lt;String, String&gt; payload = (Map&lt;String, String&gt;) jsonObject.get(&quot;data&quot;);
+    payload.put(&quot;ECHO&quot;, &quot;Application: &quot; + category);
+
+    // Send an ECHO response back
+    String echo = createJsonMessage(from, getRandomMessageId(), payload, collapseKey, null, false);
+    send(echo);
+  }
+
+  /**
+   * Handles an ACK.
+   *
+   * &lt;p&gt;By default, it only logs a <code>INFO</code> message, but subclasses could override it to
+   * properly handle ACKS.
+   */
+  public void handleAckReceipt(Map&lt;String, Object&gt; jsonObject) {
+    String messageId = jsonObject.get(&quot;message_id&quot;).toString();
+    String from = jsonObject.get(&quot;from&quot;).toString();
+    logger.log(Level.INFO, &quot;handleAckReceipt() from: &quot; + from + &quot;, messageId: &quot; + messageId);
+  }
+
+  /**
+   * Handles a NACK.
+   *
+   * &lt;p&gt;By default, it only logs a <code>INFO</code> message, but subclasses could override it to
+   * properly handle NACKS.
+   */
+  public void handleNackReceipt(Map&lt;String, Object&gt; jsonObject) {
+    String messageId = jsonObject.get(&quot;message_id&quot;).toString();
+    String from = jsonObject.get(&quot;from&quot;).toString();
+    logger.log(Level.INFO, &quot;handleNackReceipt() from: &quot; + from + &quot;, messageId: &quot; + messageId);
+  }
+
+  /**
+   * Creates a JSON encoded GCM message.
+   *
+   * &#64;param to RegistrationId of the target device (Required).
+   * &#64;param messageId Unique messageId for which CCS will send an &quot;ack/nack&quot; (Required).
+   * &#64;param payload Message content intended for the application. (Optional).
+   * &#64;param collapseKey GCM collapse_key parameter (Optional).
+   * &#64;param timeToLive GCM time_to_live parameter (Optional).
+   * &#64;param delayWhileIdle GCM delay_while_idle parameter (Optional).
+   * &#64;return JSON encoded GCM message.
+   */
+  public static String createJsonMessage(String to, String messageId, Map&lt;String, String&gt; payload,
+      String collapseKey, Long timeToLive, Boolean delayWhileIdle) {
+    Map&lt;String, Object&gt; message = new HashMap&lt;String, Object&gt;();
+    message.put(&quot;to&quot;, to);
+    if (collapseKey != null) {
+      message.put(&quot;collapse_key&quot;, collapseKey);
+    }
+    if (timeToLive != null) {
+      message.put(&quot;time_to_live&quot;, timeToLive);
+    }
+    if (delayWhileIdle != null &amp;&amp; delayWhileIdle) {
+      message.put(&quot;delay_while_idle&quot;, true);
+    }
+    message.put(&quot;message_id&quot;, messageId);
+    message.put(&quot;data&quot;, payload);
+    return JSONValue.toJSONString(message);
+  }
+
+  /**
+   * Creates a JSON encoded ACK message for an upstream message received from an application.
+   *
+   * &#64;param to RegistrationId of the device who sent the upstream message.
+   * &#64;param messageId messageId of the upstream message to be acknowledged to CCS.
+   * &#64;return JSON encoded ack.
+   */
+  public static String createJsonAck(String to, String messageId) {
+    Map&lt;String, Object&gt; message = new HashMap&lt;String, Object&gt;();
+    message.put(&quot;message_type&quot;, &quot;ack&quot;);
+    message.put(&quot;to&quot;, to);
+    message.put(&quot;message_id&quot;, messageId);
+    return JSONValue.toJSONString(message);
+  }
+
+  /**
+   * Connects to GCM Cloud Connection Server using the supplied credentials.
+   *
+   * &#64;param username GCM_SENDER_ID&#64;gcm.googleapis.com
+   * &#64;param password API Key
+   * &#64;throws XMPPException
+   */
+  public void connect(String username, String password) throws XMPPException {
+    config = new ConnectionConfiguration(GCM_SERVER, GCM_PORT);
+    config.setSecurityMode(SecurityMode.enabled);
+    config.setReconnectionAllowed(true);
+    config.setRosterLoadedAtLogin(false);
+    config.setSendPresence(false);
+    config.setSocketFactory(SSLSocketFactory.getDefault());
+
+    // NOTE: Set to true to launch a window with information about packets sent and received
+    config.setDebuggerEnabled(true);
+
+    // -Dsmack.debugEnabled=true
+    XMPPConnection.DEBUG_ENABLED = true;
+
+    connection = new XMPPConnection(config);
+    connection.connect();
+
+    connection.addConnectionListener(new ConnectionListener() {
+
+      &#64;Override
+      public void reconnectionSuccessful() {
+        logger.info(&quot;Reconnecting..&quot;);
+      }
+
+      &#64;Override
+      public void reconnectionFailed(Exception e) {
+        logger.log(Level.INFO, &quot;Reconnection failed.. &quot;, e);
+      }
+
+      &#64;Override
+      public void reconnectingIn(int seconds) {
+        logger.log(Level.INFO, &quot;Reconnecting in %d secs&quot;, seconds);
+      }
+
+      &#64;Override
+      public void connectionClosedOnError(Exception e) {
+        logger.log(Level.INFO, &quot;Connection closed on error.&quot;);
+      }
+
+      &#64;Override
+      public void connectionClosed() {
+        logger.info(&quot;Connection closed.&quot;);
+      }
+    });
+
+    // Handle incoming packets
+    connection.addPacketListener(new PacketListener() {
+
+      &#64;Override
+      public void processPacket(Packet packet) {
+        logger.log(Level.INFO, &quot;Received: &quot; + packet.toXML());
+        Message incomingMessage = (Message) packet;
+        GcmPacketExtension gcmPacket =
+            (GcmPacketExtension) incomingMessage.getExtension(GCM_NAMESPACE);
+        String json = gcmPacket.getJson();
+        try {
+          &#64;SuppressWarnings(&quot;unchecked&quot;)
+          Map&lt;String, Object&gt; jsonObject =
+              (Map&lt;String, Object&gt;) JSONValue.parseWithException(json);
+
+          // present for &quot;ack&quot;/&quot;nack&quot;, null otherwise
+          Object messageType = jsonObject.get(&quot;message_type&quot;);
+
+          if (messageType == null) {
+            // Normal upstream data message
+            handleIncomingDataMessage(jsonObject);
+
+            // Send ACK to CCS
+            String messageId = jsonObject.get(&quot;message_id&quot;).toString();
+            String from = jsonObject.get(&quot;from&quot;).toString();
+            String ack = createJsonAck(from, messageId);
+            send(ack);
+          } else if (&quot;ack&quot;.equals(messageType.toString())) {
+            // Process Ack
+            handleAckReceipt(jsonObject);
+          } else if (&quot;nack&quot;.equals(messageType.toString())) {
+            // Process Nack
+            handleNackReceipt(jsonObject);
+          } else {
+            logger.log(Level.WARNING, &quot;Unrecognized message type (%s)&quot;,
+                messageType.toString());
+          }
+        } catch (ParseException e) {
+          logger.log(Level.SEVERE, &quot;Error parsing JSON &quot; + json, e);
+        } catch (Exception e) {
+          logger.log(Level.SEVERE, &quot;Couldn't send echo.&quot;, e);
+        }
+      }
+    }, new PacketTypeFilter(Message.class));
+
+
+    // Log all outgoing packets
+    connection.addPacketInterceptor(new PacketInterceptor() {
+      &#64;Override
+      public void interceptPacket(Packet packet) {
+        logger.log(Level.INFO, &quot;Sent: {0}&quot;,  packet.toXML());
+      }
+    }, new PacketTypeFilter(Message.class));
+
+    connection.login(username, password);
+  }
+
+  public static void main(String [] args) {
+    final String userName = &quot;Your GCM Sender Id&quot; + &quot;&#64;gcm.googleapis.com&quot;;
+    final String password = &quot;API Key&quot;;
+
+    SmackCcsClient ccsClient = new SmackCcsClient();
+
+    try {
+      ccsClient.connect(userName, password);
+    } catch (XMPPException e) {
+      e.printStackTrace();
+    }
+
+    // Send a sample hello downstream message to a device.
+    String toRegId = &quot;RegistrationIdOfTheTargetDevice&quot;;
+    String messageId = ccsClient.getRandomMessageId();
+    Map&lt;String, String&gt; payload = new HashMap&lt;String, String&gt;();
+    payload.put(&quot;Hello&quot;, &quot;World&quot;);
+    payload.put(&quot;CCS&quot;, &quot;Dummy Message&quot;);
+    payload.put(&quot;EmbeddedMessageId&quot;, messageId);
+    String collapseKey = &quot;sample&quot;;
+    Long timeToLive = 10000L;
+    Boolean delayWhileIdle = true;
+    ccsClient.send(createJsonMessage(toRegId, messageId, payload, collapseKey,
+        timeToLive, delayWhileIdle));
+  }
+}</pre>
+<h3 id="python">Python sample</h3>
+
+<p>Here is an example of a CCS app server written in Python. This sample echo
+server sends an initial message, and for every upstream message received, it sends
+a dummy response back to the application that sent the upstream message. This
+example illustrates how to connect, send, and receive GCM messages using XMPP. It
+shouldn't be used as-is on a production deployment.</p>
+
+<pre>
+#!/usr/bin/python
+import sys, json, xmpp, random, string
+
+SERVER = 'gcm.googleapis.com'
+PORT = 5235
+USERNAME = "Your GCM Sender Id"
+PASSWORD = "API Key"
+REGISTRATION_ID = "Registration Id of the target device"
+
+unacked_messages_quota = 100
+send_queue = []
+
+# Return a random alphanumerical id
+def random_id():
+  rid = ''
+  for x in range(8): rid += random.choice(string.ascii_letters + string.digits)
+  return rid
+
+def message_callback(session, message):
+  global unacked_messages_quota
+  gcm = message.getTags('gcm')
+  if gcm:
+    gcm_json = gcm[0].getData()
+    msg = json.loads(gcm_json)
+    if not msg.has_key('message_type'):
+      # Acknowledge the incoming message immediately.
+      send({'to': msg['from'],
+            'message_type': 'ack',
+            'message_id': msg['message_id']})
+      # Queue a response back to the server.
+      if msg.has_key('from'):
+        # Send a dummy echo response back to the app that sent the upstream message.
+        send_queue.append({'to': msg['from'],
+                           'message_id': random_id(),
+                           'data': {'pong': 1}})
+    elif msg['message_type'] == 'ack' or msg['message_type'] == 'nack':
+      unacked_messages_quota += 1
+
+def send(json_dict):
+  template = (&quot;&lt;message&gt;&lt;gcm xmlns='google:mobile:data'&gt;{1}&lt;/gcm&gt;&lt;/message&gt;&quot;)
+  client.send(xmpp.protocol.Message(
+      node=template.format(client.Bind.bound[0], json.dumps(json_dict))))
+
+def flush_queued_messages():
+  global unacked_messages_quota
+  while len(send_queue) and unacked_messages_quota &gt; 0:
+    send(send_queue.pop(0))
+    unacked_messages_quota -= 1
+
+client = xmpp.Client('gcm.googleapis.com', debug=['socket'])
+client.connect(server=(SERVER,PORT), secure=1, use_srv=False)
+auth = client.auth(USERNAME, PASSWORD)
+if not auth:
+  print 'Authentication failed!'
+  sys.exit(1)
+
+client.RegisterHandler('message', message_callback)
+
+send_queue.append({'to': REGISTRATION_ID,
+                   'message_id': 'reg_id',
+                   'data': {'message_destination': 'RegId',
+                            'message_id': random_id()}})
+
+while True:
+  client.Process(1)
+  flush_queued_messages()</pre>
+
+    </div>
+
+      <div class="content-footer layout-content-row"
+                    itemscope itemtype="http://schema.org/SiteNavigationElement">
+        <div class="layout-content-col col-9" style="padding-top:4px">
+          
+            <div class="g-plusone" data-size="medium"></div>
+          
+        </div>
+        
+        <div class="paging-links layout-content-col col-4">
+          
+        </div>
+        
+      </div>
+
+      
+      
+
+  </div> <!-- end jd-content -->
+
+<div id="footer" class="wrap" >
+        
+
+  <div id="copyright">
+    
+  Except as noted, this content is 
+  licensed under <a href="http://creativecommons.org/licenses/by/2.5/">
+  Creative Commons Attribution 2.5</a>. For details and 
+  restrictions, see the <a href="../../license.html">Content 
+  License</a>.
+  </div>
+
+
+  <div id="footerlinks">
+    
+  <p>
+    <a href="../../about/index.html">About Android</a>&nbsp;&nbsp;|&nbsp;
+    <a href="../../legal.html">Legal</a>&nbsp;&nbsp;|&nbsp;
+    <a href="../../support.html">Support</a>
+  </p>
+  </div>
+
+</div> <!-- end footer -->
+</div><!-- end doc-content -->
+
+<!-- Start of Tag -->
+<script type="text/javascript">
+var axel = Math.random() + "";
+var a = axel * 10000000000000;
+document.write('<iframe src="https://2507573.fls.doubleclick.net/activityi;src=2507573;type=other026;cat=googl348;ord=' + a + '?" width="1" height="1" frameborder="0" style="display:none"></iframe>');
+</script>
+<noscript>
+<iframe src="https://2507573.fls.doubleclick.net/activityi;src=2507573;type=other026;cat=googl348;ord=1?" width="1" height="1" frameborder="0" style="display:none"></iframe>
+</noscript>
+<!-- End of Tag -->
+
+
+</div> <!-- end body-content --> 
+
+
+
+
+
+  <script src="https://developer.android.com/ytblogger_lists_unified.js" type="text/javascript"></script>
+  <script src="../../jd_lists_unified.js" type="text/javascript"></script>
+  <script src="../../jd_extras.js" type="text/javascript"></script>
+  <script src="../../jd_collections.js" type="text/javascript"></script>
+  <script src="../../jd_tag_helpers.js" type="text/javascript"></script>
+
+</body>
+</html>
+
+
+

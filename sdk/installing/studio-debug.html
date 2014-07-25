@@ -1,0 +1,1110 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width" />
+
+<meta name="Description" content="Android Studio enables you to debug apps running on the emulator or on an Android device. With Android Studio, you can: To debug your app, Android Studio builds a debuggable version of your app, connects to a device or to the emulator, installs the app…">
+<link rel="shortcut icon" type="image/x-icon" href="../../favicon.ico" />
+<title>Debugging with Android Studio | Android Developers</title>
+
+<!-- STYLESHEETS -->
+<link rel="stylesheet"
+href="http://fonts.googleapis.com/css?family=Roboto+Condensed">
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:light,regular,medium,thin,italic,mediumitalic,bold"
+  title="roboto">
+<link href="../../assets/css/default.css" rel="stylesheet" type="text/css">
+
+
+
+<!-- JAVASCRIPT -->
+<script src="http://www.google.com/jsapi" type="text/javascript"></script>
+<script src="../../assets/js/android_3p-bundle.js" type="text/javascript"></script>
+<script type="text/javascript">
+  var toRoot = "../../";
+  var metaTags = [];
+  var devsite = false;
+</script>
+<script src="../../assets/js/docs.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-5831155-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+
+<body class="gc-documentation 
+
+develop" itemscope itemtype="http://schema.org/Article">
+
+<a name="top"></a>
+
+  <!-- Header -->
+  <div id="header-wrapper">
+    <div id="header">
+      <div class="wrap" id="header-wrap">
+        <div class="col-3 logo">
+          <a href="../../index.html">
+            <img src="../../assets/images/dac_logo.png"
+                srcset="../../assets/images/dac_logo@2x.png 2x"
+                width="123" height="25" alt="Android Developers" />
+          </a>
+          <div class="btn-quicknav" id="btn-quicknav">
+            <a href="#" class="arrow-inactive">Quicknav</a>
+            <a href="#" class="arrow-active">Quicknav</a>
+          </div>
+        </div>
+        <ul class="nav-x col-9">
+            <li class="design">
+              <a href="../../design/index.html"
+              zh-tw-lang="設計"
+              zh-cn-lang="设计"
+              ru-lang="Проектирование"
+              ko-lang="디자인"
+              ja-lang="設計"
+              es-lang="Diseñar"
+              >Design</a></li>
+            <li class="develop"><a href="../../develop/index.html"
+              zh-tw-lang="開發"
+              zh-cn-lang="开发"
+              ru-lang="Разработка"
+              ko-lang="개발"
+              ja-lang="開発"
+              es-lang="Desarrollar"
+              >Develop</a></li>
+            <li class="distribute last"><a href="../../distribute/googleplay/index.html"
+              zh-tw-lang="發佈"
+              zh-cn-lang="分发"
+              ru-lang="Распространение"
+              ko-lang="배포"
+              ja-lang="配布"
+              es-lang="Distribuir"
+              >Distribute</a></li>
+        </ul>
+
+
+        
+        
+<div class="menu-container">
+  <div class="moremenu">
+    <div id="more-btn"></div>
+  </div>
+  <div class="morehover" id="moremenu">
+    <div class="top"></div>
+    <div class="mid">
+      <div class="header">Links</div>
+      <ul>
+        <li><a href="https://play.google.com/apps/publish/" target="_googleplay">Google Play Developer Console</a></li>
+        <li><a href="http://android-developers.blogspot.com/">Android Developers Blog</a></li>
+        <li><a href="../../about/index.html">About Android</a></li>
+      </ul>
+      <div class="header">Android Sites</div>
+      <ul>
+        <li><a href="http://www.android.com">Android.com</a></li>
+        <li class="active"><a>Android Developers</a></li>
+        <li><a href="http://source.android.com">Android Open Source Project</a></li>
+      </ul>
+
+      
+      
+      
+      <br class="clearfix" />
+    </div><!-- end 'mid' -->
+    <div class="bottom"></div>
+  </div><!-- end 'moremenu' -->
+
+  <div class="search" id="search-container">
+    <div class="search-inner">
+      <div id="search-btn"></div>
+      <div class="left"></div>
+      <form onsubmit="return submit_search()">
+        <input id="search_autocomplete" type="text" value="" autocomplete="off" name="q"
+          onfocus="search_focus_changed(this, true)" onblur="search_focus_changed(this, false)"
+          onkeydown="return search_changed(event, true, '../../')"
+          onkeyup="return search_changed(event, false, '../../')" />
+      </form>
+      <div class="right"></div>
+      <a class="close hide">close</a>
+      <div class="left"></div>
+      <div class="right"></div>
+    </div><!-- end search-inner -->
+  </div><!-- end search-container -->
+
+  <div class="search_filtered_wrapper reference">
+    <div class="suggest-card reference no-display">
+      <ul class="search_filtered">
+      </ul>
+    </div>
+  </div>
+
+  <div class="search_filtered_wrapper docs">
+    <div class="suggest-card dummy no-display">&nbsp;</div>
+    <div class="suggest-card develop no-display">
+      <ul class="search_filtered">
+      </ul>
+      <div class="child-card guides no-display">
+      </div>
+      <div class="child-card training no-display">
+      </div>
+      <div class="child-card samples no-display">
+      </div>
+    </div>
+    <div class="suggest-card design no-display">
+      <ul class="search_filtered">
+      </ul>
+    </div>
+    <div class="suggest-card distribute no-display">
+      <ul class="search_filtered">
+      </ul>
+    </div>
+  </div>
+</div><!-- end menu-container (search and menu widget) -->
+
+
+
+        <!-- Expanded quicknav -->
+        <div id="quicknav" class="col-9">
+          <ul>
+            <li class="design">
+              <ul>
+                <li><a href="../../design/index.html">Get Started</a></li>
+                <li><a href="../../design/style/index.html">Style</a></li>
+                <li><a href="../../design/patterns/index.html">Patterns</a></li>
+                <li><a href="../../design/building-blocks/index.html">Building Blocks</a></li>
+                <li><a href="../../design/downloads/index.html">Downloads</a></li>
+                <li><a href="../../design/videos/index.html">Videos</a></li>
+              </ul>
+            </li>
+            <li class="develop">
+              <ul>
+                <li><a href="../../training/index.html"
+                  zh-tw-lang="訓練課程"
+                  zh-cn-lang="培训"
+                  ru-lang="Курсы"
+                  ko-lang="교육"
+                  ja-lang="トレーニング"
+                  es-lang="Capacitación"
+                  >Training</a></li>
+                <li><a href="../../guide/index.html"
+                  zh-tw-lang="API 指南"
+                  zh-cn-lang="API 指南"
+                  ru-lang="Руководства по API"
+                  ko-lang="API 가이드"
+                  ja-lang="API ガイド"
+                  es-lang="Guías de la API"
+                  >API Guides</a></li>
+                <li><a href="../../reference/packages.html"
+                  zh-tw-lang="參考資源"
+                  zh-cn-lang="参考"
+                  ru-lang="Справочник"
+                  ko-lang="참조문서"
+                  ja-lang="リファレンス"
+                  es-lang="Referencia"
+                  >Reference</a></li>
+                <li><a href="../../tools/index.html"
+                  zh-tw-lang="相關工具"
+                  zh-cn-lang="工具"
+                  ru-lang="Инструменты"
+                  ko-lang="도구"
+                  ja-lang="ツール"
+                  es-lang="Herramientas"
+                  >Tools</a>
+                  <ul><li><a href="../../sdk/index.html">Get the SDK</a></li></ul>
+                </li>
+                <li><a href="../../google/index.html">Google Services</a>
+                </li>
+                
+              </ul>
+            </li>
+            <li class="distribute last">
+              <ul>
+                <li><a href="../../distribute/googleplay/index.html">Google Play</a></li>
+                <li><a href="../../distribute/essentials/index.html">Essentials</a></li>
+                <li><a href="../../distribute/users/index.html">Get Users</a></li>
+                <li><a href="../../distribute/engage/index.html">Engage &amp; Retain</a></li>
+                <li><a href="../../distribute/monetize/index.html">Monetize</a></li>
+                <li><a href="../../distribute/tools/index.html">Tools &amp; Reference</a></li>
+                <li><a href="../../distribute/stories/index.html">Developer Stories</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div><!-- /Expanded quicknav -->
+      </div><!-- end header-wrap.wrap -->
+    </div><!-- end header -->
+
+  
+    <!-- Secondary x-nav -->
+    <div id="nav-x">
+        <div class="wrap">
+            <ul class="nav-x col-9 develop" style="width:100%">
+                <li class="training"><a href="../../training/index.html"
+                  zh-tw-lang="訓練課程"
+                  zh-cn-lang="培训"
+                  ru-lang="Курсы"
+                  ko-lang="교육"
+                  ja-lang="トレーニング"
+                  es-lang="Capacitación"
+                  >Training</a></li>
+                <li class="guide"><a href="../../guide/index.html"
+                  zh-tw-lang="API 指南"
+                  zh-cn-lang="API 指南"
+                  ru-lang="Руководства по API"
+                  ko-lang="API 가이드"
+                  ja-lang="API ガイド"
+                  es-lang="Guías de la API"
+                  >API Guides</a></li>
+                <li class="reference"><a href="../../reference/packages.html"
+                  zh-tw-lang="參考資源"
+                  zh-cn-lang="参考"
+                  ru-lang="Справочник"
+                  ko-lang="참조문서"
+                  ja-lang="リファレンス"
+                  es-lang="Referencia"
+                  >Reference</a></li>
+                <li class="tools"><a href="../../tools/index.html"
+                  zh-tw-lang="相關工具"
+                  zh-cn-lang="工具"
+                  ru-lang="Инструменты"
+                  ko-lang="도구"
+                  ja-lang="ツール"
+                  es-lang="Herramientas"
+                  >Tools</a></li>
+                <li class="google"><a href="../../google/index.html"
+                  >Google Services</a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+    <!-- /Sendondary x-nav -->
+
+  
+
+    <div id="searchResults" class="wrap" style="display:none;">
+      <h2 id="searchTitle">Results</h2>
+      <div id="leftSearchControl" class="search-control">Loading...</div>
+    </div>
+  </div> <!--end header-wrapper -->
+
+  <div id="sticky-header">
+    <div>
+      <a class="logo" href="#top"></a>
+      <a class="top" href="#top"></a>
+      <ul class="breadcrumb">
+        
+        <li class="current">Debugging with Android Studio</li>
+      </ul>
+    </div>
+  </div>
+
+
+
+
+  <div class="wrap clearfix" id="body-content">
+    <div class="col-3" id="side-nav" itemscope itemtype="http://schema.org/SiteNavigationElement">
+      <div id="devdoc-nav" class="scroll-pane">
+<ul id="nav">
+
+  <li class="nav-section">
+    <div class="nav-section-header empty">
+        <a href="../../tools/index.html"><span class="en">Developer Tools</span></a>
+    </div>
+  </li>
+
+  <li class="nav-section">
+    <div class="nav-section-header"><a href="../../sdk/index.html"><span class="en">Download</span></a></div>
+    <ul>
+      <li><a href="../../sdk/installing/bundle.html">
+          <span class="en">Setting Up the ADT Bundle</span></a></li>
+
+      <li class="nav-section">
+        <div class="nav-section-header">
+          <a href="../../sdk/installing/index.html"><span class="en">Setting Up
+    an Existing IDE</span></a></div>
+        <ul>
+          <li><a href="../../sdk/installing/installing-adt.html">
+              <span class="en">Installing the Eclipse Plugin</span></a></li>
+        <li><a href="../../sdk/installing/adding-packages.html">
+            <span class="en">Adding Platforms and Packages</span></a></li>
+        </ul>
+      </li>
+
+      <li class="nav-section">
+        <div class="nav-section-header">
+          <a href="../../sdk/installing/studio.html">Android Studio</a>
+        </div>
+        <ul>
+          <li><a href="../../sdk/installing/migrate.html">
+              Migrating from Eclipse</a></li>
+          <li><a href="../../sdk/installing/studio-tips.html">
+              Tips and Tricks</a></li>
+          <li><a href="../../sdk/installing/studio-layout.html">
+              Using the Layout Editor</a></li>
+          <li><a href="../../sdk/installing/studio-build.html">
+              Building Your Project with Gradle</a></li>
+          <li><a href="../../sdk/installing/studio-debug.html">
+              Debugging with Android Studio</a></li>
+          </ul>
+      </li>
+      <li><a href="../../sdk/exploring.html">
+          <span class="en">Exploring the SDK</span></a></li>
+      <li><a href="../../tools/sdk/ndk/index.html">Download the NDK</a>
+      </li>
+    </ul>
+  </li>
+
+  <li class="nav-section">
+    <div class="nav-section-header">
+        <a href="../../tools/workflow/index.html"><span class="en">Workflow</span></a>
+    </div>
+    <ul>
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../tools/devices/index.html"><span class="en">Setting Up Virtual Devices</span></a></div>
+        <ul>
+          <li><a href="../../tools/devices/managing-avds.html"><span class="en">With AVD Manager</span></a></li>
+          <li><a href="../../tools/devices/managing-avds-cmdline.html"><span class="en">From the Command Line</span></a></li>
+          <li><a href="../../tools/devices/emulator.html"><span class="en">Using the Emulator</span></a></li>
+        </ul>
+      </li>
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../tools/device.html"><span class="en">Using Hardware Devices</span></a></div>
+        <ul>
+          <li><a href="../../tools/extras/oem-usb.html"><span
+            class="en">USB Drivers</span></a></li>
+        </ul>
+      </li>
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../tools/projects/index.html"><span class="en">Setting Up Projects</span></a></div>
+        <ul>
+          <li><a href="../../tools/projects/projects-eclipse.html"><span class="en">From Eclipse with ADT</span></a></li>
+          <li><a href="../../tools/projects/projects-cmdline.html"><span class="en">From the Command Line</span></a></li>
+          <li><a href="../../tools/projects/templates.html"><span class="en">Using Code Templates</span></a></li>
+        </ul>
+      </li>
+
+
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../tools/building/index.html"><span class="en">Building and Running</span></a></div>
+        <ul>
+          <li><a href="../../tools/building/building-eclipse.html"><span class="en">From Eclipse with ADT</span></a></li>
+          <li><a href="../../tools/building/building-cmdline.html"><span class="en">From the Command Line</span></a></li>
+        </ul>
+      </li>
+
+
+  <li class="nav-section">
+        <div class="nav-section-header"><a href="../../tools/testing/index.html">
+            <span class="en">Testing</span>
+          </a></div>
+        <ul>
+          <li>
+            <a href="../../tools/testing/testing_android.html">
+            <span class="en">Fundamentals</span></a>
+          </li>
+          <li><a href="../../tools/testing/testing_eclipse.html">
+            <span class="en">From Eclipse</span></a>
+          </li>
+          <li><a href="../../tools/testing/testing_otheride.html">
+            <span class="en">From Other IDEs</span></a>
+          </li>
+          <li>
+            <a href="../../tools/testing/activity_testing.html">
+            <span class="en">Activity Testing</span></a>
+          </li>
+          <li>
+            <a href="../../tools/testing/service_testing.html">
+            <span class="en">Service Testing</span></a>
+          </li>
+          <li>
+            <a href="../../tools/testing/contentprovider_testing.html">
+            <span class="en">Content Provider Testing</span></a>
+          </li>
+          <li>
+            <a href="../../tools/testing/testing_accessibility.html">
+            <span class="en">Accessibility Testing</span></a>
+          </li>
+           <li>
+            <a href="../../tools/testing/testing_ui.html">
+            <span class="en">UI Testing</span></a>
+          </li>
+          <li>
+            <a href="../../tools/testing/what_to_test.html">
+            <span class="en">What To Test</span></a>
+          </li>
+          <li>
+            <a href="../../tools/testing/activity_test.html">
+            <span class="en">Activity Testing Tutorial</span></a>
+          </li>
+        </ul>
+  </li><!-- end of testing -->
+
+  <li class="nav-section">
+    <div class="nav-section-header"><a href="../../tools/debugging/index.html"><span class="en">Debugging</span></a></div>
+    <ul>
+      <li><a href="../../tools/debugging/debugging-projects.html"><span class="en">From Eclipse with ADT</span></a></li>
+      <li><a href="../../tools/debugging/debugging-projects-cmdline.html"><span class="en">From Other IDEs</span></a></li>
+      <li><a href="../../tools/debugging/ddms.html"><span class="en">Using DDMS</span></a></li>
+      <li><a href="../../tools/debugging/debugging-log.html"><span class="en">Reading and Writing Logs</span></a></li>
+      <li><a href="../../tools/debugging/improving-w-lint.html"><span class="en">Improving Your Code with lint</span></a></li>
+      <li><a href="../../tools/debugging/debugging-ui.html"><span class="en">Optimizing your UI</span></a></li>
+      <li><a href="../../tools/debugging/debugging-tracing.html"><span class="en">Profiling with Traceview and dmtracedump</span></a></li>
+      <li><a href="../../tools/debugging/systrace.html"><span class="en">Analyzing Display and Performance</span></a></li>
+      <li><a href="../../tools/debugging/debugging-memory.html">Investigating Your RAM Usage</a></li>
+      <li><a href="../../tools/debugging/debugging-devtools.html"><span class="en">Using the Dev Tools App</span></a></li>
+    </ul>
+  </li>
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../tools/publishing/publishing_overview.html"><span class="en">Publishing</span></a></div>
+        <ul>
+          <li><a href="../../tools/publishing/preparing.html"><span class="en">Preparing for Release</span></a></li>
+          <li><a href="../../tools/publishing/versioning.html"><span class="en">Versioning Your Apps</span></a></li>
+          <li><a href="../../tools/publishing/app-signing.html"><span class="en">Signing Your Apps</span></a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+
+  <li class="nav-section">
+    <div class="nav-section-header"><a href="../../tools/support-library/index.html"><span
+class="en">Support Library</span></a></div>
+    <ul>
+      <li><a href="../../tools/support-library/features.html">Features</a></li>
+      <li><a href="../../tools/support-library/setup.html">Setup</a></li>
+    </ul>
+  </li>
+
+  <li class="nav-section">
+    <div class="nav-section-header"><a href="../../tools/help/index.html"><span
+class="en">Tools Help</span></a></div>
+    <ul>
+      <li><a href="../../tools/help/adb.html">adb</a></li>
+      <li><a href="../../tools/help/adt.html">ADT</a></li>
+      <li><a href="../../tools/help/android.html">android</a></li>
+      <li><a href="../../tools/help/avd-manager.html">AVD Manager</a></li>
+      <li><a href="../../tools/help/bmgr.html">bmgr</a>
+      <li><a href="../../tools/help/monitor.html">Device Monitor</a></li>
+      <li><a href="../../tools/help/dmtracedump.html">dmtracedump</a></li>
+      <li><a href="../../tools/help/draw9patch.html">Draw 9-Patch</a></li>
+      <li><a href="../../tools/help/emulator.html">Emulator</a></li>
+      <li><a href="../../tools/help/etc1tool.html">etc1tool</a></li>
+      <li><a href="../../tools/help/hierarchy-viewer.html">Hierarchy Viewer</a></li>
+      <li><a href="../../tools/help/hprof-conv.html">hprof-conv</a></li>
+      <li><a href="../../tools/help/jobb.html">jobb</a></li>
+      <li><a href="../../tools/help/lint.html">lint</span></a></li>
+      <li><a href="../../tools/help/logcat.html">logcat</a></li>
+      <li><a href="../../tools/help/mksdcard.html">mksdcard</a></li>
+      <li><a href="../../tools/help/monkey.html">monkey</a></li>
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../tools/help/monkeyrunner_concepts.html"><span class="en">monkeyrunner</span></a></div>
+        <ul>
+          <li><a href="../../tools/help/MonkeyDevice.html"><span
+class="en">MonkeyDevice</span></a></li>
+          <li><a href="../../tools/help/MonkeyImage.html"><span
+class="en">MonkeyImage</span></a></li>
+          <li><a href="../../tools/help/MonkeyRunner.html"><span
+class="en">MonkeyRunner</span></a></li>
+        </ul>
+      </li>
+       <li><a href="../../tools/help/proguard.html">ProGuard</a></li>
+       <li><a href="../../tools/help/sdk-manager.html">SDK Manager</a></li>
+       <li><a href="../../tools/help/systrace.html">Systrace</a></li>
+       <li><a href="../../tools/help/gltracer.html">Tracer for OpenGL ES</a></li>
+       <li><a href="../../tools/help/traceview.html">Traceview</a></li>
+       <li class="nav-section">
+          <div class="nav-section-header"><a href="../../tools/help/uiautomator/index.html"><span class="en">uiautomator</span></a></div>
+          <ul>
+             <li><a href="../../tools/help/uiautomator/Configurator.html"><span class="en">Configurator</span></a></li>
+             <li><a href="../../tools/help/uiautomator/IAutomationSupport.html"><span class="en">IAutomationSupport</span></a></li>
+             <li><a href="../../tools/help/uiautomator/UiAutomatorTestCase.html"><span class="en">UiAutomatorTestCase</span></a></li>
+             <li><a href="../../tools/help/uiautomator/UiCollection.html"><span class="en">UiCollection</span></a></li>
+             <li><a href="../../tools/help/uiautomator/UiDevice.html"><span class="en">UiDevice</span></a></li>
+             <li><a href="../../tools/help/uiautomator/UiObject.html"><span class="en">UiObject</span></a></li>
+             <li><a href="../../tools/help/uiautomator/UiObjectNotFoundException.html"><span class="en">UiObjectNotFoundException</span></a></li>
+             <li><a href="../../tools/help/uiautomator/UiScrollable.html"><span class="en">UiScrollable</span></a></li>
+             <li><a href="../../tools/help/uiautomator/UiSelector.html"><span class="en">UiSelector</span></a></li>
+             <li><a href="../../tools/help/uiautomator/UiWatcher.html"><span class="en">UiWatcher</span></a></li>
+          </ul>
+       </li>
+       <li><a href="../../tools/help/zipalign.html">zipalign</a></li>
+    </ul>
+  </li>
+
+  <li class="nav-section">
+    <div class="nav-section-header"><a href="../../tools/revisions/index.html"><span class="en">Revisions</span></a></div>
+    <ul>
+      <li><a href="../../tools/sdk/tools-notes.html">
+        <span class="en">SDK Tools</span>
+      </a></li>
+      <li><a href="../../tools/sdk/eclipse-adt.html">
+        <span class="en">ADT Plugin</span>
+      </a></li>
+      <li><a href="../../tools/revisions/build-tools.html">
+        <span class="en">Build Tools</span>
+      </a></li>
+      <li><a href="../../tools/revisions/platforms.html"><span
+class="en">Platforms</span></a></li>
+    </ul>
+  </li>
+
+
+  <li class="nav-section">
+    <div class="nav-section-header">
+    <a href="../../tools/adk/index.html">
+      <span class="en">ADK</span></a>
+    </div>
+    <ul>
+      <li><a href="../../tools/adk/adk2.html">ADK 2012 Guide</a></li>
+      <li><a href="../../tools/adk/adk.html">ADK 2011 Guide</a></li>
+    </ul>
+  </li>
+
+</ul><!-- nav -->
+
+<script type="text/javascript">
+<!--
+    buildToggleLists();
+    changeNavLang(getLangPref());
+//-->
+</script>
+
+        
+        
+      </div>
+    </div> <!-- end side-nav -->
+    <script>
+      $(document).ready(function() {
+        scrollIntoView("devdoc-nav");
+        });
+    </script>
+
+
+
+
+<div class="col-13" id="doc-col" >
+
+
+
+
+  
+    
+      
+        <h1 itemprop="name" >Debugging with Android Studio</h1>
+      
+    
+  
+
+
+  
+  <div id="jd-content">
+
+
+    <div class="jd-descr" itemprop="articleBody">
+    <div id="qv-wrapper">
+<div id="qv">
+<h2>In this document</h2>
+<ol>
+  <li><a href="#runDebug">Run your App in Debug Mode</a></li>
+  <li><a href="#systemLog">Use the System Log</a>
+    <ol>
+      <li><a href="#systemLogWrite">Write log messages in your code</a></li>
+      <li><a href="#systemLogView">View the system log</a></li>
+    </ol>
+  </li>
+  <li><a href="#breakPoints">Work with Breakpoints</a>
+    <ol>
+        <li><a href="#breakPointsView">View and configure breakpoints</a></li>
+        <li><a href="#breakPointsDebug">Debug your app with breakpoints</a></li>
+    </ol>
+  </li>
+  <li><a href="#deviceMonitor">Analyze Runtime Metrics to Optimize your App</a></li>
+  <li><a href="#screenCap">Capture Screenshots and Videos</a></li>
+</ol>
+<h2>See also</h2>
+<ul>
+<li><a href="../../sdk/installing/studio-tips.html">
+Android Studio Tips and Tricks</a></li>
+<li><a href="../../tools/debugging/index.html">Debugging</a></li>
+<li><a href="../../tools/help/monitor.html">Device Monitor</a></li>
+<li><a href="../../tools/debugging/ddms.html">Using DDMS</a></li>
+</div>
+</div>
+
+<p>Android Studio enables you to debug apps running on the emulator or on an Android device.
+With Android Studio, you can:</p>
+
+<ul>
+    <li>Select a device to debug your app on.</li>
+    <li>View the system log.</li>
+    <li>Set breakpoints in your code.</li>
+    <li>Examine variables and evaluate expressions at run time.</li>
+    <li>Run the debugging tools from the Android SDK.</li>
+    <li>Capture screenshots and videos of your app.</li>
+</ul>
+
+<p>To debug your app, Android Studio builds a debuggable version of your app, connects
+to a device or to the emulator, installs the app and runs it. The IDE shows the system log
+while your app is running and provides debugging tools to filter log messages, work with
+breakpoints, and control the execution flow.</p>
+
+
+<h2 id="runDebug">Run your App in Debug Mode</h2>
+
+<div class="figure" style="width:419px">
+    <img src="../../images/tools/as-debugdevices.png" alt=""/>
+    <p class="img-caption"><strong>Figure 1.</strong> The Choose Device window enables you to
+    select a physical Android device or a virtual device to debug your app.</p>
+</div>
+
+<p>To run your app in debug mode, you build an APK signed with a debug key and install it on a
+physical Android device or on the Android emulator.
+To set up an Android device for development, see <a href="../../tools/device.html">Using
+Hardware Devices</a>. For more information about the emulator provided by the Android SDK, see
+<a href="../../tools/devices/emulator.html">Using the Emulator.</a></p>
+
+<p>To debug your app in Android Studio:</p>
+
+<ol>
+    <li>Open your project in Android Studio.</li>
+    <li>Click <strong>Debug</strong> <img src="../../images/tools/as-debugbutton.png"
+        style="vertical-align:bottom;margin:0;height:22px"  alt=""/> in the toolbar.</li>
+    <li>On the <em>Choose Device</em> window, select a hardware device from the list or
+        choose a virtual device.</li>
+    <li>Click <strong>OK</strong>. Your app starts on the selected device.</li>
+</ol>
+
+<p>Figure 1 shows the <em>Choose Device</em> window. The list shows all the Android devices
+connected to your computer. Select <strong>Launch Emulator</strong> to use an Android virtual device
+instead. Click the ellipsis <img src="../../images/tools/as-launchavdm.png"
+style="vertical-align:bottom;margin:0;height:19px" alt=""/> to open the
+<a href="../../tools/devices/managing-avds.html">Android Virtual Device Manager</a>.</p>
+
+<p>Android Studio opens the <em>Debug</em> tool window when you debug your app. To open the
+<em>Debug</em> window manually, click <strong>Debug</strong>
+<img src="../../images/tools/as-debugwindowbutton.png"
+alt="" style="vertical-align:bottom;margin:0;height:20px"/>.
+This window shows threads and variables in the <em>Debugger</em> tab, the device status in the
+<em>Console</em> tab, and the system log in the <em>Logcat</em> tab. The <em>Debug</em> tool
+window also provides other debugging tools covered in the following sections.</p>
+
+<img src="../../images/tools/as-debugview.png" alt="" />
+<p class="img-caption"><strong>Figure 2.</strong> The Debug tool window in Android Studio showing
+the current thread and the object tree for a variable.</p>
+
+
+<h2 id="systemLog">Use the System Log</h2>
+
+<p>The system log shows system messages while you debug your app. These messages include
+information from apps running on the device. If you want to use the
+system log to debug your app, make sure your code writes log messages and prints the stack
+trace for exceptions while your app is in the development phase.</p>
+
+<h3 id="systemLogWrite">Write log messages in your code</h3>
+
+<p>To write log messages in your code, use the <code><a href="../../reference/android/util/Log.html">Log</a></code> class. Log messages
+help you understand the execution flow by collecting the system debug output while you interact
+with your app. Log messages can tell you what part of your application failed. For more
+information about logging, see <a href="../../tools/debugging/debugging-log.html">
+Reading and Writing Logs</a>.</p>
+
+<p>The following example shows how you might add log messages to determine if previous state
+information is available when your activity starts:</p>
+
+<pre>
+import android.util.Log;
+...
+public class MyActivity extends Activity {
+    private static final String TAG = MyActivity.class.getSimpleName();
+    ...
+    &#64;Override
+    public void onCreate(Bundle savedInstanceState) {
+        if (savedInstanceState != null) {
+            Log.d(TAG, "onCreate() Restoring previous state");
+            /* restore state */
+        } else {
+            Log.d(TAG, "onCreate() No saved state available");
+            /* initialize app */
+        }
+    }
+}
+</pre>
+
+<p>During development, your code can also catch exceptions and write the stack trace to the system
+log:</p>
+
+<pre>
+void someOtherMethod() {
+    try {
+        ...
+    } catch (SomeException e) {
+        Log.d(TAG, "someOtherMethod()", e);
+    }
+}
+</pre>
+
+<p class="note"><strong>Note:</strong> Remove debug log messages and stack trace print calls from
+your code when you are ready to publish your app. You could do this by setting a <code>DEBUG</code>
+flag and placing debug log messages inside conditional statements.</p>
+
+
+<h3 id="systemLogView">View the system log</h3>
+
+<p>Both the <em>Android DDMS</em> (Dalvik Debug Monitor Server) and the <em>Debug</em> tool windows
+show the system log; however, the <em>Android DDMS</em> tool window lets you view only log messages
+for a particular process. To view the system log on the <em>Android DDMS</em> tool window:</p>
+
+<ol>
+    <li>Start your app as described in <a href="#runDebug">Run your App in Debug Mode</a>.</li>
+    <li>Click <strong>Android</strong> <img src="../../images/tools/as-android.png" alt=""
+        style="vertical-align:bottom;margin:0;height:20px"/> to open the <em>Android DDMS</em>
+        tool window.</li>
+    <li>If the system log is empty in the <em>Logcat view</em>, click <strong>Restart</strong>
+        <img src="../../images/tools/as-restart.png" alt=""
+        style="vertical-align:bottom;margin:0;height:22px"/>.</li>
+</ol>
+
+<img src="../../images/tools/as-ddmslog.png" alt="" />
+<p class="img-caption"><strong>Figure 4.</strong> The system log in the Android DDMS tool
+window.</p>
+
+<p>The <em>Android DDMS</em> tool window gives you access to some DDMS features from Android Studio.
+For more information about DDMS, see <a href="../../tools/debugging/ddms.html">Using DDMS</a>.
+</p>
+
+<p>The system log shows messages from Android services and other Android apps. To filter the log
+messages to view only the ones you are interested in, use the tools in the <em>Android DDMS</em>
+window:</p>
+
+<ul>
+    <li>To show only log messages for a particular process, select the process in the
+        <em>Devices</em> view and then click <strong>Only Show Logcat from Selected
+        Process</strong> <img src="../../images/tools/as-currentproc.png" alt=""
+        style="vertical-align:bottom;margin:0;height:20px"/>. If the <em>Devices</em> view
+        is not available, click <strong>Restore Devices View</strong>
+        <img src="../../images/tools/as-showdevview.png" alt=""
+        style="vertical-align:bottom;margin:0;height:20px"/> on the right of the <em>Android
+        DDMS</em> tool window. This button is only visible when you hide the <em>Devices</em>
+        window.</li>
+    <li>To filter log messages by log level, select a level under <em>Log Level</em> on the top
+        of the <em>Android DDMS</em> window.</li>
+    <li>To show only log messages that contain a particular string, enter the string in the search
+        box and press <strong>Enter</strong>.</li>
+</ul>
+
+
+<h2 id="breakPoints">Work with Breakpoints</h2>
+
+<p>Breakpoints enable you to pause the execution of your app at a particular line of code, examine
+variables, evaluate expressions, and continue the execution line by line. Use breakpoints to
+determine the causes of run-time errors that you can't fix by looking at your code only. To debug
+your app using breakpoints:</p>
+
+<ol>
+    <li>Open the source file in which you want to set a breakpoint.</li>
+    <li>Locate the line where you want to set a breakpoint and click on it.</li>
+    <li>Click on the yellow portion of the side bar to the left of this line, as shown in figure 5.</li>
+    <li>Start your app as described in <a href="#runDebug">Run your App in Debug Mode</a>.</li>
+</ol>
+
+<p>Android Studio pauses the execution of your app when it reaches the breakpoint. You can then
+use the tools in the <em>Debug</em> tool window to identify the cause of the error.</p>
+
+<img src="../../images/tools/as-breakpointline.png" alt="" />
+<p class="img-caption"><strong>Figure 5.</strong> A red dot appears next to the line when you set
+a breakpoint.</p>
+
+<h3 id="breakPointsView">View and configure breakpoints</h3>
+
+<p>To view all the breakpoints and configure breakpoint settings, click <strong>View
+Breakpoints</strong> <img src="../../images/tools/as-viewbreakbutton.png" alt=""
+style="vertical-align:bottom;margin:0;height:20px"/> on the left side of the <em>Debug</em> tool
+window. The <em>Breakpoints</em> window appears, as shown in figure 6.</p>
+
+<img src="../../images/tools/as-breakpointswindow.png" alt="" />
+<p class="img-caption"><strong>Figure 6.</strong> The Breakpoints window lists all the current
+breakpoints and includes behavior settings for each.</p>
+
+<p>The <em>Breakpoints</em> window lets you enable or disable each breakpoint from the
+list on the left. If a breakpoint is disabled, Android Studio does not pause your app when
+it hits that breakpoint. Select a breakpoint from the list to configure its settings.
+You can configure a breakpoint to be disabled at first and have the system enable it after a
+different breakpoint is hit. You can also configure whether a breakpoint should be disabled after
+it is hit. To set a breakpoint for any exception, select <strong>Exception Breakpoints</strong>
+in the list of breakpoints.</p>
+
+<h3 id="breakPointsDebug">Debug your app with breakpoints</h3>
+
+<p>After you set breakpoints in your code, click <strong>Rerun</strong>
+<img src="../../images/tools/as-restart.png" alt=""
+style="vertical-align:bottom;margin:0;height:20px"/> to start the app again. When a breakpoint is
+hit, Android Studio pauses the app and highlights the breakpoint in the source code. The
+<em>Debug</em> tool window lets you examine variables and control the execution step by
+step:</p>
+
+<ul>
+    <li>
+        <p>To examine the object tree for a variable, expand it in the <em>Variables</em> view. If
+        the <em>Variables</em> view is not visible, click <strong>Restore Variables View</strong>
+        <img src="../../images/tools/as-varviewbutton.png" alt=""
+        style="vertical-align:bottom;margin:0;height:20px"/>.</p>
+    </li>
+    <li>
+        <p>To evaluate an expression at the current execution point, click <strong>Evaluate
+        Expression</strong> <img src="../../images/tools/as-evalexpbutton.png" alt=""
+        style="vertical-align:bottom;margin:0;height:20px"/>.</p>
+    </li>
+    <li>
+        <p>To advance to the next line in the code (without entering a method), click <strong>Step
+        Over</strong> <img src="../../images/tools/as-stepoverbutton.png" alt=""
+        style="vertical-align:bottom;margin:0;height:20px"/>.</p>
+    </li>
+    <li>
+        <p>To advance to the first line inside a method call, click <strong>Step
+        Into</strong> <img src="../../images/tools/as-stepintobutton.png" alt=""
+        style="vertical-align:bottom;margin:0;height:20px"/>.</p>
+    </li>
+    <li>
+        <p>To advance to the next line outside the current method, click <strong>Step
+        Out</strong> <img src="../../images/tools/as-stepoutbutton.png" alt=""
+        style="vertical-align:bottom;margin:0;height:20px"/>.</p>
+    </li>
+    <li>
+        <p>To continue running the app normally, click <strong>Resume Program</strong>
+        <img src="../../images/tools/as-resumeprogrambutton.png" alt=""
+        style="vertical-align:bottom;margin:0;height:20px"/>.</p>
+    </li>
+</ul>
+
+<img src="../../images/tools/as-variablesview.png" alt="" />
+<p class="img-caption"><strong>Figure 7.</strong> The Variables view in the Debug tool window.</p>
+
+
+<h2 id="deviceMonitor">Analyze Runtime Metrics to Optimize your App</h2>
+
+<p>Even if your application does not generate runtime errors, this does not mean it is free of
+problems. You should also consider the following issues:</p>
+
+<ul>
+    <li>Does your app use memory efficiently?</li>
+    <li>Does your app generate unnecessary network traffic?</li>
+    <li>What methods should you focus your attention on to improve the performance of your app?</li>
+    <li>Does your app behave properly when the user receives a phone call or a message?</li>
+</ul>
+
+<p>The Android Device Monitor is a stand-alone tool with a graphical user interface for serveral
+Android application debugging and analysis tools, including the Dalvik Debug Monitor Server (DDMS).
+You can use the Android Device Monitor to analyze memory usage, profile methods,
+monitor network traffic and simulate incoming calls and messages.</p>
+
+<p>To open the Android Device Monitor from Android Studio, click
+<strong>Monitor</strong> <img src="../../images/tools/as-monitorbutton.png" alt=""
+style="vertical-align:bottom;margin:0;height:20px"/> on the toolbar. The Android Device Monitor
+opens in a new window.</p>
+
+<p>For more information about the Android Device Monitor and DDMS, see
+<a href="../../tools/help/monitor.html">Device Monitor</a> and
+<a href="../../tools/debugging/ddms.html">Using DDMS</a>.</p>
+
+
+<h2 id="screenCap">Capture Screenshots and Videos</h2>
+
+<p>Android Studio enables you to capture a screenshot or a short video of the device screen
+while your app is running. Screenshots and videos are useful as promotional materials for your
+app, and you can also attach them to bug reports that you send to your development team.</p>
+
+<p>To take a screenshot of your app:</p>
+
+<ol>
+    <li>Start your app as described in <a href="#runDebug">Run your App in Debug Mode</a>.</li>
+    <li>Click <strong>Android</strong> <img src="../../images/tools/as-android.png" alt=""
+        style="vertical-align:bottom;margin:0;height:20px"/> to open the <em>Android DDMS</em>
+        tool window.</li>
+    <li>Click <strong>Screen Capture</strong> <img src="../../images/tools/as-capture.png"
+        style="vertical-align:bottom;margin:0;height:22px" alt=""/> on the left side of the
+        <em>Android DDMS</em> tool window.</li>
+    <li>Optional: To add a device frame around your screenshot, enable the <em>Frame screenshot</em>
+        option.</li>
+    <li>Click <strong>Save</strong>.</li>
+</ol>
+
+<p>To take a video recording of your app:</p>
+
+<ol>
+    <li>Start your app as described in <a href="#runDebug">Run your App in Debug Mode</a>.</li>
+    <li>Click <strong>Android</strong> <img src="../../images/tools/as-android.png" alt=""
+        style="vertical-align:bottom;margin:0;height:20px"/> to open the <em>Android DDMS</em>
+        tool window.</li>
+    <li>Click <strong>Screen Record</strong> <img src="../../images/tools/as-record.png"
+        style="vertical-align:bottom;margin:0;height:22px" alt=""/> on the left side of the
+        <em>Android DDMS</em> tool window.</li>
+    <li>Click <strong>Start Recording</strong>.</li>
+    <li>Interact with your app.</li>
+    <li>Click <strong>Stop Recording</strong>.</li>
+    <li>Enter a file name for the recording and click <strong>OK</strong>.</li>
+</ol>
+    </div>
+
+      <div class="content-footer layout-content-row"
+                    itemscope itemtype="http://schema.org/SiteNavigationElement">
+        <div class="layout-content-col col-9" style="padding-top:4px">
+          
+            <div class="g-plusone" data-size="medium"></div>
+          
+        </div>
+        
+        <div class="paging-links layout-content-col col-4">
+          
+        </div>
+        
+      </div>
+
+      
+      
+
+  </div> <!-- end jd-content -->
+
+<div id="footer" class="wrap" >
+        
+
+  <div id="copyright">
+    
+  Except as noted, this content is 
+  licensed under <a href="http://creativecommons.org/licenses/by/2.5/">
+  Creative Commons Attribution 2.5</a>. For details and 
+  restrictions, see the <a href="../../license.html">Content 
+  License</a>.
+  </div>
+
+
+  <div id="footerlinks">
+    
+  <p>
+    <a href="../../about/index.html">About Android</a>&nbsp;&nbsp;|&nbsp;
+    <a href="../../legal.html">Legal</a>&nbsp;&nbsp;|&nbsp;
+    <a href="../../support.html">Support</a>
+  </p>
+  </div>
+
+</div> <!-- end footer -->
+</div><!-- end doc-content -->
+
+<!-- Start of Tag -->
+<script type="text/javascript">
+var axel = Math.random() + "";
+var a = axel * 10000000000000;
+document.write('<iframe src="https://2507573.fls.doubleclick.net/activityi;src=2507573;type=other026;cat=googl348;ord=' + a + '?" width="1" height="1" frameborder="0" style="display:none"></iframe>');
+</script>
+<noscript>
+<iframe src="https://2507573.fls.doubleclick.net/activityi;src=2507573;type=other026;cat=googl348;ord=1?" width="1" height="1" frameborder="0" style="display:none"></iframe>
+</noscript>
+<!-- End of Tag -->
+
+
+</div> <!-- end body-content --> 
+
+
+
+
+
+  <script src="https://developer.android.com/ytblogger_lists_unified.js" type="text/javascript"></script>
+  <script src="../../jd_lists_unified.js" type="text/javascript"></script>
+  <script src="../../jd_extras.js" type="text/javascript"></script>
+  <script src="../../jd_collections.js" type="text/javascript"></script>
+  <script src="../../jd_tag_helpers.js" type="text/javascript"></script>
+
+</body>
+</html>
+
+
+

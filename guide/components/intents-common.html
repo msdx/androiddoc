@@ -1,0 +1,2904 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width" />
+
+<meta name="Description" content="An intent allows you to start an activity in another app by describing a simple action you&#39;d like to perform (such as &quot;view a map&quot; or &quot;take a picture&quot;) in an Intent object. This type of intent is called an implicit intent because…">
+<link rel="shortcut icon" type="image/x-icon" href="../../favicon.ico" />
+<title>Common Intents | Android Developers</title>
+
+<!-- STYLESHEETS -->
+<link rel="stylesheet"
+href="http://fonts.googleapis.com/css?family=Roboto+Condensed">
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:light,regular,medium,thin,italic,mediumitalic,bold"
+  title="roboto">
+<link href="../../assets/css/default.css" rel="stylesheet" type="text/css">
+
+
+
+<!-- JAVASCRIPT -->
+<script src="http://www.google.com/jsapi" type="text/javascript"></script>
+<script src="../../assets/js/android_3p-bundle.js" type="text/javascript"></script>
+<script type="text/javascript">
+  var toRoot = "../../";
+  var metaTags = ["intentfilter"];
+  var devsite = false;
+</script>
+<script src="../../assets/js/docs.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-5831155-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+
+<body class="gc-documentation 
+
+develop guide" itemscope itemtype="http://schema.org/Article">
+
+<a name="top"></a>
+
+  <!-- Header -->
+  <div id="header-wrapper">
+    <div id="header">
+      <div class="wrap" id="header-wrap">
+        <div class="col-3 logo">
+          <a href="../../index.html">
+            <img src="../../assets/images/dac_logo.png"
+                srcset="../../assets/images/dac_logo@2x.png 2x"
+                width="123" height="25" alt="Android Developers" />
+          </a>
+          <div class="btn-quicknav" id="btn-quicknav">
+            <a href="#" class="arrow-inactive">Quicknav</a>
+            <a href="#" class="arrow-active">Quicknav</a>
+          </div>
+        </div>
+        <ul class="nav-x col-9">
+            <li class="design">
+              <a href="../../design/index.html"
+              zh-tw-lang="設計"
+              zh-cn-lang="设计"
+              ru-lang="Проектирование"
+              ko-lang="디자인"
+              ja-lang="設計"
+              es-lang="Diseñar"
+              >Design</a></li>
+            <li class="develop"><a href="../../develop/index.html"
+              zh-tw-lang="開發"
+              zh-cn-lang="开发"
+              ru-lang="Разработка"
+              ko-lang="개발"
+              ja-lang="開発"
+              es-lang="Desarrollar"
+              >Develop</a></li>
+            <li class="distribute last"><a href="../../distribute/googleplay/index.html"
+              zh-tw-lang="發佈"
+              zh-cn-lang="分发"
+              ru-lang="Распространение"
+              ko-lang="배포"
+              ja-lang="配布"
+              es-lang="Distribuir"
+              >Distribute</a></li>
+        </ul>
+
+
+        
+        
+<div class="menu-container">
+  <div class="moremenu">
+    <div id="more-btn"></div>
+  </div>
+  <div class="morehover" id="moremenu">
+    <div class="top"></div>
+    <div class="mid">
+      <div class="header">Links</div>
+      <ul>
+        <li><a href="https://play.google.com/apps/publish/" target="_googleplay">Google Play Developer Console</a></li>
+        <li><a href="http://android-developers.blogspot.com/">Android Developers Blog</a></li>
+        <li><a href="../../about/index.html">About Android</a></li>
+      </ul>
+      <div class="header">Android Sites</div>
+      <ul>
+        <li><a href="http://www.android.com">Android.com</a></li>
+        <li class="active"><a>Android Developers</a></li>
+        <li><a href="http://source.android.com">Android Open Source Project</a></li>
+      </ul>
+
+      
+      
+      
+      <br class="clearfix" />
+    </div><!-- end 'mid' -->
+    <div class="bottom"></div>
+  </div><!-- end 'moremenu' -->
+
+  <div class="search" id="search-container">
+    <div class="search-inner">
+      <div id="search-btn"></div>
+      <div class="left"></div>
+      <form onsubmit="return submit_search()">
+        <input id="search_autocomplete" type="text" value="" autocomplete="off" name="q"
+          onfocus="search_focus_changed(this, true)" onblur="search_focus_changed(this, false)"
+          onkeydown="return search_changed(event, true, '../../')"
+          onkeyup="return search_changed(event, false, '../../')" />
+      </form>
+      <div class="right"></div>
+      <a class="close hide">close</a>
+      <div class="left"></div>
+      <div class="right"></div>
+    </div><!-- end search-inner -->
+  </div><!-- end search-container -->
+
+  <div class="search_filtered_wrapper reference">
+    <div class="suggest-card reference no-display">
+      <ul class="search_filtered">
+      </ul>
+    </div>
+  </div>
+
+  <div class="search_filtered_wrapper docs">
+    <div class="suggest-card dummy no-display">&nbsp;</div>
+    <div class="suggest-card develop no-display">
+      <ul class="search_filtered">
+      </ul>
+      <div class="child-card guides no-display">
+      </div>
+      <div class="child-card training no-display">
+      </div>
+      <div class="child-card samples no-display">
+      </div>
+    </div>
+    <div class="suggest-card design no-display">
+      <ul class="search_filtered">
+      </ul>
+    </div>
+    <div class="suggest-card distribute no-display">
+      <ul class="search_filtered">
+      </ul>
+    </div>
+  </div>
+</div><!-- end menu-container (search and menu widget) -->
+
+
+
+        <!-- Expanded quicknav -->
+        <div id="quicknav" class="col-9">
+          <ul>
+            <li class="design">
+              <ul>
+                <li><a href="../../design/index.html">Get Started</a></li>
+                <li><a href="../../design/style/index.html">Style</a></li>
+                <li><a href="../../design/patterns/index.html">Patterns</a></li>
+                <li><a href="../../design/building-blocks/index.html">Building Blocks</a></li>
+                <li><a href="../../design/downloads/index.html">Downloads</a></li>
+                <li><a href="../../design/videos/index.html">Videos</a></li>
+              </ul>
+            </li>
+            <li class="develop">
+              <ul>
+                <li><a href="../../training/index.html"
+                  zh-tw-lang="訓練課程"
+                  zh-cn-lang="培训"
+                  ru-lang="Курсы"
+                  ko-lang="교육"
+                  ja-lang="トレーニング"
+                  es-lang="Capacitación"
+                  >Training</a></li>
+                <li><a href="../../guide/index.html"
+                  zh-tw-lang="API 指南"
+                  zh-cn-lang="API 指南"
+                  ru-lang="Руководства по API"
+                  ko-lang="API 가이드"
+                  ja-lang="API ガイド"
+                  es-lang="Guías de la API"
+                  >API Guides</a></li>
+                <li><a href="../../reference/packages.html"
+                  zh-tw-lang="參考資源"
+                  zh-cn-lang="参考"
+                  ru-lang="Справочник"
+                  ko-lang="참조문서"
+                  ja-lang="リファレンス"
+                  es-lang="Referencia"
+                  >Reference</a></li>
+                <li><a href="../../tools/index.html"
+                  zh-tw-lang="相關工具"
+                  zh-cn-lang="工具"
+                  ru-lang="Инструменты"
+                  ko-lang="도구"
+                  ja-lang="ツール"
+                  es-lang="Herramientas"
+                  >Tools</a>
+                  <ul><li><a href="../../sdk/index.html">Get the SDK</a></li></ul>
+                </li>
+                <li><a href="../../google/index.html">Google Services</a>
+                </li>
+                
+              </ul>
+            </li>
+            <li class="distribute last">
+              <ul>
+                <li><a href="../../distribute/googleplay/index.html">Google Play</a></li>
+                <li><a href="../../distribute/essentials/index.html">Essentials</a></li>
+                <li><a href="../../distribute/users/index.html">Get Users</a></li>
+                <li><a href="../../distribute/engage/index.html">Engage &amp; Retain</a></li>
+                <li><a href="../../distribute/monetize/index.html">Monetize</a></li>
+                <li><a href="../../distribute/tools/index.html">Tools &amp; Reference</a></li>
+                <li><a href="../../distribute/stories/index.html">Developer Stories</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div><!-- /Expanded quicknav -->
+      </div><!-- end header-wrap.wrap -->
+    </div><!-- end header -->
+
+  
+    <!-- Secondary x-nav -->
+    <div id="nav-x">
+        <div class="wrap">
+            <ul class="nav-x col-9 develop" style="width:100%">
+                <li class="training"><a href="../../training/index.html"
+                  zh-tw-lang="訓練課程"
+                  zh-cn-lang="培训"
+                  ru-lang="Курсы"
+                  ko-lang="교육"
+                  ja-lang="トレーニング"
+                  es-lang="Capacitación"
+                  >Training</a></li>
+                <li class="guide"><a href="../../guide/index.html"
+                  zh-tw-lang="API 指南"
+                  zh-cn-lang="API 指南"
+                  ru-lang="Руководства по API"
+                  ko-lang="API 가이드"
+                  ja-lang="API ガイド"
+                  es-lang="Guías de la API"
+                  >API Guides</a></li>
+                <li class="reference"><a href="../../reference/packages.html"
+                  zh-tw-lang="參考資源"
+                  zh-cn-lang="参考"
+                  ru-lang="Справочник"
+                  ko-lang="참조문서"
+                  ja-lang="リファレンス"
+                  es-lang="Referencia"
+                  >Reference</a></li>
+                <li class="tools"><a href="../../tools/index.html"
+                  zh-tw-lang="相關工具"
+                  zh-cn-lang="工具"
+                  ru-lang="Инструменты"
+                  ko-lang="도구"
+                  ja-lang="ツール"
+                  es-lang="Herramientas"
+                  >Tools</a></li>
+                <li class="google"><a href="../../google/index.html"
+                  >Google Services</a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+    <!-- /Sendondary x-nav -->
+
+  
+
+    <div id="searchResults" class="wrap" style="display:none;">
+      <h2 id="searchTitle">Results</h2>
+      <div id="leftSearchControl" class="search-control">Loading...</div>
+    </div>
+  </div> <!--end header-wrapper -->
+
+  <div id="sticky-header">
+    <div>
+      <a class="logo" href="#top"></a>
+      <a class="top" href="#top"></a>
+      <ul class="breadcrumb">
+        
+        <li class="current">Common Intents</li>
+      </ul>
+    </div>
+  </div>
+
+
+
+
+  <div class="wrap clearfix" id="body-content">
+    <div class="col-4" id="side-nav" itemscope itemtype="http://schema.org/SiteNavigationElement">
+      <div id="devdoc-nav" class="scroll-pane">
+
+
+<ul id="nav">
+
+  <li class="nav-section">
+    <div class="nav-section-header"><a href="../../guide/index.html">
+        <span class="en">Introduction</span>
+      </a></div>
+    <ul>
+      <li><a href="../../guide/components/fundamentals.html">
+            <span class="en">App Fundamentals</span></a>
+      </li>
+      <li><a href="../../guide/practices/compatibility.html">
+            <span class="en">Device Compatibility</span>
+          </a></li>
+      <li><a href="../../guide/topics/security/permissions.html">
+          <span class="en">System Permissions</span>
+        </a>
+      </li>
+    </ul>
+  </li>
+
+
+  <li class="nav-section">
+    <div class="nav-section-header"><a href="../../guide/components/index.html">
+        <span class="en">App Components</span>
+      </a></div>
+    <ul>
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../guide/components/intents-filters.html">
+            <span class="en">Intents and Intent Filters</span>
+          </a></div>
+        <ul>
+          <li><a href="../../guide/components/intents-common.html">
+            <span class="en">Common Intents</span>
+          </a></li>
+        </ul>
+      </li>
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../guide/components/activities.html">
+            <span class="en">Activities</span>
+          </a></div>
+        <ul>
+          <li><a href="../../guide/components/fragments.html">
+              <span class="en">Fragments</span>
+            </a></li>
+          <li><a href="../../guide/components/loaders.html">
+              <span class="en">Loaders</span>
+            </a></li>
+          <li><a href="../../guide/components/tasks-and-back-stack.html">
+              <span class="en">Tasks and Back Stack</span>
+            </a></li>
+        </ul>
+      </li>
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../guide/components/services.html">
+            <span class="en">Services</span>
+          </a></div>
+        <ul>
+          <li><a href="../../guide/components/bound-services.html">
+              <span class="en">Bound Services</span>
+            </a></li>
+          <li><a href="../../guide/components/aidl.html">
+              <span class="en">AIDL</span>
+            </a></li>
+        </ul>
+      </li>
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../guide/topics/providers/content-providers.html">
+            <span class="en">Content Providers</span>
+          </a></div>
+        <ul>
+          <li><a href="../../guide/topics/providers/content-provider-basics.html">
+              <span class="en">Content Provider Basics</span>
+            </a></li>
+          <li><a href="../../guide/topics/providers/content-provider-creating.html">
+              <span class="en">Creating a Content Provider</span>
+            </a></li>
+          <li><a href="../../guide/topics/providers/calendar-provider.html">
+              <span class="en">Calendar Provider</span>
+            </a></li>
+          <li><a href="../../guide/topics/providers/contacts-provider.html">
+              <span class="en">Contacts Provider</span>
+            </a></li>
+          <li><a href="../../guide/topics/providers/document-provider.html">
+              <span class="en">Storage Access Framework</span>
+            </a></li>
+        </ul>
+      </li>
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../guide/topics/appwidgets/index.html">
+            <span class="en">App Widgets</span>
+          </a></div>
+        <ul>
+          <li><a href="../../guide/topics/appwidgets/host.html">
+              <span class="en">App Widget Host</span>
+            </a></li>
+        </ul>
+      </li>
+      <li><a href="../../guide/components/processes-and-threads.html">
+          <span class="en">Processes and Threads</span>
+        </a>
+      </li>
+    </ul>
+  </li>
+
+
+  <li class="nav-section">
+    <div class="nav-section-header"><a href="../../guide/topics/resources/index.html">
+         <span class="en">App Resources</span>
+       </a></div>
+    <ul>
+      <li><a href="../../guide/topics/resources/overview.html">
+          <span class="en">Overview</span>
+        </a></li>
+        <li><a href="../../guide/topics/resources/providing-resources.html">
+          <span class="en">Providing Resources</span>
+        </a></li>
+      <li><a href="../../guide/topics/resources/accessing-resources.html">
+          <span class="en">Accessing Resources</span>
+        </a></li>
+      <li><a href="../../guide/topics/resources/runtime-changes.html">
+            <span class="en">Handling Runtime Changes</span>
+          </a></li>
+      <li><a href="../../guide/topics/resources/localization.html">
+          <span class="en">Localization</span>
+        </a></li>
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../guide/topics/resources/available-resources.html">
+            <span class="en">Resource Types</span>
+          </a></div>
+        <ul>
+          <li><a href="../../guide/topics/resources/animation-resource.html">Animation</a></li>
+          <li><a href="../../guide/topics/resources/color-list-resource.html">Color State List</a></li>
+          <li><a href="../../guide/topics/resources/drawable-resource.html">Drawable</a></li>
+          <li><a href="../../guide/topics/resources/layout-resource.html">Layout</a></li>
+          <li><a href="../../guide/topics/resources/menu-resource.html">Menu</a></li>
+          <li><a href="../../guide/topics/resources/string-resource.html">String</a></li>
+          <li><a href="../../guide/topics/resources/style-resource.html">Style</a></li>
+          <li><a href="../../guide/topics/resources/more-resources.html">More Types</a></li>
+        </ul>
+      </li><!-- end of resource types -->
+    </ul>
+  </li><!-- end of app resources -->
+
+
+
+  <li class="nav-section">
+  <div class="nav-section-header"><a href="../../guide/topics/manifest/manifest-intro.html">
+      <span class="en">App Manifest</span>
+    </a></div>
+    <ul>
+      <li><a href="../../guide/topics/manifest/action-element.html">&lt;action&gt;</a></li>
+      <li><a href="../../guide/topics/manifest/activity-element.html">&lt;activity&gt;</a></li>
+      <li><a href="../../guide/topics/manifest/activity-alias-element.html">&lt;activity-alias&gt;</a></li>
+      <li><a href="../../guide/topics/manifest/application-element.html">&lt;application&gt;</a></li>
+      <li><a href="../../guide/topics/manifest/category-element.html">&lt;category&gt;</a></li>
+      <li><a href="../../guide/topics/manifest/compatible-screens-element.html">&lt;compatible-screens&gt;</a></li>
+      <li><a href="../../guide/topics/manifest/data-element.html">&lt;data&gt;</a></li>
+      <li><a href="../../guide/topics/manifest/grant-uri-permission-element.html">&lt;grant-uri-permission&gt;</a></li>
+      <li><a href="../../guide/topics/manifest/instrumentation-element.html">&lt;instrumentation&gt;</a></li>
+      <li><a href="../../guide/topics/manifest/intent-filter-element.html">&lt;intent-filter&gt;</a></li>
+      <li><a href="../../guide/topics/manifest/manifest-element.html">&lt;manifest&gt;</a></li>
+      <li><a href="../../guide/topics/manifest/meta-data-element.html">&lt;meta-data&gt;</a></li>
+      <li><a href="../../guide/topics/manifest/path-permission-element.html">&lt;path-permission&gt;</a></li>
+      <li><a href="../../guide/topics/manifest/permission-element.html">&lt;permission&gt;</a></li>
+      <li><a href="../../guide/topics/manifest/permission-group-element.html">&lt;permission-group&gt;</a></li>
+      <li><a href="../../guide/topics/manifest/permission-tree-element.html">&lt;permission-tree&gt;</a></li>
+      <li><a href="../../guide/topics/manifest/provider-element.html">&lt;provider&gt;</a></li>
+      <li><a href="../../guide/topics/manifest/receiver-element.html">&lt;receiver&gt;</a></li>
+      <li><a href="../../guide/topics/manifest/service-element.html">&lt;service&gt;</a></li>
+      <li><a href="../../guide/topics/manifest/supports-gl-texture-element.html">&lt;supports-gl-texture&gt;</a></li>
+      <li><a href="../../guide/topics/manifest/supports-screens-element.html">&lt;supports-screens&gt;</a></li><!-- ##api level 4## -->
+      <li><a href="../../guide/topics/manifest/uses-configuration-element.html">&lt;uses-configuration&gt;</a></li>
+      <li><a href="../../guide/topics/manifest/uses-feature-element.html">&lt;uses-feature&gt;</a></li> <!-- ##api level 4## -->
+      <li><a href="../../guide/topics/manifest/uses-library-element.html">&lt;uses-library&gt;</a></li>
+      <li><a href="../../guide/topics/manifest/uses-permission-element.html">&lt;uses-permission&gt;</a></li>
+      <li><a href="../../guide/topics/manifest/uses-sdk-element.html">&lt;uses-sdk&gt;</a></li>
+    </ul>
+  </li><!-- end of the manifest file -->
+
+
+
+  <li class="nav-section">
+    <div class="nav-section-header"><a href="../../guide/topics/ui/index.html">
+        <span class="en">User Interface</span>
+      </a></div>
+    <ul>
+      <li><a href="../../guide/topics/ui/overview.html">
+          <span class="en">Overview</span>
+        </a></li>
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../guide/topics/ui/declaring-layout.html">
+            <span class="en">Layouts</span>
+          </a></div>
+        <ul>
+          <li><a href="../../guide/topics/ui/layout/linear.html">
+              <span class="en">Linear Layout</span>
+            </a></li>
+          <li><a href="../../guide/topics/ui/layout/relative.html">
+              <span class="en">Relative Layout</span>
+            </a></li>
+       <!--
+          <li><a href="../../guide/topics/ui/layout/grid.html">
+              <span class="en">Grid Layout</span>
+            </a></li>
+       -->
+          <li><a href="../../guide/topics/ui/layout/listview.html">
+              <span class="en">List View</span>
+            </a></li>
+          <li><a href="../../guide/topics/ui/layout/gridview.html">
+              <span class="en">Grid View</span>
+            </a></li>
+        </ul>
+      </li>
+
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../guide/topics/ui/controls.html">
+            <span class="en">Input Controls</span>
+          </a></div>
+        <ul>
+          <li><a href="../../guide/topics/ui/controls/button.html">
+              <span class="en">Buttons</span>
+            </a></li>
+          <li><a href="../../guide/topics/ui/controls/text.html">
+              <span class="en">Text Fields</span>
+            </a></li>
+          <li><a href="../../guide/topics/ui/controls/checkbox.html">
+              <span class="en">Checkboxes</span>
+            </a></li>
+          <li><a href="../../guide/topics/ui/controls/radiobutton.html">
+              <span class="en">Radio Buttons</span>
+            </a></li>
+          <li><a href="../../guide/topics/ui/controls/togglebutton.html">
+              <span class="en">Toggle Buttons</span>
+            </a></li>
+          <li><a href="../../guide/topics/ui/controls/spinner.html">
+              <span class="en">Spinners</span>
+            </a></li>
+          <li><a href="../../guide/topics/ui/controls/pickers.html">
+              <span class="en">Pickers</span>
+            </a></li>
+<!--
+          <li><a href="../../guide/topics/ui/controls/progress.html">
+              <span class="en">Seek and Progress Bars</span>
+            </a></li>
+-->
+        </ul>
+      </li>
+      <li><a href="../../guide/topics/ui/ui-events.html">
+          <span class="en">Input Events</span>
+        </a></li>
+      <li><a href="../../guide/topics/ui/menus.html">
+          <span class="en">Menus</span></span>
+          </a></li>
+      <li><a href="../../guide/topics/ui/actionbar.html">
+           <span class="en">Action Bar</span>
+          </a></li>
+      <li><a href="../../guide/topics/ui/settings.html">
+            <span class="en">Settings</span>
+          </a></li>
+      <li><a href="../../guide/topics/ui/dialogs.html">
+           <span class="en">Dialogs</span>
+          </a></li>
+      <li><a href="../../guide/topics/ui/notifiers/notifications.html">
+          <span class="en">Notifications</span>
+        </a></li>
+      <li><a href="../../guide/topics/ui/notifiers/toasts.html">
+          <span class="en">Toasts</span>
+        </a></li>
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../guide/topics/search/index.html">
+            <span class="en">Search</span>
+          </a></div>
+          <ul>
+            <li><a href="../../guide/topics/search/search-dialog.html">Creating a Search Interface</a></li>
+            <li><a href="../../guide/topics/search/adding-recent-query-suggestions.html">Adding Recent Query Suggestions</a></li>
+            <li><a href="../../guide/topics/search/adding-custom-suggestions.html">Adding Custom Suggestions</a></li>
+            <li><a href="../../guide/topics/search/searchable-config.html">Searchable Configuration</a></li>
+          </ul>
+      </li>
+      <li><a href="../../guide/topics/ui/drag-drop.html">
+          <span class="en">Drag and Drop</span>
+        </a></li>
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../guide/topics/ui/accessibility/index.html">
+            <span class="en">Accessibility</span>
+          </a></div>
+        <ul>
+          <li><a href="../../guide/topics/ui/accessibility/apps.html">
+              <span class="en">Making Applications Accessible</span>
+            </a></li>
+          <li><a href="../../guide/topics/ui/accessibility/checklist.html">
+              <span class="en">Accessibility Developer Checklist</span>
+            </a></li>
+          <li><a href="../../guide/topics/ui/accessibility/services.html">
+              <span class="en">Building Accessibility Services</span>
+            </a></li>
+        </ul>
+      </li>
+      <li><a href="../../guide/topics/ui/themes.html">
+          <span class="en">Styles and Themes</span>
+        </a></li>
+      <li><a href="../../guide/topics/ui/custom-components.html">
+          <span class="en">Custom Components</span>
+        </a></li>
+    </ul>
+  </li><!-- end of User Interface -->
+
+   <li class="nav-section">
+      <div class="nav-section-header"><a href="../../guide/topics/graphics/index.html">
+          <span class="en">Animation and Graphics</span>
+        </a></div>
+      <ul>
+      <li class="nav-section">
+        <li><a href="../../guide/topics/graphics/overview.html">
+            <span class="en">Overview</span>
+          </a></li>
+        <li><a href="../../guide/topics/graphics/prop-animation.html">
+            <span class="en">Property Animation</span>
+          </a></li>
+        <li><a href="../../guide/topics/graphics/view-animation.html">
+            <span class="en">View Animation</span>
+          </a></li>
+        <li><a href="../../guide/topics/graphics/drawable-animation.html">
+            <span class="en">Drawable Animation</span>
+          </a></li>
+        <li><a href="../../guide/topics/graphics/2d-graphics.html">
+            <span class="en">Canvas and Drawables</span>
+          </a></li>
+        <li><a href="../../guide/topics/graphics/opengl.html">
+            <span class="en">OpenGL ES</span>
+          </a></li>
+        <li><a href="../../guide/topics/graphics/hardware-accel.html">
+            <span class="en">Hardware Acceleration</span>
+          </a></li>
+       </ul>
+    </li><!-- end of graphics and animation-->
+
+   <li class="nav-section">
+            <div class="nav-section-header"><a href="../../guide/topics/renderscript/index.html">
+              <span class="en">Computation</span>
+            </a></div>
+            <ul>
+              <li><a href="../../guide/topics/renderscript/compute.html">
+                    <span class="en">RenderScript</span></a>
+                  </li>
+
+              <li><a href="../../guide/topics/renderscript/advanced.html">
+                    <span class="en">Advanced RenderScript</span></a>
+                  </li>
+              <li><a href="../../guide/topics/renderscript/reference.html">
+                    <span class="en">Runtime API Reference</span></a>
+              </li>
+             </ul>
+   </li>
+      <li class="nav-section">
+          <div class="nav-section-header"><a href="../../guide/topics/media/index.html">
+            <span class="en">Media and Camera</span>
+          </a></div>
+          <ul>
+            <li><a href="../../guide/topics/media/mediaplayer.html">
+                  <span class="en">Media Playback</span></a>
+                </li>
+            <li><a href="../../guide/topics/media/mediarouter.html">
+                  <span class="en">Media Router</span></a>
+                </li>
+            <li><a href="../../guide/topics/media/mediarouteprovider.html">
+                  <span class="en">Media Route Provider</span></a>
+                </li>
+            <li><a href="../../guide/appendix/media-formats.html">
+                   <span class="en">Supported Media Formats</span></a>
+                </li>
+            <li><a href="../../guide/topics/media/audio-capture.html">
+                  <span class="en">Audio Capture</span></a>
+                </li>
+            <li><a href="../../guide/topics/media/jetplayer.html">
+                  <span class="en">JetPlayer</span></a>
+                </li>
+            <li><a href="../../guide/topics/media/camera.html">
+                  <span class="en">Camera</span></a>
+                </li>
+          </ul>
+      </li><!-- end of media and camera -->
+
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../guide/topics/sensors/index.html">
+              <span class="en">Location and Sensors</span>
+              </a></div>
+        <ul>
+          <li><a href="../../guide/topics/location/index.html">
+               <span class="en">Location and Maps</span>
+             </a>
+          <li><a href="../../guide/topics/location/strategies.html">
+               <span class="en">Location Strategies</span>
+             </a></li>
+          <li><a href="../../guide/topics/sensors/sensors_overview.html">
+              <span class="en">Sensors Overview</span>
+            </a></li>
+          <li><a href="../../guide/topics/sensors/sensors_motion.html">
+              <span class="en">Motion Sensors</span>
+            </a></li>
+          <li><a href="../../guide/topics/sensors/sensors_position.html">
+              <span class="en">Position Sensors</span>
+            </a></li>
+          <li><a href="../../guide/topics/sensors/sensors_environment.html">
+              <span class="en">Environment Sensors</span>
+            </a></li>
+        </ul>
+      </li><!-- end of location and sensors -->
+
+
+
+<li class="nav-section">
+        <div class="nav-section-header"><a href="../../guide/topics/connectivity/index.html">
+               <span class="en">Connectivity</span>
+             </a></div>
+        <ul>
+          <li class="nav-section">
+        <div class="nav-section-header"><a href="../../guide/topics/connectivity/bluetooth.html">
+          <span class="en">Bluetooth</span></a>
+        </div>
+        <ul>
+          <li><a href="../../guide/topics/connectivity/bluetooth-le.html">Bluetooth Low Energy</a></li>
+        </ul>
+      </li>
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../guide/topics/connectivity/nfc/index.html">
+          <span class="en">NFC</span></a>
+        </div>
+        <ul>
+          <li><a href="../../guide/topics/connectivity/nfc/nfc.html">NFC Basics</a></li>
+          <li><a href="../../guide/topics/connectivity/nfc/advanced-nfc.html">Advanced NFC</a></li>
+          <li><a href="../../guide/topics/connectivity/nfc/hce.html">Host-based Card Emulation</a></li>
+        </ul>
+      </li>
+      <li><a href="../../guide/topics/connectivity/wifip2p.html">
+            <span class="en">Wi-Fi P2P</span></a>
+          </li>
+      <li class="nav-section">
+          <div class="nav-section-header"><a href="../../guide/topics/connectivity/usb/index.html">
+            <span class="en">USB</span></a>
+          </div>
+            <ul>
+              <li><a href="../../guide/topics/connectivity/usb/accessory.html">Accessory</a></li>
+              <li><a href="../../guide/topics/connectivity/usb/host.html">Host</a></li>
+            </ul>
+     </li>
+     <li><a href="../../guide/topics/connectivity/sip.html">
+            <span class="en">SIP</span>
+          </a>
+     </li>
+
+    </ul>
+  </li><!-- end of connectivity -->
+
+
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../guide/topics/text/index.html">
+            <span class="en">Text and Input</span>
+        </a></div>
+        <ul>
+          <li><a href="../../guide/topics/text/copy-paste.html">
+              <span class="en">Copy and Paste</span>
+            </a></li>
+          <li><a href="../../guide/topics/text/creating-input-method.html">
+              <span class="en">Creating an IME</span>
+            </a></li>
+          <li><a href="../../guide/topics/text/spell-checker-framework.html">
+              <span class="en">Spelling Checker</span>
+            </a></li>
+        </ul>
+      </li><!-- end of text and input -->
+
+     <li class="nav-section">
+      <div class="nav-section-header"><a href="../../guide/topics/data/index.html">
+          <span class="en">Data Storage</span>
+        </a></div>
+      <ul>
+         <li><a href="../../guide/topics/data/data-storage.html">
+            <span class="en">Storage Options</span>
+           </a></li>
+        <li><a href="../../guide/topics/data/backup.html">
+            <span class="en">Data Backup</span>
+          </a></li>
+        <li><a href="../../guide/topics/data/install-location.html">
+            <span class="en">App Install Location</span>
+          </a></li>
+      </ul>
+    </li><!-- end of data storage -->
+
+
+  <li class="nav-section">
+           <div class="nav-section-header"><a href="../../guide/topics/admin/index.html">
+               <span class="en">Administration</span>
+             </a></div>
+           <ul>
+              <li>
+                <a href="../../guide/topics/admin/device-admin.html">
+                <span class="en">Device Policies</span></a>
+              </li>
+            <!--
+              <li>
+                <a href="../../guide/topics/admin/keychain.html">
+                <span class="en">Certificate Store</span></a>
+              </li>
+            -->
+           </ul>
+  </li><!-- end of administration -->
+
+  <li class="nav-section">
+    <div class="nav-section-header"><a href="../../guide/webapps/index.html">
+    <span class="en">Web Apps</span>
+    </a></div>
+    <ul>
+      <li><a href="../../guide/webapps/targeting.html">
+            <span class="en">Supporting Different Screens in Web Apps</span>
+          </a></li>
+      <li><a href="../../guide/webapps/webview.html">
+            <span class="en">Building Web Apps in WebView</span>
+          </a></li>
+      <li><a href="../../guide/webapps/migrating.html">
+            <span class="en">Migrating to WebView in Android 4.4</span>
+          </a></li>
+      <li><a href="../../guide/webapps/debugging.html">
+            <span class="en">Debugging Web Apps</span>
+          </a></li>
+      <li><a href="../../guide/webapps/best-practices.html">
+            <span class="en">Best Practices for Web Apps</span>
+          </a></li>
+    </ul>
+  </li><!-- end of web apps -->
+
+  <li class="nav-section">
+    <div class="nav-section-header"><a href="../../guide/practices/index.html">
+      <span class="en">Best Practices</span>
+      <span class="de" style="display:none">Bewährte Verfahren</span>
+      <span class="es" style="display:none">Prácticas recomendadas</span>
+      <span class="fr" style="display:none">Meilleures pratiques</span>
+      <span class="it" style="display:none">Best practice</span>
+      <span class="ja" style="display:none">ベスト プラクティス</span>
+      <span class="zh-cn" style="display:none">最佳实践</span>
+      <span class="zh-tw" style="display:none">最佳實務</span>
+    </div></a>
+    <ul>
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../guide/practices/screens_support.html">
+          <span class="en">Supporting Multiple Screens</span>
+        </a></div>
+        <ul>
+          <li><a href="../../guide/practices/screens-distribution.html">
+            <span class="en">Distributing to Specific Screens</span>
+          </a></li>
+          <li><a href="../../guide/practices/screen-compat-mode.html">
+            <span class="en">Screen Compatibility Mode</span>
+          </a></li>
+        </ul>
+      </li>
+      <li><a href="../../guide/practices/tablets-and-handsets.html">
+            <span class="en">Supporting Tablets and Handsets</span>
+          </a></li>
+
+    </ul>
+  </li>
+
+
+</ul>
+
+
+<script type="text/javascript">
+<!--
+    buildToggleLists();
+    changeNavLang(getLangPref());
+//-->
+</script>
+
+
+        
+
+      </div>
+    </div> <!-- end side-nav -->
+    <script>
+      $(document).ready(function() {
+        scrollIntoView("devdoc-nav");
+        });
+    </script>
+
+
+
+
+<div class="col-12" id="doc-col" >
+
+
+
+
+  
+    
+      
+        <h1 itemprop="name" >Common Intents</h1>
+      
+    
+  
+
+
+  
+  <div id="jd-content">
+
+
+    <div class="jd-descr" itemprop="articleBody">
+    <div id="qv-wrapper">
+<div id="qv">
+
+  <h2>In this document
+    <a href="#" onclick="hideNestedItems('#tocIntents',this);return false;" class="header-toggle">
+        <span class="more">show more</span>
+        <span class="less" style="display:none">show less</span></a></h2>
+
+<ol id="tocIntents" class="hide-nested">
+  <li><a href="#Clock">Alarm Clock</a>
+    <ol>
+      <li><a href="#CreateAlarm">Create an alarm</a></li>
+      <li><a href="#CreateTimer">Create a timer</a></li>
+      <li><a href="#ShowAlarms">Show all alarms</a></li>
+    </ol>
+  </li>
+  <li><a href="#Calendar">Calendar</a>
+    <ol>
+      <li><a href="#AddEvent">Add a calendar event</a></li>
+    </ol>
+  </li>
+  <li><a href="#Camera">Camera</a>
+    <ol>
+      <li><a href="#ImageCapture">Capture a picture or video and return it</a></li>
+    </ol>
+  </li>
+  <li><a href="#Contacts">Contacts/People App</a>
+    <ol>
+      <li><a href="#PickContact">Select a contact</a></li>
+      <li><a href="#PickContactDat">Select specific contact data</a></li>
+      <li><a href="#ViewContact">View a contact</a></li>
+      <li><a href="#EditContact">Edit an existing contact</a></li>
+      <li><a href="#InsertContact">Insert a contact</a></li>
+    </ol>
+  </li>
+  <li><a href="#Email">Email</a>
+    <ol>
+      <li><a href="#ComposeEmail">Compose an email with optional attachments</a></li>
+    </ol>
+  </li>
+  <li><a href="#Storage">File Storage</a>
+    <ol>
+      <li><a href="#GetFile">Retrieve a specific type of file</a></li>
+      <li><a href="#OpenFile">Open a specific type of file</a></li>
+    </ol>
+  </li>
+  <li><a href="#Maps">Maps</a>
+    <ol>
+      <li><a href="#ViewMap">Show a location on a map</a></li>
+    </ol>
+  </li>
+  <li><a href="#Music">Music or Video</a>
+    <ol>
+      <li><a href="#PlayMedia">Play a media file</a></li>
+      <li><a href="#PlaySearch">Play music based on a search query</a></li>
+    </ol>
+  </li>
+  <li><a href="#Phone">Phone</a>
+    <ol>
+      <li><a href="#DialPhone">Initiate a phone call</a></li>
+    </ol>
+  </li>
+  <li><a href="#Settings">Settings</a>
+    <ol>
+      <li><a href="#OpenSettings">Open a specific section of Settings</a></li>
+    </ol>
+  </li>
+  <li><a href="#Messaging">Text Messaging</a>
+    <ol>
+      <li><a href="#SendMessage">Compose an SMS/MMS message with attachment</a></li>
+    </ol>
+  </li>
+  <li><a href="#Browser">Web Browser</a>
+    <ol>
+      <li><a href="#ViewUrl">Load a web URL</a></li>
+      <li><a href="#SearchWeb">Perform a web search</a></li>
+    </ol>
+  </li>
+</ol>
+
+  <h2>See also</h2>
+  <ol>
+    <li><a href="../../guide/components/intents-filters.html">Intents and Intent
+Filters</a></li>
+  </ol>
+</div>
+</div>
+
+
+<p>An intent allows you to start an activity in another app by describing a simple
+action you'd like to perform (such as "view a map" or "take a picture")
+in an <code><a href="../../reference/android/content/Intent.html">Intent</a></code> object. This type of intent is
+called an <em>implicit</em> intent because it does not specify the app component
+to start, but instead specifies an <em>action</em> and provides some
+<em>data</em> with which to perform the action.</p>
+
+<p>When you call
+<code><a href="../../reference/android/content/Context.html#startActivity(android.content.Intent)">startActivity()</a></code> or
+<code><a href="../../reference/android/app/Activity.html#startActivityForResult(android.content.Intent, int)">startActivityForResult()</a></code> and pass it an
+implicit intent, the system <a href="../../guide/components/intents-filters.html#Resolution"
+>resolves the intent</a> to an app that can handle the intent
+and starts its corresponding <code><a href="../../reference/android/app/Activity.html">Activity</a></code>. If there's more than one app
+that can handle the intent, the system presents the user with a dialog to pick which app
+to use.</p>
+
+<p>This page describes several implicit intents that you can use to perform common actions,
+organized by the type of app that handles the intent. Each section also shows how you can
+create an <a href="../../guide/components/intents-filters.html#Receiving">intent filter</a> to
+advertise your app's ability to perform the same action.</p>
+
+<p class="caution"><strong>Caution:</strong> If there are no apps on the device that can receive
+the implicit intent, your app will crash when it calls <code><a href="../../reference/android/content/Context.html#startActivity(android.content.Intent)">startActivity()</a></code>. To first verify that an app exists to receive the intent, call <code><a href="../../reference/android/content/Intent.html#resolveActivity(android.content.pm.PackageManager)">resolveActivity()</a></code> on your <code><a href="../../reference/android/content/Intent.html">Intent</a></code>
+object. If the result is non-null, there is at least one app that can handle the intent and
+it's safe to call <code><a href="../../reference/android/content/Context.html#startActivity(android.content.Intent)">startActivity()</a></code>. If the result is
+null, you should not use the intent and, if possible, you should disable the feature that invokes
+the intent.</p>
+
+
+<p>If you're not familiar with how to create intents or intent filters, you should first read
+<a href="../../guide/components/intents-filters.html">Intents and Intent Filters</a>.</p>
+
+
+
+
+
+
+
+
+
+<h2 id="Clock">Alarm Clock</h2>
+
+
+<h3 id="CreateAlarm">Create an alarm</h3>
+
+<p>To create a new alarm, use the <code><a href="../../reference/android/provider/AlarmClock.html#ACTION_SET_ALARM">ACTION_SET_ALARM</a></code>
+action and specify alarm details such as the time and message using extras defined below.</p>
+
+<p class="note"><strong>Note:</strong> Only the hour, minutes, and message extras are available
+since Android 2.3 (API level 9). The other extras were added in later versions of the platform.</p>
+
+<dl>
+<dt><b>Action</b></dt>
+<dd><code><a href="../../reference/android/provider/AlarmClock.html#ACTION_SET_ALARM">ACTION_SET_ALARM</a></code></dd>
+
+<dt><b>Data URI</b></dt>
+<dd>None</dd>
+
+<dt><b>MIME Type</b></dt>
+<dd>None
+</dd>
+
+<dt><b>Extras</b></dt>
+<dd>
+  <dl>
+    <dt><code><a href="../../reference/android/provider/AlarmClock.html#EXTRA_HOUR">EXTRA_HOUR</a></code></dt>
+      <dd>The hour for the alarm.</dd>
+    <dt><code><a href="../../reference/android/provider/AlarmClock.html#EXTRA_MINUTES">EXTRA_MINUTES</a></code></dt>
+      <dd>The minutes for the alarm.</dd>
+    <dt><code><a href="../../reference/android/provider/AlarmClock.html#EXTRA_MESSAGE">EXTRA_MESSAGE</a></code></dt>
+      <dd>A custom message to identify the alarm.</dd>
+    <dt><code><a href="../../reference/android/provider/AlarmClock.html#EXTRA_DAYS">EXTRA_DAYS</a></code></dt>
+      <dd>An <code><a href="../../reference/java/util/ArrayList.html">ArrayList</a></code> including each week day on which this alarm should
+      be repeated. Each day must be declared with an integer from the <code><a href="../../reference/java/util/Calendar.html">Calendar</a></code>
+      class such as <code><a href="../../reference/java/util/Calendar.html#MONDAY">MONDAY</a></code>.
+      <p>For a one-time alarm, do not specify this extra.</dd>
+    <dt><code><a href="../../reference/android/provider/AlarmClock.html#EXTRA_RINGTONE">EXTRA_RINGTONE</a></code></dt>
+      <dd>A <code>content:</code> URI specifying a ringtone to use with the alarm, or <code><a href="../../reference/android/provider/AlarmClock.html#VALUE_RINGTONE_SILENT">VALUE_RINGTONE_SILENT</a></code> for no ringtone.
+      <p>To use the default ringtone, do not specify this extra.</dd>
+    <dt><code><a href="../../reference/android/provider/AlarmClock.html#EXTRA_VIBRATE">EXTRA_VIBRATE</a></code></dt>
+      <dd>A boolean specifying whether to vibrate for this alarm.</dd>
+    <dt><code><a href="../../reference/android/provider/AlarmClock.html#EXTRA_SKIP_UI">EXTRA_SKIP_UI</a></code></dt>
+      <dd>A boolean specifying whether the responding app should skip its UI when setting the alarm.
+      If true, the app should bypass any confirmation UI and simply set the specified alarm.</dd>
+  </dl>
+</dd>
+
+
+</dl>
+
+<p><b>Example intent:</b></p>
+<pre>
+public void createAlarm(String message, int hour, int minutes) {
+    Intent intent = new Intent(AlarmClock.ACTION_SET_ALARM)
+            .putExtra(AlarmClock.EXTRA_MESSAGE, message)
+            .putExtra(AlarmClock.EXTRA_HOUR, hour)
+            .putExtra(AlarmClock.EXTRA_MINUTES, minutes);
+    if (intent.resolveActivity(getPackageManager()) != null) {
+        startActivity(intent);
+    }
+}
+</pre>
+
+<div class="note"><strong>Note:</strong>
+<p>In order to invoke the <code><a href="../../reference/android/provider/AlarmClock.html#ACTION_SET_ALARM">ACTION_SET_ALARM</a></code> intent, your app must have the
+<code><a href="../../reference/android/Manifest.permission.html#SET_ALARM">SET_ALARM</a></code> permission:</p>
+<pre>
+&lt;uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
+</pre>
+</div>
+
+
+<p><b>Example intent filter:</b></p>
+<pre>
+&lt;activity ...>
+    &lt;intent-filter>
+        &lt;action android:name="android.intent.action.SET_ALARM" />
+        &lt;category android:name="android.intent.category.DEFAULT" />
+    &lt;/intent-filter>
+&lt;/activity>
+</pre>
+
+
+
+<h3 id="CreateTimer">Create a timer</h3>
+
+<p>To create a countdown timer, use the <code><a href="../../reference/android/provider/AlarmClock.html#ACTION_SET_TIMER">ACTION_SET_TIMER</a></code>
+action and specify timer details such as the duration using extras defined below.</p>
+
+<p class="note"><strong>Note:</strong> This intent was added
+in Android 4.4 (API level 19).</p>
+
+<dl>
+<dt><b>Action</b></dt>
+<dd><code><a href="../../reference/android/provider/AlarmClock.html#ACTION_SET_TIMER">ACTION_SET_TIMER</a></code></dd>
+
+<dt><b>Data URI</b></dt>
+<dd>None</dd>
+
+<dt><b>MIME Type</b></dt>
+<dd>None
+</dd>
+
+<dt><b>Extras</b></dt>
+<dd>
+  <dl>
+    <dt><code><a href="../../reference/android/provider/AlarmClock.html#EXTRA_LENGTH">EXTRA_LENGTH</a></code></dt>
+      <dd>The length of the timer in seconds.</dd>
+    <dt><code><a href="../../reference/android/provider/AlarmClock.html#EXTRA_MESSAGE">EXTRA_MESSAGE</a></code></dt>
+      <dd>A custom message to identify the timer.</dd>
+    <dt><code><a href="../../reference/android/provider/AlarmClock.html#EXTRA_SKIP_UI">EXTRA_SKIP_UI</a></code></dt>
+      <dd>A boolean specifying whether the responding app should skip its UI when setting the timer.
+      If true, the app should bypass any confirmation UI and simply start the specified timer.</dd>
+  </dl>
+</dd>
+
+
+</dl>
+
+<p><b>Example intent:</b></p>
+<pre>
+public void startTimer(String message, int seconds) {
+    Intent intent = new Intent(AlarmClock.ACTION_SET_TIMER)
+            .putExtra(AlarmClock.EXTRA_MESSAGE, message)
+            .putExtra(AlarmClock.EXTRA_LENGTH, seconds)
+            .putExtra(AlarmClock.EXTRA_SKIP_UI, true);
+    if (intent.resolveActivity(getPackageManager()) != null) {
+        startActivity(intent);
+    }
+}
+</pre>
+
+<div class="note"><strong>Note:</strong>
+<p>In order to invoke the <code><a href="../../reference/android/provider/AlarmClock.html#ACTION_SET_TIMER">ACTION_SET_TIMER</a></code> intent, your app must have the
+<code><a href="../../reference/android/Manifest.permission.html#SET_ALARM">SET_ALARM</a></code> permission:</p>
+<pre>
+&lt;uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
+</pre>
+</div>
+
+
+<p><b>Example intent filter:</b></p>
+<pre>
+&lt;activity ...>
+    &lt;intent-filter>
+        &lt;action android:name="android.intent.action.SET_TIMER" />
+        &lt;category android:name="android.intent.category.DEFAULT" />
+    &lt;/intent-filter>
+&lt;/activity>
+</pre>
+
+
+
+
+
+<h3 id="ShowAlarms">Show all alarms</h3>
+
+<p>To show the list of alarms, use the <code><a href="../../reference/android/provider/AlarmClock.html#ACTION_SHOW_ALARMS">ACTION_SHOW_ALARMS</a></code>
+action.</p>
+
+<p>Although not many apps will invoke this intent (it's primarily used by system apps),
+any app that behaves as an alarm clock should implement
+this intent filter and respond by showing the list of current alarms.</p>
+
+<p class="note"><strong>Note:</strong> This intent was added
+in Android 4.4 (API level 19).</p>
+
+<dl>
+<dt><b>Action</b></dt>
+<dd><code><a href="../../reference/android/provider/AlarmClock.html#ACTION_SHOW_ALARMS">ACTION_SHOW_ALARMS</a></code></dd>
+
+<dt><b>Data URI</b></dt>
+<dd>None</dd>
+
+<dt><b>MIME Type</b></dt>
+<dd>None
+</dd>
+</dl>
+
+<p><b>Example intent filter:</b></p>
+<pre>
+&lt;activity ...>
+    &lt;intent-filter>
+        &lt;action android:name="android.intent.action.SHOW_ALARMS" />
+        &lt;category android:name="android.intent.category.DEFAULT" />
+    &lt;/intent-filter>
+&lt;/activity>
+</pre>
+
+
+
+
+
+
+<h2 id="Calendar">Calendar</h2>
+
+
+<h3 id="AddEvent">Add a calendar event</h3>
+
+<p>To add a new event to the user's calendar, use the <code><a href="../../reference/android/content/Intent.html#ACTION_INSERT">ACTION_INSERT</a></code>
+action and specify the data URI with <code><a href="../../reference/android/provider/CalendarContract.Events.html#CONTENT_URI">Events.CONTENT_URI</a></code>. You can then specify various event details using extras defined below.</p>
+
+<dl>
+<dt><b>Action</b></dt>
+<dd><code><a href="../../reference/android/content/Intent.html#ACTION_INSERT">ACTION_INSERT</a></code></dd>
+
+<dt><b>Data URI</b></dt>
+<dd><code><a href="../../reference/android/provider/CalendarContract.Events.html#CONTENT_URI">Events.CONTENT_URI</a></code></dd>
+
+<dt><b>MIME Type</b></dt>
+<dd><code>"vnd.android.cursor.dir/event"</code>
+</dd>
+
+<dt><b>Extras</b></dt>
+<dd>
+  <dl>
+    <dt><code><a href="../../reference/android/provider/CalendarContract.html#EXTRA_EVENT_ALL_DAY">EXTRA_EVENT_ALL_DAY</a></code></dt>
+      <dd>A boolean specifying whether this is an all-day event.</dd>
+    <dt><code><a href="../../reference/android/provider/CalendarContract.html#EXTRA_EVENT_BEGIN_TIME">EXTRA_EVENT_BEGIN_TIME</a></code></dt>
+      <dd>The start time of the event (milliseconds since epoch).</dd>
+    <dt><code><a href="../../reference/android/provider/CalendarContract.html#EXTRA_EVENT_END_TIME">EXTRA_EVENT_END_TIME</a></code></dt>
+      <dd>The end time of the event (milliseconds since epoch).</dd>
+    <dt><code><a href="../../reference/android/provider/CalendarContract.EventsColumns.html#TITLE">TITLE</a></code></dt>
+      <dd>The event title.</dd>
+    <dt><code><a href="../../reference/android/provider/CalendarContract.EventsColumns.html#DESCRIPTION">DESCRIPTION</a></code></dt>
+      <dd>The event description.</dd>
+    <dt><code><a href="../../reference/android/provider/CalendarContract.EventsColumns.html#EVENT_LOCATION">EVENT_LOCATION</a></code></dt>
+      <dd>The event location.</dd>
+    <dt><code><a href="../../reference/android/content/Intent.html#EXTRA_EMAIL">EXTRA_EMAIL</a></code></dt>
+      <dd>A comma-separated list of email addresses that specify the invitees.</dd>
+  </dl>
+  <p>Many more event details can be specified using the constants defined in the
+  <code><a href="../../reference/android/provider/CalendarContract.EventsColumns.html">CalendarContract.EventsColumns</a></code> class.</p>
+</dd>
+
+
+</dl>
+
+<p><b>Example intent:</b></p>
+<pre>
+public void addEvent(String title, String location, Calendar begin, Calendar end) {
+    Intent intent = new Intent(Intent.ACTION_INSERT)
+            .setData(Events.CONTENT_URI)
+            .putExtra(Events.TITLE, title)
+            .putExtra(Events.EVENT_LOCATION, location)
+            .putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, begin)
+            .putExtra(CalendarContract.EXTRA_EVENT_END_TIME, end);
+    if (intent.resolveActivity(getPackageManager()) != null) {
+        startActivity(intent);
+    }
+}
+</pre>
+
+
+<p><b>Example intent filter:</b></p>
+<pre>
+&lt;activity ...>
+    &lt;intent-filter>
+        &lt;action android:name="android.intent.action.INSERT" />
+        &lt;data android:mimeType="vnd.android.cursor.dir/event" />
+        &lt;category android:name="android.intent.category.DEFAULT" />
+    &lt;/intent-filter>
+&lt;/activity>
+</pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="Camera">Camera</h2>
+
+
+
+<h3 id="ImageCapture">Capture a picture or video and return it</h3>
+
+<p>To open a camera app and receive the resulting photo or video, use the <code><a href="../../reference/android/provider/MediaStore.html#ACTION_IMAGE_CAPTURE">ACTION_IMAGE_CAPTURE</a></code> or <code><a href="../../reference/android/provider/MediaStore.html#ACTION_VIDEO_CAPTURE">ACTION_VIDEO_CAPTURE</a></code> action. Also specify the URI location where you'd
+like the camera to save the photo or video, in the <code><a href="../../reference/android/provider/MediaStore.html#EXTRA_OUTPUT">EXTRA_OUTPUT</a></code>
+extra.</p>
+
+
+<dl>
+<dt><b>Action</b></dt>
+<dd><code><a href="../../reference/android/provider/MediaStore.html#ACTION_IMAGE_CAPTURE">ACTION_IMAGE_CAPTURE</a></code> or<br>
+    <code><a href="../../reference/android/provider/MediaStore.html#ACTION_VIDEO_CAPTURE">ACTION_VIDEO_CAPTURE</a></code></dd>
+
+<dt><b>Data URI Scheme</b></dt>
+<dd>None</dd>
+
+<dt><b>MIME Type</b></dt>
+<dd>None</dd>
+
+<dt><b>Extras</b></dt>
+<dd>
+    <dl>
+      <dt><code><a href="../../reference/android/provider/MediaStore.html#EXTRA_OUTPUT">EXTRA_OUTPUT</a></code></dt>
+      <dd>The URI location where the camera app should save the photo or
+      video file (as a <code><a href="../../reference/android/net/Uri.html">Uri</a></code> object).</dd>
+    </dl>
+</dd>
+</dl>
+
+<p>When the camera app successfully returns
+focus to your activity (your app receives the <code><a href="../../reference/android/app/Activity.html#onActivityResult(int, int, android.content.Intent)">onActivityResult()</a></code> callback), you can access the photo or video at the URI you specified
+with the <code><a href="../../reference/android/provider/MediaStore.html#EXTRA_OUTPUT">EXTRA_OUTPUT</a></code> value.</p>
+
+<p class="note"><strong>Note:</strong> When you use <code><a href="../../reference/android/provider/MediaStore.html#ACTION_IMAGE_CAPTURE">ACTION_IMAGE_CAPTURE</a></code> to capture a photo, the camera may also return a
+downscaled copy (a thumbnail) of the photo in the result <code><a href="../../reference/android/content/Intent.html">Intent</a></code>, saved as a <code><a href="../../reference/android/graphics/Bitmap.html">Bitmap</a></code> in an extra field named
+<code>"data"</code>.</p>
+
+
+<p><b>Example intent:</b></p>
+<pre>
+static final int REQUEST_IMAGE_CAPTURE = 1;
+static final Uri mLocationForPhotos;
+
+public void capturePhoto(String targetFilename) {
+    Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+    intent.putExtra(MediaStore.EXTRA_OUTPUT,
+            Uri.withAppendedPath(mLocationForPhotos, targetFilename);
+    if (intent.resolveActivity(getPackageManager()) != null) {
+        startActivityForResult(intent, REQUEST_IMAGE_CAPTURE);
+    }
+}
+
+&#64;Override
+protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
+        Bitmap thumbnail = data.getParcelable("data");
+        // Do other work with full size photo saved in mLocationForPhotos
+        ...
+    }
+}
+</pre>
+
+<p>For more information about how to use this intent to capture a photo, including
+how to create an appropriate <code><a href="../../reference/android/net/Uri.html">Uri</a></code> for the output location, read
+<a href="../../training/camera/photobasics.html">Taking Photos Simply</a> or
+<a href="../../training/camera/videobasics.html">Taking Videos Simply</a>.</p>
+
+<p><b>Example intent filter:</b></p>
+<pre>
+&lt;activity ...>
+    &lt;intent-filter>
+        &lt;action android:name="android.media.action.IMAGE_CAPTURE" />
+        &lt;category android:name="android.intent.category.DEFAULT" />
+    &lt;/intent-filter>
+&lt;/activity>
+</pre>
+
+<p>When handling this intent, your activity should check for the <code><a href="../../reference/android/provider/MediaStore.html#EXTRA_OUTPUT">EXTRA_OUTPUT</a></code> extra in the incoming <code><a href="../../reference/android/content/Intent.html">Intent</a></code>,
+then save the captured image or video at the location specified by that extra and call <code><a href="../../reference/android/app/Activity.html#setResult(int, android.content.Intent)">setResult()</a></code> with an
+<code><a href="../../reference/android/content/Intent.html">Intent</a></code> that includes a compressed thumbnail
+in an extra named <code>"data"</code>.</p>
+
+
+
+
+
+<h2 id="Contacts">Contacts/People App</h2>
+
+
+<h3 id="PickContact">Select a contact</h3>
+
+<p>To have the user select a contact and provide your app access to all the contact information,
+use the <code><a href="../../reference/android/content/Intent.html#ACTION_PICK">ACTION_PICK</a></code> action and specify the MIME type to
+<code><a href="../../reference/android/provider/ContactsContract.Contacts.html#CONTENT_TYPE">Contacts.CONTENT_TYPE</a></code>.</p>
+
+<p>The result <code><a href="../../reference/android/content/Intent.html">Intent</a></code> delivered to your <code><a href="../../reference/android/app/Activity.html#onActivityResult(int, int, android.content.Intent)">onActivityResult()</a></code> callback contains the
+<code>content:</code> URI pointing to the selected contact. The response grants
+your app temporary permissions to read that contact using the <a
+href="../../guide/topics/providers/contacts-provider.html">Contacts Provider</a> API even if
+your app does not include the <code><a href="../../reference/android/Manifest.permission.html#READ_CONTACTS">READ_CONTACTS</a></code> permission.</p>
+
+<p class="note"><strong>Tip:</strong> If you need access to only a specific piece of contact
+information, such as a phone number or email address, instead see the next section about how to
+<a href="#PickContactData">select specific contact data</a>.</p>
+
+<dl>
+<dt><b>Action</b></dt>
+<dd><code><a href="../../reference/android/content/Intent.html#ACTION_PICK">ACTION_PICK</a></code></dd>
+
+<dt><b>Data URI Scheme</b></dt>
+<dd>None</dd>
+
+<dt><b>MIME Type</b></dt>
+<dd><code><a href="../../reference/android/provider/ContactsContract.Contacts.html#CONTENT_TYPE">Contacts.CONTENT_TYPE</a></code>
+</dd>
+</dl>
+
+<p><b>Example intent:</b></p>
+<pre>
+static final int REQUEST_SELECT_CONTACT = 1;
+
+public void selectContact() {
+    Intent intent = new Intent(Intent.ACTION_PICK);
+    intent.setType(ContactsContract.Contacts.CONTENT_TYPE);
+    if (intent.resolveActivity(getPackageManager()) != null) {
+        startActivityForResult(intent, REQUEST_SELECT_CONTACT);
+    }
+}
+
+&#64;Override
+protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    if (requestCode == REQUEST_SELECT_CONTACT && resultCode == RESULT_OK) {
+        Uri contactUri = data.getData();
+        // Do something with the selected contact at contactUri
+        ...
+    }
+}
+</pre>
+
+<p>For information about how to retrieve contact details once you have the contact URI,
+read <a href="../../training/contacts-provider/retrieve-details.html">Retrieving Details
+for a Contact</a>. Remember, when you retrieve the contact URI with the above intent, you
+<strong>do not</strong> need the <code><a href="../../reference/android/Manifest.permission.html#READ_CONTACTS">READ_CONTACTS</a></code> permission
+to read details for that contact.</p>
+
+
+
+
+<h3 id="PickContactDat">Select specific contact data</h3>
+
+<p>To have the user select a specific piece of information from a contact, such as
+a phone number, email address, or other data type, use the
+<code><a href="../../reference/android/content/Intent.html#ACTION_PICK">ACTION_PICK</a></code> action and specify the MIME type to one
+of the content types listed below, such as
+<code><a href="../../reference/android/provider/ContactsContract.CommonDataKinds.Phone.html#CONTENT_TYPE">CommonDataKinds.Phone.CONTENT_TYPE</a></code> to get the contact's phone number.</p>
+
+<p>If you need to retrieve only one type of data from a contact, this technique with a
+<code>CONTENT_TYPE</code> from the
+<code><a href="../../reference/android/provider/ContactsContract.CommonDataKinds.html">ContactsContract.CommonDataKinds</a></code> classes is more efficient than
+using the <code><a href="../../reference/android/provider/ContactsContract.Contacts.html#CONTENT_TYPE">Contacts.CONTENT_TYPE</a></code> (as shown in the previous section) because the result provides you direct
+access to the desired data without requiring you to perform a more complex query to <a
+href="../../guide/topics/providers/contacts-provider.html">Contacts Provider</a>.</p>
+
+<p>The result <code><a href="../../reference/android/content/Intent.html">Intent</a></code> delivered to your <code><a href="../../reference/android/app/Activity.html#onActivityResult(int, int, android.content.Intent)">onActivityResult()</a></code> callback contains the
+<code>content:</code> URI pointing to the selected contact data. The response grants
+your app temporary permissions to read that contact data even if your app does
+not include the <code><a href="../../reference/android/Manifest.permission.html#READ_CONTACTS">READ_CONTACTS</a></code> permission.</p>
+
+<dl>
+<dt><b>Action</b></dt>
+<dd><code><a href="../../reference/android/content/Intent.html#ACTION_PICK">ACTION_PICK</a></code></dd>
+
+<dt><b>Data URI Scheme</b></dt>
+<dd>None</dd>
+
+<dt><b>MIME Type</b></dt>
+<dd>
+    <dl>
+      <dt><code><a href="../../reference/android/provider/ContactsContract.CommonDataKinds.Phone.html#CONTENT_TYPE">CommonDataKinds.Phone.CONTENT_TYPE</a></code></dt>
+      <dd>Pick from contacts with a phone number.</dd>
+      <dt><code><a href="../../reference/android/provider/ContactsContract.CommonDataKinds.Email.html#CONTENT_TYPE">CommonDataKinds.Email.CONTENT_TYPE</a></code></dt>
+      <dd>Pick from contacts with an email address.</dd>
+      <dt><code><a href="../../reference/android/provider/ContactsContract.CommonDataKinds.StructuredPostal.html#CONTENT_TYPE">CommonDataKinds.StructuredPostal.CONTENT_TYPE</a></code></dt>
+      <dd>Pick from contacts with a postal address.</dd>
+    </dl>
+  <p>Or one of many other <code>CONTENT_TYPE</code> values
+  under <code><a href="../../reference/android/provider/ContactsContract.html">ContactsContract</a></code>.</p>
+</dd>
+</dl>
+
+<p><b>Example intent:</b></p>
+<pre>
+static final int REQUEST_SELECT_PHONE_NUMBER = 1;
+
+public void selectContact() {
+    // Start an activity for the user to pick a phone number from contacts
+    Intent intent = new Intent(Intent.ACTION_PICK);
+    intent.setType(CommonDataKinds.Phone.CONTENT_TYPE);
+    if (intent.resolveActivity(getPackageManager()) != null) {
+        startActivityForResult(intent, REQUEST_SELECT_PHONE_NUMBER);
+    }
+}
+
+&#64;Override
+protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    if (requestCode == REQUEST_SELECT_PHONE_NUMBER && resultCode == RESULT_OK) {
+        // Get the URI and query the content provider for the phone number
+        Uri contactUri = data.getData();
+        String[] projection = new String[]{CommonDataKinds.Phone.NUMBER};
+        Cursor cursor = getContentResolver().query(contactUri, projection,
+                null, null, null);
+        // If the cursor returned is valid, get the phone number
+        if (cursor != null && cursor.moveToFirst()) {
+            int numberIndex = cursor.getColumnIndex(CommonDataKinds.Phone.NUMBER);
+            String number = cursor.getString(numberIndex);
+            // Do something with the phone number
+            ...
+        }
+    }
+}
+</pre>
+
+
+
+
+
+<h3 id="ViewContact">View a contact</h3>
+
+<p>To display the details for a known contact, use the <code><a href="../../reference/android/content/Intent.html#ACTION_VIEW">ACTION_VIEW</a></code>
+action and specify the contact with a <code>content:</code> URI as the intent data.</p>
+
+<p>There are primarily two ways to initially retrieve the contact's URI:</p>
+<ul>
+  <li>Use the contact URI returned by the <code><a href="../../reference/android/content/Intent.html#ACTION_PICK">ACTION_PICK</a></code>,
+  shown in the previous section (this does not require any app permissions).</li>
+  <li>Access the list of all contacts directly, as described in <a
+  href="../../training/contacts-provider/retrieve-names.html">Retrieving a List of
+  Contacts</a> (this requires the <code><a href="../../reference/android/Manifest.permission.html#READ_CONTACTS">READ_CONTACTS</a></code>
+  permission).</li>
+</ul>
+
+<dl>
+<dt><b>Action</b></dt>
+<dd><code><a href="../../reference/android/content/Intent.html#ACTION_VIEW">ACTION_VIEW</a></code></dd>
+
+<dt><b>Data URI Scheme</b></dt>
+<dd><code>content:&lt;URI></code></dd>
+
+<dt><b>MIME Type</b></dt>
+<dd>None. The type is inferred from contact URI.
+</dd>
+</dl>
+
+<p><b>Example intent:</b></p>
+<pre>
+public void viewContact(Uri contactUri) {
+    Intent intent = new Intent(Intent.ACTION_VIEW, contactUri);
+    if (intent.resolveActivity(getPackageManager()) != null) {
+        startActivity(intent);
+    }
+}
+</pre>
+
+
+
+<h3 id="EditContact">Edit an existing contact</h3>
+
+<p>To edit a known contact, use the <code><a href="../../reference/android/content/Intent.html#ACTION_EDIT">ACTION_EDIT</a></code>
+action, specify the contact with a <code>content:</code> URI
+as the intent data, and include any known contact information in extras specified by
+constants in <code><a href="../../reference/android/provider/ContactsContract.Intents.Insert.html">ContactsContract.Intents.Insert</a></code>.</p>
+
+<p>There are primarily two ways to initially retrieve the contact URI:</p>
+<ul>
+  <li>Use the contact URI returned by the <code><a href="../../reference/android/content/Intent.html#ACTION_PICK">ACTION_PICK</a></code>,
+  shown in the previous section (this does not require any app permissions).</li>
+  <li>Access the list of all contacts directly, as described in <a
+  href="../../training/contacts-provider/retrieve-names.html">Retrieving a List of
+  Contacts</a> (this requires the <code><a href="../../reference/android/Manifest.permission.html#READ_CONTACTS">READ_CONTACTS</a></code>
+  permission).</li>
+</ul>
+
+<dl>
+<dt><b>Action</b></dt>
+<dd><code><a href="../../reference/android/content/Intent.html#ACTION_EDIT">ACTION_EDIT</a></code></dd>
+
+<dt><b>Data URI Scheme</b></dt>
+<dd><code>content:&lt;URI></code></dd>
+
+<dt><b>MIME Type</b></dt>
+<dd>The type is inferred from contact URI.
+</dd>
+
+<dt><b>Extras</b></dt>
+<dd>One or more of the extras defined in <code><a href="../../reference/android/provider/ContactsContract.Intents.Insert.html">ContactsContract.Intents.Insert</a></code>
+so you can populate fields of the contact details.
+</dd>
+</dl>
+
+<p><b>Example intent:</b></p>
+<pre>
+public void editContact(Uri contactUri, String email) {
+    Intent intent = new Intent(Intent.ACTION_EDIT);
+    intent.setData(contactUri);
+    intent.putExtra(Intents.Insert.EMAIL, email);
+    if (intent.resolveActivity(getPackageManager()) != null) {
+        startActivity(intent);
+    }
+}
+</pre>
+
+<p>For more information about how to edit a contact, read <a
+href="../../training/contacts-provider/modify-data.html">Modifying
+Contacts Using Intents</a>.</p>
+
+
+
+
+<h3 id="InsertContact">Insert a contact</h3>
+
+<p>To insert a new contact, use the <code><a href="../../reference/android/content/Intent.html#ACTION_INSERT">ACTION_INSERT</a></code> action,
+specify <code><a href="../../reference/android/provider/ContactsContract.Contacts.html#CONTENT_TYPE">Contacts.CONTENT_TYPE</a></code> as
+the MIME type, and include any known contact information in extras specified by
+constants in <code><a href="../../reference/android/provider/ContactsContract.Intents.Insert.html">ContactsContract.Intents.Insert</a></code>.
+
+<dl>
+<dt><b>Action</b></dt>
+<dd><code><a href="../../reference/android/content/Intent.html#ACTION_INSERT">ACTION_INSERT</a></code></dd>
+
+<dt><b>Data URI Scheme</b></dt>
+<dd>None</dd>
+
+<dt><b>MIME Type</b></dt>
+<dd><code><a href="../../reference/android/provider/ContactsContract.Contacts.html#CONTENT_TYPE">Contacts.CONTENT_TYPE</a></code></dd>
+
+<dt><b>Extras</b></dt>
+<dd>One or more of the extras defined in <code><a href="../../reference/android/provider/ContactsContract.Intents.Insert.html">ContactsContract.Intents.Insert</a></code>.
+</dd>
+</dl>
+
+<p><b>Example intent:</b></p>
+<pre>
+public void insertContact(String name, String email) {
+    Intent intent = new Intent(Intent.ACTION_INSERT);
+    intent.setType(Contacts.CONTENT_TYPE);
+    intent.putExtra(Intents.Insert.NAME, name);
+    intent.putExtra(Intents.Insert.EMAIL, email);
+    if (intent.resolveActivity(getPackageManager()) != null) {
+        startActivity(intent);
+    }
+}
+</pre>
+
+<p>For more information about how to insert a contact, read <a
+href="../../training/contacts-provider/modify-data.html">Modifying
+Contacts Using Intents</a>.</p>
+
+
+
+
+
+
+
+<h2 id="Email">Email</h2>
+
+
+<h3 id="ComposeEmail">Compose an email with optional attachments</h3>
+
+
+<p>To compose an email, use one of the below actions based on whether you'll include attachments,
+and include email details such as the recipient and subject using the extra keys listed below.</p>
+
+<dl>
+<dt><b>Action</b></dt>
+<dd><code><a href="../../reference/android/content/Intent.html#ACTION_SENDTO">ACTION_SENDTO</a></code> (for no attachment) or<br>
+    <code><a href="../../reference/android/content/Intent.html#ACTION_SEND">ACTION_SEND</a></code> (for one attachment) or<br>
+    <code><a href="../../reference/android/content/Intent.html#ACTION_SEND_MULTIPLE">ACTION_SEND_MULTIPLE</a></code> (for multiple attachments)</dd>
+
+<dt><b>Data URI Scheme</b></dt>
+<dd>None</dd>
+
+<dt><b>MIME Type</b></dt>
+<dd>
+  <dl>
+    <dt><code><a href="../../reference/org/apache/http/protocol/HTTP.html#PLAIN_TEXT_TYPE">PLAIN_TEXT_TYPE</a></code> ("text/plain")
+    <dt><code>"*/*"</code>
+  </dl>
+</dd>
+
+<dt><b>Extras</b></dt>
+<dd>
+  <dl>
+    <dt><code><a href="../../reference/android/content/Intent.html#EXTRA_EMAIL">Intent.EXTRA_EMAIL</a></code></dt>
+      <dd>A string array of all "To" recipient email addresses.</dd>
+    <dt><code><a href="../../reference/android/content/Intent.html#EXTRA_CC">Intent.EXTRA_CC</a></code></dt>
+      <dd>A string array of all "CC" recipient email addresses.</dd>
+    <dt><code><a href="../../reference/android/content/Intent.html#EXTRA_BCC">Intent.EXTRA_BCC</a></code></dt>
+      <dd>A string array of all "BCC" recipient email addresses.</dd>
+    <dt><code><a href="../../reference/android/content/Intent.html#EXTRA_SUBJECT">Intent.EXTRA_SUBJECT</a></code></dt>
+      <dd>A string with the email subject.</dd>
+    <dt><code><a href="../../reference/android/content/Intent.html#EXTRA_TEXT">Intent.EXTRA_TEXT</a></code></dt>
+      <dd>A string with the body of the email.</dd>
+    <dt><code><a href="../../reference/android/content/Intent.html#EXTRA_STREAM">Intent.EXTRA_STREAM</a></code></dt>
+      <dd>A <code><a href="../../reference/android/net/Uri.html">Uri</a></code> pointing to the attachment. If using the
+        <code><a href="../../reference/android/content/Intent.html#ACTION_SEND_MULTIPLE">ACTION_SEND_MULTIPLE</a></code> action, this should instead
+        be an <code><a href="../../reference/java/util/ArrayList.html">ArrayList</a></code> containing multiple <code><a href="../../reference/android/net/Uri.html">Uri</a></code> objects.</dd>
+  </dl>
+</dd>
+
+</dl>
+
+
+<p><b>Example intent:</b></p>
+<pre>
+public void composeEmail(String[] addresses, String subject, Uri attachment) {
+    Intent intent = new Intent(Intent.ACTION_SEND);
+    intent.setType("*/*");
+    intent.putExtra(Intent.EXTRA_EMAIL, addresses);
+    intent.putExtra(Intent.EXTRA_SUBJECT, subject);
+    intent.putExtra(Intent.EXTRA_STREAM, attachment);
+    if (intent.resolveActivity(getPackageManager()) != null) {
+        startActivity(intent);
+    }
+}
+</pre>
+
+<p>If you want to ensure that your intent is handled only by an email app (and not other
+text messaging or social apps), then use the <code><a href="../../reference/android/content/Intent.html#ACTION_SENDTO">ACTION_SENDTO</a></code> action
+and include the <code>"mailto:"</code> data scheme. For example:</p>
+
+<pre>
+public void composeEmail(String[] addresses, String subject) {
+    Intent intent = new Intent(Intent.ACTION_SENDTO);
+    intent.setData(Uri.parse("mailto:")); // only email apps should handle this
+    intent.putExtra(Intent.EXTRA_EMAIL, addresses);
+    intent.putExtra(Intent.EXTRA_SUBJECT, subject);
+    if (intent.resolveActivity(getPackageManager()) != null) {
+        startActivity(intent);
+    }
+}
+</pre>
+
+
+<p><b>Example intent filter:</b></p>
+<pre>
+&lt;activity ...>
+    &lt;intent-filter>
+        &lt;action android:name="android.intent.action.SEND" />
+        &lt;data android:type="*/*" />
+        &lt;category android:name="android.intent.category.DEFAULT" />
+    &lt;/intent-filter>
+    &lt;intent-filter>
+        &lt;action android:name="android.intent.action.SENDTO" />
+        &lt;data android:scheme="mailto" />
+        &lt;category android:name="android.intent.category.DEFAULT" />
+    &lt;/intent-filter>
+&lt;/activity>
+</pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="Storage">File Storage</h2>
+
+
+
+<h3 id="GetFile">Retrieve a specific type of file</h3>
+
+<p>To request that the user select a file such as a document or photo and return a reference to
+your app, use the <code><a href="../../reference/android/content/Intent.html#ACTION_GET_CONTENT">ACTION_GET_CONTENT</a></code> action and specify your desired
+MIME type. The file reference returned to your app is transient to your activity's current
+lifecycle, so if you want to access it later you must import a copy that you can read later.
+This intent also allows the user to create a new file in the process (for
+example, instead of selecting an existing photo, the user can capture a new photo with the camera).
+</p>
+
+<p>The result intent delivered to your <code><a href="../../reference/android/app/Activity.html#onActivityResult(int, int, android.content.Intent)">onActivityResult()</a></code> method includes data with a URI pointing to the file.
+The URI could be anything, such as an <code>http:</code> URI, <code>file:</code> URI, or <code>content:</code>
+URI. However, if you'd like to restrict selectable files to only those that are accessible
+from a content provider (a <code>content:</code> URI) and that are available as a file stream with <code><a href="../../reference/android/content/ContentResolver.html#openFileDescriptor(android.net.Uri, java.lang.String)">openFileDescriptor()</a></code>, you should add
+the <code><a href="../../reference/android/content/Intent.html#CATEGORY_OPENABLE">CATEGORY_OPENABLE</a></code> category to your intent.</p>
+
+<p>On Android 4.3 (API level 18) and higher,
+you can also allow the user to select multiple files by adding
+<code><a href="../../reference/android/content/Intent.html#EXTRA_ALLOW_MULTIPLE">EXTRA_ALLOW_MULTIPLE</a></code> to the intent, set to <code>true</code>.
+You can then access each of the selected files in a <code><a href="../../reference/android/content/ClipData.html">ClipData</a></code>
+object returned by <code><a href="../../reference/android/content/Intent.html#getClipData()">getClipData()</a></code>.</p>
+
+
+<dl>
+<dt><b>Action</b></dt>
+<dd><code><a href="../../reference/android/content/Intent.html#ACTION_GET_CONTENT">ACTION_GET_CONTENT</a></code></dd>
+
+<dt><b>Data URI Scheme</b></dt>
+<dd>None</dd>
+
+<dt><b>MIME Type</b></dt>
+<dd>The MIME type corresponding to the file type the user should select.
+</dd>
+
+<dt><b>Extras</b></dt>
+<dd>
+  <dl>
+    <dt><code><a href="../../reference/android/content/Intent.html#EXTRA_ALLOW_MULTIPLE">EXTRA_ALLOW_MULTIPLE</a></code>
+      <dd>A boolean declaring whether the user can select more than one file at a time.
+      </dd>
+    <dt><code><a href="../../reference/android/content/Intent.html#EXTRA_LOCAL_ONLY">EXTRA_LOCAL_ONLY</a></code>
+      <dd>A boolean that declares whether the returned file must be available directly from
+      the device, rather than requiring a download from a remote service.
+      </dd>
+  </dl>
+</dd>
+
+<dt><b>Category</b> (optional)</dt>
+<dd>
+  <dl>
+    <dt><code><a href="../../reference/android/content/Intent.html#CATEGORY_OPENABLE">CATEGORY_OPENABLE</a></code></dt>
+      <dd>To return only "openable" files that can be represented as a file stream
+      with <code><a href="../../reference/android/content/ContentResolver.html#openFileDescriptor(android.net.Uri, java.lang.String)">openFileDescriptor()</a></code>.</dd>
+  </dl>
+</dd>
+
+</dl>
+
+<p><b>Example intent to get a photo:</b></p>
+<pre>
+static final int REQUEST_IMAGE_GET = 1;
+
+public void selectImage() {
+    Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+    intent.setType("image/*");
+    if (intent.resolveActivity(getPackageManager()) != null) {
+        startActivityForResult(intent, REQUEST_IMAGE_GET);
+    }
+}
+
+&#64;Override
+protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    if (requestCode == REQUEST_IMAGE_GET && resultCode == RESULT_OK) {
+        Bitmap thumbnail = data.getParcelable("data");
+        Uri fullPhotoUri = data.getData();
+        // Do work with photo saved at fullPhotoUri
+        ...
+    }
+}
+</pre>
+
+<p><b>Example intent filter to return a photo:</b></p>
+<pre>
+&lt;activity ...>
+    &lt;intent-filter>
+        &lt;action android:name="android.intent.action.GET_CONTENT" />
+        &lt;data android:type="image/*" />
+        &lt;category android:name="android.intent.category.DEFAULT" />
+        &lt;!-- The OPENABLE category declares that the returned file is accessible
+             from a content provider that supports <code><a href="../../reference/android/provider/OpenableColumns.html">OpenableColumns</a></code>
+             and <code><a href="../../reference/android/content/ContentResolver.html#openFileDescriptor(android.net.Uri, java.lang.String)">ContentResolver.openFileDescriptor()</a></code> -->
+        &lt;category android:name="android.intent.category.OPENABLE" />
+    &lt;/intent-filter>
+&lt;/activity>
+</pre>
+
+
+
+
+
+
+<h3 id="OpenFile">Open a specific type of file</h3>
+
+<p>Instead of retrieving a copy of a file that you must import to your app
+(by using the <code><a href="../../reference/android/content/Intent.html#ACTION_GET_CONTENT">ACTION_GET_CONTENT</a></code> action), when running on Android
+4.4 or higher, you can instead request to <em>open</em> a file that's managed by another app by
+using the <code><a href="../../reference/android/content/Intent.html#ACTION_OPEN_DOCUMENT">ACTION_OPEN_DOCUMENT</a></code> action and specifying a MIME type.
+To also allow the user to instead create a new document that your app can write to, use the <code><a href="../../reference/android/content/Intent.html#ACTION_CREATE_DOCUMENT">ACTION_CREATE_DOCUMENT</a></code> action instead. For example, instead of
+selecting from existing PDF documents, the <code><a href="../../reference/android/content/Intent.html#ACTION_CREATE_DOCUMENT">ACTION_CREATE_DOCUMENT</a></code>
+intent allows users to select where they'd like to create a new document (within another app
+that manages the document's storage)&mdash;your app then receives the URI location of where it
+can write the new document.</p>
+
+<p>Whereas the intent delivered to your <code><a href="../../reference/android/app/Activity.html#onActivityResult(int, int, android.content.Intent)">onActivityResult()</a></code> method from the <code><a href="../../reference/android/content/Intent.html#ACTION_GET_CONTENT">ACTION_GET_CONTENT</a></code> action may
+return a URI of any type, the result intent from <code><a href="../../reference/android/content/Intent.html#ACTION_OPEN_DOCUMENT">ACTION_OPEN_DOCUMENT</a></code>
+and <code><a href="../../reference/android/content/Intent.html#ACTION_CREATE_DOCUMENT">ACTION_CREATE_DOCUMENT</a></code> always specify the chosen file as a <code>content:</code> URI that's backed by a <code><a href="../../reference/android/provider/DocumentsProvider.html">DocumentsProvider</a></code>. You can open the
+file with <code><a href="../../reference/android/content/ContentResolver.html#openFileDescriptor(android.net.Uri, java.lang.String)">openFileDescriptor()</a></code> and
+query its details using columns from <code><a href="../../reference/android/provider/DocumentsContract.Document.html">DocumentsContract.Document</a></code>.</p>
+
+<p>The returned URI grants your app long-term read access to the file (also possibly
+with write access). So the <code><a href="../../reference/android/content/Intent.html#ACTION_OPEN_DOCUMENT">ACTION_OPEN_DOCUMENT</a></code> action is
+particularly useful (instead of using <code><a href="../../reference/android/content/Intent.html#ACTION_GET_CONTENT">ACTION_GET_CONTENT</a></code>)
+when you want to read an existing file without making a copy into your app,
+or when you want to open and edit a file in place.</p>
+
+<p>You can also allow the user to select multiple files by adding
+<code><a href="../../reference/android/content/Intent.html#EXTRA_ALLOW_MULTIPLE">EXTRA_ALLOW_MULTIPLE</a></code> to the intent, set to <code>true</code>.
+If the user selects just one item, then you can retrieve the item from <code><a href="../../reference/android/content/Intent.html#getData()">getData()</a></code>. If the user selects more than one item, then <code><a href="../../reference/android/content/Intent.html#getData()">getData()</a></code> returns null and you must instead
+retrieve each item from a <code><a href="../../reference/android/content/ClipData.html">ClipData</a></code>
+object that is returned by <code><a href="../../reference/android/content/Intent.html#getClipData()">getClipData()</a></code>.</p>
+
+<p class="note"><strong>Note:</strong> Your intent <strong>must</strong> specify a MIME type and
+<strong>must</strong> declare the <code><a href="../../reference/android/content/Intent.html#CATEGORY_OPENABLE">CATEGORY_OPENABLE</a></code> category. If
+appropriate, you can specify more than one MIME type by adding an array of MIME types with the
+<code><a href="../../reference/android/content/Intent.html#EXTRA_MIME_TYPES">EXTRA_MIME_TYPES</a></code> extra&mdash;if you do so, you must set the
+primary MIME type in <code><a href="../../reference/android/content/Intent.html#setType(java.lang.String)">setType()</a></code> to <code>"*/*"</code>.</p>
+
+<dl>
+<dt><b>Action</b></dt>
+<dd><code><a href="../../reference/android/content/Intent.html#ACTION_OPEN_DOCUMENT">ACTION_OPEN_DOCUMENT</a></code> or<br/>
+<code><a href="../../reference/android/content/Intent.html#ACTION_CREATE_DOCUMENT">ACTION_CREATE_DOCUMENT</a></code></dd>
+
+<dt><b>Data URI Scheme</b></dt>
+<dd>None</dd>
+
+<dt><b>MIME Type</b></dt>
+<dd>The MIME type corresponding to the file type the user should select.
+</dd>
+
+<dt><b>Extras</b></dt>
+<dd>
+  <dl>
+    <dt><code><a href="../../reference/android/content/Intent.html#EXTRA_MIME_TYPES">EXTRA_MIME_TYPES</a></code>
+      <dd>An array of MIME types corresponding to the types of files your app is
+      requesting. When you use this extra, you must set the primary MIME type in
+      <code><a href="../../reference/android/content/Intent.html#setType(java.lang.String)">setType()</a></code> to <code>"*/*"</code>.</dd>
+    <dt><code><a href="../../reference/android/content/Intent.html#EXTRA_ALLOW_MULTIPLE">EXTRA_ALLOW_MULTIPLE</a></code>
+      <dd>A boolean that declares whether the user can select more than one file at a time.
+      </dd>
+    <dt><code><a href="../../reference/android/content/Intent.html#EXTRA_TITLE">EXTRA_TITLE</a></code>
+      <dd>For use with <code><a href="../../reference/android/content/Intent.html#ACTION_CREATE_DOCUMENT">ACTION_CREATE_DOCUMENT</a></code> to specify
+      an initial file name.
+      </dd>
+    <dt><code><a href="../../reference/android/content/Intent.html#EXTRA_LOCAL_ONLY">EXTRA_LOCAL_ONLY</a></code>
+      <dd>A boolean that declares whether the returned file must be available directly from
+      the device, rather than requiring a download from a remote service.
+      </dd>
+  </dl>
+</dd>
+
+<dt><b>Category</b></dt>
+<dd>
+  <dl>
+    <dt><code><a href="../../reference/android/content/Intent.html#CATEGORY_OPENABLE">CATEGORY_OPENABLE</a></code></dt>
+      <dd>To return only "openable" files that can be represented as a file stream
+      with <code><a href="../../reference/android/content/ContentResolver.html#openFileDescriptor(android.net.Uri, java.lang.String)">openFileDescriptor()</a></code>.</dd>
+  </dl>
+</dd>
+
+</dl>
+
+<p><b>Example intent to get a photo:</b></p>
+<pre>
+static final int REQUEST_IMAGE_OPEN = 1;
+
+public void selectImage() {
+    Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
+    intent.setType("image/*");
+    intent.addCategory(Intent.CATEGORY_OPENABLE);
+    // Only the system receives the ACTION_OPEN_DOCUMENT, so no need to test.
+    startActivityForResult(intent, REQUEST_IMAGE_OPEN);
+}
+
+&#64;Override
+protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    if (requestCode == REQUEST_IMAGE_OPEN && resultCode == RESULT_OK) {
+        Uri fullPhotoUri = data.getData();
+        // Do work with full size photo saved at fullPhotoUri
+        ...
+    }
+}
+</pre>
+
+<p>Third party apps cannot actually respond to an intent with the
+<code><a href="../../reference/android/content/Intent.html#ACTION_OPEN_DOCUMENT">ACTION_OPEN_DOCUMENT</a></code> action. Instead, the system receives this
+intent and displays all the files available from various apps in a unified user interface.</p>
+
+<p>To provide your app's files in this UI and allow other apps to open them, you must implement
+a <code><a href="../../reference/android/provider/DocumentsProvider.html">DocumentsProvider</a></code> and include an intent filter for
+<code><a href="../../reference/android/provider/DocumentsContract.html#PROVIDER_INTERFACE">PROVIDER_INTERFACE</a></code>
+(<code>"android.content.action.DOCUMENTS_PROVIDER"</code>). For example:
+
+<pre>
+&lt;provider ...
+    android:grantUriPermissions="true"
+    android:exported="true"
+    android:permission="android.permission.MANAGE_DOCUMENTS">
+    &lt;intent-filter>
+        &lt;action android:name="android.content.action.DOCUMENTS_PROVIDER" />
+    &lt;/intent-filter>
+&lt;/provider>
+</pre>
+
+<p>For more information about how to make the files managed by your app openable from other apps,
+read the <a href="../../guide/topics/providers/document-provider.html">Storage Access
+Framework</a> guide.</p>
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="Maps">Maps</h2>
+
+<h3 id="ViewMap">Show a location on a map</h3>
+
+<p>To open a map, use the <code><a href="../../reference/android/content/Intent.html#ACTION_VIEW">ACTION_VIEW</a></code> action and specify
+the location information in the intent data with one of the schemes defined below.</p>
+
+<dl>
+<dt><b>Action</b></dt>
+<dd><code><a href="../../reference/android/content/Intent.html#ACTION_VIEW">ACTION_VIEW</a></code></dd>
+
+<dt><b>Data URI Scheme</b></dt>
+<dd>
+<dl>
+  <dt><code>geo:<em>latitude</em>,<em>longitude</em></code></dt>
+    <dd>Show the map at the given longitude and latitude.
+      <p>Example: <code>"geo:47.6,-122.3"</code>
+    </dd>
+  <dt><code>geo:<em>latitude</em>,<em>longitude</em>?z=<em>zoom</em></code></dt>
+    <dd>Show the map at the given longitude and latitude at a certain zoom level. A zoom level of
+    1 shows the whole Earth, centered at the given <em>lat</em>,<em>lng</em>. The highest
+    (closest) zoom level is 23.
+      <p>Example: <code>"geo:47.6,-122.3?z=11"</code>
+    </dd>
+    <dt><code>geo:0,0?q=lat,lng(label)</code></dt>
+      <dd>Show the map at the given longitude and latitude with a string label.
+        <p>Example: <code>"geo:0,0?q=34.99,-106.61(Treasure)"</code>
+      </dd>
+  <dt><code>geo:0,0?q=my+street+address</code></dt>
+    <dd>Show the location for "my street address" (may be a specific address or location query).
+      <p>Example: <code>"geo:0,0?q=1600+Amphitheatre+Parkway%2C+CA"</code></p>
+      <p class="note"><strong>Note:</strong> All strings passed in the <code>geo</code> URI must
+      be encoded. For example, the string <code>1st & Pike, Seattle</code> should become
+      <code>1st%20%26%20Pike%2C%20Seattle</code>. Spaces in the string can be encoded with
+      <code>%20</code> or replaced with the plus sign (<code>+</code>).</p>
+    </dd>
+</dl>
+</dd>
+
+<dt><b>MIME Type</b></dt>
+<dd>None</dd>
+
+</dl>
+
+<p><b>Example intent:</b></p>
+<pre>
+public void showMap(Uri geoLocation) {
+    Intent intent = new Intent(Intent.ACTION_VIEW);
+    intent.setData(geoLocation);
+    if (intent.resolveActivity(getPackageManager()) != null) {
+        startActivity(intent);
+    }
+}
+</pre>
+
+<p><b>Example intent filter:</b></p>
+<pre>
+&lt;activity ...>
+    &lt;intent-filter>
+        &lt;action android:name="android.intent.action.VIEW" />
+        &lt;data android:scheme="geo" />
+        &lt;category android:name="android.intent.category.DEFAULT" />
+    &lt;/intent-filter>
+&lt;/activity>
+</pre>
+
+
+
+
+
+
+
+
+<h2 id="Music">Music or Video</h2>
+
+
+<h3 id="PlayMedia">Play a media file</h3>
+
+<p>To play a music file, use the <code><a href="../../reference/android/content/Intent.html#ACTION_VIEW">ACTION_VIEW</a></code> action and
+specify the URI location of the file in the intent data.</p>
+
+<dl>
+<dt><b>Action</b></dt>
+<dd><code><a href="../../reference/android/content/Intent.html#ACTION_VIEW">ACTION_VIEW</a></code></dd>
+
+<dt><b>Data URI Scheme</b></dt>
+<dd>
+  <dl>
+    <dt><code>file:<em>&lt;URI></em></code>
+    <dt><code>content:<em>&lt;URI></em></code>
+    <dt><code>http:<em>&lt;URL></em></code>
+  </dl>
+</dd>
+
+<dt><b>MIME Type</b></dt>
+<dd>
+  <dl>
+    <dt><code>"audio/*"</code>
+    <dt><code>"application/ogg"</code>
+    <dt><code>"application/x-ogg"</code>
+    <dt><code>"application/itunes"</code>
+    <dt>Or any other that your app may require.
+  </dl>
+</dd>
+
+</dl>
+
+<p><b>Example intent:</b></p>
+<pre>
+public void playMedia(Uri file) {
+    Intent intent = new Intent(Intent.ACTION_VIEW);
+    intent.setData(file);
+    if (intent.resolveActivity(getPackageManager()) != null) {
+        startActivity(intent);
+    }
+}
+</pre>
+
+
+<p><b>Example intent filter:</b></p>
+<pre>
+&lt;activity ...>
+    &lt;intent-filter>
+        &lt;action android:name="android.intent.action.VIEW" />
+        &lt;data android:type="audio/*" />
+        &lt;data android:type="application/ogg" />
+        &lt;category android:name="android.intent.category.DEFAULT" />
+    &lt;/intent-filter>
+&lt;/activity>
+</pre>
+
+
+<h3 id="PlaySearch">Play music based on a search query</h3>
+
+<p>To play music based on a search query, use the
+<code><a href="../../reference/android/provider/MediaStore.html#INTENT_ACTION_MEDIA_PLAY_FROM_SEARCH">INTENT_ACTION_MEDIA_PLAY_FROM_SEARCH</a></code> intent. An app may fire
+this intent in response to the user's voice command to play music. The receiving app for this
+intent performs a search within its inventory to match existing content to the given query and
+starts playing that content.</p>
+
+<p>This intent should include the <code><a href="../../reference/android/provider/MediaStore.html#EXTRA_MEDIA_FOCUS">EXTRA_MEDIA_FOCUS</a></code> string
+extra, which specifies the inteded search mode. For example, the search mode can specify whether
+the search is for an artist name or song name.</p>
+
+<dl>
+<dt><b>Action</b></dt>
+<dd><code><a href="../../reference/android/provider/MediaStore.html#INTENT_ACTION_MEDIA_PLAY_FROM_SEARCH">INTENT_ACTION_MEDIA_PLAY_FROM_SEARCH</a></code></dd>
+
+<dt><b>Data URI Scheme</b></dt>
+<dd>None</dd>
+
+<dt><b>MIME Type</b></dt>
+<dd>None</dd>
+
+<dt><b>Extras</b></dt>
+<dd>
+<dl>
+<dt><code><a href="../../reference/android/provider/MediaStore.html#EXTRA_MEDIA_FOCUS">MediaStore.EXTRA_MEDIA_FOCUS</a></code> (required)</dt>
+<dd>
+<p>Indicates the search mode (whether the user is looking for a particular artist, album, song,
+playlist, or radio channel). Most search modes take additional extras. For example, if the user
+is interested in listening to a particular song, the intent might have three additional extras:
+the song title, the artist, and the album. This intent supports the following search modes for
+each value of <code><a href="../../reference/android/provider/MediaStore.html#EXTRA_MEDIA_FOCUS">EXTRA_MEDIA_FOCUS</a></code>:</p>
+<dl>
+<dt><p><em>Any</em> - <code>"vnd.android.cursor.item/*"</p></code></dt>
+<dd>
+<p>Play any music. The receiving app should play some music based on a smart choice, such
+as the last playlist the user listened to.</p>
+<p>Additional extras:</p>
+<ul>
+  <li><code><a href="../../reference/android/app/SearchManager.html#QUERY">QUERY</a></code> (required) - An empty string. This extra is always
+      provided for backward compatibility: existing apps that do not know about search modes can
+      process this intent as an unstructured search.</li>
+</ul>
+</dd>
+<dt><p><em>Unstructured</em> - <code>"vnd.android.cursor.item/*"</code></p></dt>
+<dd>
+<p>Play a particular song, album or genre from an unstructured search query. Apps may generate
+an intent with this search mode when they can't identify the type of content the user wants to
+listen to. Apps should use more specific search modes when possible.</p>
+<p>Additional extras:</p>
+<ul>
+  <li><code><a href="../../reference/android/app/SearchManager.html#QUERY">QUERY</a></code> (required) - A string that contains any combination
+      of: the artist, the album, the song name, or the genre.</li>
+</ul>
+</dd>
+<dt><p><em>Genre</em> -
+<code><a href="../../reference/android/provider/MediaStore.Audio.Genres.html#ENTRY_CONTENT_TYPE">Audio.Genres.ENTRY_CONTENT_TYPE</a></code></p></dt>
+<dd>
+<p>Play music of a particular genre.</p>
+<p>Additional extras:</p>
+<ul>
+  <li><code>"android.intent.extra.genre"</code> (required) - The genre.</li>
+  <li><code><a href="../../reference/android/app/SearchManager.html#QUERY">QUERY</a></code> (required) - The genre. This extra is always provided
+      for backward compatibility: existing apps that do not know about search modes can process
+      this intent as an unstructured search.</li>
+</ul>
+</dd>
+<dt><p><em>Artist</em> -
+<code><a href="../../reference/android/provider/MediaStore.Audio.Artists.html#ENTRY_CONTENT_TYPE">Audio.Artists.ENTRY_CONTENT_TYPE</a></code></p></dt>
+<dd>
+<p>Play music from a particular artist.</p>
+<p>Additional extras:</p>
+<ul>
+  <li><code><a href="../../reference/android/provider/MediaStore.html#EXTRA_MEDIA_ARTIST">EXTRA_MEDIA_ARTIST</a></code> (required) - The artist.</li>
+  <li><code>"android.intent.extra.genre"</code> - The genre.</li>
+  <li><code><a href="../../reference/android/app/SearchManager.html#QUERY">QUERY</a></code> (required) - A string that contains any combination of
+      the artist or the genre. This extra is always provided for backward compatibility:
+      existing apps that do not know about search modes can process this intent as an unstructured
+      search.</li>
+</ul>
+</dd>
+<dt><p><em>Album</em> -
+<code><a href="../../reference/android/provider/MediaStore.Audio.Albums.html#ENTRY_CONTENT_TYPE">Audio.Albums.ENTRY_CONTENT_TYPE</a></code></p></dt>
+<dd>
+<p>Play music from a particular album.</p>
+<p>Additional extras:</p>
+<ul>
+  <li><code><a href="../../reference/android/provider/MediaStore.html#EXTRA_MEDIA_ALBUM">EXTRA_MEDIA_ALBUM</a></code> (required) - The album.</li>
+  <li><code><a href="../../reference/android/provider/MediaStore.html#EXTRA_MEDIA_ARTIST">EXTRA_MEDIA_ARTIST</a></code> - The artist.</li>
+  <li><code>"android.intent.extra.genre"</code> - The genre.</li>
+  <li><code><a href="../../reference/android/app/SearchManager.html#QUERY">QUERY</a></code> (required) - A string that contains any combination of
+      the album or the artist. This extra is always provided for backward
+      compatibility: existing apps that do not know about search modes can process this intent as an
+      unstructured search.</li>
+</ul>
+</dd>
+<dt><p><em>Song</em> - <code>"vnd.android.cursor.item/audio"</code></p></dt>
+<dd>
+<p>Play a particular song.</p>
+<p>Additional extras:</p>
+<ul>
+  <li><code><a href="../../reference/android/provider/MediaStore.html#EXTRA_MEDIA_ALBUM">EXTRA_MEDIA_ALBUM</a></code> - The album.</li>
+  <li><code><a href="../../reference/android/provider/MediaStore.html#EXTRA_MEDIA_ARTIST">EXTRA_MEDIA_ARTIST</a></code> - The artist.</li>
+  <li><code>"android.intent.extra.genre"</code> - The genre.</li>
+  <li><code><a href="../../reference/android/provider/MediaStore.html#EXTRA_MEDIA_TITLE">EXTRA_MEDIA_TITLE</a></code> (required) - The song name.</li>
+  <li><code><a href="../../reference/android/app/SearchManager.html#QUERY">QUERY</a></code> (required) - A string that contains any combination of:
+      the album, the artist, the genre, or the title. This extra is always provided for
+      backward compatibility: existing apps that do not know about search modes can process this
+      intent as an unstructured search.</li>
+</ul>
+</dd>
+<dt><p><em>Radio channel</em> - <code>"vnd.android.cursor.item/radio"</code></p></dt>
+<dd>
+<p>Play a particular radio channel or a radio channel that matches some criteria specified
+by additional extras.</p>
+<p>Additional extras:</p>
+<ul>
+  <li><code><a href="../../reference/android/provider/MediaStore.html#EXTRA_MEDIA_ALBUM">EXTRA_MEDIA_ALBUM</a></code> - The album.</li>
+  <li><code><a href="../../reference/android/provider/MediaStore.html#EXTRA_MEDIA_ARTIST">EXTRA_MEDIA_ARTIST</a></code> - The artist.</li>
+  <li><code>"android.intent.extra.genre"</code> - The genre.</li>
+  <li><code>"android.intent.extra.radio_channel"</code> - The radio channel.</li>
+  <li><code><a href="../../reference/android/provider/MediaStore.html#EXTRA_MEDIA_TITLE">EXTRA_MEDIA_TITLE</a></code> - The song name that the radio
+      channel is based on.</li>
+  <li><code><a href="../../reference/android/app/SearchManager.html#QUERY">QUERY</a></code> (required) - A string that contains any combination
+      of: the album, the artist, the genre, the radio channel, or the title. This extra is
+      always provided for backward compatibility: existing apps that do not know about search
+      modes can process this intent as an unstructured search.</li>
+</ul>
+</dd>
+<dt><p><em>Playlist</em> - <code><a href="../../reference/android/provider/MediaStore.Audio.Playlists.html#ENTRY_CONTENT_TYPE">Audio.Playlists.ENTRY_CONTENT_TYPE</a></code></p></dt>
+<dd>
+<p>Play a particular playlist or a playlist that matches some criteria specified
+by additional extras.</p>
+<p>Additional extras:</p>
+<ul>
+  <li><code><a href="../../reference/android/provider/MediaStore.html#EXTRA_MEDIA_ALBUM">EXTRA_MEDIA_ALBUM</a></code> - The album.</li>
+  <li><code><a href="../../reference/android/provider/MediaStore.html#EXTRA_MEDIA_ARTIST">EXTRA_MEDIA_ARTIST</a></code> - The artist.</li>
+  <li><code>"android.intent.extra.genre"</code> - The genre.</li>
+  <li><code>"android.intent.extra.playlist"</code> - The playlist.</li>
+  <li><code><a href="../../reference/android/provider/MediaStore.html#EXTRA_MEDIA_TITLE">EXTRA_MEDIA_TITLE</a></code> - The song name that the playlist is
+      based on.</li>
+  <li><code><a href="../../reference/android/app/SearchManager.html#QUERY">QUERY</a></code> (required) - A string that contains any combination
+      of: the album, the artist, the genre, the playlist, or the title. This extra is always
+      provided for backward compatibility: existing apps that do not know about search modes can
+      process this intent as an unstructured search.</li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+
+<p><b>Example intent:</b></p>
+<p>If the user wants to listen to a radio station that plays songs from a particular artist,
+a search app may generate the following intent:</p>
+<pre>
+public void playSearchRadioByArtist(String artist) {
+    Intent intent = new Intent(MediaStore.INTENT_ACTION_MEDIA_PLAY_FROM_SEARCH);
+    intent.putExtra(MediaStore.EXTRA_MEDIA_FOCUS,
+                    "vnd.android.cursor.item/radio");
+    intent.putExtra(MediaStore.EXTRA_MEDIA_ARTIST, artist);
+    intent.putExtra(SearchManager.QUERY, artist);
+    if (intent.resolveActivity(getPackageManager()) != null) {
+        startActivity(intent);
+    }
+}
+</pre>
+
+<p><b>Example intent filter:</b></p>
+<pre>
+&lt;activity ...>
+    &lt;intent-filter>
+        &lt;action android:name="android.media.action.MEDIA_PLAY_FROM_SEARCH" />
+        &lt;category android:name="android.intent.category.DEFAULT" />
+    &lt;/intent-filter>
+&lt;/activity>
+</pre>
+<p>When handling this intent, your activity should check the value of the
+<code><a href="../../reference/android/provider/MediaStore.html#EXTRA_MEDIA_FOCUS">EXTRA_MEDIA_FOCUS</a></code> extra in the incoming
+<code><a href="../../reference/android/content/Intent.html">Intent</a></code> to determine the search mode. Once your activity has identified
+the search mode, it should read the values of the additional extras for that particular search mode.
+With this information your app can then perform the search within its inventory to play the
+content that matches the search query. For example:</p>
+<pre>
+protected void onCreate(Bundle savedInstanceState) {
+    ...
+    Intent intent = this.getIntent();
+    if (intent.getAction().compareTo(MediaStore.INTENT_ACTION_MEDIA_PLAY_FROM_SEARCH) == 0) {
+
+        String mediaFocus = intent.getStringExtra(MediaStore.EXTRA_MEDIA_FOCUS);
+        String query = intent.getStringExtra(SearchManager.QUERY);
+
+        // Some of these extras may not be available depending on the search mode
+        String album = intent.getStringExtra(MediaStore.EXTRA_MEDIA_ALBUM);
+        String artist = intent.getStringExtra(MediaStore.EXTRA_MEDIA_ARTIST);
+        String genre = intent.getStringExtra("android.intent.extra.genre");
+        String playlist = intent.getStringExtra("android.intent.extra.playlist");
+        String rchannel = intent.getStringExtra("android.intent.extra.radio_channel");
+        String title = intent.getStringExtra(MediaStore.EXTRA_MEDIA_TITLE);
+
+        // Determine the search mode and use the corresponding extras
+        if (mediaFocus == null) {
+            // 'Unstructured' search mode (backward compatible)
+            playUnstructuredSearch(query);
+
+        } else if (mediaFocus.compareTo("vnd.android.cursor.item/*") == 0) {
+            if (query.isEmpty()) {
+                // 'Any' search mode
+                playResumeLastPlaylist();
+            } else {
+                // 'Unstructured' search mode
+                playUnstructuredSearch(query);
+            }
+
+        } else if (mediaFocus.compareTo(MediaStore.Audio.Genres.ENTRY_CONTENT_TYPE) == 0) {
+            // 'Genre' search mode
+            playGenre(genre);
+
+        } else if (mediaFocus.compareTo(MediaStore.Audio.Artists.ENTRY_CONTENT_TYPE) == 0) {
+            // 'Artist' search mode
+            playArtist(artist, genre);
+
+        } else if (mediaFocus.compareTo(MediaStore.Audio.Albums.ENTRY_CONTENT_TYPE) == 0) {
+            // 'Album' search mode
+            playAlbum(album, artist);
+
+        } else if (mediaFocus.compareTo("vnd.android.cursor.item/audio") == 0) {
+            // 'Song' search mode
+            playSong(album, artist, genre, title);
+
+        } else if (mediaFocus.compareTo("vnd.android.cursor.item/radio") == 0) {
+            // 'Radio channel' search mode
+            playRadioChannel(album, artist, genre, rchannel, title);
+
+        } else if (mediaFocus.compareTo(MediaStore.Audio.Playlists.ENTRY_CONTENT_TYPE) == 0) {
+            // 'Playlist' search mode
+            playPlaylist(album, artist, genre, playlist, title);
+        }
+    }
+}
+</pre>
+
+
+
+
+<h2 id="Phone">Phone</h2>
+
+
+<h3 id="DialPhone">Initiate a phone call</h3>
+
+<p>To open the phone app and dial a phone number, use the <code><a href="../../reference/android/content/Intent.html#ACTION_DIAL">ACTION_DIAL</a></code> action and specify a phone number using
+the URI scheme defined below. When the phone app opens, it displays the phone number
+but the user must press the <em>Call</em> button to begin the phone call.</p>
+
+
+<dl>
+<dt><b>Action</b></dt>
+<dd><code><a href="../../reference/android/content/Intent.html#ACTION_DIAL">ACTION_DIAL</a></code></dd>
+
+<dt><b>Data URI Scheme</b></dt>
+<dd><code>tel:&lt;phone-number></code></dd>
+
+<dt><b>MIME Type</b></dt>
+<dd>None</dd>
+
+</dl>
+
+
+<p>Valid telephone numbers are those defined
+in <a href="http://tools.ietf.org/html/rfc3966">the IETF RFC 3966</a>.
+Valid examples include the following:</p>
+<ul>
+<li><code>tel:2125551212</code> </li>
+<li><code>tel:(212) 555 1212</code></li>
+</ul>
+<p>The Phone's dialer is good at normalizing schemes, such as
+telephone numbers. So the scheme described isn't strictly required in the
+<code><a href="../../reference/android/net/Uri.html#parse(java.lang.String)">Uri.parse()</a></code> method.
+However, if you have not tried a scheme or are unsure whether it
+can be handled, use the <code><a href="../../reference/android/net/Uri.html#fromParts(java.lang.String, java.lang.String, java.lang.String)">Uri.fromParts()</a></code>
+method instead.</p>
+
+
+<p><b>Example intent:</b></p>
+<pre>
+public void dialPhoneNumber(String phoneNumber) {
+    Intent intent = new Intent(Intent.ACTION_DIAL);
+    intent.setData(Uri.parse("tel:" + phoneNumber));
+    if (intent.resolveActivity(getPackageManager()) != null) {
+        startActivity(intent);
+    }
+}
+</pre>
+
+
+
+
+
+
+
+
+
+
+<h2 id="Settings">Settings</h2>
+
+<h3 id="OpenSettings">Open a specific section of Settings</h3>
+
+<p>To open a screen in the system settings when your app requires the user to change something,
+use one of the following intent actions to open the settings screen respective to the action name.
+</p>
+
+<dl>
+<dt><b>Action</b></dt>
+<dd>
+<code><a href="../../reference/android/provider/Settings.html#ACTION_SETTINGS">ACTION_SETTINGS</a></code><br/>
+<code><a href="../../reference/android/provider/Settings.html#ACTION_WIRELESS_SETTINGS">ACTION_WIRELESS_SETTINGS</a></code><br/>
+<code><a href="../../reference/android/provider/Settings.html#ACTION_AIRPLANE_MODE_SETTINGS">ACTION_AIRPLANE_MODE_SETTINGS</a></code><br/>
+<code><a href="../../reference/android/provider/Settings.html#ACTION_WIFI_SETTINGS">ACTION_WIFI_SETTINGS</a></code><br/>
+<code><a href="../../reference/android/provider/Settings.html#ACTION_APN_SETTINGS">ACTION_APN_SETTINGS</a></code><br/>
+<code><a href="../../reference/android/provider/Settings.html#ACTION_BLUETOOTH_SETTINGS">ACTION_BLUETOOTH_SETTINGS</a></code><br/>
+<code><a href="../../reference/android/provider/Settings.html#ACTION_DATE_SETTINGS">ACTION_DATE_SETTINGS</a></code><br/>
+<code><a href="../../reference/android/provider/Settings.html#ACTION_LOCALE_SETTINGS">ACTION_LOCALE_SETTINGS</a></code><br/>
+<code><a href="../../reference/android/provider/Settings.html#ACTION_INPUT_METHOD_SETTINGS">ACTION_INPUT_METHOD_SETTINGS</a></code><br/>
+<code><a href="../../reference/android/provider/Settings.html#ACTION_DISPLAY_SETTINGS">ACTION_DISPLAY_SETTINGS</a></code><br/>
+<code><a href="../../reference/android/provider/Settings.html#ACTION_SECURITY_SETTINGS">ACTION_SECURITY_SETTINGS</a></code><br/>
+<code><a href="../../reference/android/provider/Settings.html#ACTION_LOCATION_SOURCE_SETTINGS">ACTION_LOCATION_SOURCE_SETTINGS</a></code><br/>
+<code><a href="../../reference/android/provider/Settings.html#ACTION_INTERNAL_STORAGE_SETTINGS">ACTION_INTERNAL_STORAGE_SETTINGS</a></code><br/>
+<code><a href="../../reference/android/provider/Settings.html#ACTION_MEMORY_CARD_SETTINGS">ACTION_MEMORY_CARD_SETTINGS</a></code><br/>
+<p>See the <code><a href="../../reference/android/provider/Settings.html">Settings</a></code> documentation for additional settings screens
+that are available.</p>
+</dd>
+
+<dt><b>Data URI Scheme</b></dt>
+<dd>None</dd>
+
+<dt><b>MIME Type</b></dt>
+<dd>None</dd>
+
+</dl>
+
+<p><b>Example intent:</b></p>
+<pre>
+public void openWifiSettings() {
+    Intent intent = new Intent(Intent.ACTION_WIFI_SETTINGS);
+    if (intent.resolveActivity(getPackageManager()) != null) {
+        startActivity(intent);
+    }
+}
+</pre>
+
+
+
+
+
+
+
+<h2 id="Messaging">Text Messaging</h2>
+
+<h3 id="SendMessage">Compose an SMS/MMS message with attachment</h3>
+
+<p>To initiate an SMS or MMS text message, use one of the intent actions below and specify message
+details such as the phone number, subject, and message body using the extra keys listed below.</p>
+
+<dl>
+<dt><b>Action</b></dt>
+<dd><code><a href="../../reference/android/content/Intent.html#ACTION_SENDTO">ACTION_SENDTO</a></code> or<br>
+    <code><a href="../../reference/android/content/Intent.html#ACTION_SEND">ACTION_SEND</a></code> or<br>
+    <code><a href="../../reference/android/content/Intent.html#ACTION_SEND_MULTIPLE">ACTION_SEND_MULTIPLE</a></code></dd>
+
+<dt><b>Data URI Scheme</b></dt>
+<dd>
+  <dl>
+    <dt><code>sms:<em>&lt;phone_number></em></code>
+    <dt><code>smsto:<em>&lt;phone_number></em></code>
+    <dt><code>mms:<em>&lt;phone_number></em></code>
+    <dt><code>mmsto:<em>&lt;phone_number></em></code>
+  </dl>
+  <p>Each of these schemes are handled the same.
+</dd>
+
+<dt><b>MIME Type</b></dt>
+<dd>
+  <dl>
+    <dt><code><a href="../../reference/org/apache/http/protocol/HTTP.html#PLAIN_TEXT_TYPE">PLAIN_TEXT_TYPE</a></code> (<code>"text/plain"</code>)
+    <dt><code>"image/*"</code>
+    <dt><code>"video/*"</code>
+  </dl>
+</dd>
+
+<dt><b>Extras</b></dt>
+<dd>
+  <dl>
+    <dt><code>"subject"</code></dt>
+      <dd>A string for the message subject (usually for MMS only).</dd>
+    <dt><code>"sms_body"</code></dt>
+      <dd>A string for the text message.</dd>
+    <dt><code><a href="../../reference/android/content/Intent.html#EXTRA_STREAM">EXTRA_STREAM</a></code></dt>
+      <dd>A <code><a href="../../reference/android/net/Uri.html">Uri</a></code> pointing to the
+image or video to attach. If using the <code><a href="../../reference/android/content/Intent.html#ACTION_SEND_MULTIPLE">ACTION_SEND_MULTIPLE</a></code> action,
+this extra should be an <code><a href="../../reference/java/util/ArrayList.html">ArrayList</a></code> of <code><a href="../../reference/android/net/Uri.html">Uri</a></code>s pointing to the images/videos to attach.</dd>
+  <dl>
+</dd>
+
+</dl>
+
+<p><b>Example intent:</b></p>
+<pre>
+public void composeMmsMessage(String message, Uri attachment) {
+    Intent intent = new Intent(Intent.ACTION_SEND);
+    intent.setType(HTTP.PLAIN_TEXT_TYPE);
+    intent.putExtra("sms_body", message);
+    intent.putExtra(Intent.EXTRA_STREAM, attachment);
+    if (intent.resolveActivity(getPackageManager()) != null) {
+        startActivity(intent);
+    }
+}
+</pre>
+
+<p>If you want to ensure that your intent is handled only by a text messaging app (and not other
+email or social apps), then use the <code><a href="../../reference/android/content/Intent.html#ACTION_SENDTO">ACTION_SENDTO</a></code> action
+and include the <code>"smsto:"</code> data scheme. For example:</p>
+
+<pre>
+public void composeMmsMessage(String message, Uri attachment) {
+    Intent intent = new Intent(Intent.ACTION_SEND);
+    intent.setData(Uri.parse("smsto:"));  // This ensures only SMS apps respond
+    intent.putExtra("sms_body", message);
+    intent.putExtra(Intent.EXTRA_STREAM, attachment);
+    if (intent.resolveActivity(getPackageManager()) != null) {
+        startActivity(intent);
+    }
+}
+</pre>
+
+
+<p><b>Example intent filter:</b></p>
+<pre>
+&lt;activity ...>
+    &lt;intent-filter>
+        &lt;action android:name="android.intent.action.SEND" />
+        &lt;data android:type="text/plain" />
+        &lt;data android:type="image/*" />
+        &lt;category android:name="android.intent.category.DEFAULT" />
+    &lt;/intent-filter>
+&lt;/activity>
+</pre>
+
+<p class="note"><strong>Note:</strong> If you're developing an SMS/MMS messaging app, you must
+implement intent filters for several additional actions in order to be available as the
+<em>default SMS app</em> on Android 4.4 and higher. For more information, see the documentation
+at <code><a href="../../reference/android/provider/Telephony.html">Telephony</a></code>.</p>
+
+
+
+
+
+
+
+
+
+
+<h2 id="Browser">Web Browser</h2>
+
+<h3 id="ViewUrl">Load a web URL</h3>
+
+<p>To open a web page, use the <code><a href="../../reference/android/content/Intent.html#ACTION_VIEW">ACTION_VIEW</a></code> action
+and specify the web URL in the intent data.</p>
+
+<dl>
+  <dt><b>Action</b></dt>
+  <dd><code><a href="../../reference/android/content/Intent.html#ACTION_VIEW">ACTION_VIEW</a></code><dd>
+
+  <dt><b>Data URI Scheme</b></dt>
+  <dd><code>http:<em>&lt;URL></em></code><br/>
+    <code>https:<em>&lt;URL></em></code></dd>
+
+  <dt><b>MIME Type</b></dt>
+  <dd>
+    <dl>
+      <dt><code><a href="../../reference/org/apache/http/protocol/HTTP.html#PLAIN_TEXT_TYPE">PLAIN_TEXT_TYPE</a></code> (<code>"text/plain"</code>)
+      <dt><code>"text/html"</code>
+      <dt><code>"application/xhtml+xml"</code>
+      <dt><code>"application/vnd.wap.xhtml+xml"</code>
+    </dl>
+  </dd>
+</dl>
+
+
+<p><b>Example intent:</b></p>
+<pre>
+public void openWebPage(String url) {
+    Uri webpage = Uri.parse(url);
+    Intent intent = new Intent(Intent.ACTION_VIEW, webpage);
+    if (intent.resolveActivity(getPackageManager()) != null) {
+        startActivity(intent);
+    }
+}
+</pre>
+
+
+<p><b>Example intent filter:</b></p>
+<pre>
+&lt;activity ...>
+    &lt;intent-filter>
+        &lt;action android:name="android.intent.action.VIEW" />
+        &lt;!-- Include the host attribute if you want your app to respond
+             only to URLs with your app's domain. -->
+        &lt;data android:scheme="http" android:host="www.example.com" />
+        &lt;category android:name="android.intent.category.DEFAULT" />
+        &lt;!-- The BROWSABLE category is required to get links from web pages. -->
+        &lt;category android:name="android.intent.category.BROWSABLE" />
+    &lt;/intent-filter>
+&lt;/activity>
+</pre>
+
+
+<p class="note"><strong>Tip:</strong> If your Android app provides functionality similar to
+your web site, include an intent filter for URLs that point to your web site. Then,
+if users have your app installed, links from emails or other web pages pointing to your web site
+open your Android app instead of your web page.</p>
+
+
+
+
+<h3 id="SearchWeb">Perform a web search</h3>
+
+<p>To initiate a web search, use the <code><a href="../../reference/android/content/Intent.html#ACTION_WEB_SEARCH">ACTION_WEB_SEARCH</a></code> action
+and specify the search string in the
+<code><a href="../../reference/android/app/SearchManager.html#QUERY">SearchManager.QUERY</a></code> extra.</p>
+
+
+<dl>
+  <dt><b>Action</b></dt>
+  <dd><code><a href="../../reference/android/content/Intent.html#ACTION_WEB_SEARCH">ACTION_WEB_SEARCH</a></code></dd>
+
+  <dt><b>Data URI Scheme</b></dt>
+  <dd>None</dd>
+
+  <dt><b>MIME Type</b></dt>
+  <dd>None</dd>
+
+  <dt><b>Extras</b></dt>
+  <dd>
+    <dl>
+      <dt><code><a href="../../reference/android/app/SearchManager.html#QUERY">SearchManager.QUERY</a></code></dt>
+      <dd>The search string.</dd>
+    </dl>
+  </dd>
+</dl>
+
+<p><b>Example intent:</b></p>
+<pre>
+public void searchWeb(String query) {
+    Intent intent = new Intent(Intent.ACTION_SEARCH);
+    intent.putExtra(SearchManager.QUERY, query);
+    if (intent.resolveActivity(getPackageManager()) != null) {
+        startActivity(intent);
+    }
+}
+</pre>
+
+
+
+
+    </div>
+
+      <div class="content-footer layout-content-row"
+                    itemscope itemtype="http://schema.org/SiteNavigationElement">
+        <div class="layout-content-col col-8" style="padding-top:4px">
+          
+            <div class="g-plusone" data-size="medium"></div>
+          
+        </div>
+        
+        <div class="paging-links layout-content-col col-4">
+          
+        </div>
+        
+      </div>
+
+      
+      
+
+  </div> <!-- end jd-content -->
+
+<div id="footer" class="wrap" >
+        
+
+  <div id="copyright">
+    
+  Except as noted, this content is 
+  licensed under <a href="http://creativecommons.org/licenses/by/2.5/">
+  Creative Commons Attribution 2.5</a>. For details and 
+  restrictions, see the <a href="../../license.html">Content 
+  License</a>.
+  </div>
+
+
+  <div id="footerlinks">
+    
+  <p>
+    <a href="../../about/index.html">About Android</a>&nbsp;&nbsp;|&nbsp;
+    <a href="../../legal.html">Legal</a>&nbsp;&nbsp;|&nbsp;
+    <a href="../../support.html">Support</a>
+  </p>
+  </div>
+
+</div> <!-- end footer -->
+</div><!-- end doc-content -->
+
+<!-- Start of Tag -->
+<script type="text/javascript">
+var axel = Math.random() + "";
+var a = axel * 10000000000000;
+document.write('<iframe src="https://2507573.fls.doubleclick.net/activityi;src=2507573;type=other026;cat=googl348;ord=' + a + '?" width="1" height="1" frameborder="0" style="display:none"></iframe>');
+</script>
+<noscript>
+<iframe src="https://2507573.fls.doubleclick.net/activityi;src=2507573;type=other026;cat=googl348;ord=1?" width="1" height="1" frameborder="0" style="display:none"></iframe>
+</noscript>
+<!-- End of Tag -->
+
+
+</div> <!-- end body-content --> 
+
+
+
+
+
+  <script src="https://developer.android.com/ytblogger_lists_unified.js" type="text/javascript"></script>
+  <script src="../../jd_lists_unified.js" type="text/javascript"></script>
+  <script src="../../jd_extras.js" type="text/javascript"></script>
+  <script src="../../jd_collections.js" type="text/javascript"></script>
+  <script src="../../jd_tag_helpers.js" type="text/javascript"></script>
+
+</body>
+</html>
+
+
+

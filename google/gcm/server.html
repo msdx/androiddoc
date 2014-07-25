@@ -1,0 +1,1127 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width" />
+
+<meta name="Description" content="The server side of GCM consists of 2 components: Here are the basic steps you follow to implement your 3rd-party app server: A full GCM implementation requires both a client implementation and a server implementation. For more information about implementing…">
+<link rel="shortcut icon" type="image/x-icon" href="../../favicon.ico" />
+<title>Implementing GCM Server | Android Developers</title>
+
+<!-- STYLESHEETS -->
+<link rel="stylesheet"
+href="http://fonts.googleapis.com/css?family=Roboto+Condensed">
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:light,regular,medium,thin,italic,mediumitalic,bold"
+  title="roboto">
+<link href="../../assets/css/default.css" rel="stylesheet" type="text/css">
+
+
+
+<!-- JAVASCRIPT -->
+<script src="http://www.google.com/jsapi" type="text/javascript"></script>
+<script src="../../assets/js/android_3p-bundle.js" type="text/javascript"></script>
+<script type="text/javascript">
+  var toRoot = "../../";
+  var metaTags = [];
+  var devsite = false;
+</script>
+<script src="../../assets/js/docs.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-5831155-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+
+<body class="gc-documentation 
+
+google" itemscope itemtype="http://schema.org/Article">
+
+<a name="top"></a>
+
+  <!-- Header -->
+  <div id="header-wrapper">
+    <div id="header">
+      <div class="wrap" id="header-wrap">
+        <div class="col-3 logo">
+          <a href="../../index.html">
+            <img src="../../assets/images/dac_logo.png"
+                srcset="../../assets/images/dac_logo@2x.png 2x"
+                width="123" height="25" alt="Android Developers" />
+          </a>
+          <div class="btn-quicknav" id="btn-quicknav">
+            <a href="#" class="arrow-inactive">Quicknav</a>
+            <a href="#" class="arrow-active">Quicknav</a>
+          </div>
+        </div>
+        <ul class="nav-x col-9">
+            <li class="design">
+              <a href="../../design/index.html"
+              zh-tw-lang="設計"
+              zh-cn-lang="设计"
+              ru-lang="Проектирование"
+              ko-lang="디자인"
+              ja-lang="設計"
+              es-lang="Diseñar"
+              >Design</a></li>
+            <li class="develop"><a href="../../develop/index.html"
+              zh-tw-lang="開發"
+              zh-cn-lang="开发"
+              ru-lang="Разработка"
+              ko-lang="개발"
+              ja-lang="開発"
+              es-lang="Desarrollar"
+              >Develop</a></li>
+            <li class="distribute last"><a href="../../distribute/googleplay/index.html"
+              zh-tw-lang="發佈"
+              zh-cn-lang="分发"
+              ru-lang="Распространение"
+              ko-lang="배포"
+              ja-lang="配布"
+              es-lang="Distribuir"
+              >Distribute</a></li>
+        </ul>
+
+
+        
+        
+<div class="menu-container">
+  <div class="moremenu">
+    <div id="more-btn"></div>
+  </div>
+  <div class="morehover" id="moremenu">
+    <div class="top"></div>
+    <div class="mid">
+      <div class="header">Links</div>
+      <ul>
+        <li><a href="https://play.google.com/apps/publish/" target="_googleplay">Google Play Developer Console</a></li>
+        <li><a href="http://android-developers.blogspot.com/">Android Developers Blog</a></li>
+        <li><a href="../../about/index.html">About Android</a></li>
+      </ul>
+      <div class="header">Android Sites</div>
+      <ul>
+        <li><a href="http://www.android.com">Android.com</a></li>
+        <li class="active"><a>Android Developers</a></li>
+        <li><a href="http://source.android.com">Android Open Source Project</a></li>
+      </ul>
+
+      
+      
+      
+      <br class="clearfix" />
+    </div><!-- end 'mid' -->
+    <div class="bottom"></div>
+  </div><!-- end 'moremenu' -->
+
+  <div class="search" id="search-container">
+    <div class="search-inner">
+      <div id="search-btn"></div>
+      <div class="left"></div>
+      <form onsubmit="return submit_search()">
+        <input id="search_autocomplete" type="text" value="" autocomplete="off" name="q"
+          onfocus="search_focus_changed(this, true)" onblur="search_focus_changed(this, false)"
+          onkeydown="return search_changed(event, true, '../../')"
+          onkeyup="return search_changed(event, false, '../../')" />
+      </form>
+      <div class="right"></div>
+      <a class="close hide">close</a>
+      <div class="left"></div>
+      <div class="right"></div>
+    </div><!-- end search-inner -->
+  </div><!-- end search-container -->
+
+  <div class="search_filtered_wrapper reference">
+    <div class="suggest-card reference no-display">
+      <ul class="search_filtered">
+      </ul>
+    </div>
+  </div>
+
+  <div class="search_filtered_wrapper docs">
+    <div class="suggest-card dummy no-display">&nbsp;</div>
+    <div class="suggest-card develop no-display">
+      <ul class="search_filtered">
+      </ul>
+      <div class="child-card guides no-display">
+      </div>
+      <div class="child-card training no-display">
+      </div>
+      <div class="child-card samples no-display">
+      </div>
+    </div>
+    <div class="suggest-card design no-display">
+      <ul class="search_filtered">
+      </ul>
+    </div>
+    <div class="suggest-card distribute no-display">
+      <ul class="search_filtered">
+      </ul>
+    </div>
+  </div>
+</div><!-- end menu-container (search and menu widget) -->
+
+
+
+        <!-- Expanded quicknav -->
+        <div id="quicknav" class="col-9">
+          <ul>
+            <li class="design">
+              <ul>
+                <li><a href="../../design/index.html">Get Started</a></li>
+                <li><a href="../../design/style/index.html">Style</a></li>
+                <li><a href="../../design/patterns/index.html">Patterns</a></li>
+                <li><a href="../../design/building-blocks/index.html">Building Blocks</a></li>
+                <li><a href="../../design/downloads/index.html">Downloads</a></li>
+                <li><a href="../../design/videos/index.html">Videos</a></li>
+              </ul>
+            </li>
+            <li class="develop">
+              <ul>
+                <li><a href="../../training/index.html"
+                  zh-tw-lang="訓練課程"
+                  zh-cn-lang="培训"
+                  ru-lang="Курсы"
+                  ko-lang="교육"
+                  ja-lang="トレーニング"
+                  es-lang="Capacitación"
+                  >Training</a></li>
+                <li><a href="../../guide/index.html"
+                  zh-tw-lang="API 指南"
+                  zh-cn-lang="API 指南"
+                  ru-lang="Руководства по API"
+                  ko-lang="API 가이드"
+                  ja-lang="API ガイド"
+                  es-lang="Guías de la API"
+                  >API Guides</a></li>
+                <li><a href="../../reference/packages.html"
+                  zh-tw-lang="參考資源"
+                  zh-cn-lang="参考"
+                  ru-lang="Справочник"
+                  ko-lang="참조문서"
+                  ja-lang="リファレンス"
+                  es-lang="Referencia"
+                  >Reference</a></li>
+                <li><a href="../../tools/index.html"
+                  zh-tw-lang="相關工具"
+                  zh-cn-lang="工具"
+                  ru-lang="Инструменты"
+                  ko-lang="도구"
+                  ja-lang="ツール"
+                  es-lang="Herramientas"
+                  >Tools</a>
+                  <ul><li><a href="../../sdk/index.html">Get the SDK</a></li></ul>
+                </li>
+                <li><a href="../../google/index.html">Google Services</a>
+                </li>
+                
+              </ul>
+            </li>
+            <li class="distribute last">
+              <ul>
+                <li><a href="../../distribute/googleplay/index.html">Google Play</a></li>
+                <li><a href="../../distribute/essentials/index.html">Essentials</a></li>
+                <li><a href="../../distribute/users/index.html">Get Users</a></li>
+                <li><a href="../../distribute/engage/index.html">Engage &amp; Retain</a></li>
+                <li><a href="../../distribute/monetize/index.html">Monetize</a></li>
+                <li><a href="../../distribute/tools/index.html">Tools &amp; Reference</a></li>
+                <li><a href="../../distribute/stories/index.html">Developer Stories</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div><!-- /Expanded quicknav -->
+      </div><!-- end header-wrap.wrap -->
+    </div><!-- end header -->
+
+  
+    <!-- Secondary x-nav -->
+    <div id="nav-x">
+        <div class="wrap">
+            <ul class="nav-x col-9 develop" style="width:100%">
+                <li class="training"><a href="../../training/index.html"
+                  zh-tw-lang="訓練課程"
+                  zh-cn-lang="培训"
+                  ru-lang="Курсы"
+                  ko-lang="교육"
+                  ja-lang="トレーニング"
+                  es-lang="Capacitación"
+                  >Training</a></li>
+                <li class="guide"><a href="../../guide/index.html"
+                  zh-tw-lang="API 指南"
+                  zh-cn-lang="API 指南"
+                  ru-lang="Руководства по API"
+                  ko-lang="API 가이드"
+                  ja-lang="API ガイド"
+                  es-lang="Guías de la API"
+                  >API Guides</a></li>
+                <li class="reference"><a href="../../reference/packages.html"
+                  zh-tw-lang="參考資源"
+                  zh-cn-lang="参考"
+                  ru-lang="Справочник"
+                  ko-lang="참조문서"
+                  ja-lang="リファレンス"
+                  es-lang="Referencia"
+                  >Reference</a></li>
+                <li class="tools"><a href="../../tools/index.html"
+                  zh-tw-lang="相關工具"
+                  zh-cn-lang="工具"
+                  ru-lang="Инструменты"
+                  ko-lang="도구"
+                  ja-lang="ツール"
+                  es-lang="Herramientas"
+                  >Tools</a></li>
+                <li class="google"><a href="../../google/index.html"
+                  >Google Services</a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+    <!-- /Sendondary x-nav -->
+
+  
+
+    <div id="searchResults" class="wrap" style="display:none;">
+      <h2 id="searchTitle">Results</h2>
+      <div id="leftSearchControl" class="search-control">Loading...</div>
+    </div>
+  </div> <!--end header-wrapper -->
+
+  <div id="sticky-header">
+    <div>
+      <a class="logo" href="#top"></a>
+      <a class="top" href="#top"></a>
+      <ul class="breadcrumb">
+        
+        <li class="current">Implementing GCM Server</li>
+      </ul>
+    </div>
+  </div>
+
+
+
+
+  <div class="wrap clearfix" id="body-content">
+    <div class="col-4" id="side-nav" itemscope itemtype="http://schema.org/SiteNavigationElement">
+      <div id="devdoc-nav" class="scroll-pane">
+
+
+
+<ul id="nav">
+
+  <li class="nav-section">
+    <div class="nav-section-header empty"><a href="../../google/index.html">
+          <span class="en">Overview</span>
+      </a></div>
+  </li>
+
+  <li class="nav-section">
+    <div class="nav-section-header empty"><a href="../../google/play-services/games.html">
+          <span class="en">Games</span>
+      </a></div>
+  </li>
+  <li class="nav-section">
+    <div class="nav-section-header empty"><a href="../../google/play-services/location.html">
+          <span class="en">Location</span>
+      </a></div>
+  </li>
+  <li class="nav-section">
+    <div class="nav-section-header empty"><a href="../../google/play-services/plus.html">
+          <span class="en">Google+</span>
+                </a></div>
+  </li>
+  <li class="nav-section">
+    <div class="nav-section-header empty"><a href="../../google/play-services/maps.html">
+          <span class="en">Maps</span>
+      </a></div>
+  </li>
+  <li class="nav-section">
+    <div class="nav-section-header empty"><a href="../../google/play-services/drive.html">
+          <span class="en">Drive</span>
+      </a></div>
+  </li>
+  <li class="nav-section">
+    <div class="nav-section-header empty"><a href="../../google/play-services/cast.html">
+          <span class="en">Cast</span>
+      </a></div>
+  </li>
+  <li class="nav-section">
+    <div class="nav-section-header"><a href="../../google/play-services/ads.html">
+      <span class="en">Ads</span></a>
+    </div>
+    <ul>
+      <li><a href="../../google/play-services/id.html">
+          <span class="en">Advertising ID</span></a>
+      </li>
+    </ul>
+  </li>
+  <li class="nav-section">
+    <div class="nav-section-header empty"><a href="../../google/play-services/wallet.html">
+          <span class="en">Wallet</span>
+      </a></div>
+  </li>
+
+
+  <li class="nav-section">
+    <div class="nav-section-header"><a href="../../google/play-services/index.html">
+      <span class="en">Google Play Services</span></a>
+    </div>
+    <ul>
+      <li><a href="../../google/play-services/setup.html">
+          <span class="en">Setup</span></a>
+      </li>
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../google/auth/api-client.html">
+          <span class="en">Accessing Google Play Services APIs</span></a>
+        </div>
+        <ul>
+          <li>
+            <a href="../../google/auth/http-auth.html">
+              <span class="en">Authorizing with Google for REST APIs</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+      <li id="gms-tree-list" class="nav-section">
+        <div class="nav-section-header">
+          <a href="../../reference/gms-packages.html">
+            <span class="en">Reference</span>
+          </a>
+        <div>
+      </li>
+    </ul>
+  </li>
+
+
+  <li class="nav-section">
+    <div class="nav-section-header"><a href="../../google/play/billing/index.html">
+      <span class="en">Google Play In-app Billing</span></a>
+    </div>
+    <ul>
+      <li><a href="../../google/play/billing/billing_overview.html">
+              <span class="en">Overview</span></a>
+      </li>
+      <li class="nav-section"><div class="nav-section-header"><a href="../../google/play/billing/api.html">
+              <span class="en">Version 3 API</span></a></div>
+              <ul>
+              <li><a href="../../google/play/billing/billing_integrate.html">
+              <span class="en">Implementing the API</span></a></li>
+              <li><a href="../../google/play/billing/billing_reference.html">
+              <span class="en">Reference</span></a></li>
+              </ul>
+      </li>
+      <li class="nav-section"><div class="nav-section-header"><a href="../../google/play/billing/v2/api.html">
+              <span class="en">Version 2 API</span></a></div>
+              <ul>
+              <li><a href="../../google/play/billing/v2/billing_integrate.html">
+              <span class="en">Implementing the API</span></a></li>
+              <li><a href="../../google/play/billing/v2/billing_subscriptions.html">
+              <span class="en">Subscriptions</span></a></li>
+              <li><a href="../../google/play/billing/v2/billing_reference.html">
+              <span class="en">Reference</span></a></li>
+              </ul>
+      </li>
+      <li><a href="../../google/play/billing/billing_subscriptions.html">
+              <span class="en">Subscriptions</span></a>
+      </li>
+      <li><a href="../../google/play/billing/billing_best_practices.html">
+              <span class="en">Security and Design</span></a>
+      </li>
+      <li><a href="../../google/play/billing/billing_testing.html">
+              <span class="en">Testing In-app Billing</span></a>
+      </li>
+      <li><a href="../../google/play/billing/billing_admin.html">
+              <span class="en">Administering In-app Billing</span></a>
+      </li>
+      <li><a href="../../google/play/billing/gp-purchase-status-api.html">
+              <span class="en">Purchase Status API</span></a>
+      </li>
+      <li><a href="../../google/play/billing/versions.html">
+              <span class="en">Version Notes</span></a>
+      </li>
+    </ul>
+  </li>
+
+
+
+   <li class="nav-section">
+      <div class="nav-section-header"><a href="../../google/gcm/index.html">
+        <span class="en">Google Cloud Messaging</span></a>
+      </div>
+      <ul>
+        <li><a href="../../google/gcm/gcm.html">
+            <span class="en">Overview</span></a>
+        </li>
+        <li><a href="../../google/gcm/gs.html">
+            <span class="en">Getting Started</span></a>
+        </li>
+        <li><a href="../../google/gcm/client.html">
+            <span class="en">Implementing GCM Client</span></a>
+        </li>
+        <li class="nav-section"><div class="nav-section-header"><a href="../../google/gcm/server.html">
+              <span class="en">Implementing GCM Server</span></a></div>
+              <ul>
+              <li><a href="../../google/gcm/ccs.html">
+              <span class="en">CCS (XMPP)</span></a></li>
+              <li><a href="../../google/gcm/http.html">
+              <span class="en">HTTP</span></a></li>
+              </ul>
+        </li>
+        <li><a href="../../google/gcm/notifications.html">
+              <span class="en">User Notifications</span></a>
+        </li>
+        <li><a href="../../google/gcm/adv.html">
+            <span class="en">Advanced Topics</span></a>
+        </li>
+        <li><a href="../../google/gcm/c2dm.html">
+            <span class="en">Migration</span></a>
+        </li>
+        <li id="gcm-tree-list" class="nav-section">
+          <div class="nav-section-header">
+            <a href="../../reference/gcm-packages.html">
+              <span class="en">Reference</span>
+            </a>
+          <div>
+        </li>
+      </ul>
+  </li>
+
+  <li class="nav-section">
+    <div class="nav-section-header"><a href="../../google/play/dist.html">
+      <span class="en">Google Play Distribution</span></a>
+    </div>
+    <ul>
+      <li><a href="../../google/play/filters.html">
+          <span class="en">Filters on Google Play</span></a>
+      </li>
+
+      <li><a href="../../google/play/publishing/multiple-apks.html">
+          <span class="en">Multiple APK Support</span></a>
+      </li>
+      <li><a href="../../google/play/expansion-files.html">
+          <span class="en">APK Expansion Files</span></a>
+      </li>
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../google/play/licensing/index.html">
+          <span class="en">Application Licensing</span></a>
+        </div>
+        <ul>
+          <li><a href="../../google/play/licensing/overview.html">
+              <span class="en">Licensing Overview</span></a>
+          </li>
+          <li><a href="../../google/play/licensing/setting-up.html">
+              <span class="en">Setting Up for Licensing</span></a>
+          </li>
+          <li><a href="../../google/play/licensing/adding-licensing.html">
+              <span class="en">Adding Licensing to Your App</span></a>
+          </li>
+          <li><a href="../../google/play/licensing/licensing-reference.html">
+              <span class="en">Licensing Reference</span></a>
+          </li>
+        </ul>
+      </li>
+
+  <li class="nav-section">
+    <div class="nav-section-header"><a href="../../google/backup/index.html">
+      Android Backup Service</a>
+    </div>
+    <ul>
+      <li><a href="../../google/backup/signup.html">
+          Register</a>
+      </li>
+    </ul>
+  </li>
+
+  </ul>
+
+</li>
+
+
+
+</ul>
+
+<script type="text/javascript">
+<!--
+    buildToggleLists();
+    changeNavLang(getLangPref());
+//-->
+</script>
+
+
+        
+
+      </div>
+      <script type="text/javascript">
+       showGoogleRefTree();
+    
+      </script>
+    </div> <!-- end side-nav -->
+    <script>
+      $(document).ready(function() {
+        scrollIntoView("devdoc-nav");
+        });
+    </script>
+
+
+
+
+<div class="col-12" id="doc-col" >
+
+
+
+
+  
+    
+      
+        <h1 itemprop="name" >Implementing GCM Server</h1>
+      
+    
+  
+
+
+  
+  <div id="jd-content">
+
+
+    <div class="jd-descr" itemprop="articleBody">
+    <div id="qv-wrapper">
+<div id="qv">
+
+<h2>In this document</h2>
+
+<ol class="toc">
+  <li><a href="#choose">Choosing a GCM Connection Server</a></li>
+  <li><a href="#role">Role of the 3rd-party Application Server</a></li>
+    <li><a href="#send-msg">Sending Messages</a>
+    <ol class="toc">
+
+      <li><a href="#target">Target</a></li>
+      <li><a href="#payload">Payload</a></li>
+      <li><a href="#params">Message parameters</a>
+    </ol>
+    </li>
+  <li><a href="#receive">Receiving Messages</a> </li>
+  </li>
+
+</ol>
+
+<h2>See Also</h2>
+
+<ol class="toc">
+<li><a href="gs.html">Getting Started</a></li>
+<li><a href="client.html">Implementing GCM Client</a></li>
+<li><a href="ccs.html">Cloud Connection Server (XMPP)</a></li>
+<li><a href="http.html">HTTP Connection Server</a></li>
+
+
+</ol>
+
+</div>
+</div>
+
+
+<p>The server side of GCM consists of 2 components:</p>
+<ul>
+<li>Google-provided <strong>GCM Connection Servers</strong>
+take messages from a 3rd-party application server and send them to a GCM-enabled
+Android application (the &quot;client app&quot;) running on a device. For example,
+Google provides connection servers for <a href="../../google/gcm/http.html">
+HTTP</a> and <a href="../../google/gcm/ccs.html">CCS</a> (XMPP).</li>
+<li>A <strong>3rd-party application server</strong> that you must implement. This application
+server sends data to a GCM-enabled Android application via the chosen GCM connection server.</li>
+</ul>
+</p>
+
+<p>Here are the basic steps you follow to implement your 3rd-party app server:</p>
+
+<ul>
+      <li>Decide which GCM connection server(s) you want to use. Note that if you want to use
+      upstream messaging from your client applications, you must use CCS. For a more detailed
+      discussion of this, see <a href="#choose">
+      Choosing a GCM Connection Server</a>.</li>
+      <li>Decide how you want to implement your app server. For example:
+        <ul>
+          <li>If you decide to use the HTTP connection server, you can use the
+GCM server helper library and demo app to help in implementing your app server.</li>
+          <li>If you decide to use the XMPP connection server, you can use
+the provided Python or Java <a href="http://www.igniterealtime.org/projects/smack/">
+Smack</a> demo apps as a starting point.</li>
+        <li>Note that Google AppEngine does not support connections to CCS.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p>A full GCM implementation requires both a client implementation and a server
+implementation. For more
+information about implementing the client side, see <a href="client.html">
+Implementing GCM Client</a>.</p>
+
+<h2 id="choose">Choosing a GCM Connection Server</h2>
+
+<p>Currently GCM provides two connection servers: <a href="../../google/gcm/http.html">
+HTTP</a> and <a href="../../google/gcm/ccs.html">CCS</a> (XMPP). You can use them
+separately or in tandem. CCS messaging differs from GCM HTTP messaging in the following ways:</p>
+<ul>
+  <li>Upstream/Downstream messages
+    <ul>
+      <li>GCM HTTP: Downstream only: cloud-to-device. </li>
+      <li>CCS: Upstream and downstream (device-to-cloud, cloud-to-device). </li>
+    </ul>
+  </li>
+  <li>Asynchronous messaging
+    <ul>
+      <li>GCM HTTP: 3rd-party app servers send messages as HTTP POST requests and
+wait for a response. This mechanism is synchronous and causes the sender to block
+before sending another message.</li>
+      <li>CCS: 3rd-party app servers connect to Google infrastructure using a
+persistent XMPP connection and send/receive messages to/from all their devices
+at full line speed. CCS sends acknowledgment or failure notifications (in the
+form of special ACK and NACK JSON-encoded XMPP messages) asynchronously.</li>
+    </ul>
+  </li>
+
+  <li>JSON
+    <ul>
+      <li>GCM HTTP: JSON messages sent as HTTP POST.</li>
+      <li>CCS: JSON messages encapsulated in XMPP messages.</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="role">Role of the 3rd-party Application Server</h2>
+
+<p>Before you can write client Android applications that use the GCM feature, you must
+have an  application server that meets the following criteria:</p>
+
+<ul>
+  <li>Able to communicate with your client.</li>
+  <li>Able to  fire off properly formatted requests to the GCM server.</li>
+  <li>Able to handle requests and resend them as needed, using
+<a href="http://en.wikipedia.org/wiki/Exponential_backoff">exponential back-off.</a></li>
+  <li>Able to store the API key and client registration IDs. The
+API key is included in the header of POST requests that send
+messages.</li>
+ <li>Able to generate message IDs to uniquely identify each message it sends.</li>
+</ul>
+
+<h2 id="send-msg">Sending Messages</h2>
+
+<p>Here is the general sequence of events that occurs when a 3rd-party application
+server sends a message:</p>
+<ol>
+  <li>The application server sends a message to GCM servers.</li>
+  <li>Google enqueues and stores the message in case the device is offline.</li>
+  <li>When the device is online, Google sends the message to the device.</li>
+  <li>On the device, the system broadcasts the message to the specified Android
+application via Intent broadcast with proper permissions, so that only the targeted
+Android application gets the message. This wakes the Android application up.
+The Android application does not need to be running beforehand to receive the message.</li>
+  <li>The Android application processes the message. </li>
+</ol>
+
+<p>The following sections describe the basic requirements for
+sending messages.</p>
+
+<h3 id="target">Target</h3>
+<p>Required. When your app server sends a message in GCM, it must specify a target.</p>
+<p>For HTTP you must specify the target as one of:</p>
+<ul>
+<li><code>registration_ids</code>: For sending to 1 or more devices (up to 1000).
+When you send a message to multiple registration IDs, that is called a multicast message.</li>
+<li><code>notification_key</code>: For sending to multiple devices owned by a single user.</li>
+</ul>
+<p>For CCS (XMPP):</p>
+<ul>
+<li>You must specify the target as the &quot;to&quot; field, where the &quot;to&quot;
+field may contain a single registration ID or a notification key.
+CCS does not support multicast messaging.</li>
+</ul>
+<h3 id="payload">Payload</h3>
+<p>Optional. If you are including a payload in the message, you use the <code>data</code>
+parameter to include the payload. This applies for both HTTP and CCS.</p>
+
+<h3 id="params">Message parameters</h3>
+
+<p>The following table lists the parameters that a 3rd-party app server might
+include in the JSON messages it sends to a connection server. See the "Where Supported"
+column for information about which connection servers support that particular
+parameter.</p>
+
+<p class="table-caption" id="table1">
+  <strong>Table 1.</strong> Message parameters.</p>
+
+<table>
+  <tr>
+    <th>Field</th>
+    <th>Description</th>
+<th>Where Supported</th>
+</tr>
+  <td><code>to</code></td>
+<td>In CCS, used in place of <code>registration_ids</code> to specify the
+recipient of a message. Its value must be a registration ID.
+The value is a string. Required.</td>
+<td>CCS</td>
+</tr>
+<tr>
+<td><code>message_id</code></td>
+<td>In CCS, uniquely identifies a message in an XMPP connection. The value is a
+string that uniquely identifies the associated message. The value is a string. Required.</td>
+<td>CCS</td>
+</tr>
+<tr>
+<td><code>message_type</code></td>
+<td>In CCS, indicates a special status message, typically sent by the system.
+However, your app server also uses this parameter to send an 'ack' or 'nack'
+message back to the CCS connection server. For more discussion of this topic, see
+<a href="ccs.html">Cloud Connection Server</a>. The value is a string. Optional.</td>
+<td>CCS</td>
+<tr>
+  <td><code>registration_ids</code></td>
+  <td>A string array with the list of devices (registration IDs) receiving the
+message. It must contain at least 1 and at most 1000 registration IDs. To send a
+multicast message, you must use JSON. For sending a single message to a single
+device, you could use a JSON object with just 1 registration id, or plain text
+(see below). A request must include a recipient&mdash;this can be either a
+registration ID, an array of registration IDs, or a <code>notification_key</code>.
+Required.</td>
+<td>HTTP</td>
+</tr>
+ <tr>
+    <td><code>notification_key</code></td>
+    <td>A string that maps a single user to multiple registration IDs associated
+with that user. This allows a 3rd-party server to send a single message to
+multiple app instances (typically on multiple devices) owned by a single user.
+A 3rd-party server can use <code>notification_key</code> as the target for a message
+instead of an individual registration ID (or array of registration IDs). The maximum
+number of members allowed for a <code>notification_key</code> is 10. For more discussion
+of this topic, see <a href="notifications.html">User Notifications</a>. Optional.
+</td>
+<td style="width:100px">HTTP. This feature is supported in CCS, but you use it by
+specifying a notification key in the &quot;to&quot; field.</td>
+</tr>
+  <tr>
+    <td><code>collapse_key</code></td>
+    <td>An arbitrary string (such as &quot;Updates Available&quot;) that is used
+to collapse a group of like messages
+when the device is offline, so that only the last message gets sent to the
+client. This is intended to avoid sending too many messages to the phone when it
+comes back online. Note that since there is no guarantee of the order in which
+messages get sent, the &quot;last&quot; message may not actually be the last
+message sent by the application server. Collapse keys are also called
+<a href="#s2s">send-to-sync messages</a>.
+<br>
+<strong>Note:</strong> GCM allows a maximum of 4 different collapse keys to be
+used by the GCM server
+at any given time. In other words, the GCM server can simultaneously store 4
+different send-to-sync messages per device, each with a different collapse key.
+If you exceed
+this number GCM will only keep 4 collapse keys, with no guarantees about which
+ones they will be. See <a href="adv.html#collapsible">Advanced Topics</a> for more
+discussion of this topic. Optional.</td>
+<td>CCS, HTTP</td>
+</tr>
+  <tr>
+    <td><code>data</code></td>
+    <td>A JSON object whose fields represents the key-value pairs of the message's
+payload data. If present, the payload data it will be
+included in the Intent as application data, with the key being the extra's name.
+For instance, <code>"data":{"score":"3x1"}</code> would result in an intent extra
+named <code>score</code> whose value is the string <code>3x1</code>.
+There is no limit on the number of key/value pairs, though there is a limit on
+the total size of the message (4kb). The values could be any JSON object, but we
+recommend using strings, since the values will be converted to strings in the GCM
+server anyway. If you want to include objects or other non-string data types
+(such as integers or booleans), you have to do the conversion to string yourself.
+Also note that the key cannot be a reserved word (<code>from</code> or any word
+starting with <code>google.</code>). To complicate things slightly, there are
+some reserved words (such as <code>collapse_key</code>) that are technically
+allowed in payload data. However, if the request also contains the word, the
+value in the request will overwrite the value in the payload data. Hence using
+words that are defined as field names in this table is not recommended, even in
+cases where they are technically allowed. Optional.</td>
+<td>CCS, HTTP</td>
+</tr>
+  <tr>
+    <td><code>delay_while_idle</code></td>
+    <td>If included, indicates that the message should not be sent immediately
+if the device is idle. The server will wait for the device to become active, and
+then only the last message for each <code>collapse_key</code> value will be
+sent. The default value is <code>false</code>, and must be a JSON boolean. Optional.</td>
+<td>CCS, HTTP</td>
+</tr>
+  <tr>
+    <td><code>time_to_live</code></td>
+    <td>How long (in seconds) the message should be kept on GCM storage if the
+device is offline. Optional (default time-to-live is 4 weeks, and must be set as
+a JSON number).</td>
+<td>CCS, HTTP</td>
+</tr>
+<tr>
+  <td><code>restricted_package_name</code></td>
+  <td>A string containing the package name of your application. When set, messages
+will only be sent to registration IDs that match the package name. Optional.
+  </td>
+<td>HTTP</td>
+</tr>
+<tr>
+  <td><code>dry_run</code></td>
+  <td>If included, allows developers to test their request without actually
+sending a message. Optional. The default value is <code>false</code>, and must
+be a JSON boolean.
+  </td>
+<td>HTTP</td>
+</tr>
+</table>
+
+<p>If you want to test your request (either JSON or plain text) without delivering
+the message to the devices, you can set an optional HTTP or JSON parameter called
+<code>dry_run</code> with the value <code>true</code>. The result will be almost
+identical to running the request without this parameter, except that the message
+will not be delivered to the devices. Consequently, the response will contain fake
+IDs for the message and multicast fields.</p>
+
+<h3 id="plain-text">Plain text (HTTP only)</h3>
+
+<p>If you are using plain text instead of JSON, the message fields must be set as
+HTTP parameters sent in the body, and their syntax is slightly different, as
+described below:
+<table>
+  <tr>
+    <th>Field</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td><code>registration_id</code></td>
+    <td>Must contain the registration ID of the single device receiving the message.
+Required.</td>
+  </tr>
+  <tr>
+    <td><code>collapse_key</code></td>
+    <td>Same as JSON (see previous table). Optional.</td>
+  </tr>
+  <tr>
+    <td><code>data.&lt;key&gt;</code></td>
+
+    <td>Payload data, expressed as parameters prefixed with <code>data.</code> and
+suffixed as the key. For instance, a parameter of <code>data.score=3x1</code> would
+result in an intent extra named <code>score</code> whose value is the string
+<code>3x1</code>. There is no limit on the number of key/value parameters, though
+there is a limit on the total size of the  message. Also note that the key cannot
+be a reserved word (<code>from</code> or any word starting with
+<code>google.</code>). To complicate things slightly, there are some reserved words
+(such as <code>collapse_key</code>) that are technically allowed in payload data.
+However, if the request also contains the word, the value in the request will
+overwrite the value in the payload data. Hence using words that are defined as
+field names in this table is not recommended, even in cases where they are
+technically allowed. Optional.</td>
+
+  </tr>
+  <tr>
+    <td><code>delay_while_idle</code></td>
+    <td>Should be represented as <code>1</code> or <code>true</code> for
+<code>true</code>, anything else for <code>false</code>. Optional. The default
+value is <code>false</code>.</td>
+  </tr>
+  <tr>
+    <td><code>time_to_live</code></td>
+    <td>Same as JSON (see previous table). Optional.</td>
+  </tr>
+<tr>
+  <td><code>restricted_package_name</code></td>
+  <td>Same as JSON (see previous table). Optional.
+  </td>
+</tr>
+<tr>
+  <td><code>dry_run</code></td>
+  <td>Same as JSON (see previous table). Optional.
+  </td>
+</tr>
+</table>
+
+<h2 id="receive">Receiving Messages</h2>
+
+<p>This is the sequence of events that occurs when an Android application
+installed on a mobile device receives a message:</p>
+
+<ol>
+  <li>The system receives the incoming message and extracts the raw key/value
+pairs from the message payload, if any.</li>
+  <li>The system passes the key/value pairs to the targeted Android application
+in a <code>com.google.android.c2dm.intent.RECEIVE</code> Intent as a set of
+extras.</li>
+  <li>The Android application extracts the raw data
+from the <code>com.google.android.c2dm.intent.RECEIVE</code><code> </code>Intent
+by key and processes the data.</li>
+</ol>
+
+<p>See the documentation for each connection server for more detail on how it
+handles responses.</p>
+
+    </div>
+
+      <div class="content-footer layout-content-row"
+                    itemscope itemtype="http://schema.org/SiteNavigationElement">
+        <div class="layout-content-col col-9" style="padding-top:4px">
+          
+            <div class="g-plusone" data-size="medium"></div>
+          
+        </div>
+        
+        <div class="paging-links layout-content-col col-4">
+          
+        </div>
+        
+      </div>
+
+      
+      
+
+  </div> <!-- end jd-content -->
+
+<div id="footer" class="wrap" >
+        
+
+  <div id="copyright">
+    
+  Except as noted, this content is 
+  licensed under <a href="http://creativecommons.org/licenses/by/2.5/">
+  Creative Commons Attribution 2.5</a>. For details and 
+  restrictions, see the <a href="../../license.html">Content 
+  License</a>.
+  </div>
+
+
+  <div id="footerlinks">
+    
+  <p>
+    <a href="../../about/index.html">About Android</a>&nbsp;&nbsp;|&nbsp;
+    <a href="../../legal.html">Legal</a>&nbsp;&nbsp;|&nbsp;
+    <a href="../../support.html">Support</a>
+  </p>
+  </div>
+
+</div> <!-- end footer -->
+</div><!-- end doc-content -->
+
+<!-- Start of Tag -->
+<script type="text/javascript">
+var axel = Math.random() + "";
+var a = axel * 10000000000000;
+document.write('<iframe src="https://2507573.fls.doubleclick.net/activityi;src=2507573;type=other026;cat=googl348;ord=' + a + '?" width="1" height="1" frameborder="0" style="display:none"></iframe>');
+</script>
+<noscript>
+<iframe src="https://2507573.fls.doubleclick.net/activityi;src=2507573;type=other026;cat=googl348;ord=1?" width="1" height="1" frameborder="0" style="display:none"></iframe>
+</noscript>
+<!-- End of Tag -->
+
+
+</div> <!-- end body-content --> 
+
+
+
+
+
+  <script src="https://developer.android.com/ytblogger_lists_unified.js" type="text/javascript"></script>
+  <script src="../../jd_lists_unified.js" type="text/javascript"></script>
+  <script src="../../jd_extras.js" type="text/javascript"></script>
+  <script src="../../jd_collections.js" type="text/javascript"></script>
+  <script src="../../jd_tag_helpers.js" type="text/javascript"></script>
+
+</body>
+</html>
+
+
+

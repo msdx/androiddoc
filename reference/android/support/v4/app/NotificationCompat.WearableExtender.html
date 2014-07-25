@@ -1,0 +1,4017 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width" />
+
+<link rel="shortcut icon" type="image/x-icon" href="../../../../../favicon.ico" />
+<title>NotificationCompat.WearableExtender - Android SDK | Android Developers</title>
+
+<!-- STYLESHEETS -->
+<link rel="stylesheet"
+href="http://fonts.googleapis.com/css?family=Roboto+Condensed">
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:light,regular,medium,thin,italic,mediumitalic,bold"
+  title="roboto">
+<link href="../../../../../assets/css/default.css" rel="stylesheet" type="text/css">
+
+
+<!-- FULLSCREEN STYLESHEET -->
+<link href="../../../../../assets/css/fullscreen.css" rel="stylesheet" class="fullscreen"
+type="text/css">
+
+
+<!-- JAVASCRIPT -->
+<script src="http://www.google.com/jsapi" type="text/javascript"></script>
+<script src="../../../../../assets/js/android_3p-bundle.js" type="text/javascript"></script>
+<script type="text/javascript">
+  var toRoot = "../../../../../";
+  var metaTags = [];
+  var devsite = false;
+</script>
+<script src="../../../../../assets/js/docs.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-5831155-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+
+<body class="gc-documentation 
+  develop" itemscope itemtype="http://schema.org/Article">
+  <div id="doc-api-level" class="" style="display:none"></div>
+  <a name="top"></a>
+
+
+<a name="top"></a>
+
+  <!-- Header -->
+  <div id="header-wrapper">
+    <div id="header">
+      <div class="wrap" id="header-wrap">
+        <div class="col-3 logo">
+          <a href="../../../../../index.html">
+            <img src="../../../../../assets/images/dac_logo.png"
+                srcset="../../../../../assets/images/dac_logo@2x.png 2x"
+                width="123" height="25" alt="Android Developers" />
+          </a>
+          <div class="btn-quicknav" id="btn-quicknav">
+            <a href="#" class="arrow-inactive">Quicknav</a>
+            <a href="#" class="arrow-active">Quicknav</a>
+          </div>
+        </div>
+        <ul class="nav-x col-9">
+            <li class="design">
+              <a href="../../../../../design/index.html"
+              zh-tw-lang="設計"
+              zh-cn-lang="设计"
+              ru-lang="Проектирование"
+              ko-lang="디자인"
+              ja-lang="設計"
+              es-lang="Diseñar"
+              >Design</a></li>
+            <li class="develop"><a href="../../../../../develop/index.html"
+              zh-tw-lang="開發"
+              zh-cn-lang="开发"
+              ru-lang="Разработка"
+              ko-lang="개발"
+              ja-lang="開発"
+              es-lang="Desarrollar"
+              >Develop</a></li>
+            <li class="distribute last"><a href="../../../../../distribute/googleplay/index.html"
+              zh-tw-lang="發佈"
+              zh-cn-lang="分发"
+              ru-lang="Распространение"
+              ko-lang="배포"
+              ja-lang="配布"
+              es-lang="Distribuir"
+              >Distribute</a></li>
+        </ul>
+
+
+        
+        
+<div class="menu-container">
+  <div class="moremenu">
+    <div id="more-btn"></div>
+  </div>
+  <div class="morehover" id="moremenu">
+    <div class="top"></div>
+    <div class="mid">
+      <div class="header">Links</div>
+      <ul>
+        <li><a href="https://play.google.com/apps/publish/" target="_googleplay">Google Play Developer Console</a></li>
+        <li><a href="http://android-developers.blogspot.com/">Android Developers Blog</a></li>
+        <li><a href="../../../../../about/index.html">About Android</a></li>
+      </ul>
+      <div class="header">Android Sites</div>
+      <ul>
+        <li><a href="http://www.android.com">Android.com</a></li>
+        <li class="active"><a>Android Developers</a></li>
+        <li><a href="http://source.android.com">Android Open Source Project</a></li>
+      </ul>
+
+      
+      
+      
+      <br class="clearfix" />
+    </div><!-- end 'mid' -->
+    <div class="bottom"></div>
+  </div><!-- end 'moremenu' -->
+
+  <div class="search" id="search-container">
+    <div class="search-inner">
+      <div id="search-btn"></div>
+      <div class="left"></div>
+      <form onsubmit="return submit_search()">
+        <input id="search_autocomplete" type="text" value="" autocomplete="off" name="q"
+          onfocus="search_focus_changed(this, true)" onblur="search_focus_changed(this, false)"
+          onkeydown="return search_changed(event, true, '../../../../../')"
+          onkeyup="return search_changed(event, false, '../../../../../')" />
+      </form>
+      <div class="right"></div>
+      <a class="close hide">close</a>
+      <div class="left"></div>
+      <div class="right"></div>
+    </div><!-- end search-inner -->
+  </div><!-- end search-container -->
+
+  <div class="search_filtered_wrapper reference">
+    <div class="suggest-card reference no-display">
+      <ul class="search_filtered">
+      </ul>
+    </div>
+  </div>
+
+  <div class="search_filtered_wrapper docs">
+    <div class="suggest-card dummy no-display">&nbsp;</div>
+    <div class="suggest-card develop no-display">
+      <ul class="search_filtered">
+      </ul>
+      <div class="child-card guides no-display">
+      </div>
+      <div class="child-card training no-display">
+      </div>
+      <div class="child-card samples no-display">
+      </div>
+    </div>
+    <div class="suggest-card design no-display">
+      <ul class="search_filtered">
+      </ul>
+    </div>
+    <div class="suggest-card distribute no-display">
+      <ul class="search_filtered">
+      </ul>
+    </div>
+  </div>
+</div><!-- end menu-container (search and menu widget) -->
+
+
+
+        <!-- Expanded quicknav -->
+        <div id="quicknav" class="col-9">
+          <ul>
+            <li class="design">
+              <ul>
+                <li><a href="../../../../../design/index.html">Get Started</a></li>
+                <li><a href="../../../../../design/style/index.html">Style</a></li>
+                <li><a href="../../../../../design/patterns/index.html">Patterns</a></li>
+                <li><a href="../../../../../design/building-blocks/index.html">Building Blocks</a></li>
+                <li><a href="../../../../../design/downloads/index.html">Downloads</a></li>
+                <li><a href="../../../../../design/videos/index.html">Videos</a></li>
+              </ul>
+            </li>
+            <li class="develop">
+              <ul>
+                <li><a href="../../../../../training/index.html"
+                  zh-tw-lang="訓練課程"
+                  zh-cn-lang="培训"
+                  ru-lang="Курсы"
+                  ko-lang="교육"
+                  ja-lang="トレーニング"
+                  es-lang="Capacitación"
+                  >Training</a></li>
+                <li><a href="../../../../../guide/index.html"
+                  zh-tw-lang="API 指南"
+                  zh-cn-lang="API 指南"
+                  ru-lang="Руководства по API"
+                  ko-lang="API 가이드"
+                  ja-lang="API ガイド"
+                  es-lang="Guías de la API"
+                  >API Guides</a></li>
+                <li><a href="../../../../../reference/packages.html"
+                  zh-tw-lang="參考資源"
+                  zh-cn-lang="参考"
+                  ru-lang="Справочник"
+                  ko-lang="참조문서"
+                  ja-lang="リファレンス"
+                  es-lang="Referencia"
+                  >Reference</a></li>
+                <li><a href="../../../../../tools/index.html"
+                  zh-tw-lang="相關工具"
+                  zh-cn-lang="工具"
+                  ru-lang="Инструменты"
+                  ko-lang="도구"
+                  ja-lang="ツール"
+                  es-lang="Herramientas"
+                  >Tools</a>
+                  <ul><li><a href="../../../../../sdk/index.html">Get the SDK</a></li></ul>
+                </li>
+                <li><a href="../../../../../google/index.html">Google Services</a>
+                </li>
+                
+              </ul>
+            </li>
+            <li class="distribute last">
+              <ul>
+                <li><a href="../../../../../distribute/googleplay/index.html">Google Play</a></li>
+                <li><a href="../../../../../distribute/essentials/index.html">Essentials</a></li>
+                <li><a href="../../../../../distribute/users/index.html">Get Users</a></li>
+                <li><a href="../../../../../distribute/engage/index.html">Engage &amp; Retain</a></li>
+                <li><a href="../../../../../distribute/monetize/index.html">Monetize</a></li>
+                <li><a href="../../../../../distribute/tools/index.html">Tools &amp; Reference</a></li>
+                <li><a href="../../../../../distribute/stories/index.html">Developer Stories</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div><!-- /Expanded quicknav -->
+      </div><!-- end header-wrap.wrap -->
+    </div><!-- end header -->
+
+  
+    <!-- Secondary x-nav -->
+    <div id="nav-x">
+        <div class="wrap">
+            <ul class="nav-x col-9 develop" style="width:100%">
+                <li class="training"><a href="../../../../../training/index.html"
+                  zh-tw-lang="訓練課程"
+                  zh-cn-lang="培训"
+                  ru-lang="Курсы"
+                  ko-lang="교육"
+                  ja-lang="トレーニング"
+                  es-lang="Capacitación"
+                  >Training</a></li>
+                <li class="guide"><a href="../../../../../guide/index.html"
+                  zh-tw-lang="API 指南"
+                  zh-cn-lang="API 指南"
+                  ru-lang="Руководства по API"
+                  ko-lang="API 가이드"
+                  ja-lang="API ガイド"
+                  es-lang="Guías de la API"
+                  >API Guides</a></li>
+                <li class="reference"><a href="../../../../../reference/packages.html"
+                  zh-tw-lang="參考資源"
+                  zh-cn-lang="参考"
+                  ru-lang="Справочник"
+                  ko-lang="참조문서"
+                  ja-lang="リファレンス"
+                  es-lang="Referencia"
+                  >Reference</a></li>
+                <li class="tools"><a href="../../../../../tools/index.html"
+                  zh-tw-lang="相關工具"
+                  zh-cn-lang="工具"
+                  ru-lang="Инструменты"
+                  ko-lang="도구"
+                  ja-lang="ツール"
+                  es-lang="Herramientas"
+                  >Tools</a></li>
+                <li class="google"><a href="../../../../../google/index.html"
+                  >Google Services</a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+    <!-- /Sendondary x-nav -->
+
+  
+
+    <div id="searchResults" class="wrap" style="display:none;">
+      <h2 id="searchTitle">Results</h2>
+      <div id="leftSearchControl" class="search-control">Loading...</div>
+    </div>
+  </div> <!--end header-wrapper -->
+
+  <div id="sticky-header">
+    <div>
+      <a class="logo" href="#top"></a>
+      <a class="top" href="#top"></a>
+      <ul class="breadcrumb">
+        
+        <li class="current">NotificationCompat.WearableExtender - Android SDK</li>
+      </ul>
+    </div>
+  </div>
+
+
+
+
+
+  <div class="wrap clearfix" id="body-content">
+    <div class="col-4" id="side-nav" itemscope itemtype="http://schema.org/SiteNavigationElement">
+      <div id="devdoc-nav">
+      <div id="api-nav-header">
+        <div id="api-level-toggle">
+          <label for="apiLevelCheckbox" class="disabled"
+            title="Select your target API level to dim unavailable APIs">API level: </label>
+          <div class="select-wrapper">
+            <select id="apiLevelSelector">
+              <!-- option elements added by buildApiLevelSelector() -->
+            </select>
+          </div>
+        </div><!-- end toggle -->
+        <div id="api-nav-title">Android APIs</div>
+        </div><!-- end nav header -->
+      <script>
+        var SINCE_DATA = [ '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19' ];
+        buildApiLevelSelector();
+      </script>
+                  
+      <div id="swapper">
+        <div id="nav-panels">
+          <div id="resize-packages-nav">
+            <div id="packages-nav" class="scroll-pane">
+
+              <ul>
+                
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/android/package-summary.html">android</a></li>
+    <li class="api apilevel-4">
+  <a href="../../../../../reference/android/accessibilityservice/package-summary.html">android.accessibilityservice</a></li>
+    <li class="api apilevel-5">
+  <a href="../../../../../reference/android/accounts/package-summary.html">android.accounts</a></li>
+    <li class="api apilevel-11">
+  <a href="../../../../../reference/android/animation/package-summary.html">android.animation</a></li>
+    <li class="api apilevel-16">
+  <a href="../../../../../reference/android/annotation/package-summary.html">android.annotation</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/android/app/package-summary.html">android.app</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../../../reference/android/app/admin/package-summary.html">android.app.admin</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../../../reference/android/app/backup/package-summary.html">android.app.backup</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/android/app/job/package-summary.html">android.app.job</a></li>
+    <li class="api apilevel-3">
+  <a href="../../../../../reference/android/appwidget/package-summary.html">android.appwidget</a></li>
+    <li class="api apilevel-5">
+  <a href="../../../../../reference/android/bluetooth/package-summary.html">android.bluetooth</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/android/bluetooth/le/package-summary.html">android.bluetooth.le</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/android/content/package-summary.html">android.content</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/android/content/pm/package-summary.html">android.content.pm</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/android/content/res/package-summary.html">android.content.res</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/android/database/package-summary.html">android.database</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/android/database/sqlite/package-summary.html">android.database.sqlite</a></li>
+    <li class="api apilevel-11">
+  <a href="../../../../../reference/android/drm/package-summary.html">android.drm</a></li>
+    <li class="api apilevel-4">
+  <a href="../../../../../reference/android/gesture/package-summary.html">android.gesture</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/android/graphics/package-summary.html">android.graphics</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/android/graphics/drawable/package-summary.html">android.graphics.drawable</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/android/graphics/drawable/shapes/package-summary.html">android.graphics.drawable.shapes</a></li>
+    <li class="api apilevel-19">
+  <a href="../../../../../reference/android/graphics/pdf/package-summary.html">android.graphics.pdf</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/android/hardware/package-summary.html">android.hardware</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/android/hardware/camera2/package-summary.html">android.hardware.camera2</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/android/hardware/camera2/params/package-summary.html">android.hardware.camera2.params</a></li>
+    <li class="api apilevel-17">
+  <a href="../../../../../reference/android/hardware/display/package-summary.html">android.hardware.display</a></li>
+    <li class="api apilevel-16">
+  <a href="../../../../../reference/android/hardware/input/package-summary.html">android.hardware.input</a></li>
+    <li class="api apilevel-18">
+  <a href="../../../../../reference/android/hardware/location/package-summary.html">android.hardware.location</a></li>
+    <li class="api apilevel-12">
+  <a href="../../../../../reference/android/hardware/usb/package-summary.html">android.hardware.usb</a></li>
+    <li class="api apilevel-3">
+  <a href="../../../../../reference/android/inputmethodservice/package-summary.html">android.inputmethodservice</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/android/location/package-summary.html">android.location</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/android/media/package-summary.html">android.media</a></li>
+    <li class="api apilevel-9">
+  <a href="../../../../../reference/android/media/audiofx/package-summary.html">android.media.audiofx</a></li>
+    <li class="api apilevel-14">
+  <a href="../../../../../reference/android/media/effect/package-summary.html">android.media.effect</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/android/media/session/package-summary.html">android.media.session</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/android/media/tv/package-summary.html">android.media.tv</a></li>
+    <li class="api apilevel-12">
+  <a href="../../../../../reference/android/mtp/package-summary.html">android.mtp</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/android/net/package-summary.html">android.net</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/android/net/http/package-summary.html">android.net.http</a></li>
+    <li class="api apilevel-16">
+  <a href="../../../../../reference/android/net/nsd/package-summary.html">android.net.nsd</a></li>
+    <li class="api apilevel-12">
+  <a href="../../../../../reference/android/net/rtp/package-summary.html">android.net.rtp</a></li>
+    <li class="api apilevel-9">
+  <a href="../../../../../reference/android/net/sip/package-summary.html">android.net.sip</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/android/net/wifi/package-summary.html">android.net.wifi</a></li>
+    <li class="api apilevel-14">
+  <a href="../../../../../reference/android/net/wifi/p2p/package-summary.html">android.net.wifi.p2p</a></li>
+    <li class="api apilevel-16">
+  <a href="../../../../../reference/android/net/wifi/p2p/nsd/package-summary.html">android.net.wifi.p2p.nsd</a></li>
+    <li class="api apilevel-9">
+  <a href="../../../../../reference/android/nfc/package-summary.html">android.nfc</a></li>
+    <li class="api apilevel-19">
+  <a href="../../../../../reference/android/nfc/cardemulation/package-summary.html">android.nfc.cardemulation</a></li>
+    <li class="api apilevel-10">
+  <a href="../../../../../reference/android/nfc/tech/package-summary.html">android.nfc.tech</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/android/opengl/package-summary.html">android.opengl</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/android/os/package-summary.html">android.os</a></li>
+    <li class="api apilevel-9">
+  <a href="../../../../../reference/android/os/storage/package-summary.html">android.os.storage</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/android/preference/package-summary.html">android.preference</a></li>
+    <li class="api apilevel-19">
+  <a href="../../../../../reference/android/print/package-summary.html">android.print</a></li>
+    <li class="api apilevel-19">
+  <a href="../../../../../reference/android/print/pdf/package-summary.html">android.print.pdf</a></li>
+    <li class="api apilevel-19">
+  <a href="../../../../../reference/android/printservice/package-summary.html">android.printservice</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/android/provider/package-summary.html">android.provider</a></li>
+    <li class="api apilevel-11">
+  <a href="../../../../../reference/android/renderscript/package-summary.html">android.renderscript</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/android/sax/package-summary.html">android.sax</a></li>
+    <li class="api apilevel-14">
+  <a href="../../../../../reference/android/security/package-summary.html">android.security</a></li>
+    <li class="api apilevel-17">
+  <a href="../../../../../reference/android/service/dreams/package-summary.html">android.service.dreams</a></li>
+    <li class="api apilevel-18">
+  <a href="../../../../../reference/android/service/notification/package-summary.html">android.service.notification</a></li>
+    <li class="api apilevel-14">
+  <a href="../../../../../reference/android/service/textservice/package-summary.html">android.service.textservice</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/android/service/voice/package-summary.html">android.service.voice</a></li>
+    <li class="api apilevel-7">
+  <a href="../../../../../reference/android/service/wallpaper/package-summary.html">android.service.wallpaper</a></li>
+    <li class="api apilevel-3">
+  <a href="../../../../../reference/android/speech/package-summary.html">android.speech</a></li>
+    <li class="api apilevel-4">
+  <a href="../../../../../reference/android/speech/tts/package-summary.html">android.speech.tts</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/android/support/annotation/package-summary.html">android.support.annotation</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/android/support/multidex/package-summary.html">android.support.multidex</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/android/support/v13/app/package-summary.html">android.support.v13.app</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/android/support/v17/leanback/package-summary.html">android.support.v17.leanback</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/android/support/v17/leanback/app/package-summary.html">android.support.v17.leanback.app</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/android/support/v17/leanback/database/package-summary.html">android.support.v17.leanback.database</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/android/support/v17/leanback/graphics/package-summary.html">android.support.v17.leanback.graphics</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/android/support/v17/leanback/widget/package-summary.html">android.support.v17.leanback.widget</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/android/support/v4/accessibilityservice/package-summary.html">android.support.v4.accessibilityservice</a></li>
+    <li class="selected api apilevel-">
+  <a href="../../../../../reference/android/support/v4/app/package-summary.html">android.support.v4.app</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/android/support/v4/content/package-summary.html">android.support.v4.content</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/android/support/v4/content/pm/package-summary.html">android.support.v4.content.pm</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/android/support/v4/content/res/package-summary.html">android.support.v4.content.res</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/android/support/v4/database/package-summary.html">android.support.v4.database</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/android/support/v4/graphics/package-summary.html">android.support.v4.graphics</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/android/support/v4/graphics/drawable/package-summary.html">android.support.v4.graphics.drawable</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/android/support/v4/hardware/display/package-summary.html">android.support.v4.hardware.display</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/android/support/v4/media/package-summary.html">android.support.v4.media</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/android/support/v4/net/package-summary.html">android.support.v4.net</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/android/support/v4/os/package-summary.html">android.support.v4.os</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/android/support/v4/print/package-summary.html">android.support.v4.print</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/android/support/v4/text/package-summary.html">android.support.v4.text</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/android/support/v4/util/package-summary.html">android.support.v4.util</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/android/support/v4/view/package-summary.html">android.support.v4.view</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/android/support/v4/view/accessibility/package-summary.html">android.support.v4.view.accessibility</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/android/support/v4/widget/package-summary.html">android.support.v4.widget</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/android/support/v7/app/package-summary.html">android.support.v7.app</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/android/support/v7/appcompat/package-summary.html">android.support.v7.appcompat</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/android/support/v7/gridlayout/package-summary.html">android.support.v7.gridlayout</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/android/support/v7/media/package-summary.html">android.support.v7.media</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/android/support/v7/mediarouter/package-summary.html">android.support.v7.mediarouter</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/android/support/v7/view/package-summary.html">android.support.v7.view</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/android/support/v7/widget/package-summary.html">android.support.v7.widget</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/android/support/v8/renderscript/package-summary.html">android.support.v8.renderscript</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/android/system/package-summary.html">android.system</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/android/telephony/package-summary.html">android.telephony</a></li>
+    <li class="api apilevel-5">
+  <a href="../../../../../reference/android/telephony/cdma/package-summary.html">android.telephony.cdma</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/android/telephony/gsm/package-summary.html">android.telephony.gsm</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/android/test/package-summary.html">android.test</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/android/test/mock/package-summary.html">android.test.mock</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/android/test/suitebuilder/package-summary.html">android.test.suitebuilder</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/android/test/suitebuilder/annotation/package-summary.html">android.test.suitebuilder.annotation</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/android/text/package-summary.html">android.text</a></li>
+    <li class="api apilevel-3">
+  <a href="../../../../../reference/android/text/format/package-summary.html">android.text.format</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/android/text/method/package-summary.html">android.text.method</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/android/text/style/package-summary.html">android.text.style</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/android/text/util/package-summary.html">android.text.util</a></li>
+    <li class="api apilevel-19">
+  <a href="../../../../../reference/android/transition/package-summary.html">android.transition</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/android/util/package-summary.html">android.util</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/android/view/package-summary.html">android.view</a></li>
+    <li class="api apilevel-4">
+  <a href="../../../../../reference/android/view/accessibility/package-summary.html">android.view.accessibility</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/android/view/animation/package-summary.html">android.view.animation</a></li>
+    <li class="api apilevel-3">
+  <a href="../../../../../reference/android/view/inputmethod/package-summary.html">android.view.inputmethod</a></li>
+    <li class="api apilevel-14">
+  <a href="../../../../../reference/android/view/textservice/package-summary.html">android.view.textservice</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/android/webkit/package-summary.html">android.webkit</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/android/widget/package-summary.html">android.widget</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/com/android/internal/backup/package-summary.html">com.android.internal.backup</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/com/android/internal/os/package-summary.html">com.android.internal.os</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/com/android/internal/statusbar/package-summary.html">com.android.internal.statusbar</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/com/android/internal/widget/package-summary.html">com.android.internal.widget</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/com/android/test/runner/package-summary.html">com.android.test.runner</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/dalvik/annotation/package-summary.html">dalvik.annotation</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/dalvik/bytecode/package-summary.html">dalvik.bytecode</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/dalvik/system/package-summary.html">dalvik.system</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/java/awt/font/package-summary.html">java.awt.font</a></li>
+    <li class="api apilevel-3">
+  <a href="../../../../../reference/java/beans/package-summary.html">java.beans</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/java/io/package-summary.html">java.io</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/java/lang/package-summary.html">java.lang</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/java/lang/annotation/package-summary.html">java.lang.annotation</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/java/lang/ref/package-summary.html">java.lang.ref</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/java/lang/reflect/package-summary.html">java.lang.reflect</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/java/math/package-summary.html">java.math</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/java/net/package-summary.html">java.net</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/java/nio/package-summary.html">java.nio</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/java/nio/channels/package-summary.html">java.nio.channels</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/java/nio/channels/spi/package-summary.html">java.nio.channels.spi</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/java/nio/charset/package-summary.html">java.nio.charset</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/java/nio/charset/spi/package-summary.html">java.nio.charset.spi</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/java/security/package-summary.html">java.security</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/java/security/acl/package-summary.html">java.security.acl</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/java/security/cert/package-summary.html">java.security.cert</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/java/security/interfaces/package-summary.html">java.security.interfaces</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/java/security/spec/package-summary.html">java.security.spec</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/java/sql/package-summary.html">java.sql</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/java/text/package-summary.html">java.text</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/java/util/package-summary.html">java.util</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/java/util/concurrent/package-summary.html">java.util.concurrent</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/java/util/concurrent/atomic/package-summary.html">java.util.concurrent.atomic</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/java/util/concurrent/locks/package-summary.html">java.util.concurrent.locks</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/java/util/jar/package-summary.html">java.util.jar</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/java/util/logging/package-summary.html">java.util.logging</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/java/util/prefs/package-summary.html">java.util.prefs</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/java/util/regex/package-summary.html">java.util.regex</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/java/util/zip/package-summary.html">java.util.zip</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/javax/crypto/package-summary.html">javax.crypto</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/javax/crypto/interfaces/package-summary.html">javax.crypto.interfaces</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/javax/crypto/spec/package-summary.html">javax.crypto.spec</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/javax/microedition/khronos/egl/package-summary.html">javax.microedition.khronos.egl</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/javax/microedition/khronos/opengles/package-summary.html">javax.microedition.khronos.opengles</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/javax/net/package-summary.html">javax.net</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/javax/net/ssl/package-summary.html">javax.net.ssl</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/javax/security/auth/package-summary.html">javax.security.auth</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/javax/security/auth/callback/package-summary.html">javax.security.auth.callback</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/javax/security/auth/login/package-summary.html">javax.security.auth.login</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/javax/security/auth/x500/package-summary.html">javax.security.auth.x500</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/javax/security/cert/package-summary.html">javax.security.cert</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/javax/sql/package-summary.html">javax.sql</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/javax/xml/package-summary.html">javax.xml</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../../../reference/javax/xml/datatype/package-summary.html">javax.xml.datatype</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../../../reference/javax/xml/namespace/package-summary.html">javax.xml.namespace</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/javax/xml/parsers/package-summary.html">javax.xml.parsers</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../../../reference/javax/xml/transform/package-summary.html">javax.xml.transform</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../../../reference/javax/xml/transform/dom/package-summary.html">javax.xml.transform.dom</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../../../reference/javax/xml/transform/sax/package-summary.html">javax.xml.transform.sax</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../../../reference/javax/xml/transform/stream/package-summary.html">javax.xml.transform.stream</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../../../reference/javax/xml/validation/package-summary.html">javax.xml.validation</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../../../reference/javax/xml/xpath/package-summary.html">javax.xml.xpath</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/junit/framework/package-summary.html">junit.framework</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/junit/runner/package-summary.html">junit.runner</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/org/apache/http/package-summary.html">org.apache.http</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/org/apache/http/auth/package-summary.html">org.apache.http.auth</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/org/apache/http/auth/params/package-summary.html">org.apache.http.auth.params</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/org/apache/http/client/package-summary.html">org.apache.http.client</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/org/apache/http/client/entity/package-summary.html">org.apache.http.client.entity</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/org/apache/http/client/methods/package-summary.html">org.apache.http.client.methods</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/org/apache/http/client/params/package-summary.html">org.apache.http.client.params</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/org/apache/http/client/protocol/package-summary.html">org.apache.http.client.protocol</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/org/apache/http/client/utils/package-summary.html">org.apache.http.client.utils</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/org/apache/http/conn/package-summary.html">org.apache.http.conn</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/org/apache/http/conn/params/package-summary.html">org.apache.http.conn.params</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/org/apache/http/conn/routing/package-summary.html">org.apache.http.conn.routing</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/org/apache/http/conn/scheme/package-summary.html">org.apache.http.conn.scheme</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/org/apache/http/conn/ssl/package-summary.html">org.apache.http.conn.ssl</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/org/apache/http/conn/util/package-summary.html">org.apache.http.conn.util</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/org/apache/http/cookie/package-summary.html">org.apache.http.cookie</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/org/apache/http/cookie/params/package-summary.html">org.apache.http.cookie.params</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/org/apache/http/entity/package-summary.html">org.apache.http.entity</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/org/apache/http/impl/package-summary.html">org.apache.http.impl</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/org/apache/http/impl/auth/package-summary.html">org.apache.http.impl.auth</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/org/apache/http/impl/client/package-summary.html">org.apache.http.impl.client</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/org/apache/http/impl/conn/package-summary.html">org.apache.http.impl.conn</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/org/apache/http/impl/conn/tsccm/package-summary.html">org.apache.http.impl.conn.tsccm</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/org/apache/http/impl/cookie/package-summary.html">org.apache.http.impl.cookie</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/org/apache/http/impl/entity/package-summary.html">org.apache.http.impl.entity</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/org/apache/http/impl/io/package-summary.html">org.apache.http.impl.io</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/org/apache/http/io/package-summary.html">org.apache.http.io</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/org/apache/http/message/package-summary.html">org.apache.http.message</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/org/apache/http/params/package-summary.html">org.apache.http.params</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/org/apache/http/protocol/package-summary.html">org.apache.http.protocol</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/org/apache/http/util/package-summary.html">org.apache.http.util</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/org/json/package-summary.html">org.json</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/org/w3c/dom/package-summary.html">org.w3c.dom</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../../../reference/org/w3c/dom/ls/package-summary.html">org.w3c.dom.ls</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/org/xml/sax/package-summary.html">org.xml.sax</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/org/xml/sax/ext/package-summary.html">org.xml.sax.ext</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/org/xml/sax/helpers/package-summary.html">org.xml.sax.helpers</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/org/xmlpull/v1/package-summary.html">org.xmlpull.v1</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/org/xmlpull/v1/sax2/package-summary.html">org.xmlpull.v1.sax2</a></li>
+              </ul><br/>
+
+            </div> <!-- end packages-nav -->
+          </div> <!-- end resize-packages -->
+          <div id="classes-nav" class="scroll-pane">
+
+
+
+            <ul>
+              
+              
+    <li><h2>Interfaces</h2>
+      <ul>
+          <li class="api apilevel-"><a href="../../../../../reference/android/support/v4/app/ActionBarDrawerToggle.Delegate.html">ActionBarDrawerToggle.Delegate</a></li>
+          <li class="api apilevel-"><a href="../../../../../reference/android/support/v4/app/ActionBarDrawerToggle.DelegateProvider.html">ActionBarDrawerToggle.DelegateProvider</a></li>
+          <li class="api apilevel-"><a href="../../../../../reference/android/support/v4/app/FragmentManager.BackStackEntry.html">FragmentManager.BackStackEntry</a></li>
+          <li class="api apilevel-"><a href="../../../../../reference/android/support/v4/app/FragmentManager.OnBackStackChangedListener.html">FragmentManager.OnBackStackChangedListener</a></li>
+          <li class="api apilevel-"><a href="../../../../../reference/android/support/v4/app/LoaderManager.LoaderCallbacks.html">LoaderManager.LoaderCallbacks</a></li>
+          <li class="api apilevel-"><a href="../../../../../reference/android/support/v4/app/NotificationCompat.Action.Extender.html">NotificationCompat.Action.Extender</a></li>
+          <li class="api apilevel-"><a href="../../../../../reference/android/support/v4/app/NotificationCompat.Extender.html">NotificationCompat.Extender</a></li>
+          <li class="api apilevel-"><a href="../../../../../reference/android/support/v4/app/TaskStackBuilder.SupportParentable.html">TaskStackBuilder.SupportParentable</a></li>
+      </ul>
+    </li>
+              
+    <li><h2>Classes</h2>
+      <ul>
+          <li class="api apilevel-"><a href="../../../../../reference/android/support/v4/app/ActionBarDrawerToggle.html">ActionBarDrawerToggle</a></li>
+          <li class="api apilevel-"><a href="../../../../../reference/android/support/v4/app/ActivityCompat.html">ActivityCompat</a></li>
+          <li class="api apilevel-"><a href="../../../../../reference/android/support/v4/app/ActivityOptionsCompat.html">ActivityOptionsCompat</a></li>
+          <li class="api apilevel-"><a href="../../../../../reference/android/support/v4/app/DialogFragment.html">DialogFragment</a></li>
+          <li class="api apilevel-"><a href="../../../../../reference/android/support/v4/app/Fragment.html">Fragment</a></li>
+          <li class="api apilevel-"><a href="../../../../../reference/android/support/v4/app/Fragment.SavedState.html">Fragment.SavedState</a></li>
+          <li class="api apilevel-"><a href="../../../../../reference/android/support/v4/app/FragmentActivity.html">FragmentActivity</a></li>
+          <li class="api apilevel-"><a href="../../../../../reference/android/support/v4/app/FragmentManager.html">FragmentManager</a></li>
+          <li class="api apilevel-"><a href="../../../../../reference/android/support/v4/app/FragmentPagerAdapter.html">FragmentPagerAdapter</a></li>
+          <li class="api apilevel-"><a href="../../../../../reference/android/support/v4/app/FragmentStatePagerAdapter.html">FragmentStatePagerAdapter</a></li>
+          <li class="api apilevel-"><a href="../../../../../reference/android/support/v4/app/FragmentTabHost.html">FragmentTabHost</a></li>
+          <li class="api apilevel-"><a href="../../../../../reference/android/support/v4/app/FragmentTransaction.html">FragmentTransaction</a></li>
+          <li class="api apilevel-"><a href="../../../../../reference/android/support/v4/app/ListFragment.html">ListFragment</a></li>
+          <li class="api apilevel-"><a href="../../../../../reference/android/support/v4/app/LoaderManager.html">LoaderManager</a></li>
+          <li class="api apilevel-"><a href="../../../../../reference/android/support/v4/app/NavUtils.html">NavUtils</a></li>
+          <li class="api apilevel-"><a href="../../../../../reference/android/support/v4/app/NotificationCompat.html">NotificationCompat</a></li>
+          <li class="api apilevel-"><a href="../../../../../reference/android/support/v4/app/NotificationCompat.Action.html">NotificationCompat.Action</a></li>
+          <li class="api apilevel-"><a href="../../../../../reference/android/support/v4/app/NotificationCompat.Action.Builder.html">NotificationCompat.Action.Builder</a></li>
+          <li class="api apilevel-"><a href="../../../../../reference/android/support/v4/app/NotificationCompat.Action.WearableExtender.html">NotificationCompat.Action.WearableExtender</a></li>
+          <li class="api apilevel-"><a href="../../../../../reference/android/support/v4/app/NotificationCompat.BigPictureStyle.html">NotificationCompat.BigPictureStyle</a></li>
+          <li class="api apilevel-"><a href="../../../../../reference/android/support/v4/app/NotificationCompat.BigTextStyle.html">NotificationCompat.BigTextStyle</a></li>
+          <li class="api apilevel-"><a href="../../../../../reference/android/support/v4/app/NotificationCompat.Builder.html">NotificationCompat.Builder</a></li>
+          <li class="api apilevel-"><a href="../../../../../reference/android/support/v4/app/NotificationCompat.InboxStyle.html">NotificationCompat.InboxStyle</a></li>
+          <li class="api apilevel-"><a href="../../../../../reference/android/support/v4/app/NotificationCompat.Style.html">NotificationCompat.Style</a></li>
+          <li class="selected api apilevel-"><a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html">NotificationCompat.WearableExtender</a></li>
+          <li class="api apilevel-"><a href="../../../../../reference/android/support/v4/app/NotificationCompatExtras.html">NotificationCompatExtras</a></li>
+          <li class="api apilevel-"><a href="../../../../../reference/android/support/v4/app/NotificationCompatSideChannelService.html">NotificationCompatSideChannelService</a></li>
+          <li class="api apilevel-"><a href="../../../../../reference/android/support/v4/app/NotificationManagerCompat.html">NotificationManagerCompat</a></li>
+          <li class="api apilevel-"><a href="../../../../../reference/android/support/v4/app/RemoteInput.html">RemoteInput</a></li>
+          <li class="api apilevel-"><a href="../../../../../reference/android/support/v4/app/RemoteInput.Builder.html">RemoteInput.Builder</a></li>
+          <li class="api apilevel-"><a href="../../../../../reference/android/support/v4/app/ServiceCompat.html">ServiceCompat</a></li>
+          <li class="api apilevel-"><a href="../../../../../reference/android/support/v4/app/ShareCompat.html">ShareCompat</a></li>
+          <li class="api apilevel-"><a href="../../../../../reference/android/support/v4/app/ShareCompat.IntentBuilder.html">ShareCompat.IntentBuilder</a></li>
+          <li class="api apilevel-"><a href="../../../../../reference/android/support/v4/app/ShareCompat.IntentReader.html">ShareCompat.IntentReader</a></li>
+          <li class="api apilevel-"><a href="../../../../../reference/android/support/v4/app/TaskStackBuilder.html">TaskStackBuilder</a></li>
+      </ul>
+    </li>
+              
+              
+    <li><h2>Exceptions</h2>
+      <ul>
+          <li class="api apilevel-"><a href="../../../../../reference/android/support/v4/app/Fragment.InstantiationException.html">Fragment.InstantiationException</a></li>
+      </ul>
+    </li>
+              
+            </ul><br/>
+        
+
+          </div><!-- end classes -->
+        </div><!-- end nav-panels -->
+        <div id="nav-tree" style="display:none" class="scroll-pane">
+          <div id="tree-list"></div>
+        </div><!-- end nav-tree -->
+      </div><!-- end swapper -->
+      <div id="nav-swap">
+      <a class="fullscreen">fullscreen</a>
+      <a href='#' onclick='swapNav();return false;'><span id='tree-link'>Use Tree Navigation</span><span id='panel-link' style='display:none'>Use Panel Navigation</span></a>
+      </div>
+    </div> <!-- end devdoc-nav -->
+    </div> <!-- end side-nav -->
+    <script type="text/javascript">
+      // init fullscreen based on user pref
+      var fullscreen = readCookie("fullscreen");
+      if (fullscreen != 0) {
+        if (fullscreen == "false") {
+          toggleFullscreen(false);
+        } else {
+          toggleFullscreen(true);
+        }
+      }
+      // init nav version for mobile
+      if (isMobile) {
+        swapNav(); // tree view should be used on mobile
+        $('#nav-swap').hide();
+      } else {
+        chooseDefaultNav();
+        if ($("#nav-tree").is(':visible')) {
+          init_default_navtree("../../../../../");
+        }
+      }
+      // scroll the selected page into view
+      $(document).ready(function() {
+        scrollIntoView("packages-nav");
+        scrollIntoView("classes-nav");
+        });
+    </script>
+
+     
+
+
+
+<div class="col-12"  id="doc-col">
+
+<div id="api-info-block">
+
+
+
+  
+   
+  
+  
+  
+  
+
+  
+   
+  
+  
+  
+  
+
+
+<div class="sum-details-links">
+
+Summary:
+
+
+
+
+
+  <a href="#constants">Constants</a>
+  
+
+
+
+
+
+  &#124; <a href="#pubctors">Ctors</a>
+  
+
+
+
+  &#124; <a href="#pubmethods">Methods</a>
+  
+
+
+
+  &#124; <a href="#inhmethods">Inherited Methods</a>
+
+&#124; <a href="#" onclick="return toggleAllClassInherited()" id="toggleAllClassInherited">[Expand All]</a>
+
+</div><!-- end sum-details-links -->
+<div class="api-level">
+  
+  
+  
+
+</div>
+</div><!-- end api-info-block -->
+
+
+<!-- ======== START OF CLASS DATA ======== -->
+
+<div id="jd-header">
+    public
+    static 
+    final 
+    
+    class
+<h1 itemprop="name">NotificationCompat.WearableExtender</h1>
+
+
+
+  
+    extends <a href="../../../../../reference/java/lang/Object.html">Object</a><br/>
+  
+  
+  
+
+  
+  
+      implements 
+      
+        <a href="../../../../../reference/android/support/v4/app/NotificationCompat.Extender.html">NotificationCompat.Extender</a> 
+      
+  
+  
+
+
+</div><!-- end header -->
+
+<div id="naMessage"></div>
+
+<div id="jd-content" class="api apilevel-">
+<table class="jd-inheritance-table">
+
+
+    <tr>
+         	
+        <td colspan="2" class="jd-inheritance-class-cell"><a href="../../../../../reference/java/lang/Object.html">java.lang.Object</a></td>
+    </tr>
+    
+
+    <tr>
+        
+            <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
+         	
+        <td colspan="1" class="jd-inheritance-class-cell">android.support.v4.app.NotificationCompat.WearableExtender</td>
+    </tr>
+    
+
+</table>
+
+
+
+
+
+
+
+<div class="jd-descr">
+
+
+<h2>Class Overview</h2>
+<p itemprop="articleBody">Helper class to add wearable extensions to notifications.
+ <p class="note"> See
+ <a href="../../../../../wear/notifications/creating.html">Creating Notifications
+ for Android Wear</a> for more information on how to use this class.
+ <p>
+ To create a notification with wearable extensions:
+ <ol>
+   <li>Create a <code><a href="../../../../../reference/android/support/v4/app/NotificationCompat.Builder.html">NotificationCompat.Builder</a></code>, setting any desired
+   properties.
+   <li>Create a <code><a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html">NotificationCompat.WearableExtender</a></code>.
+   <li>Set wearable-specific properties using the
+   <code>add</code> and <code>set</code> methods of <code><a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html">NotificationCompat.WearableExtender</a></code>.
+   <li>Call <code><a href="../../../../../reference/android/support/v4/app/NotificationCompat.Builder.html#extend(android.support.v4.app.NotificationCompat.Extender)">extend(NotificationCompat.Extender)</a></code> to apply the extensions to a
+   notification.
+   <li>Post the notification to the notification
+   system with the <code>NotificationManagerCompat.notify(...)</code> methods
+   and not the <code>NotificationManager.notify(...)</code> methods.
+ </ol>
+
+ <pre class="prettyprint">
+ Notification notif = new NotificationCompat.Builder(mContext)
+         .setContentTitle(&quot;New mail from &quot; + sender.toString())
+         .setContentText(subject)
+         .setSmallIcon(R.drawable.new_mail)
+         .extend(new NotificationCompat.WearableExtender()
+                 .setContentIcon(R.drawable.new_mail))
+         .build();
+ NotificationManagerCompat.from(mContext).notify(0, notif);</pre>
+
+ <p>Wearable extensions can be accessed on an existing notification by using the
+ <code>WearableExtender(Notification)</code> constructor,
+ and then using the <code>get</code> methods to access values.
+
+ <pre class="prettyprint">
+ NotificationCompat.WearableExtender wearableExtender =
+         new NotificationCompat.WearableExtender(notification);
+ List&lt;Notification&gt; pages = wearableExtender.getPages();</pre>
+</p>
+
+
+
+
+
+</div><!-- jd-descr -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="jd-descr">
+
+
+<h2>Summary</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- =========== ENUM CONSTANT SUMMARY =========== -->
+<table id="constants" class="jd-sumtable"><tr><th colspan="12">Constants</th></tr>
+
+
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">int</td>
+        <td class="jd-linkcol"><a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html#SIZE_DEFAULT">SIZE_DEFAULT</a></td>
+        <td class="jd-descrcol" width="100%">Size value for use with <code><a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html#setCustomSizePreset(int)">setCustomSizePreset(int)</a></code> to show this notification with
+ default sizing.</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">int</td>
+        <td class="jd-linkcol"><a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html#SIZE_FULL_SCREEN">SIZE_FULL_SCREEN</a></td>
+        <td class="jd-descrcol" width="100%">Size value for use with <code><a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html#setCustomSizePreset(int)">setCustomSizePreset(int)</a></code> to show this notification
+ full screen.</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">int</td>
+        <td class="jd-linkcol"><a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html#SIZE_LARGE">SIZE_LARGE</a></td>
+        <td class="jd-descrcol" width="100%">Size value for use with <code><a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html#setCustomSizePreset(int)">setCustomSizePreset(int)</a></code> to show this notification
+ with a large size.</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">int</td>
+        <td class="jd-linkcol"><a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html#SIZE_MEDIUM">SIZE_MEDIUM</a></td>
+        <td class="jd-descrcol" width="100%">Size value for use with <code><a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html#setCustomSizePreset(int)">setCustomSizePreset(int)</a></code> to show this notification
+ with a medium size.</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">int</td>
+        <td class="jd-linkcol"><a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html#SIZE_SMALL">SIZE_SMALL</a></td>
+        <td class="jd-descrcol" width="100%">Size value for use with <code><a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html#setCustomSizePreset(int)">setCustomSizePreset(int)</a></code> to show this notification
+ with a small size.</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">int</td>
+        <td class="jd-linkcol"><a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html#SIZE_XSMALL">SIZE_XSMALL</a></td>
+        <td class="jd-descrcol" width="100%">Size value for use with <code><a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html#setCustomSizePreset(int)">setCustomSizePreset(int)</a></code> to show this notification
+ with an extra small size.</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">int</td>
+        <td class="jd-linkcol"><a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html#UNSET_ACTION_INDEX">UNSET_ACTION_INDEX</a></td>
+        <td class="jd-descrcol" width="100%">Sentinel value for an action index that is unset.</td>
+    </tr>
+    
+    
+
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+<table id="pubctors" class="jd-sumtable"><tr><th colspan="12">Public Constructors</th></tr>
+
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            </nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html#NotificationCompat.WearableExtender()">NotificationCompat.WearableExtender</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Create a <code><a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html">NotificationCompat.WearableExtender</a></code> with default
+ options.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            </nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html#NotificationCompat.WearableExtender(android.app.Notification)">NotificationCompat.WearableExtender</a></span>(<a href="../../../../../reference/android/app/Notification.html">Notification</a> notif)</nobr>
+        
+  </td></tr>
+
+
+
+</table>
+
+
+
+
+
+
+<!-- ========== METHOD SUMMARY =========== -->
+<table id="pubmethods" class="jd-sumtable"><tr><th colspan="12">Public Methods</th></tr>
+
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html">NotificationCompat.WearableExtender</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html#addAction(android.support.v4.app.NotificationCompat.Action)">addAction</a></span>(<a href="../../../../../reference/android/support/v4/app/NotificationCompat.Action.html">NotificationCompat.Action</a> action)</nobr>
+        
+        <div class="jd-descrdiv">Add a wearable action to this notification.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html">NotificationCompat.WearableExtender</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html#addActions(java.util.List<android.support.v4.app.NotificationCompat.Action>)">addActions</a></span>(<a href="../../../../../reference/java/util/List.html">List</a>&lt;<a href="../../../../../reference/android/support/v4/app/NotificationCompat.Action.html">NotificationCompat.Action</a>&gt; actions)</nobr>
+        
+        <div class="jd-descrdiv">Adds wearable actions to this notification.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html">NotificationCompat.WearableExtender</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html#addPage(android.app.Notification)">addPage</a></span>(<a href="../../../../../reference/android/app/Notification.html">Notification</a> page)</nobr>
+        
+        <div class="jd-descrdiv">Add an additional page of content to display with this notification.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html">NotificationCompat.WearableExtender</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html#addPages(java.util.List<android.app.Notification>)">addPages</a></span>(<a href="../../../../../reference/java/util/List.html">List</a>&lt;<a href="../../../../../reference/android/app/Notification.html">Notification</a>&gt; pages)</nobr>
+        
+        <div class="jd-descrdiv">Add additional pages of content to display with this notification.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html">NotificationCompat.WearableExtender</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html#clearActions()">clearActions</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Clear all wearable actions present on this builder.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html">NotificationCompat.WearableExtender</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html#clearPages()">clearPages</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Clear all additional pages present on this builder.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html">NotificationCompat.WearableExtender</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html#clone()">clone</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Creates and returns a copy of this <code>Object</code>.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../../../reference/android/support/v4/app/NotificationCompat.Builder.html">NotificationCompat.Builder</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html#extend(android.support.v4.app.NotificationCompat.Builder)">extend</a></span>(<a href="../../../../../reference/android/support/v4/app/NotificationCompat.Builder.html">NotificationCompat.Builder</a> builder)</nobr>
+        
+        <div class="jd-descrdiv">Apply wearable extensions to a notification that is being built.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../../../reference/java/util/List.html">List</a>&lt;<a href="../../../../../reference/android/support/v4/app/NotificationCompat.Action.html">NotificationCompat.Action</a>&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html#getActions()">getActions</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Get the wearable actions present on this notification.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../../../reference/android/graphics/Bitmap.html">Bitmap</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html#getBackground()">getBackground</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Get a background image to be displayed behind the notification content.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html#getContentAction()">getContentAction</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Get the index of the notification action, if any, that was specified as being clickable
+ with the content of this notification.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html#getContentIcon()">getContentIcon</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Get an icon that goes with the content of this notification.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html#getContentIconGravity()">getContentIconGravity</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Get the gravity that the content icon should have within the notification display.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html#getContentIntentAvailableOffline()">getContentIntentAvailableOffline</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Get whether the content intent is available when the wearable device is not connected
+ to a companion device.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html#getCustomContentHeight()">getCustomContentHeight</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Get the custom height in pixels for the display of this notification's content.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html#getCustomSizePreset()">getCustomSizePreset</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Get the custom size preset for the display of this notification out of the available
+ presets found in <code><a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html">NotificationCompat.WearableExtender</a></code>, e.g.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../../../reference/android/app/PendingIntent.html">PendingIntent</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html#getDisplayIntent()">getDisplayIntent</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Get the intent to launch inside of an activity view when displaying this
+ notification.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html#getGravity()">getGravity</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Get the gravity that this notification should have within the available viewport space.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html#getHintHideIcon()">getHintHideIcon</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Get a hint that this notification's icon should not be displayed.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html#getHintShowBackgroundOnly()">getHintShowBackgroundOnly</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Get a visual hint that only the background image of this notification should be
+ displayed, and other semantic content should be hidden.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../../../reference/java/util/List.html">List</a>&lt;<a href="../../../../../reference/android/app/Notification.html">Notification</a>&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html#getPages()">getPages</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Get the array of additional pages of content for displaying this notification.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html#getStartScrollBottom()">getStartScrollBottom</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Get whether the scrolling position for the contents of this notification should start
+ at the bottom of the contents instead of the top when the contents are too long to
+ display within the screen.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html">NotificationCompat.WearableExtender</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html#setBackground(android.graphics.Bitmap)">setBackground</a></span>(<a href="../../../../../reference/android/graphics/Bitmap.html">Bitmap</a> background)</nobr>
+        
+        <div class="jd-descrdiv">Set a background image to be displayed behind the notification content.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html">NotificationCompat.WearableExtender</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html#setContentAction(int)">setContentAction</a></span>(int actionIndex)</nobr>
+        
+        <div class="jd-descrdiv">Set an action from this notification's actions to be clickable with the content of
+ this notification.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html">NotificationCompat.WearableExtender</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html#setContentIcon(int)">setContentIcon</a></span>(int icon)</nobr>
+        
+        <div class="jd-descrdiv">Set an icon that goes with the content of this notification.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html">NotificationCompat.WearableExtender</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html#setContentIconGravity(int)">setContentIconGravity</a></span>(int contentIconGravity)</nobr>
+        
+        <div class="jd-descrdiv">Set the gravity that the content icon should have within the notification display.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html">NotificationCompat.WearableExtender</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html#setContentIntentAvailableOffline(boolean)">setContentIntentAvailableOffline</a></span>(boolean contentIntentAvailableOffline)</nobr>
+        
+        <div class="jd-descrdiv">Set whether the content intent is available when the wearable device is not connected
+ to a companion device.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html">NotificationCompat.WearableExtender</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html#setCustomContentHeight(int)">setCustomContentHeight</a></span>(int height)</nobr>
+        
+        <div class="jd-descrdiv">Set the custom height in pixels for the display of this notification's content.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html">NotificationCompat.WearableExtender</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html#setCustomSizePreset(int)">setCustomSizePreset</a></span>(int sizePreset)</nobr>
+        
+        <div class="jd-descrdiv">Set the custom size preset for the display of this notification out of the available
+ presets found in <code><a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html">NotificationCompat.WearableExtender</a></code>, e.g.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html">NotificationCompat.WearableExtender</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html#setDisplayIntent(android.app.PendingIntent)">setDisplayIntent</a></span>(<a href="../../../../../reference/android/app/PendingIntent.html">PendingIntent</a> intent)</nobr>
+        
+        <div class="jd-descrdiv">Set an intent to launch inside of an activity view when displaying
+ this notification.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html">NotificationCompat.WearableExtender</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html#setGravity(int)">setGravity</a></span>(int gravity)</nobr>
+        
+        <div class="jd-descrdiv">Set the gravity that this notification should have within the available viewport space.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html">NotificationCompat.WearableExtender</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html#setHintHideIcon(boolean)">setHintHideIcon</a></span>(boolean hintHideIcon)</nobr>
+        
+        <div class="jd-descrdiv">Set a hint that this notification's icon should not be displayed.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html">NotificationCompat.WearableExtender</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html#setHintShowBackgroundOnly(boolean)">setHintShowBackgroundOnly</a></span>(boolean hintShowBackgroundOnly)</nobr>
+        
+        <div class="jd-descrdiv">Set a visual hint that only the background image of this notification should be
+ displayed, and other semantic content should be hidden.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html">NotificationCompat.WearableExtender</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html#setStartScrollBottom(boolean)">setStartScrollBottom</a></span>(boolean startScrollBottom)</nobr>
+        
+        <div class="jd-descrdiv">Set whether the scrolling position for the contents of this notification should start
+ at the bottom of the contents instead of the top when the contents are too long to
+ display within the screen.</div>
+  
+  </td></tr>
+
+
+
+</table>
+
+
+
+
+
+
+
+<!-- ========== METHOD SUMMARY =========== -->
+<table id="inhmethods" class="jd-sumtable"><tr><th>
+  <a href="#" class="toggle-all" onclick="return toggleAllInherited(this, null)">[Expand]</a>
+  <div style="clear:left;">Inherited Methods</div></th></tr>
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-java.lang.Object" class="jd-expando-trigger closed"
+          ><img id="inherited-methods-java.lang.Object-trigger"
+          src="../../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>
+From class
+
+  <a href="../../../../../reference/java/lang/Object.html">java.lang.Object</a>
+
+<div id="inherited-methods-java.lang.Object">
+  <div id="inherited-methods-java.lang.Object-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-methods-java.lang.Object-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../../../reference/java/lang/Object.html">Object</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/java/lang/Object.html#clone()">clone</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Creates and returns a copy of this <code>Object</code>.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/java/lang/Object.html#equals(java.lang.Object)">equals</a></span>(<a href="../../../../../reference/java/lang/Object.html">Object</a> o)</nobr>
+        
+        <div class="jd-descrdiv">Compares this instance with the specified object and indicates if they
+ are equal.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/java/lang/Object.html#finalize()">finalize</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Invoked when the garbage collector has detected that this instance is no longer reachable.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            <a href="../../../../../reference/java/lang/Class.html">Class</a>&lt;?&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/java/lang/Object.html#getClass()">getClass</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Returns the unique instance of <code><a href="../../../../../reference/java/lang/Class.html">Class</a></code> that represents this
+ object's class.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/java/lang/Object.html#hashCode()">hashCode</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Returns an integer hash code for this object.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/java/lang/Object.html#notify()">notify</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Causes a thread which is waiting on this object's monitor (by means of
+ calling one of the <code>wait()</code> methods) to be woken up.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/java/lang/Object.html#notifyAll()">notifyAll</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Causes all threads which are waiting on this object's monitor (by means
+ of calling one of the <code>wait()</code> methods) to be woken up.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../../../reference/java/lang/String.html">String</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/java/lang/Object.html#toString()">toString</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Returns a string containing a concise, human-readable description of this
+ object.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/java/lang/Object.html#wait()">wait</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/java/lang/Object.html#wait(long, int)">wait</a></span>(long millis, int nanos)</nobr>
+        
+        <div class="jd-descrdiv">Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object or until the
+ specified timeout expires.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/java/lang/Object.html#wait(long)">wait</a></span>(long millis)</nobr>
+        
+        <div class="jd-descrdiv">Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object or until the
+ specified timeout expires.</div>
+  
+  </td></tr>
+
+
+</table>
+  </div>
+</div>
+</td></tr>
+
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-android.support.v4.app.NotificationCompat.Extender" class="jd-expando-trigger closed"
+          ><img id="inherited-methods-android.support.v4.app.NotificationCompat.Extender-trigger"
+          src="../../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>
+From interface
+
+  <a href="../../../../../reference/android/support/v4/app/NotificationCompat.Extender.html">android.support.v4.app.NotificationCompat.Extender</a>
+
+<div id="inherited-methods-android.support.v4.app.NotificationCompat.Extender">
+  <div id="inherited-methods-android.support.v4.app.NotificationCompat.Extender-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-methods-android.support.v4.app.NotificationCompat.Extender-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            <a href="../../../../../reference/android/support/v4/app/NotificationCompat.Builder.html">NotificationCompat.Builder</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/android/support/v4/app/NotificationCompat.Extender.html#extend(android.support.v4.app.NotificationCompat.Builder)">extend</a></span>(<a href="../../../../../reference/android/support/v4/app/NotificationCompat.Builder.html">NotificationCompat.Builder</a> builder)</nobr>
+        
+        <div class="jd-descrdiv">Apply this extender to a notification builder.</div>
+  
+  </td></tr>
+
+
+</table>
+  </div>
+</div>
+</td></tr>
+
+
+</table>
+
+
+</div><!-- jd-descr (summary) -->
+
+<!-- Details -->
+
+
+
+
+
+
+
+
+<!-- XML Attributes -->
+
+
+<!-- Enum Values -->
+
+
+<!-- Constants -->
+
+
+<!-- ========= ENUM CONSTANTS DETAIL ======== -->
+<h2>Constants</h2>
+
+
+
+
+<A NAME="SIZE_DEFAULT"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        int
+      </span>
+        SIZE_DEFAULT
+    </h4>
+      <div class="api-level">
+        
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Size value for use with <code><a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html#setCustomSizePreset(int)">setCustomSizePreset(int)</a></code> to show this notification with
+ default sizing.
+ <p>For custom display notifications created using <code><a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html#setDisplayIntent(android.app.PendingIntent)">setDisplayIntent(PendingIntent)</a></code>,
+ the default is <code><a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html#SIZE_LARGE">SIZE_LARGE</a></code>. All other notifications size automatically based
+ on their content.
+</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                0
+                (0x00000000)
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="SIZE_FULL_SCREEN"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        int
+      </span>
+        SIZE_FULL_SCREEN
+    </h4>
+      <div class="api-level">
+        
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Size value for use with <code><a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html#setCustomSizePreset(int)">setCustomSizePreset(int)</a></code> to show this notification
+ full screen.
+ <p>This value is only applicable for custom display notifications created using
+ <code><a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html#setDisplayIntent(android.app.PendingIntent)">setDisplayIntent(PendingIntent)</a></code>.
+</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                5
+                (0x00000005)
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="SIZE_LARGE"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        int
+      </span>
+        SIZE_LARGE
+    </h4>
+      <div class="api-level">
+        
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Size value for use with <code><a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html#setCustomSizePreset(int)">setCustomSizePreset(int)</a></code> to show this notification
+ with a large size.
+ <p>This value is only applicable for custom display notifications created using
+ <code><a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html#setDisplayIntent(android.app.PendingIntent)">setDisplayIntent(PendingIntent)</a></code>.
+</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                4
+                (0x00000004)
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="SIZE_MEDIUM"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        int
+      </span>
+        SIZE_MEDIUM
+    </h4>
+      <div class="api-level">
+        
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Size value for use with <code><a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html#setCustomSizePreset(int)">setCustomSizePreset(int)</a></code> to show this notification
+ with a medium size.
+ <p>This value is only applicable for custom display notifications created using
+ <code><a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html#setDisplayIntent(android.app.PendingIntent)">setDisplayIntent(PendingIntent)</a></code>.
+</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                3
+                (0x00000003)
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="SIZE_SMALL"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        int
+      </span>
+        SIZE_SMALL
+    </h4>
+      <div class="api-level">
+        
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Size value for use with <code><a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html#setCustomSizePreset(int)">setCustomSizePreset(int)</a></code> to show this notification
+ with a small size.
+ <p>This value is only applicable for custom display notifications created using
+ <code><a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html#setDisplayIntent(android.app.PendingIntent)">setDisplayIntent(PendingIntent)</a></code>.
+</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                2
+                (0x00000002)
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="SIZE_XSMALL"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        int
+      </span>
+        SIZE_XSMALL
+    </h4>
+      <div class="api-level">
+        
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Size value for use with <code><a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html#setCustomSizePreset(int)">setCustomSizePreset(int)</a></code> to show this notification
+ with an extra small size.
+ <p>This value is only applicable for custom display notifications created using
+ <code><a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html#setDisplayIntent(android.app.PendingIntent)">setDisplayIntent(PendingIntent)</a></code>.
+</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                1
+                (0x00000001)
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="UNSET_ACTION_INDEX"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        int
+      </span>
+        UNSET_ACTION_INDEX
+    </h4>
+      <div class="api-level">
+        
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sentinel value for an action index that is unset.
+</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                -1
+                (0xffffffff)
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+
+<!-- Fields -->
+
+
+<!-- Public ctors -->
+
+
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<h2>Public Constructors</h2>
+
+
+
+<A NAME="NotificationCompat.WearableExtender()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        
+      </span>
+      <span class="sympad">NotificationCompat.WearableExtender</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Create a <code><a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html">NotificationCompat.WearableExtender</a></code> with default
+ options.
+</p></div>
+
+    </div>
+</div>
+
+
+<A NAME="NotificationCompat.WearableExtender(android.app.Notification)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        
+      </span>
+      <span class="sympad">NotificationCompat.WearableExtender</span>
+      <span class="normal">(<a href="../../../../../reference/android/app/Notification.html">Notification</a> notif)</span>
+    </h4>
+      <div class="api-level">
+        <div></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+
+
+
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<!-- Protected ctors -->
+
+
+
+<!-- ========= METHOD DETAIL ======== -->
+<!-- Public methdos -->
+
+<h2>Public Methods</h2>
+
+
+
+<A NAME="addAction(android.support.v4.app.NotificationCompat.Action)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html">NotificationCompat.WearableExtender</a>
+      </span>
+      <span class="sympad">addAction</span>
+      <span class="normal">(<a href="../../../../../reference/android/support/v4/app/NotificationCompat.Action.html">NotificationCompat.Action</a> action)</span>
+    </h4>
+      <div class="api-level">
+        <div></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Add a wearable action to this notification.
+
+ <p>When wearable actions are added using this method, the set of actions that
+ show on a wearable device splits from devices that only show actions added
+ using <code><a href="../../../../../reference/android/support/v4/app/NotificationCompat.Builder.html#addAction(android.support.v4.app.NotificationCompat.Action)">addAction(NotificationCompat.Action)</a></code>. This allows for customization
+ of which actions display on different devices.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>action</td>
+          <td>the action to add to this notification</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>this object for method chaining</li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">See Also</h5>
+      <ul class="nolist"><li><code><a href="../../../../../reference/android/support/v4/app/NotificationCompat.Action.html">NotificationCompat.Action</a></code></li>
+      </ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="addActions(java.util.List<android.support.v4.app.NotificationCompat.Action>)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html">NotificationCompat.WearableExtender</a>
+      </span>
+      <span class="sympad">addActions</span>
+      <span class="normal">(<a href="../../../../../reference/java/util/List.html">List</a>&lt;<a href="../../../../../reference/android/support/v4/app/NotificationCompat.Action.html">NotificationCompat.Action</a>&gt; actions)</span>
+    </h4>
+      <div class="api-level">
+        <div></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Adds wearable actions to this notification.
+
+ <p>When wearable actions are added using this method, the set of actions that
+ show on a wearable device splits from devices that only show actions added
+ using <code><a href="../../../../../reference/android/support/v4/app/NotificationCompat.Builder.html#addAction(android.support.v4.app.NotificationCompat.Action)">addAction(NotificationCompat.Action)</a></code>. This allows for customization
+ of which actions display on different devices.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>actions</td>
+          <td>the actions to add to this notification</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>this object for method chaining</li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">See Also</h5>
+      <ul class="nolist"><li><code><a href="../../../../../reference/android/support/v4/app/NotificationCompat.Action.html">NotificationCompat.Action</a></code></li>
+      </ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="addPage(android.app.Notification)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html">NotificationCompat.WearableExtender</a>
+      </span>
+      <span class="sympad">addPage</span>
+      <span class="normal">(<a href="../../../../../reference/android/app/Notification.html">Notification</a> page)</span>
+    </h4>
+      <div class="api-level">
+        <div></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Add an additional page of content to display with this notification. The current
+ notification forms the first page, and pages added using this function form
+ subsequent pages. This field can be used to separate a notification into multiple
+ sections.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>page</td>
+          <td>the notification to add as another page</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>this object for method chaining</li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">See Also</h5>
+      <ul class="nolist"><li><code><a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html#getPages()">getPages()</a></code></li>
+      </ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="addPages(java.util.List<android.app.Notification>)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html">NotificationCompat.WearableExtender</a>
+      </span>
+      <span class="sympad">addPages</span>
+      <span class="normal">(<a href="../../../../../reference/java/util/List.html">List</a>&lt;<a href="../../../../../reference/android/app/Notification.html">Notification</a>&gt; pages)</span>
+    </h4>
+      <div class="api-level">
+        <div></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Add additional pages of content to display with this notification. The current
+ notification forms the first page, and pages added using this function form
+ subsequent pages. This field can be used to separate a notification into multiple
+ sections.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>pages</td>
+          <td>a list of notifications</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>this object for method chaining</li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">See Also</h5>
+      <ul class="nolist"><li><code><a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html#getPages()">getPages()</a></code></li>
+      </ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="clearActions()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html">NotificationCompat.WearableExtender</a>
+      </span>
+      <span class="sympad">clearActions</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Clear all wearable actions present on this builder.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>this object for method chaining.</li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">See Also</h5>
+      <ul class="nolist"><li><code><a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html#addAction(android.support.v4.app.NotificationCompat.Action)">addAction(NotificationCompat.Action)</a></code></li>
+      </ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="clearPages()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html">NotificationCompat.WearableExtender</a>
+      </span>
+      <span class="sympad">clearPages</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Clear all additional pages present on this builder.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>this object for method chaining.</li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">See Also</h5>
+      <ul class="nolist"><li><code><a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html#addPage(android.app.Notification)">addPage(Notification)</a></code></li>
+      </ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="clone()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html">NotificationCompat.WearableExtender</a>
+      </span>
+      <span class="sympad">clone</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Creates and returns a copy of this <code>Object</code>. The default
+ implementation returns a so-called "shallow" copy: It creates a new
+ instance of the same class and then copies the field values (including
+ object references) from this instance to the new instance. A "deep" copy,
+ in contrast, would also recursively clone nested objects. A subclass that
+ needs to implement this kind of cloning should call <code>super.clone()</code>
+ to create the new instance and then create deep copies of the nested,
+ mutable objects.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>a copy of this object.</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="extend(android.support.v4.app.NotificationCompat.Builder)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="../../../../../reference/android/support/v4/app/NotificationCompat.Builder.html">NotificationCompat.Builder</a>
+      </span>
+      <span class="sympad">extend</span>
+      <span class="normal">(<a href="../../../../../reference/android/support/v4/app/NotificationCompat.Builder.html">NotificationCompat.Builder</a> builder)</span>
+    </h4>
+      <div class="api-level">
+        <div></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Apply wearable extensions to a notification that is being built. This is typically
+ called by the <code><a href="../../../../../reference/android/support/v4/app/NotificationCompat.Builder.html#extend(android.support.v4.app.NotificationCompat.Extender)">extend(NotificationCompat.Extender)</a></code> method of
+ <code><a href="../../../../../reference/android/support/v4/app/NotificationCompat.Builder.html">NotificationCompat.Builder</a></code>.
+</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>builder</td>
+          <td>the builder to be modified.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>the build object for chaining.
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getActions()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="../../../../../reference/java/util/List.html">List</a>&lt;<a href="../../../../../reference/android/support/v4/app/NotificationCompat.Action.html">NotificationCompat.Action</a>&gt;
+      </span>
+      <span class="sympad">getActions</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Get the wearable actions present on this notification.
+</p></div>
+
+    </div>
+</div>
+
+
+<A NAME="getBackground()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="../../../../../reference/android/graphics/Bitmap.html">Bitmap</a>
+      </span>
+      <span class="sympad">getBackground</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Get a background image to be displayed behind the notification content.
+ Contrary to the <code><a href="../../../../../reference/android/support/v4/app/NotificationCompat.BigPictureStyle.html">NotificationCompat.BigPictureStyle</a></code>, this background
+ will work with any notification style.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>the background image</li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">See Also</h5>
+      <ul class="nolist"><li><code><a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html#setBackground(android.graphics.Bitmap)">setBackground(Bitmap)</a></code></li>
+      </ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getContentAction()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        int
+      </span>
+      <span class="sympad">getContentAction</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Get the index of the notification action, if any, that was specified as being clickable
+ with the content of this notification. This action will no longer display separately
+ from the notification's content.
+
+ <p>For notifications with multiple pages, child pages can also have content actions
+ set, although the list of available actions comes from the main notification and not
+ from the child page's notification.
+
+ <p>If wearable specific actions were added to the main notification, this index will
+ apply to that list, otherwise it will apply to the regular actions list.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>the action index or <code><a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html#UNSET_ACTION_INDEX">UNSET_ACTION_INDEX</a></code> if no action was selected.
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getContentIcon()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        int
+      </span>
+      <span class="sympad">getContentIcon</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Get an icon that goes with the content of this notification.
+</p></div>
+
+    </div>
+</div>
+
+
+<A NAME="getContentIconGravity()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        int
+      </span>
+      <span class="sympad">getContentIconGravity</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Get the gravity that the content icon should have within the notification display.
+ Supported values include <code><a href="../../../../../reference/android/view/Gravity.html#START">START</a></code> and
+ <code><a href="../../../../../reference/android/view/Gravity.html#END">END</a></code>. The default value is <code><a href="../../../../../reference/android/view/Gravity.html#END">END</a></code>.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">See Also</h5>
+      <ul class="nolist"><li><code><a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html#getContentIcon()">getContentIcon()</a></code></li>
+      </ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getContentIntentAvailableOffline()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        boolean
+      </span>
+      <span class="sympad">getContentIntentAvailableOffline</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Get whether the content intent is available when the wearable device is not connected
+ to a companion device.  The user can still trigger this intent when the wearable device
+ is offline, but a visual hint will indicate that the content intent may not be available.
+ Defaults to true.
+</p></div>
+
+    </div>
+</div>
+
+
+<A NAME="getCustomContentHeight()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        int
+      </span>
+      <span class="sympad">getCustomContentHeight</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Get the custom height in pixels for the display of this notification's content.
+ <p>This option is only available for custom display notifications created
+ using <code><a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html#setDisplayIntent(android.app.PendingIntent)">setDisplayIntent(PendingIntent)</a></code>. See also <code><a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html#setCustomSizePreset(int)">setCustomSizePreset(int)</a></code> and
+ <code><a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html#setCustomContentHeight(int)">setCustomContentHeight(int)</a></code>.
+</p></div>
+
+    </div>
+</div>
+
+
+<A NAME="getCustomSizePreset()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        int
+      </span>
+      <span class="sympad">getCustomSizePreset</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Get the custom size preset for the display of this notification out of the available
+ presets found in <code><a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html">NotificationCompat.WearableExtender</a></code>, e.g.
+ <code><a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html#SIZE_LARGE">SIZE_LARGE</a></code>.
+ <p>Some custom size presets are only applicable for custom display notifications created
+ using <code><a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html#setDisplayIntent(android.app.PendingIntent)">setDisplayIntent(PendingIntent)</a></code>. Check the documentation for the preset in question.
+ See also <code><a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html#setCustomContentHeight(int)">setCustomContentHeight(int)</a></code> and <code><a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html#setCustomSizePreset(int)">setCustomSizePreset(int)</a></code>.
+</p></div>
+
+    </div>
+</div>
+
+
+<A NAME="getDisplayIntent()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="../../../../../reference/android/app/PendingIntent.html">PendingIntent</a>
+      </span>
+      <span class="sympad">getDisplayIntent</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Get the intent to launch inside of an activity view when displaying this
+ notification. This <code>PendingIntent</code> should be for an activity.
+</p></div>
+
+    </div>
+</div>
+
+
+<A NAME="getGravity()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        int
+      </span>
+      <span class="sympad">getGravity</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Get the gravity that this notification should have within the available viewport space.
+ Supported values include <code><a href="../../../../../reference/android/view/Gravity.html#TOP">TOP</a></code>,
+ <code><a href="../../../../../reference/android/view/Gravity.html#CENTER_VERTICAL">CENTER_VERTICAL</a></code> and <code><a href="../../../../../reference/android/view/Gravity.html#BOTTOM">BOTTOM</a></code>.
+ The default value is <code><a href="../../../../../reference/android/view/Gravity.html#BOTTOM">BOTTOM</a></code>.
+</p></div>
+
+    </div>
+</div>
+
+
+<A NAME="getHintHideIcon()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        boolean
+      </span>
+      <span class="sympad">getHintHideIcon</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Get a hint that this notification's icon should not be displayed.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li><code>true</code> if this icon should not be displayed, false otherwise.
+ The default value is <code>false</code> if this was never set.
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getHintShowBackgroundOnly()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        boolean
+      </span>
+      <span class="sympad">getHintShowBackgroundOnly</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Get a visual hint that only the background image of this notification should be
+ displayed, and other semantic content should be hidden. This hint is only applicable
+ to sub-pages added using <code><a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html#addPage(android.app.Notification)">addPage(Notification)</a></code>.
+</p></div>
+
+    </div>
+</div>
+
+
+<A NAME="getPages()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="../../../../../reference/java/util/List.html">List</a>&lt;<a href="../../../../../reference/android/app/Notification.html">Notification</a>&gt;
+      </span>
+      <span class="sympad">getPages</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Get the array of additional pages of content for displaying this notification. The
+ current notification forms the first page, and elements within this array form
+ subsequent pages. This field can be used to separate a notification into multiple
+ sections.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>the pages for this notification
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getStartScrollBottom()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        boolean
+      </span>
+      <span class="sympad">getStartScrollBottom</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Get whether the scrolling position for the contents of this notification should start
+ at the bottom of the contents instead of the top when the contents are too long to
+ display within the screen. Default is false (start scroll at the top).
+</p></div>
+
+    </div>
+</div>
+
+
+<A NAME="setBackground(android.graphics.Bitmap)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html">NotificationCompat.WearableExtender</a>
+      </span>
+      <span class="sympad">setBackground</span>
+      <span class="normal">(<a href="../../../../../reference/android/graphics/Bitmap.html">Bitmap</a> background)</span>
+    </h4>
+      <div class="api-level">
+        <div></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Set a background image to be displayed behind the notification content.
+ Contrary to the <code><a href="../../../../../reference/android/support/v4/app/NotificationCompat.BigPictureStyle.html">NotificationCompat.BigPictureStyle</a></code>, this background
+ will work with any notification style.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>background</td>
+          <td>the background bitmap</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>this object for method chaining</li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">See Also</h5>
+      <ul class="nolist"><li><code><a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html#getBackground()">getBackground()</a></code></li>
+      </ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setContentAction(int)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html">NotificationCompat.WearableExtender</a>
+      </span>
+      <span class="sympad">setContentAction</span>
+      <span class="normal">(int actionIndex)</span>
+    </h4>
+      <div class="api-level">
+        <div></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Set an action from this notification's actions to be clickable with the content of
+ this notification. This action will no longer display separately from the
+ notification's content.
+
+ <p>For notifications with multiple pages, child pages can also have content actions
+ set, although the list of available actions comes from the main notification and not
+ from the child page's notification.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>actionIndex</td>
+          <td>The index of the action to hoist onto the current notification page.
+                    If wearable actions were added to the main notification, this index
+                    will apply to that list, otherwise it will apply to the regular
+                    actions list.
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setContentIcon(int)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html">NotificationCompat.WearableExtender</a>
+      </span>
+      <span class="sympad">setContentIcon</span>
+      <span class="normal">(int icon)</span>
+    </h4>
+      <div class="api-level">
+        <div></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Set an icon that goes with the content of this notification.
+</p></div>
+
+    </div>
+</div>
+
+
+<A NAME="setContentIconGravity(int)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html">NotificationCompat.WearableExtender</a>
+      </span>
+      <span class="sympad">setContentIconGravity</span>
+      <span class="normal">(int contentIconGravity)</span>
+    </h4>
+      <div class="api-level">
+        <div></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Set the gravity that the content icon should have within the notification display.
+ Supported values include <code><a href="../../../../../reference/android/view/Gravity.html#START">START</a></code> and
+ <code><a href="../../../../../reference/android/view/Gravity.html#END">END</a></code>. The default value is <code><a href="../../../../../reference/android/view/Gravity.html#END">END</a></code>.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">See Also</h5>
+      <ul class="nolist"><li><code><a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html#setContentIcon(int)">setContentIcon(int)</a></code></li>
+      </ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setContentIntentAvailableOffline(boolean)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html">NotificationCompat.WearableExtender</a>
+      </span>
+      <span class="sympad">setContentIntentAvailableOffline</span>
+      <span class="normal">(boolean contentIntentAvailableOffline)</span>
+    </h4>
+      <div class="api-level">
+        <div></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Set whether the content intent is available when the wearable device is not connected
+ to a companion device.  The user can still trigger this intent when the wearable device
+ is offline, but a visual hint will indicate that the content intent may not be available.
+ Defaults to true.
+</p></div>
+
+    </div>
+</div>
+
+
+<A NAME="setCustomContentHeight(int)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html">NotificationCompat.WearableExtender</a>
+      </span>
+      <span class="sympad">setCustomContentHeight</span>
+      <span class="normal">(int height)</span>
+    </h4>
+      <div class="api-level">
+        <div></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Set the custom height in pixels for the display of this notification's content.
+ <p>This option is only available for custom display notifications created
+ using <code><a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html#setDisplayIntent(android.app.PendingIntent)">setDisplayIntent(PendingIntent)</a></code>. See also
+ <code><a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html#setCustomSizePreset(int)">setCustomSizePreset(int)</a></code> and
+ <code><a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html#getCustomContentHeight()">getCustomContentHeight()</a></code>.
+</p></div>
+
+    </div>
+</div>
+
+
+<A NAME="setCustomSizePreset(int)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html">NotificationCompat.WearableExtender</a>
+      </span>
+      <span class="sympad">setCustomSizePreset</span>
+      <span class="normal">(int sizePreset)</span>
+    </h4>
+      <div class="api-level">
+        <div></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Set the custom size preset for the display of this notification out of the available
+ presets found in <code><a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html">NotificationCompat.WearableExtender</a></code>, e.g.
+ <code><a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html#SIZE_LARGE">SIZE_LARGE</a></code>.
+ <p>Some custom size presets are only applicable for custom display notifications created
+ using <code><a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html#setDisplayIntent(android.app.PendingIntent)">setDisplayIntent(PendingIntent)</a></code>. Check the
+ documentation for the preset in question. See also
+ <code><a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html#setCustomContentHeight(int)">setCustomContentHeight(int)</a></code> and <code><a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html#getCustomSizePreset()">getCustomSizePreset()</a></code>.
+</p></div>
+
+    </div>
+</div>
+
+
+<A NAME="setDisplayIntent(android.app.PendingIntent)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html">NotificationCompat.WearableExtender</a>
+      </span>
+      <span class="sympad">setDisplayIntent</span>
+      <span class="normal">(<a href="../../../../../reference/android/app/PendingIntent.html">PendingIntent</a> intent)</span>
+    </h4>
+      <div class="api-level">
+        <div></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Set an intent to launch inside of an activity view when displaying
+ this notification. The <code><a href="../../../../../reference/android/app/PendingIntent.html">PendingIntent</a></code> provided should be for an activity.
+
+ <pre class="prettyprint">
+ Intent displayIntent = new Intent(context, MyDisplayActivity.class);
+ PendingIntent displayPendingIntent = PendingIntent.getActivity(context,
+         0, displayIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+ Notification notif = new NotificationCompat.Builder(context)
+         .extend(new NotificationCompat.WearableExtender()
+                 .setDisplayIntent(displayPendingIntent)
+                 .setCustomSizePreset(NotificationCompat.WearableExtender.SIZE_MEDIUM))
+         .build();</pre>
+
+ <p>The activity to launch needs to allow embedding, must be exported, and
+ should have an empty task affinity. It is also recommended to use the device
+ default light theme.
+
+ <p>Example AndroidManifest.xml entry:
+ <pre class="prettyprint">
+ &lt;activity android:name=&quot;com.example.MyDisplayActivity&quot;
+     android:exported=&quot;true&quot;
+     android:allowEmbedded=&quot;true&quot;
+     android:taskAffinity=&quot;&quot;
+     android:theme=&quot;@android:style/Theme.DeviceDefault.Light&quot; /&gt;</pre></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>intent</td>
+          <td>the <code><a href="../../../../../reference/android/app/PendingIntent.html">PendingIntent</a></code> for an activity</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>this object for method chaining</li></ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">See Also</h5>
+      <ul class="nolist"><li><code><a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html#getDisplayIntent()">getDisplayIntent()</a></code></li>
+      </ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setGravity(int)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html">NotificationCompat.WearableExtender</a>
+      </span>
+      <span class="sympad">setGravity</span>
+      <span class="normal">(int gravity)</span>
+    </h4>
+      <div class="api-level">
+        <div></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Set the gravity that this notification should have within the available viewport space.
+ Supported values include <code><a href="../../../../../reference/android/view/Gravity.html#TOP">TOP</a></code>,
+ <code><a href="../../../../../reference/android/view/Gravity.html#CENTER_VERTICAL">CENTER_VERTICAL</a></code> and <code><a href="../../../../../reference/android/view/Gravity.html#BOTTOM">BOTTOM</a></code>.
+ The default value is <code><a href="../../../../../reference/android/view/Gravity.html#BOTTOM">BOTTOM</a></code>.
+</p></div>
+
+    </div>
+</div>
+
+
+<A NAME="setHintHideIcon(boolean)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html">NotificationCompat.WearableExtender</a>
+      </span>
+      <span class="sympad">setHintHideIcon</span>
+      <span class="normal">(boolean hintHideIcon)</span>
+    </h4>
+      <div class="api-level">
+        <div></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Set a hint that this notification's icon should not be displayed.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>hintHideIcon</td>
+          <td><code>true</code> to hide the icon, <code>false</code> otherwise.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>this object for method chaining
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setHintShowBackgroundOnly(boolean)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html">NotificationCompat.WearableExtender</a>
+      </span>
+      <span class="sympad">setHintShowBackgroundOnly</span>
+      <span class="normal">(boolean hintShowBackgroundOnly)</span>
+    </h4>
+      <div class="api-level">
+        <div></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Set a visual hint that only the background image of this notification should be
+ displayed, and other semantic content should be hidden. This hint is only applicable
+ to sub-pages added using <code><a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html#addPage(android.app.Notification)">addPage(Notification)</a></code>.
+</p></div>
+
+    </div>
+</div>
+
+
+<A NAME="setStartScrollBottom(boolean)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="../../../../../reference/android/support/v4/app/NotificationCompat.WearableExtender.html">NotificationCompat.WearableExtender</a>
+      </span>
+      <span class="sympad">setStartScrollBottom</span>
+      <span class="normal">(boolean startScrollBottom)</span>
+    </h4>
+      <div class="api-level">
+        <div></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Set whether the scrolling position for the contents of this notification should start
+ at the bottom of the contents instead of the top when the contents are too long to
+ display within the screen.  Default is false (start scroll at the top).
+</p></div>
+
+    </div>
+</div>
+
+
+
+
+
+<!-- ========= METHOD DETAIL ======== -->
+
+
+
+<!-- ========= END OF CLASS DATA ========= -->
+<A NAME="navbar_top"></A>
+
+<div id="footer" class="wrap" >
+        
+
+  <div id="copyright">
+    
+  Except as noted, this content is licensed under <a
+  href="http://www.apache.org/licenses/LICENSE-2.0">Apache 2.0</a>. 
+  For details and restrictions, see the <a href="../../../../../license.html">
+  Content License</a>.
+  </div>
+  <div id="build_info">
+    
+    Android 4.4&nbsp;r1 &mdash; 
+<script src="../../../../../timestamp.js" type="text/javascript"></script>
+<script>document.write(BUILD_TIMESTAMP)</script>
+
+  </div>
+
+
+  <div id="footerlinks">
+    
+  <p>
+    <a href="../../../../../about/index.html">About Android</a>&nbsp;&nbsp;|&nbsp;
+    <a href="../../../../../legal.html">Legal</a>&nbsp;&nbsp;|&nbsp;
+    <a href="../../../../../support.html">Support</a>
+  </p>
+  </div>
+
+</div> <!-- end footer -->
+</div> <!-- jd-content -->
+
+</div><!-- end doc-content -->
+
+</div> <!-- end body-content --> 
+
+
+
+
+
+
+</body>
+</html>
