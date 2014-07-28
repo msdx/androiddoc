@@ -1,6 +1,6 @@
 ANDROID API镜像站
 
-访问地址：[http://androiddoc.qiniudn.com/](http://dd.ma/jTXLdQsq)
+访问地址：[http://androiddoc.qiniudn.com/](http://androiddoc.qiniudn.com)
 
 关于修改android doc加快打开速度的几行脚本：
 ```
