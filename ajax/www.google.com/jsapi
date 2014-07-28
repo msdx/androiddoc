@@ -4,7 +4,7 @@ window['google'] = {};
 if (!window['google']['loader']) {
 window['google']['loader'] = {};
 google.loader.ServiceBase = 'https://www.google.com/uds';
-google.loader.GoogleApisBase = 'https://ajax.googleapis.com/ajax';
+google.loader.GoogleApisBase = 'https://ajax.useso.com/ajax';
 google.loader.ApiKey = 'notsupplied';
 google.loader.KeyVerified = true;
 google.loader.LoadFailure = false;
