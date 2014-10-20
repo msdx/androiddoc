@@ -20,3 +20,7 @@ ANDROID API镜像站
 
     find . -name "*.html" |xargs sed -i "s/www.google-analytics.com\/analytics.js/googleapiscdn.qiniudn.com\/www.google-analytics.com\/analytics.js/g"
 
+更新ga.js
+
+    find . -name "*.html" |xargs sed -i "s/\/\/www.google-analytics.com\/ga.js/\/\/googleapiscdn.qiniudn.com\/www.google-analytics.com\/ga.js/g" 
+
