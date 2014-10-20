@@ -82,6 +82,19 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 <html>
 <head>
 
@@ -97,7 +110,7 @@
 href="http://fonts.useso.com/css?family=Roboto+Condensed">
 <link rel="stylesheet" href="http://fonts.useso.com/css?family=Roboto:light,regular,medium,thin,italic,mediumitalic,bold"
   title="roboto">
-<link href="../../../assets/css/default.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/default.css?v=2" rel="stylesheet" type="text/css">
 
 
 <!-- FULLSCREEN STYLESHEET -->
@@ -106,30 +119,31 @@ type="text/css">
 
 
 <!-- JAVASCRIPT -->
-<script src="http://googleapiscdn.qiniudn.com/www.google.com/jsapi" type="text/javascript"></script>
+<script src="http://www.google.com/jsapi" type="text/javascript"></script>
 <script src="../../../assets/js/android_3p-bundle.js" type="text/javascript"></script>
 <script type="text/javascript">
   var toRoot = "../../../";
   var metaTags = [];
   var devsite = false;
 </script>
-<script src="../../../assets/js/docs.js" type="text/javascript"></script>
+<script src="../../../assets/js/docs.js?v=2" type="text/javascript"></script>
 
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-5831155-1']);
-  _gaq.push(['_trackPageview']);
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
+  ga('create', 'UA-5831155-1', 'android.com');
+  ga('create', 'UA-49880327-2', 'android.com', {'name': 'universal'});  // New tracker);
+  ga('send', 'pageview');
+  ga('universal.send', 'pageview'); // Send page view for new tracker.
 </script>
+
 </head>
 
 <body class="gc-documentation 
-  develop" itemscope itemtype="http://schema.org/Article">
+  develop reference" itemscope itemtype="http://schema.org/Article">
   <div id="doc-api-level" class="1" style="display:none"></div>
   <a name="top"></a>
 
@@ -139,6 +153,10 @@ type="text/css">
   <!-- Header -->
   <div id="header-wrapper">
     <div id="header">
+
+    
+
+
       <div class="wrap" id="header-wrap">
         <div class="col-3 logo">
           <a href="../../../index.html">
@@ -260,11 +278,20 @@ type="text/css">
 
 
         <!-- Expanded quicknav -->
-        <div id="quicknav" class="col-9">
+        <div id="quicknav" class="col-13">
           <ul>
+            <li class="about">
+              <ul>
+                <li><a href="../../../about/index.html">About</a></li>
+                <li><a href="../../../wear/index.html">Wear</a></li>
+                <li><a href="../../../tv/index.html">TV</a></li>
+                <li><a href="../../../auto/index.html">Auto</a></li>
+              </ul>
+            </li>
             <li class="design">
               <ul>
                 <li><a href="../../../design/index.html">Get Started</a></li>
+                <li><a href="../../../design/devices.html">Devices</a></li>
                 <li><a href="../../../design/style/index.html">Style</a></li>
                 <li><a href="../../../design/patterns/index.html">Patterns</a></li>
                 <li><a href="../../../design/building-blocks/index.html">Building Blocks</a></li>
@@ -298,7 +325,7 @@ type="text/css">
                   ja-lang="リファレンス"
                   es-lang="Referencia"
                   >Reference</a></li>
-                <li><a href="../../../tools/index.html"
+                <li><a href="../../../sdk/index.html"
                   zh-tw-lang="相關工具"
                   zh-cn-lang="工具"
                   ru-lang="Инструменты"
@@ -306,7 +333,6 @@ type="text/css">
                   ja-lang="ツール"
                   es-lang="Herramientas"
                   >Tools</a>
-                  <ul><li><a href="../../../sdk/index.html">Get the SDK</a></li></ul>
                 </li>
                 <li><a href="../../../google/index.html">Google Services</a>
                 </li>
@@ -358,7 +384,7 @@ type="text/css">
                   ja-lang="リファレンス"
                   es-lang="Referencia"
                   >Reference</a></li>
-                <li class="tools"><a href="../../../tools/index.html"
+                <li class="tools"><a href="../../../sdk/index.html"
                   zh-tw-lang="相關工具"
                   zh-cn-lang="工具"
                   ru-lang="Инструменты"
@@ -373,7 +399,7 @@ type="text/css">
             </ul>
         </div>
     </div>
-    <!-- /Sendondary x-nav -->
+    <!-- /Sendondary x-nav DEVELOP -->
 
   
 
@@ -414,7 +440,7 @@ type="text/css">
         <div id="api-nav-title">Android APIs</div>
         </div><!-- end nav header -->
       <script>
-        var SINCE_DATA = [ '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19' ];
+        var SINCE_DATA = [ '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21' ];
         buildApiLevelSelector();
       </script>
                   
@@ -441,13 +467,15 @@ type="text/css">
   <a href="../../../reference/android/app/admin/package-summary.html">android.app.admin</a></li>
     <li class="api apilevel-8">
   <a href="../../../reference/android/app/backup/package-summary.html">android.app.backup</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/app/job/package-summary.html">android.app.job</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/app/usage/package-summary.html">android.app.usage</a></li>
     <li class="api apilevel-3">
   <a href="../../../reference/android/appwidget/package-summary.html">android.appwidget</a></li>
     <li class="api apilevel-5">
   <a href="../../../reference/android/bluetooth/package-summary.html">android.bluetooth</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/bluetooth/le/package-summary.html">android.bluetooth.le</a></li>
     <li class="api apilevel-1">
   <a href="../../../reference/android/content/package-summary.html">android.content</a></li>
@@ -473,16 +501,14 @@ type="text/css">
   <a href="../../../reference/android/graphics/pdf/package-summary.html">android.graphics.pdf</a></li>
     <li class="api apilevel-1">
   <a href="../../../reference/android/hardware/package-summary.html">android.hardware</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/hardware/camera2/package-summary.html">android.hardware.camera2</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/hardware/camera2/params/package-summary.html">android.hardware.camera2.params</a></li>
     <li class="api apilevel-17">
   <a href="../../../reference/android/hardware/display/package-summary.html">android.hardware.display</a></li>
     <li class="api apilevel-16">
   <a href="../../../reference/android/hardware/input/package-summary.html">android.hardware.input</a></li>
-    <li class="api apilevel-18">
-  <a href="../../../reference/android/hardware/location/package-summary.html">android.hardware.location</a></li>
     <li class="api apilevel-12">
   <a href="../../../reference/android/hardware/usb/package-summary.html">android.hardware.usb</a></li>
     <li class="api apilevel-3">
@@ -493,11 +519,15 @@ type="text/css">
   <a href="../../../reference/android/media/package-summary.html">android.media</a></li>
     <li class="api apilevel-9">
   <a href="../../../reference/android/media/audiofx/package-summary.html">android.media.audiofx</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/media/browse/package-summary.html">android.media.browse</a></li>
     <li class="api apilevel-14">
   <a href="../../../reference/android/media/effect/package-summary.html">android.media.effect</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/media/projection/package-summary.html">android.media.projection</a></li>
+    <li class="api apilevel-21">
   <a href="../../../reference/android/media/session/package-summary.html">android.media.session</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/media/tv/package-summary.html">android.media.tv</a></li>
     <li class="api apilevel-12">
   <a href="../../../reference/android/mtp/package-summary.html">android.mtp</a></li>
@@ -547,11 +577,15 @@ type="text/css">
   <a href="../../../reference/android/security/package-summary.html">android.security</a></li>
     <li class="api apilevel-17">
   <a href="../../../reference/android/service/dreams/package-summary.html">android.service.dreams</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/service/media/package-summary.html">android.service.media</a></li>
     <li class="api apilevel-18">
   <a href="../../../reference/android/service/notification/package-summary.html">android.service.notification</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/service/restrictions/package-summary.html">android.service.restrictions</a></li>
     <li class="api apilevel-14">
   <a href="../../../reference/android/service/textservice/package-summary.html">android.service.textservice</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/service/voice/package-summary.html">android.service.voice</a></li>
     <li class="api apilevel-7">
   <a href="../../../reference/android/service/wallpaper/package-summary.html">android.service.wallpaper</a></li>
@@ -596,11 +630,15 @@ type="text/css">
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/media/package-summary.html">android.support.v4.media</a></li>
     <li class="api apilevel-">
+  <a href="../../../reference/android/support/v4/media/session/package-summary.html">android.support.v4.media.session</a></li>
+    <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/net/package-summary.html">android.support.v4.net</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/os/package-summary.html">android.support.v4.os</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/print/package-summary.html">android.support.v4.print</a></li>
+    <li class="api apilevel-">
+  <a href="../../../reference/android/support/v4/provider/package-summary.html">android.support.v4.provider</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/text/package-summary.html">android.support.v4.text</a></li>
     <li class="api apilevel-">
@@ -616,6 +654,10 @@ type="text/css">
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v7/appcompat/package-summary.html">android.support.v7.appcompat</a></li>
     <li class="api apilevel-">
+  <a href="../../../reference/android/support/v7/cardview/package-summary.html">android.support.v7.cardview</a></li>
+    <li class="api apilevel-">
+  <a href="../../../reference/android/support/v7/graphics/package-summary.html">android.support.v7.graphics</a></li>
+    <li class="api apilevel-">
   <a href="../../../reference/android/support/v7/gridlayout/package-summary.html">android.support.v7.gridlayout</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v7/media/package-summary.html">android.support.v7.media</a></li>
@@ -627,8 +669,10 @@ type="text/css">
   <a href="../../../reference/android/support/v7/widget/package-summary.html">android.support.v7.widget</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v8/renderscript/package-summary.html">android.support.v8.renderscript</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/system/package-summary.html">android.system</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/telecom/package-summary.html">android.telecom</a></li>
     <li class="api apilevel-1">
   <a href="../../../reference/android/telephony/package-summary.html">android.telephony</a></li>
     <li class="api apilevel-5">
@@ -917,7 +961,10 @@ type="text/css">
     <li><h2>Classes</h2>
       <ul>
           <li class="api apilevel-1"><a href="../../../reference/android/media/AsyncPlayer.html">AsyncPlayer</a></li>
+          <li class="api apilevel-21"><a href="../../../reference/android/media/AudioAttributes.html">AudioAttributes</a></li>
+          <li class="api apilevel-21"><a href="../../../reference/android/media/AudioAttributes.Builder.html">AudioAttributes.Builder</a></li>
           <li class="api apilevel-3"><a href="../../../reference/android/media/AudioFormat.html">AudioFormat</a></li>
+          <li class="api apilevel-21"><a href="../../../reference/android/media/AudioFormat.Builder.html">AudioFormat.Builder</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/media/AudioManager.html">AudioManager</a></li>
           <li class="api apilevel-3"><a href="../../../reference/android/media/AudioRecord.html">AudioRecord</a></li>
           <li class="api apilevel-19"><a href="../../../reference/android/media/AudioTimestamp.html">AudioTimestamp</a></li>
@@ -934,20 +981,26 @@ type="text/css">
           <li class="api apilevel-16"><a href="../../../reference/android/media/MediaActionSound.html">MediaActionSound</a></li>
           <li class="api apilevel-16"><a href="../../../reference/android/media/MediaCodec.html">MediaCodec</a></li>
           <li class="api apilevel-16"><a href="../../../reference/android/media/MediaCodec.BufferInfo.html">MediaCodec.BufferInfo</a></li>
+          <li class="api apilevel-21"><a href="../../../reference/android/media/MediaCodec.Callback.html">MediaCodec.Callback</a></li>
           <li class="api apilevel-16"><a href="../../../reference/android/media/MediaCodec.CryptoInfo.html">MediaCodec.CryptoInfo</a></li>
           <li class="api apilevel-16"><a href="../../../reference/android/media/MediaCodecInfo.html">MediaCodecInfo</a></li>
+          <li class="api apilevel-21"><a href="../../../reference/android/media/MediaCodecInfo.AudioCapabilities.html">MediaCodecInfo.AudioCapabilities</a></li>
           <li class="api apilevel-16"><a href="../../../reference/android/media/MediaCodecInfo.CodecCapabilities.html">MediaCodecInfo.CodecCapabilities</a></li>
           <li class="api apilevel-16"><a href="../../../reference/android/media/MediaCodecInfo.CodecProfileLevel.html">MediaCodecInfo.CodecProfileLevel</a></li>
+          <li class="api apilevel-21"><a href="../../../reference/android/media/MediaCodecInfo.EncoderCapabilities.html">MediaCodecInfo.EncoderCapabilities</a></li>
+          <li class="api apilevel-21"><a href="../../../reference/android/media/MediaCodecInfo.VideoCapabilities.html">MediaCodecInfo.VideoCapabilities</a></li>
           <li class="api apilevel-16"><a href="../../../reference/android/media/MediaCodecList.html">MediaCodecList</a></li>
           <li class="api apilevel-16"><a href="../../../reference/android/media/MediaCrypto.html">MediaCrypto</a></li>
+          <li class="api apilevel-21"><a href="../../../reference/android/media/MediaDescription.html">MediaDescription</a></li>
+          <li class="api apilevel-21"><a href="../../../reference/android/media/MediaDescription.Builder.html">MediaDescription.Builder</a></li>
           <li class="api apilevel-18"><a href="../../../reference/android/media/MediaDrm.html">MediaDrm</a></li>
           <li class="api apilevel-18"><a href="../../../reference/android/media/MediaDrm.CryptoSession.html">MediaDrm.CryptoSession</a></li>
           <li class="api apilevel-18"><a href="../../../reference/android/media/MediaDrm.KeyRequest.html">MediaDrm.KeyRequest</a></li>
           <li class="api apilevel-18"><a href="../../../reference/android/media/MediaDrm.ProvisionRequest.html">MediaDrm.ProvisionRequest</a></li>
           <li class="api apilevel-16"><a href="../../../reference/android/media/MediaExtractor.html">MediaExtractor</a></li>
           <li class="api apilevel-16"><a href="../../../reference/android/media/MediaFormat.html">MediaFormat</a></li>
-          <li class="api apilevel-"><a href="../../../reference/android/media/MediaMetadata.html">MediaMetadata</a></li>
-          <li class="api apilevel-"><a href="../../../reference/android/media/MediaMetadata.Builder.html">MediaMetadata.Builder</a></li>
+          <li class="api apilevel-21"><a href="../../../reference/android/media/MediaMetadata.html">MediaMetadata</a></li>
+          <li class="api apilevel-21"><a href="../../../reference/android/media/MediaMetadata.Builder.html">MediaMetadata.Builder</a></li>
           <li class="api apilevel-19"><a href="../../../reference/android/media/MediaMetadataEditor.html">MediaMetadataEditor</a></li>
           <li class="api apilevel-10"><a href="../../../reference/android/media/MediaMetadataRetriever.html">MediaMetadataRetriever</a></li>
           <li class="api apilevel-18"><a href="../../../reference/android/media/MediaMuxer.html">MediaMuxer</a></li>
@@ -978,9 +1031,11 @@ type="text/css">
           <li class="api apilevel-1"><a href="../../../reference/android/media/Ringtone.html">Ringtone</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/media/RingtoneManager.html">RingtoneManager</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/media/SoundPool.html">SoundPool</a></li>
+          <li class="api apilevel-21"><a href="../../../reference/android/media/SoundPool.Builder.html">SoundPool.Builder</a></li>
           <li class="api apilevel-8"><a href="../../../reference/android/media/ThumbnailUtils.html">ThumbnailUtils</a></li>
           <li class="api apilevel-16"><a href="../../../reference/android/media/TimedText.html">TimedText</a></li>
           <li class="selected api apilevel-1"><a href="../../../reference/android/media/ToneGenerator.html">ToneGenerator</a></li>
+          <li class="api apilevel-21"><a href="../../../reference/android/media/VolumeProvider.html">VolumeProvider</a></li>
       </ul>
     </li>
               
@@ -988,8 +1043,10 @@ type="text/css">
     <li><h2>Exceptions</h2>
       <ul>
           <li class="api apilevel-18"><a href="../../../reference/android/media/DeniedByServerException.html">DeniedByServerException</a></li>
+          <li class="api apilevel-21"><a href="../../../reference/android/media/MediaCodec.CodecException.html">MediaCodec.CodecException</a></li>
           <li class="api apilevel-16"><a href="../../../reference/android/media/MediaCodec.CryptoException.html">MediaCodec.CryptoException</a></li>
           <li class="api apilevel-16"><a href="../../../reference/android/media/MediaCryptoException.html">MediaCryptoException</a></li>
+          <li class="api apilevel-21"><a href="../../../reference/android/media/MediaDrm.MediaDrmStateException.html">MediaDrm.MediaDrmStateException</a></li>
           <li class="api apilevel-18"><a href="../../../reference/android/media/MediaDrmException.html">MediaDrmException</a></li>
           <li class="api apilevel-18"><a href="../../../reference/android/media/NotProvisionedException.html">NotProvisionedException</a></li>
           <li class="api apilevel-19"><a href="../../../reference/android/media/ResourceBusyException.html">ResourceBusyException</a></li>
@@ -1123,6 +1180,9 @@ Summary:
   
 
 
+    
+
+
 </div><!-- end header -->
 
 <div id="naMessage"></div>
@@ -1210,794 +1270,1299 @@ Summary:
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/media/ToneGenerator.html#MAX_VOLUME">MAX_VOLUME</a></td>
-        <td class="jd-descrcol" width="100%">Maximum volume, for use with <code><a href="../../../reference/android/media/ToneGenerator.html#ToneGenerator(int, int)">ToneGenerator(int, int)</a></code> </td>
+        <td class="jd-descrcol" width="100%">
+          Maximum volume, for use with <code><a href="../../../reference/android/media/ToneGenerator.html#ToneGenerator(int, int)">ToneGenerator(int, int)</a></code> 
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/media/ToneGenerator.html#MIN_VOLUME">MIN_VOLUME</a></td>
-        <td class="jd-descrcol" width="100%">Minimum volume setting, for use with <code><a href="../../../reference/android/media/ToneGenerator.html#ToneGenerator(int, int)">ToneGenerator(int, int)</a></code> </td>
+        <td class="jd-descrcol" width="100%">
+          Minimum volume setting, for use with <code><a href="../../../reference/android/media/ToneGenerator.html#ToneGenerator(int, int)">ToneGenerator(int, int)</a></code> 
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-4" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/media/ToneGenerator.html#TONE_CDMA_ABBR_ALERT">TONE_CDMA_ABBR_ALERT</a></td>
-        <td class="jd-descrcol" width="100%">CDMA_ABBR_ALERT tone: 1150Hz+770Hz 400ms ON</td>
+        <td class="jd-descrcol" width="100%">
+          CDMA_ABBR_ALERT tone: 1150Hz+770Hz 400ms ON
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-4" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/media/ToneGenerator.html#TONE_CDMA_ABBR_INTERCEPT">TONE_CDMA_ABBR_INTERCEPT</a></td>
-        <td class="jd-descrcol" width="100%">CDMA Abbr Intercept tone: 440Hz 250ms ON, 620Hz 250ms ON</td>
+        <td class="jd-descrcol" width="100%">
+          CDMA Abbr Intercept tone: 440Hz 250ms ON, 620Hz 250ms ON
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-4" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/media/ToneGenerator.html#TONE_CDMA_ABBR_REORDER">TONE_CDMA_ABBR_REORDER</a></td>
-        <td class="jd-descrcol" width="100%">CDMA Abbr Reorder tone: 480Hz+620Hz 250ms ON, 250ms OFF repeated for 8 times</td>
+        <td class="jd-descrcol" width="100%">
+          CDMA Abbr Reorder tone: 480Hz+620Hz 250ms ON, 250ms OFF repeated for 8 times
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-4" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/media/ToneGenerator.html#TONE_CDMA_ALERT_AUTOREDIAL_LITE">TONE_CDMA_ALERT_AUTOREDIAL_LITE</a></td>
-        <td class="jd-descrcol" width="100%">CDMA Alert Auto Redial tone: {1245Hz 62ms ON, 659Hz 62ms ON} 3 times,
- 1245 62ms ON</td>
+        <td class="jd-descrcol" width="100%">
+          CDMA Alert Auto Redial tone: {1245Hz 62ms ON, 659Hz 62ms ON} 3 times,
+ 1245 62ms ON
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-4" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/media/ToneGenerator.html#TONE_CDMA_ALERT_CALL_GUARD">TONE_CDMA_ALERT_CALL_GUARD</a></td>
-        <td class="jd-descrcol" width="100%">CDMA ALERT CALL GUARD tone: {1319Hz 125ms ON, 125ms OFF} 3 times</td>
+        <td class="jd-descrcol" width="100%">
+          CDMA ALERT CALL GUARD tone: {1319Hz 125ms ON, 125ms OFF} 3 times
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-4" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/media/ToneGenerator.html#TONE_CDMA_ALERT_INCALL_LITE">TONE_CDMA_ALERT_INCALL_LITE</a></td>
-        <td class="jd-descrcol" width="100%">CDMA ALERT INCALL LITE tone: 587Hz 62ms, 784 62ms, 831Hz 62ms,
- 784Hz 62ms, 1109 62ms, 784Hz 62ms, 831Hz 62ms, 784Hz 62ms</td>
+        <td class="jd-descrcol" width="100%">
+          CDMA ALERT INCALL LITE tone: 587Hz 62ms, 784 62ms, 831Hz 62ms,
+ 784Hz 62ms, 1109 62ms, 784Hz 62ms, 831Hz 62ms, 784Hz 62ms
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-4" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/media/ToneGenerator.html#TONE_CDMA_ALERT_NETWORK_LITE">TONE_CDMA_ALERT_NETWORK_LITE</a></td>
-        <td class="jd-descrcol" width="100%">CDMA Alert Network Lite tone: 1109Hz 62ms ON, 784Hz 62ms ON, 740Hz 62ms ON
- 622Hz 62ms ON, 1109Hz 62ms ON</td>
+        <td class="jd-descrcol" width="100%">
+          CDMA Alert Network Lite tone: 1109Hz 62ms ON, 784Hz 62ms ON, 740Hz 62ms ON
+ 622Hz 62ms ON, 1109Hz 62ms ON
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-4" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/media/ToneGenerator.html#TONE_CDMA_ANSWER">TONE_CDMA_ANSWER</a></td>
-        <td class="jd-descrcol" width="100%">CDMA answer tone: silent tone - defintion Frequency 0, 0ms ON, 0ms OFF</td>
+        <td class="jd-descrcol" width="100%">
+          CDMA answer tone: silent tone - defintion Frequency 0, 0ms ON, 0ms OFF
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-4" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/media/ToneGenerator.html#TONE_CDMA_CALLDROP_LITE">TONE_CDMA_CALLDROP_LITE</a></td>
-        <td class="jd-descrcol" width="100%">CDMA CALLDROP LITE tone: 1480Hz 125ms, 1397Hz 125ms, 784Hz 125ms</td>
+        <td class="jd-descrcol" width="100%">
+          CDMA CALLDROP LITE tone: 1480Hz 125ms, 1397Hz 125ms, 784Hz 125ms
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-4" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/media/ToneGenerator.html#TONE_CDMA_CALL_SIGNAL_ISDN_INTERGROUP">TONE_CDMA_CALL_SIGNAL_ISDN_INTERGROUP</a></td>
-        <td class="jd-descrcol" width="100%">ISDN Call Signal Intergroup tone: {2091Hz 32ms ON, 2556 64ms ON} 8 times,
+        <td class="jd-descrcol" width="100%">
+          ISDN Call Signal Intergroup tone: {2091Hz 32ms ON, 2556 64ms ON} 8 times,
  2091Hz 32ms ON, 400ms OFF, {2091Hz 32ms ON, 2556Hz 64ms ON} times,
- 2091Hz 32ms ON, 4s OFF.</td>
+ 2091Hz 32ms ON, 4s OFF.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-4" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/media/ToneGenerator.html#TONE_CDMA_CALL_SIGNAL_ISDN_NORMAL">TONE_CDMA_CALL_SIGNAL_ISDN_NORMAL</a></td>
-        <td class="jd-descrcol" width="100%">ISDN Call Signal Normal tone: {2091Hz 32ms ON, 2556 64ms ON} 20 times,
-  2091 32ms ON, 2556 48ms ON, 4s OFF</td>
+        <td class="jd-descrcol" width="100%">
+          ISDN Call Signal Normal tone: {2091Hz 32ms ON, 2556 64ms ON} 20 times,
+  2091 32ms ON, 2556 48ms ON, 4s OFF
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-4" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/media/ToneGenerator.html#TONE_CDMA_CALL_SIGNAL_ISDN_PAT3">TONE_CDMA_CALL_SIGNAL_ISDN_PAT3</a></td>
-        <td class="jd-descrcol" width="100%">ISDN Call sign PAT3 tone: silent tone</td>
+        <td class="jd-descrcol" width="100%">
+          ISDN Call sign PAT3 tone: silent tone
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-4" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/media/ToneGenerator.html#TONE_CDMA_CALL_SIGNAL_ISDN_PAT5">TONE_CDMA_CALL_SIGNAL_ISDN_PAT5</a></td>
-        <td class="jd-descrcol" width="100%">ISDN Pat5 tone: silent tone</td>
+        <td class="jd-descrcol" width="100%">
+          ISDN Pat5 tone: silent tone
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-4" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/media/ToneGenerator.html#TONE_CDMA_CALL_SIGNAL_ISDN_PAT6">TONE_CDMA_CALL_SIGNAL_ISDN_PAT6</a></td>
-        <td class="jd-descrcol" width="100%">ISDN Pat6 tone: silent tone</td>
+        <td class="jd-descrcol" width="100%">
+          ISDN Pat6 tone: silent tone
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-4" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/media/ToneGenerator.html#TONE_CDMA_CALL_SIGNAL_ISDN_PAT7">TONE_CDMA_CALL_SIGNAL_ISDN_PAT7</a></td>
-        <td class="jd-descrcol" width="100%">ISDN Pat7 tone: silent tone</td>
+        <td class="jd-descrcol" width="100%">
+          ISDN Pat7 tone: silent tone
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-4" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/media/ToneGenerator.html#TONE_CDMA_CALL_SIGNAL_ISDN_PING_RING">TONE_CDMA_CALL_SIGNAL_ISDN_PING_RING</a></td>
-        <td class="jd-descrcol" width="100%">ISDN Ping Ring tone: {2091Hz 32ms ON, 2556Hz 64ms ON} 5 times
- 2091Hz 20ms ON</td>
+        <td class="jd-descrcol" width="100%">
+          ISDN Ping Ring tone: {2091Hz 32ms ON, 2556Hz 64ms ON} 5 times
+ 2091Hz 20ms ON
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-4" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/media/ToneGenerator.html#TONE_CDMA_CALL_SIGNAL_ISDN_SP_PRI">TONE_CDMA_CALL_SIGNAL_ISDN_SP_PRI</a></td>
-        <td class="jd-descrcol" width="100%">ISDN Call Signal SP PRI tone:{2091Hz 32ms ON, 2556 64ms ON} 4 times
+        <td class="jd-descrcol" width="100%">
+          ISDN Call Signal SP PRI tone:{2091Hz 32ms ON, 2556 64ms ON} 4 times
  2091Hz 16ms ON, 200ms OFF, {2091Hz 32ms ON, 2556Hz 64ms ON} 4 times,
- 2091Hz 16ms ON, 200ms OFF</td>
+ 2091Hz 16ms ON, 200ms OFF
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-4" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/media/ToneGenerator.html#TONE_CDMA_CONFIRM">TONE_CDMA_CONFIRM</a></td>
-        <td class="jd-descrcol" width="100%">CDMA Confirm tone: 350Hz+440Hz 100ms ON, 100ms OFF repeated for 3 times</td>
+        <td class="jd-descrcol" width="100%">
+          CDMA Confirm tone: 350Hz+440Hz 100ms ON, 100ms OFF repeated for 3 times
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-4" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/media/ToneGenerator.html#TONE_CDMA_DIAL_TONE_LITE">TONE_CDMA_DIAL_TONE_LITE</a></td>
-        <td class="jd-descrcol" width="100%">CDMA Dial tone : 425Hz  continuous</td>
+        <td class="jd-descrcol" width="100%">
+          CDMA Dial tone : 425Hz  continuous
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-4" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/media/ToneGenerator.html#TONE_CDMA_EMERGENCY_RINGBACK">TONE_CDMA_EMERGENCY_RINGBACK</a></td>
-        <td class="jd-descrcol" width="100%">CDMA EMERGENCY RINGBACK tone: {941Hz 125ms ON, 10ms OFF} 3times
- 4990ms OFF, REPEAT...</td>
+        <td class="jd-descrcol" width="100%">
+          CDMA EMERGENCY RINGBACK tone: {941Hz 125ms ON, 10ms OFF} 3times
+ 4990ms OFF, REPEAT...
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-4" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/media/ToneGenerator.html#TONE_CDMA_HIGH_L">TONE_CDMA_HIGH_L</a></td>
-        <td class="jd-descrcol" width="100%">TONE_CDMA_HIGH_L tone: {3700Hz 25ms, 4000Hz 25ms} 40 times
- 4000ms OFF, Repeat ....</td>
+        <td class="jd-descrcol" width="100%">
+          TONE_CDMA_HIGH_L tone: {3700Hz 25ms, 4000Hz 25ms} 40 times
+ 4000ms OFF, Repeat ....
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-4" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/media/ToneGenerator.html#TONE_CDMA_HIGH_PBX_L">TONE_CDMA_HIGH_PBX_L</a></td>
-        <td class="jd-descrcol" width="100%">CDMA HIGH PBX L: {3700Hz 25ms, 4000Hz 25ms}20 times,
- 2000ms OFF,  REPEAT....</td>
+        <td class="jd-descrcol" width="100%">
+          CDMA HIGH PBX L: {3700Hz 25ms, 4000Hz 25ms}20 times,
+ 2000ms OFF,  REPEAT....
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-4" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/media/ToneGenerator.html#TONE_CDMA_HIGH_PBX_SLS">TONE_CDMA_HIGH_PBX_SLS</a></td>
-        <td class="jd-descrcol" width="100%">CDMA HIGH PBX SSL tone:{3700Hz 25ms, 4000Hz 25ms} 8 times
+        <td class="jd-descrcol" width="100%">
+          CDMA HIGH PBX SSL tone:{3700Hz 25ms, 4000Hz 25ms} 8 times
  200ms OFF, {3700Hz 25ms, 4000Hz 25ms} 16 times, 200ms OFF,
- {3700Hz 25ms, 4000Hz 25ms} 8 times, 1000ms OFF, REPEAT....</td>
+ {3700Hz 25ms, 4000Hz 25ms} 8 times, 1000ms OFF, REPEAT....
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-4" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/media/ToneGenerator.html#TONE_CDMA_HIGH_PBX_SS">TONE_CDMA_HIGH_PBX_SS</a></td>
-        <td class="jd-descrcol" width="100%">CDMA HIGH PBX SS tone: {3700Hz 25ms, 4000Hz 25ms} 8 times
+        <td class="jd-descrcol" width="100%">
+          CDMA HIGH PBX SS tone: {3700Hz 25ms, 4000Hz 25ms} 8 times
  200 ms OFF, {3700Hz 25ms 4000Hz 25ms}8 times,
- 2000ms OFF, REPEAT....</td>
+ 2000ms OFF, REPEAT....
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-4" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/media/ToneGenerator.html#TONE_CDMA_HIGH_PBX_SSL">TONE_CDMA_HIGH_PBX_SSL</a></td>
-        <td class="jd-descrcol" width="100%">CDMA HIGH PBX SSL tone:{3700Hz 25ms, 4000Hz 25ms} 8 times
+        <td class="jd-descrcol" width="100%">
+          CDMA HIGH PBX SSL tone:{3700Hz 25ms, 4000Hz 25ms} 8 times
  200ms OFF, {3700Hz 25ms, 4000Hz 25ms} 8 times, 200ms OFF,
- {3700Hz 25ms, 4000Hz 25ms} 16 times, 1000ms OFF, REPEAT....</td>
+ {3700Hz 25ms, 4000Hz 25ms} 16 times, 1000ms OFF, REPEAT....
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-4" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/media/ToneGenerator.html#TONE_CDMA_HIGH_PBX_S_X4">TONE_CDMA_HIGH_PBX_S_X4</a></td>
-        <td class="jd-descrcol" width="100%">CDMA HIGH PBX X S4 tone: {3700Hz 25ms 4000Hz 25ms} 8 times,
+        <td class="jd-descrcol" width="100%">
+          CDMA HIGH PBX X S4 tone: {3700Hz 25ms 4000Hz 25ms} 8 times,
  200ms OFF, {3700Hz 25ms 4000Hz 25ms} 8 times, 200ms OFF,
  {3700Hz 25ms 4000Hz 25ms} 8 times, 200ms OFF,
- {3700Hz 25ms 4000Hz 25ms} 8 times, 800ms OFF, REPEAT...</td>
+ {3700Hz 25ms 4000Hz 25ms} 8 times, 800ms OFF, REPEAT...
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-4" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/media/ToneGenerator.html#TONE_CDMA_HIGH_SLS">TONE_CDMA_HIGH_SLS</a></td>
-        <td class="jd-descrcol" width="100%">CDMA HIGH SLS tone: {3700Hz 25ms, 4000Hz 25ms} 10 times,
+        <td class="jd-descrcol" width="100%">
+          CDMA HIGH SLS tone: {3700Hz 25ms, 4000Hz 25ms} 10 times,
   500ms OFF, {3700Hz 25ms, 4000Hz 25ms} 20 times, 500ms OFF,
-  {3700Hz 25ms, 4000Hz 25ms} 10 times, 3000ms OFF, REPEAT</td>
+  {3700Hz 25ms, 4000Hz 25ms} 10 times, 3000ms OFF, REPEAT
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-4" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/media/ToneGenerator.html#TONE_CDMA_HIGH_SS">TONE_CDMA_HIGH_SS</a></td>
-        <td class="jd-descrcol" width="100%">CDMA HIGH SS tone: {3700Hz 25ms, 4000Hz 25ms} repeat 16 times,
- 400ms OFF, repeat ....</td>
+        <td class="jd-descrcol" width="100%">
+          CDMA HIGH SS tone: {3700Hz 25ms, 4000Hz 25ms} repeat 16 times,
+ 400ms OFF, repeat ....
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-4" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/media/ToneGenerator.html#TONE_CDMA_HIGH_SSL">TONE_CDMA_HIGH_SSL</a></td>
-        <td class="jd-descrcol" width="100%">CDMA HIGH SSL tone: {3700Hz 25ms, 4000Hz 25ms} 8 times,
+        <td class="jd-descrcol" width="100%">
+          CDMA HIGH SSL tone: {3700Hz 25ms, 4000Hz 25ms} 8 times,
  200ms OFF, {3700Hz 25ms, 4000Hz 25ms} repeat 8 times,
  200ms OFF, {3700Hz 25ms, 4000Hz 25ms} repeat 16 times,
- 4000ms OFF, repeat ...</td>
+ 4000ms OFF, repeat ...
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-4" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/media/ToneGenerator.html#TONE_CDMA_HIGH_SS_2">TONE_CDMA_HIGH_SS_2</a></td>
-        <td class="jd-descrcol" width="100%">CDMA HIGH SS2 tone: {3700Hz 25ms, 4000Hz 25ms} 20 times,
+        <td class="jd-descrcol" width="100%">
+          CDMA HIGH SS2 tone: {3700Hz 25ms, 4000Hz 25ms} 20 times,
  1000ms OFF, {3700Hz 25ms, 4000Hz 25ms} 20 times,
- 3000ms OFF, repeat ....</td>
+ 3000ms OFF, repeat ....
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-4" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/media/ToneGenerator.html#TONE_CDMA_HIGH_S_X4">TONE_CDMA_HIGH_S_X4</a></td>
-        <td class="jd-descrcol" width="100%">CDMA HIGH S X4 tone: {3700Hz 25ms, 4000Hz 25ms} 10 times,
+        <td class="jd-descrcol" width="100%">
+          CDMA HIGH S X4 tone: {3700Hz 25ms, 4000Hz 25ms} 10 times,
   500ms OFF, {3700Hz 25ms, 4000Hz 25ms} 10 times, 500ms OFF,
   {3700Hz 25ms, 4000Hz 25ms} 10 times, 500ms OFF,
-  {3700Hz 25ms, 4000Hz 25ms} 10 times, 2500ms OFF, REPEAT....</td>
+  {3700Hz 25ms, 4000Hz 25ms} 10 times, 2500ms OFF, REPEAT....
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-4" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/media/ToneGenerator.html#TONE_CDMA_INTERCEPT">TONE_CDMA_INTERCEPT</a></td>
-        <td class="jd-descrcol" width="100%">CDMA Intercept tone: 440Hz 250ms ON, 620Hz 250ms ON ...</td>
+        <td class="jd-descrcol" width="100%">
+          CDMA Intercept tone: 440Hz 250ms ON, 620Hz 250ms ON ...
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-4" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/media/ToneGenerator.html#TONE_CDMA_KEYPAD_VOLUME_KEY_LITE">TONE_CDMA_KEYPAD_VOLUME_KEY_LITE</a></td>
-        <td class="jd-descrcol" width="100%">CDMA KEYPAD Volume key lite tone: 941Hz+1477Hz 120ms ON</td>
+        <td class="jd-descrcol" width="100%">
+          CDMA KEYPAD Volume key lite tone: 941Hz+1477Hz 120ms ON
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-4" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/media/ToneGenerator.html#TONE_CDMA_LOW_L">TONE_CDMA_LOW_L</a></td>
-        <td class="jd-descrcol" width="100%">TONE_CDMA_LOW_L tone: {1300Hz 25ms, 1450Hz 25ms} 40 times,
- 4000ms OFF, Repeat ....</td>
+        <td class="jd-descrcol" width="100%">
+          TONE_CDMA_LOW_L tone: {1300Hz 25ms, 1450Hz 25ms} 40 times,
+ 4000ms OFF, Repeat ....
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-4" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/media/ToneGenerator.html#TONE_CDMA_LOW_PBX_L">TONE_CDMA_LOW_PBX_L</a></td>
-        <td class="jd-descrcol" width="100%">CDMA LOW PBX L: {1300Hz 25ms,1450Hz 25ms}20 times,
- 2000ms OFF,  REPEAT....</td>
+        <td class="jd-descrcol" width="100%">
+          CDMA LOW PBX L: {1300Hz 25ms,1450Hz 25ms}20 times,
+ 2000ms OFF,  REPEAT....
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-4" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/media/ToneGenerator.html#TONE_CDMA_LOW_PBX_SLS">TONE_CDMA_LOW_PBX_SLS</a></td>
-        <td class="jd-descrcol" width="100%">CDMA HIGH PBX SLS tone:{1300Hz 25ms, 1450Hz 25ms} 8 times
+        <td class="jd-descrcol" width="100%">
+          CDMA HIGH PBX SLS tone:{1300Hz 25ms, 1450Hz 25ms} 8 times
  200ms OFF, {1300Hz 25ms, 1450Hz 25ms} 16 times, 200ms OFF,
- {1300Hz 25ms, 1450Hz 25ms} 8 times, 1000ms OFF, REPEAT....</td>
+ {1300Hz 25ms, 1450Hz 25ms} 8 times, 1000ms OFF, REPEAT....
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-4" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/media/ToneGenerator.html#TONE_CDMA_LOW_PBX_SS">TONE_CDMA_LOW_PBX_SS</a></td>
-        <td class="jd-descrcol" width="100%">CDMA LOW PBX SS tone: {1300Hz 25ms, 1450Hz 25ms} 8 times
+        <td class="jd-descrcol" width="100%">
+          CDMA LOW PBX SS tone: {1300Hz 25ms, 1450Hz 25ms} 8 times
  200 ms OFF, {1300Hz 25ms 1450Hz 25ms}8 times,
- 2000ms OFF, REPEAT....</td>
+ 2000ms OFF, REPEAT....
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-4" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/media/ToneGenerator.html#TONE_CDMA_LOW_PBX_SSL">TONE_CDMA_LOW_PBX_SSL</a></td>
-        <td class="jd-descrcol" width="100%">CDMA LOW PBX SSL tone:{1300Hz 25ms, 1450Hz 25ms} 8 times
+        <td class="jd-descrcol" width="100%">
+          CDMA LOW PBX SSL tone:{1300Hz 25ms, 1450Hz 25ms} 8 times
  200ms OFF, {1300Hz 25ms, 1450Hz 25ms} 8 times, 200ms OFF,
- {1300Hz 25ms, 1450Hz 25ms} 16 times, 1000ms OFF, REPEAT....</td>
+ {1300Hz 25ms, 1450Hz 25ms} 16 times, 1000ms OFF, REPEAT....
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-4" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/media/ToneGenerator.html#TONE_CDMA_LOW_PBX_S_X4">TONE_CDMA_LOW_PBX_S_X4</a></td>
-        <td class="jd-descrcol" width="100%">CDMA LOW PBX X S4 tone: {1300Hz 25ms 1450Hz 25ms} 8 times,
+        <td class="jd-descrcol" width="100%">
+          CDMA LOW PBX X S4 tone: {1300Hz 25ms 1450Hz 25ms} 8 times,
  200ms OFF, {1300Hz 25ms 1450Hz 25ms} 8 times, 200ms OFF,
  {1300Hz 25ms 1450Hz 25ms} 8 times, 200ms OFF,
- {1300Hz 25ms 1450Hz 25ms} 8 times, 800ms OFF, REPEAT...</td>
+ {1300Hz 25ms 1450Hz 25ms} 8 times, 800ms OFF, REPEAT...
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-4" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/media/ToneGenerator.html#TONE_CDMA_LOW_SLS">TONE_CDMA_LOW_SLS</a></td>
-        <td class="jd-descrcol" width="100%">CDMA LOW SLS tone: {1300Hz 25ms, 1450Hz 25ms} 10 times,
+        <td class="jd-descrcol" width="100%">
+          CDMA LOW SLS tone: {1300Hz 25ms, 1450Hz 25ms} 10 times,
   500ms OFF, {1300Hz 25ms, 1450Hz 25ms} 20 times, 500ms OFF,
-  {1300Hz 25ms, 1450Hz 25ms} 10 times, 3000ms OFF, REPEAT</td>
+  {1300Hz 25ms, 1450Hz 25ms} 10 times, 3000ms OFF, REPEAT
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-4" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/media/ToneGenerator.html#TONE_CDMA_LOW_SS">TONE_CDMA_LOW_SS</a></td>
-        <td class="jd-descrcol" width="100%">CDMA LOW SS tone: {1300z 25ms, 1450Hz 25ms} repeat 16 times,
- 400ms OFF, repeat ....</td>
+        <td class="jd-descrcol" width="100%">
+          CDMA LOW SS tone: {1300z 25ms, 1450Hz 25ms} repeat 16 times,
+ 400ms OFF, repeat ....
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-4" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/media/ToneGenerator.html#TONE_CDMA_LOW_SSL">TONE_CDMA_LOW_SSL</a></td>
-        <td class="jd-descrcol" width="100%">CDMA LOW SSL tone: {1300Hz 25ms, 1450Hz 25ms} 8 times,
+        <td class="jd-descrcol" width="100%">
+          CDMA LOW SSL tone: {1300Hz 25ms, 1450Hz 25ms} 8 times,
  200ms OFF, {1300Hz 25ms, 1450Hz 25ms} repeat 8 times,
  200ms OFF, {1300Hz 25ms, 1450Hz 25ms} repeat 16 times,
- 4000ms OFF, repeat ...</td>
+ 4000ms OFF, repeat ...
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-4" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/media/ToneGenerator.html#TONE_CDMA_LOW_SS_2">TONE_CDMA_LOW_SS_2</a></td>
-        <td class="jd-descrcol" width="100%">CDMA LOW SS2 tone: {1300Hz 25ms, 1450Hz 25ms} 20 times,
+        <td class="jd-descrcol" width="100%">
+          CDMA LOW SS2 tone: {1300Hz 25ms, 1450Hz 25ms} 20 times,
  1000ms OFF, {1300Hz 25ms, 1450Hz 25ms} 20 times,
- 3000ms OFF, repeat ....</td>
+ 3000ms OFF, repeat ....
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-4" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/media/ToneGenerator.html#TONE_CDMA_LOW_S_X4">TONE_CDMA_LOW_S_X4</a></td>
-        <td class="jd-descrcol" width="100%">CDMA LOW  S X4 tone: {2600Hz 25ms, 2900Hz 25ms} 10 times,
+        <td class="jd-descrcol" width="100%">
+          CDMA LOW  S X4 tone: {2600Hz 25ms, 2900Hz 25ms} 10 times,
   500ms OFF, {2600Hz 25ms, 2900Hz 25ms} 10 times, 500ms OFF,
   {2600Hz 25ms, 2900Hz 25ms} 10 times, 500ms OFF,
-  {2600Hz 25ms, 2900Hz 25ms} 10 times, 2500ms OFF, REPEAT....</td>
+  {2600Hz 25ms, 2900Hz 25ms} 10 times, 2500ms OFF, REPEAT....
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-4" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/media/ToneGenerator.html#TONE_CDMA_MED_L">TONE_CDMA_MED_L</a></td>
-        <td class="jd-descrcol" width="100%">TONE_CDMA_MED_L tone: {2600Hz 25ms, 2900Hz 25ms} 40 times
- 4000ms OFF, Repeat ....</td>
+        <td class="jd-descrcol" width="100%">
+          TONE_CDMA_MED_L tone: {2600Hz 25ms, 2900Hz 25ms} 40 times
+ 4000ms OFF, Repeat ....
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-4" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/media/ToneGenerator.html#TONE_CDMA_MED_PBX_L">TONE_CDMA_MED_PBX_L</a></td>
-        <td class="jd-descrcol" width="100%">CDMA MED PBX L: {2600Hz 25ms, 2900Hz 25ms}20 times,
- 2000ms OFF,  REPEAT....</td>
+        <td class="jd-descrcol" width="100%">
+          CDMA MED PBX L: {2600Hz 25ms, 2900Hz 25ms}20 times,
+ 2000ms OFF,  REPEAT....
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-4" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/media/ToneGenerator.html#TONE_CDMA_MED_PBX_SLS">TONE_CDMA_MED_PBX_SLS</a></td>
-        <td class="jd-descrcol" width="100%">CDMA HIGH PBX SLS tone:{2600Hz 25ms, 2900Hz 25ms} 8 times
+        <td class="jd-descrcol" width="100%">
+          CDMA HIGH PBX SLS tone:{2600Hz 25ms, 2900Hz 25ms} 8 times
  200ms OFF, {2600Hz 25ms, 2900Hz 25ms} 16 times, 200ms OFF,
- {2600Hz 25ms, 2900Hz 25ms} 8 times, 1000ms OFF, REPEAT....</td>
+ {2600Hz 25ms, 2900Hz 25ms} 8 times, 1000ms OFF, REPEAT....
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-4" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/media/ToneGenerator.html#TONE_CDMA_MED_PBX_SS">TONE_CDMA_MED_PBX_SS</a></td>
-        <td class="jd-descrcol" width="100%">CDMA MED PBX SS tone: {2600Hz 25ms, 2900Hz 25ms} 8 times
+        <td class="jd-descrcol" width="100%">
+          CDMA MED PBX SS tone: {2600Hz 25ms, 2900Hz 25ms} 8 times
  200 ms OFF, {2600Hz 25ms 2900Hz 25ms}8 times,
- 2000ms OFF, REPEAT....</td>
+ 2000ms OFF, REPEAT....
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-4" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/media/ToneGenerator.html#TONE_CDMA_MED_PBX_SSL">TONE_CDMA_MED_PBX_SSL</a></td>
-        <td class="jd-descrcol" width="100%">CDMA MED PBX SSL tone:{2600Hz 25ms, 2900Hz 25ms} 8 times
+        <td class="jd-descrcol" width="100%">
+          CDMA MED PBX SSL tone:{2600Hz 25ms, 2900Hz 25ms} 8 times
  200ms OFF, {2600Hz 25ms, 2900Hz 25ms} 8 times, 200ms OFF,
- {2600Hz 25ms, 2900Hz 25ms} 16 times, 1000ms OFF, REPEAT....</td>
+ {2600Hz 25ms, 2900Hz 25ms} 16 times, 1000ms OFF, REPEAT....
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-4" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/media/ToneGenerator.html#TONE_CDMA_MED_PBX_S_X4">TONE_CDMA_MED_PBX_S_X4</a></td>
-        <td class="jd-descrcol" width="100%">CDMA MED PBX X S4 tone: {2600Hz 25ms 2900Hz 25ms} 8 times,
+        <td class="jd-descrcol" width="100%">
+          CDMA MED PBX X S4 tone: {2600Hz 25ms 2900Hz 25ms} 8 times,
  200ms OFF, {2600Hz 25ms 2900Hz 25ms} 8 times, 200ms OFF,
  {2600Hz 25ms 2900Hz 25ms} 8 times, 200ms OFF,
- {2600Hz 25ms 2900Hz 25ms} 8 times, 800ms OFF, REPEAT...</td>
+ {2600Hz 25ms 2900Hz 25ms} 8 times, 800ms OFF, REPEAT...
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-4" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/media/ToneGenerator.html#TONE_CDMA_MED_SLS">TONE_CDMA_MED_SLS</a></td>
-        <td class="jd-descrcol" width="100%">CDMA MED  SLS tone: {2600Hz 25ms, 2900Hz 25ms} 10 times,
+        <td class="jd-descrcol" width="100%">
+          CDMA MED  SLS tone: {2600Hz 25ms, 2900Hz 25ms} 10 times,
   500ms OFF, {2600Hz 25ms, 2900Hz 25ms} 20 times, 500ms OFF,
-  {2600Hz 25ms, 2900Hz 25ms} 10 times, 3000ms OFF, REPEAT</td>
+  {2600Hz 25ms, 2900Hz 25ms} 10 times, 3000ms OFF, REPEAT
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-4" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/media/ToneGenerator.html#TONE_CDMA_MED_SS">TONE_CDMA_MED_SS</a></td>
-        <td class="jd-descrcol" width="100%">CDMA MED SS tone: {2600Hz 25ms, 2900Hz 25ms} repeat 16 times,
- 400ms OFF, repeat ....</td>
+        <td class="jd-descrcol" width="100%">
+          CDMA MED SS tone: {2600Hz 25ms, 2900Hz 25ms} repeat 16 times,
+ 400ms OFF, repeat ....
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-4" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/media/ToneGenerator.html#TONE_CDMA_MED_SSL">TONE_CDMA_MED_SSL</a></td>
-        <td class="jd-descrcol" width="100%">CDMA MED SSL tone: {2600Hz 25ms, 2900Hz 25ms} 8 times,
+        <td class="jd-descrcol" width="100%">
+          CDMA MED SSL tone: {2600Hz 25ms, 2900Hz 25ms} 8 times,
  200ms OFF, {2600Hz 25ms, 2900Hz 25ms} repeat 8 times,
  200ms OFF, {2600Hz 25ms, 2900Hz 25ms} repeat 16 times,
- 4000ms OFF, repeat ...</td>
+ 4000ms OFF, repeat ...
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-4" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/media/ToneGenerator.html#TONE_CDMA_MED_SS_2">TONE_CDMA_MED_SS_2</a></td>
-        <td class="jd-descrcol" width="100%">CDMA MED SS2 tone: {2600Hz 25ms, 2900Hz 25ms} 20 times,
+        <td class="jd-descrcol" width="100%">
+          CDMA MED SS2 tone: {2600Hz 25ms, 2900Hz 25ms} 20 times,
  1000ms OFF, {2600Hz 25ms, 2900Hz 25ms} 20 times,
- 3000ms OFF, repeat ....</td>
+ 3000ms OFF, repeat ....
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-4" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/media/ToneGenerator.html#TONE_CDMA_MED_S_X4">TONE_CDMA_MED_S_X4</a></td>
-        <td class="jd-descrcol" width="100%">CDMA MED S X4 tone: {2600Hz 25ms, 2900Hz 25ms} 10 times,
+        <td class="jd-descrcol" width="100%">
+          CDMA MED S X4 tone: {2600Hz 25ms, 2900Hz 25ms} 10 times,
   500ms OFF, {2600Hz 25ms, 2900Hz 25ms} 10 times, 500ms OFF,
   {2600Hz 25ms, 2900Hz 25ms} 10 times, 500ms OFF,
-  {2600Hz 25ms, 2900Hz 25ms} 10 times, 2500ms OFF, REPEAT....</td>
+  {2600Hz 25ms, 2900Hz 25ms} 10 times, 2500ms OFF, REPEAT....
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-4" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/media/ToneGenerator.html#TONE_CDMA_NETWORK_BUSY">TONE_CDMA_NETWORK_BUSY</a></td>
-        <td class="jd-descrcol" width="100%">CDMA Network Busy tone: 480Hz+620Hz 500ms ON, 500ms OFF continuous</td>
+        <td class="jd-descrcol" width="100%">
+          CDMA Network Busy tone: 480Hz+620Hz 500ms ON, 500ms OFF continuous
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-4" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/media/ToneGenerator.html#TONE_CDMA_NETWORK_BUSY_ONE_SHOT">TONE_CDMA_NETWORK_BUSY_ONE_SHOT</a></td>
-        <td class="jd-descrcol" width="100%">CDMA_NETWORK_BUSY_ONE_SHOT tone: 425Hz 500ms ON, 500ms OFF.</td>
+        <td class="jd-descrcol" width="100%">
+          CDMA_NETWORK_BUSY_ONE_SHOT tone: 425Hz 500ms ON, 500ms OFF.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-4" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/media/ToneGenerator.html#TONE_CDMA_NETWORK_CALLWAITING">TONE_CDMA_NETWORK_CALLWAITING</a></td>
-        <td class="jd-descrcol" width="100%">CDMA Network Callwaiting tone: 440Hz 300ms ON</td>
+        <td class="jd-descrcol" width="100%">
+          CDMA Network Callwaiting tone: 440Hz 300ms ON
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-4" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/media/ToneGenerator.html#TONE_CDMA_NETWORK_USA_RINGBACK">TONE_CDMA_NETWORK_USA_RINGBACK</a></td>
-        <td class="jd-descrcol" width="100%">CDMA USA Ringback: 440Hz+480Hz 2s ON, 4000 OFF ...</td>
+        <td class="jd-descrcol" width="100%">
+          CDMA USA Ringback: 440Hz+480Hz 2s ON, 4000 OFF ...
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-4" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/media/ToneGenerator.html#TONE_CDMA_ONE_MIN_BEEP">TONE_CDMA_ONE_MIN_BEEP</a></td>
-        <td class="jd-descrcol" width="100%">CDMA One Min Beep tone: 1150Hz+770Hz 400ms ON</td>
+        <td class="jd-descrcol" width="100%">
+          CDMA One Min Beep tone: 1150Hz+770Hz 400ms ON
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-4" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/media/ToneGenerator.html#TONE_CDMA_PIP">TONE_CDMA_PIP</a></td>
-        <td class="jd-descrcol" width="100%">CDMA PIP tone: 480Hz 100ms ON, 100ms OFF repeated for 4 times</td>
+        <td class="jd-descrcol" width="100%">
+          CDMA PIP tone: 480Hz 100ms ON, 100ms OFF repeated for 4 times
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-4" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/media/ToneGenerator.html#TONE_CDMA_PRESSHOLDKEY_LITE">TONE_CDMA_PRESSHOLDKEY_LITE</a></td>
-        <td class="jd-descrcol" width="100%">CDMA PRESSHOLDKEY LITE tone: 587Hz 375ms ON, 1175Hz 125ms ON</td>
+        <td class="jd-descrcol" width="100%">
+          CDMA PRESSHOLDKEY LITE tone: 587Hz 375ms ON, 1175Hz 125ms ON
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-4" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/media/ToneGenerator.html#TONE_CDMA_REORDER">TONE_CDMA_REORDER</a></td>
-        <td class="jd-descrcol" width="100%">CDMA Reorder tone: 480Hz+620Hz 250ms ON, 250ms OFF...</td>
+        <td class="jd-descrcol" width="100%">
+          CDMA Reorder tone: 480Hz+620Hz 250ms ON, 250ms OFF...
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-4" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/media/ToneGenerator.html#TONE_CDMA_SIGNAL_OFF">TONE_CDMA_SIGNAL_OFF</a></td>
-        <td class="jd-descrcol" width="100%">CDMA_SIGNAL_OFF - silent tone</td>
+        <td class="jd-descrcol" width="100%">
+          CDMA_SIGNAL_OFF - silent tone
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-4" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/media/ToneGenerator.html#TONE_CDMA_SOFT_ERROR_LITE">TONE_CDMA_SOFT_ERROR_LITE</a></td>
-        <td class="jd-descrcol" width="100%">CDMA SOFT ERROR LITE  tone: 1047Hz 125ms ON, 370Hz 125ms</td>
+        <td class="jd-descrcol" width="100%">
+          CDMA SOFT ERROR LITE  tone: 1047Hz 125ms ON, 370Hz 125ms
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/media/ToneGenerator.html#TONE_DTMF_0">TONE_DTMF_0</a></td>
-        <td class="jd-descrcol" width="100%">DTMF tone for key 0: 1336Hz, 941Hz, continuous</p></td>
+        <td class="jd-descrcol" width="100%">
+          DTMF tone for key 0: 1336Hz, 941Hz, continuous</p>
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/media/ToneGenerator.html#TONE_DTMF_1">TONE_DTMF_1</a></td>
-        <td class="jd-descrcol" width="100%">DTMF tone for key 1: 1209Hz, 697Hz, continuous</td>
+        <td class="jd-descrcol" width="100%">
+          DTMF tone for key 1: 1209Hz, 697Hz, continuous
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/media/ToneGenerator.html#TONE_DTMF_2">TONE_DTMF_2</a></td>
-        <td class="jd-descrcol" width="100%">DTMF tone for key 2: 1336Hz, 697Hz, continuous</td>
+        <td class="jd-descrcol" width="100%">
+          DTMF tone for key 2: 1336Hz, 697Hz, continuous
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/media/ToneGenerator.html#TONE_DTMF_3">TONE_DTMF_3</a></td>
-        <td class="jd-descrcol" width="100%">DTMF tone for key 3: 1477Hz, 697Hz, continuous</td>
+        <td class="jd-descrcol" width="100%">
+          DTMF tone for key 3: 1477Hz, 697Hz, continuous
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/media/ToneGenerator.html#TONE_DTMF_4">TONE_DTMF_4</a></td>
-        <td class="jd-descrcol" width="100%">DTMF tone for key 4: 1209Hz, 770Hz, continuous</td>
+        <td class="jd-descrcol" width="100%">
+          DTMF tone for key 4: 1209Hz, 770Hz, continuous
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/media/ToneGenerator.html#TONE_DTMF_5">TONE_DTMF_5</a></td>
-        <td class="jd-descrcol" width="100%">DTMF tone for key 5: 1336Hz, 770Hz, continuous</td>
+        <td class="jd-descrcol" width="100%">
+          DTMF tone for key 5: 1336Hz, 770Hz, continuous
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/media/ToneGenerator.html#TONE_DTMF_6">TONE_DTMF_6</a></td>
-        <td class="jd-descrcol" width="100%">DTMF tone for key 6: 1477Hz, 770Hz, continuous</td>
+        <td class="jd-descrcol" width="100%">
+          DTMF tone for key 6: 1477Hz, 770Hz, continuous
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/media/ToneGenerator.html#TONE_DTMF_7">TONE_DTMF_7</a></td>
-        <td class="jd-descrcol" width="100%">DTMF tone for key 7: 1209Hz, 852Hz, continuous</td>
+        <td class="jd-descrcol" width="100%">
+          DTMF tone for key 7: 1209Hz, 852Hz, continuous
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/media/ToneGenerator.html#TONE_DTMF_8">TONE_DTMF_8</a></td>
-        <td class="jd-descrcol" width="100%">DTMF tone for key 8: 1336Hz, 852Hz, continuous</td>
+        <td class="jd-descrcol" width="100%">
+          DTMF tone for key 8: 1336Hz, 852Hz, continuous
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/media/ToneGenerator.html#TONE_DTMF_9">TONE_DTMF_9</a></td>
-        <td class="jd-descrcol" width="100%">DTMF tone for key 9: 1477Hz, 852Hz, continuous</td>
+        <td class="jd-descrcol" width="100%">
+          DTMF tone for key 9: 1477Hz, 852Hz, continuous
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/media/ToneGenerator.html#TONE_DTMF_A">TONE_DTMF_A</a></td>
-        <td class="jd-descrcol" width="100%">DTMF tone for key A: 1633Hz, 697Hz, continuous</td>
+        <td class="jd-descrcol" width="100%">
+          DTMF tone for key A: 1633Hz, 697Hz, continuous
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/media/ToneGenerator.html#TONE_DTMF_B">TONE_DTMF_B</a></td>
-        <td class="jd-descrcol" width="100%">DTMF tone for key B: 1633Hz, 770Hz, continuous</td>
+        <td class="jd-descrcol" width="100%">
+          DTMF tone for key B: 1633Hz, 770Hz, continuous
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/media/ToneGenerator.html#TONE_DTMF_C">TONE_DTMF_C</a></td>
-        <td class="jd-descrcol" width="100%">DTMF tone for key C: 1633Hz, 852Hz, continuous</td>
+        <td class="jd-descrcol" width="100%">
+          DTMF tone for key C: 1633Hz, 852Hz, continuous
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/media/ToneGenerator.html#TONE_DTMF_D">TONE_DTMF_D</a></td>
-        <td class="jd-descrcol" width="100%">DTMF tone for key D: 1633Hz, 941Hz, continuous</td>
+        <td class="jd-descrcol" width="100%">
+          DTMF tone for key D: 1633Hz, 941Hz, continuous
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/media/ToneGenerator.html#TONE_DTMF_P">TONE_DTMF_P</a></td>
-        <td class="jd-descrcol" width="100%">DTMF tone for key #: 1477Hz, 941Hz, continuous</td>
+        <td class="jd-descrcol" width="100%">
+          DTMF tone for key #: 1477Hz, 941Hz, continuous
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/media/ToneGenerator.html#TONE_DTMF_S">TONE_DTMF_S</a></td>
-        <td class="jd-descrcol" width="100%">DTMF tone for key *: 1209Hz, 941Hz, continuous</td>
+        <td class="jd-descrcol" width="100%">
+          DTMF tone for key *: 1209Hz, 941Hz, continuous
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/media/ToneGenerator.html#TONE_PROP_ACK">TONE_PROP_ACK</a></td>
-        <td class="jd-descrcol" width="100%">Proprietary tone, positive acknowlegement: 1200Hz, 100ms ON, 100ms OFF 2 bursts</td>
+        <td class="jd-descrcol" width="100%">
+          Proprietary tone, positive acknowlegement: 1200Hz, 100ms ON, 100ms OFF 2 bursts
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/media/ToneGenerator.html#TONE_PROP_BEEP">TONE_PROP_BEEP</a></td>
-        <td class="jd-descrcol" width="100%">Proprietary tone, general beep: 400Hz+1200Hz, 35ms ON</td>
+        <td class="jd-descrcol" width="100%">
+          Proprietary tone, general beep: 400Hz+1200Hz, 35ms ON
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/media/ToneGenerator.html#TONE_PROP_BEEP2">TONE_PROP_BEEP2</a></td>
-        <td class="jd-descrcol" width="100%">Proprietary tone, general double beep: twice 400Hz+1200Hz, 35ms ON, 200ms OFF, 35ms ON</td>
+        <td class="jd-descrcol" width="100%">
+          Proprietary tone, general double beep: twice 400Hz+1200Hz, 35ms ON, 200ms OFF, 35ms ON
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/media/ToneGenerator.html#TONE_PROP_NACK">TONE_PROP_NACK</a></td>
-        <td class="jd-descrcol" width="100%">Proprietary tone, negative acknowlegement: 300Hz+400Hz+500Hz, 400ms ON</td>
+        <td class="jd-descrcol" width="100%">
+          Proprietary tone, negative acknowlegement: 300Hz+400Hz+500Hz, 400ms ON
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/media/ToneGenerator.html#TONE_PROP_PROMPT">TONE_PROP_PROMPT</a></td>
-        <td class="jd-descrcol" width="100%">Proprietary tone, prompt tone: 400Hz+1200Hz, 200ms ON</td>
+        <td class="jd-descrcol" width="100%">
+          Proprietary tone, prompt tone: 400Hz+1200Hz, 200ms ON
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/media/ToneGenerator.html#TONE_SUP_BUSY">TONE_SUP_BUSY</a></td>
-        <td class="jd-descrcol" width="100%">Call supervisory tone, Busy:
-      CEPT:           425Hz, 500ms ON, 500ms OFF...</td>
+        <td class="jd-descrcol" width="100%">
+          Call supervisory tone, Busy:
+      CEPT:           425Hz, 500ms ON, 500ms OFF...
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/media/ToneGenerator.html#TONE_SUP_CALL_WAITING">TONE_SUP_CALL_WAITING</a></td>
-        <td class="jd-descrcol" width="100%">Call supervisory tone, Call Waiting:
-      CEPT, JAPAN:    425Hz, 200ms ON, 600ms OFF, 200ms ON, 3s OFF...</td>
+        <td class="jd-descrcol" width="100%">
+          Call supervisory tone, Call Waiting:
+      CEPT, JAPAN:    425Hz, 200ms ON, 600ms OFF, 200ms ON, 3s OFF...
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-4" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/media/ToneGenerator.html#TONE_SUP_CONFIRM">TONE_SUP_CONFIRM</a></td>
-        <td class="jd-descrcol" width="100%">Call supervisory tone (IS-95), confirm tone: a 350 Hz tone added to a 440 Hz tone
- repeated 3 times in a 100 ms on, 100 ms off cycle</td>
+        <td class="jd-descrcol" width="100%">
+          Call supervisory tone (IS-95), confirm tone: a 350 Hz tone added to a 440 Hz tone
+ repeated 3 times in a 100 ms on, 100 ms off cycle
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/media/ToneGenerator.html#TONE_SUP_CONGESTION">TONE_SUP_CONGESTION</a></td>
-        <td class="jd-descrcol" width="100%">Call supervisory tone, Congestion:
-      CEPT, JAPAN:    425Hz, 200ms ON, 200ms OFF...</td>
+        <td class="jd-descrcol" width="100%">
+          Call supervisory tone, Congestion:
+      CEPT, JAPAN:    425Hz, 200ms ON, 200ms OFF...
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-4" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/media/ToneGenerator.html#TONE_SUP_CONGESTION_ABBREV">TONE_SUP_CONGESTION_ABBREV</a></td>
-        <td class="jd-descrcol" width="100%">Call supervisory tone (IS-95), abbreviated congestion: congestion tone limited to 4 seconds</td>
+        <td class="jd-descrcol" width="100%">
+          Call supervisory tone (IS-95), abbreviated congestion: congestion tone limited to 4 seconds
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/media/ToneGenerator.html#TONE_SUP_DIAL">TONE_SUP_DIAL</a></td>
-        <td class="jd-descrcol" width="100%">Call supervisory tone, Dial tone:
+        <td class="jd-descrcol" width="100%">
+          Call supervisory tone, Dial tone:
       CEPT:           425Hz, continuous
       ANSI (IS-95):   350Hz+440Hz, continuous
-      JAPAN:          400Hz, continuous</td>
+      JAPAN:          400Hz, continuous
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/media/ToneGenerator.html#TONE_SUP_ERROR">TONE_SUP_ERROR</a></td>
-        <td class="jd-descrcol" width="100%">Call supervisory tone, Error/Special info: 950Hz+1400Hz+1800Hz, 330ms ON, 1s OFF...</td>
+        <td class="jd-descrcol" width="100%">
+          Call supervisory tone, Error/Special info: 950Hz+1400Hz+1800Hz, 330ms ON, 1s OFF...
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-4" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/media/ToneGenerator.html#TONE_SUP_INTERCEPT">TONE_SUP_INTERCEPT</a></td>
-        <td class="jd-descrcol" width="100%">Call supervisory tone (IS-95), intercept tone: alternating 440 Hz and 620 Hz tones,
- each on for 250 ms</td>
+        <td class="jd-descrcol" width="100%">
+          Call supervisory tone (IS-95), intercept tone: alternating 440 Hz and 620 Hz tones,
+ each on for 250 ms
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-4" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/media/ToneGenerator.html#TONE_SUP_INTERCEPT_ABBREV">TONE_SUP_INTERCEPT_ABBREV</a></td>
-        <td class="jd-descrcol" width="100%">Call supervisory tone (IS-95), abbreviated intercept: intercept tone limited to 4 seconds</td>
+        <td class="jd-descrcol" width="100%">
+          Call supervisory tone (IS-95), abbreviated intercept: intercept tone limited to 4 seconds
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-4" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/media/ToneGenerator.html#TONE_SUP_PIP">TONE_SUP_PIP</a></td>
-        <td class="jd-descrcol" width="100%">Call supervisory tone (IS-95), pip tone: four bursts of 480 Hz tone (0.1 s on, 0.1 s off).</td>
+        <td class="jd-descrcol" width="100%">
+          Call supervisory tone (IS-95), pip tone: four bursts of 480 Hz tone (0.1 s on, 0.1 s off).
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/media/ToneGenerator.html#TONE_SUP_RADIO_ACK">TONE_SUP_RADIO_ACK</a></td>
-        <td class="jd-descrcol" width="100%">Call supervisory tone, Radio path acknowlegment :
+        <td class="jd-descrcol" width="100%">
+          Call supervisory tone, Radio path acknowlegment :
       CEPT, ANSI:    425Hz, 200ms ON
-      JAPAN:         400Hz, 1s ON, 2s OFF...</td>
+      JAPAN:         400Hz, 1s ON, 2s OFF...
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/media/ToneGenerator.html#TONE_SUP_RADIO_NOTAVAIL">TONE_SUP_RADIO_NOTAVAIL</a></td>
-        <td class="jd-descrcol" width="100%">Call supervisory tone, Radio path not available: 425Hz, 200ms ON, 200 OFF 3 bursts</td>
+        <td class="jd-descrcol" width="100%">
+          Call supervisory tone, Radio path not available: 425Hz, 200ms ON, 200 OFF 3 bursts
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/media/ToneGenerator.html#TONE_SUP_RINGTONE">TONE_SUP_RINGTONE</a></td>
-        <td class="jd-descrcol" width="100%">Call supervisory tone, Ring Tone:
-      CEPT, JAPAN:    425Hz, 1s ON, 4s OFF...</td>
+        <td class="jd-descrcol" width="100%">
+          Call supervisory tone, Ring Tone:
+      CEPT, JAPAN:    425Hz, 1s ON, 4s OFF...
+          
+    
+
+        </td>
     </tr>
     
     
@@ -2033,7 +2598,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/media/ToneGenerator.html#ToneGenerator(int, int)">ToneGenerator</a></span>(int streamType, int volume)</nobr>
         
-        <div class="jd-descrdiv">ToneGenerator class contructor specifying output stream type and volume.</div>
+        <div class="jd-descrdiv">
+          ToneGenerator class contructor specifying output stream type and volume.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2064,7 +2634,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/media/ToneGenerator.html#getAudioSessionId()">getAudioSessionId</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns the audio session ID.</div>
+        <div class="jd-descrdiv">
+          Returns the audio session ID.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2082,7 +2657,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/media/ToneGenerator.html#release()">release</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Releases resources associated with this ToneGenerator object.</div>
+        <div class="jd-descrdiv">
+          Releases resources associated with this ToneGenerator object.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2100,7 +2680,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/media/ToneGenerator.html#startTone(int, int)">startTone</a></span>(int toneType, int durationMs)</nobr>
         
-        <div class="jd-descrdiv">This method starts the playback of a tone of the specified type for the specified duration.</div>
+        <div class="jd-descrdiv">
+          This method starts the playback of a tone of the specified type for the specified duration.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2118,7 +2703,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/media/ToneGenerator.html#startTone(int)">startTone</a></span>(int toneType)</nobr>
         
-        <div class="jd-descrdiv">This method starts the playback of a tone of the specified type.</div>
+        <div class="jd-descrdiv">
+          This method starts the playback of a tone of the specified type.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2136,7 +2726,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/media/ToneGenerator.html#stopTone()">stopTone</a></span>()</nobr>
         
-        <div class="jd-descrdiv">This method stops the tone currently playing playback.</div>
+        <div class="jd-descrdiv">
+          This method stops the tone currently playing playback.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2165,7 +2760,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/media/ToneGenerator.html#finalize()">finalize</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Invoked when the garbage collector has detected that this instance is no longer reachable.</div>
+        <div class="jd-descrdiv">
+          Invoked when the garbage collector has detected that this instance is no longer reachable.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2215,7 +2815,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#clone()">clone</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Creates and returns a copy of this <code>Object</code>.</div>
+        <div class="jd-descrdiv">
+          Creates and returns a copy of this <code>Object</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2233,8 +2838,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#equals(java.lang.Object)">equals</a></span>(<a href="../../../reference/java/lang/Object.html">Object</a> o)</nobr>
         
-        <div class="jd-descrdiv">Compares this instance with the specified object and indicates if they
- are equal.</div>
+        <div class="jd-descrdiv">
+          Compares this instance with the specified object and indicates if they
+ are equal.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2252,7 +2862,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#finalize()">finalize</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Invoked when the garbage collector has detected that this instance is no longer reachable.</div>
+        <div class="jd-descrdiv">
+          Invoked when the garbage collector has detected that this instance is no longer reachable.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2270,8 +2885,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#getClass()">getClass</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns the unique instance of <code><a href="../../../reference/java/lang/Class.html">Class</a></code> that represents this
- object's class.</div>
+        <div class="jd-descrdiv">
+          Returns the unique instance of <code><a href="../../../reference/java/lang/Class.html">Class</a></code> that represents this
+ object's class.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2289,7 +2909,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#hashCode()">hashCode</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns an integer hash code for this object.</div>
+        <div class="jd-descrdiv">
+          Returns an integer hash code for this object.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2307,8 +2932,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#notify()">notify</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Causes a thread which is waiting on this object's monitor (by means of
- calling one of the <code>wait()</code> methods) to be woken up.</div>
+        <div class="jd-descrdiv">
+          Causes a thread which is waiting on this object's monitor (by means of
+ calling one of the <code>wait()</code> methods) to be woken up.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2326,8 +2956,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#notifyAll()">notifyAll</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Causes all threads which are waiting on this object's monitor (by means
- of calling one of the <code>wait()</code> methods) to be woken up.</div>
+        <div class="jd-descrdiv">
+          Causes all threads which are waiting on this object's monitor (by means
+ of calling one of the <code>wait()</code> methods) to be woken up.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2345,8 +2980,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#toString()">toString</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns a string containing a concise, human-readable description of this
- object.</div>
+        <div class="jd-descrdiv">
+          Returns a string containing a concise, human-readable description of this
+ object.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2364,7 +3004,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#wait()">wait</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object.</div>
+        <div class="jd-descrdiv">
+          Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2382,8 +3027,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#wait(long, int)">wait</a></span>(long millis, int nanos)</nobr>
         
-        <div class="jd-descrdiv">Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object or until the
- specified timeout expires.</div>
+        <div class="jd-descrdiv">
+          Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object or until the
+ specified timeout expires.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2401,8 +3051,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#wait(long)">wait</a></span>(long millis)</nobr>
         
-        <div class="jd-descrdiv">Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object or until the
- specified timeout expires.</div>
+        <div class="jd-descrdiv">
+          Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object or until the
+ specified timeout expires.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2463,6 +3118,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Maximum volume, for use with <code><a href="../../../reference/android/media/ToneGenerator.html#ToneGenerator(int, int)">ToneGenerator(int, int)</a></code> </p></div>
 
     
@@ -2502,6 +3160,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Minimum volume setting, for use with <code><a href="../../../reference/android/media/ToneGenerator.html#ToneGenerator(int, int)">ToneGenerator(int, int)</a></code> </p></div>
 
     
@@ -2540,6 +3201,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>CDMA_ABBR_ALERT tone: 1150Hz+770Hz 400ms ON</p></div>
   <div class="jd-tagdata">
@@ -2585,6 +3249,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>CDMA Abbr Intercept tone: 440Hz 250ms ON, 620Hz 250ms ON</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
@@ -2629,6 +3296,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>CDMA Abbr Reorder tone: 480Hz+620Hz 250ms ON, 250ms OFF repeated for 8 times</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
@@ -2672,6 +3342,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>CDMA Alert Auto Redial tone: {1245Hz 62ms ON, 659Hz 62ms ON} 3 times,
  1245 62ms ON</p></div>
@@ -2718,6 +3391,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>CDMA ALERT CALL GUARD tone: {1319Hz 125ms ON, 125ms OFF} 3 times</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
@@ -2761,6 +3437,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>CDMA ALERT INCALL LITE tone: 587Hz 62ms, 784 62ms, 831Hz 62ms,
  784Hz 62ms, 1109 62ms, 784Hz 62ms, 831Hz 62ms, 784Hz 62ms</p></div>
@@ -2807,6 +3486,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>CDMA Alert Network Lite tone: 1109Hz 62ms ON, 784Hz 62ms ON, 740Hz 62ms ON
  622Hz 62ms ON, 1109Hz 62ms ON</p></div>
   <div class="jd-tagdata">
@@ -2852,6 +3534,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>CDMA answer tone: silent tone - defintion Frequency 0, 0ms ON, 0ms OFF</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
@@ -2896,6 +3581,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>CDMA CALLDROP LITE tone: 1480Hz 125ms, 1397Hz 125ms, 784Hz 125ms</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
@@ -2939,6 +3627,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>ISDN Call Signal Intergroup tone: {2091Hz 32ms ON, 2556 64ms ON} 8 times,
  2091Hz 32ms ON, 400ms OFF, {2091Hz 32ms ON, 2556Hz 64ms ON} times,
@@ -2986,6 +3677,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>ISDN Call Signal Normal tone: {2091Hz 32ms ON, 2556 64ms ON} 20 times,
   2091 32ms ON, 2556 48ms ON, 4s OFF</p></div>
   <div class="jd-tagdata">
@@ -3031,6 +3725,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>ISDN Call sign PAT3 tone: silent tone</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
@@ -3074,6 +3771,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>ISDN Pat5 tone: silent tone</p></div>
   <div class="jd-tagdata">
@@ -3119,6 +3819,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>ISDN Pat6 tone: silent tone</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
@@ -3162,6 +3865,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>ISDN Pat7 tone: silent tone</p></div>
   <div class="jd-tagdata">
@@ -3207,6 +3913,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>ISDN Ping Ring tone: {2091Hz 32ms ON, 2556Hz 64ms ON} 5 times
  2091Hz 20ms ON</p></div>
   <div class="jd-tagdata">
@@ -3251,6 +3960,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>ISDN Call Signal SP PRI tone:{2091Hz 32ms ON, 2556 64ms ON} 4 times
  2091Hz 16ms ON, 200ms OFF, {2091Hz 32ms ON, 2556Hz 64ms ON} 4 times,
@@ -3298,6 +4010,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>CDMA Confirm tone: 350Hz+440Hz 100ms ON, 100ms OFF repeated for 3 times</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
@@ -3342,6 +4057,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>CDMA Dial tone : 425Hz  continuous</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
@@ -3385,6 +4103,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>CDMA EMERGENCY RINGBACK tone: {941Hz 125ms ON, 10ms OFF} 3times
  4990ms OFF, REPEAT...</p></div>
@@ -3431,6 +4152,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>TONE_CDMA_HIGH_L tone: {3700Hz 25ms, 4000Hz 25ms} 40 times
  4000ms OFF, Repeat ....</p></div>
   <div class="jd-tagdata">
@@ -3476,6 +4200,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>CDMA HIGH PBX L: {3700Hz 25ms, 4000Hz 25ms}20 times,
  2000ms OFF,  REPEAT....</p></div>
   <div class="jd-tagdata">
@@ -3520,6 +4247,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>CDMA HIGH PBX SSL tone:{3700Hz 25ms, 4000Hz 25ms} 8 times
  200ms OFF, {3700Hz 25ms, 4000Hz 25ms} 16 times, 200ms OFF,
@@ -3567,6 +4297,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>CDMA HIGH PBX SS tone: {3700Hz 25ms, 4000Hz 25ms} 8 times
  200 ms OFF, {3700Hz 25ms 4000Hz 25ms}8 times,
  2000ms OFF, REPEAT....</p></div>
@@ -3613,6 +4346,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>CDMA HIGH PBX SSL tone:{3700Hz 25ms, 4000Hz 25ms} 8 times
  200ms OFF, {3700Hz 25ms, 4000Hz 25ms} 8 times, 200ms OFF,
  {3700Hz 25ms, 4000Hz 25ms} 16 times, 1000ms OFF, REPEAT....</p></div>
@@ -3658,6 +4394,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>CDMA HIGH PBX X S4 tone: {3700Hz 25ms 4000Hz 25ms} 8 times,
  200ms OFF, {3700Hz 25ms 4000Hz 25ms} 8 times, 200ms OFF,
@@ -3706,6 +4445,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>CDMA HIGH SLS tone: {3700Hz 25ms, 4000Hz 25ms} 10 times,
   500ms OFF, {3700Hz 25ms, 4000Hz 25ms} 20 times, 500ms OFF,
   {3700Hz 25ms, 4000Hz 25ms} 10 times, 3000ms OFF, REPEAT</p></div>
@@ -3752,6 +4494,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>CDMA HIGH SS tone: {3700Hz 25ms, 4000Hz 25ms} repeat 16 times,
  400ms OFF, repeat ....</p></div>
   <div class="jd-tagdata">
@@ -3796,6 +4541,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>CDMA HIGH SSL tone: {3700Hz 25ms, 4000Hz 25ms} 8 times,
  200ms OFF, {3700Hz 25ms, 4000Hz 25ms} repeat 8 times,
@@ -3844,6 +4592,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>CDMA HIGH SS2 tone: {3700Hz 25ms, 4000Hz 25ms} 20 times,
  1000ms OFF, {3700Hz 25ms, 4000Hz 25ms} 20 times,
  3000ms OFF, repeat ....</p></div>
@@ -3889,6 +4640,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>CDMA HIGH S X4 tone: {3700Hz 25ms, 4000Hz 25ms} 10 times,
   500ms OFF, {3700Hz 25ms, 4000Hz 25ms} 10 times, 500ms OFF,
@@ -3937,6 +4691,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>CDMA Intercept tone: 440Hz 250ms ON, 620Hz 250ms ON ...</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
@@ -3981,6 +4738,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>CDMA KEYPAD Volume key lite tone: 941Hz+1477Hz 120ms ON</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
@@ -4024,6 +4784,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>TONE_CDMA_LOW_L tone: {1300Hz 25ms, 1450Hz 25ms} 40 times,
  4000ms OFF, Repeat ....</p></div>
@@ -4070,6 +4833,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>CDMA LOW PBX L: {1300Hz 25ms,1450Hz 25ms}20 times,
  2000ms OFF,  REPEAT....</p></div>
   <div class="jd-tagdata">
@@ -4114,6 +4880,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>CDMA HIGH PBX SLS tone:{1300Hz 25ms, 1450Hz 25ms} 8 times
  200ms OFF, {1300Hz 25ms, 1450Hz 25ms} 16 times, 200ms OFF,
@@ -4161,6 +4930,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>CDMA LOW PBX SS tone: {1300Hz 25ms, 1450Hz 25ms} 8 times
  200 ms OFF, {1300Hz 25ms 1450Hz 25ms}8 times,
  2000ms OFF, REPEAT....</p></div>
@@ -4207,6 +4979,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>CDMA LOW PBX SSL tone:{1300Hz 25ms, 1450Hz 25ms} 8 times
  200ms OFF, {1300Hz 25ms, 1450Hz 25ms} 8 times, 200ms OFF,
  {1300Hz 25ms, 1450Hz 25ms} 16 times, 1000ms OFF, REPEAT....</p></div>
@@ -4252,6 +5027,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>CDMA LOW PBX X S4 tone: {1300Hz 25ms 1450Hz 25ms} 8 times,
  200ms OFF, {1300Hz 25ms 1450Hz 25ms} 8 times, 200ms OFF,
@@ -4300,6 +5078,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>CDMA LOW SLS tone: {1300Hz 25ms, 1450Hz 25ms} 10 times,
   500ms OFF, {1300Hz 25ms, 1450Hz 25ms} 20 times, 500ms OFF,
   {1300Hz 25ms, 1450Hz 25ms} 10 times, 3000ms OFF, REPEAT</p></div>
@@ -4346,6 +5127,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>CDMA LOW SS tone: {1300z 25ms, 1450Hz 25ms} repeat 16 times,
  400ms OFF, repeat ....</p></div>
   <div class="jd-tagdata">
@@ -4390,6 +5174,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>CDMA LOW SSL tone: {1300Hz 25ms, 1450Hz 25ms} 8 times,
  200ms OFF, {1300Hz 25ms, 1450Hz 25ms} repeat 8 times,
@@ -4438,6 +5225,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>CDMA LOW SS2 tone: {1300Hz 25ms, 1450Hz 25ms} 20 times,
  1000ms OFF, {1300Hz 25ms, 1450Hz 25ms} 20 times,
  3000ms OFF, repeat ....</p></div>
@@ -4483,6 +5273,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>CDMA LOW  S X4 tone: {2600Hz 25ms, 2900Hz 25ms} 10 times,
   500ms OFF, {2600Hz 25ms, 2900Hz 25ms} 10 times, 500ms OFF,
@@ -4531,6 +5324,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>TONE_CDMA_MED_L tone: {2600Hz 25ms, 2900Hz 25ms} 40 times
  4000ms OFF, Repeat ....</p></div>
   <div class="jd-tagdata">
@@ -4576,6 +5372,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>CDMA MED PBX L: {2600Hz 25ms, 2900Hz 25ms}20 times,
  2000ms OFF,  REPEAT....</p></div>
   <div class="jd-tagdata">
@@ -4620,6 +5419,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>CDMA HIGH PBX SLS tone:{2600Hz 25ms, 2900Hz 25ms} 8 times
  200ms OFF, {2600Hz 25ms, 2900Hz 25ms} 16 times, 200ms OFF,
@@ -4667,6 +5469,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>CDMA MED PBX SS tone: {2600Hz 25ms, 2900Hz 25ms} 8 times
  200 ms OFF, {2600Hz 25ms 2900Hz 25ms}8 times,
  2000ms OFF, REPEAT....</p></div>
@@ -4713,6 +5518,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>CDMA MED PBX SSL tone:{2600Hz 25ms, 2900Hz 25ms} 8 times
  200ms OFF, {2600Hz 25ms, 2900Hz 25ms} 8 times, 200ms OFF,
  {2600Hz 25ms, 2900Hz 25ms} 16 times, 1000ms OFF, REPEAT....</p></div>
@@ -4758,6 +5566,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>CDMA MED PBX X S4 tone: {2600Hz 25ms 2900Hz 25ms} 8 times,
  200ms OFF, {2600Hz 25ms 2900Hz 25ms} 8 times, 200ms OFF,
@@ -4806,6 +5617,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>CDMA MED  SLS tone: {2600Hz 25ms, 2900Hz 25ms} 10 times,
   500ms OFF, {2600Hz 25ms, 2900Hz 25ms} 20 times, 500ms OFF,
   {2600Hz 25ms, 2900Hz 25ms} 10 times, 3000ms OFF, REPEAT</p></div>
@@ -4852,6 +5666,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>CDMA MED SS tone: {2600Hz 25ms, 2900Hz 25ms} repeat 16 times,
  400ms OFF, repeat ....</p></div>
   <div class="jd-tagdata">
@@ -4896,6 +5713,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>CDMA MED SSL tone: {2600Hz 25ms, 2900Hz 25ms} 8 times,
  200ms OFF, {2600Hz 25ms, 2900Hz 25ms} repeat 8 times,
@@ -4944,6 +5764,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>CDMA MED SS2 tone: {2600Hz 25ms, 2900Hz 25ms} 20 times,
  1000ms OFF, {2600Hz 25ms, 2900Hz 25ms} 20 times,
  3000ms OFF, repeat ....</p></div>
@@ -4989,6 +5812,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>CDMA MED S X4 tone: {2600Hz 25ms, 2900Hz 25ms} 10 times,
   500ms OFF, {2600Hz 25ms, 2900Hz 25ms} 10 times, 500ms OFF,
@@ -5037,6 +5863,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>CDMA Network Busy tone: 480Hz+620Hz 500ms ON, 500ms OFF continuous</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
@@ -5080,6 +5909,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>CDMA_NETWORK_BUSY_ONE_SHOT tone: 425Hz 500ms ON, 500ms OFF.</p></div>
   <div class="jd-tagdata">
@@ -5125,6 +5957,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>CDMA Network Callwaiting tone: 440Hz 300ms ON</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
@@ -5168,6 +6003,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>CDMA USA Ringback: 440Hz+480Hz 2s ON, 4000 OFF ...</p></div>
   <div class="jd-tagdata">
@@ -5213,6 +6051,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>CDMA One Min Beep tone: 1150Hz+770Hz 400ms ON</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
@@ -5256,6 +6097,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>CDMA PIP tone: 480Hz 100ms ON, 100ms OFF repeated for 4 times</p></div>
   <div class="jd-tagdata">
@@ -5301,6 +6145,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>CDMA PRESSHOLDKEY LITE tone: 587Hz 375ms ON, 1175Hz 125ms ON</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
@@ -5344,6 +6191,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>CDMA Reorder tone: 480Hz+620Hz 250ms ON, 250ms OFF...</p></div>
   <div class="jd-tagdata">
@@ -5389,6 +6239,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>CDMA_SIGNAL_OFF - silent tone</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
@@ -5432,6 +6285,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>CDMA SOFT ERROR LITE  tone: 1047Hz 125ms ON, 370Hz 125ms</p></div>
   <div class="jd-tagdata">
@@ -5477,6 +6333,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>DTMF tone for key 0: 1336Hz, 941Hz, continuous</p></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
@@ -5520,6 +6379,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>DTMF tone for key 1: 1209Hz, 697Hz, continuous</p></div>
   <div class="jd-tagdata">
@@ -5565,6 +6427,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>DTMF tone for key 2: 1336Hz, 697Hz, continuous</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
@@ -5608,6 +6473,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>DTMF tone for key 3: 1477Hz, 697Hz, continuous</p></div>
   <div class="jd-tagdata">
@@ -5653,6 +6521,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>DTMF tone for key 4: 1209Hz, 770Hz, continuous</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
@@ -5696,6 +6567,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>DTMF tone for key 5: 1336Hz, 770Hz, continuous</p></div>
   <div class="jd-tagdata">
@@ -5741,6 +6615,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>DTMF tone for key 6: 1477Hz, 770Hz, continuous</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
@@ -5784,6 +6661,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>DTMF tone for key 7: 1209Hz, 852Hz, continuous</p></div>
   <div class="jd-tagdata">
@@ -5829,6 +6709,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>DTMF tone for key 8: 1336Hz, 852Hz, continuous</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
@@ -5872,6 +6755,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>DTMF tone for key 9: 1477Hz, 852Hz, continuous</p></div>
   <div class="jd-tagdata">
@@ -5917,6 +6803,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>DTMF tone for key A: 1633Hz, 697Hz, continuous</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
@@ -5960,6 +6849,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>DTMF tone for key B: 1633Hz, 770Hz, continuous</p></div>
   <div class="jd-tagdata">
@@ -6005,6 +6897,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>DTMF tone for key C: 1633Hz, 852Hz, continuous</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
@@ -6048,6 +6943,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>DTMF tone for key D: 1633Hz, 941Hz, continuous</p></div>
   <div class="jd-tagdata">
@@ -6093,6 +6991,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>DTMF tone for key #: 1477Hz, 941Hz, continuous</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
@@ -6136,6 +7037,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>DTMF tone for key *: 1209Hz, 941Hz, continuous</p></div>
   <div class="jd-tagdata">
@@ -6181,6 +7085,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Proprietary tone, positive acknowlegement: 1200Hz, 100ms ON, 100ms OFF 2 bursts</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
@@ -6224,6 +7131,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Proprietary tone, general beep: 400Hz+1200Hz, 35ms ON</p></div>
   <div class="jd-tagdata">
@@ -6269,6 +7179,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Proprietary tone, general double beep: twice 400Hz+1200Hz, 35ms ON, 200ms OFF, 35ms ON</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
@@ -6312,6 +7225,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Proprietary tone, negative acknowlegement: 300Hz+400Hz+500Hz, 400ms ON</p></div>
   <div class="jd-tagdata">
@@ -6357,6 +7273,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Proprietary tone, prompt tone: 400Hz+1200Hz, 200ms ON</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
@@ -6400,6 +7319,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Call supervisory tone, Busy:
       CEPT:           425Hz, 500ms ON, 500ms OFF...
@@ -6448,6 +7370,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Call supervisory tone, Call Waiting:
       CEPT, JAPAN:    425Hz, 200ms ON, 600ms OFF, 200ms ON, 3s OFF...
       ANSI (IS-95):   440 Hz, 300 ms ON, 9.7 s OFF,
@@ -6495,6 +7420,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Call supervisory tone (IS-95), confirm tone: a 350 Hz tone added to a 440 Hz tone
  repeated 3 times in a 100 ms on, 100 ms off cycle</p></div>
   <div class="jd-tagdata">
@@ -6539,6 +7467,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Call supervisory tone, Congestion:
       CEPT, JAPAN:    425Hz, 200ms ON, 200ms OFF...
@@ -6586,6 +7517,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Call supervisory tone (IS-95), abbreviated congestion: congestion tone limited to 4 seconds</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
@@ -6629,6 +7563,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Call supervisory tone, Dial tone:
       CEPT:           425Hz, continuous
@@ -6677,6 +7614,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Call supervisory tone, Error/Special info: 950Hz+1400Hz+1800Hz, 330ms ON, 1s OFF...</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
@@ -6720,6 +7660,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Call supervisory tone (IS-95), intercept tone: alternating 440 Hz and 620 Hz tones,
  each on for 250 ms</p></div>
@@ -6766,6 +7709,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Call supervisory tone (IS-95), abbreviated intercept: intercept tone limited to 4 seconds</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
@@ -6810,6 +7756,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Call supervisory tone (IS-95), pip tone: four bursts of 480 Hz tone (0.1 s on, 0.1 s off).</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
@@ -6853,6 +7802,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Call supervisory tone, Radio path acknowlegment :
       CEPT, ANSI:    425Hz, 200ms ON
@@ -6900,6 +7852,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Call supervisory tone, Radio path not available: 425Hz, 200ms ON, 200 OFF 3 bursts</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
@@ -6943,6 +7898,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Call supervisory tone, Ring Tone:
       CEPT, JAPAN:    425Hz, 1s ON, 4s OFF...
@@ -7005,6 +7963,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>ToneGenerator class contructor specifying output stream type and volume.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -7065,6 +8026,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns the audio session ID.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
@@ -7101,6 +8065,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Releases resources associated with this ToneGenerator object. It is good
  practice to call this method when you're done using the ToneGenerator.
 </p></div>
@@ -7132,6 +8099,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>This method starts the playback of a tone of the specified type for the specified duration.</p></div>
   <div class="jd-tagdata">
@@ -7178,6 +8148,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>This method starts the playback of a tone of the specified type.
  only one tone can play at a time: if a tone is playing while this method is called,
@@ -7324,6 +8297,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>This method stops the tone currently playing playback.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
@@ -7367,6 +8343,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Invoked when the garbage collector has detected that this instance is no longer reachable.
  The default implementation does nothing, but this method can be overridden to free resources.

@@ -15,6 +15,90 @@
 
 DISTRIBUTE_RESOURCES = DISTRIBUTE_RESOURCES.concat([
   {
+    "title":"Quizlet Developer Story",
+    "titleFriendly":"",
+    "summary":"Quizlet is an extremely popular online learning tool for students. See how they optimized for the classroom with Android and the power of Google Play for Education.",
+    "url":"https://www.youtube.com/watch?v=Idu7VcTTXfk",
+    "group":"",
+    "keywords": [],
+    "tags": [
+      "#gpfe",
+      "#googleplay"
+    ],
+    "image":"http://i1.ytimg.com/vi/Idu7VcTTXfk/maxresdefault.jpg",
+    "type":"video"
+  },
+  {
+    "title":"Whats New in Google Play",
+    "titleFriendly":"",
+    "summary":"Learn about the vision and philosophy behind Google Play for Education",
+    "url":"https://www.youtube.com/watch?v=IKhU180eJMo",
+    "group":"",
+    "keywords": [],
+    "tags": [
+      "#gpfe",
+      "#googleplay"
+    ],
+    "image":"http://i1.ytimg.com/vi/IKhU180eJMo/maxresdefault.jpg",
+    "type":"video"
+  },
+  {
+    "title":"ClassDojo Developer Story",
+    "titleFriendly":"",
+    "summary":"ClassDojo is a classroom tool that helps teachers improve behavior in their classrooms quickly and easily. See how they optimized for the classroom with Android and the power of Google Play for Education.",
+    "url":"https://www.youtube.com/watch?v=iokH4SAIfRw",
+    "group":"",
+    "keywords": [],
+    "tags": [
+      "#gpfe",
+      "#googleplay"
+    ],
+    "image":"http://i1.ytimg.com/vi/iokH4SAIfRw/maxresdefault.jpg",
+    "type":"video"
+  },
+  {
+    "title":"Plan for Success",
+    "titleFriendly":"",
+    "summary":"5 tips from developers on creating great EDU apps.",
+    "url":"https://www.youtube.com/watch?v=Eh2adsAyTKc",
+    "group":"",
+    "keywords": [],
+    "tags": [
+      "#gpfe",
+      "#googleplay"
+    ],
+    "image":"http://i1.ytimg.com/vi/Eh2adsAyTKc/maxresdefault.jpg",
+    "type":"video"
+  },
+  {
+    "title":"Optimizing Apps for Education",
+    "titleFriendly":"",
+    "summary":"Learn how to optimize your app for teachers and students.",
+    "url":"https://www.youtube.com/watch?v=_AZ6UcPz-_g",
+    "group":"",
+    "keywords": [],
+    "tags": [
+      "#gpfe",
+      "#googleplay"
+    ],
+    "image":"http://i1.ytimg.com/vi/_AZ6UcPz-_g/maxresdefault.jpg",
+    "type":"video"
+  },
+  {
+    "title":"Ideas and Tools for Building Innovative Education Apps",
+    "titleFriendly":"",
+    "summary":"Are you hungry to build an awesome app for education but don't quite know where to start? Come hear about apps that teachers want, and the APIs you're going to need to build them! In particular, we'll talk about app ideas that combine APIs for Google Drive, Google Login, Android Single Task Mode and more to build transformative Educational apps that will delight educators and kids in and out of the classroom.",
+    "url":"https://www.youtube.com/watch?v=iulXz8QTD1g",
+    "group":"",
+    "keywords": [],
+    "tags": [
+      "#gpfe",
+      "#googleplay"
+    ],
+    "image":"http://i1.ytimg.com/vi/iulXz8QTD1g/maxresdefault.jpg",
+    "type":"video"
+  },
+  {
     "title":"Developer Registration",
     "titleFriendly":"",
     "summary":"Additional information about the registration process.",
@@ -208,7 +292,7 @@ DISTRIBUTE_RESOURCES = DISTRIBUTE_RESOURCES.concat([
     "keywords": [],
     "type": "support",
     "titleFriendly": ""
-  },   
+  },
   {
     "lang": "en",
     "group": "",
@@ -571,7 +655,7 @@ DISTRIBUTE_RESOURCES = DISTRIBUTE_RESOURCES.concat([
     "image":"http://chart.googleapis.com/chart?chl=GL%201.1%20only%7CGL%202.0%7CGL%203.0&chf=bg%2Cs%2C00000000&chd=t%3A0.1%2C93.5%2C6.4&chco=c4df9b%2C6fad0c&chs=400x250&cht=p",
     "lang":"en",
     "type":"about"
-  }, 
+  },
   {
     "lang": "en",
     "group": "",
@@ -699,10 +783,10 @@ DISTRIBUTE_RESOURCES = DISTRIBUTE_RESOURCES.concat([
     "url": "http://youtu.be/vzvpcEffvaE",
     "timestamp": 1383243492000,
     "image": "http://i1.ytimg.com/vi/vzvpcEffvaE/maxresdefault.jpg",
-    "title": "Introducing Google Play for Education",
-    "summary": "Google Play for Education is a destination where schools can find great, teacher-approved, educational apps and videos on Play Store. Teachers can filter content by subject matter, grade and other criteria. Bulk purchase and instant distribution let educators bring your apps directly to classrooms and schools.",
+    "title": "Introducing Tablets with Google Play for Education",
+    "summary": "Schools in Hillsborough, New Jersey were among the first to try out Nexus 7 tablets with Google Play for Education. See the difference it made for students, teachers, and administrators.",
     "keywords": [],
-    "type": "youtube",
+    "type": "video",
     "titleFriendly": ""
   },
   {
@@ -718,6 +802,21 @@ DISTRIBUTE_RESOURCES = DISTRIBUTE_RESOURCES.concat([
     "summary": "The YouTube APIs and Tools enable you to integrate YouTube's video content and functionality into your website, app, or device.",
     "keywords": [],
     "type": "youtube",
+    "titleFriendly": ""
+  },
+  {
+    "lang": "en",
+    "group": "",
+    "tags": [
+      "#engagement",
+    ],
+    "url": "http://www.google.com/analytics/mobile/",
+    "timestamp": 1383243492000,
+    "image": "http://www.google.com//analytics/images/heros/mobile-index.jpg",
+    "title": "Google Mobile App Analytics",
+    "summary": "Mobile App Analytics measures what matters most at all key stages: from first discovery and download to in-app purchases. ",
+    "keywords": ["analytics,user behavior"],
+    "type": "guide",
     "titleFriendly": ""
   },
   {
@@ -1003,7 +1102,7 @@ DISTRIBUTE_RESOURCES = DISTRIBUTE_RESOURCES.concat([
     "url": "http://www.google.com/ads/admob/#subid=us-en-et-dac",
     "timestamp": null,
     "image": "distribute/images/advertising.png",
-    "title": "AdMob for Android",
+    "title": "AdMob",
     "summary": "Make money by connecting with over a million Google advertisers all over the world, so your revenue scales with your app.",
     "keywords": ["ads"],
     "type": "distribute",
@@ -1101,4 +1200,199 @@ DISTRIBUTE_RESOURCES = DISTRIBUTE_RESOURCES.concat([
     "type": "Google+",
     "titleFriendly": ""
   },
-]); 
+  {
+    "lang": "en",
+    "group": "",
+    "tags": ["analytics"],
+    "url": "https://developers.google.com/analytics/devguides/collection/android/",
+    "timestamp": null,
+    "image": "https://developers.google.com/analytics/images/home/gear-logo.png",
+    "title": "Google Mobile App Analytics SDK",
+    "summary": "The Google Analytics for Mobile Apps SDKs make it easy for you to implement Google Analytics in your mobile application.",
+    "keywords": ["analytics, user behavior"],
+    "type": "sdk",
+    "titleFriendly": ""
+  },
+  {
+    "lang": "en",
+    "group": "",
+    "tags": [],
+    "url": "https://developers.google.com/edu/guidelines",
+    "timestamp": null,
+    "image": "http://developer.android.com/distribute/images/edu-guidelines.jpg",
+    "title": "Education Guidelines",
+    "summary": "These guidelines and requirements help you develop great apps for students, which offer compelling content and an intuitive user experience on Android tablets.",
+    "keywords": [],
+    "type": "",
+    "titleFriendly": ""
+  },
+  {
+    "lang": "en",
+    "group": "",
+    "tags": [],
+    "url": "https://developers.google.com/edu/faq",
+    "timestamp": null,
+    "image": "http://developer.android.com/distribute/images/gpfe-faq.jpg",
+    "title": "Education FAQ",
+    "summary": "Answers to common questions you might have about Google Play for Education.",
+    "keywords": [],
+    "type": "",
+    "titleFriendly": ""
+  },
+  {
+    "lang": "en",
+    "group": "",
+    "tags": [],
+    "url": "https://developers.google.com/edu/",
+    "timestamp": null,
+    "image": "https://developers.google.com/edu/images/home-android.png",
+    "title": "Chrome Apps in Google Play for Education",
+    "summary": "Find out more about Chrome apps in Google Play for Education.",
+    "keywords": [],
+    "type": "",
+    "titleFriendly": ""
+  },
+  {
+    "lang": "en",
+    "group": "",
+    "tags": [],
+    "url": "https://www.google.com/edu/tablets/#tablets-family",
+    "timestamp": null,
+    "image": "https://www.google.com/edu/images/tablets/big-tablet.png",
+    "title": "Google Play for Education Tablets",
+    "summary": "Google Play for Education leverages a diverse set up tablets approved for the classroom which may help inform you how to build educational apps.",
+    "keywords": [],
+    "type": "",
+    "titleFriendly": ""
+  },
+  {
+    "lang": "en",
+    "group": "",
+    "tags": [],
+    "url": "http://storage.googleapis.com/androiddevelopers/shareables/stories/Glu_Deerhunter2014_gpgs.pdf",
+    "timestamp": null,
+    "image": "http://storage.googleapis.com/androiddevelopers/shareables/stories/Glu_Deerhunter2014_gpgs.png",
+    "title": "Deer Hunter 2014 by Glu &mdash; Sign-in",
+    "summary": "Glu finds that Google Play Game Services helps improve the user experience which leads to increased player happiness. They also find that Play Games Services signed in users tend to play longer and have a higher lifetime value.",
+    "keywords": ["stories"],
+    "type": "Case Study Deck",
+    "titleFriendly": ""
+  },
+  {
+    "lang": "en",
+    "group": "",
+    "tags": [],
+    "url": "http://storage.googleapis.com/androiddevelopers/shareables/stories/ConcreteSoftware_PBABowling_gpgs.pdf",
+    "timestamp": null,
+    "image": "http://storage.googleapis.com/androiddevelopers/shareables/stories/ConcreteSoftware_PBABowling_gpgs.png",
+    "title": "PBA® Bowling Challenge by Concrete Software &mdash; Quests",
+    "summary": "Concrete Software finds that Google Play Game Services' quests are a great way to create new content for users that leads to higher engagement.",
+    "keywords": ["stories"],
+    "type": "Case Study Deck",
+    "titleFriendly": ""
+  },
+  {
+    "lang": "en",
+    "group": "",
+    "tags": [],
+    "url": "http://storage.googleapis.com/androiddevelopers/shareables/stories/Dragonplay_DragonplaySlots_gpgs.pdf",
+    "timestamp": null,
+    "image": "http://storage.googleapis.com/androiddevelopers/shareables/stories/Dragonplay_DragonplaySlots_gpgs.png",
+    "title": "Dragonplay Slots by Dragonplay &mdash; Sign-in",
+    "summary": "Dragonplay finds that players who sign in with Google Play Games services tend to be high quality users who were highly engaged. They also tend to be easier to convert to paying users.",
+    "keywords": ["stories"],
+    "type": "Case Study Deck",
+    "titleFriendly": ""
+  },
+  {
+    "lang": "en",
+    "group": "",
+    "tags": [],
+    "url": "http://storage.googleapis.com/androiddevelopers/shareables/stories/Gameloft_Asphalt8_gpgs.pdf",
+    "timestamp": null,
+    "image": "http://storage.googleapis.com/androiddevelopers/shareables/stories/Gameloft_Asphalt8_gpgs.png",
+    "title": "Asphalt 8 by Gameloft &mdash; Friends invitations",
+    "summary": "Gameloft finds that Google Play Game Services users are more engaged than the average Android user and more likely to convert to paying players.",
+    "keywords": ["stories"],
+    "type": "Case Study Deck",
+    "titleFriendly": ""
+  },
+  {
+    "lang": "en",
+    "group": "",
+    "tags": [],
+    "url": "http://storage.googleapis.com/androiddevelopers/shareables/stories/Glu_EternityWarriors3_gpgs.pdf",
+    "timestamp": null,
+    "image": "http://storage.googleapis.com/androiddevelopers/shareables/stories/Glu_EternityWarriors3_gpgs.png",
+    "title": "Eternity Warriors 3 by Glu &mdash; Gifting",
+    "summary": "Glu finds that Google Play Game Services gifting outperforms other implementations (including those with incentives) because of its seamless flow and consistent performance.",
+    "keywords": ["stories"],
+    "type": "Case Study Deck",
+    "titleFriendly": ""
+  },
+  {
+    "lang": "en",
+    "group": "",
+    "tags": [],
+    "url": "http://storage.googleapis.com/androiddevelopers/shareables/stories/HotheadGames_RivalsatWar_gpgs.pdf",
+    "timestamp": null,
+    "image": "http://storage.googleapis.com/androiddevelopers/shareables/stories/HotheadGames_RivalsatWar_gpgs.jpg",
+    "title": "Rivals at War: Firefight by Hothead Games &mdash; Leaderboards",
+    "summary": "Hothead Games is planning to include Google Play Game Services features in all their games going forwards after seeing that players that signed in with Play Games Services tend to show higher retention and a higher average revenue.",
+    "keywords": ["stories"],
+    "type": "Case Study Deck",
+    "titleFriendly": ""
+  },
+  {
+    "lang": "en",
+    "group": "",
+    "tags": [],
+    "url": "http://storage.googleapis.com/androiddevelopers/shareables/stories/TMSOFT_Compulsive_gpgs.pdf",
+    "timestamp": null,
+    "image": "http://storage.googleapis.com/androiddevelopers/shareables/stories/TMSOFT_Compulsive_gpgs.png",
+    "title": "Compulsive by TMSOFT &mdash; Cross-platform",
+    "summary": "TMSOFT finds that users who authenticate with Play Games Services on Android and iOS play Compulsive twice as much and purchase in-app products over four times as much.",
+    "keywords": ["stories"],
+    "type": "Case Study Deck",
+    "titleFriendly": ""
+  },
+  {
+    "lang": "en",
+    "group": "",
+    "tags": [],
+    "url": "http://storage.googleapis.com/androiddevelopers/shareables/stories/Noodlecake_SuperStickmanGolf2_gpgs.pdf",
+    "timestamp": null,
+    "image": "http://storage.googleapis.com/androiddevelopers/shareables/stories/Noodlecake_SuperStickmanGolf2_gpgs.png",
+    "title": "Super Stickman Golf 2 by Noodlecake Studios &mdash; Multiplayer",
+    "summary": "Noodlecake Studios finds that Google Play Game Services’ multiplayer feature helps reduce attrition.",
+    "keywords": ["stories"],
+    "type": "Case Study Deck",
+    "titleFriendly": ""
+  },
+  {
+    "lang": "en",
+    "group": "",
+    "tags": [],
+    "url": "http://storage.googleapis.com/androiddevelopers/shareables/stories/TinyRebel_DoctorWhoLegacy_gpgs.pdf",
+    "timestamp": null,
+    "image": "http://storage.googleapis.com/androiddevelopers/shareables/stories/TinyRebelGames_DrWhoLegacy_pgps.png",
+    "title": "Dr. Doctor Who: Legacy by Tiny Rebel Games &mdash; Achievements",
+    "summary": "After integrating achievements and cloud services from Google Play Game Services, Tiny Rebel Games saw a dramatic increase in daily revenues as a result of an increase in daily installs and an increase in the average revenue per install.",
+    "keywords": ["stories"],
+    "type": "Case Study Deck",
+    "titleFriendly": ""
+  },
+  {
+    "lang": "en",
+    "group": "",
+    "tags": [],
+    "url": "http://storage.googleapis.com/androiddevelopers/shareables/stories/Senri_LeosFortune_gpgs.pdf",
+    "timestamp": null,
+    "image": "http://storage.googleapis.com/androiddevelopers/shareables/stories/Senri_LeosFortune_gpgs.png",
+    "title": "Leo’s Fortune by 1337 &amp; Senri &mdash; Saved games",
+    "summary": "1337 + Senri finds that Google Play Game Services is easy to integrate and provides essential game functions like cloud saved games, achievements and leaderboards which have a very large adoption rate amongst players.",
+    "keywords": ["stories"],
+    "type": "Case Study Deck",
+    "titleFriendly": ""
+  }
+]);

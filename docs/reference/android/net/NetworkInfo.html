@@ -82,6 +82,19 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 <html>
 <head>
 
@@ -97,7 +110,7 @@
 href="http://fonts.useso.com/css?family=Roboto+Condensed">
 <link rel="stylesheet" href="http://fonts.useso.com/css?family=Roboto:light,regular,medium,thin,italic,mediumitalic,bold"
   title="roboto">
-<link href="../../../assets/css/default.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/default.css?v=2" rel="stylesheet" type="text/css">
 
 
 <!-- FULLSCREEN STYLESHEET -->
@@ -106,30 +119,31 @@ type="text/css">
 
 
 <!-- JAVASCRIPT -->
-<script src="http://googleapiscdn.qiniudn.com/www.google.com/jsapi" type="text/javascript"></script>
+<script src="http://www.google.com/jsapi" type="text/javascript"></script>
 <script src="../../../assets/js/android_3p-bundle.js" type="text/javascript"></script>
 <script type="text/javascript">
   var toRoot = "../../../";
   var metaTags = [];
   var devsite = false;
 </script>
-<script src="../../../assets/js/docs.js" type="text/javascript"></script>
+<script src="../../../assets/js/docs.js?v=2" type="text/javascript"></script>
 
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-5831155-1']);
-  _gaq.push(['_trackPageview']);
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
+  ga('create', 'UA-5831155-1', 'android.com');
+  ga('create', 'UA-49880327-2', 'android.com', {'name': 'universal'});  // New tracker);
+  ga('send', 'pageview');
+  ga('universal.send', 'pageview'); // Send page view for new tracker.
 </script>
+
 </head>
 
 <body class="gc-documentation 
-  develop" itemscope itemtype="http://schema.org/Article">
+  develop reference" itemscope itemtype="http://schema.org/Article">
   <div id="doc-api-level" class="1" style="display:none"></div>
   <a name="top"></a>
 
@@ -139,6 +153,10 @@ type="text/css">
   <!-- Header -->
   <div id="header-wrapper">
     <div id="header">
+
+    
+
+
       <div class="wrap" id="header-wrap">
         <div class="col-3 logo">
           <a href="../../../index.html">
@@ -260,11 +278,20 @@ type="text/css">
 
 
         <!-- Expanded quicknav -->
-        <div id="quicknav" class="col-9">
+        <div id="quicknav" class="col-13">
           <ul>
+            <li class="about">
+              <ul>
+                <li><a href="../../../about/index.html">About</a></li>
+                <li><a href="../../../wear/index.html">Wear</a></li>
+                <li><a href="../../../tv/index.html">TV</a></li>
+                <li><a href="../../../auto/index.html">Auto</a></li>
+              </ul>
+            </li>
             <li class="design">
               <ul>
                 <li><a href="../../../design/index.html">Get Started</a></li>
+                <li><a href="../../../design/devices.html">Devices</a></li>
                 <li><a href="../../../design/style/index.html">Style</a></li>
                 <li><a href="../../../design/patterns/index.html">Patterns</a></li>
                 <li><a href="../../../design/building-blocks/index.html">Building Blocks</a></li>
@@ -298,7 +325,7 @@ type="text/css">
                   ja-lang="リファレンス"
                   es-lang="Referencia"
                   >Reference</a></li>
-                <li><a href="../../../tools/index.html"
+                <li><a href="../../../sdk/index.html"
                   zh-tw-lang="相關工具"
                   zh-cn-lang="工具"
                   ru-lang="Инструменты"
@@ -306,7 +333,6 @@ type="text/css">
                   ja-lang="ツール"
                   es-lang="Herramientas"
                   >Tools</a>
-                  <ul><li><a href="../../../sdk/index.html">Get the SDK</a></li></ul>
                 </li>
                 <li><a href="../../../google/index.html">Google Services</a>
                 </li>
@@ -358,7 +384,7 @@ type="text/css">
                   ja-lang="リファレンス"
                   es-lang="Referencia"
                   >Reference</a></li>
-                <li class="tools"><a href="../../../tools/index.html"
+                <li class="tools"><a href="../../../sdk/index.html"
                   zh-tw-lang="相關工具"
                   zh-cn-lang="工具"
                   ru-lang="Инструменты"
@@ -373,7 +399,7 @@ type="text/css">
             </ul>
         </div>
     </div>
-    <!-- /Sendondary x-nav -->
+    <!-- /Sendondary x-nav DEVELOP -->
 
   
 
@@ -414,7 +440,7 @@ type="text/css">
         <div id="api-nav-title">Android APIs</div>
         </div><!-- end nav header -->
       <script>
-        var SINCE_DATA = [ '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19' ];
+        var SINCE_DATA = [ '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21' ];
         buildApiLevelSelector();
       </script>
                   
@@ -441,13 +467,15 @@ type="text/css">
   <a href="../../../reference/android/app/admin/package-summary.html">android.app.admin</a></li>
     <li class="api apilevel-8">
   <a href="../../../reference/android/app/backup/package-summary.html">android.app.backup</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/app/job/package-summary.html">android.app.job</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/app/usage/package-summary.html">android.app.usage</a></li>
     <li class="api apilevel-3">
   <a href="../../../reference/android/appwidget/package-summary.html">android.appwidget</a></li>
     <li class="api apilevel-5">
   <a href="../../../reference/android/bluetooth/package-summary.html">android.bluetooth</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/bluetooth/le/package-summary.html">android.bluetooth.le</a></li>
     <li class="api apilevel-1">
   <a href="../../../reference/android/content/package-summary.html">android.content</a></li>
@@ -473,16 +501,14 @@ type="text/css">
   <a href="../../../reference/android/graphics/pdf/package-summary.html">android.graphics.pdf</a></li>
     <li class="api apilevel-1">
   <a href="../../../reference/android/hardware/package-summary.html">android.hardware</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/hardware/camera2/package-summary.html">android.hardware.camera2</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/hardware/camera2/params/package-summary.html">android.hardware.camera2.params</a></li>
     <li class="api apilevel-17">
   <a href="../../../reference/android/hardware/display/package-summary.html">android.hardware.display</a></li>
     <li class="api apilevel-16">
   <a href="../../../reference/android/hardware/input/package-summary.html">android.hardware.input</a></li>
-    <li class="api apilevel-18">
-  <a href="../../../reference/android/hardware/location/package-summary.html">android.hardware.location</a></li>
     <li class="api apilevel-12">
   <a href="../../../reference/android/hardware/usb/package-summary.html">android.hardware.usb</a></li>
     <li class="api apilevel-3">
@@ -493,11 +519,15 @@ type="text/css">
   <a href="../../../reference/android/media/package-summary.html">android.media</a></li>
     <li class="api apilevel-9">
   <a href="../../../reference/android/media/audiofx/package-summary.html">android.media.audiofx</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/media/browse/package-summary.html">android.media.browse</a></li>
     <li class="api apilevel-14">
   <a href="../../../reference/android/media/effect/package-summary.html">android.media.effect</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/media/projection/package-summary.html">android.media.projection</a></li>
+    <li class="api apilevel-21">
   <a href="../../../reference/android/media/session/package-summary.html">android.media.session</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/media/tv/package-summary.html">android.media.tv</a></li>
     <li class="api apilevel-12">
   <a href="../../../reference/android/mtp/package-summary.html">android.mtp</a></li>
@@ -547,11 +577,15 @@ type="text/css">
   <a href="../../../reference/android/security/package-summary.html">android.security</a></li>
     <li class="api apilevel-17">
   <a href="../../../reference/android/service/dreams/package-summary.html">android.service.dreams</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/service/media/package-summary.html">android.service.media</a></li>
     <li class="api apilevel-18">
   <a href="../../../reference/android/service/notification/package-summary.html">android.service.notification</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/service/restrictions/package-summary.html">android.service.restrictions</a></li>
     <li class="api apilevel-14">
   <a href="../../../reference/android/service/textservice/package-summary.html">android.service.textservice</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/service/voice/package-summary.html">android.service.voice</a></li>
     <li class="api apilevel-7">
   <a href="../../../reference/android/service/wallpaper/package-summary.html">android.service.wallpaper</a></li>
@@ -596,11 +630,15 @@ type="text/css">
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/media/package-summary.html">android.support.v4.media</a></li>
     <li class="api apilevel-">
+  <a href="../../../reference/android/support/v4/media/session/package-summary.html">android.support.v4.media.session</a></li>
+    <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/net/package-summary.html">android.support.v4.net</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/os/package-summary.html">android.support.v4.os</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/print/package-summary.html">android.support.v4.print</a></li>
+    <li class="api apilevel-">
+  <a href="../../../reference/android/support/v4/provider/package-summary.html">android.support.v4.provider</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/text/package-summary.html">android.support.v4.text</a></li>
     <li class="api apilevel-">
@@ -616,6 +654,10 @@ type="text/css">
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v7/appcompat/package-summary.html">android.support.v7.appcompat</a></li>
     <li class="api apilevel-">
+  <a href="../../../reference/android/support/v7/cardview/package-summary.html">android.support.v7.cardview</a></li>
+    <li class="api apilevel-">
+  <a href="../../../reference/android/support/v7/graphics/package-summary.html">android.support.v7.graphics</a></li>
+    <li class="api apilevel-">
   <a href="../../../reference/android/support/v7/gridlayout/package-summary.html">android.support.v7.gridlayout</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v7/media/package-summary.html">android.support.v7.media</a></li>
@@ -627,8 +669,10 @@ type="text/css">
   <a href="../../../reference/android/support/v7/widget/package-summary.html">android.support.v7.widget</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v8/renderscript/package-summary.html">android.support.v8.renderscript</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/system/package-summary.html">android.system</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/telecom/package-summary.html">android.telecom</a></li>
     <li class="api apilevel-1">
   <a href="../../../reference/android/telephony/package-summary.html">android.telephony</a></li>
     <li class="api apilevel-5">
@@ -888,7 +932,7 @@ type="text/css">
               
     <li><h2>Interfaces</h2>
       <ul>
-          <li class="api apilevel-"><a href="../../../reference/android/net/ConnectivityManager.OnNetworkActiveListener.html">ConnectivityManager.OnNetworkActiveListener</a></li>
+          <li class="api apilevel-21"><a href="../../../reference/android/net/ConnectivityManager.OnNetworkActiveListener.html">ConnectivityManager.OnNetworkActiveListener</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/net/UrlQuerySanitizer.ValueSanitizer.html">UrlQuerySanitizer.ValueSanitizer</a></li>
       </ul>
     </li>
@@ -896,24 +940,25 @@ type="text/css">
     <li><h2>Classes</h2>
       <ul>
           <li class="api apilevel-1"><a href="../../../reference/android/net/ConnectivityManager.html">ConnectivityManager</a></li>
-          <li class="api apilevel-"><a href="../../../reference/android/net/ConnectivityManager.NetworkCallback.html">ConnectivityManager.NetworkCallback</a></li>
+          <li class="api apilevel-21"><a href="../../../reference/android/net/ConnectivityManager.NetworkCallback.html">ConnectivityManager.NetworkCallback</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/net/Credentials.html">Credentials</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/net/DhcpInfo.html">DhcpInfo</a></li>
-          <li class="api apilevel-"><a href="../../../reference/android/net/IpPrefix.html">IpPrefix</a></li>
-          <li class="api apilevel-"><a href="../../../reference/android/net/LinkAddress.html">LinkAddress</a></li>
-          <li class="api apilevel-"><a href="../../../reference/android/net/LinkProperties.html">LinkProperties</a></li>
+          <li class="api apilevel-21"><a href="../../../reference/android/net/IpPrefix.html">IpPrefix</a></li>
+          <li class="api apilevel-21"><a href="../../../reference/android/net/LinkAddress.html">LinkAddress</a></li>
+          <li class="api apilevel-21"><a href="../../../reference/android/net/LinkProperties.html">LinkProperties</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/net/LocalServerSocket.html">LocalServerSocket</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/net/LocalSocket.html">LocalSocket</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/net/LocalSocketAddress.html">LocalSocketAddress</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/net/MailTo.html">MailTo</a></li>
-          <li class="api apilevel-"><a href="../../../reference/android/net/Network.html">Network</a></li>
-          <li class="api apilevel-"><a href="../../../reference/android/net/NetworkCapabilities.html">NetworkCapabilities</a></li>
+          <li class="api apilevel-21"><a href="../../../reference/android/net/Network.html">Network</a></li>
+          <li class="api apilevel-21"><a href="../../../reference/android/net/NetworkCapabilities.html">NetworkCapabilities</a></li>
           <li class="selected api apilevel-1"><a href="../../../reference/android/net/NetworkInfo.html">NetworkInfo</a></li>
-          <li class="api apilevel-"><a href="../../../reference/android/net/NetworkRequest.html">NetworkRequest</a></li>
-          <li class="api apilevel-"><a href="../../../reference/android/net/NetworkRequest.Builder.html">NetworkRequest.Builder</a></li>
+          <li class="api apilevel-21"><a href="../../../reference/android/net/NetworkRequest.html">NetworkRequest</a></li>
+          <li class="api apilevel-21"><a href="../../../reference/android/net/NetworkRequest.Builder.html">NetworkRequest.Builder</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/net/Proxy.html">Proxy</a></li>
-          <li class="api apilevel-"><a href="../../../reference/android/net/ProxyInfo.html">ProxyInfo</a></li>
-          <li class="api apilevel-"><a href="../../../reference/android/net/RouteInfo.html">RouteInfo</a></li>
+          <li class="api apilevel-21"><a href="../../../reference/android/net/ProxyInfo.html">ProxyInfo</a></li>
+          <li class="api apilevel-21"><a href="../../../reference/android/net/PskKeyManager.html">PskKeyManager</a></li>
+          <li class="api apilevel-21"><a href="../../../reference/android/net/RouteInfo.html">RouteInfo</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/net/SSLCertificateSocketFactory.html">SSLCertificateSocketFactory</a></li>
           <li class="api apilevel-8"><a href="../../../reference/android/net/SSLSessionCache.html">SSLSessionCache</a></li>
           <li class="api apilevel-8"><a href="../../../reference/android/net/TrafficStats.html">TrafficStats</a></li>
@@ -1078,6 +1123,9 @@ Summary:
   
 
 
+    
+
+
 </div><!-- end header -->
 
 <div id="naMessage"></div>
@@ -1158,7 +1206,12 @@ Summary:
         
         enum</nobr></td>
       <td class="jd-linkcol"><a href="../../../reference/android/net/NetworkInfo.DetailedState.html">NetworkInfo.DetailedState</a></td>
-      <td class="jd-descrcol" width="100%">The fine-grained state of a network connection.&nbsp;</td>
+      <td class="jd-descrcol" width="100%">
+        The fine-grained state of a network connection.&nbsp;
+        
+    
+
+      </td>
     </tr>
     
     
@@ -1170,7 +1223,12 @@ Summary:
         
         enum</nobr></td>
       <td class="jd-linkcol"><a href="../../../reference/android/net/NetworkInfo.State.html">NetworkInfo.State</a></td>
-      <td class="jd-descrcol" width="100%">Coarse-grained network state.&nbsp;</td>
+      <td class="jd-descrcol" width="100%">
+        Coarse-grained network state.&nbsp;
+        
+    
+
+      </td>
     </tr>
     
     
@@ -1218,20 +1276,30 @@ Summary:
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/os/Parcelable.html#CONTENTS_FILE_DESCRIPTOR">CONTENTS_FILE_DESCRIPTOR</a></td>
-        <td class="jd-descrcol" width="100%">Bit masks for use with <code><a href="../../../reference/android/os/Parcelable.html#describeContents()">describeContents()</a></code>: each bit represents a
+        <td class="jd-descrcol" width="100%">
+          Bit masks for use with <code><a href="../../../reference/android/os/Parcelable.html#describeContents()">describeContents()</a></code>: each bit represents a
  kind of object considered to have potential special significance when
- marshalled.</td>
+ marshalled.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/os/Parcelable.html#PARCELABLE_WRITE_RETURN_VALUE">PARCELABLE_WRITE_RETURN_VALUE</a></td>
-        <td class="jd-descrcol" width="100%">Flag for use with <code><a href="../../../reference/android/os/Parcelable.html#writeToParcel(android.os.Parcel, int)">writeToParcel(Parcel, int)</a></code>: the object being written
+        <td class="jd-descrcol" width="100%">
+          Flag for use with <code><a href="../../../reference/android/os/Parcelable.html#writeToParcel(android.os.Parcel, int)">writeToParcel(Parcel, int)</a></code>: the object being written
  is a return value, that is the result of a function such as
  "<code>Parcelable someFunction()</code>",
  "<code>void someFunction(out Parcelable)</code>", or
- "<code>void someFunction(inout Parcelable)</code>".</td>
+ "<code>void someFunction(inout Parcelable)</code>".
+          
+    
+
+        </td>
     </tr>
     
     
@@ -1273,7 +1341,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/net/NetworkInfo.html#getDetailedState()">getDetailedState</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Reports the current fine-grained state of the network.</div>
+        <div class="jd-descrdiv">
+          Reports the current fine-grained state of the network.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1291,9 +1364,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/net/NetworkInfo.html#getExtraInfo()">getExtraInfo</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Report the extra information about the network state, if any was
- provided by the lower networking layers.,
- if one is available.</div>
+        <div class="jd-descrdiv">
+          Report the extra information about the network state, if any was
+ provided by the lower networking layers.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1311,8 +1388,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/net/NetworkInfo.html#getReason()">getReason</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Report the reason an attempt to establish connectivity failed,
- if one is available.</div>
+        <div class="jd-descrdiv">
+          Report the reason an attempt to establish connectivity failed,
+ if one is available.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1330,7 +1412,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/net/NetworkInfo.html#getState()">getState</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Reports the current coarse-grained state of the network.</div>
+        <div class="jd-descrdiv">
+          Reports the current coarse-grained state of the network.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1348,8 +1435,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/net/NetworkInfo.html#getSubtype()">getSubtype</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Return a network-type-specific integer describing the subtype
- of the network.</div>
+        <div class="jd-descrdiv">
+          Return a network-type-specific integer describing the subtype
+ of the network.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1367,7 +1459,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/net/NetworkInfo.html#getSubtypeName()">getSubtypeName</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Return a human-readable name describing the subtype of the network.</div>
+        <div class="jd-descrdiv">
+          Return a human-readable name describing the subtype of the network.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1385,8 +1482,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/net/NetworkInfo.html#getType()">getType</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Reports the type of network to which the
- info in this <code>NetworkInfo</code> pertains.</div>
+        <div class="jd-descrdiv">
+          Reports the type of network to which the
+ info in this <code>NetworkInfo</code> pertains.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1404,8 +1506,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/net/NetworkInfo.html#getTypeName()">getTypeName</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Return a human-readable name describe the type of the network,
- for example "WIFI" or "MOBILE".</div>
+        <div class="jd-descrdiv">
+          Return a human-readable name describe the type of the network,
+ for example "WIFI" or "MOBILE".
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1423,7 +1530,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/net/NetworkInfo.html#isAvailable()">isAvailable</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Indicates whether network connectivity is possible.</div>
+        <div class="jd-descrdiv">
+          Indicates whether network connectivity is possible.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1441,8 +1553,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/net/NetworkInfo.html#isConnected()">isConnected</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Indicates whether network connectivity exists and it is possible to establish
- connections and pass data.</div>
+        <div class="jd-descrdiv">
+          Indicates whether network connectivity exists and it is possible to establish
+ connections and pass data.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1460,8 +1577,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/net/NetworkInfo.html#isConnectedOrConnecting()">isConnectedOrConnecting</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Indicates whether network connectivity exists or is in the process
- of being established.</div>
+        <div class="jd-descrdiv">
+          Indicates whether network connectivity exists or is in the process
+ of being established.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1479,9 +1601,14 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/net/NetworkInfo.html#isFailover()">isFailover</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Indicates whether the current attempt to connect to the network
+        <div class="jd-descrdiv">
+          Indicates whether the current attempt to connect to the network
  resulted from the ConnectivityManager trying to fail over to this
- network following a disconnect from another network.</div>
+ network following a disconnect from another network.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1499,7 +1626,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/net/NetworkInfo.html#isRoaming()">isRoaming</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Indicates whether the device is currently roaming on this network.</div>
+        <div class="jd-descrdiv">
+          Indicates whether the device is currently roaming on this network.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1517,8 +1649,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/net/NetworkInfo.html#toString()">toString</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns a string containing a concise, human-readable description of this
- object.</div>
+        <div class="jd-descrdiv">
+          Returns a string containing a concise, human-readable description of this
+ object.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1570,7 +1707,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#clone()">clone</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Creates and returns a copy of this <code>Object</code>.</div>
+        <div class="jd-descrdiv">
+          Creates and returns a copy of this <code>Object</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1588,8 +1730,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#equals(java.lang.Object)">equals</a></span>(<a href="../../../reference/java/lang/Object.html">Object</a> o)</nobr>
         
-        <div class="jd-descrdiv">Compares this instance with the specified object and indicates if they
- are equal.</div>
+        <div class="jd-descrdiv">
+          Compares this instance with the specified object and indicates if they
+ are equal.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1607,7 +1754,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#finalize()">finalize</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Invoked when the garbage collector has detected that this instance is no longer reachable.</div>
+        <div class="jd-descrdiv">
+          Invoked when the garbage collector has detected that this instance is no longer reachable.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1625,8 +1777,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#getClass()">getClass</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns the unique instance of <code><a href="../../../reference/java/lang/Class.html">Class</a></code> that represents this
- object's class.</div>
+        <div class="jd-descrdiv">
+          Returns the unique instance of <code><a href="../../../reference/java/lang/Class.html">Class</a></code> that represents this
+ object's class.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1644,7 +1801,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#hashCode()">hashCode</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns an integer hash code for this object.</div>
+        <div class="jd-descrdiv">
+          Returns an integer hash code for this object.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1662,8 +1824,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#notify()">notify</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Causes a thread which is waiting on this object's monitor (by means of
- calling one of the <code>wait()</code> methods) to be woken up.</div>
+        <div class="jd-descrdiv">
+          Causes a thread which is waiting on this object's monitor (by means of
+ calling one of the <code>wait()</code> methods) to be woken up.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1681,8 +1848,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#notifyAll()">notifyAll</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Causes all threads which are waiting on this object's monitor (by means
- of calling one of the <code>wait()</code> methods) to be woken up.</div>
+        <div class="jd-descrdiv">
+          Causes all threads which are waiting on this object's monitor (by means
+ of calling one of the <code>wait()</code> methods) to be woken up.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1700,8 +1872,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#toString()">toString</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns a string containing a concise, human-readable description of this
- object.</div>
+        <div class="jd-descrdiv">
+          Returns a string containing a concise, human-readable description of this
+ object.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1719,7 +1896,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#wait()">wait</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object.</div>
+        <div class="jd-descrdiv">
+          Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1737,8 +1919,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#wait(long, int)">wait</a></span>(long millis, int nanos)</nobr>
         
-        <div class="jd-descrdiv">Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object or until the
- specified timeout expires.</div>
+        <div class="jd-descrdiv">
+          Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object or until the
+ specified timeout expires.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1756,8 +1943,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#wait(long)">wait</a></span>(long millis)</nobr>
         
-        <div class="jd-descrdiv">Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object or until the
- specified timeout expires.</div>
+        <div class="jd-descrdiv">
+          Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object or until the
+ specified timeout expires.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1801,8 +1993,13 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/os/Parcelable.html#describeContents()">describeContents</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Describe the kinds of special objects contained in this Parcelable's
- marshalled representation.</div>
+        <div class="jd-descrdiv">
+          Describe the kinds of special objects contained in this Parcelable's
+ marshalled representation.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1820,7 +2017,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/os/Parcelable.html#writeToParcel(android.os.Parcel, int)">writeToParcel</a></span>(<a href="../../../reference/android/os/Parcel.html">Parcel</a> dest, int flags)</nobr>
         
-        <div class="jd-descrdiv">Flatten this object in to a Parcel.</div>
+        <div class="jd-descrdiv">
+          Flatten this object in to a Parcel.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1897,6 +2099,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Reports the current fine-grained state of the network.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
@@ -1932,9 +2137,11 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Report the extra information about the network state, if any was
- provided by the lower networking layers.,
- if one is available.</p></div>
+ provided by the lower networking layers.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
       <ul class="nolist"><li>the extra information, or null if not available
@@ -1968,6 +2175,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Report the reason an attempt to establish connectivity failed,
  if one is available.</p></div>
@@ -2005,6 +2215,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Reports the current coarse-grained state of the network.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
@@ -2039,6 +2252,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Return a network-type-specific integer describing the subtype
  of the network.</p></div>
@@ -2076,6 +2292,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Return a human-readable name describing the subtype of the network.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
@@ -2110,6 +2329,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Reports the type of network to which the
  info in this <code>NetworkInfo</code> pertains.</p></div>
@@ -2148,6 +2370,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Return a human-readable name describe the type of the network,
  for example "WIFI" or "MOBILE".</p></div>
   <div class="jd-tagdata">
@@ -2183,6 +2408,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Indicates whether network connectivity is possible. A network is unavailable
  when a persistent or semi-persistent condition prevents the possibility
@@ -2227,6 +2455,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Indicates whether network connectivity exists and it is possible to establish
  connections and pass data.
  <p>Always call this before attempting to perform data transactions.</p></div>
@@ -2263,6 +2494,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Indicates whether network connectivity exists or is in the process
  of being established. This is good for applications that need to
@@ -2304,6 +2538,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Indicates whether the current attempt to connect to the network
  resulted from the ConnectivityManager trying to fail over to this
  network following a disconnect from another network.</p></div>
@@ -2342,6 +2579,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Indicates whether the device is currently roaming on this network.
  When <code>true</code>, it suggests that use of data on this network
  may incur extra costs.</p></div>
@@ -2378,6 +2618,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Returns a string containing a concise, human-readable description of this
  object. Subclasses are encouraged to override this method and provide an

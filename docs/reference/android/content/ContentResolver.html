@@ -82,6 +82,19 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 <html>
 <head>
 
@@ -97,7 +110,7 @@
 href="http://fonts.useso.com/css?family=Roboto+Condensed">
 <link rel="stylesheet" href="http://fonts.useso.com/css?family=Roboto:light,regular,medium,thin,italic,mediumitalic,bold"
   title="roboto">
-<link href="../../../assets/css/default.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/default.css?v=2" rel="stylesheet" type="text/css">
 
 
 <!-- FULLSCREEN STYLESHEET -->
@@ -106,30 +119,31 @@ type="text/css">
 
 
 <!-- JAVASCRIPT -->
-<script src="http://googleapiscdn.qiniudn.com/www.google.com/jsapi" type="text/javascript"></script>
+<script src="http://www.google.com/jsapi" type="text/javascript"></script>
 <script src="../../../assets/js/android_3p-bundle.js" type="text/javascript"></script>
 <script type="text/javascript">
   var toRoot = "../../../";
   var metaTags = [];
   var devsite = false;
 </script>
-<script src="../../../assets/js/docs.js" type="text/javascript"></script>
+<script src="../../../assets/js/docs.js?v=2" type="text/javascript"></script>
 
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-5831155-1']);
-  _gaq.push(['_trackPageview']);
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
+  ga('create', 'UA-5831155-1', 'android.com');
+  ga('create', 'UA-49880327-2', 'android.com', {'name': 'universal'});  // New tracker);
+  ga('send', 'pageview');
+  ga('universal.send', 'pageview'); // Send page view for new tracker.
 </script>
+
 </head>
 
 <body class="gc-documentation 
-  develop" itemscope itemtype="http://schema.org/Article">
+  develop reference" itemscope itemtype="http://schema.org/Article">
   <div id="doc-api-level" class="1" style="display:none"></div>
   <a name="top"></a>
 
@@ -139,6 +153,10 @@ type="text/css">
   <!-- Header -->
   <div id="header-wrapper">
     <div id="header">
+
+    
+
+
       <div class="wrap" id="header-wrap">
         <div class="col-3 logo">
           <a href="../../../index.html">
@@ -260,11 +278,20 @@ type="text/css">
 
 
         <!-- Expanded quicknav -->
-        <div id="quicknav" class="col-9">
+        <div id="quicknav" class="col-13">
           <ul>
+            <li class="about">
+              <ul>
+                <li><a href="../../../about/index.html">About</a></li>
+                <li><a href="../../../wear/index.html">Wear</a></li>
+                <li><a href="../../../tv/index.html">TV</a></li>
+                <li><a href="../../../auto/index.html">Auto</a></li>
+              </ul>
+            </li>
             <li class="design">
               <ul>
                 <li><a href="../../../design/index.html">Get Started</a></li>
+                <li><a href="../../../design/devices.html">Devices</a></li>
                 <li><a href="../../../design/style/index.html">Style</a></li>
                 <li><a href="../../../design/patterns/index.html">Patterns</a></li>
                 <li><a href="../../../design/building-blocks/index.html">Building Blocks</a></li>
@@ -298,7 +325,7 @@ type="text/css">
                   ja-lang="リファレンス"
                   es-lang="Referencia"
                   >Reference</a></li>
-                <li><a href="../../../tools/index.html"
+                <li><a href="../../../sdk/index.html"
                   zh-tw-lang="相關工具"
                   zh-cn-lang="工具"
                   ru-lang="Инструменты"
@@ -306,7 +333,6 @@ type="text/css">
                   ja-lang="ツール"
                   es-lang="Herramientas"
                   >Tools</a>
-                  <ul><li><a href="../../../sdk/index.html">Get the SDK</a></li></ul>
                 </li>
                 <li><a href="../../../google/index.html">Google Services</a>
                 </li>
@@ -358,7 +384,7 @@ type="text/css">
                   ja-lang="リファレンス"
                   es-lang="Referencia"
                   >Reference</a></li>
-                <li class="tools"><a href="../../../tools/index.html"
+                <li class="tools"><a href="../../../sdk/index.html"
                   zh-tw-lang="相關工具"
                   zh-cn-lang="工具"
                   ru-lang="Инструменты"
@@ -373,7 +399,7 @@ type="text/css">
             </ul>
         </div>
     </div>
-    <!-- /Sendondary x-nav -->
+    <!-- /Sendondary x-nav DEVELOP -->
 
   
 
@@ -414,7 +440,7 @@ type="text/css">
         <div id="api-nav-title">Android APIs</div>
         </div><!-- end nav header -->
       <script>
-        var SINCE_DATA = [ '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19' ];
+        var SINCE_DATA = [ '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21' ];
         buildApiLevelSelector();
       </script>
                   
@@ -441,13 +467,15 @@ type="text/css">
   <a href="../../../reference/android/app/admin/package-summary.html">android.app.admin</a></li>
     <li class="api apilevel-8">
   <a href="../../../reference/android/app/backup/package-summary.html">android.app.backup</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/app/job/package-summary.html">android.app.job</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/app/usage/package-summary.html">android.app.usage</a></li>
     <li class="api apilevel-3">
   <a href="../../../reference/android/appwidget/package-summary.html">android.appwidget</a></li>
     <li class="api apilevel-5">
   <a href="../../../reference/android/bluetooth/package-summary.html">android.bluetooth</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/bluetooth/le/package-summary.html">android.bluetooth.le</a></li>
     <li class="selected api apilevel-1">
   <a href="../../../reference/android/content/package-summary.html">android.content</a></li>
@@ -473,16 +501,14 @@ type="text/css">
   <a href="../../../reference/android/graphics/pdf/package-summary.html">android.graphics.pdf</a></li>
     <li class="api apilevel-1">
   <a href="../../../reference/android/hardware/package-summary.html">android.hardware</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/hardware/camera2/package-summary.html">android.hardware.camera2</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/hardware/camera2/params/package-summary.html">android.hardware.camera2.params</a></li>
     <li class="api apilevel-17">
   <a href="../../../reference/android/hardware/display/package-summary.html">android.hardware.display</a></li>
     <li class="api apilevel-16">
   <a href="../../../reference/android/hardware/input/package-summary.html">android.hardware.input</a></li>
-    <li class="api apilevel-18">
-  <a href="../../../reference/android/hardware/location/package-summary.html">android.hardware.location</a></li>
     <li class="api apilevel-12">
   <a href="../../../reference/android/hardware/usb/package-summary.html">android.hardware.usb</a></li>
     <li class="api apilevel-3">
@@ -493,11 +519,15 @@ type="text/css">
   <a href="../../../reference/android/media/package-summary.html">android.media</a></li>
     <li class="api apilevel-9">
   <a href="../../../reference/android/media/audiofx/package-summary.html">android.media.audiofx</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/media/browse/package-summary.html">android.media.browse</a></li>
     <li class="api apilevel-14">
   <a href="../../../reference/android/media/effect/package-summary.html">android.media.effect</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/media/projection/package-summary.html">android.media.projection</a></li>
+    <li class="api apilevel-21">
   <a href="../../../reference/android/media/session/package-summary.html">android.media.session</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/media/tv/package-summary.html">android.media.tv</a></li>
     <li class="api apilevel-12">
   <a href="../../../reference/android/mtp/package-summary.html">android.mtp</a></li>
@@ -547,11 +577,15 @@ type="text/css">
   <a href="../../../reference/android/security/package-summary.html">android.security</a></li>
     <li class="api apilevel-17">
   <a href="../../../reference/android/service/dreams/package-summary.html">android.service.dreams</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/service/media/package-summary.html">android.service.media</a></li>
     <li class="api apilevel-18">
   <a href="../../../reference/android/service/notification/package-summary.html">android.service.notification</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/service/restrictions/package-summary.html">android.service.restrictions</a></li>
     <li class="api apilevel-14">
   <a href="../../../reference/android/service/textservice/package-summary.html">android.service.textservice</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/service/voice/package-summary.html">android.service.voice</a></li>
     <li class="api apilevel-7">
   <a href="../../../reference/android/service/wallpaper/package-summary.html">android.service.wallpaper</a></li>
@@ -596,11 +630,15 @@ type="text/css">
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/media/package-summary.html">android.support.v4.media</a></li>
     <li class="api apilevel-">
+  <a href="../../../reference/android/support/v4/media/session/package-summary.html">android.support.v4.media.session</a></li>
+    <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/net/package-summary.html">android.support.v4.net</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/os/package-summary.html">android.support.v4.os</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/print/package-summary.html">android.support.v4.print</a></li>
+    <li class="api apilevel-">
+  <a href="../../../reference/android/support/v4/provider/package-summary.html">android.support.v4.provider</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/text/package-summary.html">android.support.v4.text</a></li>
     <li class="api apilevel-">
@@ -616,6 +654,10 @@ type="text/css">
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v7/appcompat/package-summary.html">android.support.v7.appcompat</a></li>
     <li class="api apilevel-">
+  <a href="../../../reference/android/support/v7/cardview/package-summary.html">android.support.v7.cardview</a></li>
+    <li class="api apilevel-">
+  <a href="../../../reference/android/support/v7/graphics/package-summary.html">android.support.v7.graphics</a></li>
+    <li class="api apilevel-">
   <a href="../../../reference/android/support/v7/gridlayout/package-summary.html">android.support.v7.gridlayout</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v7/media/package-summary.html">android.support.v7.media</a></li>
@@ -627,8 +669,10 @@ type="text/css">
   <a href="../../../reference/android/support/v7/widget/package-summary.html">android.support.v7.widget</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v8/renderscript/package-summary.html">android.support.v8.renderscript</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/system/package-summary.html">android.system</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/telecom/package-summary.html">android.telecom</a></li>
     <li class="api apilevel-1">
   <a href="../../../reference/android/telephony/package-summary.html">android.telephony</a></li>
     <li class="api apilevel-5">
@@ -950,6 +994,7 @@ type="text/css">
           <li class="api apilevel-1"><a href="../../../reference/android/content/MutableContextWrapper.html">MutableContextWrapper</a></li>
           <li class="api apilevel-8"><a href="../../../reference/android/content/PeriodicSync.html">PeriodicSync</a></li>
           <li class="api apilevel-18"><a href="../../../reference/android/content/RestrictionEntry.html">RestrictionEntry</a></li>
+          <li class="api apilevel-21"><a href="../../../reference/android/content/RestrictionsManager.html">RestrictionsManager</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/content/SearchRecentSuggestionsProvider.html">SearchRecentSuggestionsProvider</a></li>
           <li class="api apilevel-5"><a href="../../../reference/android/content/SyncAdapterType.html">SyncAdapterType</a></li>
           <li class="api apilevel-5"><a href="../../../reference/android/content/SyncContext.html">SyncContext</a></li>
@@ -1097,6 +1142,9 @@ Summary:
   
 
 
+    
+
+
 </div><!-- end header -->
 
 <div id="naMessage"></div>
@@ -1145,14 +1193,24 @@ Summary:
       <div id="subclasses-direct-summary"
               style="display: none;"
               >
+  
   <table class="jd-sumtable-expando">
-        <tr class="alt-color api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/android/test/mock/MockContentResolver.html">MockContentResolver</a></td>
-              <td class="jd-descrcol" width="100%"><p>
+    
+      <tr class="alt-color api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/android/test/mock/MockContentResolver.html">MockContentResolver</a></td>
+        <td class="jd-descrcol" width="100%">
+          <p>
       An extension of <code><a href="../../../reference/android/content/ContentResolver.html">ContentResolver</a></code> that is designed for
-      testing.&nbsp;</td>
-          </tr>
+      testing.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
   </table>
+
       </div>
   </div>
 </td></tr></table>
@@ -1216,164 +1274,277 @@ Summary:
 
 
     
-    <tr class="alt-color api apilevel-" >
+    <tr class="alt-color api apilevel-21" >
         <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../../reference/android/content/ContentResolver.html#ANY_CURSOR_ITEM_TYPE">ANY_CURSOR_ITEM_TYPE</a></td>
-        <td class="jd-descrcol" width="100%">This is the Android platform's generic MIME type to match any MIME
- type of the form "<code><a href="../../../reference/android/content/ContentResolver.html#CURSOR_ITEM_BASE_TYPE">CURSOR_ITEM_BASE_TYPE</a></code>/<code>SUB_TYPE</code>".</td>
+        <td class="jd-descrcol" width="100%">
+          This is the Android platform's generic MIME type to match any MIME
+ type of the form "<code><a href="../../../reference/android/content/ContentResolver.html#CURSOR_ITEM_BASE_TYPE">CURSOR_ITEM_BASE_TYPE</a></code>/<code>SUB_TYPE</code>".
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../../reference/android/content/ContentResolver.html#CURSOR_DIR_BASE_TYPE">CURSOR_DIR_BASE_TYPE</a></td>
-        <td class="jd-descrcol" width="100%">This is the Android platform's base MIME type for a content: URI
- containing a Cursor of zero or more items.</td>
+        <td class="jd-descrcol" width="100%">
+          This is the Android platform's base MIME type for a content: URI
+ containing a Cursor of zero or more items.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../../reference/android/content/ContentResolver.html#CURSOR_ITEM_BASE_TYPE">CURSOR_ITEM_BASE_TYPE</a></td>
-        <td class="jd-descrcol" width="100%">This is the Android platform's base MIME type for a content: URI
- containing a Cursor of a single item.</td>
+        <td class="jd-descrcol" width="100%">
+          This is the Android platform's base MIME type for a content: URI
+ containing a Cursor of a single item.
+          
+    
+
+        </td>
     </tr>
     
     
-    <tr class=" api apilevel-1" >
+    <tr class=" api apilevel-21" >
+        <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/content/ContentResolver.html#EXTRA_SIZE">EXTRA_SIZE</a></td>
+        <td class="jd-descrcol" width="100%">
+          An extra <code><a href="../../../reference/android/graphics/Point.html">Point</a></code> describing the optimal size for a requested image
+ resource, in pixels.
+          
+    
+
+        </td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../../reference/android/content/ContentResolver.html#SCHEME_ANDROID_RESOURCE">SCHEME_ANDROID_RESOURCE</a></td>
-        <td class="jd-descrcol" width="100%"></td>
-    </tr>
+        <td class="jd-descrcol" width="100%">
+          
+          
     
-    
-    <tr class="alt-color api apilevel-1" >
-        <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../../reference/android/content/ContentResolver.html#SCHEME_CONTENT">SCHEME_CONTENT</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../../reference/android/content/ContentResolver.html#SCHEME_FILE">SCHEME_FILE</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/content/ContentResolver.html#SCHEME_CONTENT">SCHEME_CONTENT</a></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/content/ContentResolver.html#SCHEME_FILE">SCHEME_FILE</a></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../../reference/android/content/ContentResolver.html#SYNC_EXTRAS_ACCOUNT">SYNC_EXTRAS_ACCOUNT</a></td>
-        <td class="jd-descrcol" width="100%"><em>
+        <td class="jd-descrcol" width="100%">
+          <em>
       This constant was deprecated
       in API level 5.
     instead use
  <code><a href="../../../reference/android/content/ContentResolver.html#requestSync(android.accounts.Account, java.lang.String, android.os.Bundle)">requestSync(android.accounts.Account, String, android.os.Bundle)</a></code>
-</em></td>
-    </tr>
+</em>
+          
     
-    
-    <tr class=" api apilevel-1" >
-        <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../../reference/android/content/ContentResolver.html#SYNC_EXTRAS_DISCARD_LOCAL_DELETIONS">SYNC_EXTRAS_DISCARD_LOCAL_DELETIONS</a></td>
-        <td class="jd-descrcol" width="100%">Indicates that the sync adapter should not proceed with the delete operations,
- if it determines that there are too many.</td>
-    </tr>
-    
-    
-    <tr class="alt-color api apilevel-8" >
-        <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../../reference/android/content/ContentResolver.html#SYNC_EXTRAS_DO_NOT_RETRY">SYNC_EXTRAS_DO_NOT_RETRY</a></td>
-        <td class="jd-descrcol" width="100%">If this extra is set to true then the request will not be retried if it fails.</td>
-    </tr>
-    
-    
-    <tr class=" api apilevel-1" >
-        <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../../reference/android/content/ContentResolver.html#SYNC_EXTRAS_EXPEDITED">SYNC_EXTRAS_EXPEDITED</a></td>
-        <td class="jd-descrcol" width="100%">If this extra is set to true, the sync request will be scheduled
- at the front of the sync request queue and without any delay
-</td>
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../../reference/android/content/ContentResolver.html#SYNC_EXTRAS_FORCE">SYNC_EXTRAS_FORCE</a></td>
-        <td class="jd-descrcol" width="100%"><em>
-      This constant was deprecated
-      in API level 5.
-    instead use
- <code><a href="../../../reference/android/content/ContentResolver.html#SYNC_EXTRAS_MANUAL">SYNC_EXTRAS_MANUAL</a></code>
-</em></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/content/ContentResolver.html#SYNC_EXTRAS_DISCARD_LOCAL_DELETIONS">SYNC_EXTRAS_DISCARD_LOCAL_DELETIONS</a></td>
+        <td class="jd-descrcol" width="100%">
+          Indicates that the sync adapter should not proceed with the delete operations,
+ if it determines that there are too many.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-8" >
         <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../../reference/android/content/ContentResolver.html#SYNC_EXTRAS_IGNORE_BACKOFF">SYNC_EXTRAS_IGNORE_BACKOFF</a></td>
-        <td class="jd-descrcol" width="100%">If this extra is set to true then any backoffs for the initial attempt (e.g.</td>
+        <td class="jd-linkcol"><a href="../../../reference/android/content/ContentResolver.html#SYNC_EXTRAS_DO_NOT_RETRY">SYNC_EXTRAS_DO_NOT_RETRY</a></td>
+        <td class="jd-descrcol" width="100%">
+          If this extra is set to true then the request will not be retried if it fails.
+          
+    
+
+        </td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/content/ContentResolver.html#SYNC_EXTRAS_EXPEDITED">SYNC_EXTRAS_EXPEDITED</a></td>
+        <td class="jd-descrcol" width="100%">
+          If this extra is set to true, the sync request will be scheduled
+ at the front of the sync request queue and without any delay
+
+          
+    
+
+        </td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/content/ContentResolver.html#SYNC_EXTRAS_FORCE">SYNC_EXTRAS_FORCE</a></td>
+        <td class="jd-descrcol" width="100%">
+          <em>
+      This constant was deprecated
+      in API level 5.
+    instead use
+ <code><a href="../../../reference/android/content/ContentResolver.html#SYNC_EXTRAS_MANUAL">SYNC_EXTRAS_MANUAL</a></code>
+</em>
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-8" >
         <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../../reference/android/content/ContentResolver.html#SYNC_EXTRAS_IGNORE_SETTINGS">SYNC_EXTRAS_IGNORE_SETTINGS</a></td>
-        <td class="jd-descrcol" width="100%">If this extra is set to true then the sync settings (like getSyncAutomatically())
- are ignored by the sync scheduler.</td>
+        <td class="jd-linkcol"><a href="../../../reference/android/content/ContentResolver.html#SYNC_EXTRAS_IGNORE_BACKOFF">SYNC_EXTRAS_IGNORE_BACKOFF</a></td>
+        <td class="jd-descrcol" width="100%">
+          If this extra is set to true then any backoffs for the initial attempt (e.g.
+          
+    
+
+        </td>
     </tr>
     
     
-    <tr class=" api apilevel-5" >
+    <tr class=" api apilevel-8" >
         <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../../reference/android/content/ContentResolver.html#SYNC_EXTRAS_INITIALIZE">SYNC_EXTRAS_INITIALIZE</a></td>
-        <td class="jd-descrcol" width="100%">Set by the SyncManager to request that the SyncAdapter initialize itself for
- the given account/authority pair.</td>
+        <td class="jd-linkcol"><a href="../../../reference/android/content/ContentResolver.html#SYNC_EXTRAS_IGNORE_SETTINGS">SYNC_EXTRAS_IGNORE_SETTINGS</a></td>
+        <td class="jd-descrcol" width="100%">
+          If this extra is set to true then the sync settings (like getSyncAutomatically())
+ are ignored by the sync scheduler.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-5" >
         <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../../reference/android/content/ContentResolver.html#SYNC_EXTRAS_MANUAL">SYNC_EXTRAS_MANUAL</a></td>
-        <td class="jd-descrcol" width="100%">Setting this extra is the equivalent of setting both <code><a href="../../../reference/android/content/ContentResolver.html#SYNC_EXTRAS_IGNORE_SETTINGS">SYNC_EXTRAS_IGNORE_SETTINGS</a></code>
- and <code><a href="../../../reference/android/content/ContentResolver.html#SYNC_EXTRAS_IGNORE_BACKOFF">SYNC_EXTRAS_IGNORE_BACKOFF</a></code>
-</td>
+        <td class="jd-linkcol"><a href="../../../reference/android/content/ContentResolver.html#SYNC_EXTRAS_INITIALIZE">SYNC_EXTRAS_INITIALIZE</a></td>
+        <td class="jd-descrcol" width="100%">
+          Set by the SyncManager to request that the SyncAdapter initialize itself for
+ the given account/authority pair.
+          
+    
+
+        </td>
     </tr>
     
     
-    <tr class=" api apilevel-1" >
+    <tr class=" api apilevel-5" >
         <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../../reference/android/content/ContentResolver.html#SYNC_EXTRAS_OVERRIDE_TOO_MANY_DELETIONS">SYNC_EXTRAS_OVERRIDE_TOO_MANY_DELETIONS</a></td>
-        <td class="jd-descrcol" width="100%">Indicates that the sync adapter should proceed with the delete operations,
- even if it determines that there are too many.</td>
+        <td class="jd-linkcol"><a href="../../../reference/android/content/ContentResolver.html#SYNC_EXTRAS_MANUAL">SYNC_EXTRAS_MANUAL</a></td>
+        <td class="jd-descrcol" width="100%">
+          Setting this extra is the equivalent of setting both <code><a href="../../../reference/android/content/ContentResolver.html#SYNC_EXTRAS_IGNORE_SETTINGS">SYNC_EXTRAS_IGNORE_SETTINGS</a></code>
+ and <code><a href="../../../reference/android/content/ContentResolver.html#SYNC_EXTRAS_IGNORE_BACKOFF">SYNC_EXTRAS_IGNORE_BACKOFF</a></code>
+
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../../reference/android/content/ContentResolver.html#SYNC_EXTRAS_UPLOAD">SYNC_EXTRAS_UPLOAD</a></td>
-        <td class="jd-descrcol" width="100%">Indicates that this sync is intended to only upload local changes to the server.</td>
+        <td class="jd-linkcol"><a href="../../../reference/android/content/ContentResolver.html#SYNC_EXTRAS_OVERRIDE_TOO_MANY_DELETIONS">SYNC_EXTRAS_OVERRIDE_TOO_MANY_DELETIONS</a></td>
+        <td class="jd-descrcol" width="100%">
+          Indicates that the sync adapter should proceed with the delete operations,
+ even if it determines that there are too many.
+          
+    
+
+        </td>
     </tr>
     
     
-    <tr class=" api apilevel-8" >
-        <td class="jd-typecol">int</td>
-        <td class="jd-linkcol"><a href="../../../reference/android/content/ContentResolver.html#SYNC_OBSERVER_TYPE_ACTIVE">SYNC_OBSERVER_TYPE_ACTIVE</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/content/ContentResolver.html#SYNC_EXTRAS_UPLOAD">SYNC_EXTRAS_UPLOAD</a></td>
+        <td class="jd-descrcol" width="100%">
+          Indicates that this sync is intended to only upload local changes to the server.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-8" >
         <td class="jd-typecol">int</td>
-        <td class="jd-linkcol"><a href="../../../reference/android/content/ContentResolver.html#SYNC_OBSERVER_TYPE_PENDING">SYNC_OBSERVER_TYPE_PENDING</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/content/ContentResolver.html#SYNC_OBSERVER_TYPE_ACTIVE">SYNC_OBSERVER_TYPE_ACTIVE</a></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-8" >
         <td class="jd-typecol">int</td>
+        <td class="jd-linkcol"><a href="../../../reference/android/content/ContentResolver.html#SYNC_OBSERVER_TYPE_PENDING">SYNC_OBSERVER_TYPE_PENDING</a></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-8" >
+        <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/content/ContentResolver.html#SYNC_OBSERVER_TYPE_SETTINGS">SYNC_OBSERVER_TYPE_SETTINGS</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
@@ -1438,8 +1609,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/content/ContentResolver.html#acquireContentProviderClient(android.net.Uri)">acquireContentProviderClient</a></span>(<a href="../../../reference/android/net/Uri.html">Uri</a> uri)</nobr>
         
-        <div class="jd-descrdiv">Returns a <code><a href="../../../reference/android/content/ContentProviderClient.html">ContentProviderClient</a></code> that is associated with the <code><a href="../../../reference/android/content/ContentProvider.html">ContentProvider</a></code>
- that services the content at uri, starting the provider if necessary.</div>
+        <div class="jd-descrdiv">
+          Returns a <code><a href="../../../reference/android/content/ContentProviderClient.html">ContentProviderClient</a></code> that is associated with the <code><a href="../../../reference/android/content/ContentProvider.html">ContentProvider</a></code>
+ that services the content at uri, starting the provider if necessary.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1457,8 +1633,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/content/ContentResolver.html#acquireContentProviderClient(java.lang.String)">acquireContentProviderClient</a></span>(<a href="../../../reference/java/lang/String.html">String</a> name)</nobr>
         
-        <div class="jd-descrdiv">Returns a <code><a href="../../../reference/android/content/ContentProviderClient.html">ContentProviderClient</a></code> that is associated with the <code><a href="../../../reference/android/content/ContentProvider.html">ContentProvider</a></code>
- with the authority of name, starting the provider if necessary.</div>
+        <div class="jd-descrdiv">
+          Returns a <code><a href="../../../reference/android/content/ContentProviderClient.html">ContentProviderClient</a></code> that is associated with the <code><a href="../../../reference/android/content/ContentProvider.html">ContentProvider</a></code>
+ with the authority of name, starting the provider if necessary.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1476,8 +1657,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/content/ContentResolver.html#acquireUnstableContentProviderClient(android.net.Uri)">acquireUnstableContentProviderClient</a></span>(<a href="../../../reference/android/net/Uri.html">Uri</a> uri)</nobr>
         
-        <div class="jd-descrdiv">Like <code><a href="../../../reference/android/content/ContentResolver.html#acquireContentProviderClient(android.net.Uri)">acquireContentProviderClient(Uri)</a></code>, but for use when you do
- not trust the stability of the target content provider.</div>
+        <div class="jd-descrdiv">
+          Like <code><a href="../../../reference/android/content/ContentResolver.html#acquireContentProviderClient(android.net.Uri)">acquireContentProviderClient(Uri)</a></code>, but for use when you do
+ not trust the stability of the target content provider.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1495,8 +1681,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/content/ContentResolver.html#acquireUnstableContentProviderClient(java.lang.String)">acquireUnstableContentProviderClient</a></span>(<a href="../../../reference/java/lang/String.html">String</a> name)</nobr>
         
-        <div class="jd-descrdiv">Like <code><a href="../../../reference/android/content/ContentResolver.html#acquireContentProviderClient(java.lang.String)">acquireContentProviderClient(String)</a></code>, but for use when you do
- not trust the stability of the target content provider.</div>
+        <div class="jd-descrdiv">
+          Like <code><a href="../../../reference/android/content/ContentResolver.html#acquireContentProviderClient(java.lang.String)">acquireContentProviderClient(String)</a></code>, but for use when you do
+ not trust the stability of the target content provider.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1514,8 +1705,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/content/ContentResolver.html#addPeriodicSync(android.accounts.Account, java.lang.String, android.os.Bundle, long)">addPeriodicSync</a></span>(<a href="../../../reference/android/accounts/Account.html">Account</a> account, <a href="../../../reference/java/lang/String.html">String</a> authority, <a href="../../../reference/android/os/Bundle.html">Bundle</a> extras, long pollFrequency)</nobr>
         
-        <div class="jd-descrdiv">Specifies that a sync should be requested with the specified the account, authority,
- and extras at the given frequency.</div>
+        <div class="jd-descrdiv">
+          Specifies that a sync should be requested with the specified the account, authority,
+ and extras at the given frequency.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1533,7 +1729,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/content/ContentResolver.html#addStatusChangeListener(int, android.content.SyncStatusObserver)">addStatusChangeListener</a></span>(int mask, <a href="../../../reference/android/content/SyncStatusObserver.html">SyncStatusObserver</a> callback)</nobr>
         
-        <div class="jd-descrdiv">Request notifications when the different aspects of the SyncManager change.</div>
+        <div class="jd-descrdiv">
+          Request notifications when the different aspects of the SyncManager change.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1551,8 +1752,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/content/ContentResolver.html#applyBatch(java.lang.String, java.util.ArrayList<android.content.ContentProviderOperation>)">applyBatch</a></span>(<a href="../../../reference/java/lang/String.html">String</a> authority, <a href="../../../reference/java/util/ArrayList.html">ArrayList</a>&lt;<a href="../../../reference/android/content/ContentProviderOperation.html">ContentProviderOperation</a>&gt; operations)</nobr>
         
-        <div class="jd-descrdiv">Applies each of the <code><a href="../../../reference/android/content/ContentProviderOperation.html">ContentProviderOperation</a></code> objects and returns an array
- of their results.</div>
+        <div class="jd-descrdiv">
+          Applies each of the <code><a href="../../../reference/android/content/ContentProviderOperation.html">ContentProviderOperation</a></code> objects and returns an array
+ of their results.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1570,7 +1776,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/content/ContentResolver.html#bulkInsert(android.net.Uri, android.content.ContentValues[])">bulkInsert</a></span>(<a href="../../../reference/android/net/Uri.html">Uri</a> url, <a href="../../../reference/android/content/ContentValues.html">ContentValues[]</a> values)</nobr>
         
-        <div class="jd-descrdiv">Inserts multiple rows into a table at the given URL.</div>
+        <div class="jd-descrdiv">
+          Inserts multiple rows into a table at the given URL.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1588,13 +1799,18 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/content/ContentResolver.html#call(android.net.Uri, java.lang.String, java.lang.String, android.os.Bundle)">call</a></span>(<a href="../../../reference/android/net/Uri.html">Uri</a> uri, <a href="../../../reference/java/lang/String.html">String</a> method, <a href="../../../reference/java/lang/String.html">String</a> arg, <a href="../../../reference/android/os/Bundle.html">Bundle</a> extras)</nobr>
         
-        <div class="jd-descrdiv">Call a provider-defined method.</div>
+        <div class="jd-descrdiv">
+          Call a provider-defined method.
+          
+    
+
+        </div>
   
   </td></tr>
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class=" api apilevel-21" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1606,7 +1822,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/content/ContentResolver.html#cancelSync(android.content.SyncRequest)">cancelSync</a></span>(<a href="../../../reference/android/content/SyncRequest.html">SyncRequest</a> request)</nobr>
         
-        <div class="jd-descrdiv">Remove the specified sync.</div>
+        <div class="jd-descrdiv">
+          Remove the specified sync.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1624,7 +1845,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/content/ContentResolver.html#cancelSync(android.accounts.Account, java.lang.String)">cancelSync</a></span>(<a href="../../../reference/android/accounts/Account.html">Account</a> account, <a href="../../../reference/java/lang/String.html">String</a> authority)</nobr>
         
-        <div class="jd-descrdiv">Cancel any active or pending syncs that match account and authority.</div>
+        <div class="jd-descrdiv">
+          Cancel any active or pending syncs that match account and authority.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1642,11 +1868,16 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/content/ContentResolver.html#cancelSync(android.net.Uri)">cancelSync</a></span>(<a href="../../../reference/android/net/Uri.html">Uri</a> uri)</nobr>
         
-        <div class="jd-descrdiv"><em>
+        <div class="jd-descrdiv">
+          <em>
       This method was deprecated
       in API level 5.
     instead use <code><a href="../../../reference/android/content/ContentResolver.html#cancelSync(android.accounts.Account, java.lang.String)">cancelSync(android.accounts.Account, String)</a></code>
-</em></div>
+</em>
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1664,9 +1895,14 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/content/ContentResolver.html#canonicalize(android.net.Uri)">canonicalize</a></span>(<a href="../../../reference/android/net/Uri.html">Uri</a> url)</nobr>
         
-        <div class="jd-descrdiv">Transform the given <var>url</var> to a canonical representation of
+        <div class="jd-descrdiv">
+          Transform the given <var>url</var> to a canonical representation of
  its referenced resource, which can be used across devices, persisted,
- backed up and restored, etc.</div>
+ backed up and restored, etc.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1684,7 +1920,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/content/ContentResolver.html#delete(android.net.Uri, java.lang.String, java.lang.String[])">delete</a></span>(<a href="../../../reference/android/net/Uri.html">Uri</a> url, <a href="../../../reference/java/lang/String.html">String</a> where, <a href="../../../reference/java/lang/String.html">String[]</a> selectionArgs)</nobr>
         
-        <div class="jd-descrdiv">Deletes row(s) specified by a content URI.</div>
+        <div class="jd-descrdiv">
+          Deletes row(s) specified by a content URI.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1702,14 +1943,19 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/content/ContentResolver.html#getCurrentSync()">getCurrentSync</a></span>()</nobr>
         
-        <div class="jd-descrdiv"><em>
+        <div class="jd-descrdiv">
+          <em>
       This method was deprecated
       in API level 11.
     Since multiple concurrent syncs are now supported you should use
  <code><a href="../../../reference/android/content/ContentResolver.html#getCurrentSyncs()">getCurrentSyncs()</a></code> to get the accurate list of current syncs.
  This method returns the first item from the list of current syncs
  or null if there are none.
-</em></div>
+</em>
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1727,7 +1973,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/content/ContentResolver.html#getCurrentSyncs()">getCurrentSyncs</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns a list with information about all the active syncs.</div>
+        <div class="jd-descrdiv">
+          Returns a list with information about all the active syncs.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1745,7 +1996,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/content/ContentResolver.html#getIsSyncable(android.accounts.Account, java.lang.String)">getIsSyncable</a></span>(<a href="../../../reference/android/accounts/Account.html">Account</a> account, <a href="../../../reference/java/lang/String.html">String</a> authority)</nobr>
         
-        <div class="jd-descrdiv">Check if this account/provider is syncable.</div>
+        <div class="jd-descrdiv">
+          Check if this account/provider is syncable.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1763,7 +2019,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/content/ContentResolver.html#getMasterSyncAutomatically()">getMasterSyncAutomatically</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Gets the master auto-sync setting that applies to all the providers and accounts.</div>
+        <div class="jd-descrdiv">
+          Gets the master auto-sync setting that applies to all the providers and accounts.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1781,8 +2042,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/content/ContentResolver.html#getOutgoingPersistedUriPermissions()">getOutgoingPersistedUriPermissions</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Return list of all persisted URI permission grants that are hosted by the
- calling app.</div>
+        <div class="jd-descrdiv">
+          Return list of all persisted URI permission grants that are hosted by the
+ calling app.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1800,7 +2066,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/content/ContentResolver.html#getPeriodicSyncs(android.accounts.Account, java.lang.String)">getPeriodicSyncs</a></span>(<a href="../../../reference/android/accounts/Account.html">Account</a> account, <a href="../../../reference/java/lang/String.html">String</a> authority)</nobr>
         
-        <div class="jd-descrdiv">Get the list of information about the periodic syncs for the given account and authority.</div>
+        <div class="jd-descrdiv">
+          Get the list of information about the periodic syncs for the given account and authority.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1818,8 +2089,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/content/ContentResolver.html#getPersistedUriPermissions()">getPersistedUriPermissions</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Return list of all URI permission grants that have been persisted by the
- calling app.</div>
+        <div class="jd-descrdiv">
+          Return list of all URI permission grants that have been persisted by the
+ calling app.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1837,9 +2113,14 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/content/ContentResolver.html#getStreamTypes(android.net.Uri, java.lang.String)">getStreamTypes</a></span>(<a href="../../../reference/android/net/Uri.html">Uri</a> url, <a href="../../../reference/java/lang/String.html">String</a> mimeTypeFilter)</nobr>
         
-        <div class="jd-descrdiv">Query for the possible MIME types for the representations the given
+        <div class="jd-descrdiv">
+          Query for the possible MIME types for the representations the given
  content URL can be returned when opened as as stream with
- <code><a href="../../../reference/android/content/ContentResolver.html#openTypedAssetFileDescriptor(android.net.Uri, java.lang.String, android.os.Bundle)">openTypedAssetFileDescriptor(Uri, String, Bundle)</a></code>.</div>
+ <code><a href="../../../reference/android/content/ContentResolver.html#openTypedAssetFileDescriptor(android.net.Uri, java.lang.String, android.os.Bundle)">openTypedAssetFileDescriptor(Uri, String, Bundle)</a></code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1857,7 +2138,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/content/ContentResolver.html#getSyncAdapterTypes()">getSyncAdapterTypes</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Get information about the SyncAdapters that are known to the system.</div>
+        <div class="jd-descrdiv">
+          Get information about the SyncAdapters that are known to the system.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1875,9 +2161,14 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/content/ContentResolver.html#getSyncAutomatically(android.accounts.Account, java.lang.String)">getSyncAutomatically</a></span>(<a href="../../../reference/android/accounts/Account.html">Account</a> account, <a href="../../../reference/java/lang/String.html">String</a> authority)</nobr>
         
-        <div class="jd-descrdiv">Check if the provider should be synced when a network tickle is received
+        <div class="jd-descrdiv">
+          Check if the provider should be synced when a network tickle is received
  <p>This method requires the caller to hold the permission
- <code><a href="../../../reference/android/Manifest.permission.html#READ_SYNC_SETTINGS">READ_SYNC_SETTINGS</a></code>.</div>
+ <code><a href="../../../reference/android/Manifest.permission.html#READ_SYNC_SETTINGS">READ_SYNC_SETTINGS</a></code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1895,7 +2186,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/content/ContentResolver.html#getType(android.net.Uri)">getType</a></span>(<a href="../../../reference/android/net/Uri.html">Uri</a> url)</nobr>
         
-        <div class="jd-descrdiv">Return the MIME type of the given content URL.</div>
+        <div class="jd-descrdiv">
+          Return the MIME type of the given content URL.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1913,7 +2209,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/content/ContentResolver.html#insert(android.net.Uri, android.content.ContentValues)">insert</a></span>(<a href="../../../reference/android/net/Uri.html">Uri</a> url, <a href="../../../reference/android/content/ContentValues.html">ContentValues</a> values)</nobr>
         
-        <div class="jd-descrdiv">Inserts a row into a table at the given URL.</div>
+        <div class="jd-descrdiv">
+          Inserts a row into a table at the given URL.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1931,8 +2232,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/content/ContentResolver.html#isSyncActive(android.accounts.Account, java.lang.String)">isSyncActive</a></span>(<a href="../../../reference/android/accounts/Account.html">Account</a> account, <a href="../../../reference/java/lang/String.html">String</a> authority)</nobr>
         
-        <div class="jd-descrdiv">Returns true if there is currently a sync operation for the given account or authority
- actively being processed.</div>
+        <div class="jd-descrdiv">
+          Returns true if there is currently a sync operation for the given account or authority
+ actively being processed.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1950,7 +2256,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/content/ContentResolver.html#isSyncPending(android.accounts.Account, java.lang.String)">isSyncPending</a></span>(<a href="../../../reference/android/accounts/Account.html">Account</a> account, <a href="../../../reference/java/lang/String.html">String</a> authority)</nobr>
         
-        <div class="jd-descrdiv">Return true if the pending status is true of any matching authorities.</div>
+        <div class="jd-descrdiv">
+          Return true if the pending status is true of any matching authorities.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1968,7 +2279,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/content/ContentResolver.html#notifyChange(android.net.Uri, android.database.ContentObserver, boolean)">notifyChange</a></span>(<a href="../../../reference/android/net/Uri.html">Uri</a> uri, <a href="../../../reference/android/database/ContentObserver.html">ContentObserver</a> observer, boolean syncToNetwork)</nobr>
         
-        <div class="jd-descrdiv">Notify registered observers that a row was updated.</div>
+        <div class="jd-descrdiv">
+          Notify registered observers that a row was updated.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1986,8 +2302,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/content/ContentResolver.html#notifyChange(android.net.Uri, android.database.ContentObserver)">notifyChange</a></span>(<a href="../../../reference/android/net/Uri.html">Uri</a> uri, <a href="../../../reference/android/database/ContentObserver.html">ContentObserver</a> observer)</nobr>
         
-        <div class="jd-descrdiv">Notify registered observers that a row was updated and attempt to sync changes
- to the network.</div>
+        <div class="jd-descrdiv">
+          Notify registered observers that a row was updated and attempt to sync changes
+ to the network.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2005,7 +2326,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/content/ContentResolver.html#openAssetFileDescriptor(android.net.Uri, java.lang.String)">openAssetFileDescriptor</a></span>(<a href="../../../reference/android/net/Uri.html">Uri</a> uri, <a href="../../../reference/java/lang/String.html">String</a> mode)</nobr>
         
-        <div class="jd-descrdiv">Open a raw file descriptor to access data under a URI.</div>
+        <div class="jd-descrdiv">
+          Open a raw file descriptor to access data under a URI.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2023,7 +2349,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/content/ContentResolver.html#openAssetFileDescriptor(android.net.Uri, java.lang.String, android.os.CancellationSignal)">openAssetFileDescriptor</a></span>(<a href="../../../reference/android/net/Uri.html">Uri</a> uri, <a href="../../../reference/java/lang/String.html">String</a> mode, <a href="../../../reference/android/os/CancellationSignal.html">CancellationSignal</a> cancellationSignal)</nobr>
         
-        <div class="jd-descrdiv">Open a raw file descriptor to access data under a URI.</div>
+        <div class="jd-descrdiv">
+          Open a raw file descriptor to access data under a URI.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2041,7 +2372,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/content/ContentResolver.html#openFileDescriptor(android.net.Uri, java.lang.String, android.os.CancellationSignal)">openFileDescriptor</a></span>(<a href="../../../reference/android/net/Uri.html">Uri</a> uri, <a href="../../../reference/java/lang/String.html">String</a> mode, <a href="../../../reference/android/os/CancellationSignal.html">CancellationSignal</a> cancellationSignal)</nobr>
         
-        <div class="jd-descrdiv">Open a raw file descriptor to access data under a URI.</div>
+        <div class="jd-descrdiv">
+          Open a raw file descriptor to access data under a URI.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2059,7 +2395,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/content/ContentResolver.html#openFileDescriptor(android.net.Uri, java.lang.String)">openFileDescriptor</a></span>(<a href="../../../reference/android/net/Uri.html">Uri</a> uri, <a href="../../../reference/java/lang/String.html">String</a> mode)</nobr>
         
-        <div class="jd-descrdiv">Open a raw file descriptor to access data under a URI.</div>
+        <div class="jd-descrdiv">
+          Open a raw file descriptor to access data under a URI.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2077,7 +2418,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/content/ContentResolver.html#openInputStream(android.net.Uri)">openInputStream</a></span>(<a href="../../../reference/android/net/Uri.html">Uri</a> uri)</nobr>
         
-        <div class="jd-descrdiv">Open a stream on to the content associated with a content URI.</div>
+        <div class="jd-descrdiv">
+          Open a stream on to the content associated with a content URI.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2095,7 +2441,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/content/ContentResolver.html#openOutputStream(android.net.Uri)">openOutputStream</a></span>(<a href="../../../reference/android/net/Uri.html">Uri</a> uri)</nobr>
         
-        <div class="jd-descrdiv">Synonym for <code><a href="../../../reference/android/content/ContentResolver.html#openOutputStream(android.net.Uri, java.lang.String)">openOutputStream(uri, "w")</a></code>.</div>
+        <div class="jd-descrdiv">
+          Synonym for <code><a href="../../../reference/android/content/ContentResolver.html#openOutputStream(android.net.Uri, java.lang.String)">openOutputStream(uri, "w")</a></code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2113,7 +2464,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/content/ContentResolver.html#openOutputStream(android.net.Uri, java.lang.String)">openOutputStream</a></span>(<a href="../../../reference/android/net/Uri.html">Uri</a> uri, <a href="../../../reference/java/lang/String.html">String</a> mode)</nobr>
         
-        <div class="jd-descrdiv">Open a stream on to the content associated with a content URI.</div>
+        <div class="jd-descrdiv">
+          Open a stream on to the content associated with a content URI.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2131,8 +2487,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/content/ContentResolver.html#openTypedAssetFileDescriptor(android.net.Uri, java.lang.String, android.os.Bundle, android.os.CancellationSignal)">openTypedAssetFileDescriptor</a></span>(<a href="../../../reference/android/net/Uri.html">Uri</a> uri, <a href="../../../reference/java/lang/String.html">String</a> mimeType, <a href="../../../reference/android/os/Bundle.html">Bundle</a> opts, <a href="../../../reference/android/os/CancellationSignal.html">CancellationSignal</a> cancellationSignal)</nobr>
         
-        <div class="jd-descrdiv">Open a raw file descriptor to access (potentially type transformed)
- data from a "content:" URI.</div>
+        <div class="jd-descrdiv">
+          Open a raw file descriptor to access (potentially type transformed)
+ data from a "content:" URI.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2150,8 +2511,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/content/ContentResolver.html#openTypedAssetFileDescriptor(android.net.Uri, java.lang.String, android.os.Bundle)">openTypedAssetFileDescriptor</a></span>(<a href="../../../reference/android/net/Uri.html">Uri</a> uri, <a href="../../../reference/java/lang/String.html">String</a> mimeType, <a href="../../../reference/android/os/Bundle.html">Bundle</a> opts)</nobr>
         
-        <div class="jd-descrdiv">Open a raw file descriptor to access (potentially type transformed)
- data from a "content:" URI.</div>
+        <div class="jd-descrdiv">
+          Open a raw file descriptor to access (potentially type transformed)
+ data from a "content:" URI.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2169,7 +2535,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/content/ContentResolver.html#query(android.net.Uri, java.lang.String[], java.lang.String, java.lang.String[], java.lang.String)">query</a></span>(<a href="../../../reference/android/net/Uri.html">Uri</a> uri, <a href="../../../reference/java/lang/String.html">String[]</a> projection, <a href="../../../reference/java/lang/String.html">String</a> selection, <a href="../../../reference/java/lang/String.html">String[]</a> selectionArgs, <a href="../../../reference/java/lang/String.html">String</a> sortOrder)</nobr>
         
-        <div class="jd-descrdiv">Query the given URI, returning a <code><a href="../../../reference/android/database/Cursor.html">Cursor</a></code> over the result set.</div>
+        <div class="jd-descrdiv">
+          Query the given URI, returning a <code><a href="../../../reference/android/database/Cursor.html">Cursor</a></code> over the result set.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2187,8 +2558,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/content/ContentResolver.html#query(android.net.Uri, java.lang.String[], java.lang.String, java.lang.String[], java.lang.String, android.os.CancellationSignal)">query</a></span>(<a href="../../../reference/android/net/Uri.html">Uri</a> uri, <a href="../../../reference/java/lang/String.html">String[]</a> projection, <a href="../../../reference/java/lang/String.html">String</a> selection, <a href="../../../reference/java/lang/String.html">String[]</a> selectionArgs, <a href="../../../reference/java/lang/String.html">String</a> sortOrder, <a href="../../../reference/android/os/CancellationSignal.html">CancellationSignal</a> cancellationSignal)</nobr>
         
-        <div class="jd-descrdiv">Query the given URI, returning a <code><a href="../../../reference/android/database/Cursor.html">Cursor</a></code> over the result set
- with optional support for cancellation.</div>
+        <div class="jd-descrdiv">
+          Query the given URI, returning a <code><a href="../../../reference/android/database/Cursor.html">Cursor</a></code> over the result set
+ with optional support for cancellation.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2206,8 +2582,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/content/ContentResolver.html#registerContentObserver(android.net.Uri, boolean, android.database.ContentObserver)">registerContentObserver</a></span>(<a href="../../../reference/android/net/Uri.html">Uri</a> uri, boolean notifyForDescendents, <a href="../../../reference/android/database/ContentObserver.html">ContentObserver</a> observer)</nobr>
         
-        <div class="jd-descrdiv">Register an observer class that gets callbacks when data identified by a
- given content URI changes.</div>
+        <div class="jd-descrdiv">
+          Register an observer class that gets callbacks when data identified by a
+ given content URI changes.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2225,7 +2606,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/content/ContentResolver.html#releasePersistableUriPermission(android.net.Uri, int)">releasePersistableUriPermission</a></span>(<a href="../../../reference/android/net/Uri.html">Uri</a> uri, int modeFlags)</nobr>
         
-        <div class="jd-descrdiv">Relinquish a persisted URI permission grant.</div>
+        <div class="jd-descrdiv">
+          Relinquish a persisted URI permission grant.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2243,7 +2629,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/content/ContentResolver.html#removePeriodicSync(android.accounts.Account, java.lang.String, android.os.Bundle)">removePeriodicSync</a></span>(<a href="../../../reference/android/accounts/Account.html">Account</a> account, <a href="../../../reference/java/lang/String.html">String</a> authority, <a href="../../../reference/android/os/Bundle.html">Bundle</a> extras)</nobr>
         
-        <div class="jd-descrdiv">Remove a periodic sync.</div>
+        <div class="jd-descrdiv">
+          Remove a periodic sync.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2261,7 +2652,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/content/ContentResolver.html#removeStatusChangeListener(java.lang.Object)">removeStatusChangeListener</a></span>(<a href="../../../reference/java/lang/Object.html">Object</a> handle)</nobr>
         
-        <div class="jd-descrdiv">Remove a previously registered status change listener.</div>
+        <div class="jd-descrdiv">
+          Remove a previously registered status change listener.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2279,7 +2675,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/content/ContentResolver.html#requestSync(android.accounts.Account, java.lang.String, android.os.Bundle)">requestSync</a></span>(<a href="../../../reference/android/accounts/Account.html">Account</a> account, <a href="../../../reference/java/lang/String.html">String</a> authority, <a href="../../../reference/android/os/Bundle.html">Bundle</a> extras)</nobr>
         
-        <div class="jd-descrdiv">Start an asynchronous sync operation.</div>
+        <div class="jd-descrdiv">
+          Start an asynchronous sync operation.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2297,7 +2698,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/content/ContentResolver.html#requestSync(android.content.SyncRequest)">requestSync</a></span>(<a href="../../../reference/android/content/SyncRequest.html">SyncRequest</a> request)</nobr>
         
-        <div class="jd-descrdiv">Register a sync with the SyncManager.</div>
+        <div class="jd-descrdiv">
+          Register a sync with the SyncManager.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2315,7 +2721,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/content/ContentResolver.html#setIsSyncable(android.accounts.Account, java.lang.String, int)">setIsSyncable</a></span>(<a href="../../../reference/android/accounts/Account.html">Account</a> account, <a href="../../../reference/java/lang/String.html">String</a> authority, int syncable)</nobr>
         
-        <div class="jd-descrdiv">Set whether this account/provider is syncable.</div>
+        <div class="jd-descrdiv">
+          Set whether this account/provider is syncable.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2333,7 +2744,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/content/ContentResolver.html#setMasterSyncAutomatically(boolean)">setMasterSyncAutomatically</a></span>(boolean sync)</nobr>
         
-        <div class="jd-descrdiv">Sets the master auto-sync setting that applies to all the providers and accounts.</div>
+        <div class="jd-descrdiv">
+          Sets the master auto-sync setting that applies to all the providers and accounts.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2351,7 +2767,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/content/ContentResolver.html#setSyncAutomatically(android.accounts.Account, java.lang.String, boolean)">setSyncAutomatically</a></span>(<a href="../../../reference/android/accounts/Account.html">Account</a> account, <a href="../../../reference/java/lang/String.html">String</a> authority, boolean sync)</nobr>
         
-        <div class="jd-descrdiv">Set whether or not the provider is synced when it receives a network tickle.</div>
+        <div class="jd-descrdiv">
+          Set whether or not the provider is synced when it receives a network tickle.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2369,12 +2790,17 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/content/ContentResolver.html#startSync(android.net.Uri, android.os.Bundle)">startSync</a></span>(<a href="../../../reference/android/net/Uri.html">Uri</a> uri, <a href="../../../reference/android/os/Bundle.html">Bundle</a> extras)</nobr>
         
-        <div class="jd-descrdiv"><em>
+        <div class="jd-descrdiv">
+          <em>
       This method was deprecated
       in API level 5.
     instead use
  <code><a href="../../../reference/android/content/ContentResolver.html#requestSync(android.accounts.Account, java.lang.String, android.os.Bundle)">requestSync(android.accounts.Account, String, android.os.Bundle)</a></code>
-</em></div>
+</em>
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2392,7 +2818,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/content/ContentResolver.html#takePersistableUriPermission(android.net.Uri, int)">takePersistableUriPermission</a></span>(<a href="../../../reference/android/net/Uri.html">Uri</a> uri, int modeFlags)</nobr>
         
-        <div class="jd-descrdiv">Take a persistable URI permission grant that has been offered.</div>
+        <div class="jd-descrdiv">
+          Take a persistable URI permission grant that has been offered.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2410,8 +2841,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/content/ContentResolver.html#uncanonicalize(android.net.Uri)">uncanonicalize</a></span>(<a href="../../../reference/android/net/Uri.html">Uri</a> url)</nobr>
         
-        <div class="jd-descrdiv">Given a canonical Uri previously generated by <code><a href="../../../reference/android/content/ContentResolver.html#canonicalize(android.net.Uri)">canonicalize(Uri)</a></code>, convert
- it to its local non-canonical form.</div>
+        <div class="jd-descrdiv">
+          Given a canonical Uri previously generated by <code><a href="../../../reference/android/content/ContentResolver.html#canonicalize(android.net.Uri)">canonicalize(Uri)</a></code>, convert
+ it to its local non-canonical form.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2429,7 +2865,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/content/ContentResolver.html#unregisterContentObserver(android.database.ContentObserver)">unregisterContentObserver</a></span>(<a href="../../../reference/android/database/ContentObserver.html">ContentObserver</a> observer)</nobr>
         
-        <div class="jd-descrdiv">Unregisters a change observer.</div>
+        <div class="jd-descrdiv">
+          Unregisters a change observer.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2447,7 +2888,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/content/ContentResolver.html#update(android.net.Uri, android.content.ContentValues, java.lang.String, java.lang.String[])">update</a></span>(<a href="../../../reference/android/net/Uri.html">Uri</a> uri, <a href="../../../reference/android/content/ContentValues.html">ContentValues</a> values, <a href="../../../reference/java/lang/String.html">String</a> where, <a href="../../../reference/java/lang/String.html">String[]</a> selectionArgs)</nobr>
         
-        <div class="jd-descrdiv">Update row(s) in a content URI.</div>
+        <div class="jd-descrdiv">
+          Update row(s) in a content URI.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2465,7 +2911,8 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/content/ContentResolver.html#validateSyncExtrasBundle(android.os.Bundle)">validateSyncExtrasBundle</a></span>(<a href="../../../reference/android/os/Bundle.html">Bundle</a> extras)</nobr>
         
-        <div class="jd-descrdiv">Check that only values of the following types are in the Bundle:
+        <div class="jd-descrdiv">
+          Check that only values of the following types are in the Bundle:
  <ul>
  <li>Integer</li>
  <li>Long</li>
@@ -2475,7 +2922,11 @@ Summary:
  <li>String</li>
  <li>Account</li>
  <li>null</li>
- </ul></div>
+ </ul>
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2527,7 +2978,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#clone()">clone</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Creates and returns a copy of this <code>Object</code>.</div>
+        <div class="jd-descrdiv">
+          Creates and returns a copy of this <code>Object</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2545,8 +3001,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#equals(java.lang.Object)">equals</a></span>(<a href="../../../reference/java/lang/Object.html">Object</a> o)</nobr>
         
-        <div class="jd-descrdiv">Compares this instance with the specified object and indicates if they
- are equal.</div>
+        <div class="jd-descrdiv">
+          Compares this instance with the specified object and indicates if they
+ are equal.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2564,7 +3025,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#finalize()">finalize</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Invoked when the garbage collector has detected that this instance is no longer reachable.</div>
+        <div class="jd-descrdiv">
+          Invoked when the garbage collector has detected that this instance is no longer reachable.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2582,8 +3048,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#getClass()">getClass</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns the unique instance of <code><a href="../../../reference/java/lang/Class.html">Class</a></code> that represents this
- object's class.</div>
+        <div class="jd-descrdiv">
+          Returns the unique instance of <code><a href="../../../reference/java/lang/Class.html">Class</a></code> that represents this
+ object's class.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2601,7 +3072,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#hashCode()">hashCode</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns an integer hash code for this object.</div>
+        <div class="jd-descrdiv">
+          Returns an integer hash code for this object.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2619,8 +3095,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#notify()">notify</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Causes a thread which is waiting on this object's monitor (by means of
- calling one of the <code>wait()</code> methods) to be woken up.</div>
+        <div class="jd-descrdiv">
+          Causes a thread which is waiting on this object's monitor (by means of
+ calling one of the <code>wait()</code> methods) to be woken up.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2638,8 +3119,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#notifyAll()">notifyAll</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Causes all threads which are waiting on this object's monitor (by means
- of calling one of the <code>wait()</code> methods) to be woken up.</div>
+        <div class="jd-descrdiv">
+          Causes all threads which are waiting on this object's monitor (by means
+ of calling one of the <code>wait()</code> methods) to be woken up.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2657,8 +3143,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#toString()">toString</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns a string containing a concise, human-readable description of this
- object.</div>
+        <div class="jd-descrdiv">
+          Returns a string containing a concise, human-readable description of this
+ object.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2676,7 +3167,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#wait()">wait</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object.</div>
+        <div class="jd-descrdiv">
+          Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2694,8 +3190,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#wait(long, int)">wait</a></span>(long millis, int nanos)</nobr>
         
-        <div class="jd-descrdiv">Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object or until the
- specified timeout expires.</div>
+        <div class="jd-descrdiv">
+          Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object or until the
+ specified timeout expires.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2713,8 +3214,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#wait(long)">wait</a></span>(long millis)</nobr>
         
-        <div class="jd-descrdiv">Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object or until the
- specified timeout expires.</div>
+        <div class="jd-descrdiv">
+          Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object or until the
+ specified timeout expires.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2756,7 +3262,7 @@ From class
 
 <A NAME="ANY_CURSOR_ITEM_TYPE"></A>
 
-<div class="jd-details api apilevel-"> 
+<div class="jd-details api apilevel-21"> 
     <h4 class="jd-details-title">
       <span class="normal">
         public 
@@ -2768,11 +3274,15 @@ From class
     </h4>
       <div class="api-level">
         
+  Added in <a href="../../../guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 21</a>
         
   
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>This is the Android platform's generic MIME type to match any MIME
  type of the form "<code><a href="../../../reference/android/content/ContentResolver.html#CURSOR_ITEM_BASE_TYPE">CURSOR_ITEM_BASE_TYPE</a></code>/<code>SUB_TYPE</code>".
@@ -2815,6 +3325,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>This is the Android platform's base MIME type for a content: URI
  containing a Cursor of zero or more items.  Applications should use this
@@ -2868,6 +3381,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>This is the Android platform's base MIME type for a content: URI
  containing a Cursor of a single item.  Applications should use this
  as the base type along with their own sub-type of their content: URIs
@@ -2886,6 +3402,54 @@ From class
         <span>
             
                 "vnd.android.cursor.item"
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="EXTRA_SIZE"></A>
+
+<div class="jd-details api apilevel-21"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../reference/java/lang/String.html">String</a>
+      </span>
+        EXTRA_SIZE
+    </h4>
+      <div class="api-level">
+        
+  Added in <a href="../../../guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 21</a>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+    
+
+      
+  <div class="jd-tagdata jd-tagdescr"><p>An extra <code><a href="../../../reference/android/graphics/Point.html">Point</a></code> describing the optimal size for a requested image
+ resource, in pixels. If a provider has multiple sizes of the image, it
+ should return the image closest to this size.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">See Also</h5>
+      <ul class="nolist"><li><code><a href="../../../reference/android/content/ContentResolver.html#openTypedAssetFileDescriptor(android.net.Uri, java.lang.String, android.os.Bundle)">openTypedAssetFileDescriptor(Uri, String, Bundle)</a></code></li><li><code><a href="../../../reference/android/content/ContentResolver.html#openTypedAssetFileDescriptor(android.net.Uri, java.lang.String, android.os.Bundle, android.os.CancellationSignal)">openTypedAssetFileDescriptor(Uri, String, Bundle, CancellationSignal)</a></code></li>
+      </ul>
+  </div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                "android.content.extra.SIZE"
             
         </span>
         </div>
@@ -2915,6 +3479,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
@@ -2954,6 +3521,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -2992,6 +3562,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -3029,6 +3602,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       <p>
   <p class="caution"><strong>
       This constant was deprecated
@@ -3075,6 +3651,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Indicates that the sync adapter should not proceed with the delete operations,
  if it determines that there are too many.
  See <code><a href="../../../reference/android/content/SyncResult.html#tooManyDeletions">tooManyDeletions</a></code>
@@ -3116,6 +3695,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>If this extra is set to true then the request will not be retried if it fails.
 </p></div>
 
@@ -3154,6 +3736,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>If this extra is set to true, the sync request will be scheduled
  at the front of the sync request queue and without any delay
@@ -3194,6 +3779,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       <p>
   <p class="caution"><strong>
       This constant was deprecated
@@ -3240,6 +3828,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>If this extra is set to true then any backoffs for the initial attempt (e.g. due to retries)
  are ignored by the sync scheduler. If this request fails and gets rescheduled then the
  retries will still honor the backoff.
@@ -3281,6 +3872,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>If this extra is set to true then the sync settings (like getSyncAutomatically())
  are ignored by the sync scheduler.
 </p></div>
@@ -3320,6 +3914,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Set by the SyncManager to request that the SyncAdapter initialize itself for
  the given account/authority pair. One required initialization step is to
@@ -3364,6 +3961,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Setting this extra is the equivalent of setting both <code><a href="../../../reference/android/content/ContentResolver.html#SYNC_EXTRAS_IGNORE_SETTINGS">SYNC_EXTRAS_IGNORE_SETTINGS</a></code>
  and <code><a href="../../../reference/android/content/ContentResolver.html#SYNC_EXTRAS_IGNORE_BACKOFF">SYNC_EXTRAS_IGNORE_BACKOFF</a></code>
 </p></div>
@@ -3403,6 +4003,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Indicates that the sync adapter should proceed with the delete operations,
  even if it determines that there are too many.
@@ -3445,6 +4048,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Indicates that this sync is intended to only upload local changes to the server.
  For example, this will be set to true if the sync is initiated by a call to
  <code><a href="../../../reference/android/content/ContentResolver.html#notifyChange(android.net.Uri, android.database.ContentObserver, boolean)">notifyChange(android.net.Uri, android.database.ContentObserver, boolean)</a></code>
@@ -3486,6 +4092,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -3525,6 +4134,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -3563,6 +4175,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
@@ -3618,6 +4233,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     </div>
@@ -3662,6 +4280,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Returns a <code><a href="../../../reference/android/content/ContentProviderClient.html">ContentProviderClient</a></code> that is associated with the <code><a href="../../../reference/android/content/ContentProvider.html">ContentProvider</a></code>
  that services the content at uri, starting the provider if necessary. Returns
@@ -3713,6 +4334,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns a <code><a href="../../../reference/android/content/ContentProviderClient.html">ContentProviderClient</a></code> that is associated with the <code><a href="../../../reference/android/content/ContentProvider.html">ContentProvider</a></code>
  with the authority of name, starting the provider if necessary. Returns
  null if there is no provider associated wih the uri. The caller must indicate that they are
@@ -3763,6 +4387,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Like <code><a href="../../../reference/android/content/ContentResolver.html#acquireContentProviderClient(android.net.Uri)">acquireContentProviderClient(Uri)</a></code>, but for use when you do
  not trust the stability of the target content provider.  This turns off
  the mechanism in the platform clean up processes that are dependent on
@@ -3807,6 +4434,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Like <code><a href="../../../reference/android/content/ContentResolver.html#acquireContentProviderClient(java.lang.String)">acquireContentProviderClient(String)</a></code>, but for use when you do
  not trust the stability of the target content provider.  This turns off
  the mechanism in the platform clean up processes that are dependent on
@@ -3850,6 +4480,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Specifies that a sync should be requested with the specified the account, authority,
  and extras at the given frequency. If there is already another periodic sync scheduled
@@ -3934,6 +4567,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Request notifications when the different aspects of the SyncManager change. The
  different items that can be requested are:
  <ul>
@@ -3989,6 +4625,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Applies each of the <code><a href="../../../reference/android/content/ContentProviderOperation.html">ContentProviderOperation</a></code> objects and returns an array
  of their results. Passes through OperationApplicationException, which may be thrown
@@ -4059,6 +4698,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Inserts multiple rows into a table at the given URL.
 
  This function make no guarantees about the atomicity of the insertions.</p></div>
@@ -4110,6 +4752,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Call a provider-defined method.  This can be used to implement
  read or write interfaces which are cheaper than using a Cursor and/or
  do not fit into the traditional table model.</p></div>
@@ -4157,7 +4802,7 @@ From class
 
 <A NAME="cancelSync(android.content.SyncRequest)"></A>
 
-<div class="jd-details api apilevel-"> 
+<div class="jd-details api apilevel-21"> 
     <h4 class="jd-details-title">
       <span class="normal">
         public 
@@ -4171,12 +4816,16 @@ From class
       <span class="normal">(<a href="../../../reference/android/content/SyncRequest.html">SyncRequest</a> request)</span>
     </h4>
       <div class="api-level">
-        <div></div>
+        <div>
+  Added in <a href="../../../guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 21</a></div>
         
   
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Remove the specified sync. This will cancel any pending or active syncs. If the request is
  for a periodic sync, this call will remove any future occurrences.
@@ -4226,6 +4875,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Cancel any active or pending syncs that match account and authority. The account and
  authority can each independently be set to null, which means that syncs with any account
  or authority, respectively, will match.</p></div>
@@ -4271,6 +4923,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       <p>
   <p class="caution"><strong>
       This method was deprecated
@@ -4317,6 +4972,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Transform the given <var>url</var> to a canonical representation of
  its referenced resource, which can be used across devices, persisted,
@@ -4387,6 +5045,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Deletes row(s) specified by a content URI.
 
  If the content provider supports transactions, the deletion will be atomic.</p></div>
@@ -4437,6 +5098,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       <p>
   <p class="caution"><strong>
       This method was deprecated
@@ -4485,6 +5149,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns a list with information about all the active syncs. This list will be empty
  if there are no active syncs.
  <p>
@@ -4525,6 +5192,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Check if this account/provider is syncable.
  <p>This method requires the caller to hold the permission
  <code><a href="../../../reference/android/Manifest.permission.html#READ_SYNC_SETTINGS">READ_SYNC_SETTINGS</a></code>.</p></div>
@@ -4561,6 +5231,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Gets the master auto-sync setting that applies to all the providers and accounts.
  If this is false then the per-provider auto-sync setting is ignored.
@@ -4600,6 +5273,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Return list of all persisted URI permission grants that are hosted by the
  calling app. That is, the returned permissions have been granted
  <em>from</em> the calling app. Only grants taken with
@@ -4633,6 +5309,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Get the list of information about the periodic syncs for the given account and authority.
  <p>This method requires the caller to hold the permission
@@ -4684,6 +5363,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Return list of all URI permission grants that have been persisted by the
  calling app. That is, the returned permissions have been granted
  <em>to</em> the calling app. Only persistable grants taken with
@@ -4721,6 +5403,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Query for the possible MIME types for the representations the given
  content URL can be returned when opened as as stream with
@@ -4780,6 +5465,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Get information about the SyncAdapters that are known to the system.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
@@ -4814,6 +5502,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Check if the provider should be synced when a network tickle is received
  <p>This method requires the caller to hold the permission
@@ -4865,6 +5556,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Return the MIME type of the given content URL.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -4909,6 +5603,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Inserts a row into a table at the given URL.
 
@@ -4961,6 +5658,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns true if there is currently a sync operation for the given account or authority
  actively being processed.
  <p>This method requires the caller to hold the permission
@@ -5012,6 +5712,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Return true if the pending status is true of any matching authorities.
  <p>This method requires the caller to hold the permission
  <code><a href="../../../reference/android/Manifest.permission.html#READ_SYNC_STATS">READ_SYNC_STATS</a></code>.</p></div>
@@ -5061,6 +5764,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Notify registered observers that a row was updated.
  To register, call <code><a href="../../../reference/android/content/ContentResolver.html#registerContentObserver(android.net.Uri, boolean, android.database.ContentObserver)">registerContentObserver()</a></code>.
@@ -5122,6 +5828,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Notify registered observers that a row was updated and attempt to sync changes
  to the network.
  To register, call <code><a href="../../../reference/android/content/ContentResolver.html#registerContentObserver(android.net.Uri, boolean, android.database.ContentObserver)">registerContentObserver()</a></code>.
@@ -5171,6 +5880,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Open a raw file descriptor to access data under a URI.  This
  interacts with the underlying <code><a href="../../../reference/android/content/ContentProvider.html#openAssetFile(android.net.Uri, java.lang.String)">openAssetFile(Uri, String)</a></code>
@@ -5267,6 +5979,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Open a raw file descriptor to access data under a URI.  This
  interacts with the underlying <code><a href="../../../reference/android/content/ContentProvider.html#openAssetFile(android.net.Uri, java.lang.String)">openAssetFile(Uri, String)</a></code>
@@ -5370,6 +6085,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Open a raw file descriptor to access data under a URI.  This
  is like <code><a href="../../../reference/android/content/ContentResolver.html#openAssetFileDescriptor(android.net.Uri, java.lang.String)">openAssetFileDescriptor(Uri, String)</a></code>, but uses the
  underlying <code><a href="../../../reference/android/content/ContentProvider.html#openFile(android.net.Uri, java.lang.String)">openFile(Uri, String)</a></code>
@@ -5464,6 +6182,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Open a raw file descriptor to access data under a URI.  This
  is like <code><a href="../../../reference/android/content/ContentResolver.html#openAssetFileDescriptor(android.net.Uri, java.lang.String)">openAssetFileDescriptor(Uri, String)</a></code>, but uses the
  underlying <code><a href="../../../reference/android/content/ContentProvider.html#openFile(android.net.Uri, java.lang.String)">openFile(Uri, String)</a></code>
@@ -5552,6 +6273,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Open a stream on to the content associated with a content URI.  If there
  is no data associated with the URI, FileNotFoundException is thrown.
 
@@ -5620,6 +6344,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Synonym for <code><a href="../../../reference/android/content/ContentResolver.html#openOutputStream(android.net.Uri, java.lang.String)">openOutputStream(uri, "w")</a></code>.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Throws</h5>
@@ -5659,6 +6386,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Open a stream on to the content associated with a content URI.  If there
  is no data associated with the URI, FileNotFoundException is thrown.
@@ -5730,6 +6460,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Open a raw file descriptor to access (potentially type transformed)
  data from a "content:" URI.  This interacts with the underlying
@@ -5817,6 +6550,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Open a raw file descriptor to access (potentially type transformed)
  data from a "content:" URI.  This interacts with the underlying
  <code><a href="../../../reference/android/content/ContentProvider.html#openTypedAssetFile(android.net.Uri, java.lang.String, android.os.Bundle)">openTypedAssetFile(Uri, String, Bundle)</a></code> method of the provider
@@ -5896,6 +6632,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Query the given URI, returning a <code><a href="../../../reference/android/database/Cursor.html">Cursor</a></code> over the result set.
  <p>
@@ -5979,6 +6718,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Query the given URI, returning a <code><a href="../../../reference/android/database/Cursor.html">Cursor</a></code> over the result set
  with optional support for cancellation.
@@ -6070,6 +6812,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Register an observer class that gets callbacks when data identified by a
  given content URI changes.</p></div>
   <div class="jd-tagdata">
@@ -6127,6 +6872,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Relinquish a persisted URI permission grant. The URI must have been
  previously made persistent with
  <code><a href="../../../reference/android/content/ContentResolver.html#takePersistableUriPermission(android.net.Uri, int)">takePersistableUriPermission(Uri, int)</a></code>. Any non-persistent
@@ -6164,6 +6912,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Remove a periodic sync. Has no affect if account, authority and extras don't match
  an existing periodic sync.
@@ -6216,6 +6967,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Remove a previously registered status change listener.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -6255,6 +7009,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Start an asynchronous sync operation. If you want to monitor the progress
  of the sync you may register a SyncObserver. Only values of the following
@@ -6316,6 +7073,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Register a sync with the SyncManager. These requests are built using the
  <code><a href="../../../reference/android/content/SyncRequest.Builder.html">SyncRequest.Builder</a></code>.
 </p></div>
@@ -6347,6 +7107,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Set whether this account/provider is syncable.
  <p>This method requires the caller to hold the permission
@@ -6390,6 +7153,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Sets the master auto-sync setting that applies to all the providers and accounts.
  If this is false then the per-provider auto-sync setting is ignored.
  <p>This method requires the caller to hold the permission
@@ -6432,6 +7198,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Set whether or not the provider is synced when it receives a network tickle.
  <p>This method requires the caller to hold the permission
@@ -6482,6 +7251,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       <p>
   <p class="caution"><strong>
       This method was deprecated
@@ -6545,6 +7317,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Take a persistable URI permission grant that has been offered. Once
  taken, the permission grant will be remembered across device reboots.
  Only URI permissions granted with
@@ -6584,6 +7359,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Given a canonical Uri previously generated by <code><a href="../../../reference/android/content/ContentResolver.html#canonicalize(android.net.Uri)">canonicalize(Uri)</a></code>, convert
  it to its local non-canonical form.  This can be useful in some cases where
@@ -6642,6 +7420,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Unregisters a change observer.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -6685,6 +7466,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Update row(s) in a content URI.
 
@@ -6750,6 +7534,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Check that only values of the following types are in the Bundle:
  <ul>

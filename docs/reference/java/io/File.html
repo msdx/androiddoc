@@ -82,6 +82,19 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 <html>
 <head>
 
@@ -97,7 +110,7 @@
 href="http://fonts.useso.com/css?family=Roboto+Condensed">
 <link rel="stylesheet" href="http://fonts.useso.com/css?family=Roboto:light,regular,medium,thin,italic,mediumitalic,bold"
   title="roboto">
-<link href="../../../assets/css/default.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/default.css?v=2" rel="stylesheet" type="text/css">
 
 
 <!-- FULLSCREEN STYLESHEET -->
@@ -106,30 +119,31 @@ type="text/css">
 
 
 <!-- JAVASCRIPT -->
-<script src="http://googleapiscdn.qiniudn.com/www.google.com/jsapi" type="text/javascript"></script>
+<script src="http://www.google.com/jsapi" type="text/javascript"></script>
 <script src="../../../assets/js/android_3p-bundle.js" type="text/javascript"></script>
 <script type="text/javascript">
   var toRoot = "../../../";
   var metaTags = [];
   var devsite = false;
 </script>
-<script src="../../../assets/js/docs.js" type="text/javascript"></script>
+<script src="../../../assets/js/docs.js?v=2" type="text/javascript"></script>
 
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-5831155-1']);
-  _gaq.push(['_trackPageview']);
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
+  ga('create', 'UA-5831155-1', 'android.com');
+  ga('create', 'UA-49880327-2', 'android.com', {'name': 'universal'});  // New tracker);
+  ga('send', 'pageview');
+  ga('universal.send', 'pageview'); // Send page view for new tracker.
 </script>
+
 </head>
 
 <body class="gc-documentation 
-  develop" itemscope itemtype="http://schema.org/Article">
+  develop reference" itemscope itemtype="http://schema.org/Article">
   <div id="doc-api-level" class="1" style="display:none"></div>
   <a name="top"></a>
 
@@ -139,6 +153,10 @@ type="text/css">
   <!-- Header -->
   <div id="header-wrapper">
     <div id="header">
+
+    
+
+
       <div class="wrap" id="header-wrap">
         <div class="col-3 logo">
           <a href="../../../index.html">
@@ -260,11 +278,20 @@ type="text/css">
 
 
         <!-- Expanded quicknav -->
-        <div id="quicknav" class="col-9">
+        <div id="quicknav" class="col-13">
           <ul>
+            <li class="about">
+              <ul>
+                <li><a href="../../../about/index.html">About</a></li>
+                <li><a href="../../../wear/index.html">Wear</a></li>
+                <li><a href="../../../tv/index.html">TV</a></li>
+                <li><a href="../../../auto/index.html">Auto</a></li>
+              </ul>
+            </li>
             <li class="design">
               <ul>
                 <li><a href="../../../design/index.html">Get Started</a></li>
+                <li><a href="../../../design/devices.html">Devices</a></li>
                 <li><a href="../../../design/style/index.html">Style</a></li>
                 <li><a href="../../../design/patterns/index.html">Patterns</a></li>
                 <li><a href="../../../design/building-blocks/index.html">Building Blocks</a></li>
@@ -298,7 +325,7 @@ type="text/css">
                   ja-lang="リファレンス"
                   es-lang="Referencia"
                   >Reference</a></li>
-                <li><a href="../../../tools/index.html"
+                <li><a href="../../../sdk/index.html"
                   zh-tw-lang="相關工具"
                   zh-cn-lang="工具"
                   ru-lang="Инструменты"
@@ -306,7 +333,6 @@ type="text/css">
                   ja-lang="ツール"
                   es-lang="Herramientas"
                   >Tools</a>
-                  <ul><li><a href="../../../sdk/index.html">Get the SDK</a></li></ul>
                 </li>
                 <li><a href="../../../google/index.html">Google Services</a>
                 </li>
@@ -358,7 +384,7 @@ type="text/css">
                   ja-lang="リファレンス"
                   es-lang="Referencia"
                   >Reference</a></li>
-                <li class="tools"><a href="../../../tools/index.html"
+                <li class="tools"><a href="../../../sdk/index.html"
                   zh-tw-lang="相關工具"
                   zh-cn-lang="工具"
                   ru-lang="Инструменты"
@@ -373,7 +399,7 @@ type="text/css">
             </ul>
         </div>
     </div>
-    <!-- /Sendondary x-nav -->
+    <!-- /Sendondary x-nav DEVELOP -->
 
   
 
@@ -414,7 +440,7 @@ type="text/css">
         <div id="api-nav-title">Android APIs</div>
         </div><!-- end nav header -->
       <script>
-        var SINCE_DATA = [ '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19' ];
+        var SINCE_DATA = [ '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21' ];
         buildApiLevelSelector();
       </script>
                   
@@ -441,13 +467,15 @@ type="text/css">
   <a href="../../../reference/android/app/admin/package-summary.html">android.app.admin</a></li>
     <li class="api apilevel-8">
   <a href="../../../reference/android/app/backup/package-summary.html">android.app.backup</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/app/job/package-summary.html">android.app.job</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/app/usage/package-summary.html">android.app.usage</a></li>
     <li class="api apilevel-3">
   <a href="../../../reference/android/appwidget/package-summary.html">android.appwidget</a></li>
     <li class="api apilevel-5">
   <a href="../../../reference/android/bluetooth/package-summary.html">android.bluetooth</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/bluetooth/le/package-summary.html">android.bluetooth.le</a></li>
     <li class="api apilevel-1">
   <a href="../../../reference/android/content/package-summary.html">android.content</a></li>
@@ -473,16 +501,14 @@ type="text/css">
   <a href="../../../reference/android/graphics/pdf/package-summary.html">android.graphics.pdf</a></li>
     <li class="api apilevel-1">
   <a href="../../../reference/android/hardware/package-summary.html">android.hardware</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/hardware/camera2/package-summary.html">android.hardware.camera2</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/hardware/camera2/params/package-summary.html">android.hardware.camera2.params</a></li>
     <li class="api apilevel-17">
   <a href="../../../reference/android/hardware/display/package-summary.html">android.hardware.display</a></li>
     <li class="api apilevel-16">
   <a href="../../../reference/android/hardware/input/package-summary.html">android.hardware.input</a></li>
-    <li class="api apilevel-18">
-  <a href="../../../reference/android/hardware/location/package-summary.html">android.hardware.location</a></li>
     <li class="api apilevel-12">
   <a href="../../../reference/android/hardware/usb/package-summary.html">android.hardware.usb</a></li>
     <li class="api apilevel-3">
@@ -493,11 +519,15 @@ type="text/css">
   <a href="../../../reference/android/media/package-summary.html">android.media</a></li>
     <li class="api apilevel-9">
   <a href="../../../reference/android/media/audiofx/package-summary.html">android.media.audiofx</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/media/browse/package-summary.html">android.media.browse</a></li>
     <li class="api apilevel-14">
   <a href="../../../reference/android/media/effect/package-summary.html">android.media.effect</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/media/projection/package-summary.html">android.media.projection</a></li>
+    <li class="api apilevel-21">
   <a href="../../../reference/android/media/session/package-summary.html">android.media.session</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/media/tv/package-summary.html">android.media.tv</a></li>
     <li class="api apilevel-12">
   <a href="../../../reference/android/mtp/package-summary.html">android.mtp</a></li>
@@ -547,11 +577,15 @@ type="text/css">
   <a href="../../../reference/android/security/package-summary.html">android.security</a></li>
     <li class="api apilevel-17">
   <a href="../../../reference/android/service/dreams/package-summary.html">android.service.dreams</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/service/media/package-summary.html">android.service.media</a></li>
     <li class="api apilevel-18">
   <a href="../../../reference/android/service/notification/package-summary.html">android.service.notification</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/service/restrictions/package-summary.html">android.service.restrictions</a></li>
     <li class="api apilevel-14">
   <a href="../../../reference/android/service/textservice/package-summary.html">android.service.textservice</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/service/voice/package-summary.html">android.service.voice</a></li>
     <li class="api apilevel-7">
   <a href="../../../reference/android/service/wallpaper/package-summary.html">android.service.wallpaper</a></li>
@@ -596,11 +630,15 @@ type="text/css">
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/media/package-summary.html">android.support.v4.media</a></li>
     <li class="api apilevel-">
+  <a href="../../../reference/android/support/v4/media/session/package-summary.html">android.support.v4.media.session</a></li>
+    <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/net/package-summary.html">android.support.v4.net</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/os/package-summary.html">android.support.v4.os</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/print/package-summary.html">android.support.v4.print</a></li>
+    <li class="api apilevel-">
+  <a href="../../../reference/android/support/v4/provider/package-summary.html">android.support.v4.provider</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/text/package-summary.html">android.support.v4.text</a></li>
     <li class="api apilevel-">
@@ -616,6 +654,10 @@ type="text/css">
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v7/appcompat/package-summary.html">android.support.v7.appcompat</a></li>
     <li class="api apilevel-">
+  <a href="../../../reference/android/support/v7/cardview/package-summary.html">android.support.v7.cardview</a></li>
+    <li class="api apilevel-">
+  <a href="../../../reference/android/support/v7/graphics/package-summary.html">android.support.v7.graphics</a></li>
+    <li class="api apilevel-">
   <a href="../../../reference/android/support/v7/gridlayout/package-summary.html">android.support.v7.gridlayout</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v7/media/package-summary.html">android.support.v7.media</a></li>
@@ -627,8 +669,10 @@ type="text/css">
   <a href="../../../reference/android/support/v7/widget/package-summary.html">android.support.v7.widget</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v8/renderscript/package-summary.html">android.support.v8.renderscript</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/system/package-summary.html">android.system</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/telecom/package-summary.html">android.telecom</a></li>
     <li class="api apilevel-1">
   <a href="../../../reference/android/telephony/package-summary.html">android.telephony</a></li>
     <li class="api apilevel-5">
@@ -1128,6 +1172,9 @@ Summary:
   
 
 
+    
+
+
 </div><!-- end header -->
 
 <div id="naMessage"></div>
@@ -1239,7 +1286,12 @@ Summary:
           final
           <a href="../../../reference/java/lang/String.html">String</a></nobr></td>
           <td class="jd-linkcol"><a href="../../../reference/java/io/File.html#pathSeparator">pathSeparator</a></td>
-          <td class="jd-descrcol" width="100%">The system-dependent string used to separate components in search paths (":").</td>
+          <td class="jd-descrcol" width="100%">
+            The system-dependent string used to separate components in search paths (":").
+            
+    
+
+          </td>
       </tr>
       
     
@@ -1250,7 +1302,12 @@ Summary:
           final
           char</nobr></td>
           <td class="jd-linkcol"><a href="../../../reference/java/io/File.html#pathSeparatorChar">pathSeparatorChar</a></td>
-          <td class="jd-descrcol" width="100%">The system-dependent character used to separate components in search paths (':').</td>
+          <td class="jd-descrcol" width="100%">
+            The system-dependent character used to separate components in search paths (':').
+            
+    
+
+          </td>
       </tr>
       
     
@@ -1261,7 +1318,12 @@ Summary:
           final
           <a href="../../../reference/java/lang/String.html">String</a></nobr></td>
           <td class="jd-linkcol"><a href="../../../reference/java/io/File.html#separator">separator</a></td>
-          <td class="jd-descrcol" width="100%">The system-dependent string used to separate components in filenames ('/').</td>
+          <td class="jd-descrcol" width="100%">
+            The system-dependent string used to separate components in filenames ('/').
+            
+    
+
+          </td>
       </tr>
       
     
@@ -1272,7 +1334,12 @@ Summary:
           final
           char</nobr></td>
           <td class="jd-linkcol"><a href="../../../reference/java/io/File.html#separatorChar">separatorChar</a></td>
-          <td class="jd-descrcol" width="100%">The system-dependent character used to separate components in filenames ('/').</td>
+          <td class="jd-descrcol" width="100%">
+            The system-dependent character used to separate components in filenames ('/').
+            
+    
+
+          </td>
       </tr>
       
     
@@ -1303,7 +1370,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/File.html#File(java.io.File, java.lang.String)">File</a></span>(<a href="../../../reference/java/io/File.html">File</a> dir, <a href="../../../reference/java/lang/String.html">String</a> name)</nobr>
         
-        <div class="jd-descrdiv">Constructs a new file using the specified directory and name.</div>
+        <div class="jd-descrdiv">
+          Constructs a new file using the specified directory and name.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1321,7 +1393,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/File.html#File(java.lang.String)">File</a></span>(<a href="../../../reference/java/lang/String.html">String</a> path)</nobr>
         
-        <div class="jd-descrdiv">Constructs a new file using the specified path.</div>
+        <div class="jd-descrdiv">
+          Constructs a new file using the specified path.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1339,8 +1416,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/File.html#File(java.lang.String, java.lang.String)">File</a></span>(<a href="../../../reference/java/lang/String.html">String</a> dirPath, <a href="../../../reference/java/lang/String.html">String</a> name)</nobr>
         
-        <div class="jd-descrdiv">Constructs a new File using the specified directory path and file name,
- placing a path separator between the two.</div>
+        <div class="jd-descrdiv">
+          Constructs a new File using the specified directory path and file name,
+ placing a path separator between the two.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1358,7 +1440,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/File.html#File(java.net.URI)">File</a></span>(<a href="../../../reference/java/net/URI.html">URI</a> uri)</nobr>
         
-        <div class="jd-descrdiv">Constructs a new File using the path of the specified URI.</div>
+        <div class="jd-descrdiv">
+          Constructs a new File using the path of the specified URI.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1389,7 +1476,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/File.html#canExecute()">canExecute</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Tests whether or not this process is allowed to execute this file.</div>
+        <div class="jd-descrdiv">
+          Tests whether or not this process is allowed to execute this file.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1407,7 +1499,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/File.html#canRead()">canRead</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Indicates whether the current context is allowed to read from this file.</div>
+        <div class="jd-descrdiv">
+          Indicates whether the current context is allowed to read from this file.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1425,7 +1522,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/File.html#canWrite()">canWrite</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Indicates whether the current context is allowed to write to this file.</div>
+        <div class="jd-descrdiv">
+          Indicates whether the current context is allowed to write to this file.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1443,8 +1545,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/File.html#compareTo(java.io.File)">compareTo</a></span>(<a href="../../../reference/java/io/File.html">File</a> another)</nobr>
         
-        <div class="jd-descrdiv">Returns the relative sort ordering of the paths for this file and the
- file <code>another</code>.</div>
+        <div class="jd-descrdiv">
+          Returns the relative sort ordering of the paths for this file and the
+ file <code>another</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1462,8 +1569,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/File.html#createNewFile()">createNewFile</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Creates a new, empty file on the file system according to the path
- information stored in this file.</div>
+        <div class="jd-descrdiv">
+          Creates a new, empty file on the file system according to the path
+ information stored in this file.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1481,8 +1593,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/File.html#createTempFile(java.lang.String, java.lang.String, java.io.File)">createTempFile</a></span>(<a href="../../../reference/java/lang/String.html">String</a> prefix, <a href="../../../reference/java/lang/String.html">String</a> suffix, <a href="../../../reference/java/io/File.html">File</a> directory)</nobr>
         
-        <div class="jd-descrdiv">Creates an empty temporary file in the given directory using the given
- prefix and suffix as part of the file name.</div>
+        <div class="jd-descrdiv">
+          Creates an empty temporary file in the given directory using the given
+ prefix and suffix as part of the file name.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1500,8 +1617,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/File.html#createTempFile(java.lang.String, java.lang.String)">createTempFile</a></span>(<a href="../../../reference/java/lang/String.html">String</a> prefix, <a href="../../../reference/java/lang/String.html">String</a> suffix)</nobr>
         
-        <div class="jd-descrdiv">Creates an empty temporary file using the given prefix and suffix as part
- of the file name.</div>
+        <div class="jd-descrdiv">
+          Creates an empty temporary file using the given prefix and suffix as part
+ of the file name.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1519,7 +1641,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/File.html#delete()">delete</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Deletes this file.</div>
+        <div class="jd-descrdiv">
+          Deletes this file.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1537,7 +1664,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/File.html#deleteOnExit()">deleteOnExit</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Schedules this file to be automatically deleted when the VM terminates normally.</div>
+        <div class="jd-descrdiv">
+          Schedules this file to be automatically deleted when the VM terminates normally.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1555,8 +1687,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/File.html#equals(java.lang.Object)">equals</a></span>(<a href="../../../reference/java/lang/Object.html">Object</a> obj)</nobr>
         
-        <div class="jd-descrdiv">Compares <code>obj</code> to this file and returns <code>true</code> if they
- represent the <em>same</em> object using a path specific comparison.</div>
+        <div class="jd-descrdiv">
+          Compares <code>obj</code> to this file and returns <code>true</code> if they
+ represent the <em>same</em> object using a path specific comparison.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1574,8 +1711,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/File.html#exists()">exists</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns a boolean indicating whether this file can be found on the
- underlying file system.</div>
+        <div class="jd-descrdiv">
+          Returns a boolean indicating whether this file can be found on the
+ underlying file system.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1593,7 +1735,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/File.html#getAbsoluteFile()">getAbsoluteFile</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns a new file constructed using the absolute path of this file.</div>
+        <div class="jd-descrdiv">
+          Returns a new file constructed using the absolute path of this file.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1611,7 +1758,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/File.html#getAbsolutePath()">getAbsolutePath</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns the absolute path of this file.</div>
+        <div class="jd-descrdiv">
+          Returns the absolute path of this file.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1629,7 +1781,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/File.html#getCanonicalFile()">getCanonicalFile</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns a new file created using the canonical path of this file.</div>
+        <div class="jd-descrdiv">
+          Returns a new file created using the canonical path of this file.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1647,7 +1804,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/File.html#getCanonicalPath()">getCanonicalPath</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns the canonical path of this file.</div>
+        <div class="jd-descrdiv">
+          Returns the canonical path of this file.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1665,7 +1827,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/File.html#getFreeSpace()">getFreeSpace</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns the number of free bytes on the partition containing this path.</div>
+        <div class="jd-descrdiv">
+          Returns the number of free bytes on the partition containing this path.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1683,7 +1850,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/File.html#getName()">getName</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns the name of the file or directory represented by this file.</div>
+        <div class="jd-descrdiv">
+          Returns the name of the file or directory represented by this file.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1701,7 +1873,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/File.html#getParent()">getParent</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns the pathname of the parent of this file.</div>
+        <div class="jd-descrdiv">
+          Returns the pathname of the parent of this file.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1719,7 +1896,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/File.html#getParentFile()">getParentFile</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns a new file made from the pathname of the parent of this file.</div>
+        <div class="jd-descrdiv">
+          Returns a new file made from the pathname of the parent of this file.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1737,7 +1919,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/File.html#getPath()">getPath</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns the path of this file.</div>
+        <div class="jd-descrdiv">
+          Returns the path of this file.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1755,7 +1942,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/File.html#getTotalSpace()">getTotalSpace</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns the total size in bytes of the partition containing this path.</div>
+        <div class="jd-descrdiv">
+          Returns the total size in bytes of the partition containing this path.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1773,7 +1965,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/File.html#getUsableSpace()">getUsableSpace</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns the number of usable free bytes on the partition containing this path.</div>
+        <div class="jd-descrdiv">
+          Returns the number of usable free bytes on the partition containing this path.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1791,7 +1988,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/File.html#hashCode()">hashCode</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns an integer hash code for the receiver.</div>
+        <div class="jd-descrdiv">
+          Returns an integer hash code for the receiver.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1809,7 +2011,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/File.html#isAbsolute()">isAbsolute</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Indicates if this file's pathname is absolute.</div>
+        <div class="jd-descrdiv">
+          Indicates if this file's pathname is absolute.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1827,8 +2034,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/File.html#isDirectory()">isDirectory</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Indicates if this file represents a <em>directory</em> on the
- underlying file system.</div>
+        <div class="jd-descrdiv">
+          Indicates if this file represents a <em>directory</em> on the
+ underlying file system.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1846,8 +2058,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/File.html#isFile()">isFile</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Indicates if this file represents a <em>file</em> on the underlying
- file system.</div>
+        <div class="jd-descrdiv">
+          Indicates if this file represents a <em>file</em> on the underlying
+ file system.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1865,8 +2082,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/File.html#isHidden()">isHidden</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns whether or not this file is a hidden file as defined by the
- operating system.</div>
+        <div class="jd-descrdiv">
+          Returns whether or not this file is a hidden file as defined by the
+ operating system.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1884,8 +2106,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/File.html#lastModified()">lastModified</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns the time when this file was last modified, measured in
- milliseconds since January 1st, 1970, midnight.</div>
+        <div class="jd-descrdiv">
+          Returns the time when this file was last modified, measured in
+ milliseconds since January 1st, 1970, midnight.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1903,7 +2130,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/File.html#length()">length</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns the length of this file in bytes.</div>
+        <div class="jd-descrdiv">
+          Returns the length of this file in bytes.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1921,8 +2153,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/File.html#list()">list</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns an array of strings with the file names in the directory
- represented by this file.</div>
+        <div class="jd-descrdiv">
+          Returns an array of strings with the file names in the directory
+ represented by this file.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1940,7 +2177,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/File.html#list(java.io.FilenameFilter)">list</a></span>(<a href="../../../reference/java/io/FilenameFilter.html">FilenameFilter</a> filter)</nobr>
         
-        <div class="jd-descrdiv">Gets a list of the files in the directory represented by this file.</div>
+        <div class="jd-descrdiv">
+          Gets a list of the files in the directory represented by this file.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1958,8 +2200,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/File.html#listFiles()">listFiles</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns an array of files contained in the directory represented by this
- file.</div>
+        <div class="jd-descrdiv">
+          Returns an array of files contained in the directory represented by this
+ file.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1977,7 +2224,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/File.html#listFiles(java.io.FilenameFilter)">listFiles</a></span>(<a href="../../../reference/java/io/FilenameFilter.html">FilenameFilter</a> filter)</nobr>
         
-        <div class="jd-descrdiv">Gets a list of the files in the directory represented by this file.</div>
+        <div class="jd-descrdiv">
+          Gets a list of the files in the directory represented by this file.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1995,7 +2247,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/File.html#listFiles(java.io.FileFilter)">listFiles</a></span>(<a href="../../../reference/java/io/FileFilter.html">FileFilter</a> filter)</nobr>
         
-        <div class="jd-descrdiv">Gets a list of the files in the directory represented by this file.</div>
+        <div class="jd-descrdiv">
+          Gets a list of the files in the directory represented by this file.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2013,7 +2270,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/File.html#listRoots()">listRoots</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns the file system roots.</div>
+        <div class="jd-descrdiv">
+          Returns the file system roots.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2031,7 +2293,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/File.html#mkdir()">mkdir</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Creates the directory named by this file, assuming its parents exist.</div>
+        <div class="jd-descrdiv">
+          Creates the directory named by this file, assuming its parents exist.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2049,8 +2316,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/File.html#mkdirs()">mkdirs</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Creates the directory named by this file, creating missing parent
- directories if necessary.</div>
+        <div class="jd-descrdiv">
+          Creates the directory named by this file, creating missing parent
+ directories if necessary.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2068,7 +2340,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/File.html#renameTo(java.io.File)">renameTo</a></span>(<a href="../../../reference/java/io/File.html">File</a> newPath)</nobr>
         
-        <div class="jd-descrdiv">Renames this file to <code>newPath</code>.</div>
+        <div class="jd-descrdiv">
+          Renames this file to <code>newPath</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2086,7 +2363,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/File.html#setExecutable(boolean)">setExecutable</a></span>(boolean executable)</nobr>
         
-        <div class="jd-descrdiv">Equivalent to setExecutable(executable, true).</div>
+        <div class="jd-descrdiv">
+          Equivalent to setExecutable(executable, true).
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2104,8 +2386,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/File.html#setExecutable(boolean, boolean)">setExecutable</a></span>(boolean executable, boolean ownerOnly)</nobr>
         
-        <div class="jd-descrdiv">Manipulates the execute permissions for the abstract path designated by
- this file.</div>
+        <div class="jd-descrdiv">
+          Manipulates the execute permissions for the abstract path designated by
+ this file.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2123,8 +2410,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/File.html#setLastModified(long)">setLastModified</a></span>(long time)</nobr>
         
-        <div class="jd-descrdiv">Sets the time this file was last modified, measured in milliseconds since
- January 1st, 1970, midnight.</div>
+        <div class="jd-descrdiv">
+          Sets the time this file was last modified, measured in milliseconds since
+ January 1st, 1970, midnight.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2142,7 +2434,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/File.html#setReadOnly()">setReadOnly</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Equivalent to setWritable(false, false).</div>
+        <div class="jd-descrdiv">
+          Equivalent to setWritable(false, false).
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2160,7 +2457,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/File.html#setReadable(boolean)">setReadable</a></span>(boolean readable)</nobr>
         
-        <div class="jd-descrdiv">Equivalent to setReadable(readable, true).</div>
+        <div class="jd-descrdiv">
+          Equivalent to setReadable(readable, true).
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2178,8 +2480,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/File.html#setReadable(boolean, boolean)">setReadable</a></span>(boolean readable, boolean ownerOnly)</nobr>
         
-        <div class="jd-descrdiv">Manipulates the read permissions for the abstract path designated by this
- file.</div>
+        <div class="jd-descrdiv">
+          Manipulates the read permissions for the abstract path designated by this
+ file.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2197,8 +2504,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/File.html#setWritable(boolean, boolean)">setWritable</a></span>(boolean writable, boolean ownerOnly)</nobr>
         
-        <div class="jd-descrdiv">Manipulates the write permissions for the abstract path designated by this
- file.</div>
+        <div class="jd-descrdiv">
+          Manipulates the write permissions for the abstract path designated by this
+ file.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2216,7 +2528,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/File.html#setWritable(boolean)">setWritable</a></span>(boolean writable)</nobr>
         
-        <div class="jd-descrdiv">Equivalent to setWritable(writable, true).</div>
+        <div class="jd-descrdiv">
+          Equivalent to setWritable(writable, true).
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2234,8 +2551,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/File.html#toString()">toString</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns a string containing a concise, human-readable description of this
- file.</div>
+        <div class="jd-descrdiv">
+          Returns a string containing a concise, human-readable description of this
+ file.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2253,7 +2575,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/File.html#toURI()">toURI</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns a Uniform Resource Identifier for this file.</div>
+        <div class="jd-descrdiv">
+          Returns a Uniform Resource Identifier for this file.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2271,12 +2598,17 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/File.html#toURL()">toURL</a></span>()</nobr>
         
-        <div class="jd-descrdiv"><em>
+        <div class="jd-descrdiv">
+          <em>
       This method was deprecated
       in API level 9.
     Use <code><a href="../../../reference/java/io/File.html#toURI()">toURI()</a></code> and <code><a href="../../../reference/java/net/URI.html#toURL()">toURL()</a></code> to
  correctly escape illegal characters.
-</em></div>
+</em>
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2328,7 +2660,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#clone()">clone</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Creates and returns a copy of this <code>Object</code>.</div>
+        <div class="jd-descrdiv">
+          Creates and returns a copy of this <code>Object</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2346,8 +2683,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#equals(java.lang.Object)">equals</a></span>(<a href="../../../reference/java/lang/Object.html">Object</a> o)</nobr>
         
-        <div class="jd-descrdiv">Compares this instance with the specified object and indicates if they
- are equal.</div>
+        <div class="jd-descrdiv">
+          Compares this instance with the specified object and indicates if they
+ are equal.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2365,7 +2707,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#finalize()">finalize</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Invoked when the garbage collector has detected that this instance is no longer reachable.</div>
+        <div class="jd-descrdiv">
+          Invoked when the garbage collector has detected that this instance is no longer reachable.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2383,8 +2730,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#getClass()">getClass</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns the unique instance of <code><a href="../../../reference/java/lang/Class.html">Class</a></code> that represents this
- object's class.</div>
+        <div class="jd-descrdiv">
+          Returns the unique instance of <code><a href="../../../reference/java/lang/Class.html">Class</a></code> that represents this
+ object's class.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2402,7 +2754,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#hashCode()">hashCode</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns an integer hash code for this object.</div>
+        <div class="jd-descrdiv">
+          Returns an integer hash code for this object.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2420,8 +2777,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#notify()">notify</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Causes a thread which is waiting on this object's monitor (by means of
- calling one of the <code>wait()</code> methods) to be woken up.</div>
+        <div class="jd-descrdiv">
+          Causes a thread which is waiting on this object's monitor (by means of
+ calling one of the <code>wait()</code> methods) to be woken up.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2439,8 +2801,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#notifyAll()">notifyAll</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Causes all threads which are waiting on this object's monitor (by means
- of calling one of the <code>wait()</code> methods) to be woken up.</div>
+        <div class="jd-descrdiv">
+          Causes all threads which are waiting on this object's monitor (by means
+ of calling one of the <code>wait()</code> methods) to be woken up.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2458,8 +2825,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#toString()">toString</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns a string containing a concise, human-readable description of this
- object.</div>
+        <div class="jd-descrdiv">
+          Returns a string containing a concise, human-readable description of this
+ object.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2477,7 +2849,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#wait()">wait</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object.</div>
+        <div class="jd-descrdiv">
+          Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2495,8 +2872,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#wait(long, int)">wait</a></span>(long millis, int nanos)</nobr>
         
-        <div class="jd-descrdiv">Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object or until the
- specified timeout expires.</div>
+        <div class="jd-descrdiv">
+          Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object or until the
+ specified timeout expires.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2514,8 +2896,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#wait(long)">wait</a></span>(long millis)</nobr>
         
-        <div class="jd-descrdiv">Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object or until the
- specified timeout expires.</div>
+        <div class="jd-descrdiv">
+          Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object or until the
+ specified timeout expires.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2561,8 +2948,13 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Comparable.html#compareTo(T)">compareTo</a></span>(T another)</nobr>
         
-        <div class="jd-descrdiv">Compares this object to the specified object to determine their relative
- order.</div>
+        <div class="jd-descrdiv">
+          Compares this object to the specified object to determine their relative
+ order.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2626,6 +3018,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>The system-dependent string used to separate components in search paths (":").
  See <code><a href="../../../reference/java/io/File.html#pathSeparatorChar">pathSeparatorChar</a></code>.
 </p></div>
@@ -2656,6 +3051,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>The system-dependent character used to separate components in search paths (':').
  This is used to split such things as the PATH environment variable and classpath
@@ -2692,6 +3090,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>The system-dependent string used to separate components in filenames ('/').
  See <code><a href="../../../reference/java/io/File.html#separatorChar">separatorChar</a></code>.
 </p></div>
@@ -2722,6 +3123,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>The system-dependent character used to separate components in filenames ('/').
  Use of this (rather than hard-coding '/') helps portability to other operating systems.
@@ -2768,6 +3172,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Constructs a new file using the specified directory and name.</p></div>
   <div class="jd-tagdata">
@@ -2822,6 +3229,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Constructs a new file using the specified path.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -2861,6 +3271,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Constructs a new File using the specified directory path and file name,
  placing a path separator between the two.</p></div>
@@ -2915,6 +3328,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Constructs a new File using the path of the specified URI. <code>uri</code>
  needs to be an absolute and hierarchical Unified Resource Identifier with
@@ -2988,6 +3404,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Tests whether or not this process is allowed to execute this file.
  Note that this is a best-effort result; the only way to be certain is
  to actually attempt the operation.</p></div>
@@ -3024,6 +3443,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Indicates whether the current context is allowed to read from this file.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
@@ -3058,6 +3480,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Indicates whether the current context is allowed to write to this file.</p></div>
   <div class="jd-tagdata">
@@ -3094,6 +3519,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Returns the relative sort ordering of the paths for this file and the
  file <code>another</code>. The ordering is platform dependent.</p></div>
@@ -3144,6 +3572,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Creates a new, empty file on the file system according to the path
  information stored in this file. This method returns true if it creates
@@ -3200,6 +3631,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Creates an empty temporary file in the given directory using the given
  prefix and suffix as part of the file name. If <code>suffix</code> is null, <code>.tmp</code> is used.
@@ -3274,6 +3708,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Creates an empty temporary file using the given prefix and suffix as part
  of the file name. If <code>suffix</code> is null, <code>.tmp</code> is used. This
  method is a convenience method that calls
@@ -3335,6 +3772,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Deletes this file. Directories must be empty before they will be deleted.
 
  <p>Note that this method does <i>not</i> throw <code>IOException</code> on failure.
@@ -3372,6 +3812,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Schedules this file to be automatically deleted when the VM terminates normally.
 
@@ -3415,6 +3858,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Compares <code>obj</code> to this file and returns <code>true</code> if they
  represent the <em>same</em> object using a path specific comparison.</p></div>
@@ -3462,6 +3908,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns a boolean indicating whether this file can be found on the
  underlying file system.</p></div>
   <div class="jd-tagdata">
@@ -3498,6 +3947,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns a new file constructed using the absolute path of this file.
  Equivalent to <code>new File(this.getAbsolutePath())</code>.
 </p></div>
@@ -3529,6 +3981,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Returns the absolute path of this file. An absolute path is a path that starts at a root
  of the file system. On Android, there is only one root: <code>/</code>.
@@ -3565,6 +4020,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Returns a new file created using the canonical path of this file.
  Equivalent to <code>new File(this.getCanonicalPath())</code>.</p></div>
@@ -3610,6 +4068,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Returns the canonical path of this file.
  An <i>absolute</i> path is one that begins at the root of the file system.
@@ -3671,6 +4132,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns the number of free bytes on the partition containing this path.
  Returns 0 if this path does not exist.
 
@@ -3704,6 +4168,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Returns the name of the file or directory represented by this file.</p></div>
   <div class="jd-tagdata">
@@ -3740,6 +4207,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Returns the pathname of the parent of this file. This is the path up to
  but not including the last name. <code>null</code> is returned if there is no
@@ -3778,6 +4248,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns a new file made from the pathname of the parent of this file.
  This is the path up to but not including the last name. <code>null</code> is
  returned when there is no parent.</p></div>
@@ -3815,6 +4288,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns the path of this file.
 </p></div>
 
@@ -3846,6 +4322,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns the total size in bytes of the partition containing this path.
  Returns 0 if this path does not exist.</p></div>
 
@@ -3876,6 +4355,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Returns the number of usable free bytes on the partition containing this path.
  Returns 0 if this path does not exist.
@@ -3914,6 +4396,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Returns an integer hash code for the receiver. Any two objects for which
  <code>equals</code> returns <code>true</code> must return the same hash code.</p></div>
@@ -3954,6 +4439,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Indicates if this file's pathname is absolute. Whether a pathname is
  absolute is platform specific. On Android, absolute paths start with
@@ -3997,6 +4485,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Indicates if this file represents a <em>directory</em> on the
  underlying file system.</p></div>
   <div class="jd-tagdata">
@@ -4034,6 +4525,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Indicates if this file represents a <em>file</em> on the underlying
  file system.</p></div>
   <div class="jd-tagdata">
@@ -4069,6 +4563,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Returns whether or not this file is a hidden file as defined by the
  operating system. The notion of "hidden" is system-dependent. For Unix
@@ -4109,6 +4606,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns the time when this file was last modified, measured in
  milliseconds since January 1st, 1970, midnight.
  Returns 0 if the file does not exist.</p></div>
@@ -4146,6 +4646,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns the length of this file in bytes.
  Returns 0 if the file does not exist.
  The result for a directory is not defined.</p></div>
@@ -4182,6 +4685,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Returns an array of strings with the file names in the directory
  represented by this file. The result is <code>null</code> if this file is not
@@ -4222,6 +4728,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Gets a list of the files in the directory represented by this file. This
  list is then filtered through a FilenameFilter and the names of files
@@ -4274,6 +4783,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns an array of files contained in the directory represented by this
  file. The result is <code>null</code> if this file is not a directory. The
  paths of the files in the array are absolute if the path of this file is
@@ -4311,6 +4823,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Gets a list of the files in the directory represented by this file. This
  list is then filtered through a FilenameFilter and files with matching
@@ -4363,6 +4878,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Gets a list of the files in the directory represented by this file. This
  list is then filtered through a FileFilter and matching files are
  returned as an array of files. Returns <code>null</code> if this file is not a
@@ -4413,6 +4931,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns the file system roots. On Android and other Unix systems, there is
  a single root, <code>/</code>.
 </p></div>
@@ -4444,6 +4965,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Creates the directory named by this file, assuming its parents exist.
  Use <code><a href="../../../reference/java/io/File.html#mkdirs()">mkdirs()</a></code> if you also want to create missing parents.
@@ -4488,6 +5012,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Creates the directory named by this file, creating missing parent
  directories if necessary.
  Use <code><a href="../../../reference/java/io/File.html#mkdir()">mkdir()</a></code> if you don't want to create missing parents.
@@ -4531,6 +5058,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Renames this file to <code>newPath</code>. This operation is supported for both
  files and directories.
@@ -4589,6 +5119,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Equivalent to setExecutable(executable, true).</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
@@ -4623,6 +5156,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Manipulates the execute permissions for the abstract path designated by
  this file.
@@ -4682,6 +5218,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Sets the time this file was last modified, measured in milliseconds since
  January 1st, 1970, midnight.
 
@@ -4740,6 +5279,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Equivalent to setWritable(false, false).</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
@@ -4775,6 +5317,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Equivalent to setReadable(readable, true).</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
@@ -4809,6 +5354,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Manipulates the read permissions for the abstract path designated by this
  file.</p></div>
@@ -4865,6 +5413,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Manipulates the write permissions for the abstract path designated by this
  file.</p></div>
   <div class="jd-tagdata">
@@ -4918,6 +5469,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Equivalent to setWritable(writable, true).</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
@@ -4952,6 +5506,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Returns a string containing a concise, human-readable description of this
  file.</p></div>
@@ -4989,6 +5546,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns a Uniform Resource Identifier for this file. The URI is system
  dependent and may not be transferable between different operating / file
  systems.</p></div>
@@ -5025,6 +5585,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       <p>
   <p class="caution"><strong>
       This method was deprecated

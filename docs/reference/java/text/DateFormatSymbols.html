@@ -82,6 +82,19 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 <html>
 <head>
 
@@ -97,7 +110,7 @@
 href="http://fonts.useso.com/css?family=Roboto+Condensed">
 <link rel="stylesheet" href="http://fonts.useso.com/css?family=Roboto:light,regular,medium,thin,italic,mediumitalic,bold"
   title="roboto">
-<link href="../../../assets/css/default.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/default.css?v=2" rel="stylesheet" type="text/css">
 
 
 <!-- FULLSCREEN STYLESHEET -->
@@ -106,30 +119,31 @@ type="text/css">
 
 
 <!-- JAVASCRIPT -->
-<script src="http://googleapiscdn.qiniudn.com/www.google.com/jsapi" type="text/javascript"></script>
+<script src="http://www.google.com/jsapi" type="text/javascript"></script>
 <script src="../../../assets/js/android_3p-bundle.js" type="text/javascript"></script>
 <script type="text/javascript">
   var toRoot = "../../../";
   var metaTags = [];
   var devsite = false;
 </script>
-<script src="../../../assets/js/docs.js" type="text/javascript"></script>
+<script src="../../../assets/js/docs.js?v=2" type="text/javascript"></script>
 
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-5831155-1']);
-  _gaq.push(['_trackPageview']);
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
+  ga('create', 'UA-5831155-1', 'android.com');
+  ga('create', 'UA-49880327-2', 'android.com', {'name': 'universal'});  // New tracker);
+  ga('send', 'pageview');
+  ga('universal.send', 'pageview'); // Send page view for new tracker.
 </script>
+
 </head>
 
 <body class="gc-documentation 
-  develop" itemscope itemtype="http://schema.org/Article">
+  develop reference" itemscope itemtype="http://schema.org/Article">
   <div id="doc-api-level" class="1" style="display:none"></div>
   <a name="top"></a>
 
@@ -139,6 +153,10 @@ type="text/css">
   <!-- Header -->
   <div id="header-wrapper">
     <div id="header">
+
+    
+
+
       <div class="wrap" id="header-wrap">
         <div class="col-3 logo">
           <a href="../../../index.html">
@@ -260,11 +278,20 @@ type="text/css">
 
 
         <!-- Expanded quicknav -->
-        <div id="quicknav" class="col-9">
+        <div id="quicknav" class="col-13">
           <ul>
+            <li class="about">
+              <ul>
+                <li><a href="../../../about/index.html">About</a></li>
+                <li><a href="../../../wear/index.html">Wear</a></li>
+                <li><a href="../../../tv/index.html">TV</a></li>
+                <li><a href="../../../auto/index.html">Auto</a></li>
+              </ul>
+            </li>
             <li class="design">
               <ul>
                 <li><a href="../../../design/index.html">Get Started</a></li>
+                <li><a href="../../../design/devices.html">Devices</a></li>
                 <li><a href="../../../design/style/index.html">Style</a></li>
                 <li><a href="../../../design/patterns/index.html">Patterns</a></li>
                 <li><a href="../../../design/building-blocks/index.html">Building Blocks</a></li>
@@ -298,7 +325,7 @@ type="text/css">
                   ja-lang="リファレンス"
                   es-lang="Referencia"
                   >Reference</a></li>
-                <li><a href="../../../tools/index.html"
+                <li><a href="../../../sdk/index.html"
                   zh-tw-lang="相關工具"
                   zh-cn-lang="工具"
                   ru-lang="Инструменты"
@@ -306,7 +333,6 @@ type="text/css">
                   ja-lang="ツール"
                   es-lang="Herramientas"
                   >Tools</a>
-                  <ul><li><a href="../../../sdk/index.html">Get the SDK</a></li></ul>
                 </li>
                 <li><a href="../../../google/index.html">Google Services</a>
                 </li>
@@ -358,7 +384,7 @@ type="text/css">
                   ja-lang="リファレンス"
                   es-lang="Referencia"
                   >Reference</a></li>
-                <li class="tools"><a href="../../../tools/index.html"
+                <li class="tools"><a href="../../../sdk/index.html"
                   zh-tw-lang="相關工具"
                   zh-cn-lang="工具"
                   ru-lang="Инструменты"
@@ -373,7 +399,7 @@ type="text/css">
             </ul>
         </div>
     </div>
-    <!-- /Sendondary x-nav -->
+    <!-- /Sendondary x-nav DEVELOP -->
 
   
 
@@ -414,7 +440,7 @@ type="text/css">
         <div id="api-nav-title">Android APIs</div>
         </div><!-- end nav header -->
       <script>
-        var SINCE_DATA = [ '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19' ];
+        var SINCE_DATA = [ '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21' ];
         buildApiLevelSelector();
       </script>
                   
@@ -441,13 +467,15 @@ type="text/css">
   <a href="../../../reference/android/app/admin/package-summary.html">android.app.admin</a></li>
     <li class="api apilevel-8">
   <a href="../../../reference/android/app/backup/package-summary.html">android.app.backup</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/app/job/package-summary.html">android.app.job</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/app/usage/package-summary.html">android.app.usage</a></li>
     <li class="api apilevel-3">
   <a href="../../../reference/android/appwidget/package-summary.html">android.appwidget</a></li>
     <li class="api apilevel-5">
   <a href="../../../reference/android/bluetooth/package-summary.html">android.bluetooth</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/bluetooth/le/package-summary.html">android.bluetooth.le</a></li>
     <li class="api apilevel-1">
   <a href="../../../reference/android/content/package-summary.html">android.content</a></li>
@@ -473,16 +501,14 @@ type="text/css">
   <a href="../../../reference/android/graphics/pdf/package-summary.html">android.graphics.pdf</a></li>
     <li class="api apilevel-1">
   <a href="../../../reference/android/hardware/package-summary.html">android.hardware</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/hardware/camera2/package-summary.html">android.hardware.camera2</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/hardware/camera2/params/package-summary.html">android.hardware.camera2.params</a></li>
     <li class="api apilevel-17">
   <a href="../../../reference/android/hardware/display/package-summary.html">android.hardware.display</a></li>
     <li class="api apilevel-16">
   <a href="../../../reference/android/hardware/input/package-summary.html">android.hardware.input</a></li>
-    <li class="api apilevel-18">
-  <a href="../../../reference/android/hardware/location/package-summary.html">android.hardware.location</a></li>
     <li class="api apilevel-12">
   <a href="../../../reference/android/hardware/usb/package-summary.html">android.hardware.usb</a></li>
     <li class="api apilevel-3">
@@ -493,11 +519,15 @@ type="text/css">
   <a href="../../../reference/android/media/package-summary.html">android.media</a></li>
     <li class="api apilevel-9">
   <a href="../../../reference/android/media/audiofx/package-summary.html">android.media.audiofx</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/media/browse/package-summary.html">android.media.browse</a></li>
     <li class="api apilevel-14">
   <a href="../../../reference/android/media/effect/package-summary.html">android.media.effect</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/media/projection/package-summary.html">android.media.projection</a></li>
+    <li class="api apilevel-21">
   <a href="../../../reference/android/media/session/package-summary.html">android.media.session</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/media/tv/package-summary.html">android.media.tv</a></li>
     <li class="api apilevel-12">
   <a href="../../../reference/android/mtp/package-summary.html">android.mtp</a></li>
@@ -547,11 +577,15 @@ type="text/css">
   <a href="../../../reference/android/security/package-summary.html">android.security</a></li>
     <li class="api apilevel-17">
   <a href="../../../reference/android/service/dreams/package-summary.html">android.service.dreams</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/service/media/package-summary.html">android.service.media</a></li>
     <li class="api apilevel-18">
   <a href="../../../reference/android/service/notification/package-summary.html">android.service.notification</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/service/restrictions/package-summary.html">android.service.restrictions</a></li>
     <li class="api apilevel-14">
   <a href="../../../reference/android/service/textservice/package-summary.html">android.service.textservice</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/service/voice/package-summary.html">android.service.voice</a></li>
     <li class="api apilevel-7">
   <a href="../../../reference/android/service/wallpaper/package-summary.html">android.service.wallpaper</a></li>
@@ -596,11 +630,15 @@ type="text/css">
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/media/package-summary.html">android.support.v4.media</a></li>
     <li class="api apilevel-">
+  <a href="../../../reference/android/support/v4/media/session/package-summary.html">android.support.v4.media.session</a></li>
+    <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/net/package-summary.html">android.support.v4.net</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/os/package-summary.html">android.support.v4.os</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/print/package-summary.html">android.support.v4.print</a></li>
+    <li class="api apilevel-">
+  <a href="../../../reference/android/support/v4/provider/package-summary.html">android.support.v4.provider</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/text/package-summary.html">android.support.v4.text</a></li>
     <li class="api apilevel-">
@@ -616,6 +654,10 @@ type="text/css">
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v7/appcompat/package-summary.html">android.support.v7.appcompat</a></li>
     <li class="api apilevel-">
+  <a href="../../../reference/android/support/v7/cardview/package-summary.html">android.support.v7.cardview</a></li>
+    <li class="api apilevel-">
+  <a href="../../../reference/android/support/v7/graphics/package-summary.html">android.support.v7.graphics</a></li>
+    <li class="api apilevel-">
   <a href="../../../reference/android/support/v7/gridlayout/package-summary.html">android.support.v7.gridlayout</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v7/media/package-summary.html">android.support.v7.media</a></li>
@@ -627,8 +669,10 @@ type="text/css">
   <a href="../../../reference/android/support/v7/widget/package-summary.html">android.support.v7.widget</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v8/renderscript/package-summary.html">android.support.v8.renderscript</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/system/package-summary.html">android.system</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/telecom/package-summary.html">android.telecom</a></li>
     <li class="api apilevel-1">
   <a href="../../../reference/android/telephony/package-summary.html">android.telephony</a></li>
     <li class="api apilevel-5">
@@ -1073,6 +1117,9 @@ Summary:
   
 
 
+    
+
+
 </div><!-- end header -->
 
 <div id="naMessage"></div>
@@ -1196,8 +1243,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/text/DateFormatSymbols.html#DateFormatSymbols()">DateFormatSymbols</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Constructs a new <code>DateFormatSymbols</code> instance containing the
- symbols for the user's default locale.</div>
+        <div class="jd-descrdiv">
+          Constructs a new <code>DateFormatSymbols</code> instance containing the
+ symbols for the user's default locale.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1215,8 +1267,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/text/DateFormatSymbols.html#DateFormatSymbols(java.util.Locale)">DateFormatSymbols</a></span>(<a href="../../../reference/java/util/Locale.html">Locale</a> locale)</nobr>
         
-        <div class="jd-descrdiv">Constructs a new <code>DateFormatSymbols</code> instance containing the
- symbols for the specified locale.</div>
+        <div class="jd-descrdiv">
+          Constructs a new <code>DateFormatSymbols</code> instance containing the
+ symbols for the specified locale.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1247,7 +1304,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/text/DateFormatSymbols.html#clone()">clone</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Creates and returns a copy of this <code>Object</code>.</div>
+        <div class="jd-descrdiv">
+          Creates and returns a copy of this <code>Object</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1265,8 +1327,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/text/DateFormatSymbols.html#equals(java.lang.Object)">equals</a></span>(<a href="../../../reference/java/lang/Object.html">Object</a> object)</nobr>
         
-        <div class="jd-descrdiv">Compares this object with the specified object and indicates if they are
- equal.</div>
+        <div class="jd-descrdiv">
+          Compares this object with the specified object and indicates if they are
+ equal.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1284,7 +1351,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/text/DateFormatSymbols.html#getAmPmStrings()">getAmPmStrings</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns the array of strings which represent AM and PM.</div>
+        <div class="jd-descrdiv">
+          Returns the array of strings which represent AM and PM.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1302,8 +1374,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/text/DateFormatSymbols.html#getAvailableLocales()">getAvailableLocales</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns an array of locales for which custom <code>DateFormatSymbols</code> instances
- are available.</div>
+        <div class="jd-descrdiv">
+          Returns an array of locales for which custom <code>DateFormatSymbols</code> instances
+ are available.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1321,7 +1398,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/text/DateFormatSymbols.html#getEras()">getEras</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns the array of strings which represent BC and AD.</div>
+        <div class="jd-descrdiv">
+          Returns the array of strings which represent BC and AD.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1339,7 +1421,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/text/DateFormatSymbols.html#getInstance()">getInstance</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns a new <code>DateFormatSymbols</code> instance for the user's default locale.</div>
+        <div class="jd-descrdiv">
+          Returns a new <code>DateFormatSymbols</code> instance for the user's default locale.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1357,7 +1444,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/text/DateFormatSymbols.html#getInstance(java.util.Locale)">getInstance</a></span>(<a href="../../../reference/java/util/Locale.html">Locale</a> locale)</nobr>
         
-        <div class="jd-descrdiv">Returns a new <code>DateFormatSymbols</code> for the given locale.</div>
+        <div class="jd-descrdiv">
+          Returns a new <code>DateFormatSymbols</code> for the given locale.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1375,8 +1467,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/text/DateFormatSymbols.html#getLocalPatternChars()">getLocalPatternChars</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns the pattern characters used by <code><a href="../../../reference/java/text/SimpleDateFormat.html">SimpleDateFormat</a></code> to
- specify date and time fields.</div>
+        <div class="jd-descrdiv">
+          Returns the pattern characters used by <code><a href="../../../reference/java/text/SimpleDateFormat.html">SimpleDateFormat</a></code> to
+ specify date and time fields.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1394,7 +1491,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/text/DateFormatSymbols.html#getMonths()">getMonths</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns the array of strings containing the full names of the months.</div>
+        <div class="jd-descrdiv">
+          Returns the array of strings containing the full names of the months.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1412,8 +1514,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/text/DateFormatSymbols.html#getShortMonths()">getShortMonths</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns the array of strings containing the abbreviated names of the
- months.</div>
+        <div class="jd-descrdiv">
+          Returns the array of strings containing the abbreviated names of the
+ months.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1431,8 +1538,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/text/DateFormatSymbols.html#getShortWeekdays()">getShortWeekdays</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns the array of strings containing the abbreviated names of the days
- of the week.</div>
+        <div class="jd-descrdiv">
+          Returns the array of strings containing the abbreviated names of the days
+ of the week.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1450,8 +1562,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/text/DateFormatSymbols.html#getWeekdays()">getWeekdays</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns the array of strings containing the full names of the days of the
- week.</div>
+        <div class="jd-descrdiv">
+          Returns the array of strings containing the full names of the days of the
+ week.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1469,7 +1586,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/text/DateFormatSymbols.html#getZoneStrings()">getZoneStrings</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns the two-dimensional array of strings containing localized names for time zones.</div>
+        <div class="jd-descrdiv">
+          Returns the two-dimensional array of strings containing localized names for time zones.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1487,7 +1609,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/text/DateFormatSymbols.html#hashCode()">hashCode</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns an integer hash code for this object.</div>
+        <div class="jd-descrdiv">
+          Returns an integer hash code for this object.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1505,7 +1632,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/text/DateFormatSymbols.html#setAmPmStrings(java.lang.String[])">setAmPmStrings</a></span>(<a href="../../../reference/java/lang/String.html">String[]</a> data)</nobr>
         
-        <div class="jd-descrdiv">Sets the array of strings which represent AM and PM.</div>
+        <div class="jd-descrdiv">
+          Sets the array of strings which represent AM and PM.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1523,7 +1655,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/text/DateFormatSymbols.html#setEras(java.lang.String[])">setEras</a></span>(<a href="../../../reference/java/lang/String.html">String[]</a> data)</nobr>
         
-        <div class="jd-descrdiv">Sets the array of Strings which represent BC and AD.</div>
+        <div class="jd-descrdiv">
+          Sets the array of Strings which represent BC and AD.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1541,8 +1678,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/text/DateFormatSymbols.html#setLocalPatternChars(java.lang.String)">setLocalPatternChars</a></span>(<a href="../../../reference/java/lang/String.html">String</a> data)</nobr>
         
-        <div class="jd-descrdiv">Sets the pattern characters used by <code><a href="../../../reference/java/text/SimpleDateFormat.html">SimpleDateFormat</a></code> to specify
- date and time fields.</div>
+        <div class="jd-descrdiv">
+          Sets the pattern characters used by <code><a href="../../../reference/java/text/SimpleDateFormat.html">SimpleDateFormat</a></code> to specify
+ date and time fields.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1560,7 +1702,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/text/DateFormatSymbols.html#setMonths(java.lang.String[])">setMonths</a></span>(<a href="../../../reference/java/lang/String.html">String[]</a> data)</nobr>
         
-        <div class="jd-descrdiv">Sets the array of strings containing the full names of the months.</div>
+        <div class="jd-descrdiv">
+          Sets the array of strings containing the full names of the months.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1578,7 +1725,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/text/DateFormatSymbols.html#setShortMonths(java.lang.String[])">setShortMonths</a></span>(<a href="../../../reference/java/lang/String.html">String[]</a> data)</nobr>
         
-        <div class="jd-descrdiv">Sets the array of strings containing the abbreviated names of the months.</div>
+        <div class="jd-descrdiv">
+          Sets the array of strings containing the abbreviated names of the months.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1596,8 +1748,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/text/DateFormatSymbols.html#setShortWeekdays(java.lang.String[])">setShortWeekdays</a></span>(<a href="../../../reference/java/lang/String.html">String[]</a> data)</nobr>
         
-        <div class="jd-descrdiv">Sets the array of strings containing the abbreviated names of the days of
- the week.</div>
+        <div class="jd-descrdiv">
+          Sets the array of strings containing the abbreviated names of the days of
+ the week.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1615,8 +1772,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/text/DateFormatSymbols.html#setWeekdays(java.lang.String[])">setWeekdays</a></span>(<a href="../../../reference/java/lang/String.html">String[]</a> data)</nobr>
         
-        <div class="jd-descrdiv">Sets the array of strings containing the full names of the days of the
- week.</div>
+        <div class="jd-descrdiv">
+          Sets the array of strings containing the full names of the days of the
+ week.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1634,7 +1796,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/text/DateFormatSymbols.html#setZoneStrings(java.lang.String[][])">setZoneStrings</a></span>(<a href="../../../reference/java/lang/String.html">String[][]</a> zoneStrings)</nobr>
         
-        <div class="jd-descrdiv">Sets the two-dimensional array of strings containing localized names for time zones.</div>
+        <div class="jd-descrdiv">
+          Sets the two-dimensional array of strings containing localized names for time zones.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1652,8 +1819,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/text/DateFormatSymbols.html#toString()">toString</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns a string containing a concise, human-readable description of this
- object.</div>
+        <div class="jd-descrdiv">
+          Returns a string containing a concise, human-readable description of this
+ object.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1705,7 +1877,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#clone()">clone</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Creates and returns a copy of this <code>Object</code>.</div>
+        <div class="jd-descrdiv">
+          Creates and returns a copy of this <code>Object</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1723,8 +1900,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#equals(java.lang.Object)">equals</a></span>(<a href="../../../reference/java/lang/Object.html">Object</a> o)</nobr>
         
-        <div class="jd-descrdiv">Compares this instance with the specified object and indicates if they
- are equal.</div>
+        <div class="jd-descrdiv">
+          Compares this instance with the specified object and indicates if they
+ are equal.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1742,7 +1924,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#finalize()">finalize</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Invoked when the garbage collector has detected that this instance is no longer reachable.</div>
+        <div class="jd-descrdiv">
+          Invoked when the garbage collector has detected that this instance is no longer reachable.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1760,8 +1947,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#getClass()">getClass</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns the unique instance of <code><a href="../../../reference/java/lang/Class.html">Class</a></code> that represents this
- object's class.</div>
+        <div class="jd-descrdiv">
+          Returns the unique instance of <code><a href="../../../reference/java/lang/Class.html">Class</a></code> that represents this
+ object's class.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1779,7 +1971,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#hashCode()">hashCode</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns an integer hash code for this object.</div>
+        <div class="jd-descrdiv">
+          Returns an integer hash code for this object.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1797,8 +1994,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#notify()">notify</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Causes a thread which is waiting on this object's monitor (by means of
- calling one of the <code>wait()</code> methods) to be woken up.</div>
+        <div class="jd-descrdiv">
+          Causes a thread which is waiting on this object's monitor (by means of
+ calling one of the <code>wait()</code> methods) to be woken up.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1816,8 +2018,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#notifyAll()">notifyAll</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Causes all threads which are waiting on this object's monitor (by means
- of calling one of the <code>wait()</code> methods) to be woken up.</div>
+        <div class="jd-descrdiv">
+          Causes all threads which are waiting on this object's monitor (by means
+ of calling one of the <code>wait()</code> methods) to be woken up.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1835,8 +2042,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#toString()">toString</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns a string containing a concise, human-readable description of this
- object.</div>
+        <div class="jd-descrdiv">
+          Returns a string containing a concise, human-readable description of this
+ object.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1854,7 +2066,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#wait()">wait</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object.</div>
+        <div class="jd-descrdiv">
+          Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1872,8 +2089,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#wait(long, int)">wait</a></span>(long millis, int nanos)</nobr>
         
-        <div class="jd-descrdiv">Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object or until the
- specified timeout expires.</div>
+        <div class="jd-descrdiv">
+          Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object or until the
+ specified timeout expires.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1891,8 +2113,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#wait(long)">wait</a></span>(long millis)</nobr>
         
-        <div class="jd-descrdiv">Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object or until the
- specified timeout expires.</div>
+        <div class="jd-descrdiv">
+          Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object or until the
+ specified timeout expires.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1965,6 +2192,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Constructs a new <code>DateFormatSymbols</code> instance containing the
  symbols for the user's default locale.
  See "<a href="../util/Locale.html#default_locale">Be wary of the default locale</a>".
@@ -1997,6 +2227,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Constructs a new <code>DateFormatSymbols</code> instance containing the
  symbols for the specified locale.</p></div>
@@ -2054,6 +2287,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Creates and returns a copy of this <code>Object</code>. The default
  implementation returns a so-called "shallow" copy: It creates a new
  instance of the same class and then copies the field values (including
@@ -2094,6 +2330,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Compares this object with the specified object and indicates if they are
  equal.</p></div>
@@ -2146,6 +2385,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns the array of strings which represent AM and PM. Use the
  <code><a href="../../../reference/java/util/Calendar.html">Calendar</a></code> constants <code>Calendar.AM</code> and
  <code>Calendar.PM</code> as indices for the array.</p></div>
@@ -2183,6 +2425,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns an array of locales for which custom <code>DateFormatSymbols</code> instances
  are available.
  <p>Note that Android does not support user-supplied locale service providers.</p></div>
@@ -2214,6 +2459,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Returns the array of strings which represent BC and AD. Use the
  <code><a href="../../../reference/java/util/Calendar.html">Calendar</a></code> constants <code>GregorianCalendar.BC</code> and
@@ -2252,6 +2500,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns a new <code>DateFormatSymbols</code> instance for the user's default locale.
  See "<a href="../util/Locale.html#default_locale">Be wary of the default locale</a>".</p></div>
   <div class="jd-tagdata">
@@ -2286,6 +2537,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Returns a new <code>DateFormatSymbols</code> for the given locale.</p></div>
   <div class="jd-tagdata">
@@ -2339,6 +2593,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns the pattern characters used by <code><a href="../../../reference/java/text/SimpleDateFormat.html">SimpleDateFormat</a></code> to
  specify date and time fields.
 </p></div>
@@ -2370,6 +2627,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Returns the array of strings containing the full names of the months. Use
  the <code><a href="../../../reference/java/util/Calendar.html">Calendar</a></code> constants <code>Calendar.JANUARY</code> etc. as
@@ -2408,6 +2668,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns the array of strings containing the abbreviated names of the
  months. Use the <code><a href="../../../reference/java/util/Calendar.html">Calendar</a></code> constants
  <code>Calendar.JANUARY</code> etc. as indices for the array.</p></div>
@@ -2444,6 +2707,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Returns the array of strings containing the abbreviated names of the days
  of the week. Use the <code><a href="../../../reference/java/util/Calendar.html">Calendar</a></code> constants
@@ -2482,6 +2748,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns the array of strings containing the full names of the days of the
  week. Use the <code><a href="../../../reference/java/util/Calendar.html">Calendar</a></code> constants
  <code>Calendar.SUNDAY</code> etc. as indices for the array.</p></div>
@@ -2518,6 +2787,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Returns the two-dimensional array of strings containing localized names for time zones.
  Each row is an array of five strings:
@@ -2563,6 +2835,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns an integer hash code for this object. By contract, any two
  objects for which <code><a href="../../../reference/java/lang/Object.html#equals(java.lang.Object)">equals(Object)</a></code> returns <code>true</code> must return
  the same hash code value. This means that subclasses of <code>Object</code>
@@ -2607,6 +2882,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Sets the array of strings which represent AM and PM. Use the
  <code><a href="../../../reference/java/util/Calendar.html">Calendar</a></code> constants <code>Calendar.AM</code> and
  <code>Calendar.PM</code> as indices for the array.</p></div>
@@ -2649,6 +2927,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Sets the array of Strings which represent BC and AD. Use the
  <code><a href="../../../reference/java/util/Calendar.html">Calendar</a></code> constants <code>GregorianCalendar.BC</code> and
  <code>GregorianCalendar.AD</code> as indices for the array.</p></div>
@@ -2690,6 +2971,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Sets the pattern characters used by <code><a href="../../../reference/java/text/SimpleDateFormat.html">SimpleDateFormat</a></code> to specify
  date and time fields.</p></div>
@@ -2741,6 +3025,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Sets the array of strings containing the full names of the months. Use
  the <code><a href="../../../reference/java/util/Calendar.html">Calendar</a></code> constants <code>Calendar.JANUARY</code> etc. as
  indices for the array.</p></div>
@@ -2782,6 +3069,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Sets the array of strings containing the abbreviated names of the months.
  Use the <code><a href="../../../reference/java/util/Calendar.html">Calendar</a></code> constants <code>Calendar.JANUARY</code>
@@ -2825,6 +3115,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Sets the array of strings containing the abbreviated names of the days of
  the week. Use the <code><a href="../../../reference/java/util/Calendar.html">Calendar</a></code> constants
  <code>Calendar.SUNDAY</code> etc. as indices for the array.</p></div>
@@ -2867,6 +3160,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Sets the array of strings containing the full names of the days of the
  week. Use the <code><a href="../../../reference/java/util/Calendar.html">Calendar</a></code> constants
  <code>Calendar.SUNDAY</code> etc. as indices for the array.</p></div>
@@ -2908,6 +3204,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Sets the two-dimensional array of strings containing localized names for time zones.
  See <code><a href="../../../reference/java/text/DateFormatSymbols.html#getZoneStrings()">getZoneStrings()</a></code> for details.</p></div>
@@ -2953,6 +3252,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Returns a string containing a concise, human-readable description of this
  object. Subclasses are encouraged to override this method and provide an

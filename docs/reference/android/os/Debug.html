@@ -82,6 +82,19 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 <html>
 <head>
 
@@ -97,7 +110,7 @@
 href="http://fonts.useso.com/css?family=Roboto+Condensed">
 <link rel="stylesheet" href="http://fonts.useso.com/css?family=Roboto:light,regular,medium,thin,italic,mediumitalic,bold"
   title="roboto">
-<link href="../../../assets/css/default.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/default.css?v=2" rel="stylesheet" type="text/css">
 
 
 <!-- FULLSCREEN STYLESHEET -->
@@ -106,30 +119,31 @@ type="text/css">
 
 
 <!-- JAVASCRIPT -->
-<script src="http://googleapiscdn.qiniudn.com/www.google.com/jsapi" type="text/javascript"></script>
+<script src="http://www.google.com/jsapi" type="text/javascript"></script>
 <script src="../../../assets/js/android_3p-bundle.js" type="text/javascript"></script>
 <script type="text/javascript">
   var toRoot = "../../../";
   var metaTags = [];
   var devsite = false;
 </script>
-<script src="../../../assets/js/docs.js" type="text/javascript"></script>
+<script src="../../../assets/js/docs.js?v=2" type="text/javascript"></script>
 
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-5831155-1']);
-  _gaq.push(['_trackPageview']);
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
+  ga('create', 'UA-5831155-1', 'android.com');
+  ga('create', 'UA-49880327-2', 'android.com', {'name': 'universal'});  // New tracker);
+  ga('send', 'pageview');
+  ga('universal.send', 'pageview'); // Send page view for new tracker.
 </script>
+
 </head>
 
 <body class="gc-documentation 
-  develop" itemscope itemtype="http://schema.org/Article">
+  develop reference" itemscope itemtype="http://schema.org/Article">
   <div id="doc-api-level" class="1" style="display:none"></div>
   <a name="top"></a>
 
@@ -139,6 +153,10 @@ type="text/css">
   <!-- Header -->
   <div id="header-wrapper">
     <div id="header">
+
+    
+
+
       <div class="wrap" id="header-wrap">
         <div class="col-3 logo">
           <a href="../../../index.html">
@@ -260,11 +278,20 @@ type="text/css">
 
 
         <!-- Expanded quicknav -->
-        <div id="quicknav" class="col-9">
+        <div id="quicknav" class="col-13">
           <ul>
+            <li class="about">
+              <ul>
+                <li><a href="../../../about/index.html">About</a></li>
+                <li><a href="../../../wear/index.html">Wear</a></li>
+                <li><a href="../../../tv/index.html">TV</a></li>
+                <li><a href="../../../auto/index.html">Auto</a></li>
+              </ul>
+            </li>
             <li class="design">
               <ul>
                 <li><a href="../../../design/index.html">Get Started</a></li>
+                <li><a href="../../../design/devices.html">Devices</a></li>
                 <li><a href="../../../design/style/index.html">Style</a></li>
                 <li><a href="../../../design/patterns/index.html">Patterns</a></li>
                 <li><a href="../../../design/building-blocks/index.html">Building Blocks</a></li>
@@ -298,7 +325,7 @@ type="text/css">
                   ja-lang="リファレンス"
                   es-lang="Referencia"
                   >Reference</a></li>
-                <li><a href="../../../tools/index.html"
+                <li><a href="../../../sdk/index.html"
                   zh-tw-lang="相關工具"
                   zh-cn-lang="工具"
                   ru-lang="Инструменты"
@@ -306,7 +333,6 @@ type="text/css">
                   ja-lang="ツール"
                   es-lang="Herramientas"
                   >Tools</a>
-                  <ul><li><a href="../../../sdk/index.html">Get the SDK</a></li></ul>
                 </li>
                 <li><a href="../../../google/index.html">Google Services</a>
                 </li>
@@ -358,7 +384,7 @@ type="text/css">
                   ja-lang="リファレンス"
                   es-lang="Referencia"
                   >Reference</a></li>
-                <li class="tools"><a href="../../../tools/index.html"
+                <li class="tools"><a href="../../../sdk/index.html"
                   zh-tw-lang="相關工具"
                   zh-cn-lang="工具"
                   ru-lang="Инструменты"
@@ -373,7 +399,7 @@ type="text/css">
             </ul>
         </div>
     </div>
-    <!-- /Sendondary x-nav -->
+    <!-- /Sendondary x-nav DEVELOP -->
 
   
 
@@ -414,7 +440,7 @@ type="text/css">
         <div id="api-nav-title">Android APIs</div>
         </div><!-- end nav header -->
       <script>
-        var SINCE_DATA = [ '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19' ];
+        var SINCE_DATA = [ '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21' ];
         buildApiLevelSelector();
       </script>
                   
@@ -441,13 +467,15 @@ type="text/css">
   <a href="../../../reference/android/app/admin/package-summary.html">android.app.admin</a></li>
     <li class="api apilevel-8">
   <a href="../../../reference/android/app/backup/package-summary.html">android.app.backup</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/app/job/package-summary.html">android.app.job</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/app/usage/package-summary.html">android.app.usage</a></li>
     <li class="api apilevel-3">
   <a href="../../../reference/android/appwidget/package-summary.html">android.appwidget</a></li>
     <li class="api apilevel-5">
   <a href="../../../reference/android/bluetooth/package-summary.html">android.bluetooth</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/bluetooth/le/package-summary.html">android.bluetooth.le</a></li>
     <li class="api apilevel-1">
   <a href="../../../reference/android/content/package-summary.html">android.content</a></li>
@@ -473,16 +501,14 @@ type="text/css">
   <a href="../../../reference/android/graphics/pdf/package-summary.html">android.graphics.pdf</a></li>
     <li class="api apilevel-1">
   <a href="../../../reference/android/hardware/package-summary.html">android.hardware</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/hardware/camera2/package-summary.html">android.hardware.camera2</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/hardware/camera2/params/package-summary.html">android.hardware.camera2.params</a></li>
     <li class="api apilevel-17">
   <a href="../../../reference/android/hardware/display/package-summary.html">android.hardware.display</a></li>
     <li class="api apilevel-16">
   <a href="../../../reference/android/hardware/input/package-summary.html">android.hardware.input</a></li>
-    <li class="api apilevel-18">
-  <a href="../../../reference/android/hardware/location/package-summary.html">android.hardware.location</a></li>
     <li class="api apilevel-12">
   <a href="../../../reference/android/hardware/usb/package-summary.html">android.hardware.usb</a></li>
     <li class="api apilevel-3">
@@ -493,11 +519,15 @@ type="text/css">
   <a href="../../../reference/android/media/package-summary.html">android.media</a></li>
     <li class="api apilevel-9">
   <a href="../../../reference/android/media/audiofx/package-summary.html">android.media.audiofx</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/media/browse/package-summary.html">android.media.browse</a></li>
     <li class="api apilevel-14">
   <a href="../../../reference/android/media/effect/package-summary.html">android.media.effect</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/media/projection/package-summary.html">android.media.projection</a></li>
+    <li class="api apilevel-21">
   <a href="../../../reference/android/media/session/package-summary.html">android.media.session</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/media/tv/package-summary.html">android.media.tv</a></li>
     <li class="api apilevel-12">
   <a href="../../../reference/android/mtp/package-summary.html">android.mtp</a></li>
@@ -547,11 +577,15 @@ type="text/css">
   <a href="../../../reference/android/security/package-summary.html">android.security</a></li>
     <li class="api apilevel-17">
   <a href="../../../reference/android/service/dreams/package-summary.html">android.service.dreams</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/service/media/package-summary.html">android.service.media</a></li>
     <li class="api apilevel-18">
   <a href="../../../reference/android/service/notification/package-summary.html">android.service.notification</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/service/restrictions/package-summary.html">android.service.restrictions</a></li>
     <li class="api apilevel-14">
   <a href="../../../reference/android/service/textservice/package-summary.html">android.service.textservice</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/service/voice/package-summary.html">android.service.voice</a></li>
     <li class="api apilevel-7">
   <a href="../../../reference/android/service/wallpaper/package-summary.html">android.service.wallpaper</a></li>
@@ -596,11 +630,15 @@ type="text/css">
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/media/package-summary.html">android.support.v4.media</a></li>
     <li class="api apilevel-">
+  <a href="../../../reference/android/support/v4/media/session/package-summary.html">android.support.v4.media.session</a></li>
+    <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/net/package-summary.html">android.support.v4.net</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/os/package-summary.html">android.support.v4.os</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/print/package-summary.html">android.support.v4.print</a></li>
+    <li class="api apilevel-">
+  <a href="../../../reference/android/support/v4/provider/package-summary.html">android.support.v4.provider</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/text/package-summary.html">android.support.v4.text</a></li>
     <li class="api apilevel-">
@@ -616,6 +654,10 @@ type="text/css">
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v7/appcompat/package-summary.html">android.support.v7.appcompat</a></li>
     <li class="api apilevel-">
+  <a href="../../../reference/android/support/v7/cardview/package-summary.html">android.support.v7.cardview</a></li>
+    <li class="api apilevel-">
+  <a href="../../../reference/android/support/v7/graphics/package-summary.html">android.support.v7.graphics</a></li>
+    <li class="api apilevel-">
   <a href="../../../reference/android/support/v7/gridlayout/package-summary.html">android.support.v7.gridlayout</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v7/media/package-summary.html">android.support.v7.media</a></li>
@@ -627,8 +669,10 @@ type="text/css">
   <a href="../../../reference/android/support/v7/widget/package-summary.html">android.support.v7.widget</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v8/renderscript/package-summary.html">android.support.v8.renderscript</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/system/package-summary.html">android.system</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/telecom/package-summary.html">android.telecom</a></li>
     <li class="api apilevel-1">
   <a href="../../../reference/android/telephony/package-summary.html">android.telephony</a></li>
     <li class="api apilevel-5">
@@ -905,7 +949,7 @@ type="text/css">
     <li><h2>Classes</h2>
       <ul>
           <li class="api apilevel-3"><a href="../../../reference/android/os/AsyncTask.html">AsyncTask</a></li>
-          <li class="api apilevel-"><a href="../../../reference/android/os/BaseBundle.html">BaseBundle</a></li>
+          <li class="api apilevel-21"><a href="../../../reference/android/os/BaseBundle.html">BaseBundle</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/os/BatteryManager.html">BatteryManager</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/os/Binder.html">Binder</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/os/Build.html">Build</a></li>
@@ -935,7 +979,7 @@ type="text/css">
           <li class="api apilevel-1"><a href="../../../reference/android/os/ParcelFileDescriptor.AutoCloseOutputStream.html">ParcelFileDescriptor.AutoCloseOutputStream</a></li>
           <li class="api apilevel-5"><a href="../../../reference/android/os/ParcelUuid.html">ParcelUuid</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/os/PatternMatcher.html">PatternMatcher</a></li>
-          <li class="api apilevel-"><a href="../../../reference/android/os/PersistableBundle.html">PersistableBundle</a></li>
+          <li class="api apilevel-21"><a href="../../../reference/android/os/PersistableBundle.html">PersistableBundle</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/os/PowerManager.html">PowerManager</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/os/PowerManager.WakeLock.html">PowerManager.WakeLock</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/os/Process.html">Process</a></li>
@@ -1100,6 +1144,9 @@ Summary:
   
 
 
+    
+
+
 </div><!-- end header -->
 
 <div id="naMessage"></div>
@@ -1186,7 +1233,12 @@ href="../../../guide/developing/tools/traceview.html">Traceview: A Graphical Log
         
         class</nobr></td>
       <td class="jd-linkcol"><a href="../../../reference/android/os/Debug.InstructionCount.html">Debug.InstructionCount</a></td>
-      <td class="jd-descrcol" width="100%">API for gathering and querying instruction counts.&nbsp;</td>
+      <td class="jd-descrcol" width="100%">
+        API for gathering and querying instruction counts.&nbsp;
+        
+    
+
+      </td>
     </tr>
     
     
@@ -1198,8 +1250,13 @@ href="../../../guide/developing/tools/traceview.html">Traceview: A Graphical Log
         
         class</nobr></td>
       <td class="jd-linkcol"><a href="../../../reference/android/os/Debug.MemoryInfo.html">Debug.MemoryInfo</a></td>
-      <td class="jd-descrcol" width="100%">This class is used to retrieved various statistics about the memory mappings for this
- process.&nbsp;</td>
+      <td class="jd-descrcol" width="100%">
+        This class is used to retrieved various statistics about the memory mappings for this
+ process.&nbsp;
+        
+    
+
+      </td>
     </tr>
     
     
@@ -1224,28 +1281,48 @@ href="../../../guide/developing/tools/traceview.html">Traceview: A Graphical Log
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/os/Debug.html#SHOW_CLASSLOADER">SHOW_CLASSLOADER</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/os/Debug.html#SHOW_FULL_DETAIL">SHOW_FULL_DETAIL</a></td>
-        <td class="jd-descrcol" width="100%">Flags for printLoadedClasses().</td>
+        <td class="jd-descrcol" width="100%">
+          Flags for printLoadedClasses().
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/os/Debug.html#SHOW_INITIALIZED">SHOW_INITIALIZED</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/os/Debug.html#TRACE_COUNT_ALLOCS">TRACE_COUNT_ALLOCS</a></td>
-        <td class="jd-descrcol" width="100%">Flags for startMethodTracing().</td>
+        <td class="jd-descrcol" width="100%">
+          Flags for startMethodTracing().
+          
+    
+
+        </td>
     </tr>
     
     
@@ -1285,11 +1362,16 @@ href="../../../guide/developing/tools/traceview.html">Traceview: A Graphical Log
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/os/Debug.html#changeDebugPort(int)">changeDebugPort</a></span>(int port)</nobr>
         
-        <div class="jd-descrdiv"><em>
+        <div class="jd-descrdiv">
+          <em>
       This method was deprecated
       in API level 3.
     no longer needed or useful
-</em></div>
+</em>
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1307,7 +1389,12 @@ href="../../../guide/developing/tools/traceview.html">Traceview: A Graphical Log
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/os/Debug.html#dumpHprofData(java.lang.String)">dumpHprofData</a></span>(<a href="../../../reference/java/lang/String.html">String</a> fileName)</nobr>
         
-        <div class="jd-descrdiv">Dump "hprof" data to the specified file.</div>
+        <div class="jd-descrdiv">
+          Dump "hprof" data to the specified file.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1325,7 +1412,12 @@ href="../../../guide/developing/tools/traceview.html">Traceview: A Graphical Log
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/os/Debug.html#dumpService(java.lang.String, java.io.FileDescriptor, java.lang.String[])">dumpService</a></span>(<a href="../../../reference/java/lang/String.html">String</a> name, <a href="../../../reference/java/io/FileDescriptor.html">FileDescriptor</a> fd, <a href="../../../reference/java/lang/String.html">String[]</a> args)</nobr>
         
-        <div class="jd-descrdiv">Get a debugging dump of a system service by name.</div>
+        <div class="jd-descrdiv">
+          Get a debugging dump of a system service by name.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1343,8 +1435,13 @@ href="../../../guide/developing/tools/traceview.html">Traceview: A Graphical Log
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/os/Debug.html#enableEmulatorTraceOutput()">enableEmulatorTraceOutput</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Enable "emulator traces", in which information about the current
- method is made available to the "emulator -trace" feature.</div>
+        <div class="jd-descrdiv">
+          Enable "emulator traces", in which information about the current
+ method is made available to the "emulator -trace" feature.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1362,8 +1459,13 @@ href="../../../guide/developing/tools/traceview.html">Traceview: A Graphical Log
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/os/Debug.html#getBinderDeathObjectCount()">getBinderDeathObjectCount</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns the number of death notification links to Binder objects that
- exist in the current process.</div>
+        <div class="jd-descrdiv">
+          Returns the number of death notification links to Binder objects that
+ exist in the current process.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1381,8 +1483,13 @@ href="../../../guide/developing/tools/traceview.html">Traceview: A Graphical Log
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/os/Debug.html#getBinderLocalObjectCount()">getBinderLocalObjectCount</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns the number of active local Binder objects that exist in the
- current process.</div>
+        <div class="jd-descrdiv">
+          Returns the number of active local Binder objects that exist in the
+ current process.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1400,8 +1507,13 @@ href="../../../guide/developing/tools/traceview.html">Traceview: A Graphical Log
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/os/Debug.html#getBinderProxyObjectCount()">getBinderProxyObjectCount</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns the number of references to remote proxy Binder objects that
- exist in the current process.</div>
+        <div class="jd-descrdiv">
+          Returns the number of references to remote proxy Binder objects that
+ exist in the current process.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1419,7 +1531,12 @@ href="../../../guide/developing/tools/traceview.html">Traceview: A Graphical Log
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/os/Debug.html#getBinderReceivedTransactions()">getBinderReceivedTransactions</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns the number of received transactions from the binder driver.</div>
+        <div class="jd-descrdiv">
+          Returns the number of received transactions from the binder driver.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1437,7 +1554,12 @@ href="../../../guide/developing/tools/traceview.html">Traceview: A Graphical Log
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/os/Debug.html#getBinderSentTransactions()">getBinderSentTransactions</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns the number of sent transactions from this process.</div>
+        <div class="jd-descrdiv">
+          Returns the number of sent transactions from this process.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1455,8 +1577,13 @@ href="../../../guide/developing/tools/traceview.html">Traceview: A Graphical Log
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/os/Debug.html#getGlobalAllocCount()">getGlobalAllocCount</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns the global count of objects allocated by the runtime between a
- <code><a href="../../../reference/android/os/Debug.html#startAllocCounting()">start</a></code> and <code><a href="../../../reference/android/os/Debug.html#stopAllocCounting()">stop</a></code>.</div>
+        <div class="jd-descrdiv">
+          Returns the global count of objects allocated by the runtime between a
+ <code><a href="../../../reference/android/os/Debug.html#startAllocCounting()">start</a></code> and <code><a href="../../../reference/android/os/Debug.html#stopAllocCounting()">stop</a></code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1474,8 +1601,13 @@ href="../../../guide/developing/tools/traceview.html">Traceview: A Graphical Log
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/os/Debug.html#getGlobalAllocSize()">getGlobalAllocSize</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns the global size, in bytes, of objects allocated by the runtime between a
- <code><a href="../../../reference/android/os/Debug.html#startAllocCounting()">start</a></code> and <code><a href="../../../reference/android/os/Debug.html#stopAllocCounting()">stop</a></code>.</div>
+        <div class="jd-descrdiv">
+          Returns the global size, in bytes, of objects allocated by the runtime between a
+ <code><a href="../../../reference/android/os/Debug.html#startAllocCounting()">start</a></code> and <code><a href="../../../reference/android/os/Debug.html#stopAllocCounting()">stop</a></code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1493,9 +1625,14 @@ href="../../../guide/developing/tools/traceview.html">Traceview: A Graphical Log
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/os/Debug.html#getGlobalClassInitCount()">getGlobalClassInitCount</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns the number of classes successfully initialized (ie those that executed without
+        <div class="jd-descrdiv">
+          Returns the number of classes successfully initialized (ie those that executed without
  throwing an exception) between a <code><a href="../../../reference/android/os/Debug.html#startAllocCounting()">start</a></code> and
- <code><a href="../../../reference/android/os/Debug.html#stopAllocCounting()">stop</a></code>.</div>
+ <code><a href="../../../reference/android/os/Debug.html#stopAllocCounting()">stop</a></code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1513,8 +1650,13 @@ href="../../../guide/developing/tools/traceview.html">Traceview: A Graphical Log
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/os/Debug.html#getGlobalClassInitTime()">getGlobalClassInitTime</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns the time spent successfully initializing classes between a
- <code><a href="../../../reference/android/os/Debug.html#startAllocCounting()">start</a></code> and <code><a href="../../../reference/android/os/Debug.html#stopAllocCounting()">stop</a></code>.</div>
+        <div class="jd-descrdiv">
+          Returns the time spent successfully initializing classes between a
+ <code><a href="../../../reference/android/os/Debug.html#startAllocCounting()">start</a></code> and <code><a href="../../../reference/android/os/Debug.html#stopAllocCounting()">stop</a></code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1532,11 +1674,16 @@ href="../../../guide/developing/tools/traceview.html">Traceview: A Graphical Log
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/os/Debug.html#getGlobalExternalAllocCount()">getGlobalExternalAllocCount</a></span>()</nobr>
         
-        <div class="jd-descrdiv"><em>
+        <div class="jd-descrdiv">
+          <em>
       This method was deprecated
       in API level 11.
     This method is now obsolete.
-</em></div>
+</em>
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1554,11 +1701,16 @@ href="../../../guide/developing/tools/traceview.html">Traceview: A Graphical Log
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/os/Debug.html#getGlobalExternalAllocSize()">getGlobalExternalAllocSize</a></span>()</nobr>
         
-        <div class="jd-descrdiv"><em>
+        <div class="jd-descrdiv">
+          <em>
       This method was deprecated
       in API level 11.
     This method is now obsolete.
-</em></div>
+</em>
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1576,11 +1728,16 @@ href="../../../guide/developing/tools/traceview.html">Traceview: A Graphical Log
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/os/Debug.html#getGlobalExternalFreedCount()">getGlobalExternalFreedCount</a></span>()</nobr>
         
-        <div class="jd-descrdiv"><em>
+        <div class="jd-descrdiv">
+          <em>
       This method was deprecated
       in API level 11.
     This method is now obsolete.
-</em></div>
+</em>
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1598,11 +1755,16 @@ href="../../../guide/developing/tools/traceview.html">Traceview: A Graphical Log
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/os/Debug.html#getGlobalExternalFreedSize()">getGlobalExternalFreedSize</a></span>()</nobr>
         
-        <div class="jd-descrdiv"><em>
+        <div class="jd-descrdiv">
+          <em>
       This method was deprecated
       in API level 11.
     This method is now obsolete.
-</em></div>
+</em>
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1620,8 +1782,13 @@ href="../../../guide/developing/tools/traceview.html">Traceview: A Graphical Log
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/os/Debug.html#getGlobalFreedCount()">getGlobalFreedCount</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns the global count of objects freed by the runtime between a
- <code><a href="../../../reference/android/os/Debug.html#startAllocCounting()">start</a></code> and <code><a href="../../../reference/android/os/Debug.html#stopAllocCounting()">stop</a></code>.</div>
+        <div class="jd-descrdiv">
+          Returns the global count of objects freed by the runtime between a
+ <code><a href="../../../reference/android/os/Debug.html#startAllocCounting()">start</a></code> and <code><a href="../../../reference/android/os/Debug.html#stopAllocCounting()">stop</a></code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1639,8 +1806,13 @@ href="../../../guide/developing/tools/traceview.html">Traceview: A Graphical Log
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/os/Debug.html#getGlobalFreedSize()">getGlobalFreedSize</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns the global size, in bytes, of objects freed by the runtime between a
- <code><a href="../../../reference/android/os/Debug.html#startAllocCounting()">start</a></code> and <code><a href="../../../reference/android/os/Debug.html#stopAllocCounting()">stop</a></code>.</div>
+        <div class="jd-descrdiv">
+          Returns the global size, in bytes, of objects freed by the runtime between a
+ <code><a href="../../../reference/android/os/Debug.html#startAllocCounting()">start</a></code> and <code><a href="../../../reference/android/os/Debug.html#stopAllocCounting()">stop</a></code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1658,8 +1830,13 @@ href="../../../guide/developing/tools/traceview.html">Traceview: A Graphical Log
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/os/Debug.html#getGlobalGcInvocationCount()">getGlobalGcInvocationCount</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns the number of non-concurrent GC invocations between a
- <code><a href="../../../reference/android/os/Debug.html#startAllocCounting()">start</a></code> and <code><a href="../../../reference/android/os/Debug.html#stopAllocCounting()">stop</a></code>.</div>
+        <div class="jd-descrdiv">
+          Returns the number of non-concurrent GC invocations between a
+ <code><a href="../../../reference/android/os/Debug.html#startAllocCounting()">start</a></code> and <code><a href="../../../reference/android/os/Debug.html#stopAllocCounting()">stop</a></code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1677,7 +1854,12 @@ href="../../../guide/developing/tools/traceview.html">Traceview: A Graphical Log
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/os/Debug.html#getLoadedClassCount()">getLoadedClassCount</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Get the number of loaded classes.</div>
+        <div class="jd-descrdiv">
+          Get the number of loaded classes.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1695,7 +1877,12 @@ href="../../../guide/developing/tools/traceview.html">Traceview: A Graphical Log
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/os/Debug.html#getMemoryInfo(android.os.Debug.MemoryInfo)">getMemoryInfo</a></span>(<a href="../../../reference/android/os/Debug.MemoryInfo.html">Debug.MemoryInfo</a> memoryInfo)</nobr>
         
-        <div class="jd-descrdiv">Retrieves information about this processes memory usages.</div>
+        <div class="jd-descrdiv">
+          Retrieves information about this processes memory usages.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1713,7 +1900,12 @@ href="../../../guide/developing/tools/traceview.html">Traceview: A Graphical Log
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/os/Debug.html#getNativeHeapAllocatedSize()">getNativeHeapAllocatedSize</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns the amount of allocated memory in the native heap.</div>
+        <div class="jd-descrdiv">
+          Returns the amount of allocated memory in the native heap.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1731,7 +1923,12 @@ href="../../../guide/developing/tools/traceview.html">Traceview: A Graphical Log
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/os/Debug.html#getNativeHeapFreeSize()">getNativeHeapFreeSize</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns the amount of free memory in the native heap.</div>
+        <div class="jd-descrdiv">
+          Returns the amount of free memory in the native heap.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1749,7 +1946,12 @@ href="../../../guide/developing/tools/traceview.html">Traceview: A Graphical Log
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/os/Debug.html#getNativeHeapSize()">getNativeHeapSize</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns the size of the native heap.</div>
+        <div class="jd-descrdiv">
+          Returns the size of the native heap.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1767,8 +1969,13 @@ href="../../../guide/developing/tools/traceview.html">Traceview: A Graphical Log
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/os/Debug.html#getPss()">getPss</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Retrieves the PSS memory used by the process as given by the
- smaps.</div>
+        <div class="jd-descrdiv">
+          Retrieves the PSS memory used by the process as given by the
+ smaps.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1786,8 +1993,13 @@ href="../../../guide/developing/tools/traceview.html">Traceview: A Graphical Log
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/os/Debug.html#getThreadAllocCount()">getThreadAllocCount</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns the thread-local count of objects allocated by the runtime between a
- <code><a href="../../../reference/android/os/Debug.html#startAllocCounting()">start</a></code> and <code><a href="../../../reference/android/os/Debug.html#stopAllocCounting()">stop</a></code>.</div>
+        <div class="jd-descrdiv">
+          Returns the thread-local count of objects allocated by the runtime between a
+ <code><a href="../../../reference/android/os/Debug.html#startAllocCounting()">start</a></code> and <code><a href="../../../reference/android/os/Debug.html#stopAllocCounting()">stop</a></code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1805,8 +2017,13 @@ href="../../../guide/developing/tools/traceview.html">Traceview: A Graphical Log
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/os/Debug.html#getThreadAllocSize()">getThreadAllocSize</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns the thread-local size of objects allocated by the runtime between a
- <code><a href="../../../reference/android/os/Debug.html#startAllocCounting()">start</a></code> and <code><a href="../../../reference/android/os/Debug.html#stopAllocCounting()">stop</a></code>.</div>
+        <div class="jd-descrdiv">
+          Returns the thread-local size of objects allocated by the runtime between a
+ <code><a href="../../../reference/android/os/Debug.html#startAllocCounting()">start</a></code> and <code><a href="../../../reference/android/os/Debug.html#stopAllocCounting()">stop</a></code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1824,11 +2041,16 @@ href="../../../guide/developing/tools/traceview.html">Traceview: A Graphical Log
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/os/Debug.html#getThreadExternalAllocCount()">getThreadExternalAllocCount</a></span>()</nobr>
         
-        <div class="jd-descrdiv"><em>
+        <div class="jd-descrdiv">
+          <em>
       This method was deprecated
       in API level 11.
     This method is now obsolete.
-</em></div>
+</em>
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1846,11 +2068,16 @@ href="../../../guide/developing/tools/traceview.html">Traceview: A Graphical Log
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/os/Debug.html#getThreadExternalAllocSize()">getThreadExternalAllocSize</a></span>()</nobr>
         
-        <div class="jd-descrdiv"><em>
+        <div class="jd-descrdiv">
+          <em>
       This method was deprecated
       in API level 11.
     This method is now obsolete.
-</em></div>
+</em>
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1868,8 +2095,13 @@ href="../../../guide/developing/tools/traceview.html">Traceview: A Graphical Log
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/os/Debug.html#getThreadGcInvocationCount()">getThreadGcInvocationCount</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns the number of thread-local non-concurrent GC invocations between a
- <code><a href="../../../reference/android/os/Debug.html#startAllocCounting()">start</a></code> and <code><a href="../../../reference/android/os/Debug.html#stopAllocCounting()">stop</a></code>.</div>
+        <div class="jd-descrdiv">
+          Returns the number of thread-local non-concurrent GC invocations between a
+ <code><a href="../../../reference/android/os/Debug.html#startAllocCounting()">start</a></code> and <code><a href="../../../reference/android/os/Debug.html#stopAllocCounting()">stop</a></code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1887,7 +2119,12 @@ href="../../../guide/developing/tools/traceview.html">Traceview: A Graphical Log
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/os/Debug.html#isDebuggerConnected()">isDebuggerConnected</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Determine if a debugger is currently attached.</div>
+        <div class="jd-descrdiv">
+          Determine if a debugger is currently attached.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1905,7 +2142,12 @@ href="../../../guide/developing/tools/traceview.html">Traceview: A Graphical Log
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/os/Debug.html#printLoadedClasses(int)">printLoadedClasses</a></span>(int flags)</nobr>
         
-        <div class="jd-descrdiv">Dump a list of all currently loaded class to the log file.</div>
+        <div class="jd-descrdiv">
+          Dump a list of all currently loaded class to the log file.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1923,7 +2165,12 @@ href="../../../guide/developing/tools/traceview.html">Traceview: A Graphical Log
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/os/Debug.html#resetAllCounts()">resetAllCounts</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Clears all the global and thread-local memory allocation counters.</div>
+        <div class="jd-descrdiv">
+          Clears all the global and thread-local memory allocation counters.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1941,7 +2188,12 @@ href="../../../guide/developing/tools/traceview.html">Traceview: A Graphical Log
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/os/Debug.html#resetGlobalAllocCount()">resetGlobalAllocCount</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Clears the global count of objects allocated.</div>
+        <div class="jd-descrdiv">
+          Clears the global count of objects allocated.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1959,7 +2211,12 @@ href="../../../guide/developing/tools/traceview.html">Traceview: A Graphical Log
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/os/Debug.html#resetGlobalAllocSize()">resetGlobalAllocSize</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Clears the global size of objects allocated.</div>
+        <div class="jd-descrdiv">
+          Clears the global size of objects allocated.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1977,7 +2234,12 @@ href="../../../guide/developing/tools/traceview.html">Traceview: A Graphical Log
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/os/Debug.html#resetGlobalClassInitCount()">resetGlobalClassInitCount</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Clears the count of classes initialized.</div>
+        <div class="jd-descrdiv">
+          Clears the count of classes initialized.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1995,7 +2257,12 @@ href="../../../guide/developing/tools/traceview.html">Traceview: A Graphical Log
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/os/Debug.html#resetGlobalClassInitTime()">resetGlobalClassInitTime</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Clears the count of time spent initializing classes.</div>
+        <div class="jd-descrdiv">
+          Clears the count of time spent initializing classes.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2013,11 +2280,16 @@ href="../../../guide/developing/tools/traceview.html">Traceview: A Graphical Log
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/os/Debug.html#resetGlobalExternalAllocCount()">resetGlobalExternalAllocCount</a></span>()</nobr>
         
-        <div class="jd-descrdiv"><em>
+        <div class="jd-descrdiv">
+          <em>
       This method was deprecated
       in API level 11.
     This method is now obsolete.
-</em></div>
+</em>
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2035,11 +2307,16 @@ href="../../../guide/developing/tools/traceview.html">Traceview: A Graphical Log
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/os/Debug.html#resetGlobalExternalAllocSize()">resetGlobalExternalAllocSize</a></span>()</nobr>
         
-        <div class="jd-descrdiv"><em>
+        <div class="jd-descrdiv">
+          <em>
       This method was deprecated
       in API level 11.
     This method is now obsolete.
-</em></div>
+</em>
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2057,11 +2334,16 @@ href="../../../guide/developing/tools/traceview.html">Traceview: A Graphical Log
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/os/Debug.html#resetGlobalExternalFreedCount()">resetGlobalExternalFreedCount</a></span>()</nobr>
         
-        <div class="jd-descrdiv"><em>
+        <div class="jd-descrdiv">
+          <em>
       This method was deprecated
       in API level 11.
     This method is now obsolete.
-</em></div>
+</em>
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2079,11 +2361,16 @@ href="../../../guide/developing/tools/traceview.html">Traceview: A Graphical Log
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/os/Debug.html#resetGlobalExternalFreedSize()">resetGlobalExternalFreedSize</a></span>()</nobr>
         
-        <div class="jd-descrdiv"><em>
+        <div class="jd-descrdiv">
+          <em>
       This method was deprecated
       in API level 11.
     This method is now obsolete.
-</em></div>
+</em>
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2101,7 +2388,12 @@ href="../../../guide/developing/tools/traceview.html">Traceview: A Graphical Log
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/os/Debug.html#resetGlobalFreedCount()">resetGlobalFreedCount</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Clears the global count of objects freed.</div>
+        <div class="jd-descrdiv">
+          Clears the global count of objects freed.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2119,7 +2411,12 @@ href="../../../guide/developing/tools/traceview.html">Traceview: A Graphical Log
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/os/Debug.html#resetGlobalFreedSize()">resetGlobalFreedSize</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Clears the global size of objects freed.</div>
+        <div class="jd-descrdiv">
+          Clears the global size of objects freed.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2137,7 +2434,12 @@ href="../../../guide/developing/tools/traceview.html">Traceview: A Graphical Log
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/os/Debug.html#resetGlobalGcInvocationCount()">resetGlobalGcInvocationCount</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Clears the count of non-concurrent GC invocations.</div>
+        <div class="jd-descrdiv">
+          Clears the count of non-concurrent GC invocations.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2155,7 +2457,12 @@ href="../../../guide/developing/tools/traceview.html">Traceview: A Graphical Log
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/os/Debug.html#resetThreadAllocCount()">resetThreadAllocCount</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Clears the thread-local count of objects allocated.</div>
+        <div class="jd-descrdiv">
+          Clears the thread-local count of objects allocated.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2173,7 +2480,12 @@ href="../../../guide/developing/tools/traceview.html">Traceview: A Graphical Log
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/os/Debug.html#resetThreadAllocSize()">resetThreadAllocSize</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Clears the thread-local count of objects allocated.</div>
+        <div class="jd-descrdiv">
+          Clears the thread-local count of objects allocated.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2191,11 +2503,16 @@ href="../../../guide/developing/tools/traceview.html">Traceview: A Graphical Log
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/os/Debug.html#resetThreadExternalAllocCount()">resetThreadExternalAllocCount</a></span>()</nobr>
         
-        <div class="jd-descrdiv"><em>
+        <div class="jd-descrdiv">
+          <em>
       This method was deprecated
       in API level 11.
     This method is now obsolete.
-</em></div>
+</em>
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2213,11 +2530,16 @@ href="../../../guide/developing/tools/traceview.html">Traceview: A Graphical Log
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/os/Debug.html#resetThreadExternalAllocSize()">resetThreadExternalAllocSize</a></span>()</nobr>
         
-        <div class="jd-descrdiv"><em>
+        <div class="jd-descrdiv">
+          <em>
       This method was deprecated
       in API level 11.
     This method is now obsolete.
-</em></div>
+</em>
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2235,7 +2557,12 @@ href="../../../guide/developing/tools/traceview.html">Traceview: A Graphical Log
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/os/Debug.html#resetThreadGcInvocationCount()">resetThreadGcInvocationCount</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Clears the thread-local count of non-concurrent GC invocations.</div>
+        <div class="jd-descrdiv">
+          Clears the thread-local count of non-concurrent GC invocations.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2253,11 +2580,16 @@ href="../../../guide/developing/tools/traceview.html">Traceview: A Graphical Log
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/os/Debug.html#setAllocationLimit(int)">setAllocationLimit</a></span>(int limit)</nobr>
         
-        <div class="jd-descrdiv"><em>
+        <div class="jd-descrdiv">
+          <em>
       This method was deprecated
       in API level 11.
     This method is now obsolete.
-</em></div>
+</em>
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2275,11 +2607,16 @@ href="../../../guide/developing/tools/traceview.html">Traceview: A Graphical Log
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/os/Debug.html#setGlobalAllocationLimit(int)">setGlobalAllocationLimit</a></span>(int limit)</nobr>
         
-        <div class="jd-descrdiv"><em>
+        <div class="jd-descrdiv">
+          <em>
       This method was deprecated
       in API level 11.
     This method is now obsolete.
-</em></div>
+</em>
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2297,11 +2634,16 @@ href="../../../guide/developing/tools/traceview.html">Traceview: A Graphical Log
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/os/Debug.html#startAllocCounting()">startAllocCounting</a></span>()</nobr>
         
-        <div class="jd-descrdiv"><em>
+        <div class="jd-descrdiv">
+          <em>
       This method was deprecated
       in API level 18.
     Accurate counting is a burden on the runtime and may be removed.
-</em></div>
+</em>
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2319,7 +2661,12 @@ href="../../../guide/developing/tools/traceview.html">Traceview: A Graphical Log
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/os/Debug.html#startMethodTracing(java.lang.String)">startMethodTracing</a></span>(<a href="../../../reference/java/lang/String.html">String</a> traceName)</nobr>
         
-        <div class="jd-descrdiv">Start method tracing, specifying the trace log file name.</div>
+        <div class="jd-descrdiv">
+          Start method tracing, specifying the trace log file name.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2337,7 +2684,12 @@ href="../../../guide/developing/tools/traceview.html">Traceview: A Graphical Log
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/os/Debug.html#startMethodTracing()">startMethodTracing</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Start method tracing with default log name and buffer size.</div>
+        <div class="jd-descrdiv">
+          Start method tracing with default log name and buffer size.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2355,8 +2707,13 @@ href="../../../guide/developing/tools/traceview.html">Traceview: A Graphical Log
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/os/Debug.html#startMethodTracing(java.lang.String, int, int)">startMethodTracing</a></span>(<a href="../../../reference/java/lang/String.html">String</a> traceName, int bufferSize, int flags)</nobr>
         
-        <div class="jd-descrdiv">Start method tracing, specifying the trace log file name and the
- buffer size.</div>
+        <div class="jd-descrdiv">
+          Start method tracing, specifying the trace log file name and the
+ buffer size.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2374,14 +2731,19 @@ href="../../../guide/developing/tools/traceview.html">Traceview: A Graphical Log
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/os/Debug.html#startMethodTracing(java.lang.String, int)">startMethodTracing</a></span>(<a href="../../../reference/java/lang/String.html">String</a> traceName, int bufferSize)</nobr>
         
-        <div class="jd-descrdiv">Start method tracing, specifying the trace log file name and the
- buffer size.</div>
+        <div class="jd-descrdiv">
+          Start method tracing, specifying the trace log file name and the
+ buffer size.
+          
+    
+
+        </div>
   
   </td></tr>
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class=" api apilevel-21" >
         <td class="jd-typecol"><nobr>
             
             
@@ -2393,8 +2755,13 @@ href="../../../guide/developing/tools/traceview.html">Traceview: A Graphical Log
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/os/Debug.html#startMethodTracingSampling(java.lang.String, int, int)">startMethodTracingSampling</a></span>(<a href="../../../reference/java/lang/String.html">String</a> traceName, int bufferSize, int intervalUs)</nobr>
         
-        <div class="jd-descrdiv">Start sampling-based method tracing, specifying the trace log file name,
- the buffer size, and the sampling interval.</div>
+        <div class="jd-descrdiv">
+          Start sampling-based method tracing, specifying the trace log file name,
+ the buffer size, and the sampling interval.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2412,7 +2779,12 @@ href="../../../guide/developing/tools/traceview.html">Traceview: A Graphical Log
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/os/Debug.html#startNativeTracing()">startNativeTracing</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Enable qemu tracing.</div>
+        <div class="jd-descrdiv">
+          Enable qemu tracing.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2430,7 +2802,12 @@ href="../../../guide/developing/tools/traceview.html">Traceview: A Graphical Log
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/os/Debug.html#stopAllocCounting()">stopAllocCounting</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Stop counting the number and aggregate size of memory allocations.</div>
+        <div class="jd-descrdiv">
+          Stop counting the number and aggregate size of memory allocations.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2448,7 +2825,12 @@ href="../../../guide/developing/tools/traceview.html">Traceview: A Graphical Log
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/os/Debug.html#stopMethodTracing()">stopMethodTracing</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Stop method tracing.</div>
+        <div class="jd-descrdiv">
+          Stop method tracing.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2466,7 +2848,12 @@ href="../../../guide/developing/tools/traceview.html">Traceview: A Graphical Log
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/os/Debug.html#stopNativeTracing()">stopNativeTracing</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Stop qemu tracing.</div>
+        <div class="jd-descrdiv">
+          Stop qemu tracing.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2484,7 +2871,12 @@ href="../../../guide/developing/tools/traceview.html">Traceview: A Graphical Log
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/os/Debug.html#threadCpuTimeNanos()">threadCpuTimeNanos</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Get an indication of thread CPU usage.</div>
+        <div class="jd-descrdiv">
+          Get an indication of thread CPU usage.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2502,7 +2894,12 @@ href="../../../guide/developing/tools/traceview.html">Traceview: A Graphical Log
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/os/Debug.html#waitForDebugger()">waitForDebugger</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Wait until a debugger attaches.</div>
+        <div class="jd-descrdiv">
+          Wait until a debugger attaches.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2520,8 +2917,13 @@ href="../../../guide/developing/tools/traceview.html">Traceview: A Graphical Log
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/os/Debug.html#waitingForDebugger()">waitingForDebugger</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns "true" if one or more threads is waiting for a debugger
- to attach.</div>
+        <div class="jd-descrdiv">
+          Returns "true" if one or more threads is waiting for a debugger
+ to attach.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2573,7 +2975,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#clone()">clone</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Creates and returns a copy of this <code>Object</code>.</div>
+        <div class="jd-descrdiv">
+          Creates and returns a copy of this <code>Object</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2591,8 +2998,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#equals(java.lang.Object)">equals</a></span>(<a href="../../../reference/java/lang/Object.html">Object</a> o)</nobr>
         
-        <div class="jd-descrdiv">Compares this instance with the specified object and indicates if they
- are equal.</div>
+        <div class="jd-descrdiv">
+          Compares this instance with the specified object and indicates if they
+ are equal.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2610,7 +3022,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#finalize()">finalize</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Invoked when the garbage collector has detected that this instance is no longer reachable.</div>
+        <div class="jd-descrdiv">
+          Invoked when the garbage collector has detected that this instance is no longer reachable.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2628,8 +3045,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#getClass()">getClass</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns the unique instance of <code><a href="../../../reference/java/lang/Class.html">Class</a></code> that represents this
- object's class.</div>
+        <div class="jd-descrdiv">
+          Returns the unique instance of <code><a href="../../../reference/java/lang/Class.html">Class</a></code> that represents this
+ object's class.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2647,7 +3069,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#hashCode()">hashCode</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns an integer hash code for this object.</div>
+        <div class="jd-descrdiv">
+          Returns an integer hash code for this object.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2665,8 +3092,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#notify()">notify</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Causes a thread which is waiting on this object's monitor (by means of
- calling one of the <code>wait()</code> methods) to be woken up.</div>
+        <div class="jd-descrdiv">
+          Causes a thread which is waiting on this object's monitor (by means of
+ calling one of the <code>wait()</code> methods) to be woken up.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2684,8 +3116,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#notifyAll()">notifyAll</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Causes all threads which are waiting on this object's monitor (by means
- of calling one of the <code>wait()</code> methods) to be woken up.</div>
+        <div class="jd-descrdiv">
+          Causes all threads which are waiting on this object's monitor (by means
+ of calling one of the <code>wait()</code> methods) to be woken up.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2703,8 +3140,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#toString()">toString</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns a string containing a concise, human-readable description of this
- object.</div>
+        <div class="jd-descrdiv">
+          Returns a string containing a concise, human-readable description of this
+ object.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2722,7 +3164,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#wait()">wait</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object.</div>
+        <div class="jd-descrdiv">
+          Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2740,8 +3187,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#wait(long, int)">wait</a></span>(long millis, int nanos)</nobr>
         
-        <div class="jd-descrdiv">Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object or until the
- specified timeout expires.</div>
+        <div class="jd-descrdiv">
+          Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object or until the
+ specified timeout expires.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2759,8 +3211,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#wait(long)">wait</a></span>(long millis)</nobr>
         
-        <div class="jd-descrdiv">Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object or until the
- specified timeout expires.</div>
+        <div class="jd-descrdiv">
+          Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object or until the
+ specified timeout expires.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2821,6 +3278,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -2859,6 +3319,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Flags for printLoadedClasses().  Default behavior is to only show
  the class name.
@@ -2901,6 +3364,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -2939,6 +3405,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Flags for startMethodTracing().  These can be ORed together.
 
@@ -3005,6 +3474,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       <p>
   <p class="caution"><strong>
       This method was deprecated
@@ -3041,6 +3513,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Dump "hprof" data to the specified file.  This may cause a GC.</p></div>
   <div class="jd-tagdata">
@@ -3095,6 +3570,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Get a debugging dump of a system service by name.
 
@@ -3151,6 +3629,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Enable "emulator traces", in which information about the current
  method is made available to the "emulator -trace" feature.  There
  is no corresponding "disable" call -- this is intended for use by
@@ -3191,6 +3672,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns the number of death notification links to Binder objects that
  exist in the current process.
 </p></div>
@@ -3222,6 +3706,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Returns the number of active local Binder objects that exist in the
  current process.
@@ -3255,6 +3742,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns the number of references to remote proxy Binder objects that
  exist in the current process.
 </p></div>
@@ -3286,6 +3776,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Returns the number of received transactions from the binder driver.</p></div>
   <div class="jd-tagdata">
@@ -3322,6 +3815,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns the number of sent transactions from this process.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
@@ -3357,6 +3853,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns the global count of objects allocated by the runtime between a
  <code><a href="../../../reference/android/os/Debug.html#startAllocCounting()">start</a></code> and <code><a href="../../../reference/android/os/Debug.html#stopAllocCounting()">stop</a></code>.
 </p></div>
@@ -3389,6 +3888,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns the global size, in bytes, of objects allocated by the runtime between a
  <code><a href="../../../reference/android/os/Debug.html#startAllocCounting()">start</a></code> and <code><a href="../../../reference/android/os/Debug.html#stopAllocCounting()">stop</a></code>.
 </p></div>
@@ -3420,6 +3922,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Returns the number of classes successfully initialized (ie those that executed without
  throwing an exception) between a <code><a href="../../../reference/android/os/Debug.html#startAllocCounting()">start</a></code> and
@@ -3454,6 +3959,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns the time spent successfully initializing classes between a
  <code><a href="../../../reference/android/os/Debug.html#startAllocCounting()">start</a></code> and <code><a href="../../../reference/android/os/Debug.html#stopAllocCounting()">stop</a></code>.
 </p></div>
@@ -3485,6 +3993,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       <p>
   <p class="caution"><strong>
       This method was deprecated
@@ -3521,6 +4032,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       <p>
   <p class="caution"><strong>
       This method was deprecated
@@ -3557,6 +4071,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       <p>
   <p class="caution"><strong>
       This method was deprecated
@@ -3593,6 +4110,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       <p>
   <p class="caution"><strong>
       This method was deprecated
@@ -3630,6 +4150,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns the global count of objects freed by the runtime between a
  <code><a href="../../../reference/android/os/Debug.html#startAllocCounting()">start</a></code> and <code><a href="../../../reference/android/os/Debug.html#stopAllocCounting()">stop</a></code>.
 </p></div>
@@ -3661,6 +4184,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Returns the global size, in bytes, of objects freed by the runtime between a
  <code><a href="../../../reference/android/os/Debug.html#startAllocCounting()">start</a></code> and <code><a href="../../../reference/android/os/Debug.html#stopAllocCounting()">stop</a></code>.
@@ -3694,6 +4220,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns the number of non-concurrent GC invocations between a
  <code><a href="../../../reference/android/os/Debug.html#startAllocCounting()">start</a></code> and <code><a href="../../../reference/android/os/Debug.html#stopAllocCounting()">stop</a></code>.
 </p></div>
@@ -3725,6 +4254,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Get the number of loaded classes.</p></div>
   <div class="jd-tagdata">
@@ -3761,6 +4293,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Retrieves information about this processes memory usages. This information is broken down by
  how much is in use by dalivk, the native heap, and everything else.
 </p></div>
@@ -3792,6 +4327,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Returns the amount of allocated memory in the native heap.</p></div>
   <div class="jd-tagdata">
@@ -3828,6 +4366,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns the amount of free memory in the native heap.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
@@ -3862,6 +4403,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Returns the size of the native heap.</p></div>
   <div class="jd-tagdata">
@@ -3898,6 +4442,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Retrieves the PSS memory used by the process as given by the
  smaps.
 </p></div>
@@ -3930,6 +4477,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns the thread-local count of objects allocated by the runtime between a
  <code><a href="../../../reference/android/os/Debug.html#startAllocCounting()">start</a></code> and <code><a href="../../../reference/android/os/Debug.html#stopAllocCounting()">stop</a></code>.
 </p></div>
@@ -3961,6 +4511,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Returns the thread-local size of objects allocated by the runtime between a
  <code><a href="../../../reference/android/os/Debug.html#startAllocCounting()">start</a></code> and <code><a href="../../../reference/android/os/Debug.html#stopAllocCounting()">stop</a></code>.</p></div>
@@ -3997,6 +4550,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       <p>
   <p class="caution"><strong>
       This method was deprecated
@@ -4033,6 +4589,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       <p>
   <p class="caution"><strong>
       This method was deprecated
@@ -4070,6 +4629,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns the number of thread-local non-concurrent GC invocations between a
  <code><a href="../../../reference/android/os/Debug.html#startAllocCounting()">start</a></code> and <code><a href="../../../reference/android/os/Debug.html#stopAllocCounting()">stop</a></code>.
 </p></div>
@@ -4102,6 +4664,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Determine if a debugger is currently attached.
 </p></div>
 
@@ -4132,6 +4697,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Dump a list of all currently loaded class to the log file.</p></div>
   <div class="jd-tagdata">
@@ -4173,6 +4741,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Clears all the global and thread-local memory allocation counters.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
@@ -4207,6 +4778,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Clears the global count of objects allocated.</p></div>
   <div class="jd-tagdata">
@@ -4243,6 +4817,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Clears the global size of objects allocated.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
@@ -4277,6 +4854,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Clears the count of classes initialized.</p></div>
   <div class="jd-tagdata">
@@ -4313,6 +4893,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Clears the count of time spent initializing classes.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
@@ -4347,6 +4930,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       <p>
   <p class="caution"><strong>
       This method was deprecated
@@ -4383,6 +4969,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       <p>
   <p class="caution"><strong>
       This method was deprecated
@@ -4419,6 +5008,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       <p>
   <p class="caution"><strong>
       This method was deprecated
@@ -4455,6 +5047,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       <p>
   <p class="caution"><strong>
       This method was deprecated
@@ -4492,6 +5087,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Clears the global count of objects freed.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
@@ -4526,6 +5124,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Clears the global size of objects freed.</p></div>
   <div class="jd-tagdata">
@@ -4562,6 +5163,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Clears the count of non-concurrent GC invocations.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
@@ -4596,6 +5200,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Clears the thread-local count of objects allocated.</p></div>
   <div class="jd-tagdata">
@@ -4632,6 +5239,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Clears the thread-local count of objects allocated.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
@@ -4666,6 +5276,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       <p>
   <p class="caution"><strong>
       This method was deprecated
@@ -4702,6 +5315,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       <p>
   <p class="caution"><strong>
       This method was deprecated
@@ -4739,6 +5355,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Clears the thread-local count of non-concurrent GC invocations.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
@@ -4773,6 +5392,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       <p>
   <p class="caution"><strong>
       This method was deprecated
@@ -4813,6 +5435,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       <p>
   <p class="caution"><strong>
       This method was deprecated
@@ -4852,6 +5477,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       <p>
   <p class="caution"><strong>
       This method was deprecated
@@ -4898,6 +5526,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Start method tracing, specifying the trace log file name.  The trace
  file will be put under "/sdcard" unless an absolute path is given.
@@ -4946,6 +5577,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Start method tracing with default log name and buffer size. See <a
 href="../../../guide/developing/tools/traceview.html">Traceview: A Graphical Log Viewer</a> for
  information about reading these files. Call stopMethodTracing() to stop
@@ -4979,6 +5613,9 @@ href="../../../guide/developing/tools/traceview.html">Traceview: A Graphical Log
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Start method tracing, specifying the trace log file name and the
  buffer size. The trace files will be put under "/sdcard" unless an
@@ -5046,6 +5683,9 @@ href="../../../guide/developing/tools/traceview.html">Traceview: A Graphical Log
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Start method tracing, specifying the trace log file name and the
  buffer size. The trace files will be put under "/sdcard" unless an
  absolute path is given. See <a
@@ -5075,7 +5715,7 @@ href="../../../guide/developing/tools/traceview.html">Traceview: A Graphical Log
 
 <A NAME="startMethodTracingSampling(java.lang.String, int, int)"></A>
 
-<div class="jd-details api apilevel-"> 
+<div class="jd-details api apilevel-21"> 
     <h4 class="jd-details-title">
       <span class="normal">
         public 
@@ -5089,12 +5729,16 @@ href="../../../guide/developing/tools/traceview.html">Traceview: A Graphical Log
       <span class="normal">(<a href="../../../reference/java/lang/String.html">String</a> traceName, int bufferSize, int intervalUs)</span>
     </h4>
       <div class="api-level">
-        <div></div>
+        <div>
+  Added in <a href="../../../guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 21</a></div>
         
   
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Start sampling-based method tracing, specifying the trace log file name,
  the buffer size, and the sampling interval. The trace files will be put
@@ -5150,6 +5794,9 @@ href="../../../guide/developing/tools/traceview.html">Traceview: A Graphical Log
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Enable qemu tracing. For this to work requires running everything inside
  the qemu emulator; otherwise, this method will have no effect. The trace
@@ -5207,6 +5854,9 @@ href="../../../guide/developing/tools/traceview.html">Traceview: A Graphical Log
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Stop counting the number and aggregate size of memory allocations.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
@@ -5242,6 +5892,9 @@ href="../../../guide/developing/tools/traceview.html">Traceview: A Graphical Log
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Stop method tracing.
 </p></div>
 
@@ -5272,6 +5925,9 @@ href="../../../guide/developing/tools/traceview.html">Traceview: A Graphical Log
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Stop qemu tracing.  See <code><a href="../../../reference/android/os/Debug.html#startNativeTracing()">startNativeTracing()</a></code> to start tracing.
 
@@ -5310,6 +5966,9 @@ href="../../../guide/developing/tools/traceview.html">Traceview: A Graphical Log
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Get an indication of thread CPU usage.  The value returned
  indicates the amount of time that the current thread has spent
@@ -5350,6 +6009,9 @@ href="../../../guide/developing/tools/traceview.html">Traceview: A Graphical Log
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Wait until a debugger attaches.  As soon as the debugger attaches,
  this returns, so you will need to place a breakpoint after the
  waitForDebugger() call if you want to start tracing immediately.
@@ -5382,6 +6044,9 @@ href="../../../guide/developing/tools/traceview.html">Traceview: A Graphical Log
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Returns "true" if one or more threads is waiting for a debugger
  to attach.

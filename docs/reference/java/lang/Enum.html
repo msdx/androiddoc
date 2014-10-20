@@ -82,6 +82,19 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 <html>
 <head>
 
@@ -97,7 +110,7 @@
 href="http://fonts.useso.com/css?family=Roboto+Condensed">
 <link rel="stylesheet" href="http://fonts.useso.com/css?family=Roboto:light,regular,medium,thin,italic,mediumitalic,bold"
   title="roboto">
-<link href="../../../assets/css/default.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/default.css?v=2" rel="stylesheet" type="text/css">
 
 
 <!-- FULLSCREEN STYLESHEET -->
@@ -106,30 +119,31 @@ type="text/css">
 
 
 <!-- JAVASCRIPT -->
-<script src="http://googleapiscdn.qiniudn.com/www.google.com/jsapi" type="text/javascript"></script>
+<script src="http://www.google.com/jsapi" type="text/javascript"></script>
 <script src="../../../assets/js/android_3p-bundle.js" type="text/javascript"></script>
 <script type="text/javascript">
   var toRoot = "../../../";
   var metaTags = [];
   var devsite = false;
 </script>
-<script src="../../../assets/js/docs.js" type="text/javascript"></script>
+<script src="../../../assets/js/docs.js?v=2" type="text/javascript"></script>
 
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-5831155-1']);
-  _gaq.push(['_trackPageview']);
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
+  ga('create', 'UA-5831155-1', 'android.com');
+  ga('create', 'UA-49880327-2', 'android.com', {'name': 'universal'});  // New tracker);
+  ga('send', 'pageview');
+  ga('universal.send', 'pageview'); // Send page view for new tracker.
 </script>
+
 </head>
 
 <body class="gc-documentation 
-  develop" itemscope itemtype="http://schema.org/Article">
+  develop reference" itemscope itemtype="http://schema.org/Article">
   <div id="doc-api-level" class="1" style="display:none"></div>
   <a name="top"></a>
 
@@ -139,6 +153,10 @@ type="text/css">
   <!-- Header -->
   <div id="header-wrapper">
     <div id="header">
+
+    
+
+
       <div class="wrap" id="header-wrap">
         <div class="col-3 logo">
           <a href="../../../index.html">
@@ -260,11 +278,20 @@ type="text/css">
 
 
         <!-- Expanded quicknav -->
-        <div id="quicknav" class="col-9">
+        <div id="quicknav" class="col-13">
           <ul>
+            <li class="about">
+              <ul>
+                <li><a href="../../../about/index.html">About</a></li>
+                <li><a href="../../../wear/index.html">Wear</a></li>
+                <li><a href="../../../tv/index.html">TV</a></li>
+                <li><a href="../../../auto/index.html">Auto</a></li>
+              </ul>
+            </li>
             <li class="design">
               <ul>
                 <li><a href="../../../design/index.html">Get Started</a></li>
+                <li><a href="../../../design/devices.html">Devices</a></li>
                 <li><a href="../../../design/style/index.html">Style</a></li>
                 <li><a href="../../../design/patterns/index.html">Patterns</a></li>
                 <li><a href="../../../design/building-blocks/index.html">Building Blocks</a></li>
@@ -298,7 +325,7 @@ type="text/css">
                   ja-lang="リファレンス"
                   es-lang="Referencia"
                   >Reference</a></li>
-                <li><a href="../../../tools/index.html"
+                <li><a href="../../../sdk/index.html"
                   zh-tw-lang="相關工具"
                   zh-cn-lang="工具"
                   ru-lang="Инструменты"
@@ -306,7 +333,6 @@ type="text/css">
                   ja-lang="ツール"
                   es-lang="Herramientas"
                   >Tools</a>
-                  <ul><li><a href="../../../sdk/index.html">Get the SDK</a></li></ul>
                 </li>
                 <li><a href="../../../google/index.html">Google Services</a>
                 </li>
@@ -358,7 +384,7 @@ type="text/css">
                   ja-lang="リファレンス"
                   es-lang="Referencia"
                   >Reference</a></li>
-                <li class="tools"><a href="../../../tools/index.html"
+                <li class="tools"><a href="../../../sdk/index.html"
                   zh-tw-lang="相關工具"
                   zh-cn-lang="工具"
                   ru-lang="Инструменты"
@@ -373,7 +399,7 @@ type="text/css">
             </ul>
         </div>
     </div>
-    <!-- /Sendondary x-nav -->
+    <!-- /Sendondary x-nav DEVELOP -->
 
   
 
@@ -414,7 +440,7 @@ type="text/css">
         <div id="api-nav-title">Android APIs</div>
         </div><!-- end nav header -->
       <script>
-        var SINCE_DATA = [ '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19' ];
+        var SINCE_DATA = [ '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21' ];
         buildApiLevelSelector();
       </script>
                   
@@ -441,13 +467,15 @@ type="text/css">
   <a href="../../../reference/android/app/admin/package-summary.html">android.app.admin</a></li>
     <li class="api apilevel-8">
   <a href="../../../reference/android/app/backup/package-summary.html">android.app.backup</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/app/job/package-summary.html">android.app.job</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/app/usage/package-summary.html">android.app.usage</a></li>
     <li class="api apilevel-3">
   <a href="../../../reference/android/appwidget/package-summary.html">android.appwidget</a></li>
     <li class="api apilevel-5">
   <a href="../../../reference/android/bluetooth/package-summary.html">android.bluetooth</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/bluetooth/le/package-summary.html">android.bluetooth.le</a></li>
     <li class="api apilevel-1">
   <a href="../../../reference/android/content/package-summary.html">android.content</a></li>
@@ -473,16 +501,14 @@ type="text/css">
   <a href="../../../reference/android/graphics/pdf/package-summary.html">android.graphics.pdf</a></li>
     <li class="api apilevel-1">
   <a href="../../../reference/android/hardware/package-summary.html">android.hardware</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/hardware/camera2/package-summary.html">android.hardware.camera2</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/hardware/camera2/params/package-summary.html">android.hardware.camera2.params</a></li>
     <li class="api apilevel-17">
   <a href="../../../reference/android/hardware/display/package-summary.html">android.hardware.display</a></li>
     <li class="api apilevel-16">
   <a href="../../../reference/android/hardware/input/package-summary.html">android.hardware.input</a></li>
-    <li class="api apilevel-18">
-  <a href="../../../reference/android/hardware/location/package-summary.html">android.hardware.location</a></li>
     <li class="api apilevel-12">
   <a href="../../../reference/android/hardware/usb/package-summary.html">android.hardware.usb</a></li>
     <li class="api apilevel-3">
@@ -493,11 +519,15 @@ type="text/css">
   <a href="../../../reference/android/media/package-summary.html">android.media</a></li>
     <li class="api apilevel-9">
   <a href="../../../reference/android/media/audiofx/package-summary.html">android.media.audiofx</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/media/browse/package-summary.html">android.media.browse</a></li>
     <li class="api apilevel-14">
   <a href="../../../reference/android/media/effect/package-summary.html">android.media.effect</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/media/projection/package-summary.html">android.media.projection</a></li>
+    <li class="api apilevel-21">
   <a href="../../../reference/android/media/session/package-summary.html">android.media.session</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/media/tv/package-summary.html">android.media.tv</a></li>
     <li class="api apilevel-12">
   <a href="../../../reference/android/mtp/package-summary.html">android.mtp</a></li>
@@ -547,11 +577,15 @@ type="text/css">
   <a href="../../../reference/android/security/package-summary.html">android.security</a></li>
     <li class="api apilevel-17">
   <a href="../../../reference/android/service/dreams/package-summary.html">android.service.dreams</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/service/media/package-summary.html">android.service.media</a></li>
     <li class="api apilevel-18">
   <a href="../../../reference/android/service/notification/package-summary.html">android.service.notification</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/service/restrictions/package-summary.html">android.service.restrictions</a></li>
     <li class="api apilevel-14">
   <a href="../../../reference/android/service/textservice/package-summary.html">android.service.textservice</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/service/voice/package-summary.html">android.service.voice</a></li>
     <li class="api apilevel-7">
   <a href="../../../reference/android/service/wallpaper/package-summary.html">android.service.wallpaper</a></li>
@@ -596,11 +630,15 @@ type="text/css">
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/media/package-summary.html">android.support.v4.media</a></li>
     <li class="api apilevel-">
+  <a href="../../../reference/android/support/v4/media/session/package-summary.html">android.support.v4.media.session</a></li>
+    <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/net/package-summary.html">android.support.v4.net</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/os/package-summary.html">android.support.v4.os</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/print/package-summary.html">android.support.v4.print</a></li>
+    <li class="api apilevel-">
+  <a href="../../../reference/android/support/v4/provider/package-summary.html">android.support.v4.provider</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/text/package-summary.html">android.support.v4.text</a></li>
     <li class="api apilevel-">
@@ -616,6 +654,10 @@ type="text/css">
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v7/appcompat/package-summary.html">android.support.v7.appcompat</a></li>
     <li class="api apilevel-">
+  <a href="../../../reference/android/support/v7/cardview/package-summary.html">android.support.v7.cardview</a></li>
+    <li class="api apilevel-">
+  <a href="../../../reference/android/support/v7/graphics/package-summary.html">android.support.v7.graphics</a></li>
+    <li class="api apilevel-">
   <a href="../../../reference/android/support/v7/gridlayout/package-summary.html">android.support.v7.gridlayout</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v7/media/package-summary.html">android.support.v7.media</a></li>
@@ -627,8 +669,10 @@ type="text/css">
   <a href="../../../reference/android/support/v7/widget/package-summary.html">android.support.v7.widget</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v8/renderscript/package-summary.html">android.support.v8.renderscript</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/system/package-summary.html">android.system</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/telecom/package-summary.html">android.telecom</a></li>
     <li class="api apilevel-1">
   <a href="../../../reference/android/telephony/package-summary.html">android.telephony</a></li>
     <li class="api apilevel-5">
@@ -1154,6 +1198,9 @@ Summary:
   
 
 
+    
+
+
 </div><!-- end header -->
 
 <div id="naMessage"></div>
@@ -1238,12 +1285,6 @@ Summary:
               
             
               
-              
-            
-              
-              
-            
-              
                 <a href="../../../reference/android/graphics/Canvas.EdgeType.html">Canvas.EdgeType</a>,
               
               
@@ -1261,6 +1302,14 @@ Summary:
               
                 <a href="../../../reference/android/webkit/ConsoleMessage.MessageLevel.html">ConsoleMessage.MessageLevel</a>,
               
+              
+            
+              
+                <a href="../../../reference/android/database/CursorJoiner.Result.html">CursorJoiner.Result</a>,
+              
+              
+            
+              
               and
                 <a href="#" onclick="return toggleInherited(document.getElementById('subclasses-direct', null))">50 others.</a>
               
@@ -1270,298 +1319,756 @@ Summary:
       <div id="subclasses-direct-summary"
               style="display: none;"
               >
+  
   <table class="jd-sumtable-expando">
-        <tr class="alt-color api apilevel-" >
-              <td class="jd-linkcol"><a href="../../../reference/android/support/v8/renderscript/Allocation.MipmapControl.html">Allocation.MipmapControl</a></td>
-              <td class="jd-descrcol" width="100%">Controls mipmap behavior when using the bitmap creation and update
- functions.&nbsp;</td>
-          </tr>
-        <tr class=" api apilevel-3" >
-              <td class="jd-linkcol"><a href="../../../reference/android/os/AsyncTask.Status.html">AsyncTask.Status</a></td>
-              <td class="jd-descrcol" width="100%">Indicates the current status of the task.&nbsp;</td>
-          </tr>
-        <tr class="alt-color api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/java/net/Authenticator.RequestorType.html">Authenticator.RequestorType</a></td>
-              <td class="jd-descrcol" width="100%">Enumeration class for the origin of the authentication request.&nbsp;</td>
-          </tr>
-        <tr class=" api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/android/graphics/AvoidXfermode.Mode.html">AvoidXfermode.Mode</a></td>
-              <td class="jd-descrcol" width="100%">&nbsp;</td>
-          </tr>
-        <tr class="alt-color api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/android/graphics/Bitmap.CompressFormat.html">Bitmap.CompressFormat</a></td>
-              <td class="jd-descrcol" width="100%">Specifies the known formats a bitmap can be compressed into
-&nbsp;</td>
-          </tr>
-        <tr class=" api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/android/graphics/Bitmap.Config.html">Bitmap.Config</a></td>
-              <td class="jd-descrcol" width="100%">Possible bitmap configurations.&nbsp;</td>
-          </tr>
-        <tr class="alt-color api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/android/graphics/BlurMaskFilter.Blur.html">BlurMaskFilter.Blur</a></td>
-              <td class="jd-descrcol" width="100%">&nbsp;</td>
-          </tr>
-        <tr class=" api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/android/graphics/Canvas.EdgeType.html">Canvas.EdgeType</a></td>
-              <td class="jd-descrcol" width="100%">&nbsp;</td>
-          </tr>
-        <tr class="alt-color api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/android/graphics/Canvas.VertexMode.html">Canvas.VertexMode</a></td>
-              <td class="jd-descrcol" width="100%">&nbsp;</td>
-          </tr>
-        <tr class=" api apilevel-9" >
-              <td class="jd-linkcol"><a href="../../../reference/java/sql/ClientInfoStatus.html">ClientInfoStatus</a></td>
-              <td class="jd-descrcol" width="100%">An enumeration to describe the reason why a property cannot be set by calling
- Connection.setClientInfo.&nbsp;</td>
-          </tr>
-        <tr class="alt-color api apilevel-8" >
-              <td class="jd-linkcol"><a href="../../../reference/android/webkit/ConsoleMessage.MessageLevel.html">ConsoleMessage.MessageLevel</a></td>
-              <td class="jd-descrcol" width="100%">&nbsp;</td>
-          </tr>
-        <tr class=" api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/android/database/CursorJoiner.Result.html">CursorJoiner.Result</a></td>
-              <td class="jd-descrcol" width="100%">The result of a call to next().&nbsp;</td>
-          </tr>
-        <tr class="alt-color api apilevel-" >
-              <td class="jd-linkcol"><a href="../../../reference/android/support/v8/renderscript/Element.DataKind.html">Element.DataKind</a></td>
-              <td class="jd-descrcol" width="100%">The special interpretation of the data if required.&nbsp;</td>
-          </tr>
-        <tr class=" api apilevel-" >
-              <td class="jd-linkcol"><a href="../../../reference/android/support/v8/renderscript/Element.DataType.html">Element.DataType</a></td>
-              <td class="jd-descrcol" width="100%">DataType represents the basic type information for a basic element.&nbsp;</td>
-          </tr>
-        <tr class="alt-color api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/java/lang/annotation/ElementType.html">ElementType</a></td>
-              <td class="jd-descrcol" width="100%">Defines an enumeration for Java program elements.&nbsp;</td>
-          </tr>
-        <tr class=" api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/java/util/Formatter.BigDecimalLayoutForm.html">Formatter.BigDecimalLayoutForm</a></td>
-              <td class="jd-descrcol" width="100%">The enumeration giving the available styles for formatting very large
- decimal numbers.&nbsp;</td>
-          </tr>
-        <tr class="alt-color api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/android/graphics/drawable/GradientDrawable.Orientation.html">GradientDrawable.Orientation</a></td>
-              <td class="jd-descrcol" width="100%">Controls how the gradient is oriented relative to the drawable's bounds
-&nbsp;</td>
-          </tr>
-        <tr class=" api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/android/widget/ImageView.ScaleType.html">ImageView.ScaleType</a></td>
-              <td class="jd-descrcol" width="100%">Options for scaling the bounds of an image to the bounds of this view.&nbsp;</td>
-          </tr>
-        <tr class="alt-color api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/android/graphics/Interpolator.Result.html">Interpolator.Result</a></td>
-              <td class="jd-descrcol" width="100%">&nbsp;</td>
-          </tr>
-        <tr class=" api apilevel-11" >
-              <td class="jd-linkcol"><a href="../../../reference/android/util/JsonToken.html">JsonToken</a></td>
-              <td class="jd-descrcol" width="100%">A structure, name or value type in a JSON-encoded string.&nbsp;</td>
-          </tr>
-        <tr class="alt-color api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/java/security/KeyRep.Type.html">KeyRep.Type</a></td>
-              <td class="jd-descrcol" width="100%"><code>Type</code> enumerates the supported key types.&nbsp;</td>
-          </tr>
-        <tr class=" api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/android/text/Layout.Alignment.html">Layout.Alignment</a></td>
-              <td class="jd-descrcol" width="100%">&nbsp;</td>
-          </tr>
-        <tr class="alt-color api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/android/net/LocalSocketAddress.Namespace.html">LocalSocketAddress.Namespace</a></td>
-              <td class="jd-descrcol" width="100%">The namespace that this address exists in.&nbsp;</td>
-          </tr>
-        <tr class=" api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/android/graphics/Matrix.ScaleToFit.html">Matrix.ScaleToFit</a></td>
-              <td class="jd-descrcol" width="100%">Controlls how the src rect should align into the dst rect for
-        setRectToRect().&nbsp;</td>
-          </tr>
-        <tr class="alt-color api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/android/net/NetworkInfo.DetailedState.html">NetworkInfo.DetailedState</a></td>
-              <td class="jd-descrcol" width="100%">The fine-grained state of a network connection.&nbsp;</td>
-          </tr>
-        <tr class=" api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/android/net/NetworkInfo.State.html">NetworkInfo.State</a></td>
-              <td class="jd-descrcol" width="100%">Coarse-grained network state.&nbsp;</td>
-          </tr>
-        <tr class="alt-color api apilevel-9" >
-              <td class="jd-linkcol"><a href="../../../reference/java/text/Normalizer.Form.html">Normalizer.Form</a></td>
-              <td class="jd-descrcol" width="100%">The normalization forms supported by the Normalizer.&nbsp;</td>
-          </tr>
-        <tr class=" api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/android/graphics/Paint.Align.html">Paint.Align</a></td>
-              <td class="jd-descrcol" width="100%">Align specifies how drawText aligns its text relative to the
- [x,y] coordinates.&nbsp;</td>
-          </tr>
-        <tr class="alt-color api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/android/graphics/Paint.Cap.html">Paint.Cap</a></td>
-              <td class="jd-descrcol" width="100%">The Cap specifies the treatment for the beginning and ending of
- stroked lines and paths.&nbsp;</td>
-          </tr>
-        <tr class=" api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/android/graphics/Paint.Join.html">Paint.Join</a></td>
-              <td class="jd-descrcol" width="100%">The Join specifies the treatment where lines and curve segments
- join on a stroked path.&nbsp;</td>
-          </tr>
-        <tr class="alt-color api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/android/graphics/Paint.Style.html">Paint.Style</a></td>
-              <td class="jd-descrcol" width="100%">The Style specifies if the primitive being drawn is filled, stroked, or
- both (in the same color).&nbsp;</td>
-          </tr>
-        <tr class=" api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/android/graphics/Path.Direction.html">Path.Direction</a></td>
-              <td class="jd-descrcol" width="100%">Specifies how closed shapes (e.g.&nbsp;</td>
-          </tr>
-        <tr class="alt-color api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/android/graphics/Path.FillType.html">Path.FillType</a></td>
-              <td class="jd-descrcol" width="100%">Enum for the ways a path may be filled.&nbsp;</td>
-          </tr>
-        <tr class=" api apilevel-19" >
-              <td class="jd-linkcol"><a href="../../../reference/android/graphics/Path.Op.html">Path.Op</a></td>
-              <td class="jd-descrcol" width="100%">The logical operations that can be performed when combining two paths.&nbsp;</td>
-          </tr>
-        <tr class="alt-color api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/android/graphics/PathDashPathEffect.Style.html">PathDashPathEffect.Style</a></td>
-              <td class="jd-descrcol" width="100%">&nbsp;</td>
-          </tr>
-        <tr class=" api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/android/graphics/PorterDuff.Mode.html">PorterDuff.Mode</a></td>
-              <td class="jd-descrcol" width="100%">&nbsp;</td>
-          </tr>
-        <tr class="alt-color api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/java/net/Proxy.Type.html">Proxy.Type</a></td>
-              <td class="jd-descrcol" width="100%"><code>Enum</code> class for the proxy type.&nbsp;</td>
-          </tr>
-        <tr class=" api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/android/graphics/Region.Op.html">Region.Op</a></td>
-              <td class="jd-descrcol" width="100%">&nbsp;</td>
-          </tr>
-        <tr class="alt-color api apilevel-" >
-              <td class="jd-linkcol"><a href="../../../reference/android/support/v8/renderscript/RenderScript.ContextType.html">RenderScript.ContextType</a></td>
-              <td class="jd-descrcol" width="100%">ContextType specifies the specific type of context to be created.&nbsp;</td>
-          </tr>
-        <tr class=" api apilevel-" >
-              <td class="jd-linkcol"><a href="../../../reference/android/support/v8/renderscript/RenderScript.Priority.html">RenderScript.Priority</a></td>
-              <td class="jd-descrcol" width="100%">RenderScript worker thread priority enumeration.&nbsp;</td>
-          </tr>
-        <tr class="alt-color api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/java/lang/annotation/RetentionPolicy.html">RetentionPolicy</a></td>
-              <td class="jd-descrcol" width="100%">Defines an enumeration for annotation retention policies.&nbsp;</td>
-          </tr>
-        <tr class=" api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/java/math/RoundingMode.html">RoundingMode</a></td>
-              <td class="jd-descrcol" width="100%">Specifies the rounding behavior for operations whose results cannot be
- represented exactly.&nbsp;</td>
-          </tr>
-        <tr class="alt-color api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/org/apache/http/conn/routing/RouteInfo.LayerType.html">RouteInfo.LayerType</a></td>
-              <td class="jd-descrcol" width="100%">The layering type of a route.&nbsp;</td>
-          </tr>
-        <tr class=" api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/org/apache/http/conn/routing/RouteInfo.TunnelType.html">RouteInfo.TunnelType</a></td>
-              <td class="jd-descrcol" width="100%">The tunnelling type of a route.&nbsp;</td>
-          </tr>
-        <tr class="alt-color api apilevel-9" >
-              <td class="jd-linkcol"><a href="../../../reference/java/sql/RowIdLifetime.html">RowIdLifetime</a></td>
-              <td class="jd-descrcol" width="100%">An enumeration to describe the life-time of RowID.&nbsp;</td>
-          </tr>
-        <tr class=" api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/javax/net/ssl/SSLEngineResult.HandshakeStatus.html">SSLEngineResult.HandshakeStatus</a></td>
-              <td class="jd-descrcol" width="100%">The <code>enum</code> describing the state of the current handshake.&nbsp;</td>
-          </tr>
-        <tr class="alt-color api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/javax/net/ssl/SSLEngineResult.Status.html">SSLEngineResult.Status</a></td>
-              <td class="jd-descrcol" width="100%">The <code>enum</code> describing the result of the <code>SSLEngine</code>
- operation.&nbsp;</td>
-          </tr>
-        <tr class=" api apilevel-" >
-              <td class="jd-linkcol"><a href="../../../reference/android/support/v8/renderscript/Sampler.Value.html">Sampler.Value</a></td>
-              <td class="jd-descrcol" width="100%">&nbsp;</td>
-          </tr>
-        <tr class="alt-color api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/android/graphics/Shader.TileMode.html">Shader.TileMode</a></td>
-              <td class="jd-descrcol" width="100%">&nbsp;</td>
-          </tr>
-        <tr class=" api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/android/telephony/gsm/SmsMessage.MessageClass.html">SmsMessage.MessageClass</a></td>
-              <td class="jd-descrcol" width="100%"><em>
+    
+      <tr class="alt-color api apilevel-" >
+        <td class="jd-linkcol"><a href="../../../reference/android/support/v8/renderscript/Allocation.MipmapControl.html">Allocation.MipmapControl</a></td>
+        <td class="jd-descrcol" width="100%">
+          Controls mipmap behavior when using the bitmap creation and update
+ functions.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-3" >
+        <td class="jd-linkcol"><a href="../../../reference/android/os/AsyncTask.Status.html">AsyncTask.Status</a></td>
+        <td class="jd-descrcol" width="100%">
+          Indicates the current status of the task.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/java/net/Authenticator.RequestorType.html">Authenticator.RequestorType</a></td>
+        <td class="jd-descrcol" width="100%">
+          Enumeration class for the origin of the authentication request.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/android/graphics/AvoidXfermode.Mode.html">AvoidXfermode.Mode</a></td>
+        <td class="jd-descrcol" width="100%">
+          &nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/android/graphics/Bitmap.CompressFormat.html">Bitmap.CompressFormat</a></td>
+        <td class="jd-descrcol" width="100%">
+          Specifies the known formats a bitmap can be compressed into
+&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/android/graphics/Bitmap.Config.html">Bitmap.Config</a></td>
+        <td class="jd-descrcol" width="100%">
+          Possible bitmap configurations.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/android/graphics/BlurMaskFilter.Blur.html">BlurMaskFilter.Blur</a></td>
+        <td class="jd-descrcol" width="100%">
+          &nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/android/graphics/Canvas.EdgeType.html">Canvas.EdgeType</a></td>
+        <td class="jd-descrcol" width="100%">
+          &nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/android/graphics/Canvas.VertexMode.html">Canvas.VertexMode</a></td>
+        <td class="jd-descrcol" width="100%">
+          &nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-9" >
+        <td class="jd-linkcol"><a href="../../../reference/java/sql/ClientInfoStatus.html">ClientInfoStatus</a></td>
+        <td class="jd-descrcol" width="100%">
+          An enumeration to describe the reason why a property cannot be set by calling
+ Connection.setClientInfo.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-8" >
+        <td class="jd-linkcol"><a href="../../../reference/android/webkit/ConsoleMessage.MessageLevel.html">ConsoleMessage.MessageLevel</a></td>
+        <td class="jd-descrcol" width="100%">
+          &nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/android/database/CursorJoiner.Result.html">CursorJoiner.Result</a></td>
+        <td class="jd-descrcol" width="100%">
+          The result of a call to next().&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-" >
+        <td class="jd-linkcol"><a href="../../../reference/android/support/v8/renderscript/Element.DataKind.html">Element.DataKind</a></td>
+        <td class="jd-descrcol" width="100%">
+          The special interpretation of the data if required.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-" >
+        <td class="jd-linkcol"><a href="../../../reference/android/support/v8/renderscript/Element.DataType.html">Element.DataType</a></td>
+        <td class="jd-descrcol" width="100%">
+          DataType represents the basic type information for a basic element.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/java/lang/annotation/ElementType.html">ElementType</a></td>
+        <td class="jd-descrcol" width="100%">
+          Defines an enumeration for Java program elements.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/java/util/Formatter.BigDecimalLayoutForm.html">Formatter.BigDecimalLayoutForm</a></td>
+        <td class="jd-descrcol" width="100%">
+          The enumeration giving the available styles for formatting very large
+ decimal numbers.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/android/graphics/drawable/GradientDrawable.Orientation.html">GradientDrawable.Orientation</a></td>
+        <td class="jd-descrcol" width="100%">
+          Controls how the gradient is oriented relative to the drawable's bounds
+&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/android/widget/ImageView.ScaleType.html">ImageView.ScaleType</a></td>
+        <td class="jd-descrcol" width="100%">
+          Options for scaling the bounds of an image to the bounds of this view.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/android/graphics/Interpolator.Result.html">Interpolator.Result</a></td>
+        <td class="jd-descrcol" width="100%">
+          &nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-11" >
+        <td class="jd-linkcol"><a href="../../../reference/android/util/JsonToken.html">JsonToken</a></td>
+        <td class="jd-descrcol" width="100%">
+          A structure, name or value type in a JSON-encoded string.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/java/security/KeyRep.Type.html">KeyRep.Type</a></td>
+        <td class="jd-descrcol" width="100%">
+          <code>Type</code> enumerates the supported key types.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/android/text/Layout.Alignment.html">Layout.Alignment</a></td>
+        <td class="jd-descrcol" width="100%">
+          &nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/android/net/LocalSocketAddress.Namespace.html">LocalSocketAddress.Namespace</a></td>
+        <td class="jd-descrcol" width="100%">
+          The namespace that this address exists in.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/android/graphics/Matrix.ScaleToFit.html">Matrix.ScaleToFit</a></td>
+        <td class="jd-descrcol" width="100%">
+          Controlls how the src rect should align into the dst rect for
+        setRectToRect().&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/android/net/NetworkInfo.DetailedState.html">NetworkInfo.DetailedState</a></td>
+        <td class="jd-descrcol" width="100%">
+          The fine-grained state of a network connection.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/android/net/NetworkInfo.State.html">NetworkInfo.State</a></td>
+        <td class="jd-descrcol" width="100%">
+          Coarse-grained network state.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-9" >
+        <td class="jd-linkcol"><a href="../../../reference/java/text/Normalizer.Form.html">Normalizer.Form</a></td>
+        <td class="jd-descrcol" width="100%">
+          The normalization forms supported by the Normalizer.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/android/graphics/Paint.Align.html">Paint.Align</a></td>
+        <td class="jd-descrcol" width="100%">
+          Align specifies how drawText aligns its text relative to the
+ [x,y] coordinates.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/android/graphics/Paint.Cap.html">Paint.Cap</a></td>
+        <td class="jd-descrcol" width="100%">
+          The Cap specifies the treatment for the beginning and ending of
+ stroked lines and paths.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/android/graphics/Paint.Join.html">Paint.Join</a></td>
+        <td class="jd-descrcol" width="100%">
+          The Join specifies the treatment where lines and curve segments
+ join on a stroked path.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/android/graphics/Paint.Style.html">Paint.Style</a></td>
+        <td class="jd-descrcol" width="100%">
+          The Style specifies if the primitive being drawn is filled, stroked, or
+ both (in the same color).&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/android/graphics/Path.Direction.html">Path.Direction</a></td>
+        <td class="jd-descrcol" width="100%">
+          Specifies how closed shapes (e.g.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/android/graphics/Path.FillType.html">Path.FillType</a></td>
+        <td class="jd-descrcol" width="100%">
+          Enum for the ways a path may be filled.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-19" >
+        <td class="jd-linkcol"><a href="../../../reference/android/graphics/Path.Op.html">Path.Op</a></td>
+        <td class="jd-descrcol" width="100%">
+          The logical operations that can be performed when combining two paths.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/android/graphics/PathDashPathEffect.Style.html">PathDashPathEffect.Style</a></td>
+        <td class="jd-descrcol" width="100%">
+          &nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/android/graphics/PorterDuff.Mode.html">PorterDuff.Mode</a></td>
+        <td class="jd-descrcol" width="100%">
+          &nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/java/net/Proxy.Type.html">Proxy.Type</a></td>
+        <td class="jd-descrcol" width="100%">
+          <code>Enum</code> class for the proxy type.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/android/graphics/Region.Op.html">Region.Op</a></td>
+        <td class="jd-descrcol" width="100%">
+          &nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-" >
+        <td class="jd-linkcol"><a href="../../../reference/android/support/v8/renderscript/RenderScript.ContextType.html">RenderScript.ContextType</a></td>
+        <td class="jd-descrcol" width="100%">
+          ContextType specifies the specific type of context to be created.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-" >
+        <td class="jd-linkcol"><a href="../../../reference/android/support/v8/renderscript/RenderScript.Priority.html">RenderScript.Priority</a></td>
+        <td class="jd-descrcol" width="100%">
+          RenderScript worker thread priority enumeration.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/java/lang/annotation/RetentionPolicy.html">RetentionPolicy</a></td>
+        <td class="jd-descrcol" width="100%">
+          Defines an enumeration for annotation retention policies.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/java/math/RoundingMode.html">RoundingMode</a></td>
+        <td class="jd-descrcol" width="100%">
+          Specifies the rounding behavior for operations whose results cannot be
+ represented exactly.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/org/apache/http/conn/routing/RouteInfo.LayerType.html">RouteInfo.LayerType</a></td>
+        <td class="jd-descrcol" width="100%">
+          The layering type of a route.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/org/apache/http/conn/routing/RouteInfo.TunnelType.html">RouteInfo.TunnelType</a></td>
+        <td class="jd-descrcol" width="100%">
+          The tunnelling type of a route.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-9" >
+        <td class="jd-linkcol"><a href="../../../reference/java/sql/RowIdLifetime.html">RowIdLifetime</a></td>
+        <td class="jd-descrcol" width="100%">
+          An enumeration to describe the life-time of RowID.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/javax/net/ssl/SSLEngineResult.HandshakeStatus.html">SSLEngineResult.HandshakeStatus</a></td>
+        <td class="jd-descrcol" width="100%">
+          The <code>enum</code> describing the state of the current handshake.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/javax/net/ssl/SSLEngineResult.Status.html">SSLEngineResult.Status</a></td>
+        <td class="jd-descrcol" width="100%">
+          The <code>enum</code> describing the result of the <code>SSLEngine</code>
+ operation.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-" >
+        <td class="jd-linkcol"><a href="../../../reference/android/support/v8/renderscript/Sampler.Value.html">Sampler.Value</a></td>
+        <td class="jd-descrcol" width="100%">
+          &nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/android/graphics/Shader.TileMode.html">Shader.TileMode</a></td>
+        <td class="jd-descrcol" width="100%">
+          &nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/android/telephony/gsm/SmsMessage.MessageClass.html">SmsMessage.MessageClass</a></td>
+        <td class="jd-descrcol" width="100%">
+          <em>
       This enum was deprecated
       in API level 4.
     Use android.telephony.SmsMessage.
-</em>&nbsp;</td>
-          </tr>
-        <tr class="alt-color api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/android/net/wifi/SupplicantState.html">SupplicantState</a></td>
-              <td class="jd-descrcol" width="100%">From <code>defs.h</code> in <code>wpa_supplicant</code>.&nbsp;</td>
-          </tr>
-        <tr class=" api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/android/text/method/TextKeyListener.Capitalize.html">TextKeyListener.Capitalize</a></td>
-              <td class="jd-descrcol" width="100%">&nbsp;</td>
-          </tr>
-        <tr class="alt-color api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/android/text/TextUtils.TruncateAt.html">TextUtils.TruncateAt</a></td>
-              <td class="jd-descrcol" width="100%">&nbsp;</td>
-          </tr>
-        <tr class=" api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/android/widget/TextView.BufferType.html">TextView.BufferType</a></td>
-              <td class="jd-descrcol" width="100%">&nbsp;</td>
-          </tr>
-        <tr class="alt-color api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/java/lang/Thread.State.html">Thread.State</a></td>
-              <td class="jd-descrcol" width="100%">A representation of a thread's state.&nbsp;</td>
-          </tr>
-        <tr class=" api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/java/util/concurrent/TimeUnit.html">TimeUnit</a></td>
-              <td class="jd-descrcol" width="100%">A <code>TimeUnit</code> represents time durations at a given unit of
+</em>&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/android/net/wifi/SupplicantState.html">SupplicantState</a></td>
+        <td class="jd-descrcol" width="100%">
+          From <code>defs.h</code> in <code>wpa_supplicant</code>.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/android/text/method/TextKeyListener.Capitalize.html">TextKeyListener.Capitalize</a></td>
+        <td class="jd-descrcol" width="100%">
+          &nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/android/text/TextUtils.TruncateAt.html">TextUtils.TruncateAt</a></td>
+        <td class="jd-descrcol" width="100%">
+          &nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/android/widget/TextView.BufferType.html">TextView.BufferType</a></td>
+        <td class="jd-descrcol" width="100%">
+          &nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/java/lang/Thread.State.html">Thread.State</a></td>
+        <td class="jd-descrcol" width="100%">
+          A representation of a thread's state.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/java/util/concurrent/TimeUnit.html">TimeUnit</a></td>
+        <td class="jd-descrcol" width="100%">
+          A <code>TimeUnit</code> represents time durations at a given unit of
  granularity and provides utility methods to convert across units,
- and to perform timing and delay operations in these units.&nbsp;</td>
-          </tr>
-        <tr class="alt-color api apilevel-" >
-              <td class="jd-linkcol"><a href="../../../reference/android/support/v8/renderscript/Type.CubemapFace.html">Type.CubemapFace</a></td>
-              <td class="jd-descrcol" width="100%">&nbsp;</td>
-          </tr>
-        <tr class=" api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/android/view/ViewDebug.HierarchyTraceType.html">ViewDebug.HierarchyTraceType</a></td>
-              <td class="jd-descrcol" width="100%"><em>
+ and to perform timing and delay operations in these units.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-" >
+        <td class="jd-linkcol"><a href="../../../reference/android/support/v8/renderscript/Type.CubemapFace.html">Type.CubemapFace</a></td>
+        <td class="jd-descrcol" width="100%">
+          &nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/android/view/ViewDebug.HierarchyTraceType.html">ViewDebug.HierarchyTraceType</a></td>
+        <td class="jd-descrcol" width="100%">
+          <em>
       This enum was deprecated
       in API level 16.
     This enum is now unused
-</em>&nbsp;</td>
-          </tr>
-        <tr class="alt-color api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/android/view/ViewDebug.RecyclerTraceType.html">ViewDebug.RecyclerTraceType</a></td>
-              <td class="jd-descrcol" width="100%"><em>
+</em>&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/android/view/ViewDebug.RecyclerTraceType.html">ViewDebug.RecyclerTraceType</a></td>
+        <td class="jd-descrcol" width="100%">
+          <em>
       This enum was deprecated
       in API level 16.
     This enum is now unused
-</em>&nbsp;</td>
-          </tr>
-        <tr class=" api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/android/webkit/WebSettings.LayoutAlgorithm.html">WebSettings.LayoutAlgorithm</a></td>
-              <td class="jd-descrcol" width="100%">Enum for controlling the layout of html.&nbsp;</td>
-          </tr>
-        <tr class="alt-color api apilevel-8" >
-              <td class="jd-linkcol"><a href="../../../reference/android/webkit/WebSettings.PluginState.html">WebSettings.PluginState</a></td>
-              <td class="jd-descrcol" width="100%">The plugin state effects how plugins are treated on a page.&nbsp;</td>
-          </tr>
-        <tr class=" api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/android/webkit/WebSettings.RenderPriority.html">WebSettings.RenderPriority</a></td>
-              <td class="jd-descrcol" width="100%">&nbsp;</td>
-          </tr>
-        <tr class="alt-color api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/android/webkit/WebSettings.TextSize.html">WebSettings.TextSize</a></td>
-              <td class="jd-descrcol" width="100%"><em>
+</em>&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/android/webkit/WebSettings.LayoutAlgorithm.html">WebSettings.LayoutAlgorithm</a></td>
+        <td class="jd-descrcol" width="100%">
+          Enum for controlling the layout of html.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-8" >
+        <td class="jd-linkcol"><a href="../../../reference/android/webkit/WebSettings.PluginState.html">WebSettings.PluginState</a></td>
+        <td class="jd-descrcol" width="100%">
+          The plugin state effects how plugins are treated on a page.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/android/webkit/WebSettings.RenderPriority.html">WebSettings.RenderPriority</a></td>
+        <td class="jd-descrcol" width="100%">
+          &nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/android/webkit/WebSettings.TextSize.html">WebSettings.TextSize</a></td>
+        <td class="jd-descrcol" width="100%">
+          <em>
       This enum was deprecated
       in API level 14.
     Use <code><a href="../../../reference/android/webkit/WebSettings.html#setTextZoom(int)">setTextZoom(int)</a></code> and <code><a href="../../../reference/android/webkit/WebSettings.html#getTextZoom()">getTextZoom()</a></code> instead.
-</em>&nbsp;</td>
-          </tr>
-        <tr class=" api apilevel-7" >
-              <td class="jd-linkcol"><a href="../../../reference/android/webkit/WebSettings.ZoomDensity.html">WebSettings.ZoomDensity</a></td>
-              <td class="jd-descrcol" width="100%">Enum for specifying the WebView's desired density.&nbsp;</td>
-          </tr>
-        <tr class="alt-color api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/android/util/Xml.Encoding.html">Xml.Encoding</a></td>
-              <td class="jd-descrcol" width="100%">Supported character encodings.&nbsp;</td>
-          </tr>
+</em>&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-7" >
+        <td class="jd-linkcol"><a href="../../../reference/android/webkit/WebSettings.ZoomDensity.html">WebSettings.ZoomDensity</a></td>
+        <td class="jd-descrcol" width="100%">
+          Enum for specifying the WebView's desired density.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/android/util/Xml.Encoding.html">Xml.Encoding</a></td>
+        <td class="jd-descrcol" width="100%">
+          Supported character encodings.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
   </table>
+
       </div>
   </div>
 </td></tr></table>
@@ -1646,7 +2153,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Enum.html#Enum(java.lang.String, int)">Enum</a></span>(<a href="../../../reference/java/lang/String.html">String</a> name, int ordinal)</nobr>
         
-        <div class="jd-descrdiv">Constructor for constants of enum subtypes.</div>
+        <div class="jd-descrdiv">
+          Constructor for constants of enum subtypes.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1675,8 +2187,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Enum.html#compareTo(E)">compareTo</a></span>(E o)</nobr>
         
-        <div class="jd-descrdiv">Compares this object to the specified enum object to determine their
- relative order.</div>
+        <div class="jd-descrdiv">
+          Compares this object to the specified enum object to determine their
+ relative order.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1694,8 +2211,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Enum.html#equals(java.lang.Object)">equals</a></span>(<a href="../../../reference/java/lang/Object.html">Object</a> other)</nobr>
         
-        <div class="jd-descrdiv">Compares this object with the specified object and indicates if they are
- equal.</div>
+        <div class="jd-descrdiv">
+          Compares this object with the specified object and indicates if they are
+ equal.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1713,7 +2235,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Enum.html#getDeclaringClass()">getDeclaringClass</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns the enum constant's declaring class.</div>
+        <div class="jd-descrdiv">
+          Returns the enum constant's declaring class.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1731,7 +2258,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Enum.html#hashCode()">hashCode</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns an integer hash code for this object.</div>
+        <div class="jd-descrdiv">
+          Returns an integer hash code for this object.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1749,7 +2281,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Enum.html#name()">name</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns the name of this enum constant.</div>
+        <div class="jd-descrdiv">
+          Returns the name of this enum constant.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1767,7 +2304,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Enum.html#ordinal()">ordinal</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns the position of the enum constant in the declaration.</div>
+        <div class="jd-descrdiv">
+          Returns the position of the enum constant in the declaration.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1785,8 +2327,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Enum.html#toString()">toString</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns a string containing a concise, human-readable description of this
- object.</div>
+        <div class="jd-descrdiv">
+          Returns a string containing a concise, human-readable description of this
+ object.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1804,7 +2351,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Enum.html#valueOf(java.lang.Class<T>, java.lang.String)">valueOf</a></span>(<a href="../../../reference/java/lang/Class.html">Class</a>&lt;T&gt; enumType, <a href="../../../reference/java/lang/String.html">String</a> name)</nobr>
         
-        <div class="jd-descrdiv">Returns the constant with the specified name of the specified enum type.</div>
+        <div class="jd-descrdiv">
+          Returns the constant with the specified name of the specified enum type.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1833,7 +2385,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Enum.html#clone()">clone</a></span>()</nobr>
         
-        <div class="jd-descrdiv"><code>Enum</code> objects are singletons, they may not be cloned.</div>
+        <div class="jd-descrdiv">
+          <code>Enum</code> objects are singletons, they may not be cloned.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1851,7 +2408,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Enum.html#finalize()">finalize</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Enum types may not have finalizers.</div>
+        <div class="jd-descrdiv">
+          Enum types may not have finalizers.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1901,7 +2463,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#clone()">clone</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Creates and returns a copy of this <code>Object</code>.</div>
+        <div class="jd-descrdiv">
+          Creates and returns a copy of this <code>Object</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1919,8 +2486,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#equals(java.lang.Object)">equals</a></span>(<a href="../../../reference/java/lang/Object.html">Object</a> o)</nobr>
         
-        <div class="jd-descrdiv">Compares this instance with the specified object and indicates if they
- are equal.</div>
+        <div class="jd-descrdiv">
+          Compares this instance with the specified object and indicates if they
+ are equal.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1938,7 +2510,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#finalize()">finalize</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Invoked when the garbage collector has detected that this instance is no longer reachable.</div>
+        <div class="jd-descrdiv">
+          Invoked when the garbage collector has detected that this instance is no longer reachable.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1956,8 +2533,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#getClass()">getClass</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns the unique instance of <code><a href="../../../reference/java/lang/Class.html">Class</a></code> that represents this
- object's class.</div>
+        <div class="jd-descrdiv">
+          Returns the unique instance of <code><a href="../../../reference/java/lang/Class.html">Class</a></code> that represents this
+ object's class.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1975,7 +2557,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#hashCode()">hashCode</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns an integer hash code for this object.</div>
+        <div class="jd-descrdiv">
+          Returns an integer hash code for this object.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1993,8 +2580,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#notify()">notify</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Causes a thread which is waiting on this object's monitor (by means of
- calling one of the <code>wait()</code> methods) to be woken up.</div>
+        <div class="jd-descrdiv">
+          Causes a thread which is waiting on this object's monitor (by means of
+ calling one of the <code>wait()</code> methods) to be woken up.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2012,8 +2604,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#notifyAll()">notifyAll</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Causes all threads which are waiting on this object's monitor (by means
- of calling one of the <code>wait()</code> methods) to be woken up.</div>
+        <div class="jd-descrdiv">
+          Causes all threads which are waiting on this object's monitor (by means
+ of calling one of the <code>wait()</code> methods) to be woken up.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2031,8 +2628,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#toString()">toString</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns a string containing a concise, human-readable description of this
- object.</div>
+        <div class="jd-descrdiv">
+          Returns a string containing a concise, human-readable description of this
+ object.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2050,7 +2652,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#wait()">wait</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object.</div>
+        <div class="jd-descrdiv">
+          Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2068,8 +2675,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#wait(long, int)">wait</a></span>(long millis, int nanos)</nobr>
         
-        <div class="jd-descrdiv">Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object or until the
- specified timeout expires.</div>
+        <div class="jd-descrdiv">
+          Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object or until the
+ specified timeout expires.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2087,8 +2699,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#wait(long)">wait</a></span>(long millis)</nobr>
         
-        <div class="jd-descrdiv">Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object or until the
- specified timeout expires.</div>
+        <div class="jd-descrdiv">
+          Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object or until the
+ specified timeout expires.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2134,8 +2751,13 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Comparable.html#compareTo(T)">compareTo</a></span>(T another)</nobr>
         
-        <div class="jd-descrdiv">Compares this object to the specified object to determine their relative
- order.</div>
+        <div class="jd-descrdiv">
+          Compares this object to the specified object to determine their relative
+ order.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2207,6 +2829,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Constructor for constants of enum subtypes.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -2262,6 +2887,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Compares this object to the specified enum object to determine their
  relative order. This method compares the object's ordinal values, that
  is, their position in the enum declaration.</p></div>
@@ -2316,6 +2944,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Compares this object with the specified object and indicates if they are
  equal. In order to be equal, <code>object</code> must be identical to this
  enum constant.</p></div>
@@ -2363,6 +2994,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns the enum constant's declaring class.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
@@ -2397,6 +3031,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Returns an integer hash code for this object. By contract, any two
  objects for which <code><a href="../../../reference/java/lang/Object.html#equals(java.lang.Object)">equals(Object)</a></code> returns <code>true</code> must return
@@ -2442,6 +3079,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns the name of this enum constant. The name is the field as it
  appears in the <code>enum</code> declaration.</p></div>
   <div class="jd-tagdata">
@@ -2482,6 +3122,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns the position of the enum constant in the declaration. The first
  constant has an ordinal value of zero.</p></div>
   <div class="jd-tagdata">
@@ -2518,6 +3161,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns a string containing a concise, human-readable description of this
  object. In this case, the enum constant's name is returned.</p></div>
   <div class="jd-tagdata">
@@ -2553,6 +3199,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Returns the constant with the specified name of the specified enum type.</p></div>
   <div class="jd-tagdata">
@@ -2626,6 +3275,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p><code>Enum</code> objects are singletons, they may not be cloned. This method
  always throws a <code>CloneNotSupportedException</code>.</p></div>
   <div class="jd-tagdata">
@@ -2670,6 +3322,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Enum types may not have finalizers.</p></div>
 

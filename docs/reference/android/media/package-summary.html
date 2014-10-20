@@ -82,6 +82,19 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 <html>
 <head>
 
@@ -97,7 +110,7 @@
 href="http://fonts.useso.com/css?family=Roboto+Condensed">
 <link rel="stylesheet" href="http://fonts.useso.com/css?family=Roboto:light,regular,medium,thin,italic,mediumitalic,bold"
   title="roboto">
-<link href="../../../assets/css/default.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/default.css?v=2" rel="stylesheet" type="text/css">
 
 
 <!-- FULLSCREEN STYLESHEET -->
@@ -106,31 +119,32 @@ type="text/css">
 
 
 <!-- JAVASCRIPT -->
-<script src="http://googleapiscdn.qiniudn.com/www.google.com/jsapi" type="text/javascript"></script>
+<script src="http://www.google.com/jsapi" type="text/javascript"></script>
 <script src="../../../assets/js/android_3p-bundle.js" type="text/javascript"></script>
 <script type="text/javascript">
   var toRoot = "../../../";
   var metaTags = [];
   var devsite = false;
 </script>
-<script src="../../../assets/js/docs.js" type="text/javascript"></script>
+<script src="../../../assets/js/docs.js?v=2" type="text/javascript"></script>
 
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-5831155-1']);
-  _gaq.push(['_trackPageview']);
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
+  ga('create', 'UA-5831155-1', 'android.com');
+  ga('create', 'UA-49880327-2', 'android.com', {'name': 'universal'});  // New tracker);
+  ga('send', 'pageview');
+  ga('universal.send', 'pageview'); // Send page view for new tracker.
 </script>
+
 </head>
 
 
 <body class="gc-documentation 
-  develop">
+  develop reference">
   <div id="doc-api-level" class="1" style="display:none"></div>
   <a name="top"></a>
 
@@ -140,6 +154,10 @@ type="text/css">
   <!-- Header -->
   <div id="header-wrapper">
     <div id="header">
+
+    
+
+
       <div class="wrap" id="header-wrap">
         <div class="col-3 logo">
           <a href="../../../index.html">
@@ -261,11 +279,20 @@ type="text/css">
 
 
         <!-- Expanded quicknav -->
-        <div id="quicknav" class="col-9">
+        <div id="quicknav" class="col-13">
           <ul>
+            <li class="about">
+              <ul>
+                <li><a href="../../../about/index.html">About</a></li>
+                <li><a href="../../../wear/index.html">Wear</a></li>
+                <li><a href="../../../tv/index.html">TV</a></li>
+                <li><a href="../../../auto/index.html">Auto</a></li>
+              </ul>
+            </li>
             <li class="design">
               <ul>
                 <li><a href="../../../design/index.html">Get Started</a></li>
+                <li><a href="../../../design/devices.html">Devices</a></li>
                 <li><a href="../../../design/style/index.html">Style</a></li>
                 <li><a href="../../../design/patterns/index.html">Patterns</a></li>
                 <li><a href="../../../design/building-blocks/index.html">Building Blocks</a></li>
@@ -299,7 +326,7 @@ type="text/css">
                   ja-lang="リファレンス"
                   es-lang="Referencia"
                   >Reference</a></li>
-                <li><a href="../../../tools/index.html"
+                <li><a href="../../../sdk/index.html"
                   zh-tw-lang="相關工具"
                   zh-cn-lang="工具"
                   ru-lang="Инструменты"
@@ -307,7 +334,6 @@ type="text/css">
                   ja-lang="ツール"
                   es-lang="Herramientas"
                   >Tools</a>
-                  <ul><li><a href="../../../sdk/index.html">Get the SDK</a></li></ul>
                 </li>
                 <li><a href="../../../google/index.html">Google Services</a>
                 </li>
@@ -359,7 +385,7 @@ type="text/css">
                   ja-lang="リファレンス"
                   es-lang="Referencia"
                   >Reference</a></li>
-                <li class="tools"><a href="../../../tools/index.html"
+                <li class="tools"><a href="../../../sdk/index.html"
                   zh-tw-lang="相關工具"
                   zh-cn-lang="工具"
                   ru-lang="Инструменты"
@@ -374,7 +400,7 @@ type="text/css">
             </ul>
         </div>
     </div>
-    <!-- /Sendondary x-nav -->
+    <!-- /Sendondary x-nav DEVELOP -->
 
   
 
@@ -415,7 +441,7 @@ type="text/css">
         <div id="api-nav-title">Android APIs</div>
         </div><!-- end nav header -->
       <script>
-        var SINCE_DATA = [ '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19' ];
+        var SINCE_DATA = [ '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21' ];
         buildApiLevelSelector();
       </script>
                   
@@ -442,13 +468,15 @@ type="text/css">
   <a href="../../../reference/android/app/admin/package-summary.html">android.app.admin</a></li>
     <li class="api apilevel-8">
   <a href="../../../reference/android/app/backup/package-summary.html">android.app.backup</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/app/job/package-summary.html">android.app.job</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/app/usage/package-summary.html">android.app.usage</a></li>
     <li class="api apilevel-3">
   <a href="../../../reference/android/appwidget/package-summary.html">android.appwidget</a></li>
     <li class="api apilevel-5">
   <a href="../../../reference/android/bluetooth/package-summary.html">android.bluetooth</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/bluetooth/le/package-summary.html">android.bluetooth.le</a></li>
     <li class="api apilevel-1">
   <a href="../../../reference/android/content/package-summary.html">android.content</a></li>
@@ -474,16 +502,14 @@ type="text/css">
   <a href="../../../reference/android/graphics/pdf/package-summary.html">android.graphics.pdf</a></li>
     <li class="api apilevel-1">
   <a href="../../../reference/android/hardware/package-summary.html">android.hardware</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/hardware/camera2/package-summary.html">android.hardware.camera2</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/hardware/camera2/params/package-summary.html">android.hardware.camera2.params</a></li>
     <li class="api apilevel-17">
   <a href="../../../reference/android/hardware/display/package-summary.html">android.hardware.display</a></li>
     <li class="api apilevel-16">
   <a href="../../../reference/android/hardware/input/package-summary.html">android.hardware.input</a></li>
-    <li class="api apilevel-18">
-  <a href="../../../reference/android/hardware/location/package-summary.html">android.hardware.location</a></li>
     <li class="api apilevel-12">
   <a href="../../../reference/android/hardware/usb/package-summary.html">android.hardware.usb</a></li>
     <li class="api apilevel-3">
@@ -494,11 +520,15 @@ type="text/css">
   <a href="../../../reference/android/media/package-summary.html">android.media</a></li>
     <li class="api apilevel-9">
   <a href="../../../reference/android/media/audiofx/package-summary.html">android.media.audiofx</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/media/browse/package-summary.html">android.media.browse</a></li>
     <li class="api apilevel-14">
   <a href="../../../reference/android/media/effect/package-summary.html">android.media.effect</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/media/projection/package-summary.html">android.media.projection</a></li>
+    <li class="api apilevel-21">
   <a href="../../../reference/android/media/session/package-summary.html">android.media.session</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/media/tv/package-summary.html">android.media.tv</a></li>
     <li class="api apilevel-12">
   <a href="../../../reference/android/mtp/package-summary.html">android.mtp</a></li>
@@ -548,11 +578,15 @@ type="text/css">
   <a href="../../../reference/android/security/package-summary.html">android.security</a></li>
     <li class="api apilevel-17">
   <a href="../../../reference/android/service/dreams/package-summary.html">android.service.dreams</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/service/media/package-summary.html">android.service.media</a></li>
     <li class="api apilevel-18">
   <a href="../../../reference/android/service/notification/package-summary.html">android.service.notification</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/service/restrictions/package-summary.html">android.service.restrictions</a></li>
     <li class="api apilevel-14">
   <a href="../../../reference/android/service/textservice/package-summary.html">android.service.textservice</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/service/voice/package-summary.html">android.service.voice</a></li>
     <li class="api apilevel-7">
   <a href="../../../reference/android/service/wallpaper/package-summary.html">android.service.wallpaper</a></li>
@@ -597,11 +631,15 @@ type="text/css">
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/media/package-summary.html">android.support.v4.media</a></li>
     <li class="api apilevel-">
+  <a href="../../../reference/android/support/v4/media/session/package-summary.html">android.support.v4.media.session</a></li>
+    <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/net/package-summary.html">android.support.v4.net</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/os/package-summary.html">android.support.v4.os</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/print/package-summary.html">android.support.v4.print</a></li>
+    <li class="api apilevel-">
+  <a href="../../../reference/android/support/v4/provider/package-summary.html">android.support.v4.provider</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/text/package-summary.html">android.support.v4.text</a></li>
     <li class="api apilevel-">
@@ -617,6 +655,10 @@ type="text/css">
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v7/appcompat/package-summary.html">android.support.v7.appcompat</a></li>
     <li class="api apilevel-">
+  <a href="../../../reference/android/support/v7/cardview/package-summary.html">android.support.v7.cardview</a></li>
+    <li class="api apilevel-">
+  <a href="../../../reference/android/support/v7/graphics/package-summary.html">android.support.v7.graphics</a></li>
+    <li class="api apilevel-">
   <a href="../../../reference/android/support/v7/gridlayout/package-summary.html">android.support.v7.gridlayout</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v7/media/package-summary.html">android.support.v7.media</a></li>
@@ -628,8 +670,10 @@ type="text/css">
   <a href="../../../reference/android/support/v7/widget/package-summary.html">android.support.v7.widget</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v8/renderscript/package-summary.html">android.support.v8.renderscript</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/system/package-summary.html">android.system</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/telecom/package-summary.html">android.telecom</a></li>
     <li class="api apilevel-1">
   <a href="../../../reference/android/telephony/package-summary.html">android.telephony</a></li>
     <li class="api apilevel-5">
@@ -918,7 +962,10 @@ type="text/css">
     <li><h2>Classes</h2>
       <ul>
         <li class="api apilevel-1"><a href="../../../reference/android/media/AsyncPlayer.html">AsyncPlayer</a></li>
+        <li class="api apilevel-21"><a href="../../../reference/android/media/AudioAttributes.html">AudioAttributes</a></li>
+        <li class="api apilevel-21"><a href="../../../reference/android/media/AudioAttributes.Builder.html">AudioAttributes.Builder</a></li>
         <li class="api apilevel-3"><a href="../../../reference/android/media/AudioFormat.html">AudioFormat</a></li>
+        <li class="api apilevel-21"><a href="../../../reference/android/media/AudioFormat.Builder.html">AudioFormat.Builder</a></li>
         <li class="api apilevel-1"><a href="../../../reference/android/media/AudioManager.html">AudioManager</a></li>
         <li class="api apilevel-3"><a href="../../../reference/android/media/AudioRecord.html">AudioRecord</a></li>
         <li class="api apilevel-19"><a href="../../../reference/android/media/AudioTimestamp.html">AudioTimestamp</a></li>
@@ -935,20 +982,26 @@ type="text/css">
         <li class="api apilevel-16"><a href="../../../reference/android/media/MediaActionSound.html">MediaActionSound</a></li>
         <li class="api apilevel-16"><a href="../../../reference/android/media/MediaCodec.html">MediaCodec</a></li>
         <li class="api apilevel-16"><a href="../../../reference/android/media/MediaCodec.BufferInfo.html">MediaCodec.BufferInfo</a></li>
+        <li class="api apilevel-21"><a href="../../../reference/android/media/MediaCodec.Callback.html">MediaCodec.Callback</a></li>
         <li class="api apilevel-16"><a href="../../../reference/android/media/MediaCodec.CryptoInfo.html">MediaCodec.CryptoInfo</a></li>
         <li class="api apilevel-16"><a href="../../../reference/android/media/MediaCodecInfo.html">MediaCodecInfo</a></li>
+        <li class="api apilevel-21"><a href="../../../reference/android/media/MediaCodecInfo.AudioCapabilities.html">MediaCodecInfo.AudioCapabilities</a></li>
         <li class="api apilevel-16"><a href="../../../reference/android/media/MediaCodecInfo.CodecCapabilities.html">MediaCodecInfo.CodecCapabilities</a></li>
         <li class="api apilevel-16"><a href="../../../reference/android/media/MediaCodecInfo.CodecProfileLevel.html">MediaCodecInfo.CodecProfileLevel</a></li>
+        <li class="api apilevel-21"><a href="../../../reference/android/media/MediaCodecInfo.EncoderCapabilities.html">MediaCodecInfo.EncoderCapabilities</a></li>
+        <li class="api apilevel-21"><a href="../../../reference/android/media/MediaCodecInfo.VideoCapabilities.html">MediaCodecInfo.VideoCapabilities</a></li>
         <li class="api apilevel-16"><a href="../../../reference/android/media/MediaCodecList.html">MediaCodecList</a></li>
         <li class="api apilevel-16"><a href="../../../reference/android/media/MediaCrypto.html">MediaCrypto</a></li>
+        <li class="api apilevel-21"><a href="../../../reference/android/media/MediaDescription.html">MediaDescription</a></li>
+        <li class="api apilevel-21"><a href="../../../reference/android/media/MediaDescription.Builder.html">MediaDescription.Builder</a></li>
         <li class="api apilevel-18"><a href="../../../reference/android/media/MediaDrm.html">MediaDrm</a></li>
         <li class="api apilevel-18"><a href="../../../reference/android/media/MediaDrm.CryptoSession.html">MediaDrm.CryptoSession</a></li>
         <li class="api apilevel-18"><a href="../../../reference/android/media/MediaDrm.KeyRequest.html">MediaDrm.KeyRequest</a></li>
         <li class="api apilevel-18"><a href="../../../reference/android/media/MediaDrm.ProvisionRequest.html">MediaDrm.ProvisionRequest</a></li>
         <li class="api apilevel-16"><a href="../../../reference/android/media/MediaExtractor.html">MediaExtractor</a></li>
         <li class="api apilevel-16"><a href="../../../reference/android/media/MediaFormat.html">MediaFormat</a></li>
-        <li class="api apilevel-"><a href="../../../reference/android/media/MediaMetadata.html">MediaMetadata</a></li>
-        <li class="api apilevel-"><a href="../../../reference/android/media/MediaMetadata.Builder.html">MediaMetadata.Builder</a></li>
+        <li class="api apilevel-21"><a href="../../../reference/android/media/MediaMetadata.html">MediaMetadata</a></li>
+        <li class="api apilevel-21"><a href="../../../reference/android/media/MediaMetadata.Builder.html">MediaMetadata.Builder</a></li>
         <li class="api apilevel-19"><a href="../../../reference/android/media/MediaMetadataEditor.html">MediaMetadataEditor</a></li>
         <li class="api apilevel-10"><a href="../../../reference/android/media/MediaMetadataRetriever.html">MediaMetadataRetriever</a></li>
         <li class="api apilevel-18"><a href="../../../reference/android/media/MediaMuxer.html">MediaMuxer</a></li>
@@ -979,9 +1032,11 @@ type="text/css">
         <li class="api apilevel-1"><a href="../../../reference/android/media/Ringtone.html">Ringtone</a></li>
         <li class="api apilevel-1"><a href="../../../reference/android/media/RingtoneManager.html">RingtoneManager</a></li>
         <li class="api apilevel-1"><a href="../../../reference/android/media/SoundPool.html">SoundPool</a></li>
+        <li class="api apilevel-21"><a href="../../../reference/android/media/SoundPool.Builder.html">SoundPool.Builder</a></li>
         <li class="api apilevel-8"><a href="../../../reference/android/media/ThumbnailUtils.html">ThumbnailUtils</a></li>
         <li class="api apilevel-16"><a href="../../../reference/android/media/TimedText.html">TimedText</a></li>
         <li class="api apilevel-1"><a href="../../../reference/android/media/ToneGenerator.html">ToneGenerator</a></li>
+        <li class="api apilevel-21"><a href="../../../reference/android/media/VolumeProvider.html">VolumeProvider</a></li>
       </ul>
     </li>
               
@@ -989,8 +1044,10 @@ type="text/css">
     <li><h2>Exceptions</h2>
       <ul>
         <li class="api apilevel-18"><a href="../../../reference/android/media/DeniedByServerException.html">DeniedByServerException</a></li>
+        <li class="api apilevel-21"><a href="../../../reference/android/media/MediaCodec.CodecException.html">MediaCodec.CodecException</a></li>
         <li class="api apilevel-16"><a href="../../../reference/android/media/MediaCodec.CryptoException.html">MediaCodec.CryptoException</a></li>
         <li class="api apilevel-16"><a href="../../../reference/android/media/MediaCryptoException.html">MediaCryptoException</a></li>
+        <li class="api apilevel-21"><a href="../../../reference/android/media/MediaDrm.MediaDrmStateException.html">MediaDrm.MediaDrmStateException</a></li>
         <li class="api apilevel-18"><a href="../../../reference/android/media/MediaDrmException.html">MediaDrmException</a></li>
         <li class="api apilevel-18"><a href="../../../reference/android/media/NotProvisionedException.html">NotProvisionedException</a></li>
         <li class="api apilevel-19"><a href="../../../reference/android/media/ResourceBusyException.html">ResourceBusyException</a></li>
@@ -1090,126 +1147,290 @@ and control alerts such as ringtones and phone vibrations (<code><a href="../../
     <h2>Interfaces</h2>
     <div class="jd-sumtable">
     
+  
   <table class="jd-sumtable-expando">
-        <tr class="alt-color api apilevel-8" >
-              <td class="jd-linkcol"><a href="../../../reference/android/media/AudioManager.OnAudioFocusChangeListener.html">AudioManager.OnAudioFocusChangeListener</a></td>
-              <td class="jd-descrcol" width="100%">Interface definition for a callback to be invoked when the audio focus of the system is
- updated.&nbsp;</td>
-          </tr>
-        <tr class=" api apilevel-3" >
-              <td class="jd-linkcol"><a href="../../../reference/android/media/AudioRecord.OnRecordPositionUpdateListener.html">AudioRecord.OnRecordPositionUpdateListener</a></td>
-              <td class="jd-descrcol" width="100%">Interface definition for a callback to be invoked when an AudioRecord has
+    
+      <tr class="alt-color api apilevel-8" >
+        <td class="jd-linkcol"><a href="../../../reference/android/media/AudioManager.OnAudioFocusChangeListener.html">AudioManager.OnAudioFocusChangeListener</a></td>
+        <td class="jd-descrcol" width="100%">
+          Interface definition for a callback to be invoked when the audio focus of the system is
+ updated.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-3" >
+        <td class="jd-linkcol"><a href="../../../reference/android/media/AudioRecord.OnRecordPositionUpdateListener.html">AudioRecord.OnRecordPositionUpdateListener</a></td>
+        <td class="jd-descrcol" width="100%">
+          Interface definition for a callback to be invoked when an AudioRecord has
  reached a notification marker set by <code><a href="../../../reference/android/media/AudioRecord.html#setNotificationMarkerPosition(int)">setNotificationMarkerPosition(int)</a></code>
  or for periodic updates on the progress of the record head, as set by
- <code><a href="../../../reference/android/media/AudioRecord.html#setPositionNotificationPeriod(int)">setPositionNotificationPeriod(int)</a></code>.&nbsp;</td>
-          </tr>
-        <tr class="alt-color api apilevel-3" >
-              <td class="jd-linkcol"><a href="../../../reference/android/media/AudioTrack.OnPlaybackPositionUpdateListener.html">AudioTrack.OnPlaybackPositionUpdateListener</a></td>
-              <td class="jd-descrcol" width="100%">Interface definition for a callback to be invoked when the playback head position of
- an AudioTrack has reached a notification marker or has increased by a certain period.&nbsp;</td>
-          </tr>
-        <tr class=" api apilevel-19" >
-              <td class="jd-linkcol"><a href="../../../reference/android/media/ImageReader.OnImageAvailableListener.html">ImageReader.OnImageAvailableListener</a></td>
-              <td class="jd-descrcol" width="100%">Callback interface for being notified that a new image is available.&nbsp;</td>
-          </tr>
-        <tr class="alt-color api apilevel-3" >
-              <td class="jd-linkcol"><a href="../../../reference/android/media/JetPlayer.OnJetEventListener.html">JetPlayer.OnJetEventListener</a></td>
-              <td class="jd-descrcol" width="100%">Handles the notification when the JET engine generates an event.&nbsp;</td>
-          </tr>
-        <tr class=" api apilevel-18" >
-              <td class="jd-linkcol"><a href="../../../reference/android/media/MediaDrm.OnEventListener.html">MediaDrm.OnEventListener</a></td>
-              <td class="jd-descrcol" width="100%">Interface definition for a callback to be invoked when a drm event
+ <code><a href="../../../reference/android/media/AudioRecord.html#setPositionNotificationPeriod(int)">setPositionNotificationPeriod(int)</a></code>.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-3" >
+        <td class="jd-linkcol"><a href="../../../reference/android/media/AudioTrack.OnPlaybackPositionUpdateListener.html">AudioTrack.OnPlaybackPositionUpdateListener</a></td>
+        <td class="jd-descrcol" width="100%">
+          Interface definition for a callback to be invoked when the playback head position of
+ an AudioTrack has reached a notification marker or has increased by a certain period.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-19" >
+        <td class="jd-linkcol"><a href="../../../reference/android/media/ImageReader.OnImageAvailableListener.html">ImageReader.OnImageAvailableListener</a></td>
+        <td class="jd-descrcol" width="100%">
+          Callback interface for being notified that a new image is available.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-3" >
+        <td class="jd-linkcol"><a href="../../../reference/android/media/JetPlayer.OnJetEventListener.html">JetPlayer.OnJetEventListener</a></td>
+        <td class="jd-descrcol" width="100%">
+          Handles the notification when the JET engine generates an event.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-18" >
+        <td class="jd-linkcol"><a href="../../../reference/android/media/MediaDrm.OnEventListener.html">MediaDrm.OnEventListener</a></td>
+        <td class="jd-descrcol" width="100%">
+          Interface definition for a callback to be invoked when a drm event
  occurs
-&nbsp;</td>
-          </tr>
-        <tr class="alt-color api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/android/media/MediaPlayer.OnBufferingUpdateListener.html">MediaPlayer.OnBufferingUpdateListener</a></td>
-              <td class="jd-descrcol" width="100%">Interface definition of a callback to be invoked indicating buffering
- status of a media resource being streamed over the network.&nbsp;</td>
-          </tr>
-        <tr class=" api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/android/media/MediaPlayer.OnCompletionListener.html">MediaPlayer.OnCompletionListener</a></td>
-              <td class="jd-descrcol" width="100%">Interface definition for a callback to be invoked when playback of
- a media source has completed.&nbsp;</td>
-          </tr>
-        <tr class="alt-color api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/android/media/MediaPlayer.OnErrorListener.html">MediaPlayer.OnErrorListener</a></td>
-              <td class="jd-descrcol" width="100%">Interface definition of a callback to be invoked when there
+&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/android/media/MediaPlayer.OnBufferingUpdateListener.html">MediaPlayer.OnBufferingUpdateListener</a></td>
+        <td class="jd-descrcol" width="100%">
+          Interface definition of a callback to be invoked indicating buffering
+ status of a media resource being streamed over the network.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/android/media/MediaPlayer.OnCompletionListener.html">MediaPlayer.OnCompletionListener</a></td>
+        <td class="jd-descrcol" width="100%">
+          Interface definition for a callback to be invoked when playback of
+ a media source has completed.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/android/media/MediaPlayer.OnErrorListener.html">MediaPlayer.OnErrorListener</a></td>
+        <td class="jd-descrcol" width="100%">
+          Interface definition of a callback to be invoked when there
  has been an error during an asynchronous operation (other errors
- will throw exceptions at method call time).&nbsp;</td>
-          </tr>
-        <tr class=" api apilevel-3" >
-              <td class="jd-linkcol"><a href="../../../reference/android/media/MediaPlayer.OnInfoListener.html">MediaPlayer.OnInfoListener</a></td>
-              <td class="jd-descrcol" width="100%">Interface definition of a callback to be invoked to communicate some
- info and/or warning about the media or its playback.&nbsp;</td>
-          </tr>
-        <tr class="alt-color api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/android/media/MediaPlayer.OnPreparedListener.html">MediaPlayer.OnPreparedListener</a></td>
-              <td class="jd-descrcol" width="100%">Interface definition for a callback to be invoked when the media
- source is ready for playback.&nbsp;</td>
-          </tr>
-        <tr class=" api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/android/media/MediaPlayer.OnSeekCompleteListener.html">MediaPlayer.OnSeekCompleteListener</a></td>
-              <td class="jd-descrcol" width="100%">Interface definition of a callback to be invoked indicating
- the completion of a seek operation.&nbsp;</td>
-          </tr>
-        <tr class="alt-color api apilevel-16" >
-              <td class="jd-linkcol"><a href="../../../reference/android/media/MediaPlayer.OnTimedTextListener.html">MediaPlayer.OnTimedTextListener</a></td>
-              <td class="jd-descrcol" width="100%">Interface definition of a callback to be invoked when a
- timed text is available for display.&nbsp;</td>
-          </tr>
-        <tr class=" api apilevel-3" >
-              <td class="jd-linkcol"><a href="../../../reference/android/media/MediaPlayer.OnVideoSizeChangedListener.html">MediaPlayer.OnVideoSizeChangedListener</a></td>
-              <td class="jd-descrcol" width="100%">Interface definition of a callback to be invoked when the
+ will throw exceptions at method call time).&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-3" >
+        <td class="jd-linkcol"><a href="../../../reference/android/media/MediaPlayer.OnInfoListener.html">MediaPlayer.OnInfoListener</a></td>
+        <td class="jd-descrcol" width="100%">
+          Interface definition of a callback to be invoked to communicate some
+ info and/or warning about the media or its playback.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/android/media/MediaPlayer.OnPreparedListener.html">MediaPlayer.OnPreparedListener</a></td>
+        <td class="jd-descrcol" width="100%">
+          Interface definition for a callback to be invoked when the media
+ source is ready for playback.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/android/media/MediaPlayer.OnSeekCompleteListener.html">MediaPlayer.OnSeekCompleteListener</a></td>
+        <td class="jd-descrcol" width="100%">
+          Interface definition of a callback to be invoked indicating
+ the completion of a seek operation.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-16" >
+        <td class="jd-linkcol"><a href="../../../reference/android/media/MediaPlayer.OnTimedTextListener.html">MediaPlayer.OnTimedTextListener</a></td>
+        <td class="jd-descrcol" width="100%">
+          Interface definition of a callback to be invoked when a
+ timed text is available for display.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-3" >
+        <td class="jd-linkcol"><a href="../../../reference/android/media/MediaPlayer.OnVideoSizeChangedListener.html">MediaPlayer.OnVideoSizeChangedListener</a></td>
+        <td class="jd-descrcol" width="100%">
+          Interface definition of a callback to be invoked when the
  video size is first known or updated
-&nbsp;</td>
-          </tr>
-        <tr class="alt-color api apilevel-3" >
-              <td class="jd-linkcol"><a href="../../../reference/android/media/MediaRecorder.OnErrorListener.html">MediaRecorder.OnErrorListener</a></td>
-              <td class="jd-descrcol" width="100%">Interface definition for a callback to be invoked when an error
- occurs while recording.&nbsp;</td>
-          </tr>
-        <tr class=" api apilevel-3" >
-              <td class="jd-linkcol"><a href="../../../reference/android/media/MediaRecorder.OnInfoListener.html">MediaRecorder.OnInfoListener</a></td>
-              <td class="jd-descrcol" width="100%">Interface definition for a callback to be invoked when an error
- occurs while recording.&nbsp;</td>
-          </tr>
-        <tr class="alt-color api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/android/media/MediaScannerConnection.MediaScannerConnectionClient.html">MediaScannerConnection.MediaScannerConnectionClient</a></td>
-              <td class="jd-descrcol" width="100%">An interface for notifying clients of MediaScannerConnection
+&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-3" >
+        <td class="jd-linkcol"><a href="../../../reference/android/media/MediaRecorder.OnErrorListener.html">MediaRecorder.OnErrorListener</a></td>
+        <td class="jd-descrcol" width="100%">
+          Interface definition for a callback to be invoked when an error
+ occurs while recording.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-3" >
+        <td class="jd-linkcol"><a href="../../../reference/android/media/MediaRecorder.OnInfoListener.html">MediaRecorder.OnInfoListener</a></td>
+        <td class="jd-descrcol" width="100%">
+          Interface definition for a callback to be invoked when an error
+ occurs while recording.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/android/media/MediaScannerConnection.MediaScannerConnectionClient.html">MediaScannerConnection.MediaScannerConnectionClient</a></td>
+        <td class="jd-descrcol" width="100%">
+          An interface for notifying clients of MediaScannerConnection
  when a connection to the MediaScanner service has been established
- and when the scanning of a file has completed.&nbsp;</td>
-          </tr>
-        <tr class=" api apilevel-8" >
-              <td class="jd-linkcol"><a href="../../../reference/android/media/MediaScannerConnection.OnScanCompletedListener.html">MediaScannerConnection.OnScanCompletedListener</a></td>
-              <td class="jd-descrcol" width="100%">Interface for notifying clients of the result of scanning a
- requested media file.&nbsp;</td>
-          </tr>
-        <tr class="alt-color api apilevel-18" >
-              <td class="jd-linkcol"><a href="../../../reference/android/media/RemoteControlClient.OnGetPlaybackPositionListener.html">RemoteControlClient.OnGetPlaybackPositionListener</a></td>
-              <td class="jd-descrcol" width="100%">Interface definition for a callback to be invoked when the media playback position is
- queried.&nbsp;</td>
-          </tr>
-        <tr class=" api apilevel-19" >
-              <td class="jd-linkcol"><a href="../../../reference/android/media/RemoteControlClient.OnMetadataUpdateListener.html">RemoteControlClient.OnMetadataUpdateListener</a></td>
-              <td class="jd-descrcol" width="100%">Interface definition for a callback to be invoked when one of the metadata values has
- been updated.&nbsp;</td>
-          </tr>
-        <tr class="alt-color api apilevel-18" >
-              <td class="jd-linkcol"><a href="../../../reference/android/media/RemoteControlClient.OnPlaybackPositionUpdateListener.html">RemoteControlClient.OnPlaybackPositionUpdateListener</a></td>
-              <td class="jd-descrcol" width="100%">Interface definition for a callback to be invoked when the media playback position is
- requested to be updated.&nbsp;</td>
-          </tr>
-        <tr class=" api apilevel-19" >
-              <td class="jd-linkcol"><a href="../../../reference/android/media/RemoteController.OnClientUpdateListener.html">RemoteController.OnClientUpdateListener</a></td>
-              <td class="jd-descrcol" width="100%">Interface definition for the callbacks to be invoked whenever media events, metadata
- and playback status are available.&nbsp;</td>
-          </tr>
-        <tr class="alt-color api apilevel-8" >
-              <td class="jd-linkcol"><a href="../../../reference/android/media/SoundPool.OnLoadCompleteListener.html">SoundPool.OnLoadCompleteListener</a></td>
-              <td class="jd-descrcol" width="100%">&nbsp;</td>
-          </tr>
+ and when the scanning of a file has completed.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-8" >
+        <td class="jd-linkcol"><a href="../../../reference/android/media/MediaScannerConnection.OnScanCompletedListener.html">MediaScannerConnection.OnScanCompletedListener</a></td>
+        <td class="jd-descrcol" width="100%">
+          Interface for notifying clients of the result of scanning a
+ requested media file.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-18" >
+        <td class="jd-linkcol"><a href="../../../reference/android/media/RemoteControlClient.OnGetPlaybackPositionListener.html">RemoteControlClient.OnGetPlaybackPositionListener</a></td>
+        <td class="jd-descrcol" width="100%">
+          Interface definition for a callback to be invoked when the media playback position is
+ queried.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-19" >
+        <td class="jd-linkcol"><a href="../../../reference/android/media/RemoteControlClient.OnMetadataUpdateListener.html">RemoteControlClient.OnMetadataUpdateListener</a></td>
+        <td class="jd-descrcol" width="100%">
+          Interface definition for a callback to be invoked when one of the metadata values has
+ been updated.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-18" >
+        <td class="jd-linkcol"><a href="../../../reference/android/media/RemoteControlClient.OnPlaybackPositionUpdateListener.html">RemoteControlClient.OnPlaybackPositionUpdateListener</a></td>
+        <td class="jd-descrcol" width="100%">
+          Interface definition for a callback to be invoked when the media playback position is
+ requested to be updated.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-19" >
+        <td class="jd-linkcol"><a href="../../../reference/android/media/RemoteController.OnClientUpdateListener.html">RemoteController.OnClientUpdateListener</a></td>
+        <td class="jd-descrcol" width="100%">
+          Interface definition for the callbacks to be invoked whenever media events, metadata
+ and playback status are available.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-8" >
+        <td class="jd-linkcol"><a href="../../../reference/android/media/SoundPool.OnLoadCompleteListener.html">SoundPool.OnLoadCompleteListener</a></td>
+        <td class="jd-descrcol" width="100%">
+          &nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
   </table>
+
     </div>
   
 
@@ -1218,307 +1439,875 @@ and control alerts such as ringtones and phone vibrations (<code><a href="../../
     <h2>Classes</h2>
     <div class="jd-sumtable">
     
+  
   <table class="jd-sumtable-expando">
-        <tr class="alt-color api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/android/media/AsyncPlayer.html">AsyncPlayer</a></td>
-              <td class="jd-descrcol" width="100%">Plays a series of audio URIs, but does all the hard work on another thread
- so that any slowness with preparing or loading doesn't block the calling thread.&nbsp;</td>
-          </tr>
-        <tr class=" api apilevel-3" >
-              <td class="jd-linkcol"><a href="../../../reference/android/media/AudioFormat.html">AudioFormat</a></td>
-              <td class="jd-descrcol" width="100%">The AudioFormat class is used to access a number of audio format and
- channel configuration constants.&nbsp;</td>
-          </tr>
-        <tr class="alt-color api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/android/media/AudioManager.html">AudioManager</a></td>
-              <td class="jd-descrcol" width="100%">AudioManager provides access to volume and ringer mode control.&nbsp;</td>
-          </tr>
-        <tr class=" api apilevel-3" >
-              <td class="jd-linkcol"><a href="../../../reference/android/media/AudioRecord.html">AudioRecord</a></td>
-              <td class="jd-descrcol" width="100%">The AudioRecord class manages the audio resources for Java applications
- to record audio from the audio input hardware of the platform.&nbsp;</td>
-          </tr>
-        <tr class="alt-color api apilevel-19" >
-              <td class="jd-linkcol"><a href="../../../reference/android/media/AudioTimestamp.html">AudioTimestamp</a></td>
-              <td class="jd-descrcol" width="100%">Structure that groups a position in frame units relative to an assumed audio stream,
+    
+      <tr class="alt-color api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/android/media/AsyncPlayer.html">AsyncPlayer</a></td>
+        <td class="jd-descrcol" width="100%">
+          Plays a series of audio URIs, but does all the hard work on another thread
+ so that any slowness with preparing or loading doesn't block the calling thread.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-21" >
+        <td class="jd-linkcol"><a href="../../../reference/android/media/AudioAttributes.html">AudioAttributes</a></td>
+        <td class="jd-descrcol" width="100%">
+          A class to encapsulate a collection of attributes describing information about an audio
+ stream.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-21" >
+        <td class="jd-linkcol"><a href="../../../reference/android/media/AudioAttributes.Builder.html">AudioAttributes.Builder</a></td>
+        <td class="jd-descrcol" width="100%">
+          Builder class for <code><a href="../../../reference/android/media/AudioAttributes.html">AudioAttributes</a></code> objects.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-3" >
+        <td class="jd-linkcol"><a href="../../../reference/android/media/AudioFormat.html">AudioFormat</a></td>
+        <td class="jd-descrcol" width="100%">
+          The AudioFormat class is used to access a number of audio format and
+ channel configuration constants.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-21" >
+        <td class="jd-linkcol"><a href="../../../reference/android/media/AudioFormat.Builder.html">AudioFormat.Builder</a></td>
+        <td class="jd-descrcol" width="100%">
+          Builder class for <code><a href="../../../reference/android/media/AudioFormat.html">AudioFormat</a></code> objects.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/android/media/AudioManager.html">AudioManager</a></td>
+        <td class="jd-descrcol" width="100%">
+          AudioManager provides access to volume and ringer mode control.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-3" >
+        <td class="jd-linkcol"><a href="../../../reference/android/media/AudioRecord.html">AudioRecord</a></td>
+        <td class="jd-descrcol" width="100%">
+          The AudioRecord class manages the audio resources for Java applications
+ to record audio from the audio input hardware of the platform.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-19" >
+        <td class="jd-linkcol"><a href="../../../reference/android/media/AudioTimestamp.html">AudioTimestamp</a></td>
+        <td class="jd-descrcol" width="100%">
+          Structure that groups a position in frame units relative to an assumed audio stream,
  together with the estimated time when that frame was presented or is committed to be
- presented.&nbsp;</td>
-          </tr>
-        <tr class=" api apilevel-3" >
-              <td class="jd-linkcol"><a href="../../../reference/android/media/AudioTrack.html">AudioTrack</a></td>
-              <td class="jd-descrcol" width="100%">The AudioTrack class manages and plays a single audio resource for Java applications.&nbsp;</td>
-          </tr>
-        <tr class="alt-color api apilevel-8" >
-              <td class="jd-linkcol"><a href="../../../reference/android/media/CamcorderProfile.html">CamcorderProfile</a></td>
-              <td class="jd-descrcol" width="100%">Retrieves the
- predefined camcorder profile settings for camcorder applications.&nbsp;</td>
-          </tr>
-        <tr class=" api apilevel-8" >
-              <td class="jd-linkcol"><a href="../../../reference/android/media/CameraProfile.html">CameraProfile</a></td>
-              <td class="jd-descrcol" width="100%">The CameraProfile class is used to retrieve the pre-defined still image
+ presented.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-3" >
+        <td class="jd-linkcol"><a href="../../../reference/android/media/AudioTrack.html">AudioTrack</a></td>
+        <td class="jd-descrcol" width="100%">
+          The AudioTrack class manages and plays a single audio resource for Java applications.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-8" >
+        <td class="jd-linkcol"><a href="../../../reference/android/media/CamcorderProfile.html">CamcorderProfile</a></td>
+        <td class="jd-descrcol" width="100%">
+          Retrieves the
+ predefined camcorder profile settings for camcorder applications.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-8" >
+        <td class="jd-linkcol"><a href="../../../reference/android/media/CameraProfile.html">CameraProfile</a></td>
+        <td class="jd-descrcol" width="100%">
+          The CameraProfile class is used to retrieve the pre-defined still image
  capture (jpeg) quality levels (0-100) used for low, medium, and high
- quality settings in the Camera application.&nbsp;</td>
-          </tr>
-        <tr class="alt-color api apilevel-5" >
-              <td class="jd-linkcol"><a href="../../../reference/android/media/ExifInterface.html">ExifInterface</a></td>
-              <td class="jd-descrcol" width="100%">This is a class for reading and writing Exif tags in a JPEG file.&nbsp;</td>
-          </tr>
-        <tr class=" api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/android/media/FaceDetector.html">FaceDetector</a></td>
-              <td class="jd-descrcol" width="100%">Identifies the faces of people in a 
- <code><a href="../../../reference/android/graphics/Bitmap.html">Bitmap</a></code> graphic object.&nbsp;</td>
-          </tr>
-        <tr class="alt-color api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/android/media/FaceDetector.Face.html">FaceDetector.Face</a></td>
-              <td class="jd-descrcol" width="100%">A Face contains all the information identifying the location
- of a face in a bitmap.&nbsp;</td>
-          </tr>
-        <tr class=" api apilevel-19" >
-              <td class="jd-linkcol"><a href="../../../reference/android/media/Image.html">Image</a></td>
-              <td class="jd-descrcol" width="100%"><p>A single complete image buffer to use with a media source such as a
+ quality settings in the Camera application.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-5" >
+        <td class="jd-linkcol"><a href="../../../reference/android/media/ExifInterface.html">ExifInterface</a></td>
+        <td class="jd-descrcol" width="100%">
+          This is a class for reading and writing Exif tags in a JPEG file.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/android/media/FaceDetector.html">FaceDetector</a></td>
+        <td class="jd-descrcol" width="100%">
+          Identifies the faces of people in a 
+ <code><a href="../../../reference/android/graphics/Bitmap.html">Bitmap</a></code> graphic object.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/android/media/FaceDetector.Face.html">FaceDetector.Face</a></td>
+        <td class="jd-descrcol" width="100%">
+          A Face contains all the information identifying the location
+ of a face in a bitmap.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-19" >
+        <td class="jd-linkcol"><a href="../../../reference/android/media/Image.html">Image</a></td>
+        <td class="jd-descrcol" width="100%">
+          <p>A single complete image buffer to use with a media source such as a
  <code><a href="../../../reference/android/media/MediaCodec.html">MediaCodec</a></code> or a
- <code><a href="../../../reference/android/hardware/camera2/CameraDevice.html">CameraDevice</a></code>.&nbsp;</td>
-          </tr>
-        <tr class="alt-color api apilevel-19" >
-              <td class="jd-linkcol"><a href="../../../reference/android/media/Image.Plane.html">Image.Plane</a></td>
-              <td class="jd-descrcol" width="100%"><p>A single color plane of image data.&nbsp;</td>
-          </tr>
-        <tr class=" api apilevel-19" >
-              <td class="jd-linkcol"><a href="../../../reference/android/media/ImageReader.html">ImageReader</a></td>
-              <td class="jd-descrcol" width="100%"><p>The ImageReader class allows direct application access to image data
+ <code><a href="../../../reference/android/hardware/camera2/CameraDevice.html">CameraDevice</a></code>.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-19" >
+        <td class="jd-linkcol"><a href="../../../reference/android/media/Image.Plane.html">Image.Plane</a></td>
+        <td class="jd-descrcol" width="100%">
+          <p>A single color plane of image data.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-19" >
+        <td class="jd-linkcol"><a href="../../../reference/android/media/ImageReader.html">ImageReader</a></td>
+        <td class="jd-descrcol" width="100%">
+          <p>The ImageReader class allows direct application access to image data
  rendered into a <code><a href="../../../reference/android/view/Surface.html">Surface</a></code></p>
 
  <p>Several Android media API classes accept Surface objects as targets to
  render to, including <code><a href="../../../reference/android/media/MediaPlayer.html">MediaPlayer</a></code>, <code><a href="../../../reference/android/media/MediaCodec.html">MediaCodec</a></code>,
  <code><a href="../../../reference/android/hardware/camera2/CameraDevice.html">CameraDevice</a></code>, and
- <code><a href="../../../reference/android/renderscript/Allocation.html">RenderScript Allocations</a></code>.&nbsp;</td>
-          </tr>
-        <tr class="alt-color api apilevel-3" >
-              <td class="jd-linkcol"><a href="../../../reference/android/media/JetPlayer.html">JetPlayer</a></td>
-              <td class="jd-descrcol" width="100%">JetPlayer provides access to JET content playback and control.&nbsp;</td>
-          </tr>
-        <tr class=" api apilevel-16" >
-              <td class="jd-linkcol"><a href="../../../reference/android/media/MediaActionSound.html">MediaActionSound</a></td>
-              <td class="jd-descrcol" width="100%"><p>A class for producing sounds that match those produced by various actions
- taken by the media and camera APIs.&nbsp;</td>
-          </tr>
-        <tr class="alt-color api apilevel-16" >
-              <td class="jd-linkcol"><a href="../../../reference/android/media/MediaCodec.html">MediaCodec</a></td>
-              <td class="jd-descrcol" width="100%">MediaCodec class can be used to access low-level media codec, i.e.&nbsp;</td>
-          </tr>
-        <tr class=" api apilevel-16" >
-              <td class="jd-linkcol"><a href="../../../reference/android/media/MediaCodec.BufferInfo.html">MediaCodec.BufferInfo</a></td>
-              <td class="jd-descrcol" width="100%">Per buffer metadata includes an offset and size specifying
- the range of valid data in the associated codec buffer.&nbsp;</td>
-          </tr>
-        <tr class="alt-color api apilevel-16" >
-              <td class="jd-linkcol"><a href="../../../reference/android/media/MediaCodec.CryptoInfo.html">MediaCodec.CryptoInfo</a></td>
-              <td class="jd-descrcol" width="100%">Metadata describing the structure of a (at least partially) encrypted
- input sample.&nbsp;</td>
-          </tr>
-        <tr class=" api apilevel-16" >
-              <td class="jd-linkcol"><a href="../../../reference/android/media/MediaCodecInfo.html">MediaCodecInfo</a></td>
-              <td class="jd-descrcol" width="100%">Provides information about a given media codec available on the device.&nbsp;</td>
-          </tr>
-        <tr class="alt-color api apilevel-16" >
-              <td class="jd-linkcol"><a href="../../../reference/android/media/MediaCodecInfo.CodecCapabilities.html">MediaCodecInfo.CodecCapabilities</a></td>
-              <td class="jd-descrcol" width="100%">Encapsulates the capabilities of a given codec component.&nbsp;</td>
-          </tr>
-        <tr class=" api apilevel-16" >
-              <td class="jd-linkcol"><a href="../../../reference/android/media/MediaCodecInfo.CodecProfileLevel.html">MediaCodecInfo.CodecProfileLevel</a></td>
-              <td class="jd-descrcol" width="100%">Encapsulates the profiles available for a codec component.&nbsp;</td>
-          </tr>
-        <tr class="alt-color api apilevel-16" >
-              <td class="jd-linkcol"><a href="../../../reference/android/media/MediaCodecList.html">MediaCodecList</a></td>
-              <td class="jd-descrcol" width="100%">Allows you to enumerate available codecs, each specified as a <code><a href="../../../reference/android/media/MediaCodecInfo.html">MediaCodecInfo</a></code> object,
+ <code><a href="../../../reference/android/renderscript/Allocation.html">RenderScript Allocations</a></code>.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-3" >
+        <td class="jd-linkcol"><a href="../../../reference/android/media/JetPlayer.html">JetPlayer</a></td>
+        <td class="jd-descrcol" width="100%">
+          JetPlayer provides access to JET content playback and control.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-16" >
+        <td class="jd-linkcol"><a href="../../../reference/android/media/MediaActionSound.html">MediaActionSound</a></td>
+        <td class="jd-descrcol" width="100%">
+          <p>A class for producing sounds that match those produced by various actions
+ taken by the media and camera APIs.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-16" >
+        <td class="jd-linkcol"><a href="../../../reference/android/media/MediaCodec.html">MediaCodec</a></td>
+        <td class="jd-descrcol" width="100%">
+          MediaCodec class can be used to access low-level media codec, i.e.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-16" >
+        <td class="jd-linkcol"><a href="../../../reference/android/media/MediaCodec.BufferInfo.html">MediaCodec.BufferInfo</a></td>
+        <td class="jd-descrcol" width="100%">
+          Per buffer metadata includes an offset and size specifying
+ the range of valid data in the associated codec (output) buffer.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-21" >
+        <td class="jd-linkcol"><a href="../../../reference/android/media/MediaCodec.Callback.html">MediaCodec.Callback</a></td>
+        <td class="jd-descrcol" width="100%">
+          MediaCodec callback interface.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-16" >
+        <td class="jd-linkcol"><a href="../../../reference/android/media/MediaCodec.CryptoInfo.html">MediaCodec.CryptoInfo</a></td>
+        <td class="jd-descrcol" width="100%">
+          Metadata describing the structure of a (at least partially) encrypted
+ input sample.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-16" >
+        <td class="jd-linkcol"><a href="../../../reference/android/media/MediaCodecInfo.html">MediaCodecInfo</a></td>
+        <td class="jd-descrcol" width="100%">
+          Provides information about a given media codec available on the device.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-21" >
+        <td class="jd-linkcol"><a href="../../../reference/android/media/MediaCodecInfo.AudioCapabilities.html">MediaCodecInfo.AudioCapabilities</a></td>
+        <td class="jd-descrcol" width="100%">
+          A class that supports querying the audio capabilities of a codec.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-16" >
+        <td class="jd-linkcol"><a href="../../../reference/android/media/MediaCodecInfo.CodecCapabilities.html">MediaCodecInfo.CodecCapabilities</a></td>
+        <td class="jd-descrcol" width="100%">
+          Encapsulates the capabilities of a given codec component.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-16" >
+        <td class="jd-linkcol"><a href="../../../reference/android/media/MediaCodecInfo.CodecProfileLevel.html">MediaCodecInfo.CodecProfileLevel</a></td>
+        <td class="jd-descrcol" width="100%">
+          Encapsulates the profiles available for a codec component.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-21" >
+        <td class="jd-linkcol"><a href="../../../reference/android/media/MediaCodecInfo.EncoderCapabilities.html">MediaCodecInfo.EncoderCapabilities</a></td>
+        <td class="jd-descrcol" width="100%">
+          A class that supports querying the encoding capabilities of a codec.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-21" >
+        <td class="jd-linkcol"><a href="../../../reference/android/media/MediaCodecInfo.VideoCapabilities.html">MediaCodecInfo.VideoCapabilities</a></td>
+        <td class="jd-descrcol" width="100%">
+          A class that supports querying the video capabilities of a codec.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-16" >
+        <td class="jd-linkcol"><a href="../../../reference/android/media/MediaCodecList.html">MediaCodecList</a></td>
+        <td class="jd-descrcol" width="100%">
+          Allows you to enumerate available codecs, each specified as a <code><a href="../../../reference/android/media/MediaCodecInfo.html">MediaCodecInfo</a></code> object,
  find a codec supporting a given format and query the capabilities
- of a given codec.&nbsp;</td>
-          </tr>
-        <tr class=" api apilevel-16" >
-              <td class="jd-linkcol"><a href="../../../reference/android/media/MediaCrypto.html">MediaCrypto</a></td>
-              <td class="jd-descrcol" width="100%">MediaCrypto class can be used in conjunction with <code><a href="../../../reference/android/media/MediaCodec.html">MediaCodec</a></code>
- to decode encrypted media data.&nbsp;</td>
-          </tr>
-        <tr class="alt-color api apilevel-18" >
-              <td class="jd-linkcol"><a href="../../../reference/android/media/MediaDrm.html">MediaDrm</a></td>
-              <td class="jd-descrcol" width="100%">MediaDrm can be used to obtain keys for decrypting protected media streams, in
- conjunction with <code><a href="../../../reference/android/media/MediaCrypto.html">MediaCrypto</a></code>.&nbsp;</td>
-          </tr>
-        <tr class=" api apilevel-18" >
-              <td class="jd-linkcol"><a href="../../../reference/android/media/MediaDrm.CryptoSession.html">MediaDrm.CryptoSession</a></td>
-              <td class="jd-descrcol" width="100%">In addition to supporting decryption of DASH Common Encrypted Media, the
+ of a given codec.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-16" >
+        <td class="jd-linkcol"><a href="../../../reference/android/media/MediaCrypto.html">MediaCrypto</a></td>
+        <td class="jd-descrcol" width="100%">
+          MediaCrypto class can be used in conjunction with <code><a href="../../../reference/android/media/MediaCodec.html">MediaCodec</a></code>
+ to decode encrypted media data.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-21" >
+        <td class="jd-linkcol"><a href="../../../reference/android/media/MediaDescription.html">MediaDescription</a></td>
+        <td class="jd-descrcol" width="100%">
+          A simple set of metadata for a media item suitable for display.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-21" >
+        <td class="jd-linkcol"><a href="../../../reference/android/media/MediaDescription.Builder.html">MediaDescription.Builder</a></td>
+        <td class="jd-descrcol" width="100%">
+          Builder for <code><a href="../../../reference/android/media/MediaDescription.html">MediaDescription</a></code> objects.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-18" >
+        <td class="jd-linkcol"><a href="../../../reference/android/media/MediaDrm.html">MediaDrm</a></td>
+        <td class="jd-descrcol" width="100%">
+          MediaDrm can be used to obtain keys for decrypting protected media streams, in
+ conjunction with <code><a href="../../../reference/android/media/MediaCrypto.html">MediaCrypto</a></code>.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-18" >
+        <td class="jd-linkcol"><a href="../../../reference/android/media/MediaDrm.CryptoSession.html">MediaDrm.CryptoSession</a></td>
+        <td class="jd-descrcol" width="100%">
+          In addition to supporting decryption of DASH Common Encrypted Media, the
  MediaDrm APIs provide the ability to securely deliver session keys from
  an operator's session key server to a client device, based on the factory-installed
  root of trust, and then perform encrypt, decrypt, sign and verify operations
- with the session key on arbitrary user data.&nbsp;</td>
-          </tr>
-        <tr class="alt-color api apilevel-18" >
-              <td class="jd-linkcol"><a href="../../../reference/android/media/MediaDrm.KeyRequest.html">MediaDrm.KeyRequest</a></td>
-              <td class="jd-descrcol" width="100%">Contains the opaque data an app uses to request keys from a license server
-&nbsp;</td>
-          </tr>
-        <tr class=" api apilevel-18" >
-              <td class="jd-linkcol"><a href="../../../reference/android/media/MediaDrm.ProvisionRequest.html">MediaDrm.ProvisionRequest</a></td>
-              <td class="jd-descrcol" width="100%">Contains the opaque data an app uses to request a certificate from a provisioning
+ with the session key on arbitrary user data.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-18" >
+        <td class="jd-linkcol"><a href="../../../reference/android/media/MediaDrm.KeyRequest.html">MediaDrm.KeyRequest</a></td>
+        <td class="jd-descrcol" width="100%">
+          Contains the opaque data an app uses to request keys from a license server
+&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-18" >
+        <td class="jd-linkcol"><a href="../../../reference/android/media/MediaDrm.ProvisionRequest.html">MediaDrm.ProvisionRequest</a></td>
+        <td class="jd-descrcol" width="100%">
+          Contains the opaque data an app uses to request a certificate from a provisioning
  server
-&nbsp;</td>
-          </tr>
-        <tr class="alt-color api apilevel-16" >
-              <td class="jd-linkcol"><a href="../../../reference/android/media/MediaExtractor.html">MediaExtractor</a></td>
-              <td class="jd-descrcol" width="100%">MediaExtractor facilitates extraction of demuxed, typically encoded,  media data
- from a data source.&nbsp;</td>
-          </tr>
-        <tr class=" api apilevel-16" >
-              <td class="jd-linkcol"><a href="../../../reference/android/media/MediaFormat.html">MediaFormat</a></td>
-              <td class="jd-descrcol" width="100%">Encapsulates the information describing the format of media data,
- be it audio or video.&nbsp;</td>
-          </tr>
-        <tr class="alt-color api apilevel-" >
-              <td class="jd-linkcol"><a href="../../../reference/android/media/MediaMetadata.html">MediaMetadata</a></td>
-              <td class="jd-descrcol" width="100%">Contains metadata about an item, such as the title, artist, etc.&nbsp;</td>
-          </tr>
-        <tr class=" api apilevel-" >
-              <td class="jd-linkcol"><a href="../../../reference/android/media/MediaMetadata.Builder.html">MediaMetadata.Builder</a></td>
-              <td class="jd-descrcol" width="100%">Use to build MediaMetadata objects.&nbsp;</td>
-          </tr>
-        <tr class="alt-color api apilevel-19" >
-              <td class="jd-linkcol"><a href="../../../reference/android/media/MediaMetadataEditor.html">MediaMetadataEditor</a></td>
-              <td class="jd-descrcol" width="100%">An abstract class for editing and storing metadata that can be published by
- <code><a href="../../../reference/android/media/RemoteControlClient.html">RemoteControlClient</a></code>.&nbsp;</td>
-          </tr>
-        <tr class=" api apilevel-10" >
-              <td class="jd-linkcol"><a href="../../../reference/android/media/MediaMetadataRetriever.html">MediaMetadataRetriever</a></td>
-              <td class="jd-descrcol" width="100%">MediaMetadataRetriever class provides a unified interface for retrieving
- frame and meta data from an input media file.&nbsp;</td>
-          </tr>
-        <tr class="alt-color api apilevel-18" >
-              <td class="jd-linkcol"><a href="../../../reference/android/media/MediaMuxer.html">MediaMuxer</a></td>
-              <td class="jd-descrcol" width="100%">MediaMuxer facilitates muxing elementary streams.&nbsp;</td>
-          </tr>
-        <tr class=" api apilevel-18" >
-              <td class="jd-linkcol"><a href="../../../reference/android/media/MediaMuxer.OutputFormat.html">MediaMuxer.OutputFormat</a></td>
-              <td class="jd-descrcol" width="100%">Defines the output format.&nbsp;</td>
-          </tr>
-        <tr class="alt-color api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/android/media/MediaPlayer.html">MediaPlayer</a></td>
-              <td class="jd-descrcol" width="100%">MediaPlayer class can be used to control playback
- of audio/video files and streams.&nbsp;</td>
-          </tr>
-        <tr class=" api apilevel-16" >
-              <td class="jd-linkcol"><a href="../../../reference/android/media/MediaPlayer.TrackInfo.html">MediaPlayer.TrackInfo</a></td>
-              <td class="jd-descrcol" width="100%">Class for MediaPlayer to return each audio/video/subtitle track's metadata.&nbsp;</td>
-          </tr>
-        <tr class="alt-color api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/android/media/MediaRecorder.html">MediaRecorder</a></td>
-              <td class="jd-descrcol" width="100%">Used to record audio and video.&nbsp;</td>
-          </tr>
-        <tr class=" api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/android/media/MediaRecorder.AudioEncoder.html">MediaRecorder.AudioEncoder</a></td>
-              <td class="jd-descrcol" width="100%">Defines the audio encoding.&nbsp;</td>
-          </tr>
-        <tr class="alt-color api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/android/media/MediaRecorder.AudioSource.html">MediaRecorder.AudioSource</a></td>
-              <td class="jd-descrcol" width="100%">Defines the audio source.&nbsp;</td>
-          </tr>
-        <tr class=" api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/android/media/MediaRecorder.OutputFormat.html">MediaRecorder.OutputFormat</a></td>
-              <td class="jd-descrcol" width="100%">Defines the output format.&nbsp;</td>
-          </tr>
-        <tr class="alt-color api apilevel-3" >
-              <td class="jd-linkcol"><a href="../../../reference/android/media/MediaRecorder.VideoEncoder.html">MediaRecorder.VideoEncoder</a></td>
-              <td class="jd-descrcol" width="100%">Defines the video encoding.&nbsp;</td>
-          </tr>
-        <tr class=" api apilevel-3" >
-              <td class="jd-linkcol"><a href="../../../reference/android/media/MediaRecorder.VideoSource.html">MediaRecorder.VideoSource</a></td>
-              <td class="jd-descrcol" width="100%">Defines the video source.&nbsp;</td>
-          </tr>
-        <tr class="alt-color api apilevel-16" >
-              <td class="jd-linkcol"><a href="../../../reference/android/media/MediaRouter.html">MediaRouter</a></td>
-              <td class="jd-descrcol" width="100%">MediaRouter allows applications to control the routing of media channels
- and streams from the current device to external speakers and destination devices.&nbsp;</td>
-          </tr>
-        <tr class=" api apilevel-16" >
-              <td class="jd-linkcol"><a href="../../../reference/android/media/MediaRouter.Callback.html">MediaRouter.Callback</a></td>
-              <td class="jd-descrcol" width="100%">Interface for receiving events about media routing changes.&nbsp;</td>
-          </tr>
-        <tr class="alt-color api apilevel-16" >
-              <td class="jd-linkcol"><a href="../../../reference/android/media/MediaRouter.RouteCategory.html">MediaRouter.RouteCategory</a></td>
-              <td class="jd-descrcol" width="100%">Definition of a category of routes.&nbsp;</td>
-          </tr>
-        <tr class=" api apilevel-16" >
-              <td class="jd-linkcol"><a href="../../../reference/android/media/MediaRouter.RouteGroup.html">MediaRouter.RouteGroup</a></td>
-              <td class="jd-descrcol" width="100%">Information about a route that consists of multiple other routes in a group.&nbsp;</td>
-          </tr>
-        <tr class="alt-color api apilevel-16" >
-              <td class="jd-linkcol"><a href="../../../reference/android/media/MediaRouter.RouteInfo.html">MediaRouter.RouteInfo</a></td>
-              <td class="jd-descrcol" width="100%">Information about a media route.&nbsp;</td>
-          </tr>
-        <tr class=" api apilevel-16" >
-              <td class="jd-linkcol"><a href="../../../reference/android/media/MediaRouter.SimpleCallback.html">MediaRouter.SimpleCallback</a></td>
-              <td class="jd-descrcol" width="100%">Stub implementation of <code><a href="../../../reference/android/media/MediaRouter.Callback.html">MediaRouter.Callback</a></code>.&nbsp;</td>
-          </tr>
-        <tr class="alt-color api apilevel-16" >
-              <td class="jd-linkcol"><a href="../../../reference/android/media/MediaRouter.UserRouteInfo.html">MediaRouter.UserRouteInfo</a></td>
-              <td class="jd-descrcol" width="100%">Information about a route that the application may define and modify.&nbsp;</td>
-          </tr>
-        <tr class=" api apilevel-16" >
-              <td class="jd-linkcol"><a href="../../../reference/android/media/MediaRouter.VolumeCallback.html">MediaRouter.VolumeCallback</a></td>
-              <td class="jd-descrcol" width="100%">Interface for receiving events about volume changes.&nbsp;</td>
-          </tr>
-        <tr class="alt-color api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/android/media/MediaScannerConnection.html">MediaScannerConnection</a></td>
-              <td class="jd-descrcol" width="100%">MediaScannerConnection provides a way for applications to pass a
- newly created or downloaded media file to the media scanner service.&nbsp;</td>
-          </tr>
-        <tr class=" api apilevel-16" >
-              <td class="jd-linkcol"><a href="../../../reference/android/media/MediaSyncEvent.html">MediaSyncEvent</a></td>
-              <td class="jd-descrcol" width="100%">The MediaSyncEvent class defines events that can be used to synchronize playback or capture
- actions between different players and recorders.&nbsp;</td>
-          </tr>
-        <tr class="alt-color api apilevel-19" >
-              <td class="jd-linkcol"><a href="../../../reference/android/media/Rating.html">Rating</a></td>
-              <td class="jd-descrcol" width="100%">A class to encapsulate rating information used as content metadata.&nbsp;</td>
-          </tr>
-        <tr class=" api apilevel-14" >
-              <td class="jd-linkcol"><a href="../../../reference/android/media/RemoteControlClient.html">RemoteControlClient</a></td>
-              <td class="jd-descrcol" width="100%">RemoteControlClient enables exposing information meant to be consumed by remote controls
- capable of displaying metadata, artwork and media transport control buttons.&nbsp;</td>
-          </tr>
-        <tr class="alt-color api apilevel-14" >
-              <td class="jd-linkcol"><a href="../../../reference/android/media/RemoteControlClient.MetadataEditor.html">RemoteControlClient.MetadataEditor</a></td>
-              <td class="jd-descrcol" width="100%">Class used to modify metadata in a <code><a href="../../../reference/android/media/RemoteControlClient.html">RemoteControlClient</a></code> object.&nbsp;</td>
-          </tr>
-        <tr class=" api apilevel-19" >
-              <td class="jd-linkcol"><a href="../../../reference/android/media/RemoteController.html">RemoteController</a></td>
-              <td class="jd-descrcol" width="100%">The RemoteController class is used to control media playback, display and update media metadata
- and playback status, published by applications using the <code><a href="../../../reference/android/media/RemoteControlClient.html">RemoteControlClient</a></code> class.&nbsp;</td>
-          </tr>
-        <tr class="alt-color api apilevel-19" >
-              <td class="jd-linkcol"><a href="../../../reference/android/media/RemoteController.MetadataEditor.html">RemoteController.MetadataEditor</a></td>
-              <td class="jd-descrcol" width="100%">A class to read the metadata published by a <code><a href="../../../reference/android/media/RemoteControlClient.html">RemoteControlClient</a></code>, or send a
- <code><a href="../../../reference/android/media/RemoteControlClient.html">RemoteControlClient</a></code> new values for keys that can be edited.&nbsp;</td>
-          </tr>
-        <tr class=" api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/android/media/Ringtone.html">Ringtone</a></td>
-              <td class="jd-descrcol" width="100%">Ringtone provides a quick method for playing a ringtone, notification, or
- other similar types of sounds.&nbsp;</td>
-          </tr>
-        <tr class="alt-color api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/android/media/RingtoneManager.html">RingtoneManager</a></td>
-              <td class="jd-descrcol" width="100%">RingtoneManager provides access to ringtones, notification, and other types
- of sounds.&nbsp;</td>
-          </tr>
-        <tr class=" api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/android/media/SoundPool.html">SoundPool</a></td>
-              <td class="jd-descrcol" width="100%">The SoundPool class manages and plays audio resources for applications.&nbsp;</td>
-          </tr>
-        <tr class="alt-color api apilevel-8" >
-              <td class="jd-linkcol"><a href="../../../reference/android/media/ThumbnailUtils.html">ThumbnailUtils</a></td>
-              <td class="jd-descrcol" width="100%">Thumbnail generation routines for media provider.&nbsp;</td>
-          </tr>
-        <tr class=" api apilevel-16" >
-              <td class="jd-linkcol"><a href="../../../reference/android/media/TimedText.html">TimedText</a></td>
-              <td class="jd-descrcol" width="100%">Class to hold the timed text's metadata, including:
+&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-16" >
+        <td class="jd-linkcol"><a href="../../../reference/android/media/MediaExtractor.html">MediaExtractor</a></td>
+        <td class="jd-descrcol" width="100%">
+          MediaExtractor facilitates extraction of demuxed, typically encoded,  media data
+ from a data source.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-16" >
+        <td class="jd-linkcol"><a href="../../../reference/android/media/MediaFormat.html">MediaFormat</a></td>
+        <td class="jd-descrcol" width="100%">
+          Encapsulates the information describing the format of media data,
+ be it audio or video.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-21" >
+        <td class="jd-linkcol"><a href="../../../reference/android/media/MediaMetadata.html">MediaMetadata</a></td>
+        <td class="jd-descrcol" width="100%">
+          Contains metadata about an item, such as the title, artist, etc.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-21" >
+        <td class="jd-linkcol"><a href="../../../reference/android/media/MediaMetadata.Builder.html">MediaMetadata.Builder</a></td>
+        <td class="jd-descrcol" width="100%">
+          Use to build MediaMetadata objects.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-19" >
+        <td class="jd-linkcol"><a href="../../../reference/android/media/MediaMetadataEditor.html">MediaMetadataEditor</a></td>
+        <td class="jd-descrcol" width="100%">
+          <em>
+      This class was deprecated
+      in API level 21.
+    Use <code><a href="../../../reference/android/media/MediaMetadata.html">MediaMetadata</a></code> instead together with <code><a href="../../../reference/android/media/session/MediaSession.html">MediaSession</a></code>.
+</em>&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-10" >
+        <td class="jd-linkcol"><a href="../../../reference/android/media/MediaMetadataRetriever.html">MediaMetadataRetriever</a></td>
+        <td class="jd-descrcol" width="100%">
+          MediaMetadataRetriever class provides a unified interface for retrieving
+ frame and meta data from an input media file.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-18" >
+        <td class="jd-linkcol"><a href="../../../reference/android/media/MediaMuxer.html">MediaMuxer</a></td>
+        <td class="jd-descrcol" width="100%">
+          MediaMuxer facilitates muxing elementary streams.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-18" >
+        <td class="jd-linkcol"><a href="../../../reference/android/media/MediaMuxer.OutputFormat.html">MediaMuxer.OutputFormat</a></td>
+        <td class="jd-descrcol" width="100%">
+          Defines the output format.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/android/media/MediaPlayer.html">MediaPlayer</a></td>
+        <td class="jd-descrcol" width="100%">
+          MediaPlayer class can be used to control playback
+ of audio/video files and streams.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-16" >
+        <td class="jd-linkcol"><a href="../../../reference/android/media/MediaPlayer.TrackInfo.html">MediaPlayer.TrackInfo</a></td>
+        <td class="jd-descrcol" width="100%">
+          Class for MediaPlayer to return each audio/video/subtitle track's metadata.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/android/media/MediaRecorder.html">MediaRecorder</a></td>
+        <td class="jd-descrcol" width="100%">
+          Used to record audio and video.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/android/media/MediaRecorder.AudioEncoder.html">MediaRecorder.AudioEncoder</a></td>
+        <td class="jd-descrcol" width="100%">
+          Defines the audio encoding.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/android/media/MediaRecorder.AudioSource.html">MediaRecorder.AudioSource</a></td>
+        <td class="jd-descrcol" width="100%">
+          Defines the audio source.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/android/media/MediaRecorder.OutputFormat.html">MediaRecorder.OutputFormat</a></td>
+        <td class="jd-descrcol" width="100%">
+          Defines the output format.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-3" >
+        <td class="jd-linkcol"><a href="../../../reference/android/media/MediaRecorder.VideoEncoder.html">MediaRecorder.VideoEncoder</a></td>
+        <td class="jd-descrcol" width="100%">
+          Defines the video encoding.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-3" >
+        <td class="jd-linkcol"><a href="../../../reference/android/media/MediaRecorder.VideoSource.html">MediaRecorder.VideoSource</a></td>
+        <td class="jd-descrcol" width="100%">
+          Defines the video source.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-16" >
+        <td class="jd-linkcol"><a href="../../../reference/android/media/MediaRouter.html">MediaRouter</a></td>
+        <td class="jd-descrcol" width="100%">
+          MediaRouter allows applications to control the routing of media channels
+ and streams from the current device to external speakers and destination devices.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-16" >
+        <td class="jd-linkcol"><a href="../../../reference/android/media/MediaRouter.Callback.html">MediaRouter.Callback</a></td>
+        <td class="jd-descrcol" width="100%">
+          Interface for receiving events about media routing changes.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-16" >
+        <td class="jd-linkcol"><a href="../../../reference/android/media/MediaRouter.RouteCategory.html">MediaRouter.RouteCategory</a></td>
+        <td class="jd-descrcol" width="100%">
+          Definition of a category of routes.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-16" >
+        <td class="jd-linkcol"><a href="../../../reference/android/media/MediaRouter.RouteGroup.html">MediaRouter.RouteGroup</a></td>
+        <td class="jd-descrcol" width="100%">
+          Information about a route that consists of multiple other routes in a group.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-16" >
+        <td class="jd-linkcol"><a href="../../../reference/android/media/MediaRouter.RouteInfo.html">MediaRouter.RouteInfo</a></td>
+        <td class="jd-descrcol" width="100%">
+          Information about a media route.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-16" >
+        <td class="jd-linkcol"><a href="../../../reference/android/media/MediaRouter.SimpleCallback.html">MediaRouter.SimpleCallback</a></td>
+        <td class="jd-descrcol" width="100%">
+          Stub implementation of <code><a href="../../../reference/android/media/MediaRouter.Callback.html">MediaRouter.Callback</a></code>.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-16" >
+        <td class="jd-linkcol"><a href="../../../reference/android/media/MediaRouter.UserRouteInfo.html">MediaRouter.UserRouteInfo</a></td>
+        <td class="jd-descrcol" width="100%">
+          Information about a route that the application may define and modify.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-16" >
+        <td class="jd-linkcol"><a href="../../../reference/android/media/MediaRouter.VolumeCallback.html">MediaRouter.VolumeCallback</a></td>
+        <td class="jd-descrcol" width="100%">
+          Interface for receiving events about volume changes.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/android/media/MediaScannerConnection.html">MediaScannerConnection</a></td>
+        <td class="jd-descrcol" width="100%">
+          MediaScannerConnection provides a way for applications to pass a
+ newly created or downloaded media file to the media scanner service.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-16" >
+        <td class="jd-linkcol"><a href="../../../reference/android/media/MediaSyncEvent.html">MediaSyncEvent</a></td>
+        <td class="jd-descrcol" width="100%">
+          The MediaSyncEvent class defines events that can be used to synchronize playback or capture
+ actions between different players and recorders.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-19" >
+        <td class="jd-linkcol"><a href="../../../reference/android/media/Rating.html">Rating</a></td>
+        <td class="jd-descrcol" width="100%">
+          A class to encapsulate rating information used as content metadata.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-14" >
+        <td class="jd-linkcol"><a href="../../../reference/android/media/RemoteControlClient.html">RemoteControlClient</a></td>
+        <td class="jd-descrcol" width="100%">
+          <em>
+      This class was deprecated
+      in API level 21.
+    Use <code><a href="../../../reference/android/media/session/MediaSession.html">MediaSession</a></code> instead.
+</em>&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-14" >
+        <td class="jd-linkcol"><a href="../../../reference/android/media/RemoteControlClient.MetadataEditor.html">RemoteControlClient.MetadataEditor</a></td>
+        <td class="jd-descrcol" width="100%">
+          <em>
+      This class was deprecated
+      in API level 21.
+    Use <code><a href="../../../reference/android/media/MediaMetadata.html">MediaMetadata</a></code> and <code><a href="../../../reference/android/media/session/MediaSession.html">MediaSession</a></code> instead.
+</em>&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-19" >
+        <td class="jd-linkcol"><a href="../../../reference/android/media/RemoteController.html">RemoteController</a></td>
+        <td class="jd-descrcol" width="100%">
+          <em>
+      This class was deprecated
+      in API level 21.
+    Use <code><a href="../../../reference/android/media/session/MediaController.html">MediaController</a></code> instead.
+</em>&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-19" >
+        <td class="jd-linkcol"><a href="../../../reference/android/media/RemoteController.MetadataEditor.html">RemoteController.MetadataEditor</a></td>
+        <td class="jd-descrcol" width="100%">
+          A class to read the metadata published by a <code><a href="../../../reference/android/media/RemoteControlClient.html">RemoteControlClient</a></code>, or send a
+ <code><a href="../../../reference/android/media/RemoteControlClient.html">RemoteControlClient</a></code> new values for keys that can be edited.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/android/media/Ringtone.html">Ringtone</a></td>
+        <td class="jd-descrcol" width="100%">
+          Ringtone provides a quick method for playing a ringtone, notification, or
+ other similar types of sounds.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/android/media/RingtoneManager.html">RingtoneManager</a></td>
+        <td class="jd-descrcol" width="100%">
+          RingtoneManager provides access to ringtones, notification, and other types
+ of sounds.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/android/media/SoundPool.html">SoundPool</a></td>
+        <td class="jd-descrcol" width="100%">
+          The SoundPool class manages and plays audio resources for applications.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-21" >
+        <td class="jd-linkcol"><a href="../../../reference/android/media/SoundPool.Builder.html">SoundPool.Builder</a></td>
+        <td class="jd-descrcol" width="100%">
+          Builder class for <code><a href="../../../reference/android/media/SoundPool.html">SoundPool</a></code> objects.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-8" >
+        <td class="jd-linkcol"><a href="../../../reference/android/media/ThumbnailUtils.html">ThumbnailUtils</a></td>
+        <td class="jd-descrcol" width="100%">
+          Thumbnail generation routines for media provider.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-16" >
+        <td class="jd-linkcol"><a href="../../../reference/android/media/TimedText.html">TimedText</a></td>
+        <td class="jd-descrcol" width="100%">
+          Class to hold the timed text's metadata, including:
  <ul>
  <li> The characters for rendering</li>
  <li> The rendering position for the timed text</li>
@@ -1535,14 +2324,39 @@ and control alerts such as ringtones and phone vibrations (<code><a href="../../
  <li> call <code><a href="../../../reference/android/media/TimedText.html#getBounds()">getBounds()</a></code> to get the text rendering area/region</li>
  </ul>
  </li>
- </ul>&nbsp;</td>
-          </tr>
-        <tr class="alt-color api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/android/media/ToneGenerator.html">ToneGenerator</a></td>
-              <td class="jd-descrcol" width="100%">This class provides methods to play DTMF tones (ITU-T Recommendation Q.23),
- call supervisory tones (3GPP TS 22.001, CEPT) and proprietary tones (3GPP TS 31.111).&nbsp;</td>
-          </tr>
+ </ul>&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/android/media/ToneGenerator.html">ToneGenerator</a></td>
+        <td class="jd-descrcol" width="100%">
+          This class provides methods to play DTMF tones (ITU-T Recommendation Q.23),
+ call supervisory tones (3GPP TS 22.001, CEPT) and proprietary tones (3GPP TS 31.111).&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-21" >
+        <td class="jd-linkcol"><a href="../../../reference/android/media/VolumeProvider.html">VolumeProvider</a></td>
+        <td class="jd-descrcol" width="100%">
+          Handles requests to adjust or set the volume on a session.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
   </table>
+
     </div>
   
 
@@ -1554,43 +2368,117 @@ and control alerts such as ringtones and phone vibrations (<code><a href="../../
     <h2>Exceptions</h2>
     <div class="jd-sumtable">
     
+  
   <table class="jd-sumtable-expando">
-        <tr class="alt-color api apilevel-18" >
-              <td class="jd-linkcol"><a href="../../../reference/android/media/DeniedByServerException.html">DeniedByServerException</a></td>
-              <td class="jd-descrcol" width="100%">Exception thrown when the provisioning server or key server denies a
- certficate or license for a device.&nbsp;</td>
-          </tr>
-        <tr class=" api apilevel-16" >
-              <td class="jd-linkcol"><a href="../../../reference/android/media/MediaCodec.CryptoException.html">MediaCodec.CryptoException</a></td>
-              <td class="jd-descrcol" width="100%">Thrown when a crypto error occurs while queueing a secure input buffer.&nbsp;</td>
-          </tr>
-        <tr class="alt-color api apilevel-16" >
-              <td class="jd-linkcol"><a href="../../../reference/android/media/MediaCryptoException.html">MediaCryptoException</a></td>
-              <td class="jd-descrcol" width="100%">Exception thrown if MediaCrypto object could not be instantiated for
- whatever reason.&nbsp;</td>
-          </tr>
-        <tr class=" api apilevel-18" >
-              <td class="jd-linkcol"><a href="../../../reference/android/media/MediaDrmException.html">MediaDrmException</a></td>
-              <td class="jd-descrcol" width="100%">Base class for MediaDrm exceptions
-&nbsp;</td>
-          </tr>
-        <tr class="alt-color api apilevel-18" >
-              <td class="jd-linkcol"><a href="../../../reference/android/media/NotProvisionedException.html">NotProvisionedException</a></td>
-              <td class="jd-descrcol" width="100%">Exception thrown when an operation on a MediaDrm object is attempted
- and the device does not have a certificate.&nbsp;</td>
-          </tr>
-        <tr class=" api apilevel-19" >
-              <td class="jd-linkcol"><a href="../../../reference/android/media/ResourceBusyException.html">ResourceBusyException</a></td>
-              <td class="jd-descrcol" width="100%">Exception thrown when an operation on a MediaDrm object is attempted
- and hardware resources are not available, due to being in use.&nbsp;</td>
-          </tr>
-        <tr class="alt-color api apilevel-18" >
-              <td class="jd-linkcol"><a href="../../../reference/android/media/UnsupportedSchemeException.html">UnsupportedSchemeException</a></td>
-              <td class="jd-descrcol" width="100%">Exception thrown when an attempt is made to construct a MediaDrm object
+    
+      <tr class="alt-color api apilevel-18" >
+        <td class="jd-linkcol"><a href="../../../reference/android/media/DeniedByServerException.html">DeniedByServerException</a></td>
+        <td class="jd-descrcol" width="100%">
+          Exception thrown when the provisioning server or key server denies a
+ certficate or license for a device.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-21" >
+        <td class="jd-linkcol"><a href="../../../reference/android/media/MediaCodec.CodecException.html">MediaCodec.CodecException</a></td>
+        <td class="jd-descrcol" width="100%">
+          Thrown when an internal codec error occurs.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-16" >
+        <td class="jd-linkcol"><a href="../../../reference/android/media/MediaCodec.CryptoException.html">MediaCodec.CryptoException</a></td>
+        <td class="jd-descrcol" width="100%">
+          Thrown when a crypto error occurs while queueing a secure input buffer.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-16" >
+        <td class="jd-linkcol"><a href="../../../reference/android/media/MediaCryptoException.html">MediaCryptoException</a></td>
+        <td class="jd-descrcol" width="100%">
+          Exception thrown if MediaCrypto object could not be instantiated for
+ whatever reason.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-21" >
+        <td class="jd-linkcol"><a href="../../../reference/android/media/MediaDrm.MediaDrmStateException.html">MediaDrm.MediaDrmStateException</a></td>
+        <td class="jd-descrcol" width="100%">
+          Thrown when an unrecoverable failure occurs during a MediaDrm operation.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-18" >
+        <td class="jd-linkcol"><a href="../../../reference/android/media/MediaDrmException.html">MediaDrmException</a></td>
+        <td class="jd-descrcol" width="100%">
+          Base class for MediaDrm exceptions
+&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-18" >
+        <td class="jd-linkcol"><a href="../../../reference/android/media/NotProvisionedException.html">NotProvisionedException</a></td>
+        <td class="jd-descrcol" width="100%">
+          Exception thrown when an operation on a MediaDrm object is attempted
+ and the device does not have a certificate.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-19" >
+        <td class="jd-linkcol"><a href="../../../reference/android/media/ResourceBusyException.html">ResourceBusyException</a></td>
+        <td class="jd-descrcol" width="100%">
+          Exception thrown when an operation on a MediaDrm object is attempted
+ and hardware resources are not available, due to being in use.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-18" >
+        <td class="jd-linkcol"><a href="../../../reference/android/media/UnsupportedSchemeException.html">UnsupportedSchemeException</a></td>
+        <td class="jd-descrcol" width="100%">
+          Exception thrown when an attempt is made to construct a MediaDrm object
  using a crypto scheme UUID that is not supported by the device
-&nbsp;</td>
-          </tr>
+&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
   </table>
+
     </div>
   
 

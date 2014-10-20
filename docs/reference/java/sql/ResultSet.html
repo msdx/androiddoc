@@ -82,6 +82,19 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 <html>
 <head>
 
@@ -97,7 +110,7 @@
 href="http://fonts.useso.com/css?family=Roboto+Condensed">
 <link rel="stylesheet" href="http://fonts.useso.com/css?family=Roboto:light,regular,medium,thin,italic,mediumitalic,bold"
   title="roboto">
-<link href="../../../assets/css/default.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/default.css?v=2" rel="stylesheet" type="text/css">
 
 
 <!-- FULLSCREEN STYLESHEET -->
@@ -106,30 +119,31 @@ type="text/css">
 
 
 <!-- JAVASCRIPT -->
-<script src="http://googleapiscdn.qiniudn.com/www.google.com/jsapi" type="text/javascript"></script>
+<script src="http://www.google.com/jsapi" type="text/javascript"></script>
 <script src="../../../assets/js/android_3p-bundle.js" type="text/javascript"></script>
 <script type="text/javascript">
   var toRoot = "../../../";
   var metaTags = [];
   var devsite = false;
 </script>
-<script src="../../../assets/js/docs.js" type="text/javascript"></script>
+<script src="../../../assets/js/docs.js?v=2" type="text/javascript"></script>
 
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-5831155-1']);
-  _gaq.push(['_trackPageview']);
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
+  ga('create', 'UA-5831155-1', 'android.com');
+  ga('create', 'UA-49880327-2', 'android.com', {'name': 'universal'});  // New tracker);
+  ga('send', 'pageview');
+  ga('universal.send', 'pageview'); // Send page view for new tracker.
 </script>
+
 </head>
 
 <body class="gc-documentation 
-  develop" itemscope itemtype="http://schema.org/Article">
+  develop reference" itemscope itemtype="http://schema.org/Article">
   <div id="doc-api-level" class="1" style="display:none"></div>
   <a name="top"></a>
 
@@ -139,6 +153,10 @@ type="text/css">
   <!-- Header -->
   <div id="header-wrapper">
     <div id="header">
+
+    
+
+
       <div class="wrap" id="header-wrap">
         <div class="col-3 logo">
           <a href="../../../index.html">
@@ -260,11 +278,20 @@ type="text/css">
 
 
         <!-- Expanded quicknav -->
-        <div id="quicknav" class="col-9">
+        <div id="quicknav" class="col-13">
           <ul>
+            <li class="about">
+              <ul>
+                <li><a href="../../../about/index.html">About</a></li>
+                <li><a href="../../../wear/index.html">Wear</a></li>
+                <li><a href="../../../tv/index.html">TV</a></li>
+                <li><a href="../../../auto/index.html">Auto</a></li>
+              </ul>
+            </li>
             <li class="design">
               <ul>
                 <li><a href="../../../design/index.html">Get Started</a></li>
+                <li><a href="../../../design/devices.html">Devices</a></li>
                 <li><a href="../../../design/style/index.html">Style</a></li>
                 <li><a href="../../../design/patterns/index.html">Patterns</a></li>
                 <li><a href="../../../design/building-blocks/index.html">Building Blocks</a></li>
@@ -298,7 +325,7 @@ type="text/css">
                   ja-lang="リファレンス"
                   es-lang="Referencia"
                   >Reference</a></li>
-                <li><a href="../../../tools/index.html"
+                <li><a href="../../../sdk/index.html"
                   zh-tw-lang="相關工具"
                   zh-cn-lang="工具"
                   ru-lang="Инструменты"
@@ -306,7 +333,6 @@ type="text/css">
                   ja-lang="ツール"
                   es-lang="Herramientas"
                   >Tools</a>
-                  <ul><li><a href="../../../sdk/index.html">Get the SDK</a></li></ul>
                 </li>
                 <li><a href="../../../google/index.html">Google Services</a>
                 </li>
@@ -358,7 +384,7 @@ type="text/css">
                   ja-lang="リファレンス"
                   es-lang="Referencia"
                   >Reference</a></li>
-                <li class="tools"><a href="../../../tools/index.html"
+                <li class="tools"><a href="../../../sdk/index.html"
                   zh-tw-lang="相關工具"
                   zh-cn-lang="工具"
                   ru-lang="Инструменты"
@@ -373,7 +399,7 @@ type="text/css">
             </ul>
         </div>
     </div>
-    <!-- /Sendondary x-nav -->
+    <!-- /Sendondary x-nav DEVELOP -->
 
   
 
@@ -414,7 +440,7 @@ type="text/css">
         <div id="api-nav-title">Android APIs</div>
         </div><!-- end nav header -->
       <script>
-        var SINCE_DATA = [ '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19' ];
+        var SINCE_DATA = [ '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21' ];
         buildApiLevelSelector();
       </script>
                   
@@ -441,13 +467,15 @@ type="text/css">
   <a href="../../../reference/android/app/admin/package-summary.html">android.app.admin</a></li>
     <li class="api apilevel-8">
   <a href="../../../reference/android/app/backup/package-summary.html">android.app.backup</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/app/job/package-summary.html">android.app.job</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/app/usage/package-summary.html">android.app.usage</a></li>
     <li class="api apilevel-3">
   <a href="../../../reference/android/appwidget/package-summary.html">android.appwidget</a></li>
     <li class="api apilevel-5">
   <a href="../../../reference/android/bluetooth/package-summary.html">android.bluetooth</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/bluetooth/le/package-summary.html">android.bluetooth.le</a></li>
     <li class="api apilevel-1">
   <a href="../../../reference/android/content/package-summary.html">android.content</a></li>
@@ -473,16 +501,14 @@ type="text/css">
   <a href="../../../reference/android/graphics/pdf/package-summary.html">android.graphics.pdf</a></li>
     <li class="api apilevel-1">
   <a href="../../../reference/android/hardware/package-summary.html">android.hardware</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/hardware/camera2/package-summary.html">android.hardware.camera2</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/hardware/camera2/params/package-summary.html">android.hardware.camera2.params</a></li>
     <li class="api apilevel-17">
   <a href="../../../reference/android/hardware/display/package-summary.html">android.hardware.display</a></li>
     <li class="api apilevel-16">
   <a href="../../../reference/android/hardware/input/package-summary.html">android.hardware.input</a></li>
-    <li class="api apilevel-18">
-  <a href="../../../reference/android/hardware/location/package-summary.html">android.hardware.location</a></li>
     <li class="api apilevel-12">
   <a href="../../../reference/android/hardware/usb/package-summary.html">android.hardware.usb</a></li>
     <li class="api apilevel-3">
@@ -493,11 +519,15 @@ type="text/css">
   <a href="../../../reference/android/media/package-summary.html">android.media</a></li>
     <li class="api apilevel-9">
   <a href="../../../reference/android/media/audiofx/package-summary.html">android.media.audiofx</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/media/browse/package-summary.html">android.media.browse</a></li>
     <li class="api apilevel-14">
   <a href="../../../reference/android/media/effect/package-summary.html">android.media.effect</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/media/projection/package-summary.html">android.media.projection</a></li>
+    <li class="api apilevel-21">
   <a href="../../../reference/android/media/session/package-summary.html">android.media.session</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/media/tv/package-summary.html">android.media.tv</a></li>
     <li class="api apilevel-12">
   <a href="../../../reference/android/mtp/package-summary.html">android.mtp</a></li>
@@ -547,11 +577,15 @@ type="text/css">
   <a href="../../../reference/android/security/package-summary.html">android.security</a></li>
     <li class="api apilevel-17">
   <a href="../../../reference/android/service/dreams/package-summary.html">android.service.dreams</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/service/media/package-summary.html">android.service.media</a></li>
     <li class="api apilevel-18">
   <a href="../../../reference/android/service/notification/package-summary.html">android.service.notification</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/service/restrictions/package-summary.html">android.service.restrictions</a></li>
     <li class="api apilevel-14">
   <a href="../../../reference/android/service/textservice/package-summary.html">android.service.textservice</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/service/voice/package-summary.html">android.service.voice</a></li>
     <li class="api apilevel-7">
   <a href="../../../reference/android/service/wallpaper/package-summary.html">android.service.wallpaper</a></li>
@@ -596,11 +630,15 @@ type="text/css">
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/media/package-summary.html">android.support.v4.media</a></li>
     <li class="api apilevel-">
+  <a href="../../../reference/android/support/v4/media/session/package-summary.html">android.support.v4.media.session</a></li>
+    <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/net/package-summary.html">android.support.v4.net</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/os/package-summary.html">android.support.v4.os</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/print/package-summary.html">android.support.v4.print</a></li>
+    <li class="api apilevel-">
+  <a href="../../../reference/android/support/v4/provider/package-summary.html">android.support.v4.provider</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/text/package-summary.html">android.support.v4.text</a></li>
     <li class="api apilevel-">
@@ -616,6 +654,10 @@ type="text/css">
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v7/appcompat/package-summary.html">android.support.v7.appcompat</a></li>
     <li class="api apilevel-">
+  <a href="../../../reference/android/support/v7/cardview/package-summary.html">android.support.v7.cardview</a></li>
+    <li class="api apilevel-">
+  <a href="../../../reference/android/support/v7/graphics/package-summary.html">android.support.v7.graphics</a></li>
+    <li class="api apilevel-">
   <a href="../../../reference/android/support/v7/gridlayout/package-summary.html">android.support.v7.gridlayout</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v7/media/package-summary.html">android.support.v7.media</a></li>
@@ -627,8 +669,10 @@ type="text/css">
   <a href="../../../reference/android/support/v7/widget/package-summary.html">android.support.v7.widget</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v8/renderscript/package-summary.html">android.support.v8.renderscript</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/system/package-summary.html">android.system</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/telecom/package-summary.html">android.telecom</a></li>
     <li class="api apilevel-1">
   <a href="../../../reference/android/telephony/package-summary.html">android.telephony</a></li>
     <li class="api apilevel-5">
@@ -1082,6 +1126,9 @@ Summary:
   
 
 
+    
+
+
 </div><!-- end header -->
 
 <div id="naMessage"></div>
@@ -1124,13 +1171,23 @@ Summary:
       <div id="subclasses-indirect-summary"
               style="display: none;"
               >
+  
   <table class="jd-sumtable-expando">
-        <tr class="alt-color api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/javax/sql/RowSet.html">RowSet</a></td>
-              <td class="jd-descrcol" width="100%">An interface which provides means to access data which
- persists on a database.&nbsp;</td>
-          </tr>
+    
+      <tr class="alt-color api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/javax/sql/RowSet.html">RowSet</a></td>
+        <td class="jd-descrcol" width="100%">
+          An interface which provides means to access data which
+ persists on a database.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
   </table>
+
       </div>
   </div>
 </td></tr></table>
@@ -1242,80 +1299,130 @@ Summary:
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/java/sql/ResultSet.html#CLOSE_CURSORS_AT_COMMIT">CLOSE_CURSORS_AT_COMMIT</a></td>
-        <td class="jd-descrcol" width="100%">A constant used to indicate that a <code>ResultSet</code> object must be
- closed when the method <code>Connection.commit</code> is invoked.</td>
+        <td class="jd-descrcol" width="100%">
+          A constant used to indicate that a <code>ResultSet</code> object must be
+ closed when the method <code>Connection.commit</code> is invoked.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/java/sql/ResultSet.html#CONCUR_READ_ONLY">CONCUR_READ_ONLY</a></td>
-        <td class="jd-descrcol" width="100%">A constant used to indicate the concurrency mode for a <code>ResultSet</code>
- object that cannot be updated.</td>
+        <td class="jd-descrcol" width="100%">
+          A constant used to indicate the concurrency mode for a <code>ResultSet</code>
+ object that cannot be updated.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/java/sql/ResultSet.html#CONCUR_UPDATABLE">CONCUR_UPDATABLE</a></td>
-        <td class="jd-descrcol" width="100%">A constant used to indicate the concurrency mode for a <code>ResultSet</code>
- object that can be updated.</td>
+        <td class="jd-descrcol" width="100%">
+          A constant used to indicate the concurrency mode for a <code>ResultSet</code>
+ object that can be updated.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/java/sql/ResultSet.html#FETCH_FORWARD">FETCH_FORWARD</a></td>
-        <td class="jd-descrcol" width="100%">A constant used to indicate processing of the rows of a <code>ResultSet</code>
- in the forward direction, first to last.</td>
+        <td class="jd-descrcol" width="100%">
+          A constant used to indicate processing of the rows of a <code>ResultSet</code>
+ in the forward direction, first to last.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/java/sql/ResultSet.html#FETCH_REVERSE">FETCH_REVERSE</a></td>
-        <td class="jd-descrcol" width="100%">A constant used to indicate processing of the rows of a <code>ResultSet</code>
- in the reverse direction, last to first.</td>
+        <td class="jd-descrcol" width="100%">
+          A constant used to indicate processing of the rows of a <code>ResultSet</code>
+ in the reverse direction, last to first.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/java/sql/ResultSet.html#FETCH_UNKNOWN">FETCH_UNKNOWN</a></td>
-        <td class="jd-descrcol" width="100%">A constant used to indicate that the order of processing of the rows of a
- <code>ResultSet</code> is unknown.</td>
+        <td class="jd-descrcol" width="100%">
+          A constant used to indicate that the order of processing of the rows of a
+ <code>ResultSet</code> is unknown.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/java/sql/ResultSet.html#HOLD_CURSORS_OVER_COMMIT">HOLD_CURSORS_OVER_COMMIT</a></td>
-        <td class="jd-descrcol" width="100%">A constant used to indicate that a <code>ResultSet</code> object must not be
- closed when the method <code>Connection.commit</code> is invoked.</td>
+        <td class="jd-descrcol" width="100%">
+          A constant used to indicate that a <code>ResultSet</code> object must not be
+ closed when the method <code>Connection.commit</code> is invoked.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/java/sql/ResultSet.html#TYPE_FORWARD_ONLY">TYPE_FORWARD_ONLY</a></td>
-        <td class="jd-descrcol" width="100%">A constant used to indicate a <code>ResultSet</code> object whose cursor can
- only move forward.</td>
+        <td class="jd-descrcol" width="100%">
+          A constant used to indicate a <code>ResultSet</code> object whose cursor can
+ only move forward.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/java/sql/ResultSet.html#TYPE_SCROLL_INSENSITIVE">TYPE_SCROLL_INSENSITIVE</a></td>
-        <td class="jd-descrcol" width="100%">A constant used to indicate a <code>ResultSet</code> object which is
- scrollable but is insensitive to changes made by others.</td>
+        <td class="jd-descrcol" width="100%">
+          A constant used to indicate a <code>ResultSet</code> object which is
+ scrollable but is insensitive to changes made by others.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/java/sql/ResultSet.html#TYPE_SCROLL_SENSITIVE">TYPE_SCROLL_SENSITIVE</a></td>
-        <td class="jd-descrcol" width="100%">A constant used to indicate a <code>ResultSet</code> object which is
- scrollable and sensitive to changes made by others.</td>
+        <td class="jd-descrcol" width="100%">
+          A constant used to indicate a <code>ResultSet</code> object which is
+ scrollable and sensitive to changes made by others.
+          
+    
+
+        </td>
     </tr>
     
     
@@ -1355,7 +1462,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#absolute(int)">absolute</a></span>(int row)</nobr>
         
-        <div class="jd-descrdiv">Moves the cursor to a specified row number in the <code>ResultSet</code>.</div>
+        <div class="jd-descrdiv">
+          Moves the cursor to a specified row number in the <code>ResultSet</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1373,7 +1485,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#afterLast()">afterLast</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Moves the cursor to the end of the <code>ResultSet</code>, after the last row.</div>
+        <div class="jd-descrdiv">
+          Moves the cursor to the end of the <code>ResultSet</code>, after the last row.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1391,8 +1508,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#beforeFirst()">beforeFirst</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Moves the cursor to the start of the <code>ResultSet</code>, before the first
- row.</div>
+        <div class="jd-descrdiv">
+          Moves the cursor to the start of the <code>ResultSet</code>, before the first
+ row.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1410,7 +1532,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#cancelRowUpdates()">cancelRowUpdates</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Cancels any updates made to the current row in the <code>ResultSet</code>.</div>
+        <div class="jd-descrdiv">
+          Cancels any updates made to the current row in the <code>ResultSet</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1428,7 +1555,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#clearWarnings()">clearWarnings</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Clears all warnings related to this <code>ResultSet</code>.</div>
+        <div class="jd-descrdiv">
+          Clears all warnings related to this <code>ResultSet</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1446,7 +1578,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#close()">close</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Releases this <code>ResultSet</code>'s database and JDBC resources.</div>
+        <div class="jd-descrdiv">
+          Releases this <code>ResultSet</code>'s database and JDBC resources.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1464,8 +1601,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#deleteRow()">deleteRow</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Deletes the current row from the <code>ResultSet</code> and from the
- underlying database.</div>
+        <div class="jd-descrdiv">
+          Deletes the current row from the <code>ResultSet</code> and from the
+ underlying database.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1483,8 +1625,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#findColumn(java.lang.String)">findColumn</a></span>(<a href="../../../reference/java/lang/String.html">String</a> columnName)</nobr>
         
-        <div class="jd-descrdiv">Gets the index number for a column in the <code>ResultSet</code> from the
- provided column name.</div>
+        <div class="jd-descrdiv">
+          Gets the index number for a column in the <code>ResultSet</code> from the
+ provided column name.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1502,7 +1649,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#first()">first</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Shifts the cursor position to the first row in the <code>ResultSet</code>.</div>
+        <div class="jd-descrdiv">
+          Shifts the cursor position to the first row in the <code>ResultSet</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1520,8 +1672,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#getArray(int)">getArray</a></span>(int columnIndex)</nobr>
         
-        <div class="jd-descrdiv">Gets the content of a column specified by column index in the current row
- of this <code>ResultSet</code> as a <code>java.sql.Array</code>.</div>
+        <div class="jd-descrdiv">
+          Gets the content of a column specified by column index in the current row
+ of this <code>ResultSet</code> as a <code>java.sql.Array</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1539,7 +1696,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#getArray(java.lang.String)">getArray</a></span>(<a href="../../../reference/java/lang/String.html">String</a> colName)</nobr>
         
-        <div class="jd-descrdiv">Gets the value of a column specified by column name as a <code>java.sql.Array</code>.</div>
+        <div class="jd-descrdiv">
+          Gets the value of a column specified by column name as a <code>java.sql.Array</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1557,8 +1719,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#getAsciiStream(int)">getAsciiStream</a></span>(int columnIndex)</nobr>
         
-        <div class="jd-descrdiv">Gets the value of a column specified by column index as an ASCII
- character stream.</div>
+        <div class="jd-descrdiv">
+          Gets the value of a column specified by column index as an ASCII
+ character stream.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1576,8 +1743,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#getAsciiStream(java.lang.String)">getAsciiStream</a></span>(<a href="../../../reference/java/lang/String.html">String</a> columnName)</nobr>
         
-        <div class="jd-descrdiv">Gets the value of a column specified by column name as an ASCII character
- stream.</div>
+        <div class="jd-descrdiv">
+          Gets the value of a column specified by column name as an ASCII character
+ stream.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1595,7 +1767,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#getBigDecimal(java.lang.String)">getBigDecimal</a></span>(<a href="../../../reference/java/lang/String.html">String</a> columnName)</nobr>
         
-        <div class="jd-descrdiv">Gets the value of a column specified by column name, as a <code>java.math.BigDecimal</code>.</div>
+        <div class="jd-descrdiv">
+          Gets the value of a column specified by column name, as a <code>java.math.BigDecimal</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1613,10 +1790,15 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#getBigDecimal(int, int)">getBigDecimal</a></span>(int columnIndex, int scale)</nobr>
         
-        <div class="jd-descrdiv"><em>
+        <div class="jd-descrdiv">
+          <em>
       This method was deprecated
       in API level 1.
-    Use <code><a href="../../../reference/java/sql/ResultSet.html#getBigDecimal(int)">getBigDecimal(int)</a></code> or <code><a href="../../../reference/java/sql/ResultSet.html#getBigDecimal(java.lang.String)">getBigDecimal(String)</a></code> instead.</em></div>
+    Use <code><a href="../../../reference/java/sql/ResultSet.html#getBigDecimal(int)">getBigDecimal(int)</a></code> or <code><a href="../../../reference/java/sql/ResultSet.html#getBigDecimal(java.lang.String)">getBigDecimal(String)</a></code> instead.</em>
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1634,7 +1816,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#getBigDecimal(int)">getBigDecimal</a></span>(int columnIndex)</nobr>
         
-        <div class="jd-descrdiv">Gets the value of a column specified by column index as a <code>java.math.BigDecimal</code>.</div>
+        <div class="jd-descrdiv">
+          Gets the value of a column specified by column index as a <code>java.math.BigDecimal</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1652,10 +1839,15 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#getBigDecimal(java.lang.String, int)">getBigDecimal</a></span>(<a href="../../../reference/java/lang/String.html">String</a> columnName, int scale)</nobr>
         
-        <div class="jd-descrdiv"><em>
+        <div class="jd-descrdiv">
+          <em>
       This method was deprecated
       in API level 1.
-    Use <code><a href="../../../reference/java/sql/ResultSet.html#getBigDecimal(int)">getBigDecimal(int)</a></code> or <code><a href="../../../reference/java/sql/ResultSet.html#getBigDecimal(java.lang.String)">getBigDecimal(String)</a></code> instead.</em></div>
+    Use <code><a href="../../../reference/java/sql/ResultSet.html#getBigDecimal(int)">getBigDecimal(int)</a></code> or <code><a href="../../../reference/java/sql/ResultSet.html#getBigDecimal(java.lang.String)">getBigDecimal(String)</a></code> instead.</em>
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1673,8 +1865,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#getBinaryStream(int)">getBinaryStream</a></span>(int columnIndex)</nobr>
         
-        <div class="jd-descrdiv">Gets the value of a column specified by column index as a binary
- stream.</div>
+        <div class="jd-descrdiv">
+          Gets the value of a column specified by column index as a binary
+ stream.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1692,7 +1889,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#getBinaryStream(java.lang.String)">getBinaryStream</a></span>(<a href="../../../reference/java/lang/String.html">String</a> columnName)</nobr>
         
-        <div class="jd-descrdiv">Gets the value of a column specified by column name as a binary stream.</div>
+        <div class="jd-descrdiv">
+          Gets the value of a column specified by column name as a binary stream.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1710,7 +1912,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#getBlob(java.lang.String)">getBlob</a></span>(<a href="../../../reference/java/lang/String.html">String</a> columnName)</nobr>
         
-        <div class="jd-descrdiv">Gets the value of a column specified by column name, as a <code>java.sql.Blob</code> object.</div>
+        <div class="jd-descrdiv">
+          Gets the value of a column specified by column name, as a <code>java.sql.Blob</code> object.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1728,7 +1935,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#getBlob(int)">getBlob</a></span>(int columnIndex)</nobr>
         
-        <div class="jd-descrdiv">Gets the value of a column specified by column index as a <code>java.sql.Blob</code> object.</div>
+        <div class="jd-descrdiv">
+          Gets the value of a column specified by column index as a <code>java.sql.Blob</code> object.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1746,8 +1958,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#getBoolean(int)">getBoolean</a></span>(int columnIndex)</nobr>
         
-        <div class="jd-descrdiv">Gets the value of a column specified by column index as a <code>boolean</code>
- .</div>
+        <div class="jd-descrdiv">
+          Gets the value of a column specified by column index as a <code>boolean</code>
+ .
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1765,8 +1982,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#getBoolean(java.lang.String)">getBoolean</a></span>(<a href="../../../reference/java/lang/String.html">String</a> columnName)</nobr>
         
-        <div class="jd-descrdiv">Gets the value of a column specified by column name, as a <code>boolean</code>
- .</div>
+        <div class="jd-descrdiv">
+          Gets the value of a column specified by column name, as a <code>boolean</code>
+ .
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1784,7 +2006,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#getByte(java.lang.String)">getByte</a></span>(<a href="../../../reference/java/lang/String.html">String</a> columnName)</nobr>
         
-        <div class="jd-descrdiv">Gets the value of a column specified by column name as a <code>byte</code>.</div>
+        <div class="jd-descrdiv">
+          Gets the value of a column specified by column name as a <code>byte</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1802,7 +2029,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#getByte(int)">getByte</a></span>(int columnIndex)</nobr>
         
-        <div class="jd-descrdiv">Gets the value of a column specified by column index as a <code>byte</code>.</div>
+        <div class="jd-descrdiv">
+          Gets the value of a column specified by column index as a <code>byte</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1820,7 +2052,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#getBytes(int)">getBytes</a></span>(int columnIndex)</nobr>
         
-        <div class="jd-descrdiv">Gets the value of a column specified by column index as a byte array.</div>
+        <div class="jd-descrdiv">
+          Gets the value of a column specified by column index as a byte array.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1838,7 +2075,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#getBytes(java.lang.String)">getBytes</a></span>(<a href="../../../reference/java/lang/String.html">String</a> columnName)</nobr>
         
-        <div class="jd-descrdiv">Gets the value of a column specified by column name as a byte array.</div>
+        <div class="jd-descrdiv">
+          Gets the value of a column specified by column name as a byte array.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1856,7 +2098,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#getCharacterStream(java.lang.String)">getCharacterStream</a></span>(<a href="../../../reference/java/lang/String.html">String</a> columnName)</nobr>
         
-        <div class="jd-descrdiv">Gets the value of a column specified by column name as a <code>java.io.Reader</code> object.</div>
+        <div class="jd-descrdiv">
+          Gets the value of a column specified by column name as a <code>java.io.Reader</code> object.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1874,7 +2121,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#getCharacterStream(int)">getCharacterStream</a></span>(int columnIndex)</nobr>
         
-        <div class="jd-descrdiv">Gets the value of a column specified by column index as a <code>java.io.Reader</code> object.</div>
+        <div class="jd-descrdiv">
+          Gets the value of a column specified by column index as a <code>java.io.Reader</code> object.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1892,7 +2144,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#getClob(int)">getClob</a></span>(int columnIndex)</nobr>
         
-        <div class="jd-descrdiv">Gets the value of a column specified by column index as a <code>java.sql.Clob</code>.</div>
+        <div class="jd-descrdiv">
+          Gets the value of a column specified by column index as a <code>java.sql.Clob</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1910,7 +2167,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#getClob(java.lang.String)">getClob</a></span>(<a href="../../../reference/java/lang/String.html">String</a> colName)</nobr>
         
-        <div class="jd-descrdiv">Gets the value of a column specified by column name as a <code>java.sql.Clob</code>.</div>
+        <div class="jd-descrdiv">
+          Gets the value of a column specified by column name as a <code>java.sql.Clob</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1928,7 +2190,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#getConcurrency()">getConcurrency</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Gets the concurrency mode of this <code>ResultSet</code>.</div>
+        <div class="jd-descrdiv">
+          Gets the concurrency mode of this <code>ResultSet</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1946,7 +2213,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#getCursorName()">getCursorName</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Gets the name of the SQL cursor of this <code>ResultSet</code>.</div>
+        <div class="jd-descrdiv">
+          Gets the name of the SQL cursor of this <code>ResultSet</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1964,7 +2236,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#getDate(int, java.util.Calendar)">getDate</a></span>(int columnIndex, <a href="../../../reference/java/util/Calendar.html">Calendar</a> cal)</nobr>
         
-        <div class="jd-descrdiv">Gets the value of a column specified by column index as a <code>java.sql.Date</code>.</div>
+        <div class="jd-descrdiv">
+          Gets the value of a column specified by column index as a <code>java.sql.Date</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1982,7 +2259,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#getDate(int)">getDate</a></span>(int columnIndex)</nobr>
         
-        <div class="jd-descrdiv">Gets the value of a column specified by column index as a <code>java.sql.Date</code>.</div>
+        <div class="jd-descrdiv">
+          Gets the value of a column specified by column index as a <code>java.sql.Date</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2000,7 +2282,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#getDate(java.lang.String, java.util.Calendar)">getDate</a></span>(<a href="../../../reference/java/lang/String.html">String</a> columnName, <a href="../../../reference/java/util/Calendar.html">Calendar</a> cal)</nobr>
         
-        <div class="jd-descrdiv">Gets the value of a column specified by column name, as a <code>java.sql.Date</code> object.</div>
+        <div class="jd-descrdiv">
+          Gets the value of a column specified by column name, as a <code>java.sql.Date</code> object.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2018,7 +2305,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#getDate(java.lang.String)">getDate</a></span>(<a href="../../../reference/java/lang/String.html">String</a> columnName)</nobr>
         
-        <div class="jd-descrdiv">Gets the value of a column specified by column name as a <code>java.sql.Date</code>.</div>
+        <div class="jd-descrdiv">
+          Gets the value of a column specified by column name as a <code>java.sql.Date</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2036,8 +2328,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#getDouble(java.lang.String)">getDouble</a></span>(<a href="../../../reference/java/lang/String.html">String</a> columnName)</nobr>
         
-        <div class="jd-descrdiv">Gets the value of a column specified by column name as a <code>double</code>
- value.</div>
+        <div class="jd-descrdiv">
+          Gets the value of a column specified by column name as a <code>double</code>
+ value.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2055,8 +2352,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#getDouble(int)">getDouble</a></span>(int columnIndex)</nobr>
         
-        <div class="jd-descrdiv">Gets the value of a column specified by column index as a <code>double</code>
- value.</div>
+        <div class="jd-descrdiv">
+          Gets the value of a column specified by column index as a <code>double</code>
+ value.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2074,8 +2376,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#getFetchDirection()">getFetchDirection</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Gets the direction in which rows are fetched for this <code>ResultSet</code>
- object.</div>
+        <div class="jd-descrdiv">
+          Gets the direction in which rows are fetched for this <code>ResultSet</code>
+ object.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2093,7 +2400,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#getFetchSize()">getFetchSize</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Gets the fetch size (in number of rows) for this <code>ResultSet</code>.</div>
+        <div class="jd-descrdiv">
+          Gets the fetch size (in number of rows) for this <code>ResultSet</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2111,8 +2423,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#getFloat(int)">getFloat</a></span>(int columnIndex)</nobr>
         
-        <div class="jd-descrdiv">Gets the value of a column specified by column index as a <code>float</code>
- value.</div>
+        <div class="jd-descrdiv">
+          Gets the value of a column specified by column index as a <code>float</code>
+ value.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2130,8 +2447,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#getFloat(java.lang.String)">getFloat</a></span>(<a href="../../../reference/java/lang/String.html">String</a> columnName)</nobr>
         
-        <div class="jd-descrdiv">Gets the value of a column specified by column name as a <code>float</code>
- value.</div>
+        <div class="jd-descrdiv">
+          Gets the value of a column specified by column name as a <code>float</code>
+ value.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2149,8 +2471,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#getHoldability()">getHoldability</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns the holdability of this result set: <code><a href="../../../reference/java/sql/ResultSet.html#HOLD_CURSORS_OVER_COMMIT">HOLD_CURSORS_OVER_COMMIT</a></code> or
- <code><a href="../../../reference/java/sql/ResultSet.html#CLOSE_CURSORS_AT_COMMIT">CLOSE_CURSORS_AT_COMMIT</a></code>.</div>
+        <div class="jd-descrdiv">
+          Returns the holdability of this result set: <code><a href="../../../reference/java/sql/ResultSet.html#HOLD_CURSORS_OVER_COMMIT">HOLD_CURSORS_OVER_COMMIT</a></code> or
+ <code><a href="../../../reference/java/sql/ResultSet.html#CLOSE_CURSORS_AT_COMMIT">CLOSE_CURSORS_AT_COMMIT</a></code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2168,8 +2495,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#getInt(java.lang.String)">getInt</a></span>(<a href="../../../reference/java/lang/String.html">String</a> columnName)</nobr>
         
-        <div class="jd-descrdiv">Gets the value of a column specified by column name, as an <code>int</code>
- value.</div>
+        <div class="jd-descrdiv">
+          Gets the value of a column specified by column name, as an <code>int</code>
+ value.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2187,8 +2519,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#getInt(int)">getInt</a></span>(int columnIndex)</nobr>
         
-        <div class="jd-descrdiv">Gets the value of a column specified by column index as an <code>int</code>
- value.</div>
+        <div class="jd-descrdiv">
+          Gets the value of a column specified by column index as an <code>int</code>
+ value.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2206,8 +2543,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#getLong(java.lang.String)">getLong</a></span>(<a href="../../../reference/java/lang/String.html">String</a> columnName)</nobr>
         
-        <div class="jd-descrdiv">Gets the value of a column specified by column name, as a <code>long</code>
- value.</div>
+        <div class="jd-descrdiv">
+          Gets the value of a column specified by column name, as a <code>long</code>
+ value.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2225,8 +2567,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#getLong(int)">getLong</a></span>(int columnIndex)</nobr>
         
-        <div class="jd-descrdiv">Gets the value of a column specified by column index as a <code>long</code>
- value.</div>
+        <div class="jd-descrdiv">
+          Gets the value of a column specified by column index as a <code>long</code>
+ value.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2244,7 +2591,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#getMetaData()">getMetaData</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Gets the metadata for this <code>ResultSet</code>.</div>
+        <div class="jd-descrdiv">
+          Gets the metadata for this <code>ResultSet</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2262,7 +2614,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#getNCharacterStream(int)">getNCharacterStream</a></span>(int columnIndex)</nobr>
         
-        <div class="jd-descrdiv">Returns a <code>Reader</code> corresponding to the value at the 1-based <code>columnIndex</code>.</div>
+        <div class="jd-descrdiv">
+          Returns a <code>Reader</code> corresponding to the value at the 1-based <code>columnIndex</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2280,7 +2637,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#getNCharacterStream(java.lang.String)">getNCharacterStream</a></span>(<a href="../../../reference/java/lang/String.html">String</a> columnLabel)</nobr>
         
-        <div class="jd-descrdiv">Returns a <code>Reader</code> corresponding to the value in the named column.</div>
+        <div class="jd-descrdiv">
+          Returns a <code>Reader</code> corresponding to the value in the named column.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2298,7 +2660,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#getNClob(java.lang.String)">getNClob</a></span>(<a href="../../../reference/java/lang/String.html">String</a> columnLabel)</nobr>
         
-        <div class="jd-descrdiv">Returns an <code>NClob</code> corresponding to the value in the named column.</div>
+        <div class="jd-descrdiv">
+          Returns an <code>NClob</code> corresponding to the value in the named column.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2316,7 +2683,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#getNClob(int)">getNClob</a></span>(int columnIndex)</nobr>
         
-        <div class="jd-descrdiv">Returns an <code>NClob</code> corresponding to the value at the 1-based <code>columnIndex</code>.</div>
+        <div class="jd-descrdiv">
+          Returns an <code>NClob</code> corresponding to the value at the 1-based <code>columnIndex</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2334,7 +2706,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#getNString(java.lang.String)">getNString</a></span>(<a href="../../../reference/java/lang/String.html">String</a> columnLabel)</nobr>
         
-        <div class="jd-descrdiv">Returns a <code>String</code> corresponding to the value in the named column.</div>
+        <div class="jd-descrdiv">
+          Returns a <code>String</code> corresponding to the value in the named column.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2352,7 +2729,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#getNString(int)">getNString</a></span>(int columnIndex)</nobr>
         
-        <div class="jd-descrdiv">Returns a <code>String</code> corresponding to the value at the 1-based <code>columnIndex</code>.</div>
+        <div class="jd-descrdiv">
+          Returns a <code>String</code> corresponding to the value at the 1-based <code>columnIndex</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2370,7 +2752,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#getObject(java.lang.String, java.util.Map<java.lang.String, java.lang.Class<?>>)">getObject</a></span>(<a href="../../../reference/java/lang/String.html">String</a> columnName, <a href="../../../reference/java/util/Map.html">Map</a>&lt;<a href="../../../reference/java/lang/String.html">String</a>,&nbsp;<a href="../../../reference/java/lang/Class.html">Class</a>&lt;?&gt;&gt; map)</nobr>
         
-        <div class="jd-descrdiv">Gets the value of a column specified by column name as a Java <code>Object</code>.</div>
+        <div class="jd-descrdiv">
+          Gets the value of a column specified by column name as a Java <code>Object</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2388,7 +2775,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#getObject(int, java.util.Map<java.lang.String, java.lang.Class<?>>)">getObject</a></span>(int columnIndex, <a href="../../../reference/java/util/Map.html">Map</a>&lt;<a href="../../../reference/java/lang/String.html">String</a>,&nbsp;<a href="../../../reference/java/lang/Class.html">Class</a>&lt;?&gt;&gt; map)</nobr>
         
-        <div class="jd-descrdiv">Gets the value of a column specified by column index as a Java <code>Object</code>.</div>
+        <div class="jd-descrdiv">
+          Gets the value of a column specified by column index as a Java <code>Object</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2406,7 +2798,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#getObject(java.lang.String)">getObject</a></span>(<a href="../../../reference/java/lang/String.html">String</a> columnName)</nobr>
         
-        <div class="jd-descrdiv">Gets the value of a specified column as a Java <code>Object</code>.</div>
+        <div class="jd-descrdiv">
+          Gets the value of a specified column as a Java <code>Object</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2424,7 +2821,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#getObject(int)">getObject</a></span>(int columnIndex)</nobr>
         
-        <div class="jd-descrdiv">Gets the value of a specified column as a Java <code>Object</code>.</div>
+        <div class="jd-descrdiv">
+          Gets the value of a specified column as a Java <code>Object</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2442,7 +2844,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#getRef(java.lang.String)">getRef</a></span>(<a href="../../../reference/java/lang/String.html">String</a> colName)</nobr>
         
-        <div class="jd-descrdiv">Gets the value of a column specified by column name as a Java <code>java.sql.Ref</code>.</div>
+        <div class="jd-descrdiv">
+          Gets the value of a column specified by column name as a Java <code>java.sql.Ref</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2460,7 +2867,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#getRef(int)">getRef</a></span>(int columnIndex)</nobr>
         
-        <div class="jd-descrdiv">Gets the value of a column specified by column index as a Java <code>java.sql.Ref</code>.</div>
+        <div class="jd-descrdiv">
+          Gets the value of a column specified by column index as a Java <code>java.sql.Ref</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2478,7 +2890,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#getRow()">getRow</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Gets the number of the current row in the <code>ResultSet</code>.</div>
+        <div class="jd-descrdiv">
+          Gets the number of the current row in the <code>ResultSet</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2496,7 +2913,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#getRowId(java.lang.String)">getRowId</a></span>(<a href="../../../reference/java/lang/String.html">String</a> columnLabel)</nobr>
         
-        <div class="jd-descrdiv">Returns a <code>RowId</code> corresponding to the SQL ROWID at the named column.</div>
+        <div class="jd-descrdiv">
+          Returns a <code>RowId</code> corresponding to the SQL ROWID at the named column.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2514,7 +2936,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#getRowId(int)">getRowId</a></span>(int columnIndex)</nobr>
         
-        <div class="jd-descrdiv">Returns a <code>RowId</code> corresponding to the SQL ROWID at the 1-based <code>columnIndex</code>.</div>
+        <div class="jd-descrdiv">
+          Returns a <code>RowId</code> corresponding to the SQL ROWID at the 1-based <code>columnIndex</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2532,7 +2959,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#getSQLXML(java.lang.String)">getSQLXML</a></span>(<a href="../../../reference/java/lang/String.html">String</a> columnLabel)</nobr>
         
-        <div class="jd-descrdiv">Returns an <code>SQLXML</code> corresponding to the value in the named column.</div>
+        <div class="jd-descrdiv">
+          Returns an <code>SQLXML</code> corresponding to the value in the named column.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2550,7 +2982,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#getSQLXML(int)">getSQLXML</a></span>(int columnIndex)</nobr>
         
-        <div class="jd-descrdiv">Returns an <code>SQLXML</code> corresponding to the value at the 1-based <code>columnIndex</code>.</div>
+        <div class="jd-descrdiv">
+          Returns an <code>SQLXML</code> corresponding to the value at the 1-based <code>columnIndex</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2568,7 +3005,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#getShort(java.lang.String)">getShort</a></span>(<a href="../../../reference/java/lang/String.html">String</a> columnName)</nobr>
         
-        <div class="jd-descrdiv">Gets the value of a column specified by column name, as a short value.</div>
+        <div class="jd-descrdiv">
+          Gets the value of a column specified by column name, as a short value.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2586,7 +3028,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#getShort(int)">getShort</a></span>(int columnIndex)</nobr>
         
-        <div class="jd-descrdiv">Gets the value of a column specified by column index as a short value.</div>
+        <div class="jd-descrdiv">
+          Gets the value of a column specified by column index as a short value.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2604,7 +3051,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#getStatement()">getStatement</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Gets the statement that produced this <code>ResultSet</code>.</div>
+        <div class="jd-descrdiv">
+          Gets the statement that produced this <code>ResultSet</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2622,7 +3074,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#getString(int)">getString</a></span>(int columnIndex)</nobr>
         
-        <div class="jd-descrdiv">Gets the value of a column specified by column index as a String.</div>
+        <div class="jd-descrdiv">
+          Gets the value of a column specified by column index as a String.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2640,7 +3097,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#getString(java.lang.String)">getString</a></span>(<a href="../../../reference/java/lang/String.html">String</a> columnName)</nobr>
         
-        <div class="jd-descrdiv">Gets the value of a column specified by column name, as a String.</div>
+        <div class="jd-descrdiv">
+          Gets the value of a column specified by column name, as a String.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2658,7 +3120,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#getTime(java.lang.String, java.util.Calendar)">getTime</a></span>(<a href="../../../reference/java/lang/String.html">String</a> columnName, <a href="../../../reference/java/util/Calendar.html">Calendar</a> cal)</nobr>
         
-        <div class="jd-descrdiv">Gets the value of a column specified by column index, as a <code>java.sql.Time</code> value.</div>
+        <div class="jd-descrdiv">
+          Gets the value of a column specified by column index, as a <code>java.sql.Time</code> value.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2676,7 +3143,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#getTime(java.lang.String)">getTime</a></span>(<a href="../../../reference/java/lang/String.html">String</a> columnName)</nobr>
         
-        <div class="jd-descrdiv">Gets the value of a column specified by column name, as a <code>java.sql.Time</code> value.</div>
+        <div class="jd-descrdiv">
+          Gets the value of a column specified by column name, as a <code>java.sql.Time</code> value.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2694,7 +3166,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#getTime(int, java.util.Calendar)">getTime</a></span>(int columnIndex, <a href="../../../reference/java/util/Calendar.html">Calendar</a> cal)</nobr>
         
-        <div class="jd-descrdiv">Gets the value of a column specified by column index as a <code>java.sql.Time</code> value.</div>
+        <div class="jd-descrdiv">
+          Gets the value of a column specified by column index as a <code>java.sql.Time</code> value.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2712,7 +3189,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#getTime(int)">getTime</a></span>(int columnIndex)</nobr>
         
-        <div class="jd-descrdiv">Gets the value of a column specified by column index as a <code>java.sql.Time</code> value.</div>
+        <div class="jd-descrdiv">
+          Gets the value of a column specified by column index as a <code>java.sql.Time</code> value.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2730,7 +3212,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#getTimestamp(int, java.util.Calendar)">getTimestamp</a></span>(int columnIndex, <a href="../../../reference/java/util/Calendar.html">Calendar</a> cal)</nobr>
         
-        <div class="jd-descrdiv">Gets the value of a column specified by column index, as a <code>java.sql.Timestamp</code> value.</div>
+        <div class="jd-descrdiv">
+          Gets the value of a column specified by column index, as a <code>java.sql.Timestamp</code> value.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2748,7 +3235,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#getTimestamp(java.lang.String)">getTimestamp</a></span>(<a href="../../../reference/java/lang/String.html">String</a> columnName)</nobr>
         
-        <div class="jd-descrdiv">Gets the value of a column specified by column name, as a <code>java.sql.Timestamp</code> value.</div>
+        <div class="jd-descrdiv">
+          Gets the value of a column specified by column name, as a <code>java.sql.Timestamp</code> value.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2766,7 +3258,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#getTimestamp(java.lang.String, java.util.Calendar)">getTimestamp</a></span>(<a href="../../../reference/java/lang/String.html">String</a> columnName, <a href="../../../reference/java/util/Calendar.html">Calendar</a> cal)</nobr>
         
-        <div class="jd-descrdiv">Gets the value of a column specified by column name, as a <code>java.sql.Timestamp</code> value.</div>
+        <div class="jd-descrdiv">
+          Gets the value of a column specified by column name, as a <code>java.sql.Timestamp</code> value.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2784,7 +3281,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#getTimestamp(int)">getTimestamp</a></span>(int columnIndex)</nobr>
         
-        <div class="jd-descrdiv">Gets the value of a column specified by column index as a <code>java.sql.Timestamp</code> value.</div>
+        <div class="jd-descrdiv">
+          Gets the value of a column specified by column index as a <code>java.sql.Timestamp</code> value.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2802,7 +3304,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#getType()">getType</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Gets the type of the <code>ResultSet</code>.</div>
+        <div class="jd-descrdiv">
+          Gets the type of the <code>ResultSet</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2820,7 +3327,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#getURL(int)">getURL</a></span>(int columnIndex)</nobr>
         
-        <div class="jd-descrdiv">Gets the value of a column specified by column index as a <code>java.net.URL</code>.</div>
+        <div class="jd-descrdiv">
+          Gets the value of a column specified by column index as a <code>java.net.URL</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2838,7 +3350,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#getURL(java.lang.String)">getURL</a></span>(<a href="../../../reference/java/lang/String.html">String</a> columnName)</nobr>
         
-        <div class="jd-descrdiv">Gets the value of a column specified by column name as a <code>java.net.URL</code> object.</div>
+        <div class="jd-descrdiv">
+          Gets the value of a column specified by column name as a <code>java.net.URL</code> object.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2856,10 +3373,15 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#getUnicodeStream(int)">getUnicodeStream</a></span>(int columnIndex)</nobr>
         
-        <div class="jd-descrdiv"><em>
+        <div class="jd-descrdiv">
+          <em>
       This method was deprecated
       in API level 1.
-    Use <code><a href="../../../reference/java/sql/ResultSet.html#getCharacterStream(int)">getCharacterStream(int)</a></code> instead.</em></div>
+    Use <code><a href="../../../reference/java/sql/ResultSet.html#getCharacterStream(int)">getCharacterStream(int)</a></code> instead.</em>
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2877,10 +3399,15 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#getUnicodeStream(java.lang.String)">getUnicodeStream</a></span>(<a href="../../../reference/java/lang/String.html">String</a> columnName)</nobr>
         
-        <div class="jd-descrdiv"><em>
+        <div class="jd-descrdiv">
+          <em>
       This method was deprecated
       in API level 1.
-    Use <code><a href="../../../reference/java/sql/ResultSet.html#getCharacterStream(int)">getCharacterStream(int)</a></code> instead.</em></div>
+    Use <code><a href="../../../reference/java/sql/ResultSet.html#getCharacterStream(int)">getCharacterStream(int)</a></code> instead.</em>
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2898,7 +3425,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#getWarnings()">getWarnings</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Gets the first warning generated by calls on this <code>ResultSet</code>.</div>
+        <div class="jd-descrdiv">
+          Gets the first warning generated by calls on this <code>ResultSet</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2916,8 +3448,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#insertRow()">insertRow</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Insert the insert row into the <code>ResultSet</code> and into the underlying
- database.</div>
+        <div class="jd-descrdiv">
+          Insert the insert row into the <code>ResultSet</code> and into the underlying
+ database.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2935,7 +3472,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#isAfterLast()">isAfterLast</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Gets if the cursor is after the last row of the <code>ResultSet</code>.</div>
+        <div class="jd-descrdiv">
+          Gets if the cursor is after the last row of the <code>ResultSet</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2953,7 +3495,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#isBeforeFirst()">isBeforeFirst</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Gets if the cursor is before the first row of the <code>ResultSet</code>.</div>
+        <div class="jd-descrdiv">
+          Gets if the cursor is before the first row of the <code>ResultSet</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2971,7 +3518,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#isClosed()">isClosed</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns true if this result set has been closed, false otherwise.</div>
+        <div class="jd-descrdiv">
+          Returns true if this result set has been closed, false otherwise.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2989,7 +3541,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#isFirst()">isFirst</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Gets if the cursor is on the first row of the <code>ResultSet</code>.</div>
+        <div class="jd-descrdiv">
+          Gets if the cursor is on the first row of the <code>ResultSet</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3007,7 +3564,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#isLast()">isLast</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Gets if the cursor is on the last row of the <code>ResultSet</code></div>
+        <div class="jd-descrdiv">
+          Gets if the cursor is on the last row of the <code>ResultSet</code>
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3025,7 +3587,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#last()">last</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Shifts the cursor position to the last row of the <code>ResultSet</code>.</div>
+        <div class="jd-descrdiv">
+          Shifts the cursor position to the last row of the <code>ResultSet</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3043,8 +3610,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#moveToCurrentRow()">moveToCurrentRow</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Moves the cursor to the remembered position, namely the
- row that was the current row before a call to <code>moveToInsertRow</code>.</div>
+        <div class="jd-descrdiv">
+          Moves the cursor to the remembered position, namely the
+ row that was the current row before a call to <code>moveToInsertRow</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3062,7 +3634,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#moveToInsertRow()">moveToInsertRow</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Moves the cursor position to the Insert Row.</div>
+        <div class="jd-descrdiv">
+          Moves the cursor position to the Insert Row.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3080,7 +3657,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#next()">next</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Shifts the cursor position down one row in this <code>ResultSet</code> object.</div>
+        <div class="jd-descrdiv">
+          Shifts the cursor position down one row in this <code>ResultSet</code> object.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3098,7 +3680,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#previous()">previous</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Relocates the cursor position to the preceding row in this <code>ResultSet</code>.</div>
+        <div class="jd-descrdiv">
+          Relocates the cursor position to the preceding row in this <code>ResultSet</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3116,7 +3703,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#refreshRow()">refreshRow</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Refreshes the current row with its most up to date value in the database.</div>
+        <div class="jd-descrdiv">
+          Refreshes the current row with its most up to date value in the database.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3134,7 +3726,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#relative(int)">relative</a></span>(int rows)</nobr>
         
-        <div class="jd-descrdiv">Moves the cursor position up or down by a specified number of rows.</div>
+        <div class="jd-descrdiv">
+          Moves the cursor position up or down by a specified number of rows.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3152,7 +3749,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#rowDeleted()">rowDeleted</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Indicates whether a row has been deleted.</div>
+        <div class="jd-descrdiv">
+          Indicates whether a row has been deleted.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3170,7 +3772,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#rowInserted()">rowInserted</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Indicates whether the current row has had an insertion operation.</div>
+        <div class="jd-descrdiv">
+          Indicates whether the current row has had an insertion operation.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3188,7 +3795,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#rowUpdated()">rowUpdated</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Indicates whether the current row has been updated.</div>
+        <div class="jd-descrdiv">
+          Indicates whether the current row has been updated.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3206,8 +3818,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#setFetchDirection(int)">setFetchDirection</a></span>(int direction)</nobr>
         
-        <div class="jd-descrdiv">Indicates which direction (forward/reverse) will be used to process the
- rows of this <code>ResultSet</code> object.</div>
+        <div class="jd-descrdiv">
+          Indicates which direction (forward/reverse) will be used to process the
+ rows of this <code>ResultSet</code> object.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3225,8 +3842,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#setFetchSize(int)">setFetchSize</a></span>(int rows)</nobr>
         
-        <div class="jd-descrdiv">Indicates the number of rows to fetch from the database when extra rows
- are required for this <code>ResultSet</code>.</div>
+        <div class="jd-descrdiv">
+          Indicates the number of rows to fetch from the database when extra rows
+ are required for this <code>ResultSet</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3244,7 +3866,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#updateArray(int, java.sql.Array)">updateArray</a></span>(int columnIndex, <a href="../../../reference/java/sql/Array.html">Array</a> x)</nobr>
         
-        <div class="jd-descrdiv">Updates a column specified by a column index with a <code>java.sql.Array</code> value.</div>
+        <div class="jd-descrdiv">
+          Updates a column specified by a column index with a <code>java.sql.Array</code> value.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3262,8 +3889,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#updateArray(java.lang.String, java.sql.Array)">updateArray</a></span>(<a href="../../../reference/java/lang/String.html">String</a> columnName, <a href="../../../reference/java/sql/Array.html">Array</a> x)</nobr>
         
-        <div class="jd-descrdiv">Updates a column specified by a column name with a <code>java.sql.Array</code>
- value.</div>
+        <div class="jd-descrdiv">
+          Updates a column specified by a column name with a <code>java.sql.Array</code>
+ value.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3281,7 +3913,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#updateAsciiStream(java.lang.String, java.io.InputStream, int)">updateAsciiStream</a></span>(<a href="../../../reference/java/lang/String.html">String</a> columnName, <a href="../../../reference/java/io/InputStream.html">InputStream</a> x, int length)</nobr>
         
-        <div class="jd-descrdiv">Updates a column specified by a column name with an Ascii stream value.</div>
+        <div class="jd-descrdiv">
+          Updates a column specified by a column name with an Ascii stream value.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3299,7 +3936,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#updateAsciiStream(int, java.io.InputStream, long)">updateAsciiStream</a></span>(int columnIndex, <a href="../../../reference/java/io/InputStream.html">InputStream</a> x, long length)</nobr>
         
-        <div class="jd-descrdiv">Updates the value at the 1-based <code>columnIndex</code>.</div>
+        <div class="jd-descrdiv">
+          Updates the value at the 1-based <code>columnIndex</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3317,7 +3959,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#updateAsciiStream(java.lang.String, java.io.InputStream, long)">updateAsciiStream</a></span>(<a href="../../../reference/java/lang/String.html">String</a> columnLabel, <a href="../../../reference/java/io/InputStream.html">InputStream</a> x, long length)</nobr>
         
-        <div class="jd-descrdiv">Updates the value in the named column.</div>
+        <div class="jd-descrdiv">
+          Updates the value in the named column.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3335,7 +3982,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#updateAsciiStream(java.lang.String, java.io.InputStream)">updateAsciiStream</a></span>(<a href="../../../reference/java/lang/String.html">String</a> columnLabel, <a href="../../../reference/java/io/InputStream.html">InputStream</a> x)</nobr>
         
-        <div class="jd-descrdiv">Updates the value in the named column.</div>
+        <div class="jd-descrdiv">
+          Updates the value in the named column.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3353,7 +4005,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#updateAsciiStream(int, java.io.InputStream)">updateAsciiStream</a></span>(int columnIndex, <a href="../../../reference/java/io/InputStream.html">InputStream</a> x)</nobr>
         
-        <div class="jd-descrdiv">Updates the value at the 1-based <code>columnIndex</code>.</div>
+        <div class="jd-descrdiv">
+          Updates the value at the 1-based <code>columnIndex</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3371,7 +4028,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#updateAsciiStream(int, java.io.InputStream, int)">updateAsciiStream</a></span>(int columnIndex, <a href="../../../reference/java/io/InputStream.html">InputStream</a> x, int length)</nobr>
         
-        <div class="jd-descrdiv">Updates a column specified by a column index with an ASCII stream value.</div>
+        <div class="jd-descrdiv">
+          Updates a column specified by a column index with an ASCII stream value.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3389,7 +4051,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#updateBigDecimal(int, java.math.BigDecimal)">updateBigDecimal</a></span>(int columnIndex, <a href="../../../reference/java/math/BigDecimal.html">BigDecimal</a> x)</nobr>
         
-        <div class="jd-descrdiv">Updates a column specified by a column index with a <code>java.sql.BigDecimal</code> value.</div>
+        <div class="jd-descrdiv">
+          Updates a column specified by a column index with a <code>java.sql.BigDecimal</code> value.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3407,7 +4074,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#updateBigDecimal(java.lang.String, java.math.BigDecimal)">updateBigDecimal</a></span>(<a href="../../../reference/java/lang/String.html">String</a> columnName, <a href="../../../reference/java/math/BigDecimal.html">BigDecimal</a> x)</nobr>
         
-        <div class="jd-descrdiv">Updates a column specified by a column name with a <code>java.sql.BigDecimal</code> value.</div>
+        <div class="jd-descrdiv">
+          Updates a column specified by a column name with a <code>java.sql.BigDecimal</code> value.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3425,7 +4097,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#updateBinaryStream(int, java.io.InputStream)">updateBinaryStream</a></span>(int columnIndex, <a href="../../../reference/java/io/InputStream.html">InputStream</a> x)</nobr>
         
-        <div class="jd-descrdiv">Updates the value at the 1-based <code>columnIndex</code>.</div>
+        <div class="jd-descrdiv">
+          Updates the value at the 1-based <code>columnIndex</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3443,7 +4120,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#updateBinaryStream(int, java.io.InputStream, long)">updateBinaryStream</a></span>(int columnIndex, <a href="../../../reference/java/io/InputStream.html">InputStream</a> x, long length)</nobr>
         
-        <div class="jd-descrdiv">Updates the value at the 1-based <code>columnIndex</code>.</div>
+        <div class="jd-descrdiv">
+          Updates the value at the 1-based <code>columnIndex</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3461,7 +4143,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#updateBinaryStream(java.lang.String, java.io.InputStream, long)">updateBinaryStream</a></span>(<a href="../../../reference/java/lang/String.html">String</a> columnLabel, <a href="../../../reference/java/io/InputStream.html">InputStream</a> x, long length)</nobr>
         
-        <div class="jd-descrdiv">Updates the value in the named column.</div>
+        <div class="jd-descrdiv">
+          Updates the value in the named column.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3479,7 +4166,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#updateBinaryStream(int, java.io.InputStream, int)">updateBinaryStream</a></span>(int columnIndex, <a href="../../../reference/java/io/InputStream.html">InputStream</a> x, int length)</nobr>
         
-        <div class="jd-descrdiv">Updates a column specified by a column index with a binary stream value.</div>
+        <div class="jd-descrdiv">
+          Updates a column specified by a column index with a binary stream value.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3497,7 +4189,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#updateBinaryStream(java.lang.String, java.io.InputStream)">updateBinaryStream</a></span>(<a href="../../../reference/java/lang/String.html">String</a> columnLabel, <a href="../../../reference/java/io/InputStream.html">InputStream</a> x)</nobr>
         
-        <div class="jd-descrdiv">Updates the value in the named column.</div>
+        <div class="jd-descrdiv">
+          Updates the value in the named column.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3515,7 +4212,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#updateBinaryStream(java.lang.String, java.io.InputStream, int)">updateBinaryStream</a></span>(<a href="../../../reference/java/lang/String.html">String</a> columnName, <a href="../../../reference/java/io/InputStream.html">InputStream</a> x, int length)</nobr>
         
-        <div class="jd-descrdiv">Updates a column specified by a column name with a binary stream value.</div>
+        <div class="jd-descrdiv">
+          Updates a column specified by a column name with a binary stream value.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3533,8 +4235,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#updateBlob(int, java.sql.Blob)">updateBlob</a></span>(int columnIndex, <a href="../../../reference/java/sql/Blob.html">Blob</a> x)</nobr>
         
-        <div class="jd-descrdiv">Updates a column specified by a column index with a <code>java.sql.Blob</code>
- value.</div>
+        <div class="jd-descrdiv">
+          Updates a column specified by a column index with a <code>java.sql.Blob</code>
+ value.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3552,7 +4259,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#updateBlob(java.lang.String, java.io.InputStream)">updateBlob</a></span>(<a href="../../../reference/java/lang/String.html">String</a> columnLabel, <a href="../../../reference/java/io/InputStream.html">InputStream</a> inputStream)</nobr>
         
-        <div class="jd-descrdiv">Updates the value in the named column.</div>
+        <div class="jd-descrdiv">
+          Updates the value in the named column.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3570,7 +4282,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#updateBlob(java.lang.String, java.io.InputStream, long)">updateBlob</a></span>(<a href="../../../reference/java/lang/String.html">String</a> columnLabel, <a href="../../../reference/java/io/InputStream.html">InputStream</a> inputStream, long length)</nobr>
         
-        <div class="jd-descrdiv">Updates the value in the named column.</div>
+        <div class="jd-descrdiv">
+          Updates the value in the named column.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3588,7 +4305,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#updateBlob(int, java.io.InputStream)">updateBlob</a></span>(int columnIndex, <a href="../../../reference/java/io/InputStream.html">InputStream</a> inputStream)</nobr>
         
-        <div class="jd-descrdiv">Updates the value at the 1-based <code>columnIndex</code>.</div>
+        <div class="jd-descrdiv">
+          Updates the value at the 1-based <code>columnIndex</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3606,7 +4328,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#updateBlob(int, java.io.InputStream, long)">updateBlob</a></span>(int columnIndex, <a href="../../../reference/java/io/InputStream.html">InputStream</a> inputStream, long length)</nobr>
         
-        <div class="jd-descrdiv">Updates the value at the 1-based <code>columnIndex</code>.</div>
+        <div class="jd-descrdiv">
+          Updates the value at the 1-based <code>columnIndex</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3624,8 +4351,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#updateBlob(java.lang.String, java.sql.Blob)">updateBlob</a></span>(<a href="../../../reference/java/lang/String.html">String</a> columnName, <a href="../../../reference/java/sql/Blob.html">Blob</a> x)</nobr>
         
-        <div class="jd-descrdiv">Updates a column specified by a column name with a <code>java.sql.Blob</code>
- value.</div>
+        <div class="jd-descrdiv">
+          Updates a column specified by a column name with a <code>java.sql.Blob</code>
+ value.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3643,8 +4375,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#updateBoolean(int, boolean)">updateBoolean</a></span>(int columnIndex, boolean x)</nobr>
         
-        <div class="jd-descrdiv">Updates a column specified by a column index with a <code>boolean</code>
- value.</div>
+        <div class="jd-descrdiv">
+          Updates a column specified by a column index with a <code>boolean</code>
+ value.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3662,7 +4399,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#updateBoolean(java.lang.String, boolean)">updateBoolean</a></span>(<a href="../../../reference/java/lang/String.html">String</a> columnName, boolean x)</nobr>
         
-        <div class="jd-descrdiv">Updates a column specified by a column name with a <code>boolean</code> value.</div>
+        <div class="jd-descrdiv">
+          Updates a column specified by a column name with a <code>boolean</code> value.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3680,7 +4422,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#updateByte(java.lang.String, byte)">updateByte</a></span>(<a href="../../../reference/java/lang/String.html">String</a> columnName, byte x)</nobr>
         
-        <div class="jd-descrdiv">Updates a column specified by a column name with a <code>byte</code> value.</div>
+        <div class="jd-descrdiv">
+          Updates a column specified by a column name with a <code>byte</code> value.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3698,7 +4445,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#updateByte(int, byte)">updateByte</a></span>(int columnIndex, byte x)</nobr>
         
-        <div class="jd-descrdiv">Updates a column specified by a column index with a <code>byte</code> value.</div>
+        <div class="jd-descrdiv">
+          Updates a column specified by a column index with a <code>byte</code> value.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3716,8 +4468,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#updateBytes(int, byte[])">updateBytes</a></span>(int columnIndex, byte[] x)</nobr>
         
-        <div class="jd-descrdiv">Updates a column specified by a column index with a <code>byte</code> array
- value.</div>
+        <div class="jd-descrdiv">
+          Updates a column specified by a column index with a <code>byte</code> array
+ value.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3735,7 +4492,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#updateBytes(java.lang.String, byte[])">updateBytes</a></span>(<a href="../../../reference/java/lang/String.html">String</a> columnName, byte[] x)</nobr>
         
-        <div class="jd-descrdiv">Updates a column specified by a column name with a byte array value.</div>
+        <div class="jd-descrdiv">
+          Updates a column specified by a column name with a byte array value.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3753,7 +4515,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#updateCharacterStream(java.lang.String, java.io.Reader)">updateCharacterStream</a></span>(<a href="../../../reference/java/lang/String.html">String</a> columnLabel, <a href="../../../reference/java/io/Reader.html">Reader</a> reader)</nobr>
         
-        <div class="jd-descrdiv">Updates the value in the named column.</div>
+        <div class="jd-descrdiv">
+          Updates the value in the named column.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3771,8 +4538,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#updateCharacterStream(java.lang.String, java.io.Reader, int)">updateCharacterStream</a></span>(<a href="../../../reference/java/lang/String.html">String</a> columnName, <a href="../../../reference/java/io/Reader.html">Reader</a> reader, int length)</nobr>
         
-        <div class="jd-descrdiv">Updates a column specified by a column name with a character stream
- value.</div>
+        <div class="jd-descrdiv">
+          Updates a column specified by a column name with a character stream
+ value.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3790,7 +4562,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#updateCharacterStream(int, java.io.Reader, long)">updateCharacterStream</a></span>(int columnIndex, <a href="../../../reference/java/io/Reader.html">Reader</a> x, long length)</nobr>
         
-        <div class="jd-descrdiv">Updates the value at the 1-based <code>columnIndex</code>.</div>
+        <div class="jd-descrdiv">
+          Updates the value at the 1-based <code>columnIndex</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3808,7 +4585,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#updateCharacterStream(java.lang.String, java.io.Reader, long)">updateCharacterStream</a></span>(<a href="../../../reference/java/lang/String.html">String</a> columnLabel, <a href="../../../reference/java/io/Reader.html">Reader</a> reader, long length)</nobr>
         
-        <div class="jd-descrdiv">Updates the value in the named column.</div>
+        <div class="jd-descrdiv">
+          Updates the value in the named column.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3826,7 +4608,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#updateCharacterStream(int, java.io.Reader)">updateCharacterStream</a></span>(int columnIndex, <a href="../../../reference/java/io/Reader.html">Reader</a> x)</nobr>
         
-        <div class="jd-descrdiv">Updates the value at the 1-based <code>columnIndex</code>.</div>
+        <div class="jd-descrdiv">
+          Updates the value at the 1-based <code>columnIndex</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3844,8 +4631,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#updateCharacterStream(int, java.io.Reader, int)">updateCharacterStream</a></span>(int columnIndex, <a href="../../../reference/java/io/Reader.html">Reader</a> x, int length)</nobr>
         
-        <div class="jd-descrdiv">Updates a column specified by a column index with a character stream
- value.</div>
+        <div class="jd-descrdiv">
+          Updates a column specified by a column index with a character stream
+ value.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3863,7 +4655,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#updateClob(java.lang.String, java.io.Reader)">updateClob</a></span>(<a href="../../../reference/java/lang/String.html">String</a> columnLabel, <a href="../../../reference/java/io/Reader.html">Reader</a> reader)</nobr>
         
-        <div class="jd-descrdiv">Updates the value in the named column.</div>
+        <div class="jd-descrdiv">
+          Updates the value in the named column.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3881,8 +4678,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#updateClob(int, java.sql.Clob)">updateClob</a></span>(int columnIndex, <a href="../../../reference/java/sql/Clob.html">Clob</a> x)</nobr>
         
-        <div class="jd-descrdiv">Updates a column specified by a column index with a <code>java.sql.Clob</code>
- value.</div>
+        <div class="jd-descrdiv">
+          Updates a column specified by a column index with a <code>java.sql.Clob</code>
+ value.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3900,7 +4702,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#updateClob(java.lang.String, java.io.Reader, long)">updateClob</a></span>(<a href="../../../reference/java/lang/String.html">String</a> columnLabel, <a href="../../../reference/java/io/Reader.html">Reader</a> reader, long length)</nobr>
         
-        <div class="jd-descrdiv">Updates the value in the named column.</div>
+        <div class="jd-descrdiv">
+          Updates the value in the named column.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3918,7 +4725,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#updateClob(int, java.io.Reader, long)">updateClob</a></span>(int columnIndex, <a href="../../../reference/java/io/Reader.html">Reader</a> reader, long length)</nobr>
         
-        <div class="jd-descrdiv">Updates the value at the 1-based <code>columnIndex</code>.</div>
+        <div class="jd-descrdiv">
+          Updates the value at the 1-based <code>columnIndex</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3936,7 +4748,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#updateClob(int, java.io.Reader)">updateClob</a></span>(int columnIndex, <a href="../../../reference/java/io/Reader.html">Reader</a> reader)</nobr>
         
-        <div class="jd-descrdiv">Updates the value at the 1-based <code>columnIndex</code>.</div>
+        <div class="jd-descrdiv">
+          Updates the value at the 1-based <code>columnIndex</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3954,8 +4771,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#updateClob(java.lang.String, java.sql.Clob)">updateClob</a></span>(<a href="../../../reference/java/lang/String.html">String</a> columnName, <a href="../../../reference/java/sql/Clob.html">Clob</a> x)</nobr>
         
-        <div class="jd-descrdiv">Updates a column specified by a column name with a <code>java.sql.Clob</code>
- value.</div>
+        <div class="jd-descrdiv">
+          Updates a column specified by a column name with a <code>java.sql.Clob</code>
+ value.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3973,8 +4795,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#updateDate(java.lang.String, java.sql.Date)">updateDate</a></span>(<a href="../../../reference/java/lang/String.html">String</a> columnName, <a href="../../../reference/java/sql/Date.html">Date</a> x)</nobr>
         
-        <div class="jd-descrdiv">Updates a column specified by a column name with a <code>java.sql.Date</code>
- value.</div>
+        <div class="jd-descrdiv">
+          Updates a column specified by a column name with a <code>java.sql.Date</code>
+ value.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3992,8 +4819,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#updateDate(int, java.sql.Date)">updateDate</a></span>(int columnIndex, <a href="../../../reference/java/sql/Date.html">Date</a> x)</nobr>
         
-        <div class="jd-descrdiv">Updates a column specified by a column index with a <code>java.sql.Date</code>
- value.</div>
+        <div class="jd-descrdiv">
+          Updates a column specified by a column index with a <code>java.sql.Date</code>
+ value.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -4011,7 +4843,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#updateDouble(java.lang.String, double)">updateDouble</a></span>(<a href="../../../reference/java/lang/String.html">String</a> columnName, double x)</nobr>
         
-        <div class="jd-descrdiv">Updates a column specified by a column name with a <code>double</code> value.</div>
+        <div class="jd-descrdiv">
+          Updates a column specified by a column name with a <code>double</code> value.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -4029,7 +4866,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#updateDouble(int, double)">updateDouble</a></span>(int columnIndex, double x)</nobr>
         
-        <div class="jd-descrdiv">Updates a column specified by a column index with a <code>double</code> value.</div>
+        <div class="jd-descrdiv">
+          Updates a column specified by a column index with a <code>double</code> value.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -4047,7 +4889,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#updateFloat(java.lang.String, float)">updateFloat</a></span>(<a href="../../../reference/java/lang/String.html">String</a> columnName, float x)</nobr>
         
-        <div class="jd-descrdiv">Updates a column specified by a column name with a <code>float</code> value.</div>
+        <div class="jd-descrdiv">
+          Updates a column specified by a column name with a <code>float</code> value.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -4065,7 +4912,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#updateFloat(int, float)">updateFloat</a></span>(int columnIndex, float x)</nobr>
         
-        <div class="jd-descrdiv">Updates a column specified by a column index with a <code>float</code> value.</div>
+        <div class="jd-descrdiv">
+          Updates a column specified by a column index with a <code>float</code> value.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -4083,7 +4935,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#updateInt(java.lang.String, int)">updateInt</a></span>(<a href="../../../reference/java/lang/String.html">String</a> columnName, int x)</nobr>
         
-        <div class="jd-descrdiv">Updates a column specified by a column name with an <code>int</code> value.</div>
+        <div class="jd-descrdiv">
+          Updates a column specified by a column name with an <code>int</code> value.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -4101,7 +4958,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#updateInt(int, int)">updateInt</a></span>(int columnIndex, int x)</nobr>
         
-        <div class="jd-descrdiv">Updates a column specified by a column index with an <code>int</code> value.</div>
+        <div class="jd-descrdiv">
+          Updates a column specified by a column index with an <code>int</code> value.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -4119,7 +4981,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#updateLong(java.lang.String, long)">updateLong</a></span>(<a href="../../../reference/java/lang/String.html">String</a> columnName, long x)</nobr>
         
-        <div class="jd-descrdiv">Updates a column specified by a column name with a <code>long</code> value.</div>
+        <div class="jd-descrdiv">
+          Updates a column specified by a column name with a <code>long</code> value.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -4137,7 +5004,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#updateLong(int, long)">updateLong</a></span>(int columnIndex, long x)</nobr>
         
-        <div class="jd-descrdiv">Updates a column specified by a column index with a <code>long</code> value.</div>
+        <div class="jd-descrdiv">
+          Updates a column specified by a column index with a <code>long</code> value.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -4155,7 +5027,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#updateNCharacterStream(java.lang.String, java.io.Reader)">updateNCharacterStream</a></span>(<a href="../../../reference/java/lang/String.html">String</a> columnLabel, <a href="../../../reference/java/io/Reader.html">Reader</a> reader)</nobr>
         
-        <div class="jd-descrdiv">Updates the value in the named column.</div>
+        <div class="jd-descrdiv">
+          Updates the value in the named column.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -4173,7 +5050,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#updateNCharacterStream(int, java.io.Reader)">updateNCharacterStream</a></span>(int columnIndex, <a href="../../../reference/java/io/Reader.html">Reader</a> x)</nobr>
         
-        <div class="jd-descrdiv">Updates the value at the 1-based <code>columnIndex</code>.</div>
+        <div class="jd-descrdiv">
+          Updates the value at the 1-based <code>columnIndex</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -4191,7 +5073,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#updateNCharacterStream(java.lang.String, java.io.Reader, long)">updateNCharacterStream</a></span>(<a href="../../../reference/java/lang/String.html">String</a> columnLabel, <a href="../../../reference/java/io/Reader.html">Reader</a> reader, long length)</nobr>
         
-        <div class="jd-descrdiv">Updates the value in the named column.</div>
+        <div class="jd-descrdiv">
+          Updates the value in the named column.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -4209,7 +5096,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#updateNCharacterStream(int, java.io.Reader, long)">updateNCharacterStream</a></span>(int columnIndex, <a href="../../../reference/java/io/Reader.html">Reader</a> x, long length)</nobr>
         
-        <div class="jd-descrdiv">Updates the value at the 1-based <code>columnIndex</code>.</div>
+        <div class="jd-descrdiv">
+          Updates the value at the 1-based <code>columnIndex</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -4227,7 +5119,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#updateNClob(int, java.sql.NClob)">updateNClob</a></span>(int columnIndex, <a href="../../../reference/java/sql/NClob.html">NClob</a> nClob)</nobr>
         
-        <div class="jd-descrdiv">Updates the value at the 1-based <code>columnIndex</code>.</div>
+        <div class="jd-descrdiv">
+          Updates the value at the 1-based <code>columnIndex</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -4245,7 +5142,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#updateNClob(java.lang.String, java.sql.NClob)">updateNClob</a></span>(<a href="../../../reference/java/lang/String.html">String</a> columnLabel, <a href="../../../reference/java/sql/NClob.html">NClob</a> nClob)</nobr>
         
-        <div class="jd-descrdiv">Updates the value in the named column.</div>
+        <div class="jd-descrdiv">
+          Updates the value in the named column.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -4263,7 +5165,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#updateNClob(java.lang.String, java.io.Reader)">updateNClob</a></span>(<a href="../../../reference/java/lang/String.html">String</a> columnLabel, <a href="../../../reference/java/io/Reader.html">Reader</a> reader)</nobr>
         
-        <div class="jd-descrdiv">Updates the value in the named column.</div>
+        <div class="jd-descrdiv">
+          Updates the value in the named column.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -4281,7 +5188,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#updateNClob(int, java.io.Reader)">updateNClob</a></span>(int columnIndex, <a href="../../../reference/java/io/Reader.html">Reader</a> reader)</nobr>
         
-        <div class="jd-descrdiv">Updates the value at the 1-based <code>columnIndex</code>.</div>
+        <div class="jd-descrdiv">
+          Updates the value at the 1-based <code>columnIndex</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -4299,7 +5211,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#updateNClob(int, java.io.Reader, long)">updateNClob</a></span>(int columnIndex, <a href="../../../reference/java/io/Reader.html">Reader</a> reader, long length)</nobr>
         
-        <div class="jd-descrdiv">Updates the value at the 1-based <code>columnIndex</code>.</div>
+        <div class="jd-descrdiv">
+          Updates the value at the 1-based <code>columnIndex</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -4317,7 +5234,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#updateNClob(java.lang.String, java.io.Reader, long)">updateNClob</a></span>(<a href="../../../reference/java/lang/String.html">String</a> columnLabel, <a href="../../../reference/java/io/Reader.html">Reader</a> reader, long length)</nobr>
         
-        <div class="jd-descrdiv">Updates the value in the named column.</div>
+        <div class="jd-descrdiv">
+          Updates the value in the named column.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -4335,7 +5257,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#updateNString(java.lang.String, java.lang.String)">updateNString</a></span>(<a href="../../../reference/java/lang/String.html">String</a> columnLabel, <a href="../../../reference/java/lang/String.html">String</a> nString)</nobr>
         
-        <div class="jd-descrdiv">Updates the value in the named column.</div>
+        <div class="jd-descrdiv">
+          Updates the value in the named column.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -4353,7 +5280,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#updateNString(int, java.lang.String)">updateNString</a></span>(int columnIndex, <a href="../../../reference/java/lang/String.html">String</a> nString)</nobr>
         
-        <div class="jd-descrdiv">Updates the value at the 1-based <code>columnIndex</code>.</div>
+        <div class="jd-descrdiv">
+          Updates the value at the 1-based <code>columnIndex</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -4371,7 +5303,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#updateNull(java.lang.String)">updateNull</a></span>(<a href="../../../reference/java/lang/String.html">String</a> columnName)</nobr>
         
-        <div class="jd-descrdiv">Updates a column specified by a column name with a <code>null</code> value.</div>
+        <div class="jd-descrdiv">
+          Updates a column specified by a column name with a <code>null</code> value.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -4389,7 +5326,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#updateNull(int)">updateNull</a></span>(int columnIndex)</nobr>
         
-        <div class="jd-descrdiv">Updates a column specified by a column index with a <code>null</code> value.</div>
+        <div class="jd-descrdiv">
+          Updates a column specified by a column index with a <code>null</code> value.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -4407,8 +5349,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#updateObject(int, java.lang.Object)">updateObject</a></span>(int columnIndex, <a href="../../../reference/java/lang/Object.html">Object</a> x)</nobr>
         
-        <div class="jd-descrdiv">Updates a column specified by a column index with an <code>Object</code>
- value.</div>
+        <div class="jd-descrdiv">
+          Updates a column specified by a column index with an <code>Object</code>
+ value.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -4426,8 +5373,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#updateObject(int, java.lang.Object, int)">updateObject</a></span>(int columnIndex, <a href="../../../reference/java/lang/Object.html">Object</a> x, int scale)</nobr>
         
-        <div class="jd-descrdiv">Updates a column specified by a column index with an <code>Object</code>
- value.</div>
+        <div class="jd-descrdiv">
+          Updates a column specified by a column index with an <code>Object</code>
+ value.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -4445,7 +5397,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#updateObject(java.lang.String, java.lang.Object, int)">updateObject</a></span>(<a href="../../../reference/java/lang/String.html">String</a> columnName, <a href="../../../reference/java/lang/Object.html">Object</a> x, int scale)</nobr>
         
-        <div class="jd-descrdiv">Updates a column specified by a column name with an <code>Object</code> value.</div>
+        <div class="jd-descrdiv">
+          Updates a column specified by a column name with an <code>Object</code> value.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -4463,7 +5420,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#updateObject(java.lang.String, java.lang.Object)">updateObject</a></span>(<a href="../../../reference/java/lang/String.html">String</a> columnName, <a href="../../../reference/java/lang/Object.html">Object</a> x)</nobr>
         
-        <div class="jd-descrdiv">Updates a column specified by a column name with an <code>Object</code> value.</div>
+        <div class="jd-descrdiv">
+          Updates a column specified by a column name with an <code>Object</code> value.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -4481,8 +5443,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#updateRef(int, java.sql.Ref)">updateRef</a></span>(int columnIndex, <a href="../../../reference/java/sql/Ref.html">Ref</a> x)</nobr>
         
-        <div class="jd-descrdiv">Updates a column specified by a column index with a <code>java.sql.Ref</code>
- value.</div>
+        <div class="jd-descrdiv">
+          Updates a column specified by a column index with a <code>java.sql.Ref</code>
+ value.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -4500,8 +5467,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#updateRef(java.lang.String, java.sql.Ref)">updateRef</a></span>(<a href="../../../reference/java/lang/String.html">String</a> columnName, <a href="../../../reference/java/sql/Ref.html">Ref</a> x)</nobr>
         
-        <div class="jd-descrdiv">Updates a column specified by a column name with a <code>java.sql.Ref</code>
- value.</div>
+        <div class="jd-descrdiv">
+          Updates a column specified by a column name with a <code>java.sql.Ref</code>
+ value.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -4519,8 +5491,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#updateRow()">updateRow</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Updates the database with the new contents of the current row of this
- <code>ResultSet</code> object.</div>
+        <div class="jd-descrdiv">
+          Updates the database with the new contents of the current row of this
+ <code>ResultSet</code> object.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -4538,7 +5515,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#updateRowId(java.lang.String, java.sql.RowId)">updateRowId</a></span>(<a href="../../../reference/java/lang/String.html">String</a> columnLabel, <a href="../../../reference/java/sql/RowId.html">RowId</a> value)</nobr>
         
-        <div class="jd-descrdiv">Updates the value in the named column.</div>
+        <div class="jd-descrdiv">
+          Updates the value in the named column.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -4556,7 +5538,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#updateRowId(int, java.sql.RowId)">updateRowId</a></span>(int columnIndex, <a href="../../../reference/java/sql/RowId.html">RowId</a> value)</nobr>
         
-        <div class="jd-descrdiv">Updates the value at the 1-based <code>columnIndex</code>.</div>
+        <div class="jd-descrdiv">
+          Updates the value at the 1-based <code>columnIndex</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -4574,7 +5561,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#updateSQLXML(int, java.sql.SQLXML)">updateSQLXML</a></span>(int columnIndex, <a href="../../../reference/java/sql/SQLXML.html">SQLXML</a> xmlObject)</nobr>
         
-        <div class="jd-descrdiv">Updates the value at the 1-based <code>columnIndex</code>.</div>
+        <div class="jd-descrdiv">
+          Updates the value at the 1-based <code>columnIndex</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -4592,7 +5584,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#updateSQLXML(java.lang.String, java.sql.SQLXML)">updateSQLXML</a></span>(<a href="../../../reference/java/lang/String.html">String</a> columnLabel, <a href="../../../reference/java/sql/SQLXML.html">SQLXML</a> xmlObject)</nobr>
         
-        <div class="jd-descrdiv">Updates the value in the named column.</div>
+        <div class="jd-descrdiv">
+          Updates the value in the named column.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -4610,7 +5607,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#updateShort(int, short)">updateShort</a></span>(int columnIndex, short x)</nobr>
         
-        <div class="jd-descrdiv">Updates a column specified by a column index with a <code>short</code> value.</div>
+        <div class="jd-descrdiv">
+          Updates a column specified by a column index with a <code>short</code> value.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -4628,7 +5630,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#updateShort(java.lang.String, short)">updateShort</a></span>(<a href="../../../reference/java/lang/String.html">String</a> columnName, short x)</nobr>
         
-        <div class="jd-descrdiv">Updates a column specified by a column name with a <code>short</code> value.</div>
+        <div class="jd-descrdiv">
+          Updates a column specified by a column name with a <code>short</code> value.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -4646,7 +5653,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#updateString(int, java.lang.String)">updateString</a></span>(int columnIndex, <a href="../../../reference/java/lang/String.html">String</a> x)</nobr>
         
-        <div class="jd-descrdiv">Updates a column specified by a column index with a <code>String</code> value.</div>
+        <div class="jd-descrdiv">
+          Updates a column specified by a column index with a <code>String</code> value.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -4664,7 +5676,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#updateString(java.lang.String, java.lang.String)">updateString</a></span>(<a href="../../../reference/java/lang/String.html">String</a> columnName, <a href="../../../reference/java/lang/String.html">String</a> x)</nobr>
         
-        <div class="jd-descrdiv">Updates a column specified by a column name with a <code>String</code> value.</div>
+        <div class="jd-descrdiv">
+          Updates a column specified by a column name with a <code>String</code> value.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -4682,7 +5699,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#updateTime(int, java.sql.Time)">updateTime</a></span>(int columnIndex, <a href="../../../reference/java/sql/Time.html">Time</a> x)</nobr>
         
-        <div class="jd-descrdiv">Updates a column specified by a column index with a <code>Time</code> value.</div>
+        <div class="jd-descrdiv">
+          Updates a column specified by a column index with a <code>Time</code> value.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -4700,7 +5722,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#updateTime(java.lang.String, java.sql.Time)">updateTime</a></span>(<a href="../../../reference/java/lang/String.html">String</a> columnName, <a href="../../../reference/java/sql/Time.html">Time</a> x)</nobr>
         
-        <div class="jd-descrdiv">Updates a column specified by a column name with a <code>Time</code> value.</div>
+        <div class="jd-descrdiv">
+          Updates a column specified by a column name with a <code>Time</code> value.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -4718,8 +5745,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#updateTimestamp(int, java.sql.Timestamp)">updateTimestamp</a></span>(int columnIndex, <a href="../../../reference/java/sql/Timestamp.html">Timestamp</a> x)</nobr>
         
-        <div class="jd-descrdiv">Updates a column specified by a column index with a <code>Timestamp</code>
- value.</div>
+        <div class="jd-descrdiv">
+          Updates a column specified by a column index with a <code>Timestamp</code>
+ value.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -4737,7 +5769,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#updateTimestamp(java.lang.String, java.sql.Timestamp)">updateTimestamp</a></span>(<a href="../../../reference/java/lang/String.html">String</a> columnName, <a href="../../../reference/java/sql/Timestamp.html">Timestamp</a> x)</nobr>
         
-        <div class="jd-descrdiv">Updates a column specified by column name with a <code>Timestamp</code> value.</div>
+        <div class="jd-descrdiv">
+          Updates a column specified by column name with a <code>Timestamp</code> value.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -4755,8 +5792,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/ResultSet.html#wasNull()">wasNull</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Determines whether the last column read from this <code>ResultSet</code>
- contained SQL <code>NULL</code>.</div>
+        <div class="jd-descrdiv">
+          Determines whether the last column read from this <code>ResultSet</code>
+ contained SQL <code>NULL</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -4808,7 +5850,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/AutoCloseable.html#close()">close</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Closes the object and release any system resources it holds.</div>
+        <div class="jd-descrdiv">
+          Closes the object and release any system resources it holds.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -4852,8 +5899,13 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/Wrapper.html#isWrapperFor(java.lang.Class<?>)">isWrapperFor</a></span>(<a href="../../../reference/java/lang/Class.html">Class</a>&lt;?&gt; iface)</nobr>
         
-        <div class="jd-descrdiv">If the caller is a wrapper of the class or implements the given
- interface, the methods return false and vice versa.</div>
+        <div class="jd-descrdiv">
+          If the caller is a wrapper of the class or implements the given
+ interface, the methods return false and vice versa.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -4871,7 +5923,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/Wrapper.html#unwrap(java.lang.Class<T>)">unwrap</a></span>(<a href="../../../reference/java/lang/Class.html">Class</a>&lt;T&gt; iface)</nobr>
         
-        <div class="jd-descrdiv">Returns an object that implements the given interface.</div>
+        <div class="jd-descrdiv">
+          Returns an object that implements the given interface.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -4932,6 +5989,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>A constant used to indicate that a <code>ResultSet</code> object must be
  closed when the method <code>Connection.commit</code> is invoked.
 </p></div>
@@ -4972,6 +6032,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>A constant used to indicate the concurrency mode for a <code>ResultSet</code>
  object that cannot be updated.
@@ -5014,6 +6077,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>A constant used to indicate the concurrency mode for a <code>ResultSet</code>
  object that can be updated.
 </p></div>
@@ -5054,6 +6120,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>A constant used to indicate processing of the rows of a <code>ResultSet</code>
  in the forward direction, first to last.
@@ -5096,6 +6165,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>A constant used to indicate processing of the rows of a <code>ResultSet</code>
  in the reverse direction, last to first.
 </p></div>
@@ -5136,6 +6208,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>A constant used to indicate that the order of processing of the rows of a
  <code>ResultSet</code> is unknown.
@@ -5178,6 +6253,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>A constant used to indicate that a <code>ResultSet</code> object must not be
  closed when the method <code>Connection.commit</code> is invoked.
 </p></div>
@@ -5218,6 +6296,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>A constant used to indicate a <code>ResultSet</code> object whose cursor can
  only move forward.
@@ -5260,6 +6341,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>A constant used to indicate a <code>ResultSet</code> object which is
  scrollable but is insensitive to changes made by others.
 </p></div>
@@ -5300,6 +6384,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>A constant used to indicate a <code>ResultSet</code> object which is
  scrollable and sensitive to changes made by others.
@@ -5365,6 +6452,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Moves the cursor to a specified row number in the <code>ResultSet</code>.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -5419,6 +6509,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Moves the cursor to the end of the <code>ResultSet</code>, after the last row.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Throws</h5>
@@ -5458,6 +6551,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Moves the cursor to the start of the <code>ResultSet</code>, before the first
  row.</p></div>
@@ -5500,6 +6596,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Cancels any updates made to the current row in the <code>ResultSet</code>.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Throws</h5>
@@ -5540,6 +6639,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Clears all warnings related to this <code>ResultSet</code>.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Throws</h5>
@@ -5579,6 +6681,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Releases this <code>ResultSet</code>'s database and JDBC resources. You are
  strongly advised to use this method rather than relying on the release
@@ -5625,6 +6730,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Deletes the current row from the <code>ResultSet</code> and from the
  underlying database.</p></div>
   <div class="jd-tagdata">
@@ -5665,6 +6773,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Gets the index number for a column in the <code>ResultSet</code> from the
  provided column name.</p></div>
@@ -5721,6 +6832,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Shifts the cursor position to the first row in the <code>ResultSet</code>.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
@@ -5764,6 +6878,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Gets the content of a column specified by column index in the current row
  of this <code>ResultSet</code> as a <code>java.sql.Array</code>.</p></div>
@@ -5819,6 +6936,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Gets the value of a column specified by column name as a <code>java.sql.Array</code>.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -5871,6 +6991,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Gets the value of a column specified by column index as an ASCII
  character stream.</p></div>
@@ -5926,6 +7049,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Gets the value of a column specified by column name as an ASCII character
  stream.</p></div>
   <div class="jd-tagdata">
@@ -5980,6 +7106,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Gets the value of a column specified by column name, as a <code>java.math.BigDecimal</code>.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -6032,6 +7161,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       <p>
   <p class="caution"><strong>
       This method was deprecated
@@ -6095,6 +7227,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Gets the value of a column specified by column index as a <code>java.math.BigDecimal</code>.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -6147,6 +7282,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       <p>
   <p class="caution"><strong>
       This method was deprecated
@@ -6210,6 +7348,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Gets the value of a column specified by column index as a binary
  stream.
  <p>
@@ -6270,6 +7411,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Gets the value of a column specified by column name as a binary stream.
  <p>
  This method can be used to read <code>LONGVARBINARY</code> values. All of the
@@ -6329,6 +7473,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Gets the value of a column specified by column name, as a <code>java.sql.Blob</code> object.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -6382,6 +7529,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Gets the value of a column specified by column index as a <code>java.sql.Blob</code> object.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -6434,6 +7584,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Gets the value of a column specified by column index as a <code>boolean</code>
  .</p></div>
@@ -6490,6 +7643,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Gets the value of a column specified by column name, as a <code>boolean</code>
  .</p></div>
   <div class="jd-tagdata">
@@ -6545,6 +7701,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Gets the value of a column specified by column name as a <code>byte</code>.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -6598,6 +7757,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Gets the value of a column specified by column index as a <code>byte</code>.</p></div>
   <div class="jd-tagdata">
@@ -6653,6 +7815,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Gets the value of a column specified by column index as a byte array.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -6706,6 +7871,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Gets the value of a column specified by column name as a byte array.</p></div>
   <div class="jd-tagdata">
@@ -6761,6 +7929,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Gets the value of a column specified by column name as a <code>java.io.Reader</code> object.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -6814,6 +7985,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Gets the value of a column specified by column index as a <code>java.io.Reader</code> object.</p></div>
   <div class="jd-tagdata">
@@ -6873,6 +8047,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Gets the value of a column specified by column index as a <code>java.sql.Clob</code>.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -6926,6 +8103,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Gets the value of a column specified by column name as a <code>java.sql.Clob</code>.</p></div>
   <div class="jd-tagdata">
@@ -6981,6 +8161,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Gets the concurrency mode of this <code>ResultSet</code>.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
@@ -7026,6 +8209,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Gets the name of the SQL cursor of this <code>ResultSet</code>.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
@@ -7069,6 +8255,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Gets the value of a column specified by column index as a <code>java.sql.Date</code>. This method uses a supplied calendar to compute the Date.</p></div>
   <div class="jd-tagdata">
@@ -7128,6 +8317,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Gets the value of a column specified by column index as a <code>java.sql.Date</code>.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -7181,6 +8373,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Gets the value of a column specified by column name, as a <code>java.sql.Date</code> object.</p></div>
   <div class="jd-tagdata">
@@ -7240,6 +8435,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Gets the value of a column specified by column name as a <code>java.sql.Date</code>.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -7293,6 +8491,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Gets the value of a column specified by column name as a <code>double</code>
  value.</p></div>
@@ -7349,6 +8550,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Gets the value of a column specified by column index as a <code>double</code>
  value.</p></div>
   <div class="jd-tagdata">
@@ -7404,6 +8608,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Gets the direction in which rows are fetched for this <code>ResultSet</code>
  object.</p></div>
   <div class="jd-tagdata">
@@ -7453,6 +8660,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Gets the fetch size (in number of rows) for this <code>ResultSet</code>.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
@@ -7496,6 +8706,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Gets the value of a column specified by column index as a <code>float</code>
  value.</p></div>
@@ -7552,6 +8765,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Gets the value of a column specified by column name as a <code>float</code>
  value.</p></div>
   <div class="jd-tagdata">
@@ -7607,6 +8823,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns the holdability of this result set: <code><a href="../../../reference/java/sql/ResultSet.html#HOLD_CURSORS_OVER_COMMIT">HOLD_CURSORS_OVER_COMMIT</a></code> or
  <code><a href="../../../reference/java/sql/ResultSet.html#CLOSE_CURSORS_AT_COMMIT">CLOSE_CURSORS_AT_COMMIT</a></code>.</p></div>
   <div class="jd-tagdata">
@@ -7646,6 +8865,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Gets the value of a column specified by column name, as an <code>int</code>
  value.</p></div>
@@ -7702,6 +8924,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Gets the value of a column specified by column index as an <code>int</code>
  value.</p></div>
   <div class="jd-tagdata">
@@ -7756,6 +8981,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Gets the value of a column specified by column name, as a <code>long</code>
  value.</p></div>
@@ -7812,6 +9040,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Gets the value of a column specified by column index as a <code>long</code>
  value.</p></div>
   <div class="jd-tagdata">
@@ -7867,6 +9098,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Gets the metadata for this <code>ResultSet</code>. This defines the number,
  types and properties of the columns in the <code>ResultSet</code>.</p></div>
   <div class="jd-tagdata">
@@ -7913,6 +9147,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns a <code>Reader</code> corresponding to the value at the 1-based <code>columnIndex</code>.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Throws</h5>
@@ -7951,6 +9188,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Returns a <code>Reader</code> corresponding to the value in the named column.</p></div>
   <div class="jd-tagdata">
@@ -7991,6 +9231,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns an <code>NClob</code> corresponding to the value in the named column.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Throws</h5>
@@ -8029,6 +9272,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Returns an <code>NClob</code> corresponding to the value at the 1-based <code>columnIndex</code>.</p></div>
   <div class="jd-tagdata">
@@ -8069,6 +9315,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns a <code>String</code> corresponding to the value in the named column.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Throws</h5>
@@ -8108,6 +9357,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns a <code>String</code> corresponding to the value at the 1-based <code>columnIndex</code>.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Throws</h5>
@@ -8146,6 +9398,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Gets the value of a column specified by column name as a Java <code>Object</code>.
  <p>
@@ -8207,6 +9462,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Gets the value of a column specified by column index as a Java <code>Object</code>.
  <p>
@@ -8270,6 +9528,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Gets the value of a specified column as a Java <code>Object</code>. The type
  of the returned object will be the default according to the column's SQL
  type, following the JDBC specification for built-in types.
@@ -8327,6 +9588,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Gets the value of a specified column as a Java <code>Object</code>. The type
  of the returned object will be the default according to the column's SQL
@@ -8386,6 +9650,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Gets the value of a column specified by column name as a Java <code>java.sql.Ref</code>.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -8438,6 +9705,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Gets the value of a column specified by column index as a Java <code>java.sql.Ref</code>.</p></div>
   <div class="jd-tagdata">
@@ -8492,6 +9762,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Gets the number of the current row in the <code>ResultSet</code>. Row numbers
  start at 1 for the first row.</p></div>
   <div class="jd-tagdata">
@@ -8538,6 +9811,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns a <code>RowId</code> corresponding to the SQL ROWID at the named column.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Throws</h5>
@@ -8576,6 +9852,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Returns a <code>RowId</code> corresponding to the SQL ROWID at the 1-based <code>columnIndex</code>.</p></div>
   <div class="jd-tagdata">
@@ -8616,6 +9895,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns an <code>SQLXML</code> corresponding to the value in the named column.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Throws</h5>
@@ -8655,6 +9937,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns an <code>SQLXML</code> corresponding to the value at the 1-based <code>columnIndex</code>.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Throws</h5>
@@ -8693,6 +9978,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Gets the value of a column specified by column name, as a short value.</p></div>
   <div class="jd-tagdata">
@@ -8748,6 +10036,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Gets the value of a column specified by column index as a short value.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -8802,6 +10093,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Gets the statement that produced this <code>ResultSet</code>. If the <code>ResultSet</code> was not created by a statement (i.e. because it was returned
  from one of the <code><a href="../../../reference/java/sql/DatabaseMetaData.html">DatabaseMetaData</a></code> methods), <code>null</code> is
  returned.</p></div>
@@ -8847,6 +10141,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Gets the value of a column specified by column index as a String.</p></div>
   <div class="jd-tagdata">
@@ -8902,6 +10199,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Gets the value of a column specified by column name, as a String.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -8955,6 +10255,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Gets the value of a column specified by column index, as a <code>java.sql.Time</code> value. The supplied <code>Calendar</code> is used to
  map the SQL <code>Time</code> value to a Java Time value.</p></div>
@@ -9015,6 +10318,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Gets the value of a column specified by column name, as a <code>java.sql.Time</code> value.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -9067,6 +10373,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Gets the value of a column specified by column index as a <code>java.sql.Time</code> value. The supplied <code>Calendar</code> is used to
  map the SQL <code>Time</code> value to a Java Time value.</p></div>
@@ -9127,6 +10436,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Gets the value of a column specified by column index as a <code>java.sql.Time</code> value.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -9180,6 +10492,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Gets the value of a column specified by column index, as a <code>java.sql.Timestamp</code> value. The supplied Calendar is used when mapping
  the SQL <code>Timestamp</code> value to a Java <code>Timestamp</code> value.</p></div>
@@ -9240,6 +10555,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Gets the value of a column specified by column name, as a <code>java.sql.Timestamp</code> value.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -9293,6 +10611,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Gets the value of a column specified by column name, as a <code>java.sql.Timestamp</code> value. The supplied Calendar is used when mapping
  the SQL <code>Timestamp</code> value to a Java <code>Timestamp</code> value.</p></div>
@@ -9353,6 +10674,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Gets the value of a column specified by column index as a <code>java.sql.Timestamp</code> value.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -9407,6 +10731,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Gets the type of the <code>ResultSet</code>.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
@@ -9453,6 +10780,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Gets the value of a column specified by column index as a <code>java.net.URL</code>.</p></div>
   <div class="jd-tagdata">
@@ -9507,6 +10837,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Gets the value of a column specified by column name as a <code>java.net.URL</code> object.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -9559,6 +10892,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       <p>
   <p class="caution"><strong>
       This method was deprecated
@@ -9618,6 +10954,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       <p>
   <p class="caution"><strong>
       This method was deprecated
@@ -9678,6 +11017,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Gets the first warning generated by calls on this <code>ResultSet</code>.
  Subsequent warnings on this <code>ResultSet</code> are chained to the first
  one.
@@ -9731,6 +11073,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Insert the insert row into the <code>ResultSet</code> and into the underlying
  database. The cursor must be set to the Insert Row before this method is
  invoked.</p></div>
@@ -9775,6 +11120,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Gets if the cursor is after the last row of the <code>ResultSet</code>.</p></div>
   <div class="jd-tagdata">
@@ -9821,6 +11169,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Gets if the cursor is before the first row of the <code>ResultSet</code>.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
@@ -9866,6 +11217,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns true if this result set has been closed, false otherwise.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Throws</h5>
@@ -9904,6 +11258,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Gets if the cursor is on the first row of the <code>ResultSet</code>.</p></div>
   <div class="jd-tagdata">
@@ -9950,6 +11307,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Gets if the cursor is on the last row of the <code>ResultSet</code></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
@@ -9995,6 +11355,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Shifts the cursor position to the last row of the <code>ResultSet</code>.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
@@ -10039,6 +11402,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Moves the cursor to the remembered position, namely the
  row that was the current row before a call to <code>moveToInsertRow</code>.
  This only applies if the cursor is on the Insert Row.</p></div>
@@ -10080,6 +11446,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Moves the cursor position to the Insert Row. The current position is
  remembered and the cursor is positioned at the Insert Row. The columns in
@@ -10123,6 +11492,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Shifts the cursor position down one row in this <code>ResultSet</code> object.
  <p>
@@ -10173,6 +11545,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Relocates the cursor position to the preceding row in this <code>ResultSet</code>.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
@@ -10216,6 +11591,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Refreshes the current row with its most up to date value in the database.
  Must not be called when the cursor is on the Insert Row.
@@ -10261,6 +11639,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Moves the cursor position up or down by a specified number of rows. If
  the new position is beyond the start row (or end row), the cursor position is
@@ -10318,6 +11699,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Indicates whether a row has been deleted. This method depends on whether
  the JDBC driver and database can detect deletions.</p></div>
   <div class="jd-tagdata">
@@ -10363,6 +11747,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Indicates whether the current row has had an insertion operation. This
  method depends on whether the JDBC driver and database can detect
@@ -10411,6 +11798,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Indicates whether the current row has been updated. This method depends
  on whether the JDBC driver and database can detect updates.</p></div>
   <div class="jd-tagdata">
@@ -10456,6 +11846,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Indicates which direction (forward/reverse) will be used to process the
  rows of this <code>ResultSet</code> object. This is treated as a hint by the
@@ -10507,6 +11900,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Indicates the number of rows to fetch from the database when extra rows
  are required for this <code>ResultSet</code>. This used as a hint to the JDBC
@@ -10562,6 +11958,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Updates a column specified by a column index with a <code>java.sql.Array</code> value.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -10614,6 +12013,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Updates a column specified by a column name with a <code>java.sql.Array</code>
  value.</p></div>
@@ -10668,6 +12070,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Updates a column specified by a column name with an Ascii stream value.</p></div>
   <div class="jd-tagdata">
@@ -10726,6 +12131,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Updates the value at the 1-based <code>columnIndex</code>.
  The underlying database isn't changed until the next row update or insert operation.</p></div>
   <div class="jd-tagdata">
@@ -10765,6 +12173,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Updates the value in the named column.
  The underlying database isn't changed until the next row update or insert operation.</p></div>
@@ -10806,6 +12217,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Updates the value in the named column.
  The underlying database isn't changed until the next row update or insert operation.</p></div>
   <div class="jd-tagdata">
@@ -10846,6 +12260,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Updates the value at the 1-based <code>columnIndex</code>.
  The underlying database isn't changed until the next row update or insert operation.</p></div>
   <div class="jd-tagdata">
@@ -10885,6 +12302,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Updates a column specified by a column index with an ASCII stream value.</p></div>
   <div class="jd-tagdata">
@@ -10943,6 +12363,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Updates a column specified by a column index with a <code>java.sql.BigDecimal</code> value.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -10995,6 +12418,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Updates a column specified by a column name with a <code>java.sql.BigDecimal</code> value.</p></div>
   <div class="jd-tagdata">
@@ -11049,6 +12475,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Updates the value at the 1-based <code>columnIndex</code>.
  The underlying database isn't changed until the next row update or insert operation.</p></div>
   <div class="jd-tagdata">
@@ -11088,6 +12517,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Updates the value at the 1-based <code>columnIndex</code>.
  The underlying database isn't changed until the next row update or insert operation.</p></div>
@@ -11129,6 +12561,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Updates the value in the named column.
  The underlying database isn't changed until the next row update or insert operation.</p></div>
   <div class="jd-tagdata">
@@ -11168,6 +12603,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Updates a column specified by a column index with a binary stream value.</p></div>
   <div class="jd-tagdata">
@@ -11226,6 +12664,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Updates the value in the named column.
  The underlying database isn't changed until the next row update or insert operation.</p></div>
   <div class="jd-tagdata">
@@ -11265,6 +12706,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Updates a column specified by a column name with a binary stream value.</p></div>
   <div class="jd-tagdata">
@@ -11323,6 +12767,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Updates a column specified by a column index with a <code>java.sql.Blob</code>
  value.</p></div>
   <div class="jd-tagdata">
@@ -11377,6 +12824,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Updates the value in the named column.
  The underlying database isn't changed until the next row update or insert operation.</p></div>
   <div class="jd-tagdata">
@@ -11416,6 +12866,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Updates the value in the named column.
  The underlying database isn't changed until the next row update or insert operation.</p></div>
@@ -11457,6 +12910,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Updates the value at the 1-based <code>columnIndex</code>.
  The underlying database isn't changed until the next row update or insert operation.</p></div>
   <div class="jd-tagdata">
@@ -11497,6 +12953,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Updates the value at the 1-based <code>columnIndex</code>.
  The underlying database isn't changed until the next row update or insert operation.</p></div>
   <div class="jd-tagdata">
@@ -11536,6 +12995,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Updates a column specified by a column name with a <code>java.sql.Blob</code>
  value.</p></div>
@@ -11591,6 +13053,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Updates a column specified by a column index with a <code>boolean</code>
  value.</p></div>
   <div class="jd-tagdata">
@@ -11645,6 +13110,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Updates a column specified by a column name with a <code>boolean</code> value.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -11697,6 +13165,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Updates a column specified by a column name with a <code>byte</code> value.</p></div>
   <div class="jd-tagdata">
@@ -11751,6 +13222,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Updates a column specified by a column index with a <code>byte</code> value.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -11803,6 +13277,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Updates a column specified by a column index with a <code>byte</code> array
  value.</p></div>
@@ -11858,6 +13335,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Updates a column specified by a column name with a byte array value.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -11911,6 +13391,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Updates the value in the named column.
  The underlying database isn't changed until the next row update or insert operation.</p></div>
   <div class="jd-tagdata">
@@ -11950,6 +13433,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Updates a column specified by a column name with a character stream
  value.</p></div>
@@ -12009,6 +13495,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Updates the value at the 1-based <code>columnIndex</code>.
  The underlying database isn't changed until the next row update or insert operation.</p></div>
   <div class="jd-tagdata">
@@ -12048,6 +13537,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Updates the value in the named column.
  The underlying database isn't changed until the next row update or insert operation.</p></div>
@@ -12089,6 +13581,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Updates the value at the 1-based <code>columnIndex</code>.
  The underlying database isn't changed until the next row update or insert operation.</p></div>
   <div class="jd-tagdata">
@@ -12128,6 +13623,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Updates a column specified by a column index with a character stream
  value.</p></div>
@@ -12187,6 +13685,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Updates the value in the named column.
  The underlying database isn't changed until the next row update or insert operation.</p></div>
   <div class="jd-tagdata">
@@ -12226,6 +13727,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Updates a column specified by a column index with a <code>java.sql.Clob</code>
  value.</p></div>
@@ -12281,6 +13785,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Updates the value in the named column.
  The underlying database isn't changed until the next row update or insert operation.</p></div>
   <div class="jd-tagdata">
@@ -12320,6 +13827,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Updates the value at the 1-based <code>columnIndex</code>.
  The underlying database isn't changed until the next row update or insert operation.</p></div>
@@ -12361,6 +13871,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Updates the value at the 1-based <code>columnIndex</code>.
  The underlying database isn't changed until the next row update or insert operation.</p></div>
   <div class="jd-tagdata">
@@ -12400,6 +13913,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Updates a column specified by a column name with a <code>java.sql.Clob</code>
  value.</p></div>
@@ -12455,6 +13971,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Updates a column specified by a column name with a <code>java.sql.Date</code>
  value.</p></div>
   <div class="jd-tagdata">
@@ -12508,6 +14027,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Updates a column specified by a column index with a <code>java.sql.Date</code>
  value.</p></div>
@@ -12563,6 +14085,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Updates a column specified by a column name with a <code>double</code> value.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -12615,6 +14140,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Updates a column specified by a column index with a <code>double</code> value.</p></div>
   <div class="jd-tagdata">
@@ -12669,6 +14197,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Updates a column specified by a column name with a <code>float</code> value.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -12721,6 +14252,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Updates a column specified by a column index with a <code>float</code> value.</p></div>
   <div class="jd-tagdata">
@@ -12775,6 +14309,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Updates a column specified by a column name with an <code>int</code> value.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -12827,6 +14364,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Updates a column specified by a column index with an <code>int</code> value.</p></div>
   <div class="jd-tagdata">
@@ -12881,6 +14421,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Updates a column specified by a column name with a <code>long</code> value.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -12933,6 +14476,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Updates a column specified by a column index with a <code>long</code> value.</p></div>
   <div class="jd-tagdata">
@@ -12987,6 +14533,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Updates the value in the named column.
  The underlying database isn't changed until the next row update or insert operation.</p></div>
   <div class="jd-tagdata">
@@ -13026,6 +14575,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Updates the value at the 1-based <code>columnIndex</code>.
  The underlying database isn't changed until the next row update or insert operation.</p></div>
@@ -13067,6 +14619,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Updates the value in the named column.
  The underlying database isn't changed until the next row update or insert operation.</p></div>
   <div class="jd-tagdata">
@@ -13106,6 +14661,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Updates the value at the 1-based <code>columnIndex</code>.
  The underlying database isn't changed until the next row update or insert operation.</p></div>
@@ -13147,6 +14705,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Updates the value at the 1-based <code>columnIndex</code>.
  The underlying database isn't changed until the next row update or insert operation.</p></div>
   <div class="jd-tagdata">
@@ -13186,6 +14747,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Updates the value in the named column.
  The underlying database isn't changed until the next row update or insert operation.</p></div>
@@ -13227,6 +14791,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Updates the value in the named column.
  The underlying database isn't changed until the next row update or insert operation.</p></div>
   <div class="jd-tagdata">
@@ -13266,6 +14833,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Updates the value at the 1-based <code>columnIndex</code>.
  The underlying database isn't changed until the next row update or insert operation.</p></div>
@@ -13307,6 +14877,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Updates the value at the 1-based <code>columnIndex</code>.
  The underlying database isn't changed until the next row update or insert operation.</p></div>
   <div class="jd-tagdata">
@@ -13346,6 +14919,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Updates the value in the named column.
  The underlying database isn't changed until the next row update or insert operation.</p></div>
@@ -13387,6 +14963,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Updates the value in the named column.
  The underlying database isn't changed until the next row update or insert operation.</p></div>
   <div class="jd-tagdata">
@@ -13427,6 +15006,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Updates the value at the 1-based <code>columnIndex</code>.
  The underlying database isn't changed until the next row update or insert operation.</p></div>
   <div class="jd-tagdata">
@@ -13466,6 +15048,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Updates a column specified by a column name with a <code>null</code> value.</p></div>
   <div class="jd-tagdata">
@@ -13516,6 +15101,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Updates a column specified by a column index with a <code>null</code> value.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -13564,6 +15152,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Updates a column specified by a column index with an <code>Object</code>
  value.</p></div>
@@ -13618,6 +15209,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Updates a column specified by a column index with an <code>Object</code>
  value.</p></div>
@@ -13678,6 +15272,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Updates a column specified by a column name with an <code>Object</code> value.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -13736,6 +15333,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Updates a column specified by a column name with an <code>Object</code> value.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -13788,6 +15388,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Updates a column specified by a column index with a <code>java.sql.Ref</code>
  value.</p></div>
@@ -13843,6 +15446,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Updates a column specified by a column name with a <code>java.sql.Ref</code>
  value.</p></div>
   <div class="jd-tagdata">
@@ -13897,6 +15503,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Updates the database with the new contents of the current row of this
  <code>ResultSet</code> object.</p></div>
   <div class="jd-tagdata">
@@ -13938,6 +15547,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Updates the value in the named column.
  The underlying database isn't changed until the next row update or insert operation.</p></div>
   <div class="jd-tagdata">
@@ -13977,6 +15589,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Updates the value at the 1-based <code>columnIndex</code>.
  The underlying database isn't changed until the next row update or insert operation.</p></div>
@@ -14018,6 +15633,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Updates the value at the 1-based <code>columnIndex</code>.
  The underlying database isn't changed until the next row update or insert operation.</p></div>
   <div class="jd-tagdata">
@@ -14058,6 +15676,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Updates the value in the named column.
  The underlying database isn't changed until the next row update or insert operation.</p></div>
   <div class="jd-tagdata">
@@ -14097,6 +15718,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Updates a column specified by a column index with a <code>short</code> value.</p></div>
   <div class="jd-tagdata">
@@ -14151,6 +15775,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Updates a column specified by a column name with a <code>short</code> value.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -14203,6 +15830,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Updates a column specified by a column index with a <code>String</code> value.</p></div>
   <div class="jd-tagdata">
@@ -14257,6 +15887,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Updates a column specified by a column name with a <code>String</code> value.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -14309,6 +15942,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Updates a column specified by a column index with a <code>Time</code> value.</p></div>
   <div class="jd-tagdata">
@@ -14363,6 +15999,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Updates a column specified by a column name with a <code>Time</code> value.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -14415,6 +16054,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Updates a column specified by a column index with a <code>Timestamp</code>
  value.</p></div>
@@ -14470,6 +16112,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Updates a column specified by column name with a <code>Timestamp</code> value.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -14522,6 +16167,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Determines whether the last column read from this <code>ResultSet</code>
  contained SQL <code>NULL</code>.</p></div>

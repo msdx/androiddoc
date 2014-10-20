@@ -82,6 +82,19 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 <html>
 <head>
 
@@ -97,7 +110,7 @@
 href="http://fonts.useso.com/css?family=Roboto+Condensed">
 <link rel="stylesheet" href="http://fonts.useso.com/css?family=Roboto:light,regular,medium,thin,italic,mediumitalic,bold"
   title="roboto">
-<link href="../../../assets/css/default.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/default.css?v=2" rel="stylesheet" type="text/css">
 
 
 <!-- FULLSCREEN STYLESHEET -->
@@ -106,30 +119,31 @@ type="text/css">
 
 
 <!-- JAVASCRIPT -->
-<script src="http://googleapiscdn.qiniudn.com/www.google.com/jsapi" type="text/javascript"></script>
+<script src="http://www.google.com/jsapi" type="text/javascript"></script>
 <script src="../../../assets/js/android_3p-bundle.js" type="text/javascript"></script>
 <script type="text/javascript">
   var toRoot = "../../../";
   var metaTags = [];
   var devsite = false;
 </script>
-<script src="../../../assets/js/docs.js" type="text/javascript"></script>
+<script src="../../../assets/js/docs.js?v=2" type="text/javascript"></script>
 
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-5831155-1']);
-  _gaq.push(['_trackPageview']);
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
+  ga('create', 'UA-5831155-1', 'android.com');
+  ga('create', 'UA-49880327-2', 'android.com', {'name': 'universal'});  // New tracker);
+  ga('send', 'pageview');
+  ga('universal.send', 'pageview'); // Send page view for new tracker.
 </script>
+
 </head>
 
 <body class="gc-documentation 
-  develop" itemscope itemtype="http://schema.org/Article">
+  develop reference" itemscope itemtype="http://schema.org/Article">
   <div id="doc-api-level" class="1" style="display:none"></div>
   <a name="top"></a>
 
@@ -139,6 +153,10 @@ type="text/css">
   <!-- Header -->
   <div id="header-wrapper">
     <div id="header">
+
+    
+
+
       <div class="wrap" id="header-wrap">
         <div class="col-3 logo">
           <a href="../../../index.html">
@@ -260,11 +278,20 @@ type="text/css">
 
 
         <!-- Expanded quicknav -->
-        <div id="quicknav" class="col-9">
+        <div id="quicknav" class="col-13">
           <ul>
+            <li class="about">
+              <ul>
+                <li><a href="../../../about/index.html">About</a></li>
+                <li><a href="../../../wear/index.html">Wear</a></li>
+                <li><a href="../../../tv/index.html">TV</a></li>
+                <li><a href="../../../auto/index.html">Auto</a></li>
+              </ul>
+            </li>
             <li class="design">
               <ul>
                 <li><a href="../../../design/index.html">Get Started</a></li>
+                <li><a href="../../../design/devices.html">Devices</a></li>
                 <li><a href="../../../design/style/index.html">Style</a></li>
                 <li><a href="../../../design/patterns/index.html">Patterns</a></li>
                 <li><a href="../../../design/building-blocks/index.html">Building Blocks</a></li>
@@ -298,7 +325,7 @@ type="text/css">
                   ja-lang="リファレンス"
                   es-lang="Referencia"
                   >Reference</a></li>
-                <li><a href="../../../tools/index.html"
+                <li><a href="../../../sdk/index.html"
                   zh-tw-lang="相關工具"
                   zh-cn-lang="工具"
                   ru-lang="Инструменты"
@@ -306,7 +333,6 @@ type="text/css">
                   ja-lang="ツール"
                   es-lang="Herramientas"
                   >Tools</a>
-                  <ul><li><a href="../../../sdk/index.html">Get the SDK</a></li></ul>
                 </li>
                 <li><a href="../../../google/index.html">Google Services</a>
                 </li>
@@ -358,7 +384,7 @@ type="text/css">
                   ja-lang="リファレンス"
                   es-lang="Referencia"
                   >Reference</a></li>
-                <li class="tools"><a href="../../../tools/index.html"
+                <li class="tools"><a href="../../../sdk/index.html"
                   zh-tw-lang="相關工具"
                   zh-cn-lang="工具"
                   ru-lang="Инструменты"
@@ -373,7 +399,7 @@ type="text/css">
             </ul>
         </div>
     </div>
-    <!-- /Sendondary x-nav -->
+    <!-- /Sendondary x-nav DEVELOP -->
 
   
 
@@ -414,7 +440,7 @@ type="text/css">
         <div id="api-nav-title">Android APIs</div>
         </div><!-- end nav header -->
       <script>
-        var SINCE_DATA = [ '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19' ];
+        var SINCE_DATA = [ '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21' ];
         buildApiLevelSelector();
       </script>
                   
@@ -441,13 +467,15 @@ type="text/css">
   <a href="../../../reference/android/app/admin/package-summary.html">android.app.admin</a></li>
     <li class="api apilevel-8">
   <a href="../../../reference/android/app/backup/package-summary.html">android.app.backup</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/app/job/package-summary.html">android.app.job</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/app/usage/package-summary.html">android.app.usage</a></li>
     <li class="api apilevel-3">
   <a href="../../../reference/android/appwidget/package-summary.html">android.appwidget</a></li>
     <li class="api apilevel-5">
   <a href="../../../reference/android/bluetooth/package-summary.html">android.bluetooth</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/bluetooth/le/package-summary.html">android.bluetooth.le</a></li>
     <li class="api apilevel-1">
   <a href="../../../reference/android/content/package-summary.html">android.content</a></li>
@@ -473,16 +501,14 @@ type="text/css">
   <a href="../../../reference/android/graphics/pdf/package-summary.html">android.graphics.pdf</a></li>
     <li class="api apilevel-1">
   <a href="../../../reference/android/hardware/package-summary.html">android.hardware</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/hardware/camera2/package-summary.html">android.hardware.camera2</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/hardware/camera2/params/package-summary.html">android.hardware.camera2.params</a></li>
     <li class="api apilevel-17">
   <a href="../../../reference/android/hardware/display/package-summary.html">android.hardware.display</a></li>
     <li class="api apilevel-16">
   <a href="../../../reference/android/hardware/input/package-summary.html">android.hardware.input</a></li>
-    <li class="api apilevel-18">
-  <a href="../../../reference/android/hardware/location/package-summary.html">android.hardware.location</a></li>
     <li class="api apilevel-12">
   <a href="../../../reference/android/hardware/usb/package-summary.html">android.hardware.usb</a></li>
     <li class="api apilevel-3">
@@ -493,11 +519,15 @@ type="text/css">
   <a href="../../../reference/android/media/package-summary.html">android.media</a></li>
     <li class="api apilevel-9">
   <a href="../../../reference/android/media/audiofx/package-summary.html">android.media.audiofx</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/media/browse/package-summary.html">android.media.browse</a></li>
     <li class="api apilevel-14">
   <a href="../../../reference/android/media/effect/package-summary.html">android.media.effect</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/media/projection/package-summary.html">android.media.projection</a></li>
+    <li class="api apilevel-21">
   <a href="../../../reference/android/media/session/package-summary.html">android.media.session</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/media/tv/package-summary.html">android.media.tv</a></li>
     <li class="api apilevel-12">
   <a href="../../../reference/android/mtp/package-summary.html">android.mtp</a></li>
@@ -547,11 +577,15 @@ type="text/css">
   <a href="../../../reference/android/security/package-summary.html">android.security</a></li>
     <li class="api apilevel-17">
   <a href="../../../reference/android/service/dreams/package-summary.html">android.service.dreams</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/service/media/package-summary.html">android.service.media</a></li>
     <li class="api apilevel-18">
   <a href="../../../reference/android/service/notification/package-summary.html">android.service.notification</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/service/restrictions/package-summary.html">android.service.restrictions</a></li>
     <li class="api apilevel-14">
   <a href="../../../reference/android/service/textservice/package-summary.html">android.service.textservice</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/service/voice/package-summary.html">android.service.voice</a></li>
     <li class="api apilevel-7">
   <a href="../../../reference/android/service/wallpaper/package-summary.html">android.service.wallpaper</a></li>
@@ -596,11 +630,15 @@ type="text/css">
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/media/package-summary.html">android.support.v4.media</a></li>
     <li class="api apilevel-">
+  <a href="../../../reference/android/support/v4/media/session/package-summary.html">android.support.v4.media.session</a></li>
+    <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/net/package-summary.html">android.support.v4.net</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/os/package-summary.html">android.support.v4.os</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/print/package-summary.html">android.support.v4.print</a></li>
+    <li class="api apilevel-">
+  <a href="../../../reference/android/support/v4/provider/package-summary.html">android.support.v4.provider</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/text/package-summary.html">android.support.v4.text</a></li>
     <li class="api apilevel-">
@@ -616,6 +654,10 @@ type="text/css">
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v7/appcompat/package-summary.html">android.support.v7.appcompat</a></li>
     <li class="api apilevel-">
+  <a href="../../../reference/android/support/v7/cardview/package-summary.html">android.support.v7.cardview</a></li>
+    <li class="api apilevel-">
+  <a href="../../../reference/android/support/v7/graphics/package-summary.html">android.support.v7.graphics</a></li>
+    <li class="api apilevel-">
   <a href="../../../reference/android/support/v7/gridlayout/package-summary.html">android.support.v7.gridlayout</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v7/media/package-summary.html">android.support.v7.media</a></li>
@@ -627,8 +669,10 @@ type="text/css">
   <a href="../../../reference/android/support/v7/widget/package-summary.html">android.support.v7.widget</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v8/renderscript/package-summary.html">android.support.v8.renderscript</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/system/package-summary.html">android.system</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/telecom/package-summary.html">android.telecom</a></li>
     <li class="api apilevel-1">
   <a href="../../../reference/android/telephony/package-summary.html">android.telephony</a></li>
     <li class="api apilevel-5">
@@ -919,7 +963,7 @@ type="text/css">
           <li class="api apilevel-1"><a href="../../../reference/android/view/SurfaceHolder.Callback.html">SurfaceHolder.Callback</a></li>
           <li class="api apilevel-9"><a href="../../../reference/android/view/SurfaceHolder.Callback2.html">SurfaceHolder.Callback2</a></li>
           <li class="api apilevel-14"><a href="../../../reference/android/view/TextureView.SurfaceTextureListener.html">TextureView.SurfaceTextureListener</a></li>
-          <li class="api apilevel-"><a href="../../../reference/android/view/View.OnApplyWindowInsetsListener.html">View.OnApplyWindowInsetsListener</a></li>
+          <li class="api apilevel-20"><a href="../../../reference/android/view/View.OnApplyWindowInsetsListener.html">View.OnApplyWindowInsetsListener</a></li>
           <li class="api apilevel-12"><a href="../../../reference/android/view/View.OnAttachStateChangeListener.html">View.OnAttachStateChangeListener</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/view/View.OnClickListener.html">View.OnClickListener</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/view/View.OnCreateContextMenuListener.html">View.OnCreateContextMenuListener</a></li>
@@ -959,7 +1003,7 @@ type="text/css">
           <li class="api apilevel-1"><a href="../../../reference/android/view/Display.html">Display</a></li>
           <li class="api apilevel-11"><a href="../../../reference/android/view/DragEvent.html">DragEvent</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/view/FocusFinder.html">FocusFinder</a></li>
-          <li class="api apilevel-"><a href="../../../reference/android/view/FrameStats.html">FrameStats</a></li>
+          <li class="api apilevel-21"><a href="../../../reference/android/view/FrameStats.html">FrameStats</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/view/GestureDetector.html">GestureDetector</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/view/GestureDetector.SimpleOnGestureListener.html">GestureDetector.SimpleOnGestureListener</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/view/Gravity.html">Gravity</a></li>
@@ -992,23 +1036,24 @@ type="text/css">
           <li class="api apilevel-1"><a href="../../../reference/android/view/View.BaseSavedState.html">View.BaseSavedState</a></li>
           <li class="api apilevel-11"><a href="../../../reference/android/view/View.DragShadowBuilder.html">View.DragShadowBuilder</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/view/View.MeasureSpec.html">View.MeasureSpec</a></li>
-          <li class="api apilevel-"><a href="../../../reference/android/view/ViewAnimationUtils.html">ViewAnimationUtils</a></li>
+          <li class="api apilevel-21"><a href="../../../reference/android/view/ViewAnimationUtils.html">ViewAnimationUtils</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/view/ViewConfiguration.html">ViewConfiguration</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/view/ViewDebug.html">ViewDebug</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/view/ViewGroup.html">ViewGroup</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/view/ViewGroup.LayoutParams.html">ViewGroup.LayoutParams</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/view/ViewGroup.MarginLayoutParams.html">ViewGroup.MarginLayoutParams</a></li>
           <li class="api apilevel-18"><a href="../../../reference/android/view/ViewGroupOverlay.html">ViewGroupOverlay</a></li>
+          <li class="api apilevel-21"><a href="../../../reference/android/view/ViewOutlineProvider.html">ViewOutlineProvider</a></li>
           <li class="api apilevel-18"><a href="../../../reference/android/view/ViewOverlay.html">ViewOverlay</a></li>
           <li class="api apilevel-12"><a href="../../../reference/android/view/ViewPropertyAnimator.html">ViewPropertyAnimator</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/view/ViewStub.html">ViewStub</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/view/ViewTreeObserver.html">ViewTreeObserver</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/view/Window.html">Window</a></li>
-          <li class="api apilevel-"><a href="../../../reference/android/view/WindowAnimationFrameStats.html">WindowAnimationFrameStats</a></li>
-          <li class="api apilevel-"><a href="../../../reference/android/view/WindowContentFrameStats.html">WindowContentFrameStats</a></li>
+          <li class="api apilevel-21"><a href="../../../reference/android/view/WindowAnimationFrameStats.html">WindowAnimationFrameStats</a></li>
+          <li class="api apilevel-21"><a href="../../../reference/android/view/WindowContentFrameStats.html">WindowContentFrameStats</a></li>
           <li class="api apilevel-18"><a href="../../../reference/android/view/WindowId.html">WindowId</a></li>
           <li class="api apilevel-18"><a href="../../../reference/android/view/WindowId.FocusObserver.html">WindowId.FocusObserver</a></li>
-          <li class="api apilevel-"><a href="../../../reference/android/view/WindowInsets.html">WindowInsets</a></li>
+          <li class="api apilevel-20"><a href="../../../reference/android/view/WindowInsets.html">WindowInsets</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/view/WindowManager.LayoutParams.html">WindowManager.LayoutParams</a></li>
       </ul>
     </li>
@@ -1177,6 +1222,9 @@ Summary:
   
 
 
+    
+
+
 </div><!-- end header -->
 
 <div id="naMessage"></div>
@@ -1255,12 +1303,17 @@ Summary:
         
         class</nobr></td>
       <td class="jd-linkcol"><a href="../../../reference/android/view/KeyCharacterMap.KeyData.html">KeyCharacterMap.KeyData</a></td>
-      <td class="jd-descrcol" width="100%"><em>
+      <td class="jd-descrcol" width="100%">
+        <em>
       This class was deprecated
       in API level 11.
     instead use <code><a href="../../../reference/android/view/KeyCharacterMap.html#getDisplayLabel(int)">getDisplayLabel(int)</a></code>,
  <code><a href="../../../reference/android/view/KeyCharacterMap.html#getNumber(int)">getNumber(int)</a></code> and <code><a href="../../../reference/android/view/KeyCharacterMap.html#get(int, int)">get(int, int)</a></code>.
-</em>&nbsp;</td>
+</em>&nbsp;
+        
+    
+
+      </td>
     </tr>
     
     
@@ -1272,7 +1325,12 @@ Summary:
         
         class</nobr></td>
       <td class="jd-linkcol"><a href="../../../reference/android/view/KeyCharacterMap.UnavailableException.html">KeyCharacterMap.UnavailableException</a></td>
-      <td class="jd-descrcol" width="100%">Thrown by <code><a href="../../../reference/android/view/KeyCharacterMap.html#load(int)">load(int)</a></code> when a key character map could not be loaded.&nbsp;</td>
+      <td class="jd-descrcol" width="100%">
+        Thrown by <code><a href="../../../reference/android/view/KeyCharacterMap.html#load(int)">load(int)</a></code> when a key character map could not be loaded.&nbsp;
+        
+    
+
+      </td>
     </tr>
     
     
@@ -1297,14 +1355,20 @@ Summary:
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/view/KeyCharacterMap.html#ALPHA">ALPHA</a></td>
-        <td class="jd-descrcol" width="100%">A keyboard with all the letters, and maybe some numbers.</td>
+        <td class="jd-descrcol" width="100%">
+          A keyboard with all the letters, and maybe some numbers.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/view/KeyCharacterMap.html#BUILT_IN_KEYBOARD">BUILT_IN_KEYBOARD</a></td>
-        <td class="jd-descrcol" width="100%"><em>
+        <td class="jd-descrcol" width="100%">
+          <em>
       This constant was deprecated
       in API level 11.
     This constant should no longer be used because there is no
@@ -1317,90 +1381,149 @@ Summary:
  When synthesizing key presses for delivery elsewhere or when translating key presses
  from unknown keyboards, applications should use the special <code><a href="../../../reference/android/view/KeyCharacterMap.html#VIRTUAL_KEYBOARD">VIRTUAL_KEYBOARD</a></code>
  device id.
-</em></td>
+</em>
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/view/KeyCharacterMap.html#COMBINING_ACCENT">COMBINING_ACCENT</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/view/KeyCharacterMap.html#COMBINING_ACCENT_MASK">COMBINING_ACCENT_MASK</a></td>
-        <td class="jd-descrcol" width="100%">Mask the return value from <code><a href="../../../reference/android/view/KeyCharacterMap.html#get(int, int)">get(int, int)</a></code> with this value to get
+        <td class="jd-descrcol" width="100%">
+          Mask the return value from <code><a href="../../../reference/android/view/KeyCharacterMap.html#get(int, int)">get(int, int)</a></code> with this value to get
  a printable representation of the accent character of a "dead key."
-</td>
+
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-11" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/view/KeyCharacterMap.html#FULL">FULL</a></td>
-        <td class="jd-descrcol" width="100%">A full PC-style keyboard.</td>
+        <td class="jd-descrcol" width="100%">
+          A full PC-style keyboard.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">char</td>
         <td class="jd-linkcol"><a href="../../../reference/android/view/KeyCharacterMap.html#HEX_INPUT">HEX_INPUT</a></td>
-        <td class="jd-descrcol" width="100%">This private-use character is used to trigger Unicode character
- input by hex digits.</td>
+        <td class="jd-descrcol" width="100%">
+          This private-use character is used to trigger Unicode character
+ input by hex digits.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-11" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/view/KeyCharacterMap.html#MODIFIER_BEHAVIOR_CHORDED">MODIFIER_BEHAVIOR_CHORDED</a></td>
-        <td class="jd-descrcol" width="100%">Modifier keys may be chorded with character keys.</td>
+        <td class="jd-descrcol" width="100%">
+          Modifier keys may be chorded with character keys.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-11" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/view/KeyCharacterMap.html#MODIFIER_BEHAVIOR_CHORDED_OR_TOGGLED">MODIFIER_BEHAVIOR_CHORDED_OR_TOGGLED</a></td>
-        <td class="jd-descrcol" width="100%">Modifier keys may be chorded with character keys or they may toggle
- into latched or locked states when pressed independently.</td>
+        <td class="jd-descrcol" width="100%">
+          Modifier keys may be chorded with character keys or they may toggle
+ into latched or locked states when pressed independently.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/view/KeyCharacterMap.html#NUMERIC">NUMERIC</a></td>
-        <td class="jd-descrcol" width="100%">A numeric (12-key) keyboard.</td>
+        <td class="jd-descrcol" width="100%">
+          A numeric (12-key) keyboard.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">char</td>
         <td class="jd-linkcol"><a href="../../../reference/android/view/KeyCharacterMap.html#PICKER_DIALOG_INPUT">PICKER_DIALOG_INPUT</a></td>
-        <td class="jd-descrcol" width="100%">This private-use character is used to bring up a character picker for
- miscellaneous symbols.</td>
+        <td class="jd-descrcol" width="100%">
+          This private-use character is used to bring up a character picker for
+ miscellaneous symbols.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/view/KeyCharacterMap.html#PREDICTIVE">PREDICTIVE</a></td>
-        <td class="jd-descrcol" width="100%">A keyboard with all the letters, but with more than one letter per key.</td>
+        <td class="jd-descrcol" width="100%">
+          A keyboard with all the letters, but with more than one letter per key.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-11" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/view/KeyCharacterMap.html#SPECIAL_FUNCTION">SPECIAL_FUNCTION</a></td>
-        <td class="jd-descrcol" width="100%">A keyboard that is only used to control special functions rather than for typing.</td>
+        <td class="jd-descrcol" width="100%">
+          A keyboard that is only used to control special functions rather than for typing.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-11" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/view/KeyCharacterMap.html#VIRTUAL_KEYBOARD">VIRTUAL_KEYBOARD</a></td>
-        <td class="jd-descrcol" width="100%">The id of a generic virtual keyboard with a full layout that can be used to
- synthesize key events.</td>
+        <td class="jd-descrcol" width="100%">
+          The id of a generic virtual keyboard with a full layout that can be used to
+ synthesize key events.
+          
+    
+
+        </td>
     </tr>
     
     
@@ -1439,20 +1562,30 @@ Summary:
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/os/Parcelable.html#CONTENTS_FILE_DESCRIPTOR">CONTENTS_FILE_DESCRIPTOR</a></td>
-        <td class="jd-descrcol" width="100%">Bit masks for use with <code><a href="../../../reference/android/os/Parcelable.html#describeContents()">describeContents()</a></code>: each bit represents a
+        <td class="jd-descrcol" width="100%">
+          Bit masks for use with <code><a href="../../../reference/android/os/Parcelable.html#describeContents()">describeContents()</a></code>: each bit represents a
  kind of object considered to have potential special significance when
- marshalled.</td>
+ marshalled.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/os/Parcelable.html#PARCELABLE_WRITE_RETURN_VALUE">PARCELABLE_WRITE_RETURN_VALUE</a></td>
-        <td class="jd-descrcol" width="100%">Flag for use with <code><a href="../../../reference/android/os/Parcelable.html#writeToParcel(android.os.Parcel, int)">writeToParcel(Parcel, int)</a></code>: the object being written
+        <td class="jd-descrcol" width="100%">
+          Flag for use with <code><a href="../../../reference/android/os/Parcelable.html#writeToParcel(android.os.Parcel, int)">writeToParcel(Parcel, int)</a></code>: the object being written
  is a return value, that is the result of a function such as
  "<code>Parcelable someFunction()</code>",
  "<code>void someFunction(out Parcelable)</code>", or
- "<code>void someFunction(inout Parcelable)</code>".</td>
+ "<code>void someFunction(inout Parcelable)</code>".
+          
+    
+
+        </td>
     </tr>
     
     
@@ -1479,7 +1612,12 @@ Summary:
           final
           <a href="../../../reference/android/os/Parcelable.Creator.html">Creator</a>&lt;<a href="../../../reference/android/view/KeyCharacterMap.html">KeyCharacterMap</a>&gt;</nobr></td>
           <td class="jd-linkcol"><a href="../../../reference/android/view/KeyCharacterMap.html#CREATOR">CREATOR</a></td>
-          <td class="jd-descrcol" width="100%"></td>
+          <td class="jd-descrcol" width="100%">
+            
+            
+    
+
+          </td>
       </tr>
       
     
@@ -1514,8 +1652,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/view/KeyCharacterMap.html#describeContents()">describeContents</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Describe the kinds of special objects contained in this Parcelable's
- marshalled representation.</div>
+        <div class="jd-descrdiv">
+          Describe the kinds of special objects contained in this Parcelable's
+ marshalled representation.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1533,8 +1676,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/view/KeyCharacterMap.html#deviceHasKey(int)">deviceHasKey</a></span>(int keyCode)</nobr>
         
-        <div class="jd-descrdiv">Queries the framework about whether any physical keys exist on the
- any keyboard attached to the device that are capable of producing the given key code.</div>
+        <div class="jd-descrdiv">
+          Queries the framework about whether any physical keys exist on the
+ any keyboard attached to the device that are capable of producing the given key code.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1552,9 +1700,14 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/view/KeyCharacterMap.html#deviceHasKeys(int[])">deviceHasKeys</a></span>(int[] keyCodes)</nobr>
         
-        <div class="jd-descrdiv">Queries the framework about whether any physical keys exist on the
+        <div class="jd-descrdiv">
+          Queries the framework about whether any physical keys exist on the
  any keyboard attached to the device that are capable of producing the given
- array of key codes.</div>
+ array of key codes.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1572,8 +1725,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/view/KeyCharacterMap.html#get(int, int)">get</a></span>(int keyCode, int metaState)</nobr>
         
-        <div class="jd-descrdiv">Gets the Unicode character generated by the specified key and meta
- key state combination.</div>
+        <div class="jd-descrdiv">
+          Gets the Unicode character generated by the specified key and meta
+ key state combination.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1591,8 +1749,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/view/KeyCharacterMap.html#getDeadChar(int, int)">getDeadChar</a></span>(int accent, int c)</nobr>
         
-        <div class="jd-descrdiv">Get the character that is produced by combining the dead key producing accent
- with the key producing character c.</div>
+        <div class="jd-descrdiv">
+          Get the character that is produced by combining the dead key producing accent
+ with the key producing character c.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1610,7 +1773,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/view/KeyCharacterMap.html#getDisplayLabel(int)">getDisplayLabel</a></span>(int keyCode)</nobr>
         
-        <div class="jd-descrdiv">Gets the primary character for this key.</div>
+        <div class="jd-descrdiv">
+          Gets the primary character for this key.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1628,8 +1796,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/view/KeyCharacterMap.html#getEvents(char[])">getEvents</a></span>(char[] chars)</nobr>
         
-        <div class="jd-descrdiv">Get an array of KeyEvent objects that if put into the input stream
- could plausibly generate the provided sequence of characters.</div>
+        <div class="jd-descrdiv">
+          Get an array of KeyEvent objects that if put into the input stream
+ could plausibly generate the provided sequence of characters.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1647,12 +1820,17 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/view/KeyCharacterMap.html#getKeyData(int, android.view.KeyCharacterMap.KeyData)">getKeyData</a></span>(int keyCode, <a href="../../../reference/android/view/KeyCharacterMap.KeyData.html">KeyCharacterMap.KeyData</a> results)</nobr>
         
-        <div class="jd-descrdiv"><em>
+        <div class="jd-descrdiv">
+          <em>
       This method was deprecated
       in API level 11.
     instead use <code><a href="../../../reference/android/view/KeyCharacterMap.html#getDisplayLabel(int)">getDisplayLabel(int)</a></code>,
  <code><a href="../../../reference/android/view/KeyCharacterMap.html#getNumber(int)">getNumber(int)</a></code> or <code><a href="../../../reference/android/view/KeyCharacterMap.html#get(int, int)">get(int, int)</a></code>.
-</em></div>
+</em>
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1670,7 +1848,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/view/KeyCharacterMap.html#getKeyboardType()">getKeyboardType</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Gets the keyboard type.</div>
+        <div class="jd-descrdiv">
+          Gets the keyboard type.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1688,8 +1871,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/view/KeyCharacterMap.html#getMatch(int, char[])">getMatch</a></span>(int keyCode, char[] chars)</nobr>
         
-        <div class="jd-descrdiv">Gets the first character in the character array that can be generated
- by the specified key code.</div>
+        <div class="jd-descrdiv">
+          Gets the first character in the character array that can be generated
+ by the specified key code.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1707,8 +1895,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/view/KeyCharacterMap.html#getMatch(int, char[], int)">getMatch</a></span>(int keyCode, char[] chars, int metaState)</nobr>
         
-        <div class="jd-descrdiv">Gets the first character in the character array that can be generated
- by the specified key code.</div>
+        <div class="jd-descrdiv">
+          Gets the first character in the character array that can be generated
+ by the specified key code.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1726,8 +1919,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/view/KeyCharacterMap.html#getModifierBehavior()">getModifierBehavior</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Gets a constant that describes the behavior of this keyboard's modifier keys
- such as <code><a href="../../../reference/android/view/KeyEvent.html#KEYCODE_SHIFT_LEFT">KEYCODE_SHIFT_LEFT</a></code>.</div>
+        <div class="jd-descrdiv">
+          Gets a constant that describes the behavior of this keyboard's modifier keys
+ such as <code><a href="../../../reference/android/view/KeyEvent.html#KEYCODE_SHIFT_LEFT">KEYCODE_SHIFT_LEFT</a></code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1745,7 +1943,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/view/KeyCharacterMap.html#getNumber(int)">getNumber</a></span>(int keyCode)</nobr>
         
-        <div class="jd-descrdiv">Gets the number or symbol associated with the key.</div>
+        <div class="jd-descrdiv">
+          Gets the number or symbol associated with the key.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1763,7 +1966,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/view/KeyCharacterMap.html#isPrintingKey(int)">isPrintingKey</a></span>(int keyCode)</nobr>
         
-        <div class="jd-descrdiv">Returns true if the specified key produces a glyph.</div>
+        <div class="jd-descrdiv">
+          Returns true if the specified key produces a glyph.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1781,7 +1989,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/view/KeyCharacterMap.html#load(int)">load</a></span>(int deviceId)</nobr>
         
-        <div class="jd-descrdiv">Loads the key character maps for the keyboard with the specified device id.</div>
+        <div class="jd-descrdiv">
+          Loads the key character maps for the keyboard with the specified device id.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1799,7 +2012,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/view/KeyCharacterMap.html#writeToParcel(android.os.Parcel, int)">writeToParcel</a></span>(<a href="../../../reference/android/os/Parcel.html">Parcel</a> out, int flags)</nobr>
         
-        <div class="jd-descrdiv">Flatten this object in to a Parcel.</div>
+        <div class="jd-descrdiv">
+          Flatten this object in to a Parcel.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1828,7 +2046,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/view/KeyCharacterMap.html#finalize()">finalize</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Invoked when the garbage collector has detected that this instance is no longer reachable.</div>
+        <div class="jd-descrdiv">
+          Invoked when the garbage collector has detected that this instance is no longer reachable.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1878,7 +2101,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#clone()">clone</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Creates and returns a copy of this <code>Object</code>.</div>
+        <div class="jd-descrdiv">
+          Creates and returns a copy of this <code>Object</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1896,8 +2124,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#equals(java.lang.Object)">equals</a></span>(<a href="../../../reference/java/lang/Object.html">Object</a> o)</nobr>
         
-        <div class="jd-descrdiv">Compares this instance with the specified object and indicates if they
- are equal.</div>
+        <div class="jd-descrdiv">
+          Compares this instance with the specified object and indicates if they
+ are equal.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1915,7 +2148,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#finalize()">finalize</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Invoked when the garbage collector has detected that this instance is no longer reachable.</div>
+        <div class="jd-descrdiv">
+          Invoked when the garbage collector has detected that this instance is no longer reachable.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1933,8 +2171,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#getClass()">getClass</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns the unique instance of <code><a href="../../../reference/java/lang/Class.html">Class</a></code> that represents this
- object's class.</div>
+        <div class="jd-descrdiv">
+          Returns the unique instance of <code><a href="../../../reference/java/lang/Class.html">Class</a></code> that represents this
+ object's class.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1952,7 +2195,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#hashCode()">hashCode</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns an integer hash code for this object.</div>
+        <div class="jd-descrdiv">
+          Returns an integer hash code for this object.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1970,8 +2218,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#notify()">notify</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Causes a thread which is waiting on this object's monitor (by means of
- calling one of the <code>wait()</code> methods) to be woken up.</div>
+        <div class="jd-descrdiv">
+          Causes a thread which is waiting on this object's monitor (by means of
+ calling one of the <code>wait()</code> methods) to be woken up.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1989,8 +2242,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#notifyAll()">notifyAll</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Causes all threads which are waiting on this object's monitor (by means
- of calling one of the <code>wait()</code> methods) to be woken up.</div>
+        <div class="jd-descrdiv">
+          Causes all threads which are waiting on this object's monitor (by means
+ of calling one of the <code>wait()</code> methods) to be woken up.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2008,8 +2266,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#toString()">toString</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns a string containing a concise, human-readable description of this
- object.</div>
+        <div class="jd-descrdiv">
+          Returns a string containing a concise, human-readable description of this
+ object.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2027,7 +2290,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#wait()">wait</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object.</div>
+        <div class="jd-descrdiv">
+          Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2045,8 +2313,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#wait(long, int)">wait</a></span>(long millis, int nanos)</nobr>
         
-        <div class="jd-descrdiv">Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object or until the
- specified timeout expires.</div>
+        <div class="jd-descrdiv">
+          Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object or until the
+ specified timeout expires.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2064,8 +2337,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#wait(long)">wait</a></span>(long millis)</nobr>
         
-        <div class="jd-descrdiv">Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object or until the
- specified timeout expires.</div>
+        <div class="jd-descrdiv">
+          Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object or until the
+ specified timeout expires.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2109,8 +2387,13 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/os/Parcelable.html#describeContents()">describeContents</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Describe the kinds of special objects contained in this Parcelable's
- marshalled representation.</div>
+        <div class="jd-descrdiv">
+          Describe the kinds of special objects contained in this Parcelable's
+ marshalled representation.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2128,7 +2411,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/os/Parcelable.html#writeToParcel(android.os.Parcel, int)">writeToParcel</a></span>(<a href="../../../reference/android/os/Parcel.html">Parcel</a> dest, int flags)</nobr>
         
-        <div class="jd-descrdiv">Flatten this object in to a Parcel.</div>
+        <div class="jd-descrdiv">
+          Flatten this object in to a Parcel.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2189,6 +2477,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>A keyboard with all the letters, and maybe some numbers.
  <p>
  An alphabetic keyboard supports text entry directly but may have a condensed
@@ -2238,6 +2529,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       <p>
   <p class="caution"><strong>
       This constant was deprecated
@@ -2293,6 +2587,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -2331,6 +2628,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Mask the return value from <code><a href="../../../reference/android/view/KeyCharacterMap.html#get(int, int)">get(int, int)</a></code> with this value to get
  a printable representation of the accent character of a "dead key."
@@ -2372,6 +2672,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>A full PC-style keyboard.
  <p>
@@ -2420,6 +2723,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>This private-use character is used to trigger Unicode character
  input by hex digits.
 </p></div>
@@ -2460,6 +2766,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Modifier keys may be chorded with character keys.</p></div>
   <div class="jd-tagdata">
@@ -2506,6 +2815,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Modifier keys may be chorded with character keys or they may toggle
  into latched or locked states when pressed independently.</p></div>
   <div class="jd-tagdata">
@@ -2551,6 +2863,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>A numeric (12-key) keyboard.
  <p>
@@ -2599,6 +2914,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>This private-use character is used to bring up a character picker for
  miscellaneous symbols.
 </p></div>
@@ -2639,6 +2957,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>A keyboard with all the letters, but with more than one letter per key.
  <p>
@@ -2683,6 +3004,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>A keyboard that is only used to control special functions rather than for typing.
  <p>
  A special function keyboard consists only of non-printing keys such as
@@ -2726,6 +3050,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>The id of a generic virtual keyboard with a full layout that can be used to
  synthesize key events.  Typically used with <code><a href="../../../reference/android/view/KeyCharacterMap.html#getEvents(char[])">getEvents(char[])</a></code>.
@@ -2778,6 +3105,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -2827,6 +3157,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Describe the kinds of special objects contained in this Parcelable's
  marshalled representation.</p></div>
   <div class="jd-tagdata">
@@ -2863,6 +3196,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Queries the framework about whether any physical keys exist on the
  any keyboard attached to the device that are capable of producing the given key code.</p></div>
@@ -2908,6 +3244,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Queries the framework about whether any physical keys exist on the
  any keyboard attached to the device that are capable of producing the given
@@ -2956,6 +3295,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Gets the Unicode character generated by the specified key and meta
  key state combination.
@@ -3019,6 +3361,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Get the character that is produced by combining the dead key producing accent
  with the key producing character c.
  For example, getDeadChar('`', 'e') returns &egrave;.
@@ -3070,6 +3415,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Gets the primary character for this key.
  In other words, the label that is physically printed on it.</p></div>
   <div class="jd-tagdata">
@@ -3114,6 +3462,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Get an array of KeyEvent objects that if put into the input stream
  could plausibly generate the provided sequence of characters.  It is
@@ -3173,6 +3524,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       <p>
   <p class="caution"><strong>
       This method was deprecated
@@ -3228,6 +3582,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Gets the keyboard type.
  Returns <code><a href="../../../reference/android/view/KeyCharacterMap.html#NUMERIC">NUMERIC</a></code>, <code><a href="../../../reference/android/view/KeyCharacterMap.html#PREDICTIVE">PREDICTIVE</a></code>, <code><a href="../../../reference/android/view/KeyCharacterMap.html#ALPHA">ALPHA</a></code>, <code><a href="../../../reference/android/view/KeyCharacterMap.html#FULL">FULL</a></code>
  or <code><a href="../../../reference/android/view/KeyCharacterMap.html#SPECIAL_FUNCTION">SPECIAL_FUNCTION</a></code>.
@@ -3268,6 +3625,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Gets the first character in the character array that can be generated
  by the specified key code.
@@ -3322,6 +3682,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Gets the first character in the character array that can be generated
  by the specified key code.  If there are multiple choices, prefers
  the one that would be generated with the specified meta key modifier state.</p></div>
@@ -3375,6 +3738,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Gets a constant that describes the behavior of this keyboard's modifier keys
  such as <code><a href="../../../reference/android/view/KeyEvent.html#KEYCODE_SHIFT_LEFT">KEYCODE_SHIFT_LEFT</a></code>.
@@ -3440,6 +3806,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Gets the number or symbol associated with the key.
  <p>
  The character value is returned, not the numeric value.
@@ -3499,6 +3868,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns true if the specified key produces a glyph.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -3542,6 +3914,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Loads the key character maps for the keyboard with the specified device id.</p></div>
   <div class="jd-tagdata">
@@ -3598,6 +3973,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Flatten this object in to a Parcel.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -3651,6 +4029,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Invoked when the garbage collector has detected that this instance is no longer reachable.
  The default implementation does nothing, but this method can be overridden to free resources.

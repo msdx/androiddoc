@@ -82,6 +82,19 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 <html>
 <head>
 
@@ -97,7 +110,7 @@
 href="http://fonts.useso.com/css?family=Roboto+Condensed">
 <link rel="stylesheet" href="http://fonts.useso.com/css?family=Roboto:light,regular,medium,thin,italic,mediumitalic,bold"
   title="roboto">
-<link href="../../../assets/css/default.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/default.css?v=2" rel="stylesheet" type="text/css">
 
 
 <!-- FULLSCREEN STYLESHEET -->
@@ -106,30 +119,31 @@ type="text/css">
 
 
 <!-- JAVASCRIPT -->
-<script src="http://googleapiscdn.qiniudn.com/www.google.com/jsapi" type="text/javascript"></script>
+<script src="http://www.google.com/jsapi" type="text/javascript"></script>
 <script src="../../../assets/js/android_3p-bundle.js" type="text/javascript"></script>
 <script type="text/javascript">
   var toRoot = "../../../";
   var metaTags = [];
   var devsite = false;
 </script>
-<script src="../../../assets/js/docs.js" type="text/javascript"></script>
+<script src="../../../assets/js/docs.js?v=2" type="text/javascript"></script>
 
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-5831155-1']);
-  _gaq.push(['_trackPageview']);
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
+  ga('create', 'UA-5831155-1', 'android.com');
+  ga('create', 'UA-49880327-2', 'android.com', {'name': 'universal'});  // New tracker);
+  ga('send', 'pageview');
+  ga('universal.send', 'pageview'); // Send page view for new tracker.
 </script>
+
 </head>
 
 <body class="gc-documentation 
-  develop" itemscope itemtype="http://schema.org/Article">
+  develop reference" itemscope itemtype="http://schema.org/Article">
   <div id="doc-api-level" class="1" style="display:none"></div>
   <a name="top"></a>
 
@@ -139,6 +153,10 @@ type="text/css">
   <!-- Header -->
   <div id="header-wrapper">
     <div id="header">
+
+    
+
+
       <div class="wrap" id="header-wrap">
         <div class="col-3 logo">
           <a href="../../../index.html">
@@ -260,11 +278,20 @@ type="text/css">
 
 
         <!-- Expanded quicknav -->
-        <div id="quicknav" class="col-9">
+        <div id="quicknav" class="col-13">
           <ul>
+            <li class="about">
+              <ul>
+                <li><a href="../../../about/index.html">About</a></li>
+                <li><a href="../../../wear/index.html">Wear</a></li>
+                <li><a href="../../../tv/index.html">TV</a></li>
+                <li><a href="../../../auto/index.html">Auto</a></li>
+              </ul>
+            </li>
             <li class="design">
               <ul>
                 <li><a href="../../../design/index.html">Get Started</a></li>
+                <li><a href="../../../design/devices.html">Devices</a></li>
                 <li><a href="../../../design/style/index.html">Style</a></li>
                 <li><a href="../../../design/patterns/index.html">Patterns</a></li>
                 <li><a href="../../../design/building-blocks/index.html">Building Blocks</a></li>
@@ -298,7 +325,7 @@ type="text/css">
                   ja-lang="リファレンス"
                   es-lang="Referencia"
                   >Reference</a></li>
-                <li><a href="../../../tools/index.html"
+                <li><a href="../../../sdk/index.html"
                   zh-tw-lang="相關工具"
                   zh-cn-lang="工具"
                   ru-lang="Инструменты"
@@ -306,7 +333,6 @@ type="text/css">
                   ja-lang="ツール"
                   es-lang="Herramientas"
                   >Tools</a>
-                  <ul><li><a href="../../../sdk/index.html">Get the SDK</a></li></ul>
                 </li>
                 <li><a href="../../../google/index.html">Google Services</a>
                 </li>
@@ -358,7 +384,7 @@ type="text/css">
                   ja-lang="リファレンス"
                   es-lang="Referencia"
                   >Reference</a></li>
-                <li class="tools"><a href="../../../tools/index.html"
+                <li class="tools"><a href="../../../sdk/index.html"
                   zh-tw-lang="相關工具"
                   zh-cn-lang="工具"
                   ru-lang="Инструменты"
@@ -373,7 +399,7 @@ type="text/css">
             </ul>
         </div>
     </div>
-    <!-- /Sendondary x-nav -->
+    <!-- /Sendondary x-nav DEVELOP -->
 
   
 
@@ -414,7 +440,7 @@ type="text/css">
         <div id="api-nav-title">Android APIs</div>
         </div><!-- end nav header -->
       <script>
-        var SINCE_DATA = [ '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19' ];
+        var SINCE_DATA = [ '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21' ];
         buildApiLevelSelector();
       </script>
                   
@@ -441,13 +467,15 @@ type="text/css">
   <a href="../../../reference/android/app/admin/package-summary.html">android.app.admin</a></li>
     <li class="api apilevel-8">
   <a href="../../../reference/android/app/backup/package-summary.html">android.app.backup</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/app/job/package-summary.html">android.app.job</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/app/usage/package-summary.html">android.app.usage</a></li>
     <li class="api apilevel-3">
   <a href="../../../reference/android/appwidget/package-summary.html">android.appwidget</a></li>
     <li class="api apilevel-5">
   <a href="../../../reference/android/bluetooth/package-summary.html">android.bluetooth</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/bluetooth/le/package-summary.html">android.bluetooth.le</a></li>
     <li class="api apilevel-1">
   <a href="../../../reference/android/content/package-summary.html">android.content</a></li>
@@ -473,16 +501,14 @@ type="text/css">
   <a href="../../../reference/android/graphics/pdf/package-summary.html">android.graphics.pdf</a></li>
     <li class="api apilevel-1">
   <a href="../../../reference/android/hardware/package-summary.html">android.hardware</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/hardware/camera2/package-summary.html">android.hardware.camera2</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/hardware/camera2/params/package-summary.html">android.hardware.camera2.params</a></li>
     <li class="api apilevel-17">
   <a href="../../../reference/android/hardware/display/package-summary.html">android.hardware.display</a></li>
     <li class="api apilevel-16">
   <a href="../../../reference/android/hardware/input/package-summary.html">android.hardware.input</a></li>
-    <li class="api apilevel-18">
-  <a href="../../../reference/android/hardware/location/package-summary.html">android.hardware.location</a></li>
     <li class="api apilevel-12">
   <a href="../../../reference/android/hardware/usb/package-summary.html">android.hardware.usb</a></li>
     <li class="api apilevel-3">
@@ -493,11 +519,15 @@ type="text/css">
   <a href="../../../reference/android/media/package-summary.html">android.media</a></li>
     <li class="api apilevel-9">
   <a href="../../../reference/android/media/audiofx/package-summary.html">android.media.audiofx</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/media/browse/package-summary.html">android.media.browse</a></li>
     <li class="api apilevel-14">
   <a href="../../../reference/android/media/effect/package-summary.html">android.media.effect</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/media/projection/package-summary.html">android.media.projection</a></li>
+    <li class="api apilevel-21">
   <a href="../../../reference/android/media/session/package-summary.html">android.media.session</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/media/tv/package-summary.html">android.media.tv</a></li>
     <li class="api apilevel-12">
   <a href="../../../reference/android/mtp/package-summary.html">android.mtp</a></li>
@@ -547,11 +577,15 @@ type="text/css">
   <a href="../../../reference/android/security/package-summary.html">android.security</a></li>
     <li class="api apilevel-17">
   <a href="../../../reference/android/service/dreams/package-summary.html">android.service.dreams</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/service/media/package-summary.html">android.service.media</a></li>
     <li class="api apilevel-18">
   <a href="../../../reference/android/service/notification/package-summary.html">android.service.notification</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/service/restrictions/package-summary.html">android.service.restrictions</a></li>
     <li class="api apilevel-14">
   <a href="../../../reference/android/service/textservice/package-summary.html">android.service.textservice</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/service/voice/package-summary.html">android.service.voice</a></li>
     <li class="api apilevel-7">
   <a href="../../../reference/android/service/wallpaper/package-summary.html">android.service.wallpaper</a></li>
@@ -596,11 +630,15 @@ type="text/css">
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/media/package-summary.html">android.support.v4.media</a></li>
     <li class="api apilevel-">
+  <a href="../../../reference/android/support/v4/media/session/package-summary.html">android.support.v4.media.session</a></li>
+    <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/net/package-summary.html">android.support.v4.net</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/os/package-summary.html">android.support.v4.os</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/print/package-summary.html">android.support.v4.print</a></li>
+    <li class="api apilevel-">
+  <a href="../../../reference/android/support/v4/provider/package-summary.html">android.support.v4.provider</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/text/package-summary.html">android.support.v4.text</a></li>
     <li class="api apilevel-">
@@ -616,6 +654,10 @@ type="text/css">
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v7/appcompat/package-summary.html">android.support.v7.appcompat</a></li>
     <li class="api apilevel-">
+  <a href="../../../reference/android/support/v7/cardview/package-summary.html">android.support.v7.cardview</a></li>
+    <li class="api apilevel-">
+  <a href="../../../reference/android/support/v7/graphics/package-summary.html">android.support.v7.graphics</a></li>
+    <li class="api apilevel-">
   <a href="../../../reference/android/support/v7/gridlayout/package-summary.html">android.support.v7.gridlayout</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v7/media/package-summary.html">android.support.v7.media</a></li>
@@ -627,8 +669,10 @@ type="text/css">
   <a href="../../../reference/android/support/v7/widget/package-summary.html">android.support.v7.widget</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v8/renderscript/package-summary.html">android.support.v8.renderscript</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/system/package-summary.html">android.system</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/telecom/package-summary.html">android.telecom</a></li>
     <li class="api apilevel-1">
   <a href="../../../reference/android/telephony/package-summary.html">android.telephony</a></li>
     <li class="api apilevel-5">
@@ -1146,6 +1190,9 @@ Summary:
   
 
 
+    
+
+
 </div><!-- end header -->
 
 <div id="naMessage"></div>
@@ -1254,8 +1301,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/RandomAccessFile.html#RandomAccessFile(java.io.File, java.lang.String)">RandomAccessFile</a></span>(<a href="../../../reference/java/io/File.html">File</a> file, <a href="../../../reference/java/lang/String.html">String</a> mode)</nobr>
         
-        <div class="jd-descrdiv">Constructs a new <code>RandomAccessFile</code> based on <code>file</code> and opens
- it according to the access string in <code>mode</code>.</div>
+        <div class="jd-descrdiv">
+          Constructs a new <code>RandomAccessFile</code> based on <code>file</code> and opens
+ it according to the access string in <code>mode</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1273,7 +1325,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/RandomAccessFile.html#RandomAccessFile(java.lang.String, java.lang.String)">RandomAccessFile</a></span>(<a href="../../../reference/java/lang/String.html">String</a> fileName, <a href="../../../reference/java/lang/String.html">String</a> mode)</nobr>
         
-        <div class="jd-descrdiv">Constructs a new <code>RandomAccessFile</code> based on the file named <code>fileName</code> and opens it according to the access string in <code>mode</code>.</div>
+        <div class="jd-descrdiv">
+          Constructs a new <code>RandomAccessFile</code> based on the file named <code>fileName</code> and opens it according to the access string in <code>mode</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1304,7 +1361,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/RandomAccessFile.html#close()">close</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Closes this file.</div>
+        <div class="jd-descrdiv">
+          Closes this file.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1322,7 +1384,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/RandomAccessFile.html#getChannel()">getChannel</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Gets this file's <code><a href="../../../reference/java/nio/channels/FileChannel.html">FileChannel</a></code> object.</div>
+        <div class="jd-descrdiv">
+          Gets this file's <code><a href="../../../reference/java/nio/channels/FileChannel.html">FileChannel</a></code> object.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1340,7 +1407,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/RandomAccessFile.html#getFD()">getFD</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Gets this file's <code><a href="../../../reference/java/io/FileDescriptor.html">FileDescriptor</a></code>.</div>
+        <div class="jd-descrdiv">
+          Gets this file's <code><a href="../../../reference/java/io/FileDescriptor.html">FileDescriptor</a></code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1358,7 +1430,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/RandomAccessFile.html#getFilePointer()">getFilePointer</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Gets the current position within this file.</div>
+        <div class="jd-descrdiv">
+          Gets the current position within this file.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1376,7 +1453,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/RandomAccessFile.html#length()">length</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns the length of this file in bytes.</div>
+        <div class="jd-descrdiv">
+          Returns the length of this file in bytes.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1394,8 +1476,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/RandomAccessFile.html#read(byte[], int, int)">read</a></span>(byte[] buffer, int byteOffset, int byteCount)</nobr>
         
-        <div class="jd-descrdiv">Reads up to <code>byteCount</code> bytes from the current position in this file
- and stores them in the byte array <code>buffer</code> starting at <code>byteOffset</code>.</div>
+        <div class="jd-descrdiv">
+          Reads up to <code>byteCount</code> bytes from the current position in this file
+ and stores them in the byte array <code>buffer</code> starting at <code>byteOffset</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1413,8 +1500,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/RandomAccessFile.html#read(byte[])">read</a></span>(byte[] buffer)</nobr>
         
-        <div class="jd-descrdiv">Reads bytes from the current position in this file and stores them in the
- byte array <code>buffer</code>.</div>
+        <div class="jd-descrdiv">
+          Reads bytes from the current position in this file and stores them in the
+ byte array <code>buffer</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1432,8 +1524,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/RandomAccessFile.html#read()">read</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Reads a single byte from the current position in this file and returns it
- as an integer in the range from 0 to 255.</div>
+        <div class="jd-descrdiv">
+          Reads a single byte from the current position in this file and returns it
+ as an integer in the range from 0 to 255.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1451,7 +1548,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/RandomAccessFile.html#readBoolean()">readBoolean</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Reads a boolean from the current position in this file.</div>
+        <div class="jd-descrdiv">
+          Reads a boolean from the current position in this file.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1469,7 +1571,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/RandomAccessFile.html#readByte()">readByte</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Reads an 8-bit byte from the current position in this file.</div>
+        <div class="jd-descrdiv">
+          Reads an 8-bit byte from the current position in this file.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1487,7 +1594,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/RandomAccessFile.html#readChar()">readChar</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Reads a big-endian 16-bit character from the current position in this file.</div>
+        <div class="jd-descrdiv">
+          Reads a big-endian 16-bit character from the current position in this file.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1505,7 +1617,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/RandomAccessFile.html#readDouble()">readDouble</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Reads a big-endian 64-bit double from the current position in this file.</div>
+        <div class="jd-descrdiv">
+          Reads a big-endian 64-bit double from the current position in this file.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1523,7 +1640,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/RandomAccessFile.html#readFloat()">readFloat</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Reads a big-endian 32-bit float from the current position in this file.</div>
+        <div class="jd-descrdiv">
+          Reads a big-endian 32-bit float from the current position in this file.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1541,7 +1663,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/RandomAccessFile.html#readFully(byte[])">readFully</a></span>(byte[] dst)</nobr>
         
-        <div class="jd-descrdiv">Equivalent to <code>readFully(dst, 0, dst.length);</code>.</div>
+        <div class="jd-descrdiv">
+          Equivalent to <code>readFully(dst, 0, dst.length);</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1559,8 +1686,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/RandomAccessFile.html#readFully(byte[], int, int)">readFully</a></span>(byte[] dst, int offset, int byteCount)</nobr>
         
-        <div class="jd-descrdiv">Reads <code>byteCount</code> bytes from this stream and stores them in the byte
- array <code>dst</code> starting at <code>offset</code>.</div>
+        <div class="jd-descrdiv">
+          Reads <code>byteCount</code> bytes from this stream and stores them in the byte
+ array <code>dst</code> starting at <code>offset</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1578,7 +1710,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/RandomAccessFile.html#readInt()">readInt</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Reads a big-endian 32-bit integer from the current position in this file.</div>
+        <div class="jd-descrdiv">
+          Reads a big-endian 32-bit integer from the current position in this file.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1596,7 +1733,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/RandomAccessFile.html#readLine()">readLine</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Reads a line of text form the current position in this file.</div>
+        <div class="jd-descrdiv">
+          Reads a line of text form the current position in this file.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1614,7 +1756,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/RandomAccessFile.html#readLong()">readLong</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Reads a big-endian 64-bit long from the current position in this file.</div>
+        <div class="jd-descrdiv">
+          Reads a big-endian 64-bit long from the current position in this file.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1632,7 +1779,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/RandomAccessFile.html#readShort()">readShort</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Reads a big-endian 16-bit short from the current position in this file.</div>
+        <div class="jd-descrdiv">
+          Reads a big-endian 16-bit short from the current position in this file.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1650,8 +1802,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/RandomAccessFile.html#readUTF()">readUTF</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Reads a string that is encoded in <code><a href="../../../reference/java/io/DataInput.html">modified UTF-8</a></code> from
- this file.</div>
+        <div class="jd-descrdiv">
+          Reads a string that is encoded in <code><a href="../../../reference/java/io/DataInput.html">modified UTF-8</a></code> from
+ this file.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1669,8 +1826,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/RandomAccessFile.html#readUnsignedByte()">readUnsignedByte</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Reads an unsigned 8-bit byte from the current position in this file and
- returns it as an integer.</div>
+        <div class="jd-descrdiv">
+          Reads an unsigned 8-bit byte from the current position in this file and
+ returns it as an integer.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1688,8 +1850,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/RandomAccessFile.html#readUnsignedShort()">readUnsignedShort</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Reads an unsigned big-endian 16-bit short from the current position in this file and
- returns it as an integer.</div>
+        <div class="jd-descrdiv">
+          Reads an unsigned big-endian 16-bit short from the current position in this file and
+ returns it as an integer.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1707,8 +1874,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/RandomAccessFile.html#seek(long)">seek</a></span>(long offset)</nobr>
         
-        <div class="jd-descrdiv">Moves this file's file pointer to a new position, from where following
- <code>read</code>, <code>write</code> or <code>skip</code> operations are done.</div>
+        <div class="jd-descrdiv">
+          Moves this file's file pointer to a new position, from where following
+ <code>read</code>, <code>write</code> or <code>skip</code> operations are done.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1726,7 +1898,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/RandomAccessFile.html#setLength(long)">setLength</a></span>(long newLength)</nobr>
         
-        <div class="jd-descrdiv">Sets the length of this file to <code>newLength</code>.</div>
+        <div class="jd-descrdiv">
+          Sets the length of this file to <code>newLength</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1744,7 +1921,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/RandomAccessFile.html#skipBytes(int)">skipBytes</a></span>(int count)</nobr>
         
-        <div class="jd-descrdiv">Skips over <code>count</code> bytes in this file.</div>
+        <div class="jd-descrdiv">
+          Skips over <code>count</code> bytes in this file.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1762,7 +1944,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/RandomAccessFile.html#write(int)">write</a></span>(int oneByte)</nobr>
         
-        <div class="jd-descrdiv">Writes a byte to this file, starting at the current file pointer.</div>
+        <div class="jd-descrdiv">
+          Writes a byte to this file, starting at the current file pointer.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1780,9 +1967,14 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/RandomAccessFile.html#write(byte[], int, int)">write</a></span>(byte[] buffer, int byteOffset, int byteCount)</nobr>
         
-        <div class="jd-descrdiv">Writes <code>byteCount</code> bytes from the byte array <code>buffer</code> to this
+        <div class="jd-descrdiv">
+          Writes <code>byteCount</code> bytes from the byte array <code>buffer</code> to this
  file, starting at the current file pointer and using <code>byteOffset</code> as
- the first position within <code>buffer</code> to get bytes.</div>
+ the first position within <code>buffer</code> to get bytes.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1800,8 +1992,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/RandomAccessFile.html#write(byte[])">write</a></span>(byte[] buffer)</nobr>
         
-        <div class="jd-descrdiv">Writes the entire contents of the byte array <code>buffer</code> to this file,
- starting at the current file pointer.</div>
+        <div class="jd-descrdiv">
+          Writes the entire contents of the byte array <code>buffer</code> to this file,
+ starting at the current file pointer.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1819,8 +2016,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/RandomAccessFile.html#writeBoolean(boolean)">writeBoolean</a></span>(boolean val)</nobr>
         
-        <div class="jd-descrdiv">Writes a boolean to this file as a single byte (1 for true, 0 for false), starting at the
- current file pointer.</div>
+        <div class="jd-descrdiv">
+          Writes a boolean to this file as a single byte (1 for true, 0 for false), starting at the
+ current file pointer.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1838,7 +2040,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/RandomAccessFile.html#writeByte(int)">writeByte</a></span>(int val)</nobr>
         
-        <div class="jd-descrdiv">Writes an 8-bit byte to this file, starting at the current file pointer.</div>
+        <div class="jd-descrdiv">
+          Writes an 8-bit byte to this file, starting at the current file pointer.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1856,8 +2063,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/RandomAccessFile.html#writeBytes(java.lang.String)">writeBytes</a></span>(<a href="../../../reference/java/lang/String.html">String</a> str)</nobr>
         
-        <div class="jd-descrdiv">Writes the low order 8-bit bytes from a string to this file, starting at
- the current file pointer.</div>
+        <div class="jd-descrdiv">
+          Writes the low order 8-bit bytes from a string to this file, starting at
+ the current file pointer.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1875,8 +2087,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/RandomAccessFile.html#writeChar(int)">writeChar</a></span>(int val)</nobr>
         
-        <div class="jd-descrdiv">Writes a big-endian 16-bit character to this file, starting at the current file
- pointer.</div>
+        <div class="jd-descrdiv">
+          Writes a big-endian 16-bit character to this file, starting at the current file
+ pointer.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1894,8 +2111,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/RandomAccessFile.html#writeChars(java.lang.String)">writeChars</a></span>(<a href="../../../reference/java/lang/String.html">String</a> str)</nobr>
         
-        <div class="jd-descrdiv">Writes big-endian 16-bit characters from <code>str</code> to this file, starting at the
- current file pointer.</div>
+        <div class="jd-descrdiv">
+          Writes big-endian 16-bit characters from <code>str</code> to this file, starting at the
+ current file pointer.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1913,8 +2135,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/RandomAccessFile.html#writeDouble(double)">writeDouble</a></span>(double val)</nobr>
         
-        <div class="jd-descrdiv">Writes a big-endian 64-bit double to this file, starting at the current file
- pointer.</div>
+        <div class="jd-descrdiv">
+          Writes a big-endian 64-bit double to this file, starting at the current file
+ pointer.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1932,7 +2159,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/RandomAccessFile.html#writeFloat(float)">writeFloat</a></span>(float val)</nobr>
         
-        <div class="jd-descrdiv">Writes a big-endian 32-bit float to this file, starting at the current file pointer.</div>
+        <div class="jd-descrdiv">
+          Writes a big-endian 32-bit float to this file, starting at the current file pointer.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1950,8 +2182,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/RandomAccessFile.html#writeInt(int)">writeInt</a></span>(int val)</nobr>
         
-        <div class="jd-descrdiv">Writes a big-endian 32-bit integer to this file, starting at the current file
- pointer.</div>
+        <div class="jd-descrdiv">
+          Writes a big-endian 32-bit integer to this file, starting at the current file
+ pointer.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1969,8 +2206,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/RandomAccessFile.html#writeLong(long)">writeLong</a></span>(long val)</nobr>
         
-        <div class="jd-descrdiv">Writes a big-endian 64-bit long to this file, starting at the current file
- pointer.</div>
+        <div class="jd-descrdiv">
+          Writes a big-endian 64-bit long to this file, starting at the current file
+ pointer.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1988,8 +2230,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/RandomAccessFile.html#writeShort(int)">writeShort</a></span>(int val)</nobr>
         
-        <div class="jd-descrdiv">Writes a big-endian 16-bit short to this file, starting at the current file
- pointer.</div>
+        <div class="jd-descrdiv">
+          Writes a big-endian 16-bit short to this file, starting at the current file
+ pointer.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2007,8 +2254,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/RandomAccessFile.html#writeUTF(java.lang.String)">writeUTF</a></span>(<a href="../../../reference/java/lang/String.html">String</a> str)</nobr>
         
-        <div class="jd-descrdiv">Writes a string encoded with <code><a href="../../../reference/java/io/DataInput.html">modified UTF-8</a></code> to this
- file, starting at the current file pointer.</div>
+        <div class="jd-descrdiv">
+          Writes a string encoded with <code><a href="../../../reference/java/io/DataInput.html">modified UTF-8</a></code> to this
+ file, starting at the current file pointer.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2037,7 +2289,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/RandomAccessFile.html#finalize()">finalize</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Invoked when the garbage collector has detected that this instance is no longer reachable.</div>
+        <div class="jd-descrdiv">
+          Invoked when the garbage collector has detected that this instance is no longer reachable.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2087,7 +2344,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#clone()">clone</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Creates and returns a copy of this <code>Object</code>.</div>
+        <div class="jd-descrdiv">
+          Creates and returns a copy of this <code>Object</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2105,8 +2367,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#equals(java.lang.Object)">equals</a></span>(<a href="../../../reference/java/lang/Object.html">Object</a> o)</nobr>
         
-        <div class="jd-descrdiv">Compares this instance with the specified object and indicates if they
- are equal.</div>
+        <div class="jd-descrdiv">
+          Compares this instance with the specified object and indicates if they
+ are equal.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2124,7 +2391,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#finalize()">finalize</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Invoked when the garbage collector has detected that this instance is no longer reachable.</div>
+        <div class="jd-descrdiv">
+          Invoked when the garbage collector has detected that this instance is no longer reachable.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2142,8 +2414,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#getClass()">getClass</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns the unique instance of <code><a href="../../../reference/java/lang/Class.html">Class</a></code> that represents this
- object's class.</div>
+        <div class="jd-descrdiv">
+          Returns the unique instance of <code><a href="../../../reference/java/lang/Class.html">Class</a></code> that represents this
+ object's class.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2161,7 +2438,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#hashCode()">hashCode</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns an integer hash code for this object.</div>
+        <div class="jd-descrdiv">
+          Returns an integer hash code for this object.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2179,8 +2461,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#notify()">notify</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Causes a thread which is waiting on this object's monitor (by means of
- calling one of the <code>wait()</code> methods) to be woken up.</div>
+        <div class="jd-descrdiv">
+          Causes a thread which is waiting on this object's monitor (by means of
+ calling one of the <code>wait()</code> methods) to be woken up.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2198,8 +2485,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#notifyAll()">notifyAll</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Causes all threads which are waiting on this object's monitor (by means
- of calling one of the <code>wait()</code> methods) to be woken up.</div>
+        <div class="jd-descrdiv">
+          Causes all threads which are waiting on this object's monitor (by means
+ of calling one of the <code>wait()</code> methods) to be woken up.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2217,8 +2509,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#toString()">toString</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns a string containing a concise, human-readable description of this
- object.</div>
+        <div class="jd-descrdiv">
+          Returns a string containing a concise, human-readable description of this
+ object.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2236,7 +2533,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#wait()">wait</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object.</div>
+        <div class="jd-descrdiv">
+          Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2254,8 +2556,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#wait(long, int)">wait</a></span>(long millis, int nanos)</nobr>
         
-        <div class="jd-descrdiv">Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object or until the
- specified timeout expires.</div>
+        <div class="jd-descrdiv">
+          Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object or until the
+ specified timeout expires.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2273,8 +2580,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#wait(long)">wait</a></span>(long millis)</nobr>
         
-        <div class="jd-descrdiv">Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object or until the
- specified timeout expires.</div>
+        <div class="jd-descrdiv">
+          Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object or until the
+ specified timeout expires.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2318,7 +2630,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/Closeable.html#close()">close</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Closes the object and release any system resources it holds.</div>
+        <div class="jd-descrdiv">
+          Closes the object and release any system resources it holds.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2362,7 +2679,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/DataInput.html#readBoolean()">readBoolean</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Reads a boolean.</div>
+        <div class="jd-descrdiv">
+          Reads a boolean.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2380,7 +2702,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/DataInput.html#readByte()">readByte</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Reads an 8-bit byte value.</div>
+        <div class="jd-descrdiv">
+          Reads an 8-bit byte value.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2398,7 +2725,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/DataInput.html#readChar()">readChar</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Reads a big-endian 16-bit character value.</div>
+        <div class="jd-descrdiv">
+          Reads a big-endian 16-bit character value.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2416,7 +2748,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/DataInput.html#readDouble()">readDouble</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Reads a big-endian 64-bit double value.</div>
+        <div class="jd-descrdiv">
+          Reads a big-endian 64-bit double value.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2434,7 +2771,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/DataInput.html#readFloat()">readFloat</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Reads a big-endian 32-bit float value.</div>
+        <div class="jd-descrdiv">
+          Reads a big-endian 32-bit float value.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2452,7 +2794,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/DataInput.html#readFully(byte[])">readFully</a></span>(byte[] dst)</nobr>
         
-        <div class="jd-descrdiv">Equivalent to <code>readFully(dst, 0, dst.length);</code>.</div>
+        <div class="jd-descrdiv">
+          Equivalent to <code>readFully(dst, 0, dst.length);</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2470,8 +2817,13 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/DataInput.html#readFully(byte[], int, int)">readFully</a></span>(byte[] dst, int offset, int byteCount)</nobr>
         
-        <div class="jd-descrdiv">Reads <code>byteCount</code> bytes from this stream and stores them in the byte
- array <code>dst</code> starting at <code>offset</code>.</div>
+        <div class="jd-descrdiv">
+          Reads <code>byteCount</code> bytes from this stream and stores them in the byte
+ array <code>dst</code> starting at <code>offset</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2489,7 +2841,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/DataInput.html#readInt()">readInt</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Reads a big-endian 32-bit integer value.</div>
+        <div class="jd-descrdiv">
+          Reads a big-endian 32-bit integer value.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2507,8 +2864,13 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/DataInput.html#readLine()">readLine</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns a string containing the next line of text available from this
- stream.</div>
+        <div class="jd-descrdiv">
+          Returns a string containing the next line of text available from this
+ stream.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2526,7 +2888,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/DataInput.html#readLong()">readLong</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Reads a big-endian 64-bit long value.</div>
+        <div class="jd-descrdiv">
+          Reads a big-endian 64-bit long value.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2544,7 +2911,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/DataInput.html#readShort()">readShort</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Reads a big-endian 16-bit short value.</div>
+        <div class="jd-descrdiv">
+          Reads a big-endian 16-bit short value.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2562,7 +2934,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/DataInput.html#readUTF()">readUTF</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Reads a string encoded with <code><a href="../../../reference/java/io/DataInput.html">modified UTF-8</a></code>.</div>
+        <div class="jd-descrdiv">
+          Reads a string encoded with <code><a href="../../../reference/java/io/DataInput.html">modified UTF-8</a></code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2580,7 +2957,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/DataInput.html#readUnsignedByte()">readUnsignedByte</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Reads an unsigned 8-bit byte value and returns it as an int.</div>
+        <div class="jd-descrdiv">
+          Reads an unsigned 8-bit byte value and returns it as an int.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2598,7 +2980,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/DataInput.html#readUnsignedShort()">readUnsignedShort</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Reads a big-endian 16-bit unsigned short value and returns it as an int.</div>
+        <div class="jd-descrdiv">
+          Reads a big-endian 16-bit unsigned short value and returns it as an int.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2616,7 +3003,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/DataInput.html#skipBytes(int)">skipBytes</a></span>(int count)</nobr>
         
-        <div class="jd-descrdiv">Skips <code>count</code> number of bytes.</div>
+        <div class="jd-descrdiv">
+          Skips <code>count</code> number of bytes.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2660,7 +3052,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/DataOutput.html#write(int)">write</a></span>(int oneByte)</nobr>
         
-        <div class="jd-descrdiv">Writes the specified 8-bit byte.</div>
+        <div class="jd-descrdiv">
+          Writes the specified 8-bit byte.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2678,8 +3075,13 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/DataOutput.html#write(byte[], int, int)">write</a></span>(byte[] buffer, int offset, int count)</nobr>
         
-        <div class="jd-descrdiv">Writes <code>count</code> bytes from the byte array <code>buffer</code> starting at
- offset <code>index</code>.</div>
+        <div class="jd-descrdiv">
+          Writes <code>count</code> bytes from the byte array <code>buffer</code> starting at
+ offset <code>index</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2697,8 +3099,13 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/DataOutput.html#write(byte[])">write</a></span>(byte[] buffer)</nobr>
         
-        <div class="jd-descrdiv">Writes the entire contents of the byte array <code>buffer</code> to this
- stream.</div>
+        <div class="jd-descrdiv">
+          Writes the entire contents of the byte array <code>buffer</code> to this
+ stream.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2716,7 +3123,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/DataOutput.html#writeBoolean(boolean)">writeBoolean</a></span>(boolean val)</nobr>
         
-        <div class="jd-descrdiv">Writes the specified boolean.</div>
+        <div class="jd-descrdiv">
+          Writes the specified boolean.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2734,7 +3146,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/DataOutput.html#writeByte(int)">writeByte</a></span>(int val)</nobr>
         
-        <div class="jd-descrdiv">Writes the specified 8-bit byte.</div>
+        <div class="jd-descrdiv">
+          Writes the specified 8-bit byte.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2752,7 +3169,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/DataOutput.html#writeBytes(java.lang.String)">writeBytes</a></span>(<a href="../../../reference/java/lang/String.html">String</a> str)</nobr>
         
-        <div class="jd-descrdiv">Writes the low order 8-bit bytes from the specified string.</div>
+        <div class="jd-descrdiv">
+          Writes the low order 8-bit bytes from the specified string.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2770,7 +3192,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/DataOutput.html#writeChar(int)">writeChar</a></span>(int val)</nobr>
         
-        <div class="jd-descrdiv">Writes the specified 16-bit character in big-endian order.</div>
+        <div class="jd-descrdiv">
+          Writes the specified 16-bit character in big-endian order.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2788,7 +3215,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/DataOutput.html#writeChars(java.lang.String)">writeChars</a></span>(<a href="../../../reference/java/lang/String.html">String</a> str)</nobr>
         
-        <div class="jd-descrdiv">Writes the 16-bit characters contained in <code>str</code> in big-endian order.</div>
+        <div class="jd-descrdiv">
+          Writes the 16-bit characters contained in <code>str</code> in big-endian order.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2806,7 +3238,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/DataOutput.html#writeDouble(double)">writeDouble</a></span>(double val)</nobr>
         
-        <div class="jd-descrdiv">Writes the specified 64-bit double in big-endian order.</div>
+        <div class="jd-descrdiv">
+          Writes the specified 64-bit double in big-endian order.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2824,7 +3261,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/DataOutput.html#writeFloat(float)">writeFloat</a></span>(float val)</nobr>
         
-        <div class="jd-descrdiv">Writes the specified 32-bit float in big-endian order.</div>
+        <div class="jd-descrdiv">
+          Writes the specified 32-bit float in big-endian order.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2842,7 +3284,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/DataOutput.html#writeInt(int)">writeInt</a></span>(int val)</nobr>
         
-        <div class="jd-descrdiv">Writes the specified 32-bit int in big-endian order.</div>
+        <div class="jd-descrdiv">
+          Writes the specified 32-bit int in big-endian order.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2860,7 +3307,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/DataOutput.html#writeLong(long)">writeLong</a></span>(long val)</nobr>
         
-        <div class="jd-descrdiv">Writes the specified 64-bit long in big-endian order.</div>
+        <div class="jd-descrdiv">
+          Writes the specified 64-bit long in big-endian order.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2878,7 +3330,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/DataOutput.html#writeShort(int)">writeShort</a></span>(int val)</nobr>
         
-        <div class="jd-descrdiv">Writes the specified 16-bit short in big-endian order.</div>
+        <div class="jd-descrdiv">
+          Writes the specified 16-bit short in big-endian order.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2896,7 +3353,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/DataOutput.html#writeUTF(java.lang.String)">writeUTF</a></span>(<a href="../../../reference/java/lang/String.html">String</a> str)</nobr>
         
-        <div class="jd-descrdiv">Writes the specified string encoded in <code><a href="../../../reference/java/io/DataInput.html">modified UTF-8</a></code>.</div>
+        <div class="jd-descrdiv">
+          Writes the specified string encoded in <code><a href="../../../reference/java/io/DataInput.html">modified UTF-8</a></code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2940,7 +3402,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/AutoCloseable.html#close()">close</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Closes the object and release any system resources it holds.</div>
+        <div class="jd-descrdiv">
+          Closes the object and release any system resources it holds.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3008,6 +3475,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Constructs a new <code>RandomAccessFile</code> based on <code>file</code> and opens
  it according to the access string in <code>mode</code>.
@@ -3092,6 +3562,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Constructs a new <code>RandomAccessFile</code> based on the file named <code>fileName</code> and opens it according to the access string in <code>mode</code>.
  The file path may be specified absolutely or relative to the system
  property <code>"user.dir"</code>.</p></div>
@@ -3166,6 +3639,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Closes this file.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Throws</h5>
@@ -3206,6 +3682,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Gets this file's <code><a href="../../../reference/java/nio/channels/FileChannel.html">FileChannel</a></code> object.
  <p>
  The file channel's <code><a href="../../../reference/java/nio/channels/FileChannel.html#position()">position</a></code> is the same
@@ -3245,6 +3724,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Gets this file's <code><a href="../../../reference/java/io/FileDescriptor.html">FileDescriptor</a></code>. This represents the operating
  system resource for this random access file.</p></div>
@@ -3292,6 +3774,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Gets the current position within this file. All reads and
  writes take place at the current file pointer position.</p></div>
   <div class="jd-tagdata">
@@ -3338,6 +3823,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns the length of this file in bytes.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
@@ -3381,6 +3869,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Reads up to <code>byteCount</code> bytes from the current position in this file
  and stores them in the byte array <code>buffer</code> starting at <code>byteOffset</code>. Blocks until at least one byte has been
@@ -3430,6 +3921,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Reads bytes from the current position in this file and stores them in the
  byte array <code>buffer</code>. The maximum number of bytes read corresponds
  to the size of <code>buffer</code>. Blocks until at least one byte has been
@@ -3474,6 +3968,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Reads a single byte from the current position in this file and returns it
  as an integer in the range from 0 to 255. Returns -1 if the end of the
@@ -3521,6 +4018,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Reads a boolean from the current position in this file. Blocks until one
  byte has been read, the end of the file is reached or an exception is
@@ -3576,6 +4076,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Reads an 8-bit byte from the current position in this file. Blocks until
  one byte has been read, the end of the file is reached or an exception is
  thrown.</p></div>
@@ -3629,6 +4132,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Reads a big-endian 16-bit character from the current position in this file. Blocks until
  two bytes have been read, the end of the file is reached or an exception is
@@ -3684,6 +4190,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Reads a big-endian 64-bit double from the current position in this file. Blocks
  until eight bytes have been read, the end of the file is reached or an
  exception is thrown.</p></div>
@@ -3737,6 +4246,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Reads a big-endian 32-bit float from the current position in this file. Blocks
  until four bytes have been read, the end of the file is reached or an
@@ -3792,6 +4304,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Equivalent to <code>readFully(dst, 0, dst.length);</code>.
 </p></div>
   <div class="jd-tagdata">
@@ -3831,6 +4346,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Reads <code>byteCount</code> bytes from this stream and stores them in the byte
  array <code>dst</code> starting at <code>offset</code>. If <code>byteCount</code> is zero, then this
@@ -3909,6 +4427,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Reads a big-endian 32-bit integer from the current position in this file. Blocks
  until four bytes have been read, the end of the file is reached or an
  exception is thrown.</p></div>
@@ -3963,6 +4484,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Reads a line of text form the current position in this file. A line is
  represented by zero or more characters followed by <code>'\n'</code>, <code>'\r'</code>, <code>"\r\n"</code> or the end of file marker. The string does not
  include the line terminating sequence.
@@ -4012,6 +4536,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Reads a big-endian 64-bit long from the current position in this file. Blocks until
  eight bytes have been read, the end of the file is reached or an
@@ -4067,6 +4594,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Reads a big-endian 16-bit short from the current position in this file. Blocks until
  two bytes have been read, the end of the file is reached or an exception
  is thrown.</p></div>
@@ -4120,6 +4650,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Reads a string that is encoded in <code><a href="../../../reference/java/io/DataInput.html">modified UTF-8</a></code> from
  this file. The number of bytes that must be read for the complete string
@@ -4182,6 +4715,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Reads an unsigned 8-bit byte from the current position in this file and
  returns it as an integer. Blocks until one byte has been read, the end of
  the file is reached or an exception is thrown.</p></div>
@@ -4235,6 +4771,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Reads an unsigned big-endian 16-bit short from the current position in this file and
  returns it as an integer. Blocks until two bytes have been read, the end of
@@ -4290,6 +4829,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Moves this file's file pointer to a new position, from where following
  <code>read</code>, <code>write</code> or <code>skip</code> operations are done. The
  position may be greater than the current length of the file, but the
@@ -4343,6 +4885,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Sets the length of this file to <code>newLength</code>. If the current file is
  smaller, it is expanded but the contents from the previous end of the
@@ -4401,6 +4946,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Skips over <code>count</code> bytes in this file. Less than <code>count</code>
  bytes are skipped if the end of the file is reached or an exception is
  thrown during the operation. Nothing is done if <code>count</code> is
@@ -4457,6 +5005,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Writes a byte to this file, starting at the current file pointer. Only
  the least significant byte of the integer <code>oneByte</code> is written.</p></div>
   <div class="jd-tagdata">
@@ -4510,6 +5061,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Writes <code>byteCount</code> bytes from the byte array <code>buffer</code> to this
  file, starting at the current file pointer and using <code>byteOffset</code> as
@@ -4575,6 +5129,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Writes the entire contents of the byte array <code>buffer</code> to this file,
  starting at the current file pointer.</p></div>
   <div class="jd-tagdata">
@@ -4624,6 +5181,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Writes a boolean to this file as a single byte (1 for true, 0 for false), starting at the
  current file pointer.</p></div>
@@ -4679,6 +5239,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Writes an 8-bit byte to this file, starting at the current file pointer.
  Only the least significant byte of the integer <code>val</code> is written.</p></div>
   <div class="jd-tagdata">
@@ -4733,6 +5296,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Writes the low order 8-bit bytes from a string to this file, starting at
  the current file pointer.</p></div>
   <div class="jd-tagdata">
@@ -4782,6 +5348,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Writes a big-endian 16-bit character to this file, starting at the current file
  pointer. Only the two least significant bytes of the integer <code>val</code>
@@ -4838,6 +5407,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Writes big-endian 16-bit characters from <code>str</code> to this file, starting at the
  current file pointer.</p></div>
   <div class="jd-tagdata">
@@ -4891,6 +5463,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Writes a big-endian 64-bit double to this file, starting at the current file
  pointer. The bytes are those returned by
@@ -4947,6 +5522,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Writes a big-endian 32-bit float to this file, starting at the current file pointer.
  The bytes are those returned by <code><a href="../../../reference/java/lang/Float.html#floatToIntBits(float)">floatToIntBits(float)</a></code>, meaning a canonical NaN
  is used.</p></div>
@@ -5002,6 +5580,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Writes a big-endian 32-bit integer to this file, starting at the current file
  pointer.</p></div>
   <div class="jd-tagdata">
@@ -5055,6 +5636,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Writes a big-endian 64-bit long to this file, starting at the current file
  pointer.</p></div>
@@ -5110,6 +5694,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Writes a big-endian 16-bit short to this file, starting at the current file
  pointer. Only the two least significant bytes of the integer <code>val</code>
  are written.</p></div>
@@ -5164,6 +5751,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Writes a string encoded with <code><a href="../../../reference/java/io/DataInput.html">modified UTF-8</a></code> to this
  file, starting at the current file pointer.</p></div>
@@ -5232,6 +5822,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Invoked when the garbage collector has detected that this instance is no longer reachable.
  The default implementation does nothing, but this method can be overridden to free resources.

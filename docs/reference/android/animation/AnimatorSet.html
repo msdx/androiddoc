@@ -82,6 +82,19 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 <html>
 <head>
 
@@ -97,7 +110,7 @@
 href="http://fonts.useso.com/css?family=Roboto+Condensed">
 <link rel="stylesheet" href="http://fonts.useso.com/css?family=Roboto:light,regular,medium,thin,italic,mediumitalic,bold"
   title="roboto">
-<link href="../../../assets/css/default.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/default.css?v=2" rel="stylesheet" type="text/css">
 
 
 <!-- FULLSCREEN STYLESHEET -->
@@ -106,30 +119,31 @@ type="text/css">
 
 
 <!-- JAVASCRIPT -->
-<script src="http://googleapiscdn.qiniudn.com/www.google.com/jsapi" type="text/javascript"></script>
+<script src="http://www.google.com/jsapi" type="text/javascript"></script>
 <script src="../../../assets/js/android_3p-bundle.js" type="text/javascript"></script>
 <script type="text/javascript">
   var toRoot = "../../../";
   var metaTags = [];
   var devsite = false;
 </script>
-<script src="../../../assets/js/docs.js" type="text/javascript"></script>
+<script src="../../../assets/js/docs.js?v=2" type="text/javascript"></script>
 
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-5831155-1']);
-  _gaq.push(['_trackPageview']);
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
+  ga('create', 'UA-5831155-1', 'android.com');
+  ga('create', 'UA-49880327-2', 'android.com', {'name': 'universal'});  // New tracker);
+  ga('send', 'pageview');
+  ga('universal.send', 'pageview'); // Send page view for new tracker.
 </script>
+
 </head>
 
 <body class="gc-documentation 
-  develop" itemscope itemtype="http://schema.org/Article">
+  develop reference" itemscope itemtype="http://schema.org/Article">
   <div id="doc-api-level" class="11" style="display:none"></div>
   <a name="top"></a>
 
@@ -139,6 +153,10 @@ type="text/css">
   <!-- Header -->
   <div id="header-wrapper">
     <div id="header">
+
+    
+
+
       <div class="wrap" id="header-wrap">
         <div class="col-3 logo">
           <a href="../../../index.html">
@@ -260,11 +278,20 @@ type="text/css">
 
 
         <!-- Expanded quicknav -->
-        <div id="quicknav" class="col-9">
+        <div id="quicknav" class="col-13">
           <ul>
+            <li class="about">
+              <ul>
+                <li><a href="../../../about/index.html">About</a></li>
+                <li><a href="../../../wear/index.html">Wear</a></li>
+                <li><a href="../../../tv/index.html">TV</a></li>
+                <li><a href="../../../auto/index.html">Auto</a></li>
+              </ul>
+            </li>
             <li class="design">
               <ul>
                 <li><a href="../../../design/index.html">Get Started</a></li>
+                <li><a href="../../../design/devices.html">Devices</a></li>
                 <li><a href="../../../design/style/index.html">Style</a></li>
                 <li><a href="../../../design/patterns/index.html">Patterns</a></li>
                 <li><a href="../../../design/building-blocks/index.html">Building Blocks</a></li>
@@ -298,7 +325,7 @@ type="text/css">
                   ja-lang="リファレンス"
                   es-lang="Referencia"
                   >Reference</a></li>
-                <li><a href="../../../tools/index.html"
+                <li><a href="../../../sdk/index.html"
                   zh-tw-lang="相關工具"
                   zh-cn-lang="工具"
                   ru-lang="Инструменты"
@@ -306,7 +333,6 @@ type="text/css">
                   ja-lang="ツール"
                   es-lang="Herramientas"
                   >Tools</a>
-                  <ul><li><a href="../../../sdk/index.html">Get the SDK</a></li></ul>
                 </li>
                 <li><a href="../../../google/index.html">Google Services</a>
                 </li>
@@ -358,7 +384,7 @@ type="text/css">
                   ja-lang="リファレンス"
                   es-lang="Referencia"
                   >Reference</a></li>
-                <li class="tools"><a href="../../../tools/index.html"
+                <li class="tools"><a href="../../../sdk/index.html"
                   zh-tw-lang="相關工具"
                   zh-cn-lang="工具"
                   ru-lang="Инструменты"
@@ -373,7 +399,7 @@ type="text/css">
             </ul>
         </div>
     </div>
-    <!-- /Sendondary x-nav -->
+    <!-- /Sendondary x-nav DEVELOP -->
 
   
 
@@ -414,7 +440,7 @@ type="text/css">
         <div id="api-nav-title">Android APIs</div>
         </div><!-- end nav header -->
       <script>
-        var SINCE_DATA = [ '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19' ];
+        var SINCE_DATA = [ '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21' ];
         buildApiLevelSelector();
       </script>
                   
@@ -441,13 +467,15 @@ type="text/css">
   <a href="../../../reference/android/app/admin/package-summary.html">android.app.admin</a></li>
     <li class="api apilevel-8">
   <a href="../../../reference/android/app/backup/package-summary.html">android.app.backup</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/app/job/package-summary.html">android.app.job</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/app/usage/package-summary.html">android.app.usage</a></li>
     <li class="api apilevel-3">
   <a href="../../../reference/android/appwidget/package-summary.html">android.appwidget</a></li>
     <li class="api apilevel-5">
   <a href="../../../reference/android/bluetooth/package-summary.html">android.bluetooth</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/bluetooth/le/package-summary.html">android.bluetooth.le</a></li>
     <li class="api apilevel-1">
   <a href="../../../reference/android/content/package-summary.html">android.content</a></li>
@@ -473,16 +501,14 @@ type="text/css">
   <a href="../../../reference/android/graphics/pdf/package-summary.html">android.graphics.pdf</a></li>
     <li class="api apilevel-1">
   <a href="../../../reference/android/hardware/package-summary.html">android.hardware</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/hardware/camera2/package-summary.html">android.hardware.camera2</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/hardware/camera2/params/package-summary.html">android.hardware.camera2.params</a></li>
     <li class="api apilevel-17">
   <a href="../../../reference/android/hardware/display/package-summary.html">android.hardware.display</a></li>
     <li class="api apilevel-16">
   <a href="../../../reference/android/hardware/input/package-summary.html">android.hardware.input</a></li>
-    <li class="api apilevel-18">
-  <a href="../../../reference/android/hardware/location/package-summary.html">android.hardware.location</a></li>
     <li class="api apilevel-12">
   <a href="../../../reference/android/hardware/usb/package-summary.html">android.hardware.usb</a></li>
     <li class="api apilevel-3">
@@ -493,11 +519,15 @@ type="text/css">
   <a href="../../../reference/android/media/package-summary.html">android.media</a></li>
     <li class="api apilevel-9">
   <a href="../../../reference/android/media/audiofx/package-summary.html">android.media.audiofx</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/media/browse/package-summary.html">android.media.browse</a></li>
     <li class="api apilevel-14">
   <a href="../../../reference/android/media/effect/package-summary.html">android.media.effect</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/media/projection/package-summary.html">android.media.projection</a></li>
+    <li class="api apilevel-21">
   <a href="../../../reference/android/media/session/package-summary.html">android.media.session</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/media/tv/package-summary.html">android.media.tv</a></li>
     <li class="api apilevel-12">
   <a href="../../../reference/android/mtp/package-summary.html">android.mtp</a></li>
@@ -547,11 +577,15 @@ type="text/css">
   <a href="../../../reference/android/security/package-summary.html">android.security</a></li>
     <li class="api apilevel-17">
   <a href="../../../reference/android/service/dreams/package-summary.html">android.service.dreams</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/service/media/package-summary.html">android.service.media</a></li>
     <li class="api apilevel-18">
   <a href="../../../reference/android/service/notification/package-summary.html">android.service.notification</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/service/restrictions/package-summary.html">android.service.restrictions</a></li>
     <li class="api apilevel-14">
   <a href="../../../reference/android/service/textservice/package-summary.html">android.service.textservice</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/service/voice/package-summary.html">android.service.voice</a></li>
     <li class="api apilevel-7">
   <a href="../../../reference/android/service/wallpaper/package-summary.html">android.service.wallpaper</a></li>
@@ -596,11 +630,15 @@ type="text/css">
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/media/package-summary.html">android.support.v4.media</a></li>
     <li class="api apilevel-">
+  <a href="../../../reference/android/support/v4/media/session/package-summary.html">android.support.v4.media.session</a></li>
+    <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/net/package-summary.html">android.support.v4.net</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/os/package-summary.html">android.support.v4.os</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/print/package-summary.html">android.support.v4.print</a></li>
+    <li class="api apilevel-">
+  <a href="../../../reference/android/support/v4/provider/package-summary.html">android.support.v4.provider</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/text/package-summary.html">android.support.v4.text</a></li>
     <li class="api apilevel-">
@@ -616,6 +654,10 @@ type="text/css">
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v7/appcompat/package-summary.html">android.support.v7.appcompat</a></li>
     <li class="api apilevel-">
+  <a href="../../../reference/android/support/v7/cardview/package-summary.html">android.support.v7.cardview</a></li>
+    <li class="api apilevel-">
+  <a href="../../../reference/android/support/v7/graphics/package-summary.html">android.support.v7.graphics</a></li>
+    <li class="api apilevel-">
   <a href="../../../reference/android/support/v7/gridlayout/package-summary.html">android.support.v7.gridlayout</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v7/media/package-summary.html">android.support.v7.media</a></li>
@@ -627,8 +669,10 @@ type="text/css">
   <a href="../../../reference/android/support/v7/widget/package-summary.html">android.support.v7.widget</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v8/renderscript/package-summary.html">android.support.v8.renderscript</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/system/package-summary.html">android.system</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/telecom/package-summary.html">android.telecom</a></li>
     <li class="api apilevel-1">
   <a href="../../../reference/android/telephony/package-summary.html">android.telephony</a></li>
     <li class="api apilevel-5">
@@ -906,20 +950,20 @@ type="text/css">
           <li class="selected api apilevel-11"><a href="../../../reference/android/animation/AnimatorSet.html">AnimatorSet</a></li>
           <li class="api apilevel-11"><a href="../../../reference/android/animation/AnimatorSet.Builder.html">AnimatorSet.Builder</a></li>
           <li class="api apilevel-11"><a href="../../../reference/android/animation/ArgbEvaluator.html">ArgbEvaluator</a></li>
-          <li class="api apilevel-"><a href="../../../reference/android/animation/BidirectionalTypeConverter.html">BidirectionalTypeConverter</a></li>
-          <li class="api apilevel-"><a href="../../../reference/android/animation/FloatArrayEvaluator.html">FloatArrayEvaluator</a></li>
+          <li class="api apilevel-21"><a href="../../../reference/android/animation/BidirectionalTypeConverter.html">BidirectionalTypeConverter</a></li>
+          <li class="api apilevel-21"><a href="../../../reference/android/animation/FloatArrayEvaluator.html">FloatArrayEvaluator</a></li>
           <li class="api apilevel-11"><a href="../../../reference/android/animation/FloatEvaluator.html">FloatEvaluator</a></li>
-          <li class="api apilevel-"><a href="../../../reference/android/animation/IntArrayEvaluator.html">IntArrayEvaluator</a></li>
+          <li class="api apilevel-21"><a href="../../../reference/android/animation/IntArrayEvaluator.html">IntArrayEvaluator</a></li>
           <li class="api apilevel-11"><a href="../../../reference/android/animation/IntEvaluator.html">IntEvaluator</a></li>
           <li class="api apilevel-11"><a href="../../../reference/android/animation/Keyframe.html">Keyframe</a></li>
           <li class="api apilevel-11"><a href="../../../reference/android/animation/LayoutTransition.html">LayoutTransition</a></li>
           <li class="api apilevel-11"><a href="../../../reference/android/animation/ObjectAnimator.html">ObjectAnimator</a></li>
-          <li class="api apilevel-"><a href="../../../reference/android/animation/PointFEvaluator.html">PointFEvaluator</a></li>
+          <li class="api apilevel-21"><a href="../../../reference/android/animation/PointFEvaluator.html">PointFEvaluator</a></li>
           <li class="api apilevel-11"><a href="../../../reference/android/animation/PropertyValuesHolder.html">PropertyValuesHolder</a></li>
           <li class="api apilevel-18"><a href="../../../reference/android/animation/RectEvaluator.html">RectEvaluator</a></li>
-          <li class="api apilevel-"><a href="../../../reference/android/animation/StateListAnimator.html">StateListAnimator</a></li>
+          <li class="api apilevel-21"><a href="../../../reference/android/animation/StateListAnimator.html">StateListAnimator</a></li>
           <li class="api apilevel-16"><a href="../../../reference/android/animation/TimeAnimator.html">TimeAnimator</a></li>
-          <li class="api apilevel-"><a href="../../../reference/android/animation/TypeConverter.html">TypeConverter</a></li>
+          <li class="api apilevel-21"><a href="../../../reference/android/animation/TypeConverter.html">TypeConverter</a></li>
           <li class="api apilevel-11"><a href="../../../reference/android/animation/ValueAnimator.html">ValueAnimator</a></li>
       </ul>
     </li>
@@ -1065,6 +1109,9 @@ Summary:
   
 
 
+    
+
+
 </div><!-- end header -->
 
 <div id="naMessage"></div>
@@ -1176,8 +1223,13 @@ Summary:
         
         class</nobr></td>
       <td class="jd-linkcol"><a href="../../../reference/android/animation/AnimatorSet.Builder.html">AnimatorSet.Builder</a></td>
-      <td class="jd-descrcol" width="100%">The <code>Builder</code> object is a utility class to facilitate adding animations to a
- <code>AnimatorSet</code> along with the relationships between the various animations.&nbsp;</td>
+      <td class="jd-descrcol" width="100%">
+        The <code>Builder</code> object is a utility class to facilitate adding animations to a
+ <code>AnimatorSet</code> along with the relationships between the various animations.&nbsp;
+        
+    
+
+      </td>
     </tr>
     
     
@@ -1251,10 +1303,15 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/animation/AnimatorSet.html#cancel()">cancel</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Cancels the animation.
+        <div class="jd-descrdiv">
+          Cancels the animation.
 
  <p>Note that canceling a <code>AnimatorSet</code> also cancels all of the animations that it
- is responsible for.</div>
+ is responsible for.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1272,7 +1329,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/animation/AnimatorSet.html#clone()">clone</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Creates and returns a copy of this <code>Object</code>.</div>
+        <div class="jd-descrdiv">
+          Creates and returns a copy of this <code>Object</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1290,10 +1352,15 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/animation/AnimatorSet.html#end()">end</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Ends the animation.
+        <div class="jd-descrdiv">
+          Ends the animation.
 
  <p>Note that ending a <code>AnimatorSet</code> also ends all of the animations that it is
- responsible for.</div>
+ responsible for.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1311,8 +1378,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/animation/AnimatorSet.html#getChildAnimations()">getChildAnimations</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns the current list of child Animator objects controlled by this
- AnimatorSet.</div>
+        <div class="jd-descrdiv">
+          Returns the current list of child Animator objects controlled by this
+ AnimatorSet.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1330,7 +1402,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/animation/AnimatorSet.html#getDuration()">getDuration</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Gets the length of each of the child animations of this AnimatorSet.</div>
+        <div class="jd-descrdiv">
+          Gets the length of each of the child animations of this AnimatorSet.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1348,7 +1425,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/animation/AnimatorSet.html#getInterpolator()">getInterpolator</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns the timing interpolator that this animation uses.</div>
+        <div class="jd-descrdiv">
+          Returns the timing interpolator that this animation uses.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1366,8 +1448,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/animation/AnimatorSet.html#getStartDelay()">getStartDelay</a></span>()</nobr>
         
-        <div class="jd-descrdiv">The amount of time, in milliseconds, to delay starting the animation after
- <code><a href="../../../reference/android/animation/AnimatorSet.html#start()">start()</a></code> is called.</div>
+        <div class="jd-descrdiv">
+          The amount of time, in milliseconds, to delay starting the animation after
+ <code><a href="../../../reference/android/animation/AnimatorSet.html#start()">start()</a></code> is called.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1385,8 +1472,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/animation/AnimatorSet.html#isRunning()">isRunning</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns true if any of the child animations of this AnimatorSet have been started and have
- not yet ended.</div>
+        <div class="jd-descrdiv">
+          Returns true if any of the child animations of this AnimatorSet have been started and have
+ not yet ended.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1404,7 +1496,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/animation/AnimatorSet.html#isStarted()">isStarted</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns whether this Animator has been started and not yet ended.</div>
+        <div class="jd-descrdiv">
+          Returns whether this Animator has been started and not yet ended.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1422,7 +1519,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/animation/AnimatorSet.html#pause()">pause</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Pauses a running animation.</div>
+        <div class="jd-descrdiv">
+          Pauses a running animation.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1440,8 +1542,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/animation/AnimatorSet.html#play(android.animation.Animator)">play</a></span>(<a href="../../../reference/android/animation/Animator.html">Animator</a> anim)</nobr>
         
-        <div class="jd-descrdiv">This method creates a <code>Builder</code> object, which is used to
- set up playing constraints.</div>
+        <div class="jd-descrdiv">
+          This method creates a <code>Builder</code> object, which is used to
+ set up playing constraints.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1459,8 +1566,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/animation/AnimatorSet.html#playSequentially(android.animation.Animator...)">playSequentially</a></span>(<a href="../../../reference/android/animation/Animator.html">Animator...</a> items)</nobr>
         
-        <div class="jd-descrdiv">Sets up this AnimatorSet to play each of the supplied animations when the
- previous animation ends.</div>
+        <div class="jd-descrdiv">
+          Sets up this AnimatorSet to play each of the supplied animations when the
+ previous animation ends.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1478,8 +1590,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/animation/AnimatorSet.html#playSequentially(java.util.List<android.animation.Animator>)">playSequentially</a></span>(<a href="../../../reference/java/util/List.html">List</a>&lt;<a href="../../../reference/android/animation/Animator.html">Animator</a>&gt; items)</nobr>
         
-        <div class="jd-descrdiv">Sets up this AnimatorSet to play each of the supplied animations when the
- previous animation ends.</div>
+        <div class="jd-descrdiv">
+          Sets up this AnimatorSet to play each of the supplied animations when the
+ previous animation ends.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1497,7 +1614,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/animation/AnimatorSet.html#playTogether(java.util.Collection<android.animation.Animator>)">playTogether</a></span>(<a href="../../../reference/java/util/Collection.html">Collection</a>&lt;<a href="../../../reference/android/animation/Animator.html">Animator</a>&gt; items)</nobr>
         
-        <div class="jd-descrdiv">Sets up this AnimatorSet to play all of the supplied animations at the same time.</div>
+        <div class="jd-descrdiv">
+          Sets up this AnimatorSet to play all of the supplied animations at the same time.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1515,7 +1637,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/animation/AnimatorSet.html#playTogether(android.animation.Animator...)">playTogether</a></span>(<a href="../../../reference/android/animation/Animator.html">Animator...</a> items)</nobr>
         
-        <div class="jd-descrdiv">Sets up this AnimatorSet to play all of the supplied animations at the same time.</div>
+        <div class="jd-descrdiv">
+          Sets up this AnimatorSet to play all of the supplied animations at the same time.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1533,8 +1660,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/animation/AnimatorSet.html#resume()">resume</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Resumes a paused animation, causing the animator to pick up where it left off
- when it was paused.</div>
+        <div class="jd-descrdiv">
+          Resumes a paused animation, causing the animator to pick up where it left off
+ when it was paused.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1552,7 +1684,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/animation/AnimatorSet.html#setDuration(long)">setDuration</a></span>(long duration)</nobr>
         
-        <div class="jd-descrdiv">Sets the length of each of the current child animations of this AnimatorSet.</div>
+        <div class="jd-descrdiv">
+          Sets the length of each of the current child animations of this AnimatorSet.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1570,8 +1707,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/animation/AnimatorSet.html#setInterpolator(android.animation.TimeInterpolator)">setInterpolator</a></span>(<a href="../../../reference/android/animation/TimeInterpolator.html">TimeInterpolator</a> interpolator)</nobr>
         
-        <div class="jd-descrdiv">Sets the TimeInterpolator for all current <code><a href="../../../reference/android/animation/AnimatorSet.html#getChildAnimations()">child animations</a></code>
- of this AnimatorSet.</div>
+        <div class="jd-descrdiv">
+          Sets the TimeInterpolator for all current <code><a href="../../../reference/android/animation/AnimatorSet.html#getChildAnimations()">child animations</a></code>
+ of this AnimatorSet.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1589,8 +1731,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/animation/AnimatorSet.html#setStartDelay(long)">setStartDelay</a></span>(long startDelay)</nobr>
         
-        <div class="jd-descrdiv">The amount of time, in milliseconds, to delay starting the animation after
- <code><a href="../../../reference/android/animation/AnimatorSet.html#start()">start()</a></code> is called.</div>
+        <div class="jd-descrdiv">
+          The amount of time, in milliseconds, to delay starting the animation after
+ <code><a href="../../../reference/android/animation/AnimatorSet.html#start()">start()</a></code> is called.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1608,9 +1755,14 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/animation/AnimatorSet.html#setTarget(java.lang.Object)">setTarget</a></span>(<a href="../../../reference/java/lang/Object.html">Object</a> target)</nobr>
         
-        <div class="jd-descrdiv">Sets the target object for all current <code><a href="../../../reference/android/animation/AnimatorSet.html#getChildAnimations()">child animations</a></code>
+        <div class="jd-descrdiv">
+          Sets the target object for all current <code><a href="../../../reference/android/animation/AnimatorSet.html#getChildAnimations()">child animations</a></code>
  of this AnimatorSet that take targets (<code><a href="../../../reference/android/animation/ObjectAnimator.html">ObjectAnimator</a></code> and
- AnimatorSet).</div>
+ AnimatorSet).
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1628,8 +1780,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/animation/AnimatorSet.html#setupEndValues()">setupEndValues</a></span>()</nobr>
         
-        <div class="jd-descrdiv">This method tells the object to use appropriate information to extract
- ending values for the animation.</div>
+        <div class="jd-descrdiv">
+          This method tells the object to use appropriate information to extract
+ ending values for the animation.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1647,8 +1804,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/animation/AnimatorSet.html#setupStartValues()">setupStartValues</a></span>()</nobr>
         
-        <div class="jd-descrdiv">This method tells the object to use appropriate information to extract
- starting values for the animation.</div>
+        <div class="jd-descrdiv">
+          This method tells the object to use appropriate information to extract
+ starting values for the animation.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1666,10 +1828,15 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/animation/AnimatorSet.html#start()">start</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Starts this animation.
+        <div class="jd-descrdiv">
+          Starts this animation.
 
  <p>Starting this <code>AnimatorSet</code> will, in turn, start the animations for which
- it is responsible.</div>
+ it is responsible.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1721,8 +1888,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/animation/Animator.html#addListener(android.animation.Animator.AnimatorListener)">addListener</a></span>(<a href="../../../reference/android/animation/Animator.AnimatorListener.html">Animator.AnimatorListener</a> listener)</nobr>
         
-        <div class="jd-descrdiv">Adds a listener to the set of listeners that are sent events through the life of an
- animation, such as start, repeat, and end.</div>
+        <div class="jd-descrdiv">
+          Adds a listener to the set of listeners that are sent events through the life of an
+ animation, such as start, repeat, and end.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1740,7 +1912,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/animation/Animator.html#addPauseListener(android.animation.Animator.AnimatorPauseListener)">addPauseListener</a></span>(<a href="../../../reference/android/animation/Animator.AnimatorPauseListener.html">Animator.AnimatorPauseListener</a> listener)</nobr>
         
-        <div class="jd-descrdiv">Adds a pause listener to this animator.</div>
+        <div class="jd-descrdiv">
+          Adds a pause listener to this animator.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1758,7 +1935,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/animation/Animator.html#cancel()">cancel</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Cancels the animation.</div>
+        <div class="jd-descrdiv">
+          Cancels the animation.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1776,7 +1958,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/animation/Animator.html#clone()">clone</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Creates and returns a copy of this <code>Object</code>.</div>
+        <div class="jd-descrdiv">
+          Creates and returns a copy of this <code>Object</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1794,7 +1981,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/animation/Animator.html#end()">end</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Ends the animation.</div>
+        <div class="jd-descrdiv">
+          Ends the animation.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1812,7 +2004,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/animation/Animator.html#getDuration()">getDuration</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Gets the duration of the animation.</div>
+        <div class="jd-descrdiv">
+          Gets the duration of the animation.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1830,7 +2027,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/animation/Animator.html#getInterpolator()">getInterpolator</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns the timing interpolator that this animation uses.</div>
+        <div class="jd-descrdiv">
+          Returns the timing interpolator that this animation uses.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1848,8 +2050,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/animation/Animator.html#getListeners()">getListeners</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Gets the set of <code><a href="../../../reference/android/animation/Animator.AnimatorListener.html">Animator.AnimatorListener</a></code> objects that are currently
- listening for events on this <code>Animator</code> object.</div>
+        <div class="jd-descrdiv">
+          Gets the set of <code><a href="../../../reference/android/animation/Animator.AnimatorListener.html">Animator.AnimatorListener</a></code> objects that are currently
+ listening for events on this <code>Animator</code> object.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1867,8 +2074,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/animation/Animator.html#getStartDelay()">getStartDelay</a></span>()</nobr>
         
-        <div class="jd-descrdiv">The amount of time, in milliseconds, to delay processing the animation
- after <code><a href="../../../reference/android/animation/Animator.html#start()">start()</a></code> is called.</div>
+        <div class="jd-descrdiv">
+          The amount of time, in milliseconds, to delay processing the animation
+ after <code><a href="../../../reference/android/animation/Animator.html#start()">start()</a></code> is called.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1886,7 +2098,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/animation/Animator.html#isPaused()">isPaused</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns whether this animator is currently in a paused state.</div>
+        <div class="jd-descrdiv">
+          Returns whether this animator is currently in a paused state.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1904,8 +2121,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/animation/Animator.html#isRunning()">isRunning</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns whether this Animator is currently running (having been started and gone past any
- initial startDelay period and not yet ended).</div>
+        <div class="jd-descrdiv">
+          Returns whether this Animator is currently running (having been started and gone past any
+ initial startDelay period and not yet ended).
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1923,7 +2145,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/animation/Animator.html#isStarted()">isStarted</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns whether this Animator has been started and not yet ended.</div>
+        <div class="jd-descrdiv">
+          Returns whether this Animator has been started and not yet ended.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1941,7 +2168,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/animation/Animator.html#pause()">pause</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Pauses a running animation.</div>
+        <div class="jd-descrdiv">
+          Pauses a running animation.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1959,8 +2191,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/animation/Animator.html#removeAllListeners()">removeAllListeners</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Removes all <code><a href="../../../reference/android/animation/Animator.html#addListener(android.animation.Animator.AnimatorListener)">listeners</a></code>
- and <code><a href="../../../reference/android/animation/Animator.html#addPauseListener(android.animation.Animator.AnimatorPauseListener)">pauseListeners</a></code> from this object.</div>
+        <div class="jd-descrdiv">
+          Removes all <code><a href="../../../reference/android/animation/Animator.html#addListener(android.animation.Animator.AnimatorListener)">listeners</a></code>
+ and <code><a href="../../../reference/android/animation/Animator.html#addPauseListener(android.animation.Animator.AnimatorPauseListener)">pauseListeners</a></code> from this object.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1978,7 +2215,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/animation/Animator.html#removeListener(android.animation.Animator.AnimatorListener)">removeListener</a></span>(<a href="../../../reference/android/animation/Animator.AnimatorListener.html">Animator.AnimatorListener</a> listener)</nobr>
         
-        <div class="jd-descrdiv">Removes a listener from the set listening to this animation.</div>
+        <div class="jd-descrdiv">
+          Removes a listener from the set listening to this animation.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1996,7 +2238,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/animation/Animator.html#removePauseListener(android.animation.Animator.AnimatorPauseListener)">removePauseListener</a></span>(<a href="../../../reference/android/animation/Animator.AnimatorPauseListener.html">Animator.AnimatorPauseListener</a> listener)</nobr>
         
-        <div class="jd-descrdiv">Removes a pause listener from the set listening to this animation.</div>
+        <div class="jd-descrdiv">
+          Removes a pause listener from the set listening to this animation.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2014,8 +2261,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/animation/Animator.html#resume()">resume</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Resumes a paused animation, causing the animator to pick up where it left off
- when it was paused.</div>
+        <div class="jd-descrdiv">
+          Resumes a paused animation, causing the animator to pick up where it left off
+ when it was paused.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2033,7 +2285,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/animation/Animator.html#setDuration(long)">setDuration</a></span>(long duration)</nobr>
         
-        <div class="jd-descrdiv">Sets the duration of the animation.</div>
+        <div class="jd-descrdiv">
+          Sets the duration of the animation.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2051,8 +2308,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/animation/Animator.html#setInterpolator(android.animation.TimeInterpolator)">setInterpolator</a></span>(<a href="../../../reference/android/animation/TimeInterpolator.html">TimeInterpolator</a> value)</nobr>
         
-        <div class="jd-descrdiv">The time interpolator used in calculating the elapsed fraction of the
- animation.</div>
+        <div class="jd-descrdiv">
+          The time interpolator used in calculating the elapsed fraction of the
+ animation.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2070,8 +2332,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/animation/Animator.html#setStartDelay(long)">setStartDelay</a></span>(long startDelay)</nobr>
         
-        <div class="jd-descrdiv">The amount of time, in milliseconds, to delay processing the animation
- after <code><a href="../../../reference/android/animation/Animator.html#start()">start()</a></code> is called.</div>
+        <div class="jd-descrdiv">
+          The amount of time, in milliseconds, to delay processing the animation
+ after <code><a href="../../../reference/android/animation/Animator.html#start()">start()</a></code> is called.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2089,7 +2356,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/animation/Animator.html#setTarget(java.lang.Object)">setTarget</a></span>(<a href="../../../reference/java/lang/Object.html">Object</a> target)</nobr>
         
-        <div class="jd-descrdiv">Sets the target object whose property will be animated by this animation.</div>
+        <div class="jd-descrdiv">
+          Sets the target object whose property will be animated by this animation.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2107,8 +2379,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/animation/Animator.html#setupEndValues()">setupEndValues</a></span>()</nobr>
         
-        <div class="jd-descrdiv">This method tells the object to use appropriate information to extract
- ending values for the animation.</div>
+        <div class="jd-descrdiv">
+          This method tells the object to use appropriate information to extract
+ ending values for the animation.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2126,8 +2403,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/animation/Animator.html#setupStartValues()">setupStartValues</a></span>()</nobr>
         
-        <div class="jd-descrdiv">This method tells the object to use appropriate information to extract
- starting values for the animation.</div>
+        <div class="jd-descrdiv">
+          This method tells the object to use appropriate information to extract
+ starting values for the animation.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2145,7 +2427,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/animation/Animator.html#start()">start</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Starts this animation.</div>
+        <div class="jd-descrdiv">
+          Starts this animation.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2189,7 +2476,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#clone()">clone</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Creates and returns a copy of this <code>Object</code>.</div>
+        <div class="jd-descrdiv">
+          Creates and returns a copy of this <code>Object</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2207,8 +2499,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#equals(java.lang.Object)">equals</a></span>(<a href="../../../reference/java/lang/Object.html">Object</a> o)</nobr>
         
-        <div class="jd-descrdiv">Compares this instance with the specified object and indicates if they
- are equal.</div>
+        <div class="jd-descrdiv">
+          Compares this instance with the specified object and indicates if they
+ are equal.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2226,7 +2523,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#finalize()">finalize</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Invoked when the garbage collector has detected that this instance is no longer reachable.</div>
+        <div class="jd-descrdiv">
+          Invoked when the garbage collector has detected that this instance is no longer reachable.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2244,8 +2546,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#getClass()">getClass</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns the unique instance of <code><a href="../../../reference/java/lang/Class.html">Class</a></code> that represents this
- object's class.</div>
+        <div class="jd-descrdiv">
+          Returns the unique instance of <code><a href="../../../reference/java/lang/Class.html">Class</a></code> that represents this
+ object's class.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2263,7 +2570,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#hashCode()">hashCode</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns an integer hash code for this object.</div>
+        <div class="jd-descrdiv">
+          Returns an integer hash code for this object.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2281,8 +2593,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#notify()">notify</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Causes a thread which is waiting on this object's monitor (by means of
- calling one of the <code>wait()</code> methods) to be woken up.</div>
+        <div class="jd-descrdiv">
+          Causes a thread which is waiting on this object's monitor (by means of
+ calling one of the <code>wait()</code> methods) to be woken up.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2300,8 +2617,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#notifyAll()">notifyAll</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Causes all threads which are waiting on this object's monitor (by means
- of calling one of the <code>wait()</code> methods) to be woken up.</div>
+        <div class="jd-descrdiv">
+          Causes all threads which are waiting on this object's monitor (by means
+ of calling one of the <code>wait()</code> methods) to be woken up.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2319,8 +2641,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#toString()">toString</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns a string containing a concise, human-readable description of this
- object.</div>
+        <div class="jd-descrdiv">
+          Returns a string containing a concise, human-readable description of this
+ object.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2338,7 +2665,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#wait()">wait</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object.</div>
+        <div class="jd-descrdiv">
+          Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2356,8 +2688,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#wait(long, int)">wait</a></span>(long millis, int nanos)</nobr>
         
-        <div class="jd-descrdiv">Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object or until the
- specified timeout expires.</div>
+        <div class="jd-descrdiv">
+          Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object or until the
+ specified timeout expires.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2375,8 +2712,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#wait(long)">wait</a></span>(long millis)</nobr>
         
-        <div class="jd-descrdiv">Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object or until the
- specified timeout expires.</div>
+        <div class="jd-descrdiv">
+          Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object or until the
+ specified timeout expires.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2447,6 +2789,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     </div>
@@ -2492,6 +2837,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Cancels the animation. Unlike <code><a href="../../../reference/android/animation/Animator.html#end()">end()</a></code>, <code>cancel()</code> causes the animation to
  stop in its tracks, sending an
  <code><a href="../../../reference/android/animation/Animator.AnimatorListener.html#onAnimationCancel(android.animation.Animator)">onAnimationCancel(Animator)</a></code> to
@@ -2532,6 +2880,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Creates and returns a copy of this <code>Object</code>. The default
  implementation returns a so-called "shallow" copy: It creates a new
@@ -2574,6 +2925,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Ends the animation. This causes the animation to assign the end value of the property being
  animated, then calling the
  <code><a href="../../../reference/android/animation/Animator.AnimatorListener.html#onAnimationEnd(android.animation.Animator)">onAnimationEnd(Animator)</a></code> method on
@@ -2614,6 +2968,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns the current list of child Animator objects controlled by this
  AnimatorSet. This is a copy of the internal list; modifications to the returned list
  will not affect the AnimatorSet, although changes to the underlying Animator objects
@@ -2651,6 +3008,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Gets the length of each of the child animations of this AnimatorSet. This value may
  be less than 0, which indicates that no duration has been set on this AnimatorSet
@@ -2690,6 +3050,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns the timing interpolator that this animation uses.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
@@ -2724,6 +3087,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>The amount of time, in milliseconds, to delay starting the animation after
  <code><a href="../../../reference/android/animation/AnimatorSet.html#start()">start()</a></code> is called.</p></div>
@@ -2761,6 +3127,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns true if any of the child animations of this AnimatorSet have been started and have
  not yet ended.</p></div>
   <div class="jd-tagdata">
@@ -2796,6 +3165,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Returns whether this Animator has been started and not yet ended. This state is a superset
  of the state of <code><a href="../../../reference/android/animation/Animator.html#isRunning()">isRunning()</a></code>, because an Animator with a nonzero
@@ -2836,6 +3208,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Pauses a running animation. This method should only be called on the same thread on
  which the animation was started. If the animation has not yet been <code><a href="../../../reference/android/animation/Animator.html#isStarted()">started</a></code> or has since ended, then the call is ignored. Paused
  animations can be resumed by calling <code><a href="../../../reference/android/animation/Animator.html#resume()">resume()</a></code>.</p></div>
@@ -2867,6 +3242,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>This method creates a <code>Builder</code> object, which is used to
  set up playing constraints. This initial <code>play()</code> method
@@ -2934,6 +3312,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Sets up this AnimatorSet to play each of the supplied animations when the
  previous animation ends.</p></div>
   <div class="jd-tagdata">
@@ -2974,6 +3355,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Sets up this AnimatorSet to play each of the supplied animations when the
  previous animation ends.</p></div>
@@ -3016,6 +3400,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Sets up this AnimatorSet to play all of the supplied animations at the same time.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -3055,6 +3442,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Sets up this AnimatorSet to play all of the supplied animations at the same time.
  This is equivalent to calling <code><a href="../../../reference/android/animation/AnimatorSet.html#play(android.animation.Animator)">play(Animator)</a></code> with the first animator in the
@@ -3102,6 +3492,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Resumes a paused animation, causing the animator to pick up where it left off
  when it was paused. This method should only be called on the same thread on
  which the animation was started. Calls to resume() on an animator that is
@@ -3134,6 +3527,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Sets the length of each of the current child animations of this AnimatorSet. By default,
  each child animation will use its own duration. If the duration is set on the AnimatorSet,
@@ -3177,6 +3573,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Sets the TimeInterpolator for all current <code><a href="../../../reference/android/animation/AnimatorSet.html#getChildAnimations()">child animations</a></code>
  of this AnimatorSet. The default value is null, which means that no interpolator
@@ -3222,6 +3621,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>The amount of time, in milliseconds, to delay starting the animation after
  <code><a href="../../../reference/android/animation/AnimatorSet.html#start()">start()</a></code> is called.</p></div>
   <div class="jd-tagdata">
@@ -3262,6 +3664,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Sets the target object for all current <code><a href="../../../reference/android/animation/AnimatorSet.html#getChildAnimations()">child animations</a></code>
  of this AnimatorSet that take targets (<code><a href="../../../reference/android/animation/ObjectAnimator.html">ObjectAnimator</a></code> and
@@ -3305,6 +3710,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>This method tells the object to use appropriate information to extract
  ending values for the animation. For example, a AnimatorSet object will pass
  this call to its child objects to tell them to set up the values. A
@@ -3342,6 +3750,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>This method tells the object to use appropriate information to extract
  starting values for the animation. For example, a AnimatorSet object will pass
  this call to its child objects to tell them to set up the values. A
@@ -3378,6 +3789,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Starts this animation. If the animation has a nonzero startDelay, the animation will start
  running after that delay elapses. A non-delayed animation will have its initial

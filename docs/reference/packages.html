@@ -82,6 +82,11 @@
 
 
 
+
+
+
+
+
 <html>
 <head>
 
@@ -97,7 +102,7 @@
 href="http://fonts.useso.com/css?family=Roboto+Condensed">
 <link rel="stylesheet" href="http://fonts.useso.com/css?family=Roboto:light,regular,medium,thin,italic,mediumitalic,bold"
   title="roboto">
-<link href="../assets/css/default.css" rel="stylesheet" type="text/css">
+<link href="../assets/css/default.css?v=2" rel="stylesheet" type="text/css">
 
 
 <!-- FULLSCREEN STYLESHEET -->
@@ -106,30 +111,31 @@ type="text/css">
 
 
 <!-- JAVASCRIPT -->
-<script src="http://googleapiscdn.qiniudn.com/www.google.com/jsapi" type="text/javascript"></script>
+<script src="http://www.google.com/jsapi" type="text/javascript"></script>
 <script src="../assets/js/android_3p-bundle.js" type="text/javascript"></script>
 <script type="text/javascript">
   var toRoot = "../";
   var metaTags = [];
   var devsite = false;
 </script>
-<script src="../assets/js/docs.js" type="text/javascript"></script>
+<script src="../assets/js/docs.js?v=2" type="text/javascript"></script>
 
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-5831155-1']);
-  _gaq.push(['_trackPageview']);
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
+  ga('create', 'UA-5831155-1', 'android.com');
+  ga('create', 'UA-49880327-2', 'android.com', {'name': 'universal'});  // New tracker);
+  ga('send', 'pageview');
+  ga('universal.send', 'pageview'); // Send page view for new tracker.
 </script>
+
 </head>
 
 <body class="gc-documentation 
-  develop">
+  develop reference">
   <a name="top"></a>
 
 
@@ -138,6 +144,10 @@ type="text/css">
   <!-- Header -->
   <div id="header-wrapper">
     <div id="header">
+
+    
+
+
       <div class="wrap" id="header-wrap">
         <div class="col-3 logo">
           <a href="../index.html">
@@ -259,11 +269,20 @@ type="text/css">
 
 
         <!-- Expanded quicknav -->
-        <div id="quicknav" class="col-9">
+        <div id="quicknav" class="col-13">
           <ul>
+            <li class="about">
+              <ul>
+                <li><a href="../about/index.html">About</a></li>
+                <li><a href="../wear/index.html">Wear</a></li>
+                <li><a href="../tv/index.html">TV</a></li>
+                <li><a href="../auto/index.html">Auto</a></li>
+              </ul>
+            </li>
             <li class="design">
               <ul>
                 <li><a href="../design/index.html">Get Started</a></li>
+                <li><a href="../design/devices.html">Devices</a></li>
                 <li><a href="../design/style/index.html">Style</a></li>
                 <li><a href="../design/patterns/index.html">Patterns</a></li>
                 <li><a href="../design/building-blocks/index.html">Building Blocks</a></li>
@@ -297,7 +316,7 @@ type="text/css">
                   ja-lang="リファレンス"
                   es-lang="Referencia"
                   >Reference</a></li>
-                <li><a href="../tools/index.html"
+                <li><a href="../sdk/index.html"
                   zh-tw-lang="相關工具"
                   zh-cn-lang="工具"
                   ru-lang="Инструменты"
@@ -305,7 +324,6 @@ type="text/css">
                   ja-lang="ツール"
                   es-lang="Herramientas"
                   >Tools</a>
-                  <ul><li><a href="../sdk/index.html">Get the SDK</a></li></ul>
                 </li>
                 <li><a href="../google/index.html">Google Services</a>
                 </li>
@@ -357,7 +375,7 @@ type="text/css">
                   ja-lang="リファレンス"
                   es-lang="Referencia"
                   >Reference</a></li>
-                <li class="tools"><a href="../tools/index.html"
+                <li class="tools"><a href="../sdk/index.html"
                   zh-tw-lang="相關工具"
                   zh-cn-lang="工具"
                   ru-lang="Инструменты"
@@ -372,7 +390,7 @@ type="text/css">
             </ul>
         </div>
     </div>
-    <!-- /Sendondary x-nav -->
+    <!-- /Sendondary x-nav DEVELOP -->
 
   
 
@@ -413,7 +431,7 @@ type="text/css">
         <div id="api-nav-title">Android APIs</div>
         </div><!-- end nav header -->
       <script>
-        var SINCE_DATA = [ '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19' ];
+        var SINCE_DATA = [ '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21' ];
         buildApiLevelSelector();
       </script>
                   
@@ -440,13 +458,15 @@ type="text/css">
   <a href="../reference/android/app/admin/package-summary.html">android.app.admin</a></li>
     <li class="api apilevel-8">
   <a href="../reference/android/app/backup/package-summary.html">android.app.backup</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../reference/android/app/job/package-summary.html">android.app.job</a></li>
+    <li class="api apilevel-21">
+  <a href="../reference/android/app/usage/package-summary.html">android.app.usage</a></li>
     <li class="api apilevel-3">
   <a href="../reference/android/appwidget/package-summary.html">android.appwidget</a></li>
     <li class="api apilevel-5">
   <a href="../reference/android/bluetooth/package-summary.html">android.bluetooth</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../reference/android/bluetooth/le/package-summary.html">android.bluetooth.le</a></li>
     <li class="api apilevel-1">
   <a href="../reference/android/content/package-summary.html">android.content</a></li>
@@ -472,16 +492,14 @@ type="text/css">
   <a href="../reference/android/graphics/pdf/package-summary.html">android.graphics.pdf</a></li>
     <li class="api apilevel-1">
   <a href="../reference/android/hardware/package-summary.html">android.hardware</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../reference/android/hardware/camera2/package-summary.html">android.hardware.camera2</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../reference/android/hardware/camera2/params/package-summary.html">android.hardware.camera2.params</a></li>
     <li class="api apilevel-17">
   <a href="../reference/android/hardware/display/package-summary.html">android.hardware.display</a></li>
     <li class="api apilevel-16">
   <a href="../reference/android/hardware/input/package-summary.html">android.hardware.input</a></li>
-    <li class="api apilevel-18">
-  <a href="../reference/android/hardware/location/package-summary.html">android.hardware.location</a></li>
     <li class="api apilevel-12">
   <a href="../reference/android/hardware/usb/package-summary.html">android.hardware.usb</a></li>
     <li class="api apilevel-3">
@@ -492,11 +510,15 @@ type="text/css">
   <a href="../reference/android/media/package-summary.html">android.media</a></li>
     <li class="api apilevel-9">
   <a href="../reference/android/media/audiofx/package-summary.html">android.media.audiofx</a></li>
+    <li class="api apilevel-21">
+  <a href="../reference/android/media/browse/package-summary.html">android.media.browse</a></li>
     <li class="api apilevel-14">
   <a href="../reference/android/media/effect/package-summary.html">android.media.effect</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
+  <a href="../reference/android/media/projection/package-summary.html">android.media.projection</a></li>
+    <li class="api apilevel-21">
   <a href="../reference/android/media/session/package-summary.html">android.media.session</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../reference/android/media/tv/package-summary.html">android.media.tv</a></li>
     <li class="api apilevel-12">
   <a href="../reference/android/mtp/package-summary.html">android.mtp</a></li>
@@ -546,11 +568,15 @@ type="text/css">
   <a href="../reference/android/security/package-summary.html">android.security</a></li>
     <li class="api apilevel-17">
   <a href="../reference/android/service/dreams/package-summary.html">android.service.dreams</a></li>
+    <li class="api apilevel-21">
+  <a href="../reference/android/service/media/package-summary.html">android.service.media</a></li>
     <li class="api apilevel-18">
   <a href="../reference/android/service/notification/package-summary.html">android.service.notification</a></li>
+    <li class="api apilevel-21">
+  <a href="../reference/android/service/restrictions/package-summary.html">android.service.restrictions</a></li>
     <li class="api apilevel-14">
   <a href="../reference/android/service/textservice/package-summary.html">android.service.textservice</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../reference/android/service/voice/package-summary.html">android.service.voice</a></li>
     <li class="api apilevel-7">
   <a href="../reference/android/service/wallpaper/package-summary.html">android.service.wallpaper</a></li>
@@ -595,11 +621,15 @@ type="text/css">
     <li class="api apilevel-">
   <a href="../reference/android/support/v4/media/package-summary.html">android.support.v4.media</a></li>
     <li class="api apilevel-">
+  <a href="../reference/android/support/v4/media/session/package-summary.html">android.support.v4.media.session</a></li>
+    <li class="api apilevel-">
   <a href="../reference/android/support/v4/net/package-summary.html">android.support.v4.net</a></li>
     <li class="api apilevel-">
   <a href="../reference/android/support/v4/os/package-summary.html">android.support.v4.os</a></li>
     <li class="api apilevel-">
   <a href="../reference/android/support/v4/print/package-summary.html">android.support.v4.print</a></li>
+    <li class="api apilevel-">
+  <a href="../reference/android/support/v4/provider/package-summary.html">android.support.v4.provider</a></li>
     <li class="api apilevel-">
   <a href="../reference/android/support/v4/text/package-summary.html">android.support.v4.text</a></li>
     <li class="api apilevel-">
@@ -615,6 +645,10 @@ type="text/css">
     <li class="api apilevel-">
   <a href="../reference/android/support/v7/appcompat/package-summary.html">android.support.v7.appcompat</a></li>
     <li class="api apilevel-">
+  <a href="../reference/android/support/v7/cardview/package-summary.html">android.support.v7.cardview</a></li>
+    <li class="api apilevel-">
+  <a href="../reference/android/support/v7/graphics/package-summary.html">android.support.v7.graphics</a></li>
+    <li class="api apilevel-">
   <a href="../reference/android/support/v7/gridlayout/package-summary.html">android.support.v7.gridlayout</a></li>
     <li class="api apilevel-">
   <a href="../reference/android/support/v7/media/package-summary.html">android.support.v7.media</a></li>
@@ -626,8 +660,10 @@ type="text/css">
   <a href="../reference/android/support/v7/widget/package-summary.html">android.support.v7.widget</a></li>
     <li class="api apilevel-">
   <a href="../reference/android/support/v8/renderscript/package-summary.html">android.support.v8.renderscript</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../reference/android/system/package-summary.html">android.system</a></li>
+    <li class="api apilevel-21">
+  <a href="../reference/android/telecom/package-summary.html">android.telecom</a></li>
     <li class="api apilevel-1">
   <a href="../reference/android/telephony/package-summary.html">android.telephony</a></li>
     <li class="api apilevel-5">
@@ -1025,14 +1061,21 @@ href="../guide/topics/data/backup.html">Data Backup</a> guide.</p>
     </tr>
 
 
-    <tr class="alt-color api apilevel-" >
+    <tr class="alt-color api apilevel-21" >
         <td class="jd-linkcol">
   <a href="../reference/android/app/job/package-summary.html">android.app.job</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
 
 
-    <tr class=" api apilevel-3" >
+    <tr class=" api apilevel-21" >
+        <td class="jd-linkcol">
+  <a href="../reference/android/app/usage/package-summary.html">android.app.usage</a></td>
+        <td class="jd-descrcol" width="100%"></td>
+    </tr>
+
+
+    <tr class="alt-color api apilevel-3" >
         <td class="jd-linkcol">
   <a href="../reference/android/appwidget/package-summary.html">android.appwidget</a></td>
         <td class="jd-descrcol" width="100%"><p>Contains the components necessary to create "app widgets", which users can embed in other
@@ -1045,7 +1088,7 @@ launching a new activity.</p>
     </tr>
 
 
-    <tr class="alt-color api apilevel-5" >
+    <tr class=" api apilevel-5" >
         <td class="jd-linkcol">
   <a href="../reference/android/bluetooth/package-summary.html">android.bluetooth</a></td>
         <td class="jd-descrcol" width="100%"><p>Provides classes that manage Bluetooth functionality, such as scanning for
@@ -1061,21 +1104,21 @@ Bluetooth Low Energy</a> (BLE) guide.</p>
     </tr>
 
 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-21" >
         <td class="jd-linkcol">
   <a href="../reference/android/bluetooth/le/package-summary.html">android.bluetooth.le</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
 
 
-    <tr class="alt-color api apilevel-1" >
+    <tr class=" api apilevel-1" >
         <td class="jd-linkcol">
   <a href="../reference/android/content/package-summary.html">android.content</a></td>
         <td class="jd-descrcol" width="100%"><p>Contains classes for accessing and publishing data on a device.</td>
     </tr>
 
 
-    <tr class=" api apilevel-1" >
+    <tr class="alt-color api apilevel-1" >
         <td class="jd-linkcol">
   <a href="../reference/android/content/pm/package-summary.html">android.content.pm</a></td>
         <td class="jd-descrcol" width="100%"><p>Contains classes for accessing information about an
@@ -1084,7 +1127,7 @@ permissions, services, signatures, and providers.</td>
     </tr>
 
 
-    <tr class="alt-color api apilevel-1" >
+    <tr class=" api apilevel-1" >
         <td class="jd-linkcol">
   <a href="../reference/android/content/res/package-summary.html">android.content.res</a></td>
         <td class="jd-descrcol" width="100%"><p>Contains classes for accessing application resources,
@@ -1098,14 +1141,14 @@ href="../guide/topics/resources/index.html">Application Resources</a> guide.</p>
     </tr>
 
 
-    <tr class=" api apilevel-1" >
+    <tr class="alt-color api apilevel-1" >
         <td class="jd-linkcol">
   <a href="../reference/android/database/package-summary.html">android.database</a></td>
         <td class="jd-descrcol" width="100%">Contains classes to explore data returned through a content provider.</td>
     </tr>
 
 
-    <tr class="alt-color api apilevel-1" >
+    <tr class=" api apilevel-1" >
         <td class="jd-linkcol">
   <a href="../reference/android/database/sqlite/package-summary.html">android.database.sqlite</a></td>
         <td class="jd-descrcol" width="100%">Contains the SQLite database management
@@ -1113,7 +1156,7 @@ classes that an application would use to manage its own private database.</td>
     </tr>
 
 
-    <tr class=" api apilevel-11" >
+    <tr class="alt-color api apilevel-11" >
         <td class="jd-linkcol">
   <a href="../reference/android/drm/package-summary.html">android.drm</a></td>
         <td class="jd-descrcol" width="100%"><p>Provides classes for managing DRM content and determining the capabilities of DRM plugins
@@ -1121,14 +1164,14 @@ classes that an application would use to manage its own private database.</td>
     </tr>
 
 
-    <tr class="alt-color api apilevel-4" >
+    <tr class=" api apilevel-4" >
         <td class="jd-linkcol">
   <a href="../reference/android/gesture/package-summary.html">android.gesture</a></td>
         <td class="jd-descrcol" width="100%">Provides classes to create, recognize, load and save gestures.</td>
     </tr>
 
 
-    <tr class=" api apilevel-1" >
+    <tr class="alt-color api apilevel-1" >
         <td class="jd-linkcol">
   <a href="../reference/android/graphics/package-summary.html">android.graphics</a></td>
         <td class="jd-descrcol" width="100%">Provides low level graphics tools such as canvases, color filters, points, and 
@@ -1136,7 +1179,7 @@ rectangles that let you handle drawing to the screen directly.</td>
     </tr>
 
 
-    <tr class="alt-color api apilevel-1" >
+    <tr class=" api apilevel-1" >
         <td class="jd-linkcol">
   <a href="../reference/android/graphics/drawable/package-summary.html">android.graphics.drawable</a></td>
         <td class="jd-descrcol" width="100%"><p>Provides classes to manage a variety of visual elements that are intended for
@@ -1144,28 +1187,28 @@ display only, such as bitmaps and gradients.</td>
     </tr>
 
 
-    <tr class=" api apilevel-1" >
+    <tr class="alt-color api apilevel-1" >
         <td class="jd-linkcol">
   <a href="../reference/android/graphics/drawable/shapes/package-summary.html">android.graphics.drawable.shapes</a></td>
         <td class="jd-descrcol" width="100%">Contains classes for drawing geometric shapes.</td>
     </tr>
 
 
-    <tr class="alt-color api apilevel-19" >
+    <tr class=" api apilevel-19" >
         <td class="jd-linkcol">
   <a href="../reference/android/graphics/pdf/package-summary.html">android.graphics.pdf</a></td>
         <td class="jd-descrcol" width="100%">Contains classes for manipulation of PDF content.</td>
     </tr>
 
 
-    <tr class=" api apilevel-1" >
+    <tr class="alt-color api apilevel-1" >
         <td class="jd-linkcol">
   <a href="../reference/android/hardware/package-summary.html">android.hardware</a></td>
         <td class="jd-descrcol" width="100%"><p>Provides support for hardware features, such as the camera and other sensors.</td>
     </tr>
 
 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-21" >
         <td class="jd-linkcol">
   <a href="../reference/android/hardware/camera2/package-summary.html">android.hardware.camera2</a></td>
         <td class="jd-descrcol" width="100%"><p>The android.hardware.camera2 package provides an interface to
@@ -1173,30 +1216,23 @@ individual camera devices connected to an Android device.</td>
     </tr>
 
 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-21" >
         <td class="jd-linkcol">
   <a href="../reference/android/hardware/camera2/params/package-summary.html">android.hardware.camera2.params</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
 
 
-    <tr class="alt-color api apilevel-17" >
+    <tr class=" api apilevel-17" >
         <td class="jd-linkcol">
   <a href="../reference/android/hardware/display/package-summary.html">android.hardware.display</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
 
 
-    <tr class=" api apilevel-16" >
+    <tr class="alt-color api apilevel-16" >
         <td class="jd-linkcol">
   <a href="../reference/android/hardware/input/package-summary.html">android.hardware.input</a></td>
-        <td class="jd-descrcol" width="100%"></td>
-    </tr>
-
-
-    <tr class="alt-color api apilevel-18" >
-        <td class="jd-linkcol">
-  <a href="../reference/android/hardware/location/package-summary.html">android.hardware.location</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
 
@@ -1223,22 +1259,8 @@ Android-powered devices.</p>
     <tr class=" api apilevel-1" >
         <td class="jd-linkcol">
   <a href="../reference/android/location/package-summary.html">android.location</a></td>
-        <td class="jd-descrcol" width="100%"><p>Contains the framework API classes that define Android location-based and related services.</p>
-<p class="note">
-    <strong>Note:</strong> The Google Location Services API, part of Google Play
-    Services, provides a more powerful, high-level framework that automates tasks such as
-    location provider choice and power management. Location Services also provides new
-    features such as activity detection that aren't available in the framework API. Developers who
-    are using the framework API, as well as developers who are just now adding location-awareness
-    to their apps, should strongly consider using the Location Services API.
-<br/>
-    To learn more about the Location Services API, see
-    <a href="../google/play-services/location.html">Location APIs</a>.
-</p>
-
-<p>For more information about the framework API, see the
-<a href="../guide/topics/location/index.html">Location and Maps</a> guide.</p>
-</td>
+        <td class="jd-descrcol" width="100%"><p>Contains the framework API classes that define Android location-based and
+	related services.</td>
     </tr>
 
 
@@ -1256,7 +1278,14 @@ Android-powered devices.</p>
     </tr>
 
 
-    <tr class="alt-color api apilevel-14" >
+    <tr class="alt-color api apilevel-21" >
+        <td class="jd-linkcol">
+  <a href="../reference/android/media/browse/package-summary.html">android.media.browse</a></td>
+        <td class="jd-descrcol" width="100%"></td>
+    </tr>
+
+
+    <tr class=" api apilevel-14" >
         <td class="jd-linkcol">
   <a href="../reference/android/media/effect/package-summary.html">android.media.effect</a></td>
         <td class="jd-descrcol" width="100%"><p>Provides classes that allow you to apply a variety of visual effects to images and
@@ -1264,14 +1293,21 @@ videos.</td>
     </tr>
 
 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-21" >
+        <td class="jd-linkcol">
+  <a href="../reference/android/media/projection/package-summary.html">android.media.projection</a></td>
+        <td class="jd-descrcol" width="100%"></td>
+    </tr>
+
+
+    <tr class=" api apilevel-21" >
         <td class="jd-linkcol">
   <a href="../reference/android/media/session/package-summary.html">android.media.session</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
 
 
-    <tr class="alt-color api apilevel-" >
+    <tr class="alt-color api apilevel-21" >
         <td class="jd-linkcol">
   <a href="../reference/android/media/tv/package-summary.html">android.media.tv</a></td>
         <td class="jd-descrcol" width="100%"></td>
@@ -1475,9 +1511,23 @@ Android.</td>
     </tr>
 
 
-    <tr class=" api apilevel-18" >
+    <tr class=" api apilevel-21" >
+        <td class="jd-linkcol">
+  <a href="../reference/android/service/media/package-summary.html">android.service.media</a></td>
+        <td class="jd-descrcol" width="100%"></td>
+    </tr>
+
+
+    <tr class="alt-color api apilevel-18" >
         <td class="jd-linkcol">
   <a href="../reference/android/service/notification/package-summary.html">android.service.notification</a></td>
+        <td class="jd-descrcol" width="100%"></td>
+    </tr>
+
+
+    <tr class=" api apilevel-21" >
+        <td class="jd-linkcol">
+  <a href="../reference/android/service/restrictions/package-summary.html">android.service.restrictions</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
 
@@ -1490,7 +1540,7 @@ input method framework (for IMEs).</td>
     </tr>
 
 
-    <tr class=" api apilevel-" >
+    <tr class=" api apilevel-21" >
         <td class="jd-linkcol">
   <a href="../reference/android/service/voice/package-summary.html">android.service.voice</a></td>
         <td class="jd-descrcol" width="100%"></td>
@@ -1651,21 +1701,35 @@ android API level 4 or later.</td>
 
     <tr class=" api apilevel-" >
         <td class="jd-linkcol">
-  <a href="../reference/android/support/v4/net/package-summary.html">android.support.v4.net</a></td>
+  <a href="../reference/android/support/v4/media/session/package-summary.html">android.support.v4.media.session</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
 
 
     <tr class="alt-color api apilevel-" >
         <td class="jd-linkcol">
-  <a href="../reference/android/support/v4/os/package-summary.html">android.support.v4.os</a></td>
+  <a href="../reference/android/support/v4/net/package-summary.html">android.support.v4.net</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
 
 
     <tr class=" api apilevel-" >
         <td class="jd-linkcol">
+  <a href="../reference/android/support/v4/os/package-summary.html">android.support.v4.os</a></td>
+        <td class="jd-descrcol" width="100%"></td>
+    </tr>
+
+
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-linkcol">
   <a href="../reference/android/support/v4/print/package-summary.html">android.support.v4.print</a></td>
+        <td class="jd-descrcol" width="100%"></td>
+    </tr>
+
+
+    <tr class=" api apilevel-" >
+        <td class="jd-linkcol">
+  <a href="../reference/android/support/v4/provider/package-summary.html">android.support.v4.provider</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
 
@@ -1724,6 +1788,20 @@ android API level 4 or later.</td>
 
     <tr class=" api apilevel-" >
         <td class="jd-linkcol">
+  <a href="../reference/android/support/v7/cardview/package-summary.html">android.support.v7.cardview</a></td>
+        <td class="jd-descrcol" width="100%"></td>
+    </tr>
+
+
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-linkcol">
+  <a href="../reference/android/support/v7/graphics/package-summary.html">android.support.v7.graphics</a></td>
+        <td class="jd-descrcol" width="100%"></td>
+    </tr>
+
+
+    <tr class=" api apilevel-" >
+        <td class="jd-linkcol">
   <a href="../reference/android/support/v7/gridlayout/package-summary.html">android.support.v7.gridlayout</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
@@ -1765,14 +1843,21 @@ android API level 4 or later.</td>
     </tr>
 
 
-    <tr class=" api apilevel-" >
+    <tr class=" api apilevel-21" >
         <td class="jd-linkcol">
   <a href="../reference/android/system/package-summary.html">android.system</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
 
 
-    <tr class="alt-color api apilevel-1" >
+    <tr class="alt-color api apilevel-21" >
+        <td class="jd-linkcol">
+  <a href="../reference/android/telecom/package-summary.html">android.telecom</a></td>
+        <td class="jd-descrcol" width="100%"></td>
+    </tr>
+
+
+    <tr class=" api apilevel-1" >
         <td class="jd-linkcol">
   <a href="../reference/android/telephony/package-summary.html">android.telephony</a></td>
         <td class="jd-descrcol" width="100%">Provides APIs for monitoring the basic phone information, such as
@@ -1781,14 +1866,14 @@ for manipulating phone number strings.</td>
     </tr>
 
 
-    <tr class=" api apilevel-5" >
+    <tr class="alt-color api apilevel-5" >
         <td class="jd-linkcol">
   <a href="../reference/android/telephony/cdma/package-summary.html">android.telephony.cdma</a></td>
         <td class="jd-descrcol" width="100%">Provides APIs for utilizing CDMA-specific telephony features.</td>
     </tr>
 
 
-    <tr class="alt-color api apilevel-1" >
+    <tr class=" api apilevel-1" >
         <td class="jd-linkcol">
   <a href="../reference/android/telephony/gsm/package-summary.html">android.telephony.gsm</a></td>
         <td class="jd-descrcol" width="100%">Provides APIs for utilizing GSM-specific telephony features, such as
@@ -1796,7 +1881,7 @@ text/data/PDU SMS messages.</td>
     </tr>
 
 
-    <tr class=" api apilevel-1" >
+    <tr class="alt-color api apilevel-1" >
         <td class="jd-linkcol">
   <a href="../reference/android/test/package-summary.html">android.test</a></td>
         <td class="jd-descrcol" width="100%"><p>A framework for writing Android test cases and suites.</p>
@@ -1807,7 +1892,7 @@ text/data/PDU SMS messages.</td>
     </tr>
 
 
-    <tr class="alt-color api apilevel-1" >
+    <tr class=" api apilevel-1" >
         <td class="jd-linkcol">
   <a href="../reference/android/test/mock/package-summary.html">android.test.mock</a></td>
         <td class="jd-descrcol" width="100%"><p>Utility classes providing stubs or mocks of various Android framework building blocks.</p>
@@ -1818,28 +1903,28 @@ text/data/PDU SMS messages.</td>
     </tr>
 
 
-    <tr class=" api apilevel-1" >
+    <tr class="alt-color api apilevel-1" >
         <td class="jd-linkcol">
   <a href="../reference/android/test/suitebuilder/package-summary.html">android.test.suitebuilder</a></td>
         <td class="jd-descrcol" width="100%">Utility classes supporting the test runner classes.</td>
     </tr>
 
 
-    <tr class="alt-color api apilevel-1" >
+    <tr class=" api apilevel-1" >
         <td class="jd-linkcol">
   <a href="../reference/android/test/suitebuilder/annotation/package-summary.html">android.test.suitebuilder.annotation</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
 
 
-    <tr class=" api apilevel-1" >
+    <tr class="alt-color api apilevel-1" >
         <td class="jd-linkcol">
   <a href="../reference/android/text/package-summary.html">android.text</a></td>
         <td class="jd-descrcol" width="100%"><p>Provides classes used to render or track text and text spans on the screen.</td>
     </tr>
 
 
-    <tr class="alt-color api apilevel-3" >
+    <tr class=" api apilevel-3" >
         <td class="jd-linkcol">
   <a href="../reference/android/text/format/package-summary.html">android.text.format</a></td>
         <td class="jd-descrcol" width="100%">This package contains alternative classes for some text formatting classes
@@ -1847,21 +1932,21 @@ defined in <code><a href="../reference/java/util/package-summary.html">java.util
     </tr>
 
 
-    <tr class=" api apilevel-1" >
+    <tr class="alt-color api apilevel-1" >
         <td class="jd-linkcol">
   <a href="../reference/android/text/method/package-summary.html">android.text.method</a></td>
         <td class="jd-descrcol" width="100%"><p>Provides classes that monitor or modify keypad input.</td>
     </tr>
 
 
-    <tr class="alt-color api apilevel-1" >
+    <tr class=" api apilevel-1" >
         <td class="jd-linkcol">
   <a href="../reference/android/text/style/package-summary.html">android.text.style</a></td>
         <td class="jd-descrcol" width="100%"><p>Provides classes used to view or change the style of a span of text in a View object.</td>
     </tr>
 
 
-    <tr class=" api apilevel-1" >
+    <tr class="alt-color api apilevel-1" >
         <td class="jd-linkcol">
   <a href="../reference/android/text/util/package-summary.html">android.text.util</a></td>
         <td class="jd-descrcol" width="100%">Utilities for converting identifiable text strings into clickable links 
@@ -1869,7 +1954,7 @@ and creating RFC 822-type message (SMTP) tokens.</td>
     </tr>
 
 
-    <tr class="alt-color api apilevel-19" >
+    <tr class=" api apilevel-19" >
         <td class="jd-linkcol">
   <a href="../reference/android/transition/package-summary.html">android.transition</a></td>
         <td class="jd-descrcol" width="100%"><p>The classes in this package enable "scenes & transitions" functionality for
@@ -1877,7 +1962,7 @@ view hiearchies.</td>
     </tr>
 
 
-    <tr class=" api apilevel-1" >
+    <tr class="alt-color api apilevel-1" >
         <td class="jd-linkcol">
   <a href="../reference/android/util/package-summary.html">android.util</a></td>
         <td class="jd-descrcol" width="100%">Provides common utility methods such as date/time manipulation, base64 encoders
@@ -1885,7 +1970,7 @@ and decoders, string and number conversion methods, and XML utilities.</td>
     </tr>
 
 
-    <tr class="alt-color api apilevel-1" >
+    <tr class=" api apilevel-1" >
         <td class="jd-linkcol">
   <a href="../reference/android/view/package-summary.html">android.view</a></td>
         <td class="jd-descrcol" width="100%">Provides classes that expose basic user interface classes that handle
@@ -1893,7 +1978,7 @@ screen layout and interaction with the user.</td>
     </tr>
 
 
-    <tr class=" api apilevel-4" >
+    <tr class="alt-color api apilevel-4" >
         <td class="jd-linkcol">
   <a href="../reference/android/view/accessibility/package-summary.html">android.view.accessibility</a></td>
         <td class="jd-descrcol" width="100%"><p>
@@ -1902,14 +1987,14 @@ screen layout and interaction with the user.</td>
     </tr>
 
 
-    <tr class="alt-color api apilevel-1" >
+    <tr class=" api apilevel-1" >
         <td class="jd-linkcol">
   <a href="../reference/android/view/animation/package-summary.html">android.view.animation</a></td>
         <td class="jd-descrcol" width="100%"><p>Provides classes that handle tweened animations.</td>
     </tr>
 
 
-    <tr class=" api apilevel-3" >
+    <tr class="alt-color api apilevel-3" >
         <td class="jd-linkcol">
   <a href="../reference/android/view/inputmethod/package-summary.html">android.view.inputmethod</a></td>
         <td class="jd-descrcol" width="100%">Framework classes for interaction between views and input methods (such
@@ -1917,21 +2002,21 @@ as soft keyboards).</td>
     </tr>
 
 
-    <tr class="alt-color api apilevel-14" >
+    <tr class=" api apilevel-14" >
         <td class="jd-linkcol">
   <a href="../reference/android/view/textservice/package-summary.html">android.view.textservice</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
 
 
-    <tr class=" api apilevel-1" >
+    <tr class="alt-color api apilevel-1" >
         <td class="jd-linkcol">
   <a href="../reference/android/webkit/package-summary.html">android.webkit</a></td>
         <td class="jd-descrcol" width="100%"><p>Provides tools for browsing the web.</td>
     </tr>
 
 
-    <tr class="alt-color api apilevel-1" >
+    <tr class=" api apilevel-1" >
         <td class="jd-linkcol">
   <a href="../reference/android/widget/package-summary.html">android.widget</a></td>
         <td class="jd-descrcol" width="100%"><p>
@@ -1940,161 +2025,161 @@ on your Application screen.</td>
     </tr>
 
 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-linkcol">
   <a href="../reference/com/android/internal/backup/package-summary.html">com.android.internal.backup</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
 
 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-linkcol">
   <a href="../reference/com/android/internal/os/package-summary.html">com.android.internal.os</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
 
 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-linkcol">
   <a href="../reference/com/android/internal/statusbar/package-summary.html">com.android.internal.statusbar</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
 
 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-linkcol">
   <a href="../reference/com/android/internal/widget/package-summary.html">com.android.internal.widget</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
 
 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-linkcol">
   <a href="../reference/com/android/test/runner/package-summary.html">com.android.test.runner</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
 
 
-    <tr class="alt-color api apilevel-1" >
+    <tr class=" api apilevel-1" >
         <td class="jd-linkcol">
   <a href="../reference/dalvik/annotation/package-summary.html">dalvik.annotation</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
 
 
-    <tr class=" api apilevel-1" >
+    <tr class="alt-color api apilevel-1" >
         <td class="jd-linkcol">
   <a href="../reference/dalvik/bytecode/package-summary.html">dalvik.bytecode</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
 
 
-    <tr class="alt-color api apilevel-1" >
+    <tr class=" api apilevel-1" >
         <td class="jd-linkcol">
   <a href="../reference/dalvik/system/package-summary.html">dalvik.system</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
 
 
-    <tr class=" api apilevel-1" >
+    <tr class="alt-color api apilevel-1" >
         <td class="jd-linkcol">
   <a href="../reference/java/awt/font/package-summary.html">java.awt.font</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
 
 
-    <tr class="alt-color api apilevel-3" >
+    <tr class=" api apilevel-3" >
         <td class="jd-linkcol">
   <a href="../reference/java/beans/package-summary.html">java.beans</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
 
 
-    <tr class=" api apilevel-1" >
+    <tr class="alt-color api apilevel-1" >
         <td class="jd-linkcol">
   <a href="../reference/java/io/package-summary.html">java.io</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
 
 
-    <tr class="alt-color api apilevel-1" >
+    <tr class=" api apilevel-1" >
         <td class="jd-linkcol">
   <a href="../reference/java/lang/package-summary.html">java.lang</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
 
 
-    <tr class=" api apilevel-1" >
+    <tr class="alt-color api apilevel-1" >
         <td class="jd-linkcol">
   <a href="../reference/java/lang/annotation/package-summary.html">java.lang.annotation</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
 
 
-    <tr class="alt-color api apilevel-1" >
+    <tr class=" api apilevel-1" >
         <td class="jd-linkcol">
   <a href="../reference/java/lang/ref/package-summary.html">java.lang.ref</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
 
 
-    <tr class=" api apilevel-1" >
+    <tr class="alt-color api apilevel-1" >
         <td class="jd-linkcol">
   <a href="../reference/java/lang/reflect/package-summary.html">java.lang.reflect</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
 
 
-    <tr class="alt-color api apilevel-1" >
+    <tr class=" api apilevel-1" >
         <td class="jd-linkcol">
   <a href="../reference/java/math/package-summary.html">java.math</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
 
 
-    <tr class=" api apilevel-1" >
+    <tr class="alt-color api apilevel-1" >
         <td class="jd-linkcol">
   <a href="../reference/java/net/package-summary.html">java.net</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
 
 
-    <tr class="alt-color api apilevel-1" >
+    <tr class=" api apilevel-1" >
         <td class="jd-linkcol">
   <a href="../reference/java/nio/package-summary.html">java.nio</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
 
 
-    <tr class=" api apilevel-1" >
+    <tr class="alt-color api apilevel-1" >
         <td class="jd-linkcol">
   <a href="../reference/java/nio/channels/package-summary.html">java.nio.channels</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
 
 
-    <tr class="alt-color api apilevel-1" >
+    <tr class=" api apilevel-1" >
         <td class="jd-linkcol">
   <a href="../reference/java/nio/channels/spi/package-summary.html">java.nio.channels.spi</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
 
 
-    <tr class=" api apilevel-1" >
+    <tr class="alt-color api apilevel-1" >
         <td class="jd-linkcol">
   <a href="../reference/java/nio/charset/package-summary.html">java.nio.charset</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
 
 
-    <tr class="alt-color api apilevel-1" >
+    <tr class=" api apilevel-1" >
         <td class="jd-linkcol">
   <a href="../reference/java/nio/charset/spi/package-summary.html">java.nio.charset.spi</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
 
 
-    <tr class=" api apilevel-1" >
+    <tr class="alt-color api apilevel-1" >
         <td class="jd-linkcol">
   <a href="../reference/java/security/package-summary.html">java.security</a></td>
         <td class="jd-descrcol" width="100%"><p>
@@ -2104,7 +2189,7 @@ and defining services such as <code><a href="../reference/java/security/Certific
     </tr>
 
 
-    <tr class="alt-color api apilevel-1" >
+    <tr class=" api apilevel-1" >
         <td class="jd-linkcol">
   <a href="../reference/java/security/acl/package-summary.html">java.security.acl</a></td>
         <td class="jd-descrcol" width="100%"><p>
@@ -2112,7 +2197,7 @@ This package provides the classes and the interfaces needed to build Access Cont
     </tr>
 
 
-    <tr class=" api apilevel-1" >
+    <tr class="alt-color api apilevel-1" >
         <td class="jd-linkcol">
   <a href="../reference/java/security/cert/package-summary.html">java.security.cert</a></td>
         <td class="jd-descrcol" width="100%"><p>
@@ -2121,7 +2206,7 @@ X.509 certificates.</td>
     </tr>
 
 
-    <tr class="alt-color api apilevel-1" >
+    <tr class=" api apilevel-1" >
         <td class="jd-linkcol">
   <a href="../reference/java/security/interfaces/package-summary.html">java.security.interfaces</a></td>
         <td class="jd-descrcol" width="100%"><p>
@@ -2132,7 +2217,7 @@ This package provides the interfaces needed to generate:
     </tr>
 
 
-    <tr class=" api apilevel-1" >
+    <tr class="alt-color api apilevel-1" >
         <td class="jd-linkcol">
   <a href="../reference/java/security/spec/package-summary.html">java.security.spec</a></td>
         <td class="jd-descrcol" width="100%"><p>
@@ -2141,35 +2226,35 @@ encryption and signing algorithms.</td>
     </tr>
 
 
-    <tr class="alt-color api apilevel-1" >
+    <tr class=" api apilevel-1" >
         <td class="jd-linkcol">
   <a href="../reference/java/sql/package-summary.html">java.sql</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
 
 
-    <tr class=" api apilevel-1" >
+    <tr class="alt-color api apilevel-1" >
         <td class="jd-linkcol">
   <a href="../reference/java/text/package-summary.html">java.text</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
 
 
-    <tr class="alt-color api apilevel-1" >
+    <tr class=" api apilevel-1" >
         <td class="jd-linkcol">
   <a href="../reference/java/util/package-summary.html">java.util</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
 
 
-    <tr class=" api apilevel-1" >
+    <tr class="alt-color api apilevel-1" >
         <td class="jd-linkcol">
   <a href="../reference/java/util/concurrent/package-summary.html">java.util.concurrent</a></td>
         <td class="jd-descrcol" width="100%">Utility classes commonly useful in concurrent programming.</td>
     </tr>
 
 
-    <tr class="alt-color api apilevel-1" >
+    <tr class=" api apilevel-1" >
         <td class="jd-linkcol">
   <a href="../reference/java/util/concurrent/atomic/package-summary.html">java.util.concurrent.atomic</a></td>
         <td class="jd-descrcol" width="100%">A small toolkit of classes that support lock-free thread-safe
@@ -2177,7 +2262,7 @@ encryption and signing algorithms.</td>
     </tr>
 
 
-    <tr class=" api apilevel-1" >
+    <tr class="alt-color api apilevel-1" >
         <td class="jd-linkcol">
   <a href="../reference/java/util/concurrent/locks/package-summary.html">java.util.concurrent.locks</a></td>
         <td class="jd-descrcol" width="100%">Interfaces and classes providing a framework for locking and waiting
@@ -2186,42 +2271,42 @@ encryption and signing algorithms.</td>
     </tr>
 
 
-    <tr class="alt-color api apilevel-1" >
+    <tr class=" api apilevel-1" >
         <td class="jd-linkcol">
   <a href="../reference/java/util/jar/package-summary.html">java.util.jar</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
 
 
-    <tr class=" api apilevel-1" >
+    <tr class="alt-color api apilevel-1" >
         <td class="jd-linkcol">
   <a href="../reference/java/util/logging/package-summary.html">java.util.logging</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
 
 
-    <tr class="alt-color api apilevel-1" >
+    <tr class=" api apilevel-1" >
         <td class="jd-linkcol">
   <a href="../reference/java/util/prefs/package-summary.html">java.util.prefs</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
 
 
-    <tr class=" api apilevel-1" >
+    <tr class="alt-color api apilevel-1" >
         <td class="jd-linkcol">
   <a href="../reference/java/util/regex/package-summary.html">java.util.regex</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
 
 
-    <tr class="alt-color api apilevel-1" >
+    <tr class=" api apilevel-1" >
         <td class="jd-linkcol">
   <a href="../reference/java/util/zip/package-summary.html">java.util.zip</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
 
 
-    <tr class=" api apilevel-1" >
+    <tr class="alt-color api apilevel-1" >
         <td class="jd-linkcol">
   <a href="../reference/javax/crypto/package-summary.html">javax.crypto</a></td>
         <td class="jd-descrcol" width="100%"><p>
@@ -2230,7 +2315,7 @@ key agreement.</td>
     </tr>
 
 
-    <tr class="alt-color api apilevel-1" >
+    <tr class=" api apilevel-1" >
         <td class="jd-linkcol">
   <a href="../reference/javax/crypto/interfaces/package-summary.html">javax.crypto.interfaces</a></td>
         <td class="jd-descrcol" width="100%"><p>
@@ -2239,7 +2324,7 @@ key agreement.</td>
     </tr>
 
 
-    <tr class=" api apilevel-1" >
+    <tr class="alt-color api apilevel-1" >
         <td class="jd-linkcol">
   <a href="../reference/javax/crypto/spec/package-summary.html">javax.crypto.spec</a></td>
         <td class="jd-descrcol" width="100%"><p>
@@ -2248,28 +2333,28 @@ key agreement.</td>
     </tr>
 
 
-    <tr class="alt-color api apilevel-1" >
+    <tr class=" api apilevel-1" >
         <td class="jd-linkcol">
   <a href="../reference/javax/microedition/khronos/egl/package-summary.html">javax.microedition.khronos.egl</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
 
 
-    <tr class=" api apilevel-1" >
+    <tr class="alt-color api apilevel-1" >
         <td class="jd-linkcol">
   <a href="../reference/javax/microedition/khronos/opengles/package-summary.html">javax.microedition.khronos.opengles</a></td>
         <td class="jd-descrcol" width="100%"><p>Provides a standard OpenGL interface.</td>
     </tr>
 
 
-    <tr class="alt-color api apilevel-1" >
+    <tr class=" api apilevel-1" >
         <td class="jd-linkcol">
   <a href="../reference/javax/net/package-summary.html">javax.net</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
 
 
-    <tr class=" api apilevel-1" >
+    <tr class="alt-color api apilevel-1" >
         <td class="jd-linkcol">
   <a href="../reference/javax/net/ssl/package-summary.html">javax.net.ssl</a></td>
         <td class="jd-descrcol" width="100%"><p>
@@ -2279,14 +2364,14 @@ Security (TLS) protocol.</td>
     </tr>
 
 
-    <tr class="alt-color api apilevel-1" >
+    <tr class=" api apilevel-1" >
         <td class="jd-linkcol">
   <a href="../reference/javax/security/auth/package-summary.html">javax.security.auth</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
 
 
-    <tr class=" api apilevel-1" >
+    <tr class="alt-color api apilevel-1" >
         <td class="jd-linkcol">
   <a href="../reference/javax/security/auth/callback/package-summary.html">javax.security.auth.callback</a></td>
         <td class="jd-descrcol" width="100%"><p>
@@ -2296,7 +2381,7 @@ processes.</td>
     </tr>
 
 
-    <tr class="alt-color api apilevel-1" >
+    <tr class=" api apilevel-1" >
         <td class="jd-linkcol">
   <a href="../reference/javax/security/auth/login/package-summary.html">javax.security.auth.login</a></td>
         <td class="jd-descrcol" width="100%"><p>
@@ -2305,7 +2390,7 @@ ideas and concepts from the Unix-PAM module.</td>
     </tr>
 
 
-    <tr class=" api apilevel-1" >
+    <tr class="alt-color api apilevel-1" >
         <td class="jd-linkcol">
   <a href="../reference/javax/security/auth/x500/package-summary.html">javax.security.auth.x500</a></td>
         <td class="jd-descrcol" width="100%"><p>
@@ -2314,7 +2399,7 @@ credentials.</td>
     </tr>
 
 
-    <tr class="alt-color api apilevel-1" >
+    <tr class=" api apilevel-1" >
         <td class="jd-linkcol">
   <a href="../reference/javax/security/cert/package-summary.html">javax.security.cert</a></td>
         <td class="jd-descrcol" width="100%"><p>
@@ -2322,105 +2407,105 @@ This package is provided only for compatibility reasons.</td>
     </tr>
 
 
-    <tr class=" api apilevel-1" >
+    <tr class="alt-color api apilevel-1" >
         <td class="jd-linkcol">
   <a href="../reference/javax/sql/package-summary.html">javax.sql</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
 
 
-    <tr class="alt-color api apilevel-1" >
+    <tr class=" api apilevel-1" >
         <td class="jd-linkcol">
   <a href="../reference/javax/xml/package-summary.html">javax.xml</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
 
 
-    <tr class=" api apilevel-8" >
+    <tr class="alt-color api apilevel-8" >
         <td class="jd-linkcol">
   <a href="../reference/javax/xml/datatype/package-summary.html">javax.xml.datatype</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
 
 
-    <tr class="alt-color api apilevel-8" >
+    <tr class=" api apilevel-8" >
         <td class="jd-linkcol">
   <a href="../reference/javax/xml/namespace/package-summary.html">javax.xml.namespace</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
 
 
-    <tr class=" api apilevel-1" >
+    <tr class="alt-color api apilevel-1" >
         <td class="jd-linkcol">
   <a href="../reference/javax/xml/parsers/package-summary.html">javax.xml.parsers</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
 
 
-    <tr class="alt-color api apilevel-8" >
+    <tr class=" api apilevel-8" >
         <td class="jd-linkcol">
   <a href="../reference/javax/xml/transform/package-summary.html">javax.xml.transform</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
 
 
-    <tr class=" api apilevel-8" >
+    <tr class="alt-color api apilevel-8" >
         <td class="jd-linkcol">
   <a href="../reference/javax/xml/transform/dom/package-summary.html">javax.xml.transform.dom</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
 
 
-    <tr class="alt-color api apilevel-8" >
+    <tr class=" api apilevel-8" >
         <td class="jd-linkcol">
   <a href="../reference/javax/xml/transform/sax/package-summary.html">javax.xml.transform.sax</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
 
 
-    <tr class=" api apilevel-8" >
+    <tr class="alt-color api apilevel-8" >
         <td class="jd-linkcol">
   <a href="../reference/javax/xml/transform/stream/package-summary.html">javax.xml.transform.stream</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
 
 
-    <tr class="alt-color api apilevel-8" >
+    <tr class=" api apilevel-8" >
         <td class="jd-linkcol">
   <a href="../reference/javax/xml/validation/package-summary.html">javax.xml.validation</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
 
 
-    <tr class=" api apilevel-8" >
+    <tr class="alt-color api apilevel-8" >
         <td class="jd-linkcol">
   <a href="../reference/javax/xml/xpath/package-summary.html">javax.xml.xpath</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
 
 
-    <tr class="alt-color api apilevel-1" >
+    <tr class=" api apilevel-1" >
         <td class="jd-linkcol">
   <a href="../reference/junit/framework/package-summary.html">junit.framework</a></td>
         <td class="jd-descrcol" width="100%">The junit test framework.</td>
     </tr>
 
 
-    <tr class=" api apilevel-1" >
+    <tr class="alt-color api apilevel-1" >
         <td class="jd-linkcol">
   <a href="../reference/junit/runner/package-summary.html">junit.runner</a></td>
         <td class="jd-descrcol" width="100%">Utility classes supporting the junit test framework.</td>
     </tr>
 
 
-    <tr class="alt-color api apilevel-1" >
+    <tr class=" api apilevel-1" >
         <td class="jd-linkcol">
   <a href="../reference/org/apache/http/package-summary.html">org.apache.http</a></td>
         <td class="jd-descrcol" width="100%">The core interfaces and classes of the HTTP components.</td>
     </tr>
 
 
-    <tr class=" api apilevel-1" >
+    <tr class="alt-color api apilevel-1" >
         <td class="jd-linkcol">
   <a href="../reference/org/apache/http/auth/package-summary.html">org.apache.http.auth</a></td>
         <td class="jd-descrcol" width="100%">The API for client-side HTTP authentication against a server,
@@ -2428,14 +2513,14 @@ commonly referred to as <i>HttpAuth</i>.</td>
     </tr>
 
 
-    <tr class="alt-color api apilevel-1" >
+    <tr class=" api apilevel-1" >
         <td class="jd-linkcol">
   <a href="../reference/org/apache/http/auth/params/package-summary.html">org.apache.http.auth.params</a></td>
         <td class="jd-descrcol" width="100%">Parameters for configuring <i>HttpAuth</i>.</td>
     </tr>
 
 
-    <tr class=" api apilevel-1" >
+    <tr class="alt-color api apilevel-1" >
         <td class="jd-linkcol">
   <a href="../reference/org/apache/http/client/package-summary.html">org.apache.http.client</a></td>
         <td class="jd-descrcol" width="100%">The API for client-side HTTP communication and
@@ -2443,42 +2528,42 @@ entry point to the <i>HttpClient</i> module.</td>
     </tr>
 
 
-    <tr class="alt-color api apilevel-1" >
+    <tr class=" api apilevel-1" >
         <td class="jd-linkcol">
   <a href="../reference/org/apache/http/client/entity/package-summary.html">org.apache.http.client.entity</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
 
 
-    <tr class=" api apilevel-1" >
+    <tr class="alt-color api apilevel-1" >
         <td class="jd-linkcol">
   <a href="../reference/org/apache/http/client/methods/package-summary.html">org.apache.http.client.methods</a></td>
         <td class="jd-descrcol" width="100%">Request implementations for the various HTTP methods like GET and POST.</td>
     </tr>
 
 
-    <tr class="alt-color api apilevel-1" >
+    <tr class=" api apilevel-1" >
         <td class="jd-linkcol">
   <a href="../reference/org/apache/http/client/params/package-summary.html">org.apache.http.client.params</a></td>
         <td class="jd-descrcol" width="100%">Parameters for configuring <i>HttpClient</i>.</td>
     </tr>
 
 
-    <tr class=" api apilevel-1" >
+    <tr class="alt-color api apilevel-1" >
         <td class="jd-linkcol">
   <a href="../reference/org/apache/http/client/protocol/package-summary.html">org.apache.http.client.protocol</a></td>
         <td class="jd-descrcol" width="100%">Additional request and response interceptors.</td>
     </tr>
 
 
-    <tr class="alt-color api apilevel-1" >
+    <tr class=" api apilevel-1" >
         <td class="jd-linkcol">
   <a href="../reference/org/apache/http/client/utils/package-summary.html">org.apache.http.client.utils</a></td>
         <td class="jd-descrcol" width="100%">Helpers and utility classes for <i>HttpClient</i>.</td>
     </tr>
 
 
-    <tr class=" api apilevel-1" >
+    <tr class="alt-color api apilevel-1" >
         <td class="jd-linkcol">
   <a href="../reference/org/apache/http/conn/package-summary.html">org.apache.http.conn</a></td>
         <td class="jd-descrcol" width="100%">The client-side connection management and handling API
@@ -2486,42 +2571,42 @@ at the heart of what is referred to as <i>HttpConn</i>.</td>
     </tr>
 
 
-    <tr class="alt-color api apilevel-1" >
+    <tr class=" api apilevel-1" >
         <td class="jd-linkcol">
   <a href="../reference/org/apache/http/conn/params/package-summary.html">org.apache.http.conn.params</a></td>
         <td class="jd-descrcol" width="100%">Parameters for configuring <i>HttpConn</i>.</td>
     </tr>
 
 
-    <tr class=" api apilevel-1" >
+    <tr class="alt-color api apilevel-1" >
         <td class="jd-linkcol">
   <a href="../reference/org/apache/http/conn/routing/package-summary.html">org.apache.http.conn.routing</a></td>
         <td class="jd-descrcol" width="100%">The client-side route representation and tracking API, part of <i>HttpConn</i>.</td>
     </tr>
 
 
-    <tr class="alt-color api apilevel-1" >
+    <tr class=" api apilevel-1" >
         <td class="jd-linkcol">
   <a href="../reference/org/apache/http/conn/scheme/package-summary.html">org.apache.http.conn.scheme</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
 
 
-    <tr class=" api apilevel-1" >
+    <tr class="alt-color api apilevel-1" >
         <td class="jd-linkcol">
   <a href="../reference/org/apache/http/conn/ssl/package-summary.html">org.apache.http.conn.ssl</a></td>
         <td class="jd-descrcol" width="100%">TLS/SSL specific parts of the <i>HttpConn</i> API.</td>
     </tr>
 
 
-    <tr class="alt-color api apilevel-1" >
+    <tr class=" api apilevel-1" >
         <td class="jd-linkcol">
   <a href="../reference/org/apache/http/conn/util/package-summary.html">org.apache.http.conn.util</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
 
 
-    <tr class=" api apilevel-1" >
+    <tr class="alt-color api apilevel-1" >
         <td class="jd-linkcol">
   <a href="../reference/org/apache/http/cookie/package-summary.html">org.apache.http.cookie</a></td>
         <td class="jd-descrcol" width="100%">The API for client-side state management via cookies,
@@ -2529,21 +2614,21 @@ commonly referred to as <i>HttpCookie</i>.</td>
     </tr>
 
 
-    <tr class="alt-color api apilevel-1" >
+    <tr class=" api apilevel-1" >
         <td class="jd-linkcol">
   <a href="../reference/org/apache/http/cookie/params/package-summary.html">org.apache.http.cookie.params</a></td>
         <td class="jd-descrcol" width="100%">Parameters for configuring <i>HttpCookie</i>.</td>
     </tr>
 
 
-    <tr class=" api apilevel-1" >
+    <tr class="alt-color api apilevel-1" >
         <td class="jd-linkcol">
   <a href="../reference/org/apache/http/entity/package-summary.html">org.apache.http.entity</a></td>
         <td class="jd-descrcol" width="100%">Representations for HTTP message entities.</td>
     </tr>
 
 
-    <tr class="alt-color api apilevel-1" >
+    <tr class=" api apilevel-1" >
         <td class="jd-linkcol">
   <a href="../reference/org/apache/http/impl/package-summary.html">org.apache.http.impl</a></td>
         <td class="jd-descrcol" width="100%">Default implementations for interfaces in
@@ -2551,7 +2636,7 @@ commonly referred to as <i>HttpCookie</i>.</td>
     </tr>
 
 
-    <tr class=" api apilevel-1" >
+    <tr class="alt-color api apilevel-1" >
         <td class="jd-linkcol">
   <a href="../reference/org/apache/http/impl/auth/package-summary.html">org.apache.http.impl.auth</a></td>
         <td class="jd-descrcol" width="100%">
@@ -2559,7 +2644,7 @@ commonly referred to as <i>HttpCookie</i>.</td>
     </tr>
 
 
-    <tr class="alt-color api apilevel-1" >
+    <tr class=" api apilevel-1" >
         <td class="jd-linkcol">
   <a href="../reference/org/apache/http/impl/client/package-summary.html">org.apache.http.impl.client</a></td>
         <td class="jd-descrcol" width="100%">
@@ -2567,7 +2652,7 @@ commonly referred to as <i>HttpCookie</i>.</td>
     </tr>
 
 
-    <tr class=" api apilevel-1" >
+    <tr class="alt-color api apilevel-1" >
         <td class="jd-linkcol">
   <a href="../reference/org/apache/http/impl/conn/package-summary.html">org.apache.http.impl.conn</a></td>
         <td class="jd-descrcol" width="100%">
@@ -2575,14 +2660,14 @@ commonly referred to as <i>HttpCookie</i>.</td>
     </tr>
 
 
-    <tr class="alt-color api apilevel-1" >
+    <tr class=" api apilevel-1" >
         <td class="jd-linkcol">
   <a href="../reference/org/apache/http/impl/conn/tsccm/package-summary.html">org.apache.http.impl.conn.tsccm</a></td>
         <td class="jd-descrcol" width="100%">The implementation of a thread-safe client connection manager.</td>
     </tr>
 
 
-    <tr class=" api apilevel-1" >
+    <tr class="alt-color api apilevel-1" >
         <td class="jd-linkcol">
   <a href="../reference/org/apache/http/impl/cookie/package-summary.html">org.apache.http.impl.cookie</a></td>
         <td class="jd-descrcol" width="100%">
@@ -2590,7 +2675,7 @@ commonly referred to as <i>HttpCookie</i>.</td>
     </tr>
 
 
-    <tr class="alt-color api apilevel-1" >
+    <tr class=" api apilevel-1" >
         <td class="jd-linkcol">
   <a href="../reference/org/apache/http/impl/entity/package-summary.html">org.apache.http.impl.entity</a></td>
         <td class="jd-descrcol" width="100%">Default implementations for interfaces in
@@ -2598,7 +2683,7 @@ commonly referred to as <i>HttpCookie</i>.</td>
     </tr>
 
 
-    <tr class=" api apilevel-1" >
+    <tr class="alt-color api apilevel-1" >
         <td class="jd-linkcol">
   <a href="../reference/org/apache/http/impl/io/package-summary.html">org.apache.http.impl.io</a></td>
         <td class="jd-descrcol" width="100%">Default implementations for interfaces in
@@ -2606,14 +2691,14 @@ commonly referred to as <i>HttpCookie</i>.</td>
     </tr>
 
 
-    <tr class="alt-color api apilevel-1" >
+    <tr class=" api apilevel-1" >
         <td class="jd-linkcol">
   <a href="../reference/org/apache/http/io/package-summary.html">org.apache.http.io</a></td>
         <td class="jd-descrcol" width="100%">The transport layer abstraction of the HTTP components.</td>
     </tr>
 
 
-    <tr class=" api apilevel-1" >
+    <tr class="alt-color api apilevel-1" >
         <td class="jd-linkcol">
   <a href="../reference/org/apache/http/message/package-summary.html">org.apache.http.message</a></td>
         <td class="jd-descrcol" width="100%">A selection of HTTP
@@ -2622,77 +2707,77 @@ implementations.</td>
     </tr>
 
 
-    <tr class="alt-color api apilevel-1" >
+    <tr class=" api apilevel-1" >
         <td class="jd-linkcol">
   <a href="../reference/org/apache/http/params/package-summary.html">org.apache.http.params</a></td>
         <td class="jd-descrcol" width="100%">The parameterization framework for HTTP components.</td>
     </tr>
 
 
-    <tr class=" api apilevel-1" >
+    <tr class="alt-color api apilevel-1" >
         <td class="jd-linkcol">
   <a href="../reference/org/apache/http/protocol/package-summary.html">org.apache.http.protocol</a></td>
         <td class="jd-descrcol" width="100%">HTTP protocol execution framework.</td>
     </tr>
 
 
-    <tr class="alt-color api apilevel-1" >
+    <tr class=" api apilevel-1" >
         <td class="jd-linkcol">
   <a href="../reference/org/apache/http/util/package-summary.html">org.apache.http.util</a></td>
         <td class="jd-descrcol" width="100%">Mostly utility classes with static helper methods for various purposes.</td>
     </tr>
 
 
-    <tr class=" api apilevel-1" >
+    <tr class="alt-color api apilevel-1" >
         <td class="jd-linkcol">
   <a href="../reference/org/json/package-summary.html">org.json</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
 
 
-    <tr class="alt-color api apilevel-1" >
+    <tr class=" api apilevel-1" >
         <td class="jd-linkcol">
   <a href="../reference/org/w3c/dom/package-summary.html">org.w3c.dom</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
 
 
-    <tr class=" api apilevel-8" >
+    <tr class="alt-color api apilevel-8" >
         <td class="jd-linkcol">
   <a href="../reference/org/w3c/dom/ls/package-summary.html">org.w3c.dom.ls</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
 
 
-    <tr class="alt-color api apilevel-1" >
+    <tr class=" api apilevel-1" >
         <td class="jd-linkcol">
   <a href="../reference/org/xml/sax/package-summary.html">org.xml.sax</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
 
 
-    <tr class=" api apilevel-1" >
+    <tr class="alt-color api apilevel-1" >
         <td class="jd-linkcol">
   <a href="../reference/org/xml/sax/ext/package-summary.html">org.xml.sax.ext</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
 
 
-    <tr class="alt-color api apilevel-1" >
+    <tr class=" api apilevel-1" >
         <td class="jd-linkcol">
   <a href="../reference/org/xml/sax/helpers/package-summary.html">org.xml.sax.helpers</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
 
 
-    <tr class=" api apilevel-1" >
+    <tr class="alt-color api apilevel-1" >
         <td class="jd-linkcol">
   <a href="../reference/org/xmlpull/v1/package-summary.html">org.xmlpull.v1</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
 
 
-    <tr class="alt-color api apilevel-1" >
+    <tr class=" api apilevel-1" >
         <td class="jd-linkcol">
   <a href="../reference/org/xmlpull/v1/sax2/package-summary.html">org.xmlpull.v1.sax2</a></td>
         <td class="jd-descrcol" width="100%"></td>

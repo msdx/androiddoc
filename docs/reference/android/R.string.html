@@ -82,6 +82,19 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 <html>
 <head>
 
@@ -97,7 +110,7 @@
 href="http://fonts.useso.com/css?family=Roboto+Condensed">
 <link rel="stylesheet" href="http://fonts.useso.com/css?family=Roboto:light,regular,medium,thin,italic,mediumitalic,bold"
   title="roboto">
-<link href="../../assets/css/default.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/default.css?v=2" rel="stylesheet" type="text/css">
 
 
 <!-- FULLSCREEN STYLESHEET -->
@@ -106,30 +119,31 @@ type="text/css">
 
 
 <!-- JAVASCRIPT -->
-<script src="http://googleapiscdn.qiniudn.com/www.google.com/jsapi" type="text/javascript"></script>
+<script src="http://www.google.com/jsapi" type="text/javascript"></script>
 <script src="../../assets/js/android_3p-bundle.js" type="text/javascript"></script>
 <script type="text/javascript">
   var toRoot = "../../";
   var metaTags = [];
   var devsite = false;
 </script>
-<script src="../../assets/js/docs.js" type="text/javascript"></script>
+<script src="../../assets/js/docs.js?v=2" type="text/javascript"></script>
 
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-5831155-1']);
-  _gaq.push(['_trackPageview']);
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
+  ga('create', 'UA-5831155-1', 'android.com');
+  ga('create', 'UA-49880327-2', 'android.com', {'name': 'universal'});  // New tracker);
+  ga('send', 'pageview');
+  ga('universal.send', 'pageview'); // Send page view for new tracker.
 </script>
+
 </head>
 
 <body class="gc-documentation 
-  develop" itemscope itemtype="http://schema.org/Article">
+  develop reference" itemscope itemtype="http://schema.org/Article">
   <div id="doc-api-level" class="1" style="display:none"></div>
   <a name="top"></a>
 
@@ -139,6 +153,10 @@ type="text/css">
   <!-- Header -->
   <div id="header-wrapper">
     <div id="header">
+
+    
+
+
       <div class="wrap" id="header-wrap">
         <div class="col-3 logo">
           <a href="../../index.html">
@@ -260,11 +278,20 @@ type="text/css">
 
 
         <!-- Expanded quicknav -->
-        <div id="quicknav" class="col-9">
+        <div id="quicknav" class="col-13">
           <ul>
+            <li class="about">
+              <ul>
+                <li><a href="../../about/index.html">About</a></li>
+                <li><a href="../../wear/index.html">Wear</a></li>
+                <li><a href="../../tv/index.html">TV</a></li>
+                <li><a href="../../auto/index.html">Auto</a></li>
+              </ul>
+            </li>
             <li class="design">
               <ul>
                 <li><a href="../../design/index.html">Get Started</a></li>
+                <li><a href="../../design/devices.html">Devices</a></li>
                 <li><a href="../../design/style/index.html">Style</a></li>
                 <li><a href="../../design/patterns/index.html">Patterns</a></li>
                 <li><a href="../../design/building-blocks/index.html">Building Blocks</a></li>
@@ -298,7 +325,7 @@ type="text/css">
                   ja-lang="リファレンス"
                   es-lang="Referencia"
                   >Reference</a></li>
-                <li><a href="../../tools/index.html"
+                <li><a href="../../sdk/index.html"
                   zh-tw-lang="相關工具"
                   zh-cn-lang="工具"
                   ru-lang="Инструменты"
@@ -306,7 +333,6 @@ type="text/css">
                   ja-lang="ツール"
                   es-lang="Herramientas"
                   >Tools</a>
-                  <ul><li><a href="../../sdk/index.html">Get the SDK</a></li></ul>
                 </li>
                 <li><a href="../../google/index.html">Google Services</a>
                 </li>
@@ -358,7 +384,7 @@ type="text/css">
                   ja-lang="リファレンス"
                   es-lang="Referencia"
                   >Reference</a></li>
-                <li class="tools"><a href="../../tools/index.html"
+                <li class="tools"><a href="../../sdk/index.html"
                   zh-tw-lang="相關工具"
                   zh-cn-lang="工具"
                   ru-lang="Инструменты"
@@ -373,7 +399,7 @@ type="text/css">
             </ul>
         </div>
     </div>
-    <!-- /Sendondary x-nav -->
+    <!-- /Sendondary x-nav DEVELOP -->
 
   
 
@@ -414,7 +440,7 @@ type="text/css">
         <div id="api-nav-title">Android APIs</div>
         </div><!-- end nav header -->
       <script>
-        var SINCE_DATA = [ '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19' ];
+        var SINCE_DATA = [ '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21' ];
         buildApiLevelSelector();
       </script>
                   
@@ -441,13 +467,15 @@ type="text/css">
   <a href="../../reference/android/app/admin/package-summary.html">android.app.admin</a></li>
     <li class="api apilevel-8">
   <a href="../../reference/android/app/backup/package-summary.html">android.app.backup</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../reference/android/app/job/package-summary.html">android.app.job</a></li>
+    <li class="api apilevel-21">
+  <a href="../../reference/android/app/usage/package-summary.html">android.app.usage</a></li>
     <li class="api apilevel-3">
   <a href="../../reference/android/appwidget/package-summary.html">android.appwidget</a></li>
     <li class="api apilevel-5">
   <a href="../../reference/android/bluetooth/package-summary.html">android.bluetooth</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../reference/android/bluetooth/le/package-summary.html">android.bluetooth.le</a></li>
     <li class="api apilevel-1">
   <a href="../../reference/android/content/package-summary.html">android.content</a></li>
@@ -473,16 +501,14 @@ type="text/css">
   <a href="../../reference/android/graphics/pdf/package-summary.html">android.graphics.pdf</a></li>
     <li class="api apilevel-1">
   <a href="../../reference/android/hardware/package-summary.html">android.hardware</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../reference/android/hardware/camera2/package-summary.html">android.hardware.camera2</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../reference/android/hardware/camera2/params/package-summary.html">android.hardware.camera2.params</a></li>
     <li class="api apilevel-17">
   <a href="../../reference/android/hardware/display/package-summary.html">android.hardware.display</a></li>
     <li class="api apilevel-16">
   <a href="../../reference/android/hardware/input/package-summary.html">android.hardware.input</a></li>
-    <li class="api apilevel-18">
-  <a href="../../reference/android/hardware/location/package-summary.html">android.hardware.location</a></li>
     <li class="api apilevel-12">
   <a href="../../reference/android/hardware/usb/package-summary.html">android.hardware.usb</a></li>
     <li class="api apilevel-3">
@@ -493,11 +519,15 @@ type="text/css">
   <a href="../../reference/android/media/package-summary.html">android.media</a></li>
     <li class="api apilevel-9">
   <a href="../../reference/android/media/audiofx/package-summary.html">android.media.audiofx</a></li>
+    <li class="api apilevel-21">
+  <a href="../../reference/android/media/browse/package-summary.html">android.media.browse</a></li>
     <li class="api apilevel-14">
   <a href="../../reference/android/media/effect/package-summary.html">android.media.effect</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
+  <a href="../../reference/android/media/projection/package-summary.html">android.media.projection</a></li>
+    <li class="api apilevel-21">
   <a href="../../reference/android/media/session/package-summary.html">android.media.session</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../reference/android/media/tv/package-summary.html">android.media.tv</a></li>
     <li class="api apilevel-12">
   <a href="../../reference/android/mtp/package-summary.html">android.mtp</a></li>
@@ -547,11 +577,15 @@ type="text/css">
   <a href="../../reference/android/security/package-summary.html">android.security</a></li>
     <li class="api apilevel-17">
   <a href="../../reference/android/service/dreams/package-summary.html">android.service.dreams</a></li>
+    <li class="api apilevel-21">
+  <a href="../../reference/android/service/media/package-summary.html">android.service.media</a></li>
     <li class="api apilevel-18">
   <a href="../../reference/android/service/notification/package-summary.html">android.service.notification</a></li>
+    <li class="api apilevel-21">
+  <a href="../../reference/android/service/restrictions/package-summary.html">android.service.restrictions</a></li>
     <li class="api apilevel-14">
   <a href="../../reference/android/service/textservice/package-summary.html">android.service.textservice</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../reference/android/service/voice/package-summary.html">android.service.voice</a></li>
     <li class="api apilevel-7">
   <a href="../../reference/android/service/wallpaper/package-summary.html">android.service.wallpaper</a></li>
@@ -596,11 +630,15 @@ type="text/css">
     <li class="api apilevel-">
   <a href="../../reference/android/support/v4/media/package-summary.html">android.support.v4.media</a></li>
     <li class="api apilevel-">
+  <a href="../../reference/android/support/v4/media/session/package-summary.html">android.support.v4.media.session</a></li>
+    <li class="api apilevel-">
   <a href="../../reference/android/support/v4/net/package-summary.html">android.support.v4.net</a></li>
     <li class="api apilevel-">
   <a href="../../reference/android/support/v4/os/package-summary.html">android.support.v4.os</a></li>
     <li class="api apilevel-">
   <a href="../../reference/android/support/v4/print/package-summary.html">android.support.v4.print</a></li>
+    <li class="api apilevel-">
+  <a href="../../reference/android/support/v4/provider/package-summary.html">android.support.v4.provider</a></li>
     <li class="api apilevel-">
   <a href="../../reference/android/support/v4/text/package-summary.html">android.support.v4.text</a></li>
     <li class="api apilevel-">
@@ -616,6 +654,10 @@ type="text/css">
     <li class="api apilevel-">
   <a href="../../reference/android/support/v7/appcompat/package-summary.html">android.support.v7.appcompat</a></li>
     <li class="api apilevel-">
+  <a href="../../reference/android/support/v7/cardview/package-summary.html">android.support.v7.cardview</a></li>
+    <li class="api apilevel-">
+  <a href="../../reference/android/support/v7/graphics/package-summary.html">android.support.v7.graphics</a></li>
+    <li class="api apilevel-">
   <a href="../../reference/android/support/v7/gridlayout/package-summary.html">android.support.v7.gridlayout</a></li>
     <li class="api apilevel-">
   <a href="../../reference/android/support/v7/media/package-summary.html">android.support.v7.media</a></li>
@@ -627,8 +669,10 @@ type="text/css">
   <a href="../../reference/android/support/v7/widget/package-summary.html">android.support.v7.widget</a></li>
     <li class="api apilevel-">
   <a href="../../reference/android/support/v8/renderscript/package-summary.html">android.support.v8.renderscript</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../reference/android/system/package-summary.html">android.system</a></li>
+    <li class="api apilevel-21">
+  <a href="../../reference/android/telecom/package-summary.html">android.telecom</a></li>
     <li class="api apilevel-1">
   <a href="../../reference/android/telephony/package-summary.html">android.telephony</a></li>
     <li class="api apilevel-5">
@@ -913,7 +957,7 @@ type="text/css">
           <li class="selected api apilevel-1"><a href="../../reference/android/R.string.html">R.string</a></li>
           <li class="api apilevel-1"><a href="../../reference/android/R.style.html">R.style</a></li>
           <li class="api apilevel-"><a href="../../reference/android/R.styleable.html">R.styleable</a></li>
-          <li class="api apilevel-"><a href="../../reference/android/R.transition.html">R.transition</a></li>
+          <li class="api apilevel-21"><a href="../../reference/android/R.transition.html">R.transition</a></li>
           <li class="api apilevel-1"><a href="../../reference/android/R.xml.html">R.xml</a></li>
       </ul>
     </li>
@@ -1040,6 +1084,9 @@ Summary:
   
 
 
+    
+
+
 </div><!-- end header -->
 
 <div id="naMessage"></div>
@@ -1119,176 +1166,296 @@ Summary:
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../reference/android/R.string.html#VideoView_error_button">VideoView_error_button</a></td>
-        <td class="jd-descrcol" width="100%">Button to close error alert when a video cannot be played 
-</td>
+        <td class="jd-descrcol" width="100%">
+          Button to close error alert when a video cannot be played 
+
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-3" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../reference/android/R.string.html#VideoView_error_text_invalid_progressive_playback">VideoView_error_text_invalid_progressive_playback</a></td>
-        <td class="jd-descrcol" width="100%">Text for error alert when a video container is not valid for progressive download/playback.</td>
+        <td class="jd-descrcol" width="100%">
+          Text for error alert when a video container is not valid for progressive download/playback.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../reference/android/R.string.html#VideoView_error_text_unknown">VideoView_error_text_unknown</a></td>
-        <td class="jd-descrcol" width="100%">Text for error alert when a video cannot be played.</td>
+        <td class="jd-descrcol" width="100%">
+          Text for error alert when a video cannot be played.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../reference/android/R.string.html#VideoView_error_title">VideoView_error_title</a></td>
-        <td class="jd-descrcol" width="100%">Title for error alert when a video cannot be played.</td>
+        <td class="jd-descrcol" width="100%">
+          Title for error alert when a video cannot be played.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../reference/android/R.string.html#cancel">cancel</a></td>
-        <td class="jd-descrcol" width="100%">Preference framework strings.</td>
+        <td class="jd-descrcol" width="100%">
+          Preference framework strings.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../reference/android/R.string.html#copy">copy</a></td>
-        <td class="jd-descrcol" width="100%">Item on EditText context menu.</td>
+        <td class="jd-descrcol" width="100%">
+          Item on EditText context menu.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../reference/android/R.string.html#copyUrl">copyUrl</a></td>
-        <td class="jd-descrcol" width="100%">Item on EditText context menu.</td>
+        <td class="jd-descrcol" width="100%">
+          Item on EditText context menu.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../reference/android/R.string.html#cut">cut</a></td>
-        <td class="jd-descrcol" width="100%">Item on EditText context menu.</td>
+        <td class="jd-descrcol" width="100%">
+          Item on EditText context menu.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../reference/android/R.string.html#defaultMsisdnAlphaTag">defaultMsisdnAlphaTag</a></td>
-        <td class="jd-descrcol" width="100%">What the UI should display for "Msisdn" unless overridden by the SIM
-</td>
+        <td class="jd-descrcol" width="100%">
+          What the UI should display for "Msisdn" unless overridden by the SIM
+
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../reference/android/R.string.html#defaultVoiceMailAlphaTag">defaultVoiceMailAlphaTag</a></td>
-        <td class="jd-descrcol" width="100%">What the UI should display for "voice mail" unless overridden by the SIM
-</td>
+        <td class="jd-descrcol" width="100%">
+          What the UI should display for "voice mail" unless overridden by the SIM
+
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-3" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../reference/android/R.string.html#dialog_alert_title">dialog_alert_title</a></td>
-        <td class="jd-descrcol" width="100%">This is the generic "attention" string to be used in attention dialogs.</td>
+        <td class="jd-descrcol" width="100%">
+          This is the generic "attention" string to be used in attention dialogs.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../reference/android/R.string.html#emptyPhoneNumber">emptyPhoneNumber</a></td>
-        <td class="jd-descrcol" width="100%">How to display the lack of a phone number 
-</td>
+        <td class="jd-descrcol" width="100%">
+          How to display the lack of a phone number 
+
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../reference/android/R.string.html#httpErrorBadUrl">httpErrorBadUrl</a></td>
-        <td class="jd-descrcol" width="100%">Displayed when a web request failed because the URL isn't in a valid form.</td>
+        <td class="jd-descrcol" width="100%">
+          Displayed when a web request failed because the URL isn't in a valid form.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../reference/android/R.string.html#httpErrorUnsupportedScheme">httpErrorUnsupportedScheme</a></td>
-        <td class="jd-descrcol" width="100%">Displayed when a web request failed because the protocol of the server is not supported.</td>
+        <td class="jd-descrcol" width="100%">
+          Displayed when a web request failed because the protocol of the server is not supported.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../reference/android/R.string.html#no">no</a></td>
-        <td class="jd-descrcol" width="100%">Preference framework strings.</td>
+        <td class="jd-descrcol" width="100%">
+          Preference framework strings.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../reference/android/R.string.html#ok">ok</a></td>
-        <td class="jd-descrcol" width="100%">Preference framework strings.</td>
+        <td class="jd-descrcol" width="100%">
+          Preference framework strings.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../reference/android/R.string.html#paste">paste</a></td>
-        <td class="jd-descrcol" width="100%">Item on EditText context menu.</td>
+        <td class="jd-descrcol" width="100%">
+          Item on EditText context menu.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../reference/android/R.string.html#search_go">search_go</a></td>
-        <td class="jd-descrcol" width="100%">This is the default button label in the system-wide search UI.</td>
+        <td class="jd-descrcol" width="100%">
+          This is the default button label in the system-wide search UI.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../reference/android/R.string.html#selectAll">selectAll</a></td>
-        <td class="jd-descrcol" width="100%">Item on EditText context menu.</td>
+        <td class="jd-descrcol" width="100%">
+          Item on EditText context menu.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-11" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../reference/android/R.string.html#selectTextMode">selectTextMode</a></td>
-        <td class="jd-descrcol" width="100%">Item on EditText context menu.</td>
+        <td class="jd-descrcol" width="100%">
+          Item on EditText context menu.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-14" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../reference/android/R.string.html#status_bar_notification_info_overflow">status_bar_notification_info_overflow</a></td>
-        <td class="jd-descrcol" width="100%">Text to use when the number in a notification info is too large
+        <td class="jd-descrcol" width="100%">
+          Text to use when the number in a notification info is too large
          (greater than status_bar_notification_info_maxnum, defined in
-         values/config.xml) and must be truncated.</td>
+         values/config.xml) and must be truncated.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../reference/android/R.string.html#unknownName">unknownName</a></td>
-        <td class="jd-descrcol" width="100%">How to display the lack of a name 
-</td>
+        <td class="jd-descrcol" width="100%">
+          How to display the lack of a name 
+
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../reference/android/R.string.html#untitled">untitled</a></td>
-        <td class="jd-descrcol" width="100%">Used in Contacts for a field that has no label and in Note Pad
-         for a note with no name.</td>
+        <td class="jd-descrcol" width="100%">
+          Used in Contacts for a field that has no label and in Note Pad
+         for a note with no name.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../reference/android/R.string.html#yes">yes</a></td>
-        <td class="jd-descrcol" width="100%">Preference framework strings.</td>
+        <td class="jd-descrcol" width="100%">
+          Preference framework strings.
+          
+    
+
+        </td>
     </tr>
     
     
@@ -1378,7 +1545,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../reference/java/lang/Object.html#clone()">clone</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Creates and returns a copy of this <code>Object</code>.</div>
+        <div class="jd-descrdiv">
+          Creates and returns a copy of this <code>Object</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1396,8 +1568,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../reference/java/lang/Object.html#equals(java.lang.Object)">equals</a></span>(<a href="../../reference/java/lang/Object.html">Object</a> o)</nobr>
         
-        <div class="jd-descrdiv">Compares this instance with the specified object and indicates if they
- are equal.</div>
+        <div class="jd-descrdiv">
+          Compares this instance with the specified object and indicates if they
+ are equal.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1415,7 +1592,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../reference/java/lang/Object.html#finalize()">finalize</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Invoked when the garbage collector has detected that this instance is no longer reachable.</div>
+        <div class="jd-descrdiv">
+          Invoked when the garbage collector has detected that this instance is no longer reachable.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1433,8 +1615,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../reference/java/lang/Object.html#getClass()">getClass</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns the unique instance of <code><a href="../../reference/java/lang/Class.html">Class</a></code> that represents this
- object's class.</div>
+        <div class="jd-descrdiv">
+          Returns the unique instance of <code><a href="../../reference/java/lang/Class.html">Class</a></code> that represents this
+ object's class.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1452,7 +1639,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../reference/java/lang/Object.html#hashCode()">hashCode</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns an integer hash code for this object.</div>
+        <div class="jd-descrdiv">
+          Returns an integer hash code for this object.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1470,8 +1662,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../reference/java/lang/Object.html#notify()">notify</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Causes a thread which is waiting on this object's monitor (by means of
- calling one of the <code>wait()</code> methods) to be woken up.</div>
+        <div class="jd-descrdiv">
+          Causes a thread which is waiting on this object's monitor (by means of
+ calling one of the <code>wait()</code> methods) to be woken up.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1489,8 +1686,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../reference/java/lang/Object.html#notifyAll()">notifyAll</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Causes all threads which are waiting on this object's monitor (by means
- of calling one of the <code>wait()</code> methods) to be woken up.</div>
+        <div class="jd-descrdiv">
+          Causes all threads which are waiting on this object's monitor (by means
+ of calling one of the <code>wait()</code> methods) to be woken up.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1508,8 +1710,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../reference/java/lang/Object.html#toString()">toString</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns a string containing a concise, human-readable description of this
- object.</div>
+        <div class="jd-descrdiv">
+          Returns a string containing a concise, human-readable description of this
+ object.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1527,7 +1734,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../reference/java/lang/Object.html#wait()">wait</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object.</div>
+        <div class="jd-descrdiv">
+          Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1545,8 +1757,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../reference/java/lang/Object.html#wait(long, int)">wait</a></span>(long millis, int nanos)</nobr>
         
-        <div class="jd-descrdiv">Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object or until the
- specified timeout expires.</div>
+        <div class="jd-descrdiv">
+          Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object or until the
+ specified timeout expires.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1564,8 +1781,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../reference/java/lang/Object.html#wait(long)">wait</a></span>(long millis)</nobr>
         
-        <div class="jd-descrdiv">Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object or until the
- specified timeout expires.</div>
+        <div class="jd-descrdiv">
+          Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object or until the
+ specified timeout expires.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1626,6 +1848,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Button to close error alert when a video cannot be played 
 </p></div>
 
@@ -1665,6 +1890,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Text for error alert when a video container is not valid for progressive download/playback. 
 </p></div>
@@ -1706,6 +1934,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Text for error alert when a video cannot be played. it can be used by any app. 
 </p></div>
 
@@ -1745,6 +1976,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Title for error alert when a video cannot be played.  it can be used by any app. 
 </p></div>
@@ -1786,6 +2020,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Preference framework strings. 
 </p></div>
 
@@ -1825,6 +2062,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Item on EditText context menu. This action is used to cut selected the text into the clipboard. 
 </p></div>
@@ -1866,6 +2106,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Item on EditText context menu. This action is used to copy a URL from the edit field into the clipboard. 
 </p></div>
 
@@ -1905,6 +2148,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Item on EditText context menu.  This action is used to cut selected the text into the clipboard.  
 </p></div>
@@ -1946,6 +2192,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>What the UI should display for "Msisdn" unless overridden by the SIM
 </p></div>
 
@@ -1986,6 +2235,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>What the UI should display for "voice mail" unless overridden by the SIM
 </p></div>
 
@@ -2025,6 +2277,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>This is the generic "attention" string to be used in attention dialogs.  Typically
          combined with setIconAttribute(android.R.attr.alertDialogIcon)
@@ -2068,6 +2323,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>How to display the lack of a phone number 
 </p></div>
 
@@ -2107,6 +2365,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Displayed when a web request failed because the URL isn't in a valid form. 
 </p></div>
@@ -2148,6 +2409,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Displayed when a web request failed because the protocol of the server is not supported. 
 </p></div>
 
@@ -2187,6 +2451,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Preference framework strings. 
 </p></div>
@@ -2228,6 +2495,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Preference framework strings. 
 </p></div>
 
@@ -2268,6 +2538,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Item on EditText context menu. This action is used to paste from the clipboard into the eidt field 
 </p></div>
 
@@ -2307,6 +2580,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>This is the default button label in the system-wide search UI.
          It is also used by the home screen's search "widget". It should be short 
@@ -2349,6 +2625,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Item on EditText context menu. This action is used to select all text in the edit field. 
 </p></div>
 
@@ -2389,6 +2668,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Item on EditText context menu. Added only when the context menu is not empty, it enable selection context mode. [CHAR LIMIT=20] 
 </p></div>
 
@@ -2428,6 +2710,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Text to use when the number in a notification info is too large
          (greater than status_bar_notification_info_maxnum, defined in
@@ -2473,6 +2758,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>How to display the lack of a name 
 </p></div>
 
@@ -2512,6 +2800,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Used in Contacts for a field that has no label and in Note Pad
          for a note with no name. 
@@ -2553,6 +2844,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Preference framework strings. 
 </p></div>
@@ -2608,6 +2902,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 

@@ -82,6 +82,19 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 <html>
 <head>
 
@@ -97,7 +110,7 @@
 href="http://fonts.useso.com/css?family=Roboto+Condensed">
 <link rel="stylesheet" href="http://fonts.useso.com/css?family=Roboto:light,regular,medium,thin,italic,mediumitalic,bold"
   title="roboto">
-<link href="../../../assets/css/default.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/default.css?v=2" rel="stylesheet" type="text/css">
 
 
 <!-- FULLSCREEN STYLESHEET -->
@@ -106,30 +119,31 @@ type="text/css">
 
 
 <!-- JAVASCRIPT -->
-<script src="http://googleapiscdn.qiniudn.com/www.google.com/jsapi" type="text/javascript"></script>
+<script src="http://www.google.com/jsapi" type="text/javascript"></script>
 <script src="../../../assets/js/android_3p-bundle.js" type="text/javascript"></script>
 <script type="text/javascript">
   var toRoot = "../../../";
   var metaTags = [];
   var devsite = false;
 </script>
-<script src="../../../assets/js/docs.js" type="text/javascript"></script>
+<script src="../../../assets/js/docs.js?v=2" type="text/javascript"></script>
 
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-5831155-1']);
-  _gaq.push(['_trackPageview']);
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
+  ga('create', 'UA-5831155-1', 'android.com');
+  ga('create', 'UA-49880327-2', 'android.com', {'name': 'universal'});  // New tracker);
+  ga('send', 'pageview');
+  ga('universal.send', 'pageview'); // Send page view for new tracker.
 </script>
+
 </head>
 
 <body class="gc-documentation 
-  develop" itemscope itemtype="http://schema.org/Article">
+  develop reference" itemscope itemtype="http://schema.org/Article">
   <div id="doc-api-level" class="1" style="display:none"></div>
   <a name="top"></a>
 
@@ -139,6 +153,10 @@ type="text/css">
   <!-- Header -->
   <div id="header-wrapper">
     <div id="header">
+
+    
+
+
       <div class="wrap" id="header-wrap">
         <div class="col-3 logo">
           <a href="../../../index.html">
@@ -260,11 +278,20 @@ type="text/css">
 
 
         <!-- Expanded quicknav -->
-        <div id="quicknav" class="col-9">
+        <div id="quicknav" class="col-13">
           <ul>
+            <li class="about">
+              <ul>
+                <li><a href="../../../about/index.html">About</a></li>
+                <li><a href="../../../wear/index.html">Wear</a></li>
+                <li><a href="../../../tv/index.html">TV</a></li>
+                <li><a href="../../../auto/index.html">Auto</a></li>
+              </ul>
+            </li>
             <li class="design">
               <ul>
                 <li><a href="../../../design/index.html">Get Started</a></li>
+                <li><a href="../../../design/devices.html">Devices</a></li>
                 <li><a href="../../../design/style/index.html">Style</a></li>
                 <li><a href="../../../design/patterns/index.html">Patterns</a></li>
                 <li><a href="../../../design/building-blocks/index.html">Building Blocks</a></li>
@@ -298,7 +325,7 @@ type="text/css">
                   ja-lang="リファレンス"
                   es-lang="Referencia"
                   >Reference</a></li>
-                <li><a href="../../../tools/index.html"
+                <li><a href="../../../sdk/index.html"
                   zh-tw-lang="相關工具"
                   zh-cn-lang="工具"
                   ru-lang="Инструменты"
@@ -306,7 +333,6 @@ type="text/css">
                   ja-lang="ツール"
                   es-lang="Herramientas"
                   >Tools</a>
-                  <ul><li><a href="../../../sdk/index.html">Get the SDK</a></li></ul>
                 </li>
                 <li><a href="../../../google/index.html">Google Services</a>
                 </li>
@@ -358,7 +384,7 @@ type="text/css">
                   ja-lang="リファレンス"
                   es-lang="Referencia"
                   >Reference</a></li>
-                <li class="tools"><a href="../../../tools/index.html"
+                <li class="tools"><a href="../../../sdk/index.html"
                   zh-tw-lang="相關工具"
                   zh-cn-lang="工具"
                   ru-lang="Инструменты"
@@ -373,7 +399,7 @@ type="text/css">
             </ul>
         </div>
     </div>
-    <!-- /Sendondary x-nav -->
+    <!-- /Sendondary x-nav DEVELOP -->
 
   
 
@@ -414,7 +440,7 @@ type="text/css">
         <div id="api-nav-title">Android APIs</div>
         </div><!-- end nav header -->
       <script>
-        var SINCE_DATA = [ '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19' ];
+        var SINCE_DATA = [ '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21' ];
         buildApiLevelSelector();
       </script>
                   
@@ -441,13 +467,15 @@ type="text/css">
   <a href="../../../reference/android/app/admin/package-summary.html">android.app.admin</a></li>
     <li class="api apilevel-8">
   <a href="../../../reference/android/app/backup/package-summary.html">android.app.backup</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/app/job/package-summary.html">android.app.job</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/app/usage/package-summary.html">android.app.usage</a></li>
     <li class="api apilevel-3">
   <a href="../../../reference/android/appwidget/package-summary.html">android.appwidget</a></li>
     <li class="api apilevel-5">
   <a href="../../../reference/android/bluetooth/package-summary.html">android.bluetooth</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/bluetooth/le/package-summary.html">android.bluetooth.le</a></li>
     <li class="selected api apilevel-1">
   <a href="../../../reference/android/content/package-summary.html">android.content</a></li>
@@ -473,16 +501,14 @@ type="text/css">
   <a href="../../../reference/android/graphics/pdf/package-summary.html">android.graphics.pdf</a></li>
     <li class="api apilevel-1">
   <a href="../../../reference/android/hardware/package-summary.html">android.hardware</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/hardware/camera2/package-summary.html">android.hardware.camera2</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/hardware/camera2/params/package-summary.html">android.hardware.camera2.params</a></li>
     <li class="api apilevel-17">
   <a href="../../../reference/android/hardware/display/package-summary.html">android.hardware.display</a></li>
     <li class="api apilevel-16">
   <a href="../../../reference/android/hardware/input/package-summary.html">android.hardware.input</a></li>
-    <li class="api apilevel-18">
-  <a href="../../../reference/android/hardware/location/package-summary.html">android.hardware.location</a></li>
     <li class="api apilevel-12">
   <a href="../../../reference/android/hardware/usb/package-summary.html">android.hardware.usb</a></li>
     <li class="api apilevel-3">
@@ -493,11 +519,15 @@ type="text/css">
   <a href="../../../reference/android/media/package-summary.html">android.media</a></li>
     <li class="api apilevel-9">
   <a href="../../../reference/android/media/audiofx/package-summary.html">android.media.audiofx</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/media/browse/package-summary.html">android.media.browse</a></li>
     <li class="api apilevel-14">
   <a href="../../../reference/android/media/effect/package-summary.html">android.media.effect</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/media/projection/package-summary.html">android.media.projection</a></li>
+    <li class="api apilevel-21">
   <a href="../../../reference/android/media/session/package-summary.html">android.media.session</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/media/tv/package-summary.html">android.media.tv</a></li>
     <li class="api apilevel-12">
   <a href="../../../reference/android/mtp/package-summary.html">android.mtp</a></li>
@@ -547,11 +577,15 @@ type="text/css">
   <a href="../../../reference/android/security/package-summary.html">android.security</a></li>
     <li class="api apilevel-17">
   <a href="../../../reference/android/service/dreams/package-summary.html">android.service.dreams</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/service/media/package-summary.html">android.service.media</a></li>
     <li class="api apilevel-18">
   <a href="../../../reference/android/service/notification/package-summary.html">android.service.notification</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/service/restrictions/package-summary.html">android.service.restrictions</a></li>
     <li class="api apilevel-14">
   <a href="../../../reference/android/service/textservice/package-summary.html">android.service.textservice</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/service/voice/package-summary.html">android.service.voice</a></li>
     <li class="api apilevel-7">
   <a href="../../../reference/android/service/wallpaper/package-summary.html">android.service.wallpaper</a></li>
@@ -596,11 +630,15 @@ type="text/css">
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/media/package-summary.html">android.support.v4.media</a></li>
     <li class="api apilevel-">
+  <a href="../../../reference/android/support/v4/media/session/package-summary.html">android.support.v4.media.session</a></li>
+    <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/net/package-summary.html">android.support.v4.net</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/os/package-summary.html">android.support.v4.os</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/print/package-summary.html">android.support.v4.print</a></li>
+    <li class="api apilevel-">
+  <a href="../../../reference/android/support/v4/provider/package-summary.html">android.support.v4.provider</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/text/package-summary.html">android.support.v4.text</a></li>
     <li class="api apilevel-">
@@ -616,6 +654,10 @@ type="text/css">
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v7/appcompat/package-summary.html">android.support.v7.appcompat</a></li>
     <li class="api apilevel-">
+  <a href="../../../reference/android/support/v7/cardview/package-summary.html">android.support.v7.cardview</a></li>
+    <li class="api apilevel-">
+  <a href="../../../reference/android/support/v7/graphics/package-summary.html">android.support.v7.graphics</a></li>
+    <li class="api apilevel-">
   <a href="../../../reference/android/support/v7/gridlayout/package-summary.html">android.support.v7.gridlayout</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v7/media/package-summary.html">android.support.v7.media</a></li>
@@ -627,8 +669,10 @@ type="text/css">
   <a href="../../../reference/android/support/v7/widget/package-summary.html">android.support.v7.widget</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v8/renderscript/package-summary.html">android.support.v8.renderscript</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/system/package-summary.html">android.system</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/telecom/package-summary.html">android.telecom</a></li>
     <li class="api apilevel-1">
   <a href="../../../reference/android/telephony/package-summary.html">android.telephony</a></li>
     <li class="api apilevel-5">
@@ -950,6 +994,7 @@ type="text/css">
           <li class="api apilevel-1"><a href="../../../reference/android/content/MutableContextWrapper.html">MutableContextWrapper</a></li>
           <li class="api apilevel-8"><a href="../../../reference/android/content/PeriodicSync.html">PeriodicSync</a></li>
           <li class="api apilevel-18"><a href="../../../reference/android/content/RestrictionEntry.html">RestrictionEntry</a></li>
+          <li class="api apilevel-21"><a href="../../../reference/android/content/RestrictionsManager.html">RestrictionsManager</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/content/SearchRecentSuggestionsProvider.html">SearchRecentSuggestionsProvider</a></li>
           <li class="api apilevel-5"><a href="../../../reference/android/content/SyncAdapterType.html">SyncAdapterType</a></li>
           <li class="api apilevel-5"><a href="../../../reference/android/content/SyncContext.html">SyncContext</a></li>
@@ -1118,6 +1163,9 @@ Summary:
       
   
   
+
+
+    
 
 
 </div><!-- end header -->
@@ -1296,8 +1344,13 @@ Summary:
         
         class</nobr></td>
       <td class="jd-linkcol"><a href="../../../reference/android/content/IntentFilter.AuthorityEntry.html">IntentFilter.AuthorityEntry</a></td>
-      <td class="jd-descrcol" width="100%">This is an entry for a single authority in the Iterator returned by
- <code><a href="../../../reference/android/content/IntentFilter.html#authoritiesIterator()">authoritiesIterator()</a></code>.&nbsp;</td>
+      <td class="jd-descrcol" width="100%">
+        This is an entry for a single authority in the Iterator returned by
+ <code><a href="../../../reference/android/content/IntentFilter.html#authoritiesIterator()">authoritiesIterator()</a></code>.&nbsp;
+        
+    
+
+      </td>
     </tr>
     
     
@@ -1309,8 +1362,13 @@ Summary:
         
         class</nobr></td>
       <td class="jd-linkcol"><a href="../../../reference/android/content/IntentFilter.MalformedMimeTypeException.html">IntentFilter.MalformedMimeTypeException</a></td>
-      <td class="jd-descrcol" width="100%">This exception is thrown when a given MIME type does not have a valid
- syntax.&nbsp;</td>
+      <td class="jd-descrcol" width="100%">
+        This exception is thrown when a given MIME type does not have a valid
+ syntax.&nbsp;
+        
+    
+
+      </td>
     </tr>
     
     
@@ -1335,125 +1393,205 @@ Summary:
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/content/IntentFilter.html#MATCH_ADJUSTMENT_MASK">MATCH_ADJUSTMENT_MASK</a></td>
-        <td class="jd-descrcol" width="100%">The part of a match constant that applies a quality adjustment to the
- basic category of match.</td>
+        <td class="jd-descrcol" width="100%">
+          The part of a match constant that applies a quality adjustment to the
+ basic category of match.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/content/IntentFilter.html#MATCH_ADJUSTMENT_NORMAL">MATCH_ADJUSTMENT_NORMAL</a></td>
-        <td class="jd-descrcol" width="100%">Quality adjustment applied to the category of match that signifies
+        <td class="jd-descrcol" width="100%">
+          Quality adjustment applied to the category of match that signifies
  the default, base value; higher numbers improve the quality while
- lower numbers reduce it.</td>
+ lower numbers reduce it.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/content/IntentFilter.html#MATCH_CATEGORY_EMPTY">MATCH_CATEGORY_EMPTY</a></td>
-        <td class="jd-descrcol" width="100%">The filter matched an intent that had no data specified.</td>
+        <td class="jd-descrcol" width="100%">
+          The filter matched an intent that had no data specified.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/content/IntentFilter.html#MATCH_CATEGORY_HOST">MATCH_CATEGORY_HOST</a></td>
-        <td class="jd-descrcol" width="100%">The filter matched an intent with the same data URI scheme and
- authority host.</td>
+        <td class="jd-descrcol" width="100%">
+          The filter matched an intent with the same data URI scheme and
+ authority host.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/content/IntentFilter.html#MATCH_CATEGORY_MASK">MATCH_CATEGORY_MASK</a></td>
-        <td class="jd-descrcol" width="100%">The part of a match constant that describes the category of match
- that occurred.</td>
+        <td class="jd-descrcol" width="100%">
+          The part of a match constant that describes the category of match
+ that occurred.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/content/IntentFilter.html#MATCH_CATEGORY_PATH">MATCH_CATEGORY_PATH</a></td>
-        <td class="jd-descrcol" width="100%">The filter matched an intent with the same data URI scheme,
- authority, and path.</td>
+        <td class="jd-descrcol" width="100%">
+          The filter matched an intent with the same data URI scheme,
+ authority, and path.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/content/IntentFilter.html#MATCH_CATEGORY_PORT">MATCH_CATEGORY_PORT</a></td>
-        <td class="jd-descrcol" width="100%">The filter matched an intent with the same data URI scheme and
- authority host and port.</td>
+        <td class="jd-descrcol" width="100%">
+          The filter matched an intent with the same data URI scheme and
+ authority host and port.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/content/IntentFilter.html#MATCH_CATEGORY_SCHEME">MATCH_CATEGORY_SCHEME</a></td>
-        <td class="jd-descrcol" width="100%">The filter matched an intent with the same data URI scheme.</td>
+        <td class="jd-descrcol" width="100%">
+          The filter matched an intent with the same data URI scheme.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-19" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/content/IntentFilter.html#MATCH_CATEGORY_SCHEME_SPECIFIC_PART">MATCH_CATEGORY_SCHEME_SPECIFIC_PART</a></td>
-        <td class="jd-descrcol" width="100%">The filter matched an intent with the same data URI scheme and
- scheme specific part.</td>
+        <td class="jd-descrcol" width="100%">
+          The filter matched an intent with the same data URI scheme and
+ scheme specific part.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/content/IntentFilter.html#MATCH_CATEGORY_TYPE">MATCH_CATEGORY_TYPE</a></td>
-        <td class="jd-descrcol" width="100%">The filter matched an intent with the same data MIME type.</td>
+        <td class="jd-descrcol" width="100%">
+          The filter matched an intent with the same data MIME type.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/content/IntentFilter.html#NO_MATCH_ACTION">NO_MATCH_ACTION</a></td>
-        <td class="jd-descrcol" width="100%">The filter didn't match due to different actions.</td>
+        <td class="jd-descrcol" width="100%">
+          The filter didn't match due to different actions.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/content/IntentFilter.html#NO_MATCH_CATEGORY">NO_MATCH_CATEGORY</a></td>
-        <td class="jd-descrcol" width="100%">The filter didn't match because it required one or more categories
- that were not in the Intent.</td>
+        <td class="jd-descrcol" width="100%">
+          The filter didn't match because it required one or more categories
+ that were not in the Intent.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/content/IntentFilter.html#NO_MATCH_DATA">NO_MATCH_DATA</a></td>
-        <td class="jd-descrcol" width="100%">The filter didn't match due to different data URIs.</td>
+        <td class="jd-descrcol" width="100%">
+          The filter didn't match due to different data URIs.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/content/IntentFilter.html#NO_MATCH_TYPE">NO_MATCH_TYPE</a></td>
-        <td class="jd-descrcol" width="100%">The filter didn't match due to different MIME types.</td>
+        <td class="jd-descrcol" width="100%">
+          The filter didn't match due to different MIME types.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/content/IntentFilter.html#SYSTEM_HIGH_PRIORITY">SYSTEM_HIGH_PRIORITY</a></td>
-        <td class="jd-descrcol" width="100%">The filter <code><a href="../../../reference/android/content/IntentFilter.html#setPriority(int)">setPriority(int)</a></code> value at which system high-priority
+        <td class="jd-descrcol" width="100%">
+          The filter <code><a href="../../../reference/android/content/IntentFilter.html#setPriority(int)">setPriority(int)</a></code> value at which system high-priority
  receivers are placed; that is, receivers that should execute before
- application code.</td>
+ application code.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/content/IntentFilter.html#SYSTEM_LOW_PRIORITY">SYSTEM_LOW_PRIORITY</a></td>
-        <td class="jd-descrcol" width="100%">The filter <code><a href="../../../reference/android/content/IntentFilter.html#setPriority(int)">setPriority(int)</a></code> value at which system low-priority
+        <td class="jd-descrcol" width="100%">
+          The filter <code><a href="../../../reference/android/content/IntentFilter.html#setPriority(int)">setPriority(int)</a></code> value at which system low-priority
  receivers are placed; that is, receivers that should execute after
- application code.</td>
+ application code.
+          
+    
+
+        </td>
     </tr>
     
     
@@ -1492,20 +1630,30 @@ Summary:
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/os/Parcelable.html#CONTENTS_FILE_DESCRIPTOR">CONTENTS_FILE_DESCRIPTOR</a></td>
-        <td class="jd-descrcol" width="100%">Bit masks for use with <code><a href="../../../reference/android/os/Parcelable.html#describeContents()">describeContents()</a></code>: each bit represents a
+        <td class="jd-descrcol" width="100%">
+          Bit masks for use with <code><a href="../../../reference/android/os/Parcelable.html#describeContents()">describeContents()</a></code>: each bit represents a
  kind of object considered to have potential special significance when
- marshalled.</td>
+ marshalled.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/os/Parcelable.html#PARCELABLE_WRITE_RETURN_VALUE">PARCELABLE_WRITE_RETURN_VALUE</a></td>
-        <td class="jd-descrcol" width="100%">Flag for use with <code><a href="../../../reference/android/os/Parcelable.html#writeToParcel(android.os.Parcel, int)">writeToParcel(Parcel, int)</a></code>: the object being written
+        <td class="jd-descrcol" width="100%">
+          Flag for use with <code><a href="../../../reference/android/os/Parcelable.html#writeToParcel(android.os.Parcel, int)">writeToParcel(Parcel, int)</a></code>: the object being written
  is a return value, that is the result of a function such as
  "<code>Parcelable someFunction()</code>",
  "<code>void someFunction(out Parcelable)</code>", or
- "<code>void someFunction(inout Parcelable)</code>".</td>
+ "<code>void someFunction(inout Parcelable)</code>".
+          
+    
+
+        </td>
     </tr>
     
     
@@ -1532,7 +1680,12 @@ Summary:
           final
           <a href="../../../reference/android/os/Parcelable.Creator.html">Creator</a>&lt;<a href="../../../reference/android/content/IntentFilter.html">IntentFilter</a>&gt;</nobr></td>
           <td class="jd-linkcol"><a href="../../../reference/android/content/IntentFilter.html#CREATOR">CREATOR</a></td>
-          <td class="jd-descrcol" width="100%"></td>
+          <td class="jd-descrcol" width="100%">
+            
+            
+    
+
+          </td>
       </tr>
       
     
@@ -1563,7 +1716,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/content/IntentFilter.html#IntentFilter()">IntentFilter</a></span>()</nobr>
         
-        <div class="jd-descrdiv">New empty IntentFilter.</div>
+        <div class="jd-descrdiv">
+          New empty IntentFilter.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1581,7 +1739,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/content/IntentFilter.html#IntentFilter(java.lang.String)">IntentFilter</a></span>(<a href="../../../reference/java/lang/String.html">String</a> action)</nobr>
         
-        <div class="jd-descrdiv">New IntentFilter that matches a single action with no data.</div>
+        <div class="jd-descrdiv">
+          New IntentFilter that matches a single action with no data.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1599,7 +1762,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/content/IntentFilter.html#IntentFilter(java.lang.String, java.lang.String)">IntentFilter</a></span>(<a href="../../../reference/java/lang/String.html">String</a> action, <a href="../../../reference/java/lang/String.html">String</a> dataType)</nobr>
         
-        <div class="jd-descrdiv">New IntentFilter that matches a single action and data type.</div>
+        <div class="jd-descrdiv">
+          New IntentFilter that matches a single action and data type.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1617,7 +1785,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/content/IntentFilter.html#IntentFilter(android.content.IntentFilter)">IntentFilter</a></span>(<a href="../../../reference/android/content/IntentFilter.html">IntentFilter</a> o)</nobr>
         
-        <div class="jd-descrdiv">New IntentFilter containing a copy of an existing filter.</div>
+        <div class="jd-descrdiv">
+          New IntentFilter containing a copy of an existing filter.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1648,7 +1821,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/content/IntentFilter.html#actionsIterator()">actionsIterator</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Return an iterator over the filter's actions.</div>
+        <div class="jd-descrdiv">
+          Return an iterator over the filter's actions.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1666,7 +1844,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/content/IntentFilter.html#addAction(java.lang.String)">addAction</a></span>(<a href="../../../reference/java/lang/String.html">String</a> action)</nobr>
         
-        <div class="jd-descrdiv">Add a new Intent action to match against.</div>
+        <div class="jd-descrdiv">
+          Add a new Intent action to match against.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1684,7 +1867,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/content/IntentFilter.html#addCategory(java.lang.String)">addCategory</a></span>(<a href="../../../reference/java/lang/String.html">String</a> category)</nobr>
         
-        <div class="jd-descrdiv">Add a new Intent category to match against.</div>
+        <div class="jd-descrdiv">
+          Add a new Intent category to match against.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1702,7 +1890,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/content/IntentFilter.html#addDataAuthority(java.lang.String, java.lang.String)">addDataAuthority</a></span>(<a href="../../../reference/java/lang/String.html">String</a> host, <a href="../../../reference/java/lang/String.html">String</a> port)</nobr>
         
-        <div class="jd-descrdiv">Add a new Intent data authority to match against.</div>
+        <div class="jd-descrdiv">
+          Add a new Intent data authority to match against.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1720,7 +1913,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/content/IntentFilter.html#addDataPath(java.lang.String, int)">addDataPath</a></span>(<a href="../../../reference/java/lang/String.html">String</a> path, int type)</nobr>
         
-        <div class="jd-descrdiv">Add a new Intent data path to match against.</div>
+        <div class="jd-descrdiv">
+          Add a new Intent data path to match against.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1738,7 +1936,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/content/IntentFilter.html#addDataScheme(java.lang.String)">addDataScheme</a></span>(<a href="../../../reference/java/lang/String.html">String</a> scheme)</nobr>
         
-        <div class="jd-descrdiv">Add a new Intent data scheme to match against.</div>
+        <div class="jd-descrdiv">
+          Add a new Intent data scheme to match against.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1756,7 +1959,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/content/IntentFilter.html#addDataSchemeSpecificPart(java.lang.String, int)">addDataSchemeSpecificPart</a></span>(<a href="../../../reference/java/lang/String.html">String</a> ssp, int type)</nobr>
         
-        <div class="jd-descrdiv">Add a new Intent data "scheme specific part" to match against.</div>
+        <div class="jd-descrdiv">
+          Add a new Intent data "scheme specific part" to match against.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1774,7 +1982,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/content/IntentFilter.html#addDataType(java.lang.String)">addDataType</a></span>(<a href="../../../reference/java/lang/String.html">String</a> type)</nobr>
         
-        <div class="jd-descrdiv">Add a new Intent data type to match against.</div>
+        <div class="jd-descrdiv">
+          Add a new Intent data type to match against.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1792,7 +2005,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/content/IntentFilter.html#authoritiesIterator()">authoritiesIterator</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Return an iterator over the filter's data authorities.</div>
+        <div class="jd-descrdiv">
+          Return an iterator over the filter's data authorities.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1810,7 +2028,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/content/IntentFilter.html#categoriesIterator()">categoriesIterator</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Return an iterator over the filter's categories.</div>
+        <div class="jd-descrdiv">
+          Return an iterator over the filter's categories.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1828,7 +2051,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/content/IntentFilter.html#countActions()">countActions</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Return the number of actions in the filter.</div>
+        <div class="jd-descrdiv">
+          Return the number of actions in the filter.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1846,7 +2074,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/content/IntentFilter.html#countCategories()">countCategories</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Return the number of categories in the filter.</div>
+        <div class="jd-descrdiv">
+          Return the number of categories in the filter.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1864,7 +2097,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/content/IntentFilter.html#countDataAuthorities()">countDataAuthorities</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Return the number of data authorities in the filter.</div>
+        <div class="jd-descrdiv">
+          Return the number of data authorities in the filter.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1882,7 +2120,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/content/IntentFilter.html#countDataPaths()">countDataPaths</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Return the number of data paths in the filter.</div>
+        <div class="jd-descrdiv">
+          Return the number of data paths in the filter.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1900,7 +2143,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/content/IntentFilter.html#countDataSchemeSpecificParts()">countDataSchemeSpecificParts</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Return the number of data scheme specific parts in the filter.</div>
+        <div class="jd-descrdiv">
+          Return the number of data scheme specific parts in the filter.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1918,7 +2166,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/content/IntentFilter.html#countDataSchemes()">countDataSchemes</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Return the number of data schemes in the filter.</div>
+        <div class="jd-descrdiv">
+          Return the number of data schemes in the filter.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1936,7 +2189,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/content/IntentFilter.html#countDataTypes()">countDataTypes</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Return the number of data types in the filter.</div>
+        <div class="jd-descrdiv">
+          Return the number of data types in the filter.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1954,8 +2212,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/content/IntentFilter.html#create(java.lang.String, java.lang.String)">create</a></span>(<a href="../../../reference/java/lang/String.html">String</a> action, <a href="../../../reference/java/lang/String.html">String</a> dataType)</nobr>
         
-        <div class="jd-descrdiv">Create a new IntentFilter instance with a specified action and MIME
- type, where you know the MIME type is correctly formatted.</div>
+        <div class="jd-descrdiv">
+          Create a new IntentFilter instance with a specified action and MIME
+ type, where you know the MIME type is correctly formatted.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1973,8 +2236,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/content/IntentFilter.html#describeContents()">describeContents</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Describe the kinds of special objects contained in this Parcelable's
- marshalled representation.</div>
+        <div class="jd-descrdiv">
+          Describe the kinds of special objects contained in this Parcelable's
+ marshalled representation.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2008,7 +2276,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/content/IntentFilter.html#getAction(int)">getAction</a></span>(int index)</nobr>
         
-        <div class="jd-descrdiv">Return an action in the filter.</div>
+        <div class="jd-descrdiv">
+          Return an action in the filter.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2026,7 +2299,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/content/IntentFilter.html#getCategory(int)">getCategory</a></span>(int index)</nobr>
         
-        <div class="jd-descrdiv">Return a category in the filter.</div>
+        <div class="jd-descrdiv">
+          Return a category in the filter.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2044,7 +2322,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/content/IntentFilter.html#getDataAuthority(int)">getDataAuthority</a></span>(int index)</nobr>
         
-        <div class="jd-descrdiv">Return a data authority in the filter.</div>
+        <div class="jd-descrdiv">
+          Return a data authority in the filter.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2062,7 +2345,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/content/IntentFilter.html#getDataPath(int)">getDataPath</a></span>(int index)</nobr>
         
-        <div class="jd-descrdiv">Return a data path in the filter.</div>
+        <div class="jd-descrdiv">
+          Return a data path in the filter.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2080,7 +2368,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/content/IntentFilter.html#getDataScheme(int)">getDataScheme</a></span>(int index)</nobr>
         
-        <div class="jd-descrdiv">Return a data scheme in the filter.</div>
+        <div class="jd-descrdiv">
+          Return a data scheme in the filter.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2098,7 +2391,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/content/IntentFilter.html#getDataSchemeSpecificPart(int)">getDataSchemeSpecificPart</a></span>(int index)</nobr>
         
-        <div class="jd-descrdiv">Return a data scheme specific part in the filter.</div>
+        <div class="jd-descrdiv">
+          Return a data scheme specific part in the filter.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2116,7 +2414,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/content/IntentFilter.html#getDataType(int)">getDataType</a></span>(int index)</nobr>
         
-        <div class="jd-descrdiv">Return a data type in the filter.</div>
+        <div class="jd-descrdiv">
+          Return a data type in the filter.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2134,7 +2437,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/content/IntentFilter.html#getPriority()">getPriority</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Return the priority of this filter.</div>
+        <div class="jd-descrdiv">
+          Return the priority of this filter.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2152,8 +2460,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/content/IntentFilter.html#hasAction(java.lang.String)">hasAction</a></span>(<a href="../../../reference/java/lang/String.html">String</a> action)</nobr>
         
-        <div class="jd-descrdiv">Is the given action included in the filter?  Note that if the filter
- does not include any actions, false will <em>always</em> be returned.</div>
+        <div class="jd-descrdiv">
+          Is the given action included in the filter?  Note that if the filter
+ does not include any actions, false will <em>always</em> be returned.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2171,7 +2484,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/content/IntentFilter.html#hasCategory(java.lang.String)">hasCategory</a></span>(<a href="../../../reference/java/lang/String.html">String</a> category)</nobr>
         
-        <div class="jd-descrdiv">Is the given category included in the filter?</div>
+        <div class="jd-descrdiv">
+          Is the given category included in the filter?
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2189,9 +2507,14 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/content/IntentFilter.html#hasDataAuthority(android.net.Uri)">hasDataAuthority</a></span>(<a href="../../../reference/android/net/Uri.html">Uri</a> data)</nobr>
         
-        <div class="jd-descrdiv">Is the given data authority included in the filter?  Note that if the
+        <div class="jd-descrdiv">
+          Is the given data authority included in the filter?  Note that if the
  filter does not include any authorities, false will <em>always</em> be
- returned.</div>
+ returned.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2209,9 +2532,14 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/content/IntentFilter.html#hasDataPath(java.lang.String)">hasDataPath</a></span>(<a href="../../../reference/java/lang/String.html">String</a> data)</nobr>
         
-        <div class="jd-descrdiv">Is the given data path included in the filter?  Note that if the
+        <div class="jd-descrdiv">
+          Is the given data path included in the filter?  Note that if the
  filter does not include any paths, false will <em>always</em> be
- returned.</div>
+ returned.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2229,9 +2557,14 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/content/IntentFilter.html#hasDataScheme(java.lang.String)">hasDataScheme</a></span>(<a href="../../../reference/java/lang/String.html">String</a> scheme)</nobr>
         
-        <div class="jd-descrdiv">Is the given data scheme included in the filter?  Note that if the
+        <div class="jd-descrdiv">
+          Is the given data scheme included in the filter?  Note that if the
  filter does not include any scheme, false will <em>always</em> be
- returned.</div>
+ returned.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2249,9 +2582,14 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/content/IntentFilter.html#hasDataSchemeSpecificPart(java.lang.String)">hasDataSchemeSpecificPart</a></span>(<a href="../../../reference/java/lang/String.html">String</a> data)</nobr>
         
-        <div class="jd-descrdiv">Is the given data scheme specific part included in the filter?  Note that if the
+        <div class="jd-descrdiv">
+          Is the given data scheme specific part included in the filter?  Note that if the
  filter does not include any scheme specific parts, false will <em>always</em> be
- returned.</div>
+ returned.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2269,8 +2607,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/content/IntentFilter.html#hasDataType(java.lang.String)">hasDataType</a></span>(<a href="../../../reference/java/lang/String.html">String</a> type)</nobr>
         
-        <div class="jd-descrdiv">Is the given data type included in the filter?  Note that if the filter
- does not include any type, false will <em>always</em> be returned.</div>
+        <div class="jd-descrdiv">
+          Is the given data type included in the filter?  Note that if the filter
+ does not include any type, false will <em>always</em> be returned.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2288,7 +2631,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/content/IntentFilter.html#match(android.content.ContentResolver, android.content.Intent, boolean, java.lang.String)">match</a></span>(<a href="../../../reference/android/content/ContentResolver.html">ContentResolver</a> resolver, <a href="../../../reference/android/content/Intent.html">Intent</a> intent, boolean resolve, <a href="../../../reference/java/lang/String.html">String</a> logTag)</nobr>
         
-        <div class="jd-descrdiv">Test whether this filter matches the given <var>intent</var>.</div>
+        <div class="jd-descrdiv">
+          Test whether this filter matches the given <var>intent</var>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2306,7 +2654,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/content/IntentFilter.html#match(java.lang.String, java.lang.String, java.lang.String, android.net.Uri, java.util.Set<java.lang.String>, java.lang.String)">match</a></span>(<a href="../../../reference/java/lang/String.html">String</a> action, <a href="../../../reference/java/lang/String.html">String</a> type, <a href="../../../reference/java/lang/String.html">String</a> scheme, <a href="../../../reference/android/net/Uri.html">Uri</a> data, <a href="../../../reference/java/util/Set.html">Set</a>&lt;<a href="../../../reference/java/lang/String.html">String</a>&gt; categories, <a href="../../../reference/java/lang/String.html">String</a> logTag)</nobr>
         
-        <div class="jd-descrdiv">Test whether this filter matches the given intent data.</div>
+        <div class="jd-descrdiv">
+          Test whether this filter matches the given intent data.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2324,7 +2677,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/content/IntentFilter.html#matchAction(java.lang.String)">matchAction</a></span>(<a href="../../../reference/java/lang/String.html">String</a> action)</nobr>
         
-        <div class="jd-descrdiv">Match this filter against an Intent's action.</div>
+        <div class="jd-descrdiv">
+          Match this filter against an Intent's action.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2342,7 +2700,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/content/IntentFilter.html#matchCategories(java.util.Set<java.lang.String>)">matchCategories</a></span>(<a href="../../../reference/java/util/Set.html">Set</a>&lt;<a href="../../../reference/java/lang/String.html">String</a>&gt; categories)</nobr>
         
-        <div class="jd-descrdiv">Match this filter against an Intent's categories.</div>
+        <div class="jd-descrdiv">
+          Match this filter against an Intent's categories.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2360,7 +2723,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/content/IntentFilter.html#matchData(java.lang.String, java.lang.String, android.net.Uri)">matchData</a></span>(<a href="../../../reference/java/lang/String.html">String</a> type, <a href="../../../reference/java/lang/String.html">String</a> scheme, <a href="../../../reference/android/net/Uri.html">Uri</a> data)</nobr>
         
-        <div class="jd-descrdiv">Match this filter against an Intent's data (type, scheme and path).</div>
+        <div class="jd-descrdiv">
+          Match this filter against an Intent's data (type, scheme and path).
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2378,7 +2746,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/content/IntentFilter.html#matchDataAuthority(android.net.Uri)">matchDataAuthority</a></span>(<a href="../../../reference/android/net/Uri.html">Uri</a> data)</nobr>
         
-        <div class="jd-descrdiv">Match this intent filter against the given Intent data.</div>
+        <div class="jd-descrdiv">
+          Match this intent filter against the given Intent data.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2396,7 +2769,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/content/IntentFilter.html#pathsIterator()">pathsIterator</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Return an iterator over the filter's data paths.</div>
+        <div class="jd-descrdiv">
+          Return an iterator over the filter's data paths.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2430,7 +2808,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/content/IntentFilter.html#schemeSpecificPartsIterator()">schemeSpecificPartsIterator</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Return an iterator over the filter's data scheme specific parts.</div>
+        <div class="jd-descrdiv">
+          Return an iterator over the filter's data scheme specific parts.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2448,7 +2831,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/content/IntentFilter.html#schemesIterator()">schemesIterator</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Return an iterator over the filter's data schemes.</div>
+        <div class="jd-descrdiv">
+          Return an iterator over the filter's data schemes.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2466,7 +2854,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/content/IntentFilter.html#setPriority(int)">setPriority</a></span>(int priority)</nobr>
         
-        <div class="jd-descrdiv">Modify priority of this filter.</div>
+        <div class="jd-descrdiv">
+          Modify priority of this filter.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2484,7 +2877,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/content/IntentFilter.html#typesIterator()">typesIterator</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Return an iterator over the filter's data types.</div>
+        <div class="jd-descrdiv">
+          Return an iterator over the filter's data types.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2502,7 +2900,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/content/IntentFilter.html#writeToParcel(android.os.Parcel, int)">writeToParcel</a></span>(<a href="../../../reference/android/os/Parcel.html">Parcel</a> dest, int flags)</nobr>
         
-        <div class="jd-descrdiv">Flatten this object in to a Parcel.</div>
+        <div class="jd-descrdiv">
+          Flatten this object in to a Parcel.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2520,7 +2923,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/content/IntentFilter.html#writeToXml(org.xmlpull.v1.XmlSerializer)">writeToXml</a></span>(<a href="../../../reference/org/xmlpull/v1/XmlSerializer.html">XmlSerializer</a> serializer)</nobr>
         
-        <div class="jd-descrdiv">Write the contents of the IntentFilter as an XML stream.</div>
+        <div class="jd-descrdiv">
+          Write the contents of the IntentFilter as an XML stream.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2572,7 +2980,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#clone()">clone</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Creates and returns a copy of this <code>Object</code>.</div>
+        <div class="jd-descrdiv">
+          Creates and returns a copy of this <code>Object</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2590,8 +3003,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#equals(java.lang.Object)">equals</a></span>(<a href="../../../reference/java/lang/Object.html">Object</a> o)</nobr>
         
-        <div class="jd-descrdiv">Compares this instance with the specified object and indicates if they
- are equal.</div>
+        <div class="jd-descrdiv">
+          Compares this instance with the specified object and indicates if they
+ are equal.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2609,7 +3027,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#finalize()">finalize</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Invoked when the garbage collector has detected that this instance is no longer reachable.</div>
+        <div class="jd-descrdiv">
+          Invoked when the garbage collector has detected that this instance is no longer reachable.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2627,8 +3050,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#getClass()">getClass</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns the unique instance of <code><a href="../../../reference/java/lang/Class.html">Class</a></code> that represents this
- object's class.</div>
+        <div class="jd-descrdiv">
+          Returns the unique instance of <code><a href="../../../reference/java/lang/Class.html">Class</a></code> that represents this
+ object's class.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2646,7 +3074,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#hashCode()">hashCode</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns an integer hash code for this object.</div>
+        <div class="jd-descrdiv">
+          Returns an integer hash code for this object.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2664,8 +3097,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#notify()">notify</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Causes a thread which is waiting on this object's monitor (by means of
- calling one of the <code>wait()</code> methods) to be woken up.</div>
+        <div class="jd-descrdiv">
+          Causes a thread which is waiting on this object's monitor (by means of
+ calling one of the <code>wait()</code> methods) to be woken up.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2683,8 +3121,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#notifyAll()">notifyAll</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Causes all threads which are waiting on this object's monitor (by means
- of calling one of the <code>wait()</code> methods) to be woken up.</div>
+        <div class="jd-descrdiv">
+          Causes all threads which are waiting on this object's monitor (by means
+ of calling one of the <code>wait()</code> methods) to be woken up.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2702,8 +3145,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#toString()">toString</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns a string containing a concise, human-readable description of this
- object.</div>
+        <div class="jd-descrdiv">
+          Returns a string containing a concise, human-readable description of this
+ object.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2721,7 +3169,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#wait()">wait</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object.</div>
+        <div class="jd-descrdiv">
+          Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2739,8 +3192,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#wait(long, int)">wait</a></span>(long millis, int nanos)</nobr>
         
-        <div class="jd-descrdiv">Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object or until the
- specified timeout expires.</div>
+        <div class="jd-descrdiv">
+          Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object or until the
+ specified timeout expires.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2758,8 +3216,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#wait(long)">wait</a></span>(long millis)</nobr>
         
-        <div class="jd-descrdiv">Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object or until the
- specified timeout expires.</div>
+        <div class="jd-descrdiv">
+          Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object or until the
+ specified timeout expires.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2803,8 +3266,13 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/os/Parcelable.html#describeContents()">describeContents</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Describe the kinds of special objects contained in this Parcelable's
- marshalled representation.</div>
+        <div class="jd-descrdiv">
+          Describe the kinds of special objects contained in this Parcelable's
+ marshalled representation.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2822,7 +3290,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/os/Parcelable.html#writeToParcel(android.os.Parcel, int)">writeToParcel</a></span>(<a href="../../../reference/android/os/Parcel.html">Parcel</a> dest, int flags)</nobr>
         
-        <div class="jd-descrdiv">Flatten this object in to a Parcel.</div>
+        <div class="jd-descrdiv">
+          Flatten this object in to a Parcel.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2883,6 +3356,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>The part of a match constant that applies a quality adjustment to the
  basic category of match.  The value <code><a href="../../../reference/android/content/IntentFilter.html#MATCH_ADJUSTMENT_NORMAL">MATCH_ADJUSTMENT_NORMAL</a></code>
  is no adjustment; higher numbers than that improve the quality, while
@@ -2926,6 +3402,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Quality adjustment applied to the category of match that signifies
  the default, base value; higher numbers improve the quality while
  lower numbers reduce it.
@@ -2968,6 +3447,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>The filter matched an intent that had no data specified.
 </p></div>
 
@@ -3007,6 +3489,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>The filter matched an intent with the same data URI scheme and
  authority host.
@@ -3048,6 +3533,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>The part of a match constant that describes the category of match
  that occurred.  May be either <code><a href="../../../reference/android/content/IntentFilter.html#MATCH_CATEGORY_EMPTY">MATCH_CATEGORY_EMPTY</a></code>,
@@ -3094,6 +3582,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>The filter matched an intent with the same data URI scheme,
  authority, and path.
 </p></div>
@@ -3134,6 +3625,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>The filter matched an intent with the same data URI scheme and
  authority host and port.
@@ -3176,6 +3670,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>The filter matched an intent with the same data URI scheme.
 </p></div>
 
@@ -3215,6 +3712,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>The filter matched an intent with the same data URI scheme and
  scheme specific part.
@@ -3257,6 +3757,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>The filter matched an intent with the same data MIME type.
 </p></div>
 
@@ -3297,6 +3800,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>The filter didn't match due to different actions.
 </p></div>
 
@@ -3336,6 +3842,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>The filter didn't match because it required one or more categories
  that were not in the Intent.
@@ -3378,6 +3887,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>The filter didn't match due to different data URIs.
 </p></div>
 
@@ -3418,6 +3930,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>The filter didn't match due to different MIME types.
 </p></div>
 
@@ -3457,6 +3972,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>The filter <code><a href="../../../reference/android/content/IntentFilter.html#setPriority(int)">setPriority(int)</a></code> value at which system high-priority
  receivers are placed; that is, receivers that should execute before
@@ -3504,6 +4022,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>The filter <code><a href="../../../reference/android/content/IntentFilter.html#setPriority(int)">setPriority(int)</a></code> value at which system low-priority
  receivers are placed; that is, receivers that should execute after
@@ -3562,6 +4083,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -3603,6 +4127,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>New empty IntentFilter.
 </p></div>
 
@@ -3633,6 +4160,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>New IntentFilter that matches a single action with no data.  If
  no data characteristics are subsequently specified, then the
@@ -3675,6 +4205,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>New IntentFilter that matches a single action and data type.
 
@@ -3739,6 +4272,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>New IntentFilter containing a copy of an existing filter.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -3794,6 +4330,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Return an iterator over the filter's actions.  If there are no actions,
  returns null.
 </p></div>
@@ -3825,6 +4364,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Add a new Intent action to match against.  If any actions are included
  in the filter, then an Intent's action must be one of those values for
@@ -3867,6 +4409,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Add a new Intent category to match against.  The semantics of
  categories is the opposite of actions -- an Intent includes the
@@ -3912,6 +4457,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Add a new Intent data authority to match against.  The filter must
  include one or more schemes (via <code><a href="../../../reference/android/content/IntentFilter.html#addDataScheme(java.lang.String)">addDataScheme(String)</a></code>) for the
@@ -3972,6 +4520,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Add a new Intent data path to match against.  The filter must
  include one or more schemes (via <code><a href="../../../reference/android/content/IntentFilter.html#addDataScheme(java.lang.String)">addDataScheme(String)</a></code>) <em>and</em>
@@ -4037,6 +4588,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Add a new Intent data scheme to match against.  If any schemes are
  included in the filter, then an Intent's data must be <em>either</em>
  one of these schemes <em>or</em> a matching data type.  If no schemes
@@ -4089,6 +4643,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Add a new Intent data "scheme specific part" to match against.  The filter must
  include one or more schemes (via <code><a href="../../../reference/android/content/IntentFilter.html#addDataScheme(java.lang.String)">addDataScheme(String)</a></code>) for the
@@ -4153,6 +4710,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Add a new Intent data type to match against.  If any types are
  included in the filter, then an Intent's data must be <em>either</em>
@@ -4219,6 +4779,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Return an iterator over the filter's data authorities.
 </p></div>
 
@@ -4249,6 +4812,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Return an iterator over the filter's categories.</p></div>
   <div class="jd-tagdata">
@@ -4285,6 +4851,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Return the number of actions in the filter.
 </p></div>
 
@@ -4315,6 +4884,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Return the number of categories in the filter.
 </p></div>
@@ -4347,6 +4919,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Return the number of data authorities in the filter.
 </p></div>
 
@@ -4377,6 +4952,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Return the number of data paths in the filter.
 </p></div>
@@ -4409,6 +4987,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Return the number of data scheme specific parts in the filter.
 </p></div>
 
@@ -4439,6 +5020,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Return the number of data schemes in the filter.
 </p></div>
@@ -4471,6 +5055,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Return the number of data types in the filter.
 </p></div>
 
@@ -4501,6 +5088,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Create a new IntentFilter instance with a specified action and MIME
  type, where you know the MIME type is correctly formatted.  This catches
@@ -4557,6 +5147,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Describe the kinds of special objects contained in this Parcelable's
  marshalled representation.</p></div>
   <div class="jd-tagdata">
@@ -4594,6 +5187,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     </div>
@@ -4623,6 +5219,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Return an action in the filter.
 </p></div>
@@ -4655,6 +5254,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Return a category in the filter.
 </p></div>
 
@@ -4685,6 +5287,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Return a data authority in the filter.
 </p></div>
@@ -4717,6 +5322,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Return a data path in the filter.
 </p></div>
 
@@ -4747,6 +5355,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Return a data scheme in the filter.
 </p></div>
@@ -4779,6 +5390,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Return a data scheme specific part in the filter.
 </p></div>
 
@@ -4810,6 +5424,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Return a data type in the filter.
 </p></div>
 
@@ -4840,6 +5457,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Return the priority of this filter.</p></div>
   <div class="jd-tagdata">
@@ -4879,6 +5499,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Is the given action included in the filter?  Note that if the filter
  does not include any actions, false will <em>always</em> be returned.</p></div>
@@ -4925,6 +5548,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Is the given category included in the filter?</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -4968,6 +5594,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Is the given data authority included in the filter?  Note that if the
  filter does not include any authorities, false will <em>always</em> be
@@ -5015,6 +5644,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Is the given data path included in the filter?  Note that if the
  filter does not include any paths, false will <em>always</em> be
@@ -5064,6 +5696,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Is the given data scheme included in the filter?  Note that if the
  filter does not include any scheme, false will <em>always</em> be
  returned.</p></div>
@@ -5109,6 +5744,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Is the given data scheme specific part included in the filter?  Note that if the
  filter does not include any scheme specific parts, false will <em>always</em> be
@@ -5157,6 +5795,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Is the given data type included in the filter?  Note that if the filter
  does not include any type, false will <em>always</em> be returned.</p></div>
   <div class="jd-tagdata">
@@ -5202,6 +5843,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Test whether this filter matches the given <var>intent</var>.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -5228,10 +5872,8 @@ From interface
  <code><a href="../../../reference/android/content/IntentFilter.html#MATCH_CATEGORY_MASK">MATCH_CATEGORY_MASK</a></code> and <code><a href="../../../reference/android/content/IntentFilter.html#MATCH_ADJUSTMENT_MASK">MATCH_ADJUSTMENT_MASK</a></code>),
  or one of the error codes <code><a href="../../../reference/android/content/IntentFilter.html#NO_MATCH_TYPE">NO_MATCH_TYPE</a></code> if the type didn't match,
  <code><a href="../../../reference/android/content/IntentFilter.html#NO_MATCH_DATA">NO_MATCH_DATA</a></code> if the scheme/path didn't match,
- <code><a href="../../../reference/android/content/IntentFilter.html#NO_MATCH_ACTION">if the action didn't match, or
- {@link #NO_MATCH_CATEGORY</a></code> if one or more categories didn't match.How well the filter matches.  Negative if it doesn't match,
-         zero or positive positive value if it does with a higher
-         value representing a better match.</li></ul>
+ <code><a href="../../../reference/android/content/IntentFilter.html#NO_MATCH_ACTION">NO_MATCH_ACTION</a></code> if the action didn't match, or
+ <code><a href="../../../reference/android/content/IntentFilter.html#NO_MATCH_CATEGORY">NO_MATCH_CATEGORY</a></code> if one or more categories didn't match.</li></ul>
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
@@ -5266,6 +5908,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Test whether this filter matches the given intent data.  A match is
  only successful if the actions and categories in the Intent match
@@ -5307,8 +5952,8 @@ From interface
  <code><a href="../../../reference/android/content/IntentFilter.html#MATCH_CATEGORY_MASK">MATCH_CATEGORY_MASK</a></code> and <code><a href="../../../reference/android/content/IntentFilter.html#MATCH_ADJUSTMENT_MASK">MATCH_ADJUSTMENT_MASK</a></code>),
  or one of the error codes <code><a href="../../../reference/android/content/IntentFilter.html#NO_MATCH_TYPE">NO_MATCH_TYPE</a></code> if the type didn't match,
  <code><a href="../../../reference/android/content/IntentFilter.html#NO_MATCH_DATA">NO_MATCH_DATA</a></code> if the scheme/path didn't match,
- <code><a href="../../../reference/android/content/IntentFilter.html#NO_MATCH_ACTION">if the action didn't match, or
- {@link #NO_MATCH_CATEGORY</a></code> if one or more categories didn't match.</li></ul>
+ <code><a href="../../../reference/android/content/IntentFilter.html#NO_MATCH_ACTION">NO_MATCH_ACTION</a></code> if the action didn't match, or
+ <code><a href="../../../reference/android/content/IntentFilter.html#NO_MATCH_CATEGORY">NO_MATCH_CATEGORY</a></code> if one or more categories didn't match.</li></ul>
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
@@ -5343,6 +5988,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Match this filter against an Intent's action.  If the filter does not
  specify any actions, the match will always fail.</p></div>
@@ -5388,6 +6036,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Match this filter against an Intent's categories.  Each category in
  the Intent must be specified by the filter; if any are not in the
@@ -5436,6 +6087,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Match this filter against an Intent's data (type, scheme and path). If
  the filter does not specify any types and does not specify any
@@ -5520,6 +6174,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Match this intent filter against the given Intent data.  This ignores
  the data scheme -- unlike <code><a href="../../../reference/android/content/IntentFilter.html#matchData(java.lang.String, java.lang.String, android.net.Uri)">matchData(String, String, Uri)</a></code>, the authority will match
  regardless of whether there is a matching scheme.</p></div>
@@ -5567,6 +6224,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Return an iterator over the filter's data paths.
 </p></div>
 
@@ -5597,6 +6257,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
   <div class="jd-tagdata">
@@ -5641,6 +6304,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Return an iterator over the filter's data scheme specific parts.
 </p></div>
 
@@ -5672,6 +6338,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Return an iterator over the filter's data schemes.
 </p></div>
 
@@ -5702,6 +6371,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Modify priority of this filter.  The default priority is 0. Positive
  values will be before the default, lower values will be after it.
@@ -5751,6 +6423,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Return an iterator over the filter's data types.
 </p></div>
 
@@ -5781,6 +6456,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Flatten this object in to a Parcel.</p></div>
   <div class="jd-tagdata">
@@ -5826,6 +6504,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Write the contents of the IntentFilter as an XML stream.
 </p></div>

@@ -82,6 +82,19 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 <html>
 <head>
 
@@ -97,7 +110,7 @@
 href="http://fonts.useso.com/css?family=Roboto+Condensed">
 <link rel="stylesheet" href="http://fonts.useso.com/css?family=Roboto:light,regular,medium,thin,italic,mediumitalic,bold"
   title="roboto">
-<link href="../../../assets/css/default.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/default.css?v=2" rel="stylesheet" type="text/css">
 
 
 <!-- FULLSCREEN STYLESHEET -->
@@ -106,30 +119,31 @@ type="text/css">
 
 
 <!-- JAVASCRIPT -->
-<script src="http://googleapiscdn.qiniudn.com/www.google.com/jsapi" type="text/javascript"></script>
+<script src="http://www.google.com/jsapi" type="text/javascript"></script>
 <script src="../../../assets/js/android_3p-bundle.js" type="text/javascript"></script>
 <script type="text/javascript">
   var toRoot = "../../../";
   var metaTags = [];
   var devsite = false;
 </script>
-<script src="../../../assets/js/docs.js" type="text/javascript"></script>
+<script src="../../../assets/js/docs.js?v=2" type="text/javascript"></script>
 
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-5831155-1']);
-  _gaq.push(['_trackPageview']);
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
+  ga('create', 'UA-5831155-1', 'android.com');
+  ga('create', 'UA-49880327-2', 'android.com', {'name': 'universal'});  // New tracker);
+  ga('send', 'pageview');
+  ga('universal.send', 'pageview'); // Send page view for new tracker.
 </script>
+
 </head>
 
 <body class="gc-documentation 
-  develop" itemscope itemtype="http://schema.org/Article">
+  develop reference" itemscope itemtype="http://schema.org/Article">
   <div id="doc-api-level" class="1" style="display:none"></div>
   <a name="top"></a>
 
@@ -139,6 +153,10 @@ type="text/css">
   <!-- Header -->
   <div id="header-wrapper">
     <div id="header">
+
+    
+
+
       <div class="wrap" id="header-wrap">
         <div class="col-3 logo">
           <a href="../../../index.html">
@@ -260,11 +278,20 @@ type="text/css">
 
 
         <!-- Expanded quicknav -->
-        <div id="quicknav" class="col-9">
+        <div id="quicknav" class="col-13">
           <ul>
+            <li class="about">
+              <ul>
+                <li><a href="../../../about/index.html">About</a></li>
+                <li><a href="../../../wear/index.html">Wear</a></li>
+                <li><a href="../../../tv/index.html">TV</a></li>
+                <li><a href="../../../auto/index.html">Auto</a></li>
+              </ul>
+            </li>
             <li class="design">
               <ul>
                 <li><a href="../../../design/index.html">Get Started</a></li>
+                <li><a href="../../../design/devices.html">Devices</a></li>
                 <li><a href="../../../design/style/index.html">Style</a></li>
                 <li><a href="../../../design/patterns/index.html">Patterns</a></li>
                 <li><a href="../../../design/building-blocks/index.html">Building Blocks</a></li>
@@ -298,7 +325,7 @@ type="text/css">
                   ja-lang="リファレンス"
                   es-lang="Referencia"
                   >Reference</a></li>
-                <li><a href="../../../tools/index.html"
+                <li><a href="../../../sdk/index.html"
                   zh-tw-lang="相關工具"
                   zh-cn-lang="工具"
                   ru-lang="Инструменты"
@@ -306,7 +333,6 @@ type="text/css">
                   ja-lang="ツール"
                   es-lang="Herramientas"
                   >Tools</a>
-                  <ul><li><a href="../../../sdk/index.html">Get the SDK</a></li></ul>
                 </li>
                 <li><a href="../../../google/index.html">Google Services</a>
                 </li>
@@ -358,7 +384,7 @@ type="text/css">
                   ja-lang="リファレンス"
                   es-lang="Referencia"
                   >Reference</a></li>
-                <li class="tools"><a href="../../../tools/index.html"
+                <li class="tools"><a href="../../../sdk/index.html"
                   zh-tw-lang="相關工具"
                   zh-cn-lang="工具"
                   ru-lang="Инструменты"
@@ -373,7 +399,7 @@ type="text/css">
             </ul>
         </div>
     </div>
-    <!-- /Sendondary x-nav -->
+    <!-- /Sendondary x-nav DEVELOP -->
 
   
 
@@ -414,7 +440,7 @@ type="text/css">
         <div id="api-nav-title">Android APIs</div>
         </div><!-- end nav header -->
       <script>
-        var SINCE_DATA = [ '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19' ];
+        var SINCE_DATA = [ '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21' ];
         buildApiLevelSelector();
       </script>
                   
@@ -441,13 +467,15 @@ type="text/css">
   <a href="../../../reference/android/app/admin/package-summary.html">android.app.admin</a></li>
     <li class="api apilevel-8">
   <a href="../../../reference/android/app/backup/package-summary.html">android.app.backup</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/app/job/package-summary.html">android.app.job</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/app/usage/package-summary.html">android.app.usage</a></li>
     <li class="api apilevel-3">
   <a href="../../../reference/android/appwidget/package-summary.html">android.appwidget</a></li>
     <li class="api apilevel-5">
   <a href="../../../reference/android/bluetooth/package-summary.html">android.bluetooth</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/bluetooth/le/package-summary.html">android.bluetooth.le</a></li>
     <li class="api apilevel-1">
   <a href="../../../reference/android/content/package-summary.html">android.content</a></li>
@@ -473,16 +501,14 @@ type="text/css">
   <a href="../../../reference/android/graphics/pdf/package-summary.html">android.graphics.pdf</a></li>
     <li class="api apilevel-1">
   <a href="../../../reference/android/hardware/package-summary.html">android.hardware</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/hardware/camera2/package-summary.html">android.hardware.camera2</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/hardware/camera2/params/package-summary.html">android.hardware.camera2.params</a></li>
     <li class="api apilevel-17">
   <a href="../../../reference/android/hardware/display/package-summary.html">android.hardware.display</a></li>
     <li class="api apilevel-16">
   <a href="../../../reference/android/hardware/input/package-summary.html">android.hardware.input</a></li>
-    <li class="api apilevel-18">
-  <a href="../../../reference/android/hardware/location/package-summary.html">android.hardware.location</a></li>
     <li class="api apilevel-12">
   <a href="../../../reference/android/hardware/usb/package-summary.html">android.hardware.usb</a></li>
     <li class="api apilevel-3">
@@ -493,11 +519,15 @@ type="text/css">
   <a href="../../../reference/android/media/package-summary.html">android.media</a></li>
     <li class="api apilevel-9">
   <a href="../../../reference/android/media/audiofx/package-summary.html">android.media.audiofx</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/media/browse/package-summary.html">android.media.browse</a></li>
     <li class="api apilevel-14">
   <a href="../../../reference/android/media/effect/package-summary.html">android.media.effect</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/media/projection/package-summary.html">android.media.projection</a></li>
+    <li class="api apilevel-21">
   <a href="../../../reference/android/media/session/package-summary.html">android.media.session</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/media/tv/package-summary.html">android.media.tv</a></li>
     <li class="api apilevel-12">
   <a href="../../../reference/android/mtp/package-summary.html">android.mtp</a></li>
@@ -547,11 +577,15 @@ type="text/css">
   <a href="../../../reference/android/security/package-summary.html">android.security</a></li>
     <li class="api apilevel-17">
   <a href="../../../reference/android/service/dreams/package-summary.html">android.service.dreams</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/service/media/package-summary.html">android.service.media</a></li>
     <li class="api apilevel-18">
   <a href="../../../reference/android/service/notification/package-summary.html">android.service.notification</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/service/restrictions/package-summary.html">android.service.restrictions</a></li>
     <li class="api apilevel-14">
   <a href="../../../reference/android/service/textservice/package-summary.html">android.service.textservice</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/service/voice/package-summary.html">android.service.voice</a></li>
     <li class="api apilevel-7">
   <a href="../../../reference/android/service/wallpaper/package-summary.html">android.service.wallpaper</a></li>
@@ -596,11 +630,15 @@ type="text/css">
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/media/package-summary.html">android.support.v4.media</a></li>
     <li class="api apilevel-">
+  <a href="../../../reference/android/support/v4/media/session/package-summary.html">android.support.v4.media.session</a></li>
+    <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/net/package-summary.html">android.support.v4.net</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/os/package-summary.html">android.support.v4.os</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/print/package-summary.html">android.support.v4.print</a></li>
+    <li class="api apilevel-">
+  <a href="../../../reference/android/support/v4/provider/package-summary.html">android.support.v4.provider</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/text/package-summary.html">android.support.v4.text</a></li>
     <li class="api apilevel-">
@@ -616,6 +654,10 @@ type="text/css">
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v7/appcompat/package-summary.html">android.support.v7.appcompat</a></li>
     <li class="api apilevel-">
+  <a href="../../../reference/android/support/v7/cardview/package-summary.html">android.support.v7.cardview</a></li>
+    <li class="api apilevel-">
+  <a href="../../../reference/android/support/v7/graphics/package-summary.html">android.support.v7.graphics</a></li>
+    <li class="api apilevel-">
   <a href="../../../reference/android/support/v7/gridlayout/package-summary.html">android.support.v7.gridlayout</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v7/media/package-summary.html">android.support.v7.media</a></li>
@@ -627,8 +669,10 @@ type="text/css">
   <a href="../../../reference/android/support/v7/widget/package-summary.html">android.support.v7.widget</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v8/renderscript/package-summary.html">android.support.v8.renderscript</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/system/package-summary.html">android.system</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/telecom/package-summary.html">android.telecom</a></li>
     <li class="api apilevel-1">
   <a href="../../../reference/android/telephony/package-summary.html">android.telephony</a></li>
     <li class="api apilevel-5">
@@ -900,8 +944,8 @@ type="text/css">
           <li class="api apilevel-11"><a href="../../../reference/android/app/FragmentManager.OnBackStackChangedListener.html">FragmentManager.OnBackStackChangedListener</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/app/KeyguardManager.OnKeyguardExitResult.html">KeyguardManager.OnKeyguardExitResult</a></li>
           <li class="api apilevel-11"><a href="../../../reference/android/app/LoaderManager.LoaderCallbacks.html">LoaderManager.LoaderCallbacks</a></li>
-          <li class="api apilevel-"><a href="../../../reference/android/app/Notification.Action.Extender.html">Notification.Action.Extender</a></li>
-          <li class="api apilevel-"><a href="../../../reference/android/app/Notification.Extender.html">Notification.Extender</a></li>
+          <li class="api apilevel-20"><a href="../../../reference/android/app/Notification.Action.Extender.html">Notification.Action.Extender</a></li>
+          <li class="api apilevel-20"><a href="../../../reference/android/app/Notification.Extender.html">Notification.Extender</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/app/PendingIntent.OnFinished.html">PendingIntent.OnFinished</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/app/SearchManager.OnCancelListener.html">SearchManager.OnCancelListener</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/app/SearchManager.OnDismissListener.html">SearchManager.OnDismissListener</a></li>
@@ -919,16 +963,17 @@ type="text/css">
           <li class="api apilevel-1"><a href="../../../reference/android/app/Activity.html">Activity</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/app/ActivityGroup.html">ActivityGroup</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/app/ActivityManager.html">ActivityManager</a></li>
-          <li class="api apilevel-"><a href="../../../reference/android/app/ActivityManager.AppTask.html">ActivityManager.AppTask</a></li>
+          <li class="api apilevel-21"><a href="../../../reference/android/app/ActivityManager.AppTask.html">ActivityManager.AppTask</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/app/ActivityManager.MemoryInfo.html">ActivityManager.MemoryInfo</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/app/ActivityManager.ProcessErrorStateInfo.html">ActivityManager.ProcessErrorStateInfo</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/app/ActivityManager.RecentTaskInfo.html">ActivityManager.RecentTaskInfo</a></li>
           <li class="api apilevel-3"><a href="../../../reference/android/app/ActivityManager.RunningAppProcessInfo.html">ActivityManager.RunningAppProcessInfo</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/app/ActivityManager.RunningServiceInfo.html">ActivityManager.RunningServiceInfo</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/app/ActivityManager.RunningTaskInfo.html">ActivityManager.RunningTaskInfo</a></li>
-          <li class="api apilevel-"><a href="../../../reference/android/app/ActivityManager.TaskDescription.html">ActivityManager.TaskDescription</a></li>
+          <li class="api apilevel-21"><a href="../../../reference/android/app/ActivityManager.TaskDescription.html">ActivityManager.TaskDescription</a></li>
           <li class="api apilevel-16"><a href="../../../reference/android/app/ActivityOptions.html">ActivityOptions</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/app/AlarmManager.html">AlarmManager</a></li>
+          <li class="api apilevel-21"><a href="../../../reference/android/app/AlarmManager.AlarmClockInfo.html">AlarmManager.AlarmClockInfo</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/app/AlertDialog.html">AlertDialog</a></li>
           <li class="selected api apilevel-1"><a href="../../../reference/android/app/AlertDialog.Builder.html">AlertDialog.Builder</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/app/AliasActivity.html">AliasActivity</a></li>
@@ -969,35 +1014,30 @@ type="text/css">
           <li class="api apilevel-9"><a href="../../../reference/android/app/NativeActivity.html">NativeActivity</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/app/Notification.html">Notification</a></li>
           <li class="api apilevel-19"><a href="../../../reference/android/app/Notification.Action.html">Notification.Action</a></li>
-          <li class="api apilevel-"><a href="../../../reference/android/app/Notification.Action.Builder.html">Notification.Action.Builder</a></li>
-          <li class="api apilevel-"><a href="../../../reference/android/app/Notification.Action.WearableExtender.html">Notification.Action.WearableExtender</a></li>
+          <li class="api apilevel-20"><a href="../../../reference/android/app/Notification.Action.Builder.html">Notification.Action.Builder</a></li>
+          <li class="api apilevel-20"><a href="../../../reference/android/app/Notification.Action.WearableExtender.html">Notification.Action.WearableExtender</a></li>
           <li class="api apilevel-16"><a href="../../../reference/android/app/Notification.BigPictureStyle.html">Notification.BigPictureStyle</a></li>
           <li class="api apilevel-16"><a href="../../../reference/android/app/Notification.BigTextStyle.html">Notification.BigTextStyle</a></li>
           <li class="api apilevel-11"><a href="../../../reference/android/app/Notification.Builder.html">Notification.Builder</a></li>
           <li class="api apilevel-16"><a href="../../../reference/android/app/Notification.InboxStyle.html">Notification.InboxStyle</a></li>
-          <li class="api apilevel-"><a href="../../../reference/android/app/Notification.MediaStyle.html">Notification.MediaStyle</a></li>
+          <li class="api apilevel-21"><a href="../../../reference/android/app/Notification.MediaStyle.html">Notification.MediaStyle</a></li>
           <li class="api apilevel-16"><a href="../../../reference/android/app/Notification.Style.html">Notification.Style</a></li>
-          <li class="api apilevel-"><a href="../../../reference/android/app/Notification.WearableExtender.html">Notification.WearableExtender</a></li>
+          <li class="api apilevel-20"><a href="../../../reference/android/app/Notification.WearableExtender.html">Notification.WearableExtender</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/app/NotificationManager.html">NotificationManager</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/app/PendingIntent.html">PendingIntent</a></li>
           <li class="api apilevel-17"><a href="../../../reference/android/app/Presentation.html">Presentation</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/app/ProgressDialog.html">ProgressDialog</a></li>
-          <li class="api apilevel-"><a href="../../../reference/android/app/RemoteInput.html">RemoteInput</a></li>
-          <li class="api apilevel-"><a href="../../../reference/android/app/RemoteInput.Builder.html">RemoteInput.Builder</a></li>
+          <li class="api apilevel-20"><a href="../../../reference/android/app/RemoteInput.html">RemoteInput</a></li>
+          <li class="api apilevel-20"><a href="../../../reference/android/app/RemoteInput.Builder.html">RemoteInput.Builder</a></li>
           <li class="api apilevel-8"><a href="../../../reference/android/app/SearchableInfo.html">SearchableInfo</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/app/SearchManager.html">SearchManager</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/app/Service.html">Service</a></li>
-          <li class="api apilevel-"><a href="../../../reference/android/app/SharedElementListener.html">SharedElementListener</a></li>
+          <li class="api apilevel-21"><a href="../../../reference/android/app/SharedElementCallback.html">SharedElementCallback</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/app/TabActivity.html">TabActivity</a></li>
           <li class="api apilevel-16"><a href="../../../reference/android/app/TaskStackBuilder.html">TaskStackBuilder</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/app/TimePickerDialog.html">TimePickerDialog</a></li>
           <li class="api apilevel-18"><a href="../../../reference/android/app/UiAutomation.html">UiAutomation</a></li>
           <li class="api apilevel-8"><a href="../../../reference/android/app/UiModeManager.html">UiModeManager</a></li>
-          <li class="api apilevel-"><a href="../../../reference/android/app/VoiceInteractor.html">VoiceInteractor</a></li>
-          <li class="api apilevel-"><a href="../../../reference/android/app/VoiceInteractor.AbortVoiceRequest.html">VoiceInteractor.AbortVoiceRequest</a></li>
-          <li class="api apilevel-"><a href="../../../reference/android/app/VoiceInteractor.CommandRequest.html">VoiceInteractor.CommandRequest</a></li>
-          <li class="api apilevel-"><a href="../../../reference/android/app/VoiceInteractor.ConfirmationRequest.html">VoiceInteractor.ConfirmationRequest</a></li>
-          <li class="api apilevel-"><a href="../../../reference/android/app/VoiceInteractor.Request.html">VoiceInteractor.Request</a></li>
           <li class="api apilevel-7"><a href="../../../reference/android/app/WallpaperInfo.html">WallpaperInfo</a></li>
           <li class="api apilevel-5"><a href="../../../reference/android/app/WallpaperManager.html">WallpaperManager</a></li>
       </ul>
@@ -1131,6 +1171,9 @@ Summary:
   
 
 
+    
+
+
 </div><!-- end header -->
 
 <div id="naMessage"></div>
@@ -1230,7 +1273,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/AlertDialog.Builder.html#AlertDialog.Builder(android.content.Context)">AlertDialog.Builder</a></span>(<a href="../../../reference/android/content/Context.html">Context</a> context)</nobr>
         
-        <div class="jd-descrdiv">Constructor using a context for this builder and the <code><a href="../../../reference/android/app/AlertDialog.html">AlertDialog</a></code> it creates.</div>
+        <div class="jd-descrdiv">
+          Constructor using a context for this builder and the <code><a href="../../../reference/android/app/AlertDialog.html">AlertDialog</a></code> it creates.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1248,8 +1296,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/AlertDialog.Builder.html#AlertDialog.Builder(android.content.Context, int)">AlertDialog.Builder</a></span>(<a href="../../../reference/android/content/Context.html">Context</a> context, int theme)</nobr>
         
-        <div class="jd-descrdiv">Constructor using a context and theme for this builder and
- the <code><a href="../../../reference/android/app/AlertDialog.html">AlertDialog</a></code> it creates.</div>
+        <div class="jd-descrdiv">
+          Constructor using a context and theme for this builder and
+ the <code><a href="../../../reference/android/app/AlertDialog.html">AlertDialog</a></code> it creates.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1280,7 +1333,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/AlertDialog.Builder.html#create()">create</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Creates a <code><a href="../../../reference/android/app/AlertDialog.html">AlertDialog</a></code> with the arguments supplied to this builder.</div>
+        <div class="jd-descrdiv">
+          Creates a <code><a href="../../../reference/android/app/AlertDialog.html">AlertDialog</a></code> with the arguments supplied to this builder.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1298,7 +1356,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/AlertDialog.Builder.html#getContext()">getContext</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns a <code><a href="../../../reference/android/content/Context.html">Context</a></code> with the appropriate theme for dialogs created by this Builder.</div>
+        <div class="jd-descrdiv">
+          Returns a <code><a href="../../../reference/android/content/Context.html">Context</a></code> with the appropriate theme for dialogs created by this Builder.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1316,9 +1379,14 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/AlertDialog.Builder.html#setAdapter(android.widget.ListAdapter, android.content.DialogInterface.OnClickListener)">setAdapter</a></span>(<a href="../../../reference/android/widget/ListAdapter.html">ListAdapter</a> adapter, <a href="../../../reference/android/content/DialogInterface.OnClickListener.html">DialogInterface.OnClickListener</a> listener)</nobr>
         
-        <div class="jd-descrdiv">Set a list of items, which are supplied by the given <code><a href="../../../reference/android/widget/ListAdapter.html">ListAdapter</a></code>, to be
+        <div class="jd-descrdiv">
+          Set a list of items, which are supplied by the given <code><a href="../../../reference/android/widget/ListAdapter.html">ListAdapter</a></code>, to be
  displayed in the dialog as the content, you will be notified of the
- selected item via the supplied listener.</div>
+ selected item via the supplied listener.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1336,7 +1404,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/AlertDialog.Builder.html#setCancelable(boolean)">setCancelable</a></span>(boolean cancelable)</nobr>
         
-        <div class="jd-descrdiv">Sets whether the dialog is cancelable or not.</div>
+        <div class="jd-descrdiv">
+          Sets whether the dialog is cancelable or not.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1354,9 +1427,14 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/AlertDialog.Builder.html#setCursor(android.database.Cursor, android.content.DialogInterface.OnClickListener, java.lang.String)">setCursor</a></span>(<a href="../../../reference/android/database/Cursor.html">Cursor</a> cursor, <a href="../../../reference/android/content/DialogInterface.OnClickListener.html">DialogInterface.OnClickListener</a> listener, <a href="../../../reference/java/lang/String.html">String</a> labelColumn)</nobr>
         
-        <div class="jd-descrdiv">Set a list of items, which are supplied by the given <code><a href="../../../reference/android/database/Cursor.html">Cursor</a></code>, to be
+        <div class="jd-descrdiv">
+          Set a list of items, which are supplied by the given <code><a href="../../../reference/android/database/Cursor.html">Cursor</a></code>, to be
  displayed in the dialog as the content, you will be notified of the
- selected item via the supplied listener.</div>
+ selected item via the supplied listener.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1374,7 +1452,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/AlertDialog.Builder.html#setCustomTitle(android.view.View)">setCustomTitle</a></span>(<a href="../../../reference/android/view/View.html">View</a> customTitleView)</nobr>
         
-        <div class="jd-descrdiv">Set the title using the custom view <code>customTitleView</code>.</div>
+        <div class="jd-descrdiv">
+          Set the title using the custom view <code>customTitleView</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1392,7 +1475,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/AlertDialog.Builder.html#setIcon(android.graphics.drawable.Drawable)">setIcon</a></span>(<a href="../../../reference/android/graphics/drawable/Drawable.html">Drawable</a> icon)</nobr>
         
-        <div class="jd-descrdiv">Set the <code><a href="../../../reference/android/graphics/drawable/Drawable.html">Drawable</a></code> to be used in the title.</div>
+        <div class="jd-descrdiv">
+          Set the <code><a href="../../../reference/android/graphics/drawable/Drawable.html">Drawable</a></code> to be used in the title.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1410,7 +1498,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/AlertDialog.Builder.html#setIcon(int)">setIcon</a></span>(int iconId)</nobr>
         
-        <div class="jd-descrdiv">Set the resource id of the <code><a href="../../../reference/android/graphics/drawable/Drawable.html">Drawable</a></code> to be used in the title.</div>
+        <div class="jd-descrdiv">
+          Set the resource id of the <code><a href="../../../reference/android/graphics/drawable/Drawable.html">Drawable</a></code> to be used in the title.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1428,7 +1521,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/AlertDialog.Builder.html#setIconAttribute(int)">setIconAttribute</a></span>(int attrId)</nobr>
         
-        <div class="jd-descrdiv">Set an icon as supplied by a theme attribute.</div>
+        <div class="jd-descrdiv">
+          Set an icon as supplied by a theme attribute.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1446,8 +1544,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/AlertDialog.Builder.html#setInverseBackgroundForced(boolean)">setInverseBackgroundForced</a></span>(boolean useInverseBackground)</nobr>
         
-        <div class="jd-descrdiv">Sets the Dialog to use the inverse background, regardless of what the
- contents is.</div>
+        <div class="jd-descrdiv">
+          Sets the Dialog to use the inverse background, regardless of what the
+ contents is.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1465,8 +1568,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/AlertDialog.Builder.html#setItems(int, android.content.DialogInterface.OnClickListener)">setItems</a></span>(int itemsId, <a href="../../../reference/android/content/DialogInterface.OnClickListener.html">DialogInterface.OnClickListener</a> listener)</nobr>
         
-        <div class="jd-descrdiv">Set a list of items to be displayed in the dialog as the content, you will be notified of the
- selected item via the supplied listener.</div>
+        <div class="jd-descrdiv">
+          Set a list of items to be displayed in the dialog as the content, you will be notified of the
+ selected item via the supplied listener.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1484,8 +1592,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/AlertDialog.Builder.html#setItems(java.lang.CharSequence[], android.content.DialogInterface.OnClickListener)">setItems</a></span>(<a href="../../../reference/java/lang/CharSequence.html">CharSequence[]</a> items, <a href="../../../reference/android/content/DialogInterface.OnClickListener.html">DialogInterface.OnClickListener</a> listener)</nobr>
         
-        <div class="jd-descrdiv">Set a list of items to be displayed in the dialog as the content, you will be notified of the
- selected item via the supplied listener.</div>
+        <div class="jd-descrdiv">
+          Set a list of items to be displayed in the dialog as the content, you will be notified of the
+ selected item via the supplied listener.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1503,7 +1616,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/AlertDialog.Builder.html#setMessage(java.lang.CharSequence)">setMessage</a></span>(<a href="../../../reference/java/lang/CharSequence.html">CharSequence</a> message)</nobr>
         
-        <div class="jd-descrdiv">Set the message to display.</div>
+        <div class="jd-descrdiv">
+          Set the message to display.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1521,7 +1639,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/AlertDialog.Builder.html#setMessage(int)">setMessage</a></span>(int messageId)</nobr>
         
-        <div class="jd-descrdiv">Set the message to display using the given resource id.</div>
+        <div class="jd-descrdiv">
+          Set the message to display using the given resource id.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1539,8 +1662,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/AlertDialog.Builder.html#setMultiChoiceItems(java.lang.CharSequence[], boolean[], android.content.DialogInterface.OnMultiChoiceClickListener)">setMultiChoiceItems</a></span>(<a href="../../../reference/java/lang/CharSequence.html">CharSequence[]</a> items, boolean[] checkedItems, <a href="../../../reference/android/content/DialogInterface.OnMultiChoiceClickListener.html">DialogInterface.OnMultiChoiceClickListener</a> listener)</nobr>
         
-        <div class="jd-descrdiv">Set a list of items to be displayed in the dialog as the content,
- you will be notified of the selected item via the supplied listener.</div>
+        <div class="jd-descrdiv">
+          Set a list of items to be displayed in the dialog as the content,
+ you will be notified of the selected item via the supplied listener.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1558,8 +1686,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/AlertDialog.Builder.html#setMultiChoiceItems(android.database.Cursor, java.lang.String, java.lang.String, android.content.DialogInterface.OnMultiChoiceClickListener)">setMultiChoiceItems</a></span>(<a href="../../../reference/android/database/Cursor.html">Cursor</a> cursor, <a href="../../../reference/java/lang/String.html">String</a> isCheckedColumn, <a href="../../../reference/java/lang/String.html">String</a> labelColumn, <a href="../../../reference/android/content/DialogInterface.OnMultiChoiceClickListener.html">DialogInterface.OnMultiChoiceClickListener</a> listener)</nobr>
         
-        <div class="jd-descrdiv">Set a list of items to be displayed in the dialog as the content,
- you will be notified of the selected item via the supplied listener.</div>
+        <div class="jd-descrdiv">
+          Set a list of items to be displayed in the dialog as the content,
+ you will be notified of the selected item via the supplied listener.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1577,8 +1710,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/AlertDialog.Builder.html#setMultiChoiceItems(int, boolean[], android.content.DialogInterface.OnMultiChoiceClickListener)">setMultiChoiceItems</a></span>(int itemsId, boolean[] checkedItems, <a href="../../../reference/android/content/DialogInterface.OnMultiChoiceClickListener.html">DialogInterface.OnMultiChoiceClickListener</a> listener)</nobr>
         
-        <div class="jd-descrdiv">Set a list of items to be displayed in the dialog as the content,
- you will be notified of the selected item via the supplied listener.</div>
+        <div class="jd-descrdiv">
+          Set a list of items to be displayed in the dialog as the content,
+ you will be notified of the selected item via the supplied listener.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1596,7 +1734,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/AlertDialog.Builder.html#setNegativeButton(java.lang.CharSequence, android.content.DialogInterface.OnClickListener)">setNegativeButton</a></span>(<a href="../../../reference/java/lang/CharSequence.html">CharSequence</a> text, <a href="../../../reference/android/content/DialogInterface.OnClickListener.html">DialogInterface.OnClickListener</a> listener)</nobr>
         
-        <div class="jd-descrdiv">Set a listener to be invoked when the negative button of the dialog is pressed.</div>
+        <div class="jd-descrdiv">
+          Set a listener to be invoked when the negative button of the dialog is pressed.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1614,7 +1757,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/AlertDialog.Builder.html#setNegativeButton(int, android.content.DialogInterface.OnClickListener)">setNegativeButton</a></span>(int textId, <a href="../../../reference/android/content/DialogInterface.OnClickListener.html">DialogInterface.OnClickListener</a> listener)</nobr>
         
-        <div class="jd-descrdiv">Set a listener to be invoked when the negative button of the dialog is pressed.</div>
+        <div class="jd-descrdiv">
+          Set a listener to be invoked when the negative button of the dialog is pressed.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1632,7 +1780,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/AlertDialog.Builder.html#setNeutralButton(int, android.content.DialogInterface.OnClickListener)">setNeutralButton</a></span>(int textId, <a href="../../../reference/android/content/DialogInterface.OnClickListener.html">DialogInterface.OnClickListener</a> listener)</nobr>
         
-        <div class="jd-descrdiv">Set a listener to be invoked when the neutral button of the dialog is pressed.</div>
+        <div class="jd-descrdiv">
+          Set a listener to be invoked when the neutral button of the dialog is pressed.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1650,7 +1803,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/AlertDialog.Builder.html#setNeutralButton(java.lang.CharSequence, android.content.DialogInterface.OnClickListener)">setNeutralButton</a></span>(<a href="../../../reference/java/lang/CharSequence.html">CharSequence</a> text, <a href="../../../reference/android/content/DialogInterface.OnClickListener.html">DialogInterface.OnClickListener</a> listener)</nobr>
         
-        <div class="jd-descrdiv">Set a listener to be invoked when the neutral button of the dialog is pressed.</div>
+        <div class="jd-descrdiv">
+          Set a listener to be invoked when the neutral button of the dialog is pressed.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1668,7 +1826,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/AlertDialog.Builder.html#setOnCancelListener(android.content.DialogInterface.OnCancelListener)">setOnCancelListener</a></span>(<a href="../../../reference/android/content/DialogInterface.OnCancelListener.html">DialogInterface.OnCancelListener</a> onCancelListener)</nobr>
         
-        <div class="jd-descrdiv">Sets the callback that will be called if the dialog is canceled.</div>
+        <div class="jd-descrdiv">
+          Sets the callback that will be called if the dialog is canceled.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1686,7 +1849,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/AlertDialog.Builder.html#setOnDismissListener(android.content.DialogInterface.OnDismissListener)">setOnDismissListener</a></span>(<a href="../../../reference/android/content/DialogInterface.OnDismissListener.html">DialogInterface.OnDismissListener</a> onDismissListener)</nobr>
         
-        <div class="jd-descrdiv">Sets the callback that will be called when the dialog is dismissed for any reason.</div>
+        <div class="jd-descrdiv">
+          Sets the callback that will be called when the dialog is dismissed for any reason.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1704,7 +1872,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/AlertDialog.Builder.html#setOnItemSelectedListener(android.widget.AdapterView.OnItemSelectedListener)">setOnItemSelectedListener</a></span>(<a href="../../../reference/android/widget/AdapterView.OnItemSelectedListener.html">AdapterView.OnItemSelectedListener</a> listener)</nobr>
         
-        <div class="jd-descrdiv">Sets a listener to be invoked when an item in the list is selected.</div>
+        <div class="jd-descrdiv">
+          Sets a listener to be invoked when an item in the list is selected.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1722,7 +1895,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/AlertDialog.Builder.html#setOnKeyListener(android.content.DialogInterface.OnKeyListener)">setOnKeyListener</a></span>(<a href="../../../reference/android/content/DialogInterface.OnKeyListener.html">DialogInterface.OnKeyListener</a> onKeyListener)</nobr>
         
-        <div class="jd-descrdiv">Sets the callback that will be called if a key is dispatched to the dialog.</div>
+        <div class="jd-descrdiv">
+          Sets the callback that will be called if a key is dispatched to the dialog.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1740,7 +1918,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/AlertDialog.Builder.html#setPositiveButton(int, android.content.DialogInterface.OnClickListener)">setPositiveButton</a></span>(int textId, <a href="../../../reference/android/content/DialogInterface.OnClickListener.html">DialogInterface.OnClickListener</a> listener)</nobr>
         
-        <div class="jd-descrdiv">Set a listener to be invoked when the positive button of the dialog is pressed.</div>
+        <div class="jd-descrdiv">
+          Set a listener to be invoked when the positive button of the dialog is pressed.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1758,7 +1941,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/AlertDialog.Builder.html#setPositiveButton(java.lang.CharSequence, android.content.DialogInterface.OnClickListener)">setPositiveButton</a></span>(<a href="../../../reference/java/lang/CharSequence.html">CharSequence</a> text, <a href="../../../reference/android/content/DialogInterface.OnClickListener.html">DialogInterface.OnClickListener</a> listener)</nobr>
         
-        <div class="jd-descrdiv">Set a listener to be invoked when the positive button of the dialog is pressed.</div>
+        <div class="jd-descrdiv">
+          Set a listener to be invoked when the positive button of the dialog is pressed.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1776,8 +1964,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/AlertDialog.Builder.html#setSingleChoiceItems(java.lang.CharSequence[], int, android.content.DialogInterface.OnClickListener)">setSingleChoiceItems</a></span>(<a href="../../../reference/java/lang/CharSequence.html">CharSequence[]</a> items, int checkedItem, <a href="../../../reference/android/content/DialogInterface.OnClickListener.html">DialogInterface.OnClickListener</a> listener)</nobr>
         
-        <div class="jd-descrdiv">Set a list of items to be displayed in the dialog as the content, you will be notified of
- the selected item via the supplied listener.</div>
+        <div class="jd-descrdiv">
+          Set a list of items to be displayed in the dialog as the content, you will be notified of
+ the selected item via the supplied listener.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1795,8 +1988,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/AlertDialog.Builder.html#setSingleChoiceItems(android.widget.ListAdapter, int, android.content.DialogInterface.OnClickListener)">setSingleChoiceItems</a></span>(<a href="../../../reference/android/widget/ListAdapter.html">ListAdapter</a> adapter, int checkedItem, <a href="../../../reference/android/content/DialogInterface.OnClickListener.html">DialogInterface.OnClickListener</a> listener)</nobr>
         
-        <div class="jd-descrdiv">Set a list of items to be displayed in the dialog as the content, you will be notified of
- the selected item via the supplied listener.</div>
+        <div class="jd-descrdiv">
+          Set a list of items to be displayed in the dialog as the content, you will be notified of
+ the selected item via the supplied listener.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1814,8 +2012,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/AlertDialog.Builder.html#setSingleChoiceItems(int, int, android.content.DialogInterface.OnClickListener)">setSingleChoiceItems</a></span>(int itemsId, int checkedItem, <a href="../../../reference/android/content/DialogInterface.OnClickListener.html">DialogInterface.OnClickListener</a> listener)</nobr>
         
-        <div class="jd-descrdiv">Set a list of items to be displayed in the dialog as the content, you will be notified of
- the selected item via the supplied listener.</div>
+        <div class="jd-descrdiv">
+          Set a list of items to be displayed in the dialog as the content, you will be notified of
+ the selected item via the supplied listener.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1833,8 +2036,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/AlertDialog.Builder.html#setSingleChoiceItems(android.database.Cursor, int, java.lang.String, android.content.DialogInterface.OnClickListener)">setSingleChoiceItems</a></span>(<a href="../../../reference/android/database/Cursor.html">Cursor</a> cursor, int checkedItem, <a href="../../../reference/java/lang/String.html">String</a> labelColumn, <a href="../../../reference/android/content/DialogInterface.OnClickListener.html">DialogInterface.OnClickListener</a> listener)</nobr>
         
-        <div class="jd-descrdiv">Set a list of items to be displayed in the dialog as the content, you will be notified of
- the selected item via the supplied listener.</div>
+        <div class="jd-descrdiv">
+          Set a list of items to be displayed in the dialog as the content, you will be notified of
+ the selected item via the supplied listener.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1852,7 +2060,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/AlertDialog.Builder.html#setTitle(java.lang.CharSequence)">setTitle</a></span>(<a href="../../../reference/java/lang/CharSequence.html">CharSequence</a> title)</nobr>
         
-        <div class="jd-descrdiv">Set the title displayed in the <code><a href="../../../reference/android/app/Dialog.html">Dialog</a></code>.</div>
+        <div class="jd-descrdiv">
+          Set the title displayed in the <code><a href="../../../reference/android/app/Dialog.html">Dialog</a></code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1870,13 +2083,18 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/AlertDialog.Builder.html#setTitle(int)">setTitle</a></span>(int titleId)</nobr>
         
-        <div class="jd-descrdiv">Set the title using the given resource id.</div>
+        <div class="jd-descrdiv">
+          Set the title using the given resource id.
+          
+    
+
+        </div>
   
   </td></tr>
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class=" api apilevel-21" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1888,7 +2106,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/AlertDialog.Builder.html#setView(int)">setView</a></span>(int layoutResId)</nobr>
         
-        <div class="jd-descrdiv">Set a custom view resource to be the contents of the Dialog.</div>
+        <div class="jd-descrdiv">
+          Set a custom view resource to be the contents of the Dialog.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1906,7 +2129,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/AlertDialog.Builder.html#setView(android.view.View)">setView</a></span>(<a href="../../../reference/android/view/View.html">View</a> view)</nobr>
         
-        <div class="jd-descrdiv">Set a custom view to be the contents of the Dialog.</div>
+        <div class="jd-descrdiv">
+          Set a custom view to be the contents of the Dialog.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1924,8 +2152,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/AlertDialog.Builder.html#show()">show</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Creates a <code><a href="../../../reference/android/app/AlertDialog.html">AlertDialog</a></code> with the arguments supplied to this builder and
- <code><a href="../../../reference/android/app/Dialog.html#show()">show()</a></code>'s the dialog.</div>
+        <div class="jd-descrdiv">
+          Creates a <code><a href="../../../reference/android/app/AlertDialog.html">AlertDialog</a></code> with the arguments supplied to this builder and
+ <code><a href="../../../reference/android/app/Dialog.html#show()">show()</a></code>'s the dialog.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1977,7 +2210,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#clone()">clone</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Creates and returns a copy of this <code>Object</code>.</div>
+        <div class="jd-descrdiv">
+          Creates and returns a copy of this <code>Object</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1995,8 +2233,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#equals(java.lang.Object)">equals</a></span>(<a href="../../../reference/java/lang/Object.html">Object</a> o)</nobr>
         
-        <div class="jd-descrdiv">Compares this instance with the specified object and indicates if they
- are equal.</div>
+        <div class="jd-descrdiv">
+          Compares this instance with the specified object and indicates if they
+ are equal.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2014,7 +2257,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#finalize()">finalize</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Invoked when the garbage collector has detected that this instance is no longer reachable.</div>
+        <div class="jd-descrdiv">
+          Invoked when the garbage collector has detected that this instance is no longer reachable.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2032,8 +2280,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#getClass()">getClass</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns the unique instance of <code><a href="../../../reference/java/lang/Class.html">Class</a></code> that represents this
- object's class.</div>
+        <div class="jd-descrdiv">
+          Returns the unique instance of <code><a href="../../../reference/java/lang/Class.html">Class</a></code> that represents this
+ object's class.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2051,7 +2304,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#hashCode()">hashCode</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns an integer hash code for this object.</div>
+        <div class="jd-descrdiv">
+          Returns an integer hash code for this object.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2069,8 +2327,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#notify()">notify</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Causes a thread which is waiting on this object's monitor (by means of
- calling one of the <code>wait()</code> methods) to be woken up.</div>
+        <div class="jd-descrdiv">
+          Causes a thread which is waiting on this object's monitor (by means of
+ calling one of the <code>wait()</code> methods) to be woken up.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2088,8 +2351,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#notifyAll()">notifyAll</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Causes all threads which are waiting on this object's monitor (by means
- of calling one of the <code>wait()</code> methods) to be woken up.</div>
+        <div class="jd-descrdiv">
+          Causes all threads which are waiting on this object's monitor (by means
+ of calling one of the <code>wait()</code> methods) to be woken up.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2107,8 +2375,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#toString()">toString</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns a string containing a concise, human-readable description of this
- object.</div>
+        <div class="jd-descrdiv">
+          Returns a string containing a concise, human-readable description of this
+ object.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2126,7 +2399,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#wait()">wait</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object.</div>
+        <div class="jd-descrdiv">
+          Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2144,8 +2422,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#wait(long, int)">wait</a></span>(long millis, int nanos)</nobr>
         
-        <div class="jd-descrdiv">Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object or until the
- specified timeout expires.</div>
+        <div class="jd-descrdiv">
+          Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object or until the
+ specified timeout expires.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2163,8 +2446,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#wait(long)">wait</a></span>(long millis)</nobr>
         
-        <div class="jd-descrdiv">Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object or until the
- specified timeout expires.</div>
+        <div class="jd-descrdiv">
+          Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object or until the
+ specified timeout expires.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2233,6 +2521,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Constructor using a context for this builder and the <code><a href="../../../reference/android/app/AlertDialog.html">AlertDialog</a></code> it creates.
 </p></div>
 
@@ -2263,6 +2554,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Constructor using a context and theme for this builder and
  the <code><a href="../../../reference/android/app/AlertDialog.html">AlertDialog</a></code> it creates.  The actual theme
@@ -2318,6 +2612,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Creates a <code><a href="../../../reference/android/app/AlertDialog.html">AlertDialog</a></code> with the arguments supplied to this builder. It does not
  <code><a href="../../../reference/android/app/Dialog.html#show()">show()</a></code> the dialog. This allows the user to do any extra processing
  before displaying the dialog. Use <code><a href="../../../reference/android/app/AlertDialog.Builder.html#show()">show()</a></code> if you don't have any other processing
@@ -2351,6 +2648,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Returns a <code><a href="../../../reference/android/content/Context.html">Context</a></code> with the appropriate theme for dialogs created by this Builder.
  Applications should use this Context for obtaining LayoutInflaters for inflating views
@@ -2389,6 +2689,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Set a list of items, which are supplied by the given <code><a href="../../../reference/android/widget/ListAdapter.html">ListAdapter</a></code>, to be
  displayed in the dialog as the content, you will be notified of the
@@ -2440,6 +2743,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Sets whether the dialog is cancelable or not.  Default is true.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
@@ -2474,6 +2780,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Set a list of items, which are supplied by the given <code><a href="../../../reference/android/database/Cursor.html">Cursor</a></code>, to be
  displayed in the dialog as the content, you will be notified of the
@@ -2530,6 +2839,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Set the title using the custom view <code>customTitleView</code>. The
  methods <code><a href="../../../reference/android/app/AlertDialog.Builder.html#setTitle(int)">setTitle(int)</a></code> and <code><a href="../../../reference/android/app/AlertDialog.Builder.html#setIcon(int)">setIcon(int)</a></code> should be
  sufficient for most titles, but this is provided if the title needs
@@ -2578,6 +2890,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Set the <code><a href="../../../reference/android/graphics/drawable/Drawable.html">Drawable</a></code> to be used in the title.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
@@ -2613,6 +2928,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Set the resource id of the <code><a href="../../../reference/android/graphics/drawable/Drawable.html">Drawable</a></code> to be used in the title.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
@@ -2647,6 +2965,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Set an icon as supplied by a theme attribute. e.g. android.R.attr.alertDialogIcon</p></div>
   <div class="jd-tagdata">
@@ -2687,6 +3008,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Sets the Dialog to use the inverse background, regardless of what the
  contents is.</p></div>
@@ -2733,6 +3057,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Set a list of items to be displayed in the dialog as the content, you will be notified of the
  selected item via the supplied listener. This should be an array type i.e. R.array.foo</p></div>
   <div class="jd-tagdata">
@@ -2768,6 +3095,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Set a list of items to be displayed in the dialog as the content, you will be notified of the
  selected item via the supplied listener.</p></div>
@@ -2805,6 +3135,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Set the message to display.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
@@ -2840,6 +3173,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Set the message to display using the given resource id.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
@@ -2874,6 +3210,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Set a list of items to be displayed in the dialog as the content,
  you will be notified of the selected item via the supplied listener.
@@ -2934,6 +3273,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Set a list of items to be displayed in the dialog as the content,
  you will be notified of the selected item via the supplied listener.
@@ -3000,6 +3342,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Set a list of items to be displayed in the dialog as the content,
  you will be notified of the selected item via the supplied listener.
  This should be an array type, e.g. R.array.foo. The list will have
@@ -3061,6 +3406,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Set a listener to be invoked when the negative button of the dialog is pressed.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -3108,6 +3456,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Set a listener to be invoked when the negative button of the dialog is pressed.</p></div>
   <div class="jd-tagdata">
@@ -3157,6 +3508,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Set a listener to be invoked when the neutral button of the dialog is pressed.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -3204,6 +3558,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Set a listener to be invoked when the neutral button of the dialog is pressed.</p></div>
   <div class="jd-tagdata">
@@ -3253,6 +3610,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Sets the callback that will be called if the dialog is canceled.
 
  <p>Even in a cancelable dialog, the dialog may be dismissed for reasons other than
@@ -3299,6 +3659,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Sets the callback that will be called when the dialog is dismissed for any reason.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
@@ -3333,6 +3696,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Sets a listener to be invoked when an item in the list is selected.</p></div>
   <div class="jd-tagdata">
@@ -3383,6 +3749,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Sets the callback that will be called if a key is dispatched to the dialog.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
@@ -3417,6 +3786,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Set a listener to be invoked when the positive button of the dialog is pressed.</p></div>
   <div class="jd-tagdata">
@@ -3466,6 +3838,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Set a listener to be invoked when the positive button of the dialog is pressed.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -3513,6 +3888,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Set a list of items to be displayed in the dialog as the content, you will be notified of
  the selected item via the supplied listener. The list will have a check mark displayed to
@@ -3571,6 +3949,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Set a list of items to be displayed in the dialog as the content, you will be notified of
  the selected item via the supplied listener. The list will have a check mark displayed to
  the right of the text for the checked item. Clicking on an item in the list will not
@@ -3627,6 +4008,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Set a list of items to be displayed in the dialog as the content, you will be notified of
  the selected item via the supplied listener. This should be an array type i.e.
@@ -3685,6 +4069,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Set a list of items to be displayed in the dialog as the content, you will be notified of
  the selected item via the supplied listener. The list will have a check mark displayed to
@@ -3748,6 +4135,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Set the title displayed in the <code><a href="../../../reference/android/app/Dialog.html">Dialog</a></code>.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
@@ -3783,6 +4173,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Set the title using the given resource id.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
@@ -3796,7 +4189,7 @@ From class
 
 <A NAME="setView(int)"></A>
 
-<div class="jd-details api apilevel-"> 
+<div class="jd-details api apilevel-21"> 
     <h4 class="jd-details-title">
       <span class="normal">
         public 
@@ -3810,12 +4203,16 @@ From class
       <span class="normal">(int layoutResId)</span>
     </h4>
       <div class="api-level">
-        <div></div>
+        <div>
+  Added in <a href="../../../guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 21</a></div>
         
   
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Set a custom view resource to be the contents of the Dialog. The
  resource will be inflated, adding all top-level views to the screen.</p></div>
@@ -3863,6 +4260,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Set a custom view to be the contents of the Dialog. If the supplied view is an instance
  of a <code><a href="../../../reference/android/widget/ListView.html">ListView</a></code> the light background will be used.</p></div>
   <div class="jd-tagdata">
@@ -3907,6 +4307,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Creates a <code><a href="../../../reference/android/app/AlertDialog.html">AlertDialog</a></code> with the arguments supplied to this builder and
  <code><a href="../../../reference/android/app/Dialog.html#show()">show()</a></code>'s the dialog.

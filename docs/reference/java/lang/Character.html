@@ -82,6 +82,19 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 <html>
 <head>
 
@@ -97,7 +110,7 @@
 href="http://fonts.useso.com/css?family=Roboto+Condensed">
 <link rel="stylesheet" href="http://fonts.useso.com/css?family=Roboto:light,regular,medium,thin,italic,mediumitalic,bold"
   title="roboto">
-<link href="../../../assets/css/default.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/default.css?v=2" rel="stylesheet" type="text/css">
 
 
 <!-- FULLSCREEN STYLESHEET -->
@@ -106,30 +119,31 @@ type="text/css">
 
 
 <!-- JAVASCRIPT -->
-<script src="http://googleapiscdn.qiniudn.com/www.google.com/jsapi" type="text/javascript"></script>
+<script src="http://www.google.com/jsapi" type="text/javascript"></script>
 <script src="../../../assets/js/android_3p-bundle.js" type="text/javascript"></script>
 <script type="text/javascript">
   var toRoot = "../../../";
   var metaTags = [];
   var devsite = false;
 </script>
-<script src="../../../assets/js/docs.js" type="text/javascript"></script>
+<script src="../../../assets/js/docs.js?v=2" type="text/javascript"></script>
 
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-5831155-1']);
-  _gaq.push(['_trackPageview']);
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
+  ga('create', 'UA-5831155-1', 'android.com');
+  ga('create', 'UA-49880327-2', 'android.com', {'name': 'universal'});  // New tracker);
+  ga('send', 'pageview');
+  ga('universal.send', 'pageview'); // Send page view for new tracker.
 </script>
+
 </head>
 
 <body class="gc-documentation 
-  develop" itemscope itemtype="http://schema.org/Article">
+  develop reference" itemscope itemtype="http://schema.org/Article">
   <div id="doc-api-level" class="1" style="display:none"></div>
   <a name="top"></a>
 
@@ -139,6 +153,10 @@ type="text/css">
   <!-- Header -->
   <div id="header-wrapper">
     <div id="header">
+
+    
+
+
       <div class="wrap" id="header-wrap">
         <div class="col-3 logo">
           <a href="../../../index.html">
@@ -260,11 +278,20 @@ type="text/css">
 
 
         <!-- Expanded quicknav -->
-        <div id="quicknav" class="col-9">
+        <div id="quicknav" class="col-13">
           <ul>
+            <li class="about">
+              <ul>
+                <li><a href="../../../about/index.html">About</a></li>
+                <li><a href="../../../wear/index.html">Wear</a></li>
+                <li><a href="../../../tv/index.html">TV</a></li>
+                <li><a href="../../../auto/index.html">Auto</a></li>
+              </ul>
+            </li>
             <li class="design">
               <ul>
                 <li><a href="../../../design/index.html">Get Started</a></li>
+                <li><a href="../../../design/devices.html">Devices</a></li>
                 <li><a href="../../../design/style/index.html">Style</a></li>
                 <li><a href="../../../design/patterns/index.html">Patterns</a></li>
                 <li><a href="../../../design/building-blocks/index.html">Building Blocks</a></li>
@@ -298,7 +325,7 @@ type="text/css">
                   ja-lang="リファレンス"
                   es-lang="Referencia"
                   >Reference</a></li>
-                <li><a href="../../../tools/index.html"
+                <li><a href="../../../sdk/index.html"
                   zh-tw-lang="相關工具"
                   zh-cn-lang="工具"
                   ru-lang="Инструменты"
@@ -306,7 +333,6 @@ type="text/css">
                   ja-lang="ツール"
                   es-lang="Herramientas"
                   >Tools</a>
-                  <ul><li><a href="../../../sdk/index.html">Get the SDK</a></li></ul>
                 </li>
                 <li><a href="../../../google/index.html">Google Services</a>
                 </li>
@@ -358,7 +384,7 @@ type="text/css">
                   ja-lang="リファレンス"
                   es-lang="Referencia"
                   >Reference</a></li>
-                <li class="tools"><a href="../../../tools/index.html"
+                <li class="tools"><a href="../../../sdk/index.html"
                   zh-tw-lang="相關工具"
                   zh-cn-lang="工具"
                   ru-lang="Инструменты"
@@ -373,7 +399,7 @@ type="text/css">
             </ul>
         </div>
     </div>
-    <!-- /Sendondary x-nav -->
+    <!-- /Sendondary x-nav DEVELOP -->
 
   
 
@@ -414,7 +440,7 @@ type="text/css">
         <div id="api-nav-title">Android APIs</div>
         </div><!-- end nav header -->
       <script>
-        var SINCE_DATA = [ '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19' ];
+        var SINCE_DATA = [ '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21' ];
         buildApiLevelSelector();
       </script>
                   
@@ -441,13 +467,15 @@ type="text/css">
   <a href="../../../reference/android/app/admin/package-summary.html">android.app.admin</a></li>
     <li class="api apilevel-8">
   <a href="../../../reference/android/app/backup/package-summary.html">android.app.backup</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/app/job/package-summary.html">android.app.job</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/app/usage/package-summary.html">android.app.usage</a></li>
     <li class="api apilevel-3">
   <a href="../../../reference/android/appwidget/package-summary.html">android.appwidget</a></li>
     <li class="api apilevel-5">
   <a href="../../../reference/android/bluetooth/package-summary.html">android.bluetooth</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/bluetooth/le/package-summary.html">android.bluetooth.le</a></li>
     <li class="api apilevel-1">
   <a href="../../../reference/android/content/package-summary.html">android.content</a></li>
@@ -473,16 +501,14 @@ type="text/css">
   <a href="../../../reference/android/graphics/pdf/package-summary.html">android.graphics.pdf</a></li>
     <li class="api apilevel-1">
   <a href="../../../reference/android/hardware/package-summary.html">android.hardware</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/hardware/camera2/package-summary.html">android.hardware.camera2</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/hardware/camera2/params/package-summary.html">android.hardware.camera2.params</a></li>
     <li class="api apilevel-17">
   <a href="../../../reference/android/hardware/display/package-summary.html">android.hardware.display</a></li>
     <li class="api apilevel-16">
   <a href="../../../reference/android/hardware/input/package-summary.html">android.hardware.input</a></li>
-    <li class="api apilevel-18">
-  <a href="../../../reference/android/hardware/location/package-summary.html">android.hardware.location</a></li>
     <li class="api apilevel-12">
   <a href="../../../reference/android/hardware/usb/package-summary.html">android.hardware.usb</a></li>
     <li class="api apilevel-3">
@@ -493,11 +519,15 @@ type="text/css">
   <a href="../../../reference/android/media/package-summary.html">android.media</a></li>
     <li class="api apilevel-9">
   <a href="../../../reference/android/media/audiofx/package-summary.html">android.media.audiofx</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/media/browse/package-summary.html">android.media.browse</a></li>
     <li class="api apilevel-14">
   <a href="../../../reference/android/media/effect/package-summary.html">android.media.effect</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/media/projection/package-summary.html">android.media.projection</a></li>
+    <li class="api apilevel-21">
   <a href="../../../reference/android/media/session/package-summary.html">android.media.session</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/media/tv/package-summary.html">android.media.tv</a></li>
     <li class="api apilevel-12">
   <a href="../../../reference/android/mtp/package-summary.html">android.mtp</a></li>
@@ -547,11 +577,15 @@ type="text/css">
   <a href="../../../reference/android/security/package-summary.html">android.security</a></li>
     <li class="api apilevel-17">
   <a href="../../../reference/android/service/dreams/package-summary.html">android.service.dreams</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/service/media/package-summary.html">android.service.media</a></li>
     <li class="api apilevel-18">
   <a href="../../../reference/android/service/notification/package-summary.html">android.service.notification</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/service/restrictions/package-summary.html">android.service.restrictions</a></li>
     <li class="api apilevel-14">
   <a href="../../../reference/android/service/textservice/package-summary.html">android.service.textservice</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/service/voice/package-summary.html">android.service.voice</a></li>
     <li class="api apilevel-7">
   <a href="../../../reference/android/service/wallpaper/package-summary.html">android.service.wallpaper</a></li>
@@ -596,11 +630,15 @@ type="text/css">
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/media/package-summary.html">android.support.v4.media</a></li>
     <li class="api apilevel-">
+  <a href="../../../reference/android/support/v4/media/session/package-summary.html">android.support.v4.media.session</a></li>
+    <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/net/package-summary.html">android.support.v4.net</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/os/package-summary.html">android.support.v4.os</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/print/package-summary.html">android.support.v4.print</a></li>
+    <li class="api apilevel-">
+  <a href="../../../reference/android/support/v4/provider/package-summary.html">android.support.v4.provider</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/text/package-summary.html">android.support.v4.text</a></li>
     <li class="api apilevel-">
@@ -616,6 +654,10 @@ type="text/css">
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v7/appcompat/package-summary.html">android.support.v7.appcompat</a></li>
     <li class="api apilevel-">
+  <a href="../../../reference/android/support/v7/cardview/package-summary.html">android.support.v7.cardview</a></li>
+    <li class="api apilevel-">
+  <a href="../../../reference/android/support/v7/graphics/package-summary.html">android.support.v7.graphics</a></li>
+    <li class="api apilevel-">
   <a href="../../../reference/android/support/v7/gridlayout/package-summary.html">android.support.v7.gridlayout</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v7/media/package-summary.html">android.support.v7.media</a></li>
@@ -627,8 +669,10 @@ type="text/css">
   <a href="../../../reference/android/support/v7/widget/package-summary.html">android.support.v7.widget</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v8/renderscript/package-summary.html">android.support.v8.renderscript</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/system/package-summary.html">android.system</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/telecom/package-summary.html">android.telecom</a></li>
     <li class="api apilevel-1">
   <a href="../../../reference/android/telephony/package-summary.html">android.telephony</a></li>
     <li class="api apilevel-5">
@@ -1160,6 +1204,9 @@ Summary:
   
 
 
+    
+
+
 </div><!-- end header -->
 
 <div id="naMessage"></div>
@@ -1308,7 +1355,12 @@ Summary:
         
         class</nobr></td>
       <td class="jd-linkcol"><a href="../../../reference/java/lang/Character.Subset.html">Character.Subset</a></td>
-      <td class="jd-descrcol" width="100%">&nbsp;</td>
+      <td class="jd-descrcol" width="100%">
+        &nbsp;
+        
+    
+
+      </td>
     </tr>
     
     
@@ -1320,7 +1372,12 @@ Summary:
         
         class</nobr></td>
       <td class="jd-linkcol"><a href="../../../reference/java/lang/Character.UnicodeBlock.html">Character.UnicodeBlock</a></td>
-      <td class="jd-descrcol" width="100%">Represents a block of Unicode characters.&nbsp;</td>
+      <td class="jd-descrcol" width="100%">
+        Represents a block of Unicode characters.&nbsp;
+        
+    
+
+      </td>
     </tr>
     
     
@@ -1345,453 +1402,773 @@ Summary:
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">byte</td>
         <td class="jd-linkcol"><a href="../../../reference/java/lang/Character.html#COMBINING_SPACING_MARK">COMBINING_SPACING_MARK</a></td>
-        <td class="jd-descrcol" width="100%">Unicode category constant Mc.</td>
+        <td class="jd-descrcol" width="100%">
+          Unicode category constant Mc.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">byte</td>
         <td class="jd-linkcol"><a href="../../../reference/java/lang/Character.html#CONNECTOR_PUNCTUATION">CONNECTOR_PUNCTUATION</a></td>
-        <td class="jd-descrcol" width="100%">Unicode category constant Pc.</td>
+        <td class="jd-descrcol" width="100%">
+          Unicode category constant Pc.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">byte</td>
         <td class="jd-linkcol"><a href="../../../reference/java/lang/Character.html#CONTROL">CONTROL</a></td>
-        <td class="jd-descrcol" width="100%">Unicode category constant Cc.</td>
+        <td class="jd-descrcol" width="100%">
+          Unicode category constant Cc.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">byte</td>
         <td class="jd-linkcol"><a href="../../../reference/java/lang/Character.html#CURRENCY_SYMBOL">CURRENCY_SYMBOL</a></td>
-        <td class="jd-descrcol" width="100%">Unicode category constant Sc.</td>
+        <td class="jd-descrcol" width="100%">
+          Unicode category constant Sc.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">byte</td>
         <td class="jd-linkcol"><a href="../../../reference/java/lang/Character.html#DASH_PUNCTUATION">DASH_PUNCTUATION</a></td>
-        <td class="jd-descrcol" width="100%">Unicode category constant Pd.</td>
+        <td class="jd-descrcol" width="100%">
+          Unicode category constant Pd.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">byte</td>
         <td class="jd-linkcol"><a href="../../../reference/java/lang/Character.html#DECIMAL_DIGIT_NUMBER">DECIMAL_DIGIT_NUMBER</a></td>
-        <td class="jd-descrcol" width="100%">Unicode category constant Nd.</td>
+        <td class="jd-descrcol" width="100%">
+          Unicode category constant Nd.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">byte</td>
         <td class="jd-linkcol"><a href="../../../reference/java/lang/Character.html#DIRECTIONALITY_ARABIC_NUMBER">DIRECTIONALITY_ARABIC_NUMBER</a></td>
-        <td class="jd-descrcol" width="100%">Unicode bidirectional constant AN.</td>
+        <td class="jd-descrcol" width="100%">
+          Unicode bidirectional constant AN.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">byte</td>
         <td class="jd-linkcol"><a href="../../../reference/java/lang/Character.html#DIRECTIONALITY_BOUNDARY_NEUTRAL">DIRECTIONALITY_BOUNDARY_NEUTRAL</a></td>
-        <td class="jd-descrcol" width="100%">Unicode bidirectional constant BN.</td>
+        <td class="jd-descrcol" width="100%">
+          Unicode bidirectional constant BN.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">byte</td>
         <td class="jd-linkcol"><a href="../../../reference/java/lang/Character.html#DIRECTIONALITY_COMMON_NUMBER_SEPARATOR">DIRECTIONALITY_COMMON_NUMBER_SEPARATOR</a></td>
-        <td class="jd-descrcol" width="100%">Unicode bidirectional constant CS.</td>
+        <td class="jd-descrcol" width="100%">
+          Unicode bidirectional constant CS.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">byte</td>
         <td class="jd-linkcol"><a href="../../../reference/java/lang/Character.html#DIRECTIONALITY_EUROPEAN_NUMBER">DIRECTIONALITY_EUROPEAN_NUMBER</a></td>
-        <td class="jd-descrcol" width="100%">Unicode bidirectional constant EN.</td>
+        <td class="jd-descrcol" width="100%">
+          Unicode bidirectional constant EN.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">byte</td>
         <td class="jd-linkcol"><a href="../../../reference/java/lang/Character.html#DIRECTIONALITY_EUROPEAN_NUMBER_SEPARATOR">DIRECTIONALITY_EUROPEAN_NUMBER_SEPARATOR</a></td>
-        <td class="jd-descrcol" width="100%">Unicode bidirectional constant ES.</td>
+        <td class="jd-descrcol" width="100%">
+          Unicode bidirectional constant ES.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">byte</td>
         <td class="jd-linkcol"><a href="../../../reference/java/lang/Character.html#DIRECTIONALITY_EUROPEAN_NUMBER_TERMINATOR">DIRECTIONALITY_EUROPEAN_NUMBER_TERMINATOR</a></td>
-        <td class="jd-descrcol" width="100%">Unicode bidirectional constant ET.</td>
+        <td class="jd-descrcol" width="100%">
+          Unicode bidirectional constant ET.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">byte</td>
         <td class="jd-linkcol"><a href="../../../reference/java/lang/Character.html#DIRECTIONALITY_LEFT_TO_RIGHT">DIRECTIONALITY_LEFT_TO_RIGHT</a></td>
-        <td class="jd-descrcol" width="100%">Unicode bidirectional constant L.</td>
+        <td class="jd-descrcol" width="100%">
+          Unicode bidirectional constant L.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">byte</td>
         <td class="jd-linkcol"><a href="../../../reference/java/lang/Character.html#DIRECTIONALITY_LEFT_TO_RIGHT_EMBEDDING">DIRECTIONALITY_LEFT_TO_RIGHT_EMBEDDING</a></td>
-        <td class="jd-descrcol" width="100%">Unicode bidirectional constant LRE.</td>
+        <td class="jd-descrcol" width="100%">
+          Unicode bidirectional constant LRE.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">byte</td>
         <td class="jd-linkcol"><a href="../../../reference/java/lang/Character.html#DIRECTIONALITY_LEFT_TO_RIGHT_OVERRIDE">DIRECTIONALITY_LEFT_TO_RIGHT_OVERRIDE</a></td>
-        <td class="jd-descrcol" width="100%">Unicode bidirectional constant LRO.</td>
+        <td class="jd-descrcol" width="100%">
+          Unicode bidirectional constant LRO.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">byte</td>
         <td class="jd-linkcol"><a href="../../../reference/java/lang/Character.html#DIRECTIONALITY_NONSPACING_MARK">DIRECTIONALITY_NONSPACING_MARK</a></td>
-        <td class="jd-descrcol" width="100%">Unicode bidirectional constant NSM.</td>
+        <td class="jd-descrcol" width="100%">
+          Unicode bidirectional constant NSM.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">byte</td>
         <td class="jd-linkcol"><a href="../../../reference/java/lang/Character.html#DIRECTIONALITY_OTHER_NEUTRALS">DIRECTIONALITY_OTHER_NEUTRALS</a></td>
-        <td class="jd-descrcol" width="100%">Unicode bidirectional constant ON.</td>
+        <td class="jd-descrcol" width="100%">
+          Unicode bidirectional constant ON.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">byte</td>
         <td class="jd-linkcol"><a href="../../../reference/java/lang/Character.html#DIRECTIONALITY_PARAGRAPH_SEPARATOR">DIRECTIONALITY_PARAGRAPH_SEPARATOR</a></td>
-        <td class="jd-descrcol" width="100%">Unicode bidirectional constant B.</td>
+        <td class="jd-descrcol" width="100%">
+          Unicode bidirectional constant B.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">byte</td>
         <td class="jd-linkcol"><a href="../../../reference/java/lang/Character.html#DIRECTIONALITY_POP_DIRECTIONAL_FORMAT">DIRECTIONALITY_POP_DIRECTIONAL_FORMAT</a></td>
-        <td class="jd-descrcol" width="100%">Unicode bidirectional constant PDF.</td>
+        <td class="jd-descrcol" width="100%">
+          Unicode bidirectional constant PDF.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">byte</td>
         <td class="jd-linkcol"><a href="../../../reference/java/lang/Character.html#DIRECTIONALITY_RIGHT_TO_LEFT">DIRECTIONALITY_RIGHT_TO_LEFT</a></td>
-        <td class="jd-descrcol" width="100%">Unicode bidirectional constant R.</td>
+        <td class="jd-descrcol" width="100%">
+          Unicode bidirectional constant R.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">byte</td>
         <td class="jd-linkcol"><a href="../../../reference/java/lang/Character.html#DIRECTIONALITY_RIGHT_TO_LEFT_ARABIC">DIRECTIONALITY_RIGHT_TO_LEFT_ARABIC</a></td>
-        <td class="jd-descrcol" width="100%">Unicode bidirectional constant AL.</td>
+        <td class="jd-descrcol" width="100%">
+          Unicode bidirectional constant AL.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">byte</td>
         <td class="jd-linkcol"><a href="../../../reference/java/lang/Character.html#DIRECTIONALITY_RIGHT_TO_LEFT_EMBEDDING">DIRECTIONALITY_RIGHT_TO_LEFT_EMBEDDING</a></td>
-        <td class="jd-descrcol" width="100%">Unicode bidirectional constant RLE.</td>
+        <td class="jd-descrcol" width="100%">
+          Unicode bidirectional constant RLE.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">byte</td>
         <td class="jd-linkcol"><a href="../../../reference/java/lang/Character.html#DIRECTIONALITY_RIGHT_TO_LEFT_OVERRIDE">DIRECTIONALITY_RIGHT_TO_LEFT_OVERRIDE</a></td>
-        <td class="jd-descrcol" width="100%">Unicode bidirectional constant RLO.</td>
+        <td class="jd-descrcol" width="100%">
+          Unicode bidirectional constant RLO.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">byte</td>
         <td class="jd-linkcol"><a href="../../../reference/java/lang/Character.html#DIRECTIONALITY_SEGMENT_SEPARATOR">DIRECTIONALITY_SEGMENT_SEPARATOR</a></td>
-        <td class="jd-descrcol" width="100%">Unicode bidirectional constant S.</td>
+        <td class="jd-descrcol" width="100%">
+          Unicode bidirectional constant S.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">byte</td>
         <td class="jd-linkcol"><a href="../../../reference/java/lang/Character.html#DIRECTIONALITY_UNDEFINED">DIRECTIONALITY_UNDEFINED</a></td>
-        <td class="jd-descrcol" width="100%">Unicode bidirectional constant.</td>
+        <td class="jd-descrcol" width="100%">
+          Unicode bidirectional constant.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">byte</td>
         <td class="jd-linkcol"><a href="../../../reference/java/lang/Character.html#DIRECTIONALITY_WHITESPACE">DIRECTIONALITY_WHITESPACE</a></td>
-        <td class="jd-descrcol" width="100%">Unicode bidirectional constant WS.</td>
+        <td class="jd-descrcol" width="100%">
+          Unicode bidirectional constant WS.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">byte</td>
         <td class="jd-linkcol"><a href="../../../reference/java/lang/Character.html#ENCLOSING_MARK">ENCLOSING_MARK</a></td>
-        <td class="jd-descrcol" width="100%">Unicode category constant Me.</td>
+        <td class="jd-descrcol" width="100%">
+          Unicode category constant Me.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">byte</td>
         <td class="jd-linkcol"><a href="../../../reference/java/lang/Character.html#END_PUNCTUATION">END_PUNCTUATION</a></td>
-        <td class="jd-descrcol" width="100%">Unicode category constant Pe.</td>
+        <td class="jd-descrcol" width="100%">
+          Unicode category constant Pe.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">byte</td>
         <td class="jd-linkcol"><a href="../../../reference/java/lang/Character.html#FINAL_QUOTE_PUNCTUATION">FINAL_QUOTE_PUNCTUATION</a></td>
-        <td class="jd-descrcol" width="100%">Unicode category constant Pf.</td>
+        <td class="jd-descrcol" width="100%">
+          Unicode category constant Pf.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">byte</td>
         <td class="jd-linkcol"><a href="../../../reference/java/lang/Character.html#FORMAT">FORMAT</a></td>
-        <td class="jd-descrcol" width="100%">Unicode category constant Cf.</td>
+        <td class="jd-descrcol" width="100%">
+          Unicode category constant Cf.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">byte</td>
         <td class="jd-linkcol"><a href="../../../reference/java/lang/Character.html#INITIAL_QUOTE_PUNCTUATION">INITIAL_QUOTE_PUNCTUATION</a></td>
-        <td class="jd-descrcol" width="100%">Unicode category constant Pi.</td>
+        <td class="jd-descrcol" width="100%">
+          Unicode category constant Pi.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">byte</td>
         <td class="jd-linkcol"><a href="../../../reference/java/lang/Character.html#LETTER_NUMBER">LETTER_NUMBER</a></td>
-        <td class="jd-descrcol" width="100%">Unicode category constant Nl.</td>
+        <td class="jd-descrcol" width="100%">
+          Unicode category constant Nl.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">byte</td>
         <td class="jd-linkcol"><a href="../../../reference/java/lang/Character.html#LINE_SEPARATOR">LINE_SEPARATOR</a></td>
-        <td class="jd-descrcol" width="100%">Unicode category constant Zl.</td>
+        <td class="jd-descrcol" width="100%">
+          Unicode category constant Zl.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">byte</td>
         <td class="jd-linkcol"><a href="../../../reference/java/lang/Character.html#LOWERCASE_LETTER">LOWERCASE_LETTER</a></td>
-        <td class="jd-descrcol" width="100%">Unicode category constant Ll.</td>
+        <td class="jd-descrcol" width="100%">
+          Unicode category constant Ll.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">byte</td>
         <td class="jd-linkcol"><a href="../../../reference/java/lang/Character.html#MATH_SYMBOL">MATH_SYMBOL</a></td>
-        <td class="jd-descrcol" width="100%">Unicode category constant Sm.</td>
+        <td class="jd-descrcol" width="100%">
+          Unicode category constant Sm.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/java/lang/Character.html#MAX_CODE_POINT">MAX_CODE_POINT</a></td>
-        <td class="jd-descrcol" width="100%">The maximum code point value, <code>U+10FFFF</code>.</td>
+        <td class="jd-descrcol" width="100%">
+          The maximum code point value, <code>U+10FFFF</code>.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">char</td>
         <td class="jd-linkcol"><a href="../../../reference/java/lang/Character.html#MAX_HIGH_SURROGATE">MAX_HIGH_SURROGATE</a></td>
-        <td class="jd-descrcol" width="100%">The maximum value of a high surrogate or leading surrogate unit in UTF-16
- encoding, <code>'?'</code>.</td>
+        <td class="jd-descrcol" width="100%">
+          The maximum value of a high surrogate or leading surrogate unit in UTF-16
+ encoding, <code>'?'</code>.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">char</td>
         <td class="jd-linkcol"><a href="../../../reference/java/lang/Character.html#MAX_LOW_SURROGATE">MAX_LOW_SURROGATE</a></td>
-        <td class="jd-descrcol" width="100%">The maximum value of a low surrogate or trailing surrogate unit in UTF-16
- encoding, <code>'?'</code>.</td>
+        <td class="jd-descrcol" width="100%">
+          The maximum value of a low surrogate or trailing surrogate unit in UTF-16
+ encoding, <code>'?'</code>.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/java/lang/Character.html#MAX_RADIX">MAX_RADIX</a></td>
-        <td class="jd-descrcol" width="100%">The maximum radix used for conversions between characters and integers.</td>
+        <td class="jd-descrcol" width="100%">
+          The maximum radix used for conversions between characters and integers.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">char</td>
         <td class="jd-linkcol"><a href="../../../reference/java/lang/Character.html#MAX_SURROGATE">MAX_SURROGATE</a></td>
-        <td class="jd-descrcol" width="100%">The maximum value of a surrogate unit in UTF-16 encoding, <code>'?'</code>.</td>
+        <td class="jd-descrcol" width="100%">
+          The maximum value of a surrogate unit in UTF-16 encoding, <code>'?'</code>.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">char</td>
         <td class="jd-linkcol"><a href="../../../reference/java/lang/Character.html#MAX_VALUE">MAX_VALUE</a></td>
-        <td class="jd-descrcol" width="100%">The maximum <code>Character</code> value.</td>
+        <td class="jd-descrcol" width="100%">
+          The maximum <code>Character</code> value.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/java/lang/Character.html#MIN_CODE_POINT">MIN_CODE_POINT</a></td>
-        <td class="jd-descrcol" width="100%">The minimum code point value, <code>U+0000</code>.</td>
+        <td class="jd-descrcol" width="100%">
+          The minimum code point value, <code>U+0000</code>.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">char</td>
         <td class="jd-linkcol"><a href="../../../reference/java/lang/Character.html#MIN_HIGH_SURROGATE">MIN_HIGH_SURROGATE</a></td>
-        <td class="jd-descrcol" width="100%">The minimum value of a high surrogate or leading surrogate unit in UTF-16
- encoding, <code>'?'</code>.</td>
+        <td class="jd-descrcol" width="100%">
+          The minimum value of a high surrogate or leading surrogate unit in UTF-16
+ encoding, <code>'?'</code>.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">char</td>
         <td class="jd-linkcol"><a href="../../../reference/java/lang/Character.html#MIN_LOW_SURROGATE">MIN_LOW_SURROGATE</a></td>
-        <td class="jd-descrcol" width="100%">The minimum value of a low surrogate or trailing surrogate unit in UTF-16
- encoding, <code>'?'</code>.</td>
+        <td class="jd-descrcol" width="100%">
+          The minimum value of a low surrogate or trailing surrogate unit in UTF-16
+ encoding, <code>'?'</code>.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/java/lang/Character.html#MIN_RADIX">MIN_RADIX</a></td>
-        <td class="jd-descrcol" width="100%">The minimum radix used for conversions between characters and integers.</td>
+        <td class="jd-descrcol" width="100%">
+          The minimum radix used for conversions between characters and integers.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/java/lang/Character.html#MIN_SUPPLEMENTARY_CODE_POINT">MIN_SUPPLEMENTARY_CODE_POINT</a></td>
-        <td class="jd-descrcol" width="100%">The minimum value of a supplementary code point, <code>U+010000</code>.</td>
+        <td class="jd-descrcol" width="100%">
+          The minimum value of a supplementary code point, <code>U+010000</code>.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">char</td>
         <td class="jd-linkcol"><a href="../../../reference/java/lang/Character.html#MIN_SURROGATE">MIN_SURROGATE</a></td>
-        <td class="jd-descrcol" width="100%">The minimum value of a surrogate unit in UTF-16 encoding, <code>'?'</code>.</td>
+        <td class="jd-descrcol" width="100%">
+          The minimum value of a surrogate unit in UTF-16 encoding, <code>'?'</code>.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">char</td>
         <td class="jd-linkcol"><a href="../../../reference/java/lang/Character.html#MIN_VALUE">MIN_VALUE</a></td>
-        <td class="jd-descrcol" width="100%">The minimum <code>Character</code> value.</td>
+        <td class="jd-descrcol" width="100%">
+          The minimum <code>Character</code> value.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">byte</td>
         <td class="jd-linkcol"><a href="../../../reference/java/lang/Character.html#MODIFIER_LETTER">MODIFIER_LETTER</a></td>
-        <td class="jd-descrcol" width="100%">Unicode category constant Lm.</td>
+        <td class="jd-descrcol" width="100%">
+          Unicode category constant Lm.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">byte</td>
         <td class="jd-linkcol"><a href="../../../reference/java/lang/Character.html#MODIFIER_SYMBOL">MODIFIER_SYMBOL</a></td>
-        <td class="jd-descrcol" width="100%">Unicode category constant Sk.</td>
+        <td class="jd-descrcol" width="100%">
+          Unicode category constant Sk.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">byte</td>
         <td class="jd-linkcol"><a href="../../../reference/java/lang/Character.html#NON_SPACING_MARK">NON_SPACING_MARK</a></td>
-        <td class="jd-descrcol" width="100%">Unicode category constant Mn.</td>
+        <td class="jd-descrcol" width="100%">
+          Unicode category constant Mn.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">byte</td>
         <td class="jd-linkcol"><a href="../../../reference/java/lang/Character.html#OTHER_LETTER">OTHER_LETTER</a></td>
-        <td class="jd-descrcol" width="100%">Unicode category constant Lo.</td>
+        <td class="jd-descrcol" width="100%">
+          Unicode category constant Lo.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">byte</td>
         <td class="jd-linkcol"><a href="../../../reference/java/lang/Character.html#OTHER_NUMBER">OTHER_NUMBER</a></td>
-        <td class="jd-descrcol" width="100%">Unicode category constant No.</td>
+        <td class="jd-descrcol" width="100%">
+          Unicode category constant No.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">byte</td>
         <td class="jd-linkcol"><a href="../../../reference/java/lang/Character.html#OTHER_PUNCTUATION">OTHER_PUNCTUATION</a></td>
-        <td class="jd-descrcol" width="100%">Unicode category constant Po.</td>
+        <td class="jd-descrcol" width="100%">
+          Unicode category constant Po.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">byte</td>
         <td class="jd-linkcol"><a href="../../../reference/java/lang/Character.html#OTHER_SYMBOL">OTHER_SYMBOL</a></td>
-        <td class="jd-descrcol" width="100%">Unicode category constant So.</td>
+        <td class="jd-descrcol" width="100%">
+          Unicode category constant So.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">byte</td>
         <td class="jd-linkcol"><a href="../../../reference/java/lang/Character.html#PARAGRAPH_SEPARATOR">PARAGRAPH_SEPARATOR</a></td>
-        <td class="jd-descrcol" width="100%">Unicode category constant Zp.</td>
+        <td class="jd-descrcol" width="100%">
+          Unicode category constant Zp.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">byte</td>
         <td class="jd-linkcol"><a href="../../../reference/java/lang/Character.html#PRIVATE_USE">PRIVATE_USE</a></td>
-        <td class="jd-descrcol" width="100%">Unicode category constant Co.</td>
+        <td class="jd-descrcol" width="100%">
+          Unicode category constant Co.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/java/lang/Character.html#SIZE">SIZE</a></td>
-        <td class="jd-descrcol" width="100%">The number of bits required to represent a <code>Character</code> value
- unsigned form.</td>
+        <td class="jd-descrcol" width="100%">
+          The number of bits required to represent a <code>Character</code> value
+ unsigned form.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">byte</td>
         <td class="jd-linkcol"><a href="../../../reference/java/lang/Character.html#SPACE_SEPARATOR">SPACE_SEPARATOR</a></td>
-        <td class="jd-descrcol" width="100%">Unicode category constant Zs.</td>
+        <td class="jd-descrcol" width="100%">
+          Unicode category constant Zs.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">byte</td>
         <td class="jd-linkcol"><a href="../../../reference/java/lang/Character.html#START_PUNCTUATION">START_PUNCTUATION</a></td>
-        <td class="jd-descrcol" width="100%">Unicode category constant Ps.</td>
+        <td class="jd-descrcol" width="100%">
+          Unicode category constant Ps.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">byte</td>
         <td class="jd-linkcol"><a href="../../../reference/java/lang/Character.html#SURROGATE">SURROGATE</a></td>
-        <td class="jd-descrcol" width="100%">Unicode category constant Cs.</td>
+        <td class="jd-descrcol" width="100%">
+          Unicode category constant Cs.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">byte</td>
         <td class="jd-linkcol"><a href="../../../reference/java/lang/Character.html#TITLECASE_LETTER">TITLECASE_LETTER</a></td>
-        <td class="jd-descrcol" width="100%">Unicode category constant Lt.</td>
+        <td class="jd-descrcol" width="100%">
+          Unicode category constant Lt.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">byte</td>
         <td class="jd-linkcol"><a href="../../../reference/java/lang/Character.html#UNASSIGNED">UNASSIGNED</a></td>
-        <td class="jd-descrcol" width="100%">Unicode category constant Cn.</td>
+        <td class="jd-descrcol" width="100%">
+          Unicode category constant Cn.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">byte</td>
         <td class="jd-linkcol"><a href="../../../reference/java/lang/Character.html#UPPERCASE_LETTER">UPPERCASE_LETTER</a></td>
-        <td class="jd-descrcol" width="100%">Unicode category constant Lu.</td>
+        <td class="jd-descrcol" width="100%">
+          Unicode category constant Lu.
+          
+    
+
+        </td>
     </tr>
     
     
@@ -1816,7 +2193,12 @@ Summary:
           final
           <a href="../../../reference/java/lang/Class.html">Class</a>&lt;<a href="../../../reference/java/lang/Character.html">Character</a>&gt;</nobr></td>
           <td class="jd-linkcol"><a href="../../../reference/java/lang/Character.html#TYPE">TYPE</a></td>
-          <td class="jd-descrcol" width="100%">The <code><a href="../../../reference/java/lang/Class.html">Class</a></code> object that represents the primitive type <code>char</code>.</td>
+          <td class="jd-descrcol" width="100%">
+            The <code><a href="../../../reference/java/lang/Class.html">Class</a></code> object that represents the primitive type <code>char</code>.
+            
+    
+
+          </td>
       </tr>
       
     
@@ -1847,8 +2229,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Character.html#Character(char)">Character</a></span>(char value)</nobr>
         
-        <div class="jd-descrdiv">Constructs a new <code>Character</code> with the specified primitive char
- value.</div>
+        <div class="jd-descrdiv">
+          Constructs a new <code>Character</code> with the specified primitive char
+ value.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1879,8 +2266,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Character.html#charCount(int)">charCount</a></span>(int codePoint)</nobr>
         
-        <div class="jd-descrdiv">Calculates the number of <code>char</code> values required to represent the
- specified Unicode code point.</div>
+        <div class="jd-descrdiv">
+          Calculates the number of <code>char</code> values required to represent the
+ specified Unicode code point.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1898,7 +2290,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Character.html#charValue()">charValue</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Gets the primitive value of this character.</div>
+        <div class="jd-descrdiv">
+          Gets the primitive value of this character.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1916,8 +2313,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Character.html#codePointAt(char[], int)">codePointAt</a></span>(char[] seq, int index)</nobr>
         
-        <div class="jd-descrdiv">Returns the code point at <code>index</code> in the specified array of
- character units.</div>
+        <div class="jd-descrdiv">
+          Returns the code point at <code>index</code> in the specified array of
+ character units.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1935,8 +2337,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Character.html#codePointAt(char[], int, int)">codePointAt</a></span>(char[] seq, int index, int limit)</nobr>
         
-        <div class="jd-descrdiv">Returns the code point at <code>index</code> in the specified array of
- character units, where <code>index</code> has to be less than <code>limit</code>.</div>
+        <div class="jd-descrdiv">
+          Returns the code point at <code>index</code> in the specified array of
+ character units, where <code>index</code> has to be less than <code>limit</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1954,8 +2361,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Character.html#codePointAt(java.lang.CharSequence, int)">codePointAt</a></span>(<a href="../../../reference/java/lang/CharSequence.html">CharSequence</a> seq, int index)</nobr>
         
-        <div class="jd-descrdiv">Returns the code point at <code>index</code> in the specified sequence of
- character units.</div>
+        <div class="jd-descrdiv">
+          Returns the code point at <code>index</code> in the specified sequence of
+ character units.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1973,8 +2385,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Character.html#codePointBefore(java.lang.CharSequence, int)">codePointBefore</a></span>(<a href="../../../reference/java/lang/CharSequence.html">CharSequence</a> seq, int index)</nobr>
         
-        <div class="jd-descrdiv">Returns the code point that precedes <code>index</code> in the specified
- sequence of character units.</div>
+        <div class="jd-descrdiv">
+          Returns the code point that precedes <code>index</code> in the specified
+ sequence of character units.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1992,8 +2409,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Character.html#codePointBefore(char[], int, int)">codePointBefore</a></span>(char[] seq, int index, int start)</nobr>
         
-        <div class="jd-descrdiv">Returns the code point that precedes the <code>index</code> in the specified
- array of character units and is not less than <code>start</code>.</div>
+        <div class="jd-descrdiv">
+          Returns the code point that precedes the <code>index</code> in the specified
+ array of character units and is not less than <code>start</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2011,8 +2433,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Character.html#codePointBefore(char[], int)">codePointBefore</a></span>(char[] seq, int index)</nobr>
         
-        <div class="jd-descrdiv">Returns the code point that precedes <code>index</code> in the specified
- array of character units.</div>
+        <div class="jd-descrdiv">
+          Returns the code point that precedes <code>index</code> in the specified
+ array of character units.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2030,9 +2457,14 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Character.html#codePointCount(java.lang.CharSequence, int, int)">codePointCount</a></span>(<a href="../../../reference/java/lang/CharSequence.html">CharSequence</a> seq, int beginIndex, int endIndex)</nobr>
         
-        <div class="jd-descrdiv">Counts the number of Unicode code points in the subsequence of the
+        <div class="jd-descrdiv">
+          Counts the number of Unicode code points in the subsequence of the
  specified character sequence, as delineated by <code>beginIndex</code> and
- <code>endIndex</code>.</div>
+ <code>endIndex</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2050,8 +2482,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Character.html#codePointCount(char[], int, int)">codePointCount</a></span>(char[] seq, int offset, int count)</nobr>
         
-        <div class="jd-descrdiv">Counts the number of Unicode code points in the subsequence of the
- specified char array, as delineated by <code>offset</code> and <code>count</code>.</div>
+        <div class="jd-descrdiv">
+          Counts the number of Unicode code points in the subsequence of the
+ specified char array, as delineated by <code>offset</code> and <code>count</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2069,7 +2506,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Character.html#compare(char, char)">compare</a></span>(char lhs, char rhs)</nobr>
         
-        <div class="jd-descrdiv">Compares two <code>char</code> values.</div>
+        <div class="jd-descrdiv">
+          Compares two <code>char</code> values.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2087,8 +2529,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Character.html#compareTo(java.lang.Character)">compareTo</a></span>(<a href="../../../reference/java/lang/Character.html">Character</a> c)</nobr>
         
-        <div class="jd-descrdiv">Compares this object to the specified character object to determine their
- relative order.</div>
+        <div class="jd-descrdiv">
+          Compares this object to the specified character object to determine their
+ relative order.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2106,8 +2553,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Character.html#digit(char, int)">digit</a></span>(char c, int radix)</nobr>
         
-        <div class="jd-descrdiv">Convenience method to determine the value of the specified character
- <code>c</code> in the supplied radix.</div>
+        <div class="jd-descrdiv">
+          Convenience method to determine the value of the specified character
+ <code>c</code> in the supplied radix.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2125,8 +2577,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Character.html#digit(int, int)">digit</a></span>(int codePoint, int radix)</nobr>
         
-        <div class="jd-descrdiv">Convenience method to determine the value of the character
- <code>codePoint</code> in the supplied radix.</div>
+        <div class="jd-descrdiv">
+          Convenience method to determine the value of the character
+ <code>codePoint</code> in the supplied radix.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2144,8 +2601,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Character.html#equals(java.lang.Object)">equals</a></span>(<a href="../../../reference/java/lang/Object.html">Object</a> object)</nobr>
         
-        <div class="jd-descrdiv">Compares this object with the specified object and indicates if they are
- equal.</div>
+        <div class="jd-descrdiv">
+          Compares this object with the specified object and indicates if they are
+ equal.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2163,8 +2625,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Character.html#forDigit(int, int)">forDigit</a></span>(int digit, int radix)</nobr>
         
-        <div class="jd-descrdiv">Returns the character which represents the specified digit in the
- specified radix.</div>
+        <div class="jd-descrdiv">
+          Returns the character which represents the specified digit in the
+ specified radix.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2182,7 +2649,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Character.html#getDirectionality(int)">getDirectionality</a></span>(int codePoint)</nobr>
         
-        <div class="jd-descrdiv">Gets the Unicode directionality of the specified character.</div>
+        <div class="jd-descrdiv">
+          Returns the Unicode directionality of the given code point.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2200,7 +2672,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Character.html#getDirectionality(char)">getDirectionality</a></span>(char c)</nobr>
         
-        <div class="jd-descrdiv">Gets the Unicode directionality of the specified character.</div>
+        <div class="jd-descrdiv">
+          Gets the Unicode directionality of the specified character.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2218,8 +2695,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Character.html#getName(int)">getName</a></span>(int codePoint)</nobr>
         
-        <div class="jd-descrdiv">Returns a human-readable name for the given code point,
- or null if the code point is unassigned.</div>
+        <div class="jd-descrdiv">
+          Returns a human-readable name for the given code point,
+ or null if the code point is unassigned.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2237,7 +2719,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Character.html#getNumericValue(int)">getNumericValue</a></span>(int codePoint)</nobr>
         
-        <div class="jd-descrdiv">Gets the numeric value of the specified Unicode code point.</div>
+        <div class="jd-descrdiv">
+          Gets the numeric value of the specified Unicode code point.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2255,7 +2742,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Character.html#getNumericValue(char)">getNumericValue</a></span>(char c)</nobr>
         
-        <div class="jd-descrdiv">Returns the numeric value of the specified Unicode character.</div>
+        <div class="jd-descrdiv">
+          Returns the numeric value of the specified Unicode character.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2273,7 +2765,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Character.html#getType(char)">getType</a></span>(char c)</nobr>
         
-        <div class="jd-descrdiv">Gets the general Unicode category of the specified character.</div>
+        <div class="jd-descrdiv">
+          Gets the general Unicode category of the specified character.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2291,7 +2788,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Character.html#getType(int)">getType</a></span>(int codePoint)</nobr>
         
-        <div class="jd-descrdiv">Gets the general Unicode category of the specified code point.</div>
+        <div class="jd-descrdiv">
+          Gets the general Unicode category of the specified code point.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2309,7 +2811,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Character.html#hashCode()">hashCode</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns an integer hash code for this object.</div>
+        <div class="jd-descrdiv">
+          Returns an integer hash code for this object.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2327,7 +2834,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Character.html#highSurrogate(int)">highSurrogate</a></span>(int codePoint)</nobr>
         
-        <div class="jd-descrdiv">Returns the high surrogate for the given code point.</div>
+        <div class="jd-descrdiv">
+          Returns the high surrogate for the given code point.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2345,7 +2857,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Character.html#isAlphabetic(int)">isAlphabetic</a></span>(int codePoint)</nobr>
         
-        <div class="jd-descrdiv">Returns true if the given code point is alphabetic.</div>
+        <div class="jd-descrdiv">
+          Returns true if the given code point is alphabetic.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2363,7 +2880,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Character.html#isBmpCodePoint(int)">isBmpCodePoint</a></span>(int codePoint)</nobr>
         
-        <div class="jd-descrdiv">Returns true if the given code point is in the Basic Multilingual Plane (BMP).</div>
+        <div class="jd-descrdiv">
+          Returns true if the given code point is in the Basic Multilingual Plane (BMP).
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2381,8 +2903,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Character.html#isDefined(int)">isDefined</a></span>(int codePoint)</nobr>
         
-        <div class="jd-descrdiv">Indicates whether the specified code point is defined in the Unicode
- specification.</div>
+        <div class="jd-descrdiv">
+          Indicates whether the specified code point is defined in the Unicode
+ specification.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2400,8 +2927,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Character.html#isDefined(char)">isDefined</a></span>(char c)</nobr>
         
-        <div class="jd-descrdiv">Indicates whether the specified character is defined in the Unicode
- specification.</div>
+        <div class="jd-descrdiv">
+          Indicates whether the specified character is defined in the Unicode
+ specification.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2419,7 +2951,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Character.html#isDigit(char)">isDigit</a></span>(char c)</nobr>
         
-        <div class="jd-descrdiv">Indicates whether the specified character is a digit.</div>
+        <div class="jd-descrdiv">
+          Indicates whether the specified character is a digit.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2437,7 +2974,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Character.html#isDigit(int)">isDigit</a></span>(int codePoint)</nobr>
         
-        <div class="jd-descrdiv">Indicates whether the specified code point is a digit.</div>
+        <div class="jd-descrdiv">
+          Indicates whether the specified code point is a digit.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2455,9 +2997,14 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Character.html#isHighSurrogate(char)">isHighSurrogate</a></span>(char ch)</nobr>
         
-        <div class="jd-descrdiv">Indicates whether <code>ch</code> is a high- (or leading-) surrogate code unit
+        <div class="jd-descrdiv">
+          Indicates whether <code>ch</code> is a high- (or leading-) surrogate code unit
  that is used for representing supplementary characters in UTF-16
- encoding.</div>
+ encoding.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2475,7 +3022,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Character.html#isISOControl(char)">isISOControl</a></span>(char c)</nobr>
         
-        <div class="jd-descrdiv">Indicates whether the specified character is an ISO control character.</div>
+        <div class="jd-descrdiv">
+          Indicates whether the specified character is an ISO control character.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2493,7 +3045,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Character.html#isISOControl(int)">isISOControl</a></span>(int c)</nobr>
         
-        <div class="jd-descrdiv">Indicates whether the specified code point is an ISO control character.</div>
+        <div class="jd-descrdiv">
+          Indicates whether the specified code point is an ISO control character.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2511,8 +3068,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Character.html#isIdentifierIgnorable(char)">isIdentifierIgnorable</a></span>(char c)</nobr>
         
-        <div class="jd-descrdiv">Indicates whether the specified character is ignorable in a Java or
- Unicode identifier.</div>
+        <div class="jd-descrdiv">
+          Indicates whether the specified character is ignorable in a Java or
+ Unicode identifier.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2530,8 +3092,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Character.html#isIdentifierIgnorable(int)">isIdentifierIgnorable</a></span>(int codePoint)</nobr>
         
-        <div class="jd-descrdiv">Indicates whether the specified code point is ignorable in a Java or
- Unicode identifier.</div>
+        <div class="jd-descrdiv">
+          Indicates whether the specified code point is ignorable in a Java or
+ Unicode identifier.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2549,7 +3116,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Character.html#isIdeographic(int)">isIdeographic</a></span>(int codePoint)</nobr>
         
-        <div class="jd-descrdiv">Returns true if the given code point is a CJKV ideographic character.</div>
+        <div class="jd-descrdiv">
+          Returns true if the given code point is a CJKV ideographic character.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2567,8 +3139,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Character.html#isJavaIdentifierPart(int)">isJavaIdentifierPart</a></span>(int codePoint)</nobr>
         
-        <div class="jd-descrdiv">Indicates whether the specified code point is a valid part of a Java
- identifier other than the first character.</div>
+        <div class="jd-descrdiv">
+          Indicates whether the specified code point is a valid part of a Java
+ identifier other than the first character.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2586,8 +3163,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Character.html#isJavaIdentifierPart(char)">isJavaIdentifierPart</a></span>(char c)</nobr>
         
-        <div class="jd-descrdiv">Indicates whether the specified character is a valid part of a Java
- identifier other than the first character.</div>
+        <div class="jd-descrdiv">
+          Indicates whether the specified character is a valid part of a Java
+ identifier other than the first character.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2605,8 +3187,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Character.html#isJavaIdentifierStart(char)">isJavaIdentifierStart</a></span>(char c)</nobr>
         
-        <div class="jd-descrdiv">Indicates whether the specified character is a valid first character for
- a Java identifier.</div>
+        <div class="jd-descrdiv">
+          Indicates whether the specified character is a valid first character for
+ a Java identifier.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2624,8 +3211,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Character.html#isJavaIdentifierStart(int)">isJavaIdentifierStart</a></span>(int codePoint)</nobr>
         
-        <div class="jd-descrdiv">Indicates whether the specified code point is a valid first character for
- a Java identifier.</div>
+        <div class="jd-descrdiv">
+          Indicates whether the specified code point is a valid first character for
+ a Java identifier.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2643,11 +3235,16 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Character.html#isJavaLetter(char)">isJavaLetter</a></span>(char c)</nobr>
         
-        <div class="jd-descrdiv"><em>
+        <div class="jd-descrdiv">
+          <em>
       This method was deprecated
       in API level 1.
     Use <code><a href="../../../reference/java/lang/Character.html#isJavaIdentifierStart(char)">isJavaIdentifierStart(char)</a></code> instead.
-</em></div>
+</em>
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2665,11 +3262,16 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Character.html#isJavaLetterOrDigit(char)">isJavaLetterOrDigit</a></span>(char c)</nobr>
         
-        <div class="jd-descrdiv"><em>
+        <div class="jd-descrdiv">
+          <em>
       This method was deprecated
       in API level 1.
     Use <code><a href="../../../reference/java/lang/Character.html#isJavaIdentifierPart(char)">isJavaIdentifierPart(char)</a></code> instead.
-</em></div>
+</em>
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2687,7 +3289,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Character.html#isLetter(char)">isLetter</a></span>(char c)</nobr>
         
-        <div class="jd-descrdiv">Indicates whether the specified character is a letter.</div>
+        <div class="jd-descrdiv">
+          Indicates whether the specified character is a letter.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2705,7 +3312,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Character.html#isLetter(int)">isLetter</a></span>(int codePoint)</nobr>
         
-        <div class="jd-descrdiv">Indicates whether the specified code point is a letter.</div>
+        <div class="jd-descrdiv">
+          Indicates whether the specified code point is a letter.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2723,7 +3335,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Character.html#isLetterOrDigit(char)">isLetterOrDigit</a></span>(char c)</nobr>
         
-        <div class="jd-descrdiv">Indicates whether the specified character is a letter or a digit.</div>
+        <div class="jd-descrdiv">
+          Indicates whether the specified character is a letter or a digit.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2741,7 +3358,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Character.html#isLetterOrDigit(int)">isLetterOrDigit</a></span>(int codePoint)</nobr>
         
-        <div class="jd-descrdiv">Indicates whether the specified code point is a letter or a digit.</div>
+        <div class="jd-descrdiv">
+          Indicates whether the specified code point is a letter or a digit.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2759,9 +3381,14 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Character.html#isLowSurrogate(char)">isLowSurrogate</a></span>(char ch)</nobr>
         
-        <div class="jd-descrdiv">Indicates whether <code>ch</code> is a low- (or trailing-) surrogate code unit
+        <div class="jd-descrdiv">
+          Indicates whether <code>ch</code> is a low- (or trailing-) surrogate code unit
  that is used for representing supplementary characters in UTF-16
- encoding.</div>
+ encoding.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2779,7 +3406,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Character.html#isLowerCase(int)">isLowerCase</a></span>(int codePoint)</nobr>
         
-        <div class="jd-descrdiv">Indicates whether the specified code point is a lower case letter.</div>
+        <div class="jd-descrdiv">
+          Indicates whether the specified code point is a lower case letter.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2797,7 +3429,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Character.html#isLowerCase(char)">isLowerCase</a></span>(char c)</nobr>
         
-        <div class="jd-descrdiv">Indicates whether the specified character is a lower case letter.</div>
+        <div class="jd-descrdiv">
+          Indicates whether the specified character is a lower case letter.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2815,7 +3452,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Character.html#isMirrored(char)">isMirrored</a></span>(char c)</nobr>
         
-        <div class="jd-descrdiv">Indicates whether the specified character is mirrored.</div>
+        <div class="jd-descrdiv">
+          Indicates whether the specified character is mirrored.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2833,7 +3475,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Character.html#isMirrored(int)">isMirrored</a></span>(int codePoint)</nobr>
         
-        <div class="jd-descrdiv">Indicates whether the specified code point is mirrored.</div>
+        <div class="jd-descrdiv">
+          Indicates whether the specified code point is mirrored.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2851,11 +3498,16 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Character.html#isSpace(char)">isSpace</a></span>(char c)</nobr>
         
-        <div class="jd-descrdiv"><em>
+        <div class="jd-descrdiv">
+          <em>
       This method was deprecated
       in API level 1.
     Use <code><a href="../../../reference/java/lang/Character.html#isWhitespace(char)">isWhitespace(char)</a></code> instead.
-</em></div>
+</em>
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2873,7 +3525,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Character.html#isSpaceChar(char)">isSpaceChar</a></span>(char c)</nobr>
         
-        <div class="jd-descrdiv">See <code><a href="../../../reference/java/lang/Character.html#isSpaceChar(int)">isSpaceChar(int)</a></code>.</div>
+        <div class="jd-descrdiv">
+          See <code><a href="../../../reference/java/lang/Character.html#isSpaceChar(int)">isSpaceChar(int)</a></code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2891,7 +3548,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Character.html#isSpaceChar(int)">isSpaceChar</a></span>(int codePoint)</nobr>
         
-        <div class="jd-descrdiv">Returns true if the given code point is a Unicode space character.</div>
+        <div class="jd-descrdiv">
+          Returns true if the given code point is a Unicode space character.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2909,8 +3571,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Character.html#isSupplementaryCodePoint(int)">isSupplementaryCodePoint</a></span>(int codePoint)</nobr>
         
-        <div class="jd-descrdiv">Indicates whether <code>codePoint</code> is within the supplementary code
- point range.</div>
+        <div class="jd-descrdiv">
+          Indicates whether <code>codePoint</code> is within the supplementary code
+ point range.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2928,7 +3595,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Character.html#isSurrogate(char)">isSurrogate</a></span>(char ch)</nobr>
         
-        <div class="jd-descrdiv">Returns true if the given character is a high or low surrogate.</div>
+        <div class="jd-descrdiv">
+          Returns true if the given character is a high or low surrogate.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2946,7 +3618,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Character.html#isSurrogatePair(char, char)">isSurrogatePair</a></span>(char high, char low)</nobr>
         
-        <div class="jd-descrdiv">Indicates whether the specified character pair is a valid surrogate pair.</div>
+        <div class="jd-descrdiv">
+          Indicates whether the specified character pair is a valid surrogate pair.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2964,7 +3641,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Character.html#isTitleCase(int)">isTitleCase</a></span>(int codePoint)</nobr>
         
-        <div class="jd-descrdiv">Indicates whether the specified code point is a titlecase character.</div>
+        <div class="jd-descrdiv">
+          Indicates whether the specified code point is a titlecase character.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2982,7 +3664,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Character.html#isTitleCase(char)">isTitleCase</a></span>(char c)</nobr>
         
-        <div class="jd-descrdiv">Indicates whether the specified character is a titlecase character.</div>
+        <div class="jd-descrdiv">
+          Indicates whether the specified character is a titlecase character.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3000,8 +3687,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Character.html#isUnicodeIdentifierPart(int)">isUnicodeIdentifierPart</a></span>(int codePoint)</nobr>
         
-        <div class="jd-descrdiv">Indicates whether the specified code point is valid as part of a Unicode
- identifier other than the first character.</div>
+        <div class="jd-descrdiv">
+          Indicates whether the specified code point is valid as part of a Unicode
+ identifier other than the first character.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3019,8 +3711,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Character.html#isUnicodeIdentifierPart(char)">isUnicodeIdentifierPart</a></span>(char c)</nobr>
         
-        <div class="jd-descrdiv">Indicates whether the specified character is valid as part of a Unicode
- identifier other than the first character.</div>
+        <div class="jd-descrdiv">
+          Indicates whether the specified character is valid as part of a Unicode
+ identifier other than the first character.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3038,8 +3735,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Character.html#isUnicodeIdentifierStart(char)">isUnicodeIdentifierStart</a></span>(char c)</nobr>
         
-        <div class="jd-descrdiv">Indicates whether the specified character is a valid initial character
- for a Unicode identifier.</div>
+        <div class="jd-descrdiv">
+          Indicates whether the specified character is a valid initial character
+ for a Unicode identifier.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3057,8 +3759,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Character.html#isUnicodeIdentifierStart(int)">isUnicodeIdentifierStart</a></span>(int codePoint)</nobr>
         
-        <div class="jd-descrdiv">Indicates whether the specified code point is a valid initial character
- for a Unicode identifier.</div>
+        <div class="jd-descrdiv">
+          Indicates whether the specified code point is a valid initial character
+ for a Unicode identifier.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3076,7 +3783,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Character.html#isUpperCase(int)">isUpperCase</a></span>(int codePoint)</nobr>
         
-        <div class="jd-descrdiv">Indicates whether the specified code point is an upper case letter.</div>
+        <div class="jd-descrdiv">
+          Indicates whether the specified code point is an upper case letter.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3094,7 +3806,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Character.html#isUpperCase(char)">isUpperCase</a></span>(char c)</nobr>
         
-        <div class="jd-descrdiv">Indicates whether the specified character is an upper case letter.</div>
+        <div class="jd-descrdiv">
+          Indicates whether the specified character is an upper case letter.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3112,7 +3829,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Character.html#isValidCodePoint(int)">isValidCodePoint</a></span>(int codePoint)</nobr>
         
-        <div class="jd-descrdiv">Indicates whether <code>codePoint</code> is a valid Unicode code point.</div>
+        <div class="jd-descrdiv">
+          Indicates whether <code>codePoint</code> is a valid Unicode code point.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3130,7 +3852,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Character.html#isWhitespace(char)">isWhitespace</a></span>(char c)</nobr>
         
-        <div class="jd-descrdiv">See <code><a href="../../../reference/java/lang/Character.html#isWhitespace(int)">isWhitespace(int)</a></code>.</div>
+        <div class="jd-descrdiv">
+          See <code><a href="../../../reference/java/lang/Character.html#isWhitespace(int)">isWhitespace(int)</a></code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3148,7 +3875,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Character.html#isWhitespace(int)">isWhitespace</a></span>(int codePoint)</nobr>
         
-        <div class="jd-descrdiv">Returns true if the given code point is a Unicode whitespace character.</div>
+        <div class="jd-descrdiv">
+          Returns true if the given code point is a Unicode whitespace character.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3166,7 +3898,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Character.html#lowSurrogate(int)">lowSurrogate</a></span>(int codePoint)</nobr>
         
-        <div class="jd-descrdiv">Returns the low surrogate for the given code point.</div>
+        <div class="jd-descrdiv">
+          Returns the low surrogate for the given code point.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3184,8 +3921,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Character.html#offsetByCodePoints(java.lang.CharSequence, int, int)">offsetByCodePoints</a></span>(<a href="../../../reference/java/lang/CharSequence.html">CharSequence</a> seq, int index, int codePointOffset)</nobr>
         
-        <div class="jd-descrdiv">Determines the index in the specified character sequence that is offset
- <code>codePointOffset</code> code points from <code>index</code>.</div>
+        <div class="jd-descrdiv">
+          Determines the index in the specified character sequence that is offset
+ <code>codePointOffset</code> code points from <code>index</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3203,8 +3945,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Character.html#offsetByCodePoints(char[], int, int, int, int)">offsetByCodePoints</a></span>(char[] seq, int start, int count, int index, int codePointOffset)</nobr>
         
-        <div class="jd-descrdiv">Determines the index in a subsequence of the specified character array
- that is offset <code>codePointOffset</code> code points from <code>index</code>.</div>
+        <div class="jd-descrdiv">
+          Determines the index in a subsequence of the specified character array
+ that is offset <code>codePointOffset</code> code points from <code>index</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3222,8 +3969,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Character.html#reverseBytes(char)">reverseBytes</a></span>(char c)</nobr>
         
-        <div class="jd-descrdiv">Reverses the order of the first and second byte in the specified
- character.</div>
+        <div class="jd-descrdiv">
+          Reverses the order of the first and second byte in the specified
+ character.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3241,8 +3993,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Character.html#toChars(int)">toChars</a></span>(int codePoint)</nobr>
         
-        <div class="jd-descrdiv">Converts the specified Unicode code point into a UTF-16 encoded sequence
- and returns it as a char array.</div>
+        <div class="jd-descrdiv">
+          Converts the specified Unicode code point into a UTF-16 encoded sequence
+ and returns it as a char array.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3260,9 +4017,14 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Character.html#toChars(int, char[], int)">toChars</a></span>(int codePoint, char[] dst, int dstIndex)</nobr>
         
-        <div class="jd-descrdiv">Converts the specified Unicode code point into a UTF-16 encoded sequence
+        <div class="jd-descrdiv">
+          Converts the specified Unicode code point into a UTF-16 encoded sequence
  and copies the value(s) into the char array <code>dst</code>, starting at
- index <code>dstIndex</code>.</div>
+ index <code>dstIndex</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3280,7 +4042,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Character.html#toCodePoint(char, char)">toCodePoint</a></span>(char high, char low)</nobr>
         
-        <div class="jd-descrdiv">Converts a surrogate pair into a Unicode code point.</div>
+        <div class="jd-descrdiv">
+          Converts a surrogate pair into a Unicode code point.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3298,8 +4065,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Character.html#toLowerCase(char)">toLowerCase</a></span>(char c)</nobr>
         
-        <div class="jd-descrdiv">Returns the lower case equivalent for the specified character if the
- character is an upper case letter.</div>
+        <div class="jd-descrdiv">
+          Returns the lower case equivalent for the specified character if the
+ character is an upper case letter.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3317,8 +4089,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Character.html#toLowerCase(int)">toLowerCase</a></span>(int codePoint)</nobr>
         
-        <div class="jd-descrdiv">Returns the lower case equivalent for the specified code point if it is
- an upper case letter.</div>
+        <div class="jd-descrdiv">
+          Returns the lower case equivalent for the specified code point if it is
+ an upper case letter.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3336,7 +4113,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Character.html#toString(char)">toString</a></span>(char value)</nobr>
         
-        <div class="jd-descrdiv">Converts the specified character to its string representation.</div>
+        <div class="jd-descrdiv">
+          Converts the specified character to its string representation.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3354,8 +4136,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Character.html#toString()">toString</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns a string containing a concise, human-readable description of this
- object.</div>
+        <div class="jd-descrdiv">
+          Returns a string containing a concise, human-readable description of this
+ object.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3373,8 +4160,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Character.html#toTitleCase(char)">toTitleCase</a></span>(char c)</nobr>
         
-        <div class="jd-descrdiv">Returns the title case equivalent for the specified character if it
- exists.</div>
+        <div class="jd-descrdiv">
+          Returns the title case equivalent for the specified character if it
+ exists.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3392,8 +4184,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Character.html#toTitleCase(int)">toTitleCase</a></span>(int codePoint)</nobr>
         
-        <div class="jd-descrdiv">Returns the title case equivalent for the specified code point if it
- exists.</div>
+        <div class="jd-descrdiv">
+          Returns the title case equivalent for the specified code point if it
+ exists.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3411,8 +4208,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Character.html#toUpperCase(char)">toUpperCase</a></span>(char c)</nobr>
         
-        <div class="jd-descrdiv">Returns the upper case equivalent for the specified character if the
- character is a lower case letter.</div>
+        <div class="jd-descrdiv">
+          Returns the upper case equivalent for the specified character if the
+ character is a lower case letter.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3430,8 +4232,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Character.html#toUpperCase(int)">toUpperCase</a></span>(int codePoint)</nobr>
         
-        <div class="jd-descrdiv">Returns the upper case equivalent for the specified code point if the
- code point is a lower case letter.</div>
+        <div class="jd-descrdiv">
+          Returns the upper case equivalent for the specified code point if the
+ code point is a lower case letter.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3449,7 +4256,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Character.html#valueOf(char)">valueOf</a></span>(char c)</nobr>
         
-        <div class="jd-descrdiv">Returns a <code>Character</code> instance for the <code>char</code> value passed.</div>
+        <div class="jd-descrdiv">
+          Returns a <code>Character</code> instance for the <code>char</code> value passed.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3501,7 +4313,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#clone()">clone</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Creates and returns a copy of this <code>Object</code>.</div>
+        <div class="jd-descrdiv">
+          Creates and returns a copy of this <code>Object</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3519,8 +4336,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#equals(java.lang.Object)">equals</a></span>(<a href="../../../reference/java/lang/Object.html">Object</a> o)</nobr>
         
-        <div class="jd-descrdiv">Compares this instance with the specified object and indicates if they
- are equal.</div>
+        <div class="jd-descrdiv">
+          Compares this instance with the specified object and indicates if they
+ are equal.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3538,7 +4360,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#finalize()">finalize</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Invoked when the garbage collector has detected that this instance is no longer reachable.</div>
+        <div class="jd-descrdiv">
+          Invoked when the garbage collector has detected that this instance is no longer reachable.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3556,8 +4383,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#getClass()">getClass</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns the unique instance of <code><a href="../../../reference/java/lang/Class.html">Class</a></code> that represents this
- object's class.</div>
+        <div class="jd-descrdiv">
+          Returns the unique instance of <code><a href="../../../reference/java/lang/Class.html">Class</a></code> that represents this
+ object's class.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3575,7 +4407,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#hashCode()">hashCode</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns an integer hash code for this object.</div>
+        <div class="jd-descrdiv">
+          Returns an integer hash code for this object.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3593,8 +4430,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#notify()">notify</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Causes a thread which is waiting on this object's monitor (by means of
- calling one of the <code>wait()</code> methods) to be woken up.</div>
+        <div class="jd-descrdiv">
+          Causes a thread which is waiting on this object's monitor (by means of
+ calling one of the <code>wait()</code> methods) to be woken up.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3612,8 +4454,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#notifyAll()">notifyAll</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Causes all threads which are waiting on this object's monitor (by means
- of calling one of the <code>wait()</code> methods) to be woken up.</div>
+        <div class="jd-descrdiv">
+          Causes all threads which are waiting on this object's monitor (by means
+ of calling one of the <code>wait()</code> methods) to be woken up.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3631,8 +4478,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#toString()">toString</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns a string containing a concise, human-readable description of this
- object.</div>
+        <div class="jd-descrdiv">
+          Returns a string containing a concise, human-readable description of this
+ object.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3650,7 +4502,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#wait()">wait</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object.</div>
+        <div class="jd-descrdiv">
+          Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3668,8 +4525,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#wait(long, int)">wait</a></span>(long millis, int nanos)</nobr>
         
-        <div class="jd-descrdiv">Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object or until the
- specified timeout expires.</div>
+        <div class="jd-descrdiv">
+          Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object or until the
+ specified timeout expires.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3687,8 +4549,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#wait(long)">wait</a></span>(long millis)</nobr>
         
-        <div class="jd-descrdiv">Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object or until the
- specified timeout expires.</div>
+        <div class="jd-descrdiv">
+          Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object or until the
+ specified timeout expires.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3734,8 +4601,13 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Comparable.html#compareTo(T)">compareTo</a></span>(T another)</nobr>
         
-        <div class="jd-descrdiv">Compares this object to the specified object to determine their relative
- order.</div>
+        <div class="jd-descrdiv">
+          Compares this object to the specified object to determine their relative
+ order.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3796,6 +4668,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Unicode category constant Mc.
 </p></div>
 
@@ -3835,6 +4710,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Unicode category constant Pc.
 </p></div>
@@ -3876,6 +4754,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Unicode category constant Cc.
 </p></div>
 
@@ -3915,6 +4796,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Unicode category constant Sc.
 </p></div>
@@ -3956,6 +4840,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Unicode category constant Pd.
 </p></div>
 
@@ -3995,6 +4882,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Unicode category constant Nd.
 </p></div>
@@ -4036,6 +4926,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Unicode bidirectional constant AN.</p></div>
 
     
@@ -4074,6 +4967,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Unicode bidirectional constant BN.</p></div>
 
@@ -4114,6 +5010,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Unicode bidirectional constant CS.</p></div>
 
     
@@ -4152,6 +5051,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Unicode bidirectional constant EN.</p></div>
 
@@ -4192,6 +5094,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Unicode bidirectional constant ES.</p></div>
 
     
@@ -4230,6 +5135,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Unicode bidirectional constant ET.</p></div>
 
@@ -4270,6 +5178,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Unicode bidirectional constant L.</p></div>
 
     
@@ -4308,6 +5219,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Unicode bidirectional constant LRE.</p></div>
 
@@ -4348,6 +5262,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Unicode bidirectional constant LRO.</p></div>
 
     
@@ -4386,6 +5303,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Unicode bidirectional constant NSM.</p></div>
 
@@ -4426,6 +5346,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Unicode bidirectional constant ON.</p></div>
 
     
@@ -4464,6 +5387,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Unicode bidirectional constant B.</p></div>
 
@@ -4504,6 +5430,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Unicode bidirectional constant PDF.</p></div>
 
     
@@ -4542,6 +5471,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Unicode bidirectional constant R.</p></div>
 
@@ -4582,6 +5514,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Unicode bidirectional constant AL.</p></div>
 
     
@@ -4620,6 +5555,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Unicode bidirectional constant RLE.</p></div>
 
@@ -4660,6 +5598,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Unicode bidirectional constant RLO.</p></div>
 
     
@@ -4698,6 +5639,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Unicode bidirectional constant S.</p></div>
 
@@ -4738,6 +5682,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Unicode bidirectional constant.</p></div>
 
     
@@ -4777,6 +5724,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Unicode bidirectional constant WS.</p></div>
 
     
@@ -4815,6 +5765,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Unicode category constant Me.
 </p></div>
@@ -4856,6 +5809,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Unicode category constant Pe.
 </p></div>
 
@@ -4896,6 +5852,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Unicode category constant Pf.</p></div>
 
     
@@ -4934,6 +5893,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Unicode category constant Cf.
 </p></div>
@@ -4975,6 +5937,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Unicode category constant Pi.</p></div>
 
     
@@ -5013,6 +5978,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Unicode category constant Nl.
 </p></div>
@@ -5054,6 +6022,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Unicode category constant Zl.
 </p></div>
 
@@ -5093,6 +6064,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Unicode category constant Ll.
 </p></div>
@@ -5134,6 +6108,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Unicode category constant Sm.
 </p></div>
 
@@ -5174,6 +6151,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>The maximum code point value, <code>U+10FFFF</code>.</p></div>
 
     
@@ -5212,6 +6192,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>The maximum value of a high surrogate or leading surrogate unit in UTF-16
  encoding, <code>'?'</code>.</p></div>
@@ -5253,6 +6236,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>The maximum value of a low surrogate or trailing surrogate unit in UTF-16
  encoding, <code>'?'</code>.</p></div>
 
@@ -5292,6 +6278,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>The maximum radix used for conversions between characters and integers.
 </p></div>
@@ -5333,6 +6322,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>The maximum value of a surrogate unit in UTF-16 encoding, <code>'?'</code>.</p></div>
 
     
@@ -5371,6 +6363,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>The maximum <code>Character</code> value.
 </p></div>
@@ -5412,6 +6407,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>The minimum code point value, <code>U+0000</code>.</p></div>
 
     
@@ -5450,6 +6448,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>The minimum value of a high surrogate or leading surrogate unit in UTF-16
  encoding, <code>'?'</code>.</p></div>
@@ -5491,6 +6492,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>The minimum value of a low surrogate or trailing surrogate unit in UTF-16
  encoding, <code>'?'</code>.</p></div>
 
@@ -5530,6 +6534,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>The minimum radix used for conversions between characters and integers.
 </p></div>
@@ -5571,6 +6578,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>The minimum value of a supplementary code point, <code>U+010000</code>.</p></div>
 
     
@@ -5610,6 +6620,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>The minimum value of a surrogate unit in UTF-16 encoding, <code>'?'</code>.</p></div>
 
     
@@ -5648,6 +6661,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>The minimum <code>Character</code> value.
 </p></div>
@@ -5689,6 +6705,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Unicode category constant Lm.
 </p></div>
 
@@ -5728,6 +6747,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Unicode category constant Sk.
 </p></div>
@@ -5769,6 +6791,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Unicode category constant Mn.
 </p></div>
 
@@ -5808,6 +6833,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Unicode category constant Lo.
 </p></div>
@@ -5849,6 +6877,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Unicode category constant No.
 </p></div>
 
@@ -5888,6 +6919,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Unicode category constant Po.
 </p></div>
@@ -5929,6 +6963,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Unicode category constant So.
 </p></div>
 
@@ -5968,6 +7005,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Unicode category constant Zp.
 </p></div>
@@ -6009,6 +7049,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Unicode category constant Co.
 </p></div>
 
@@ -6048,6 +7091,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>The number of bits required to represent a <code>Character</code> value
  unsigned form.</p></div>
@@ -6089,6 +7135,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Unicode category constant Zs.
 </p></div>
 
@@ -6128,6 +7177,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Unicode category constant Ps.
 </p></div>
@@ -6169,6 +7221,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Unicode category constant Cs.
 </p></div>
 
@@ -6208,6 +7263,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Unicode category constant Lt.
 </p></div>
@@ -6249,6 +7307,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Unicode category constant Cn.
 </p></div>
 
@@ -6288,6 +7349,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Unicode category constant Lu.
 </p></div>
@@ -6339,6 +7403,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>The <code><a href="../../../reference/java/lang/Class.html">Class</a></code> object that represents the primitive type <code>char</code>.
 </p></div>
 
@@ -6380,6 +7447,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Constructs a new <code>Character</code> with the specified primitive char
  value.</p></div>
@@ -6437,6 +7507,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Calculates the number of <code>char</code> values required to represent the
  specified Unicode code point. This method checks if the <code>codePoint</code>
  is greater than or equal to <code>0x10000</code>, in which case <code>2</code> is
@@ -6490,6 +7563,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Gets the primitive value of this character.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
@@ -6524,6 +7600,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Returns the code point at <code>index</code> in the specified array of
  character units. If the unit at <code>index</code> is a high-surrogate unit,
@@ -6592,6 +7671,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Returns the code point at <code>index</code> in the specified array of
  character units, where <code>index</code> has to be less than <code>limit</code>.
@@ -6666,6 +7748,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns the code point at <code>index</code> in the specified sequence of
  character units. If the unit at <code>index</code> is a high-surrogate unit,
  <code>index + 1</code> is less than the length of the sequence and the unit at
@@ -6734,6 +7819,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns the code point that precedes <code>index</code> in the specified
  sequence of character units. If the unit at <code>index - 1</code> is a
  low-surrogate unit, <code>index - 2</code> is not negative and the unit at
@@ -6801,6 +7889,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Returns the code point that precedes the <code>index</code> in the specified
  array of character units and is not less than <code>start</code>. If the unit
@@ -6877,6 +7968,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns the code point that precedes <code>index</code> in the specified
  array of character units. If the unit at <code>index - 1</code> is a
  low-surrogate unit, <code>index - 2</code> is not negative and the unit at
@@ -6945,6 +8039,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Counts the number of Unicode code points in the subsequence of the
  specified character sequence, as delineated by <code>beginIndex</code> and
  <code>endIndex</code>. Any surrogate values with missing pair values will be
@@ -7012,6 +8109,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Counts the number of Unicode code points in the subsequence of the
  specified char array, as delineated by <code>offset</code> and <code>count</code>.
@@ -7083,6 +8183,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Compares two <code>char</code> values.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
@@ -7116,6 +8219,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Compares this object to the specified character object to determine their
  relative order.</p></div>
@@ -7170,6 +8276,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Convenience method to determine the value of the specified character
  <code>c</code> in the supplied radix. The value of <code>radix</code> must be
  between MIN_RADIX and MAX_RADIX.</p></div>
@@ -7220,6 +8329,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Convenience method to determine the value of the character
  <code>codePoint</code> in the supplied radix. The value of <code>radix</code> must
@@ -7273,6 +8385,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Compares this object with the specified object and indicates if they are
  equal. In order to be equal, <code>object</code> must be an instance of
  <code>Character</code> and have the same char value as this object.</p></div>
@@ -7319,6 +8434,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Returns the character which represents the specified digit in the
  specified radix. The <code>radix</code> must be between <code>MIN_RADIX</code> and
@@ -7373,21 +8491,15 @@ From interface
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Gets the Unicode directionality of the specified character.</p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Parameters</h5>
-      <table class="jd-tagtable">
-        <tr>
-          <th>codePoint</td>
-          <td>the Unicode code point to get the directionality of.</td>
-        </tr>
-      </table>
-  </div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Returns</h5>
-      <ul class="nolist"><li>the Unicode directionality of <code>codePoint</code>.
-</li></ul>
-  </div>
+    
+
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Returns the Unicode directionality of the given code point.
+ This will be one of the <code>DIRECTIONALITY_</code> constants.
+ For characters whose directionality is undefined, or whose
+ directionality has no appropriate constant in this class,
+ <code>DIRECTIONALITY_UNDEFINED</code> is returned.
+</p></div>
 
     </div>
 </div>
@@ -7416,6 +8528,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Gets the Unicode directionality of the specified character.</p></div>
   <div class="jd-tagdata">
@@ -7460,6 +8575,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Returns a human-readable name for the given code point,
  or null if the code point is unassigned.
@@ -7514,6 +8632,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Gets the numeric value of the specified Unicode code point. For example,
  the code point 'Ⅻ' stands for the Roman number XII, which has the
@@ -7571,6 +8692,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns the numeric value of the specified Unicode character.
  See <code><a href="../../../reference/java/lang/Character.html#getNumericValue(int)">getNumericValue(int)</a></code>.</p></div>
   <div class="jd-tagdata">
@@ -7618,6 +8742,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Gets the general Unicode category of the specified character.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -7661,6 +8788,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Gets the general Unicode category of the specified code point.</p></div>
   <div class="jd-tagdata">
@@ -7706,6 +8836,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns an integer hash code for this object. By contract, any two
  objects for which <code><a href="../../../reference/java/lang/Object.html#equals(java.lang.Object)">equals(Object)</a></code> returns <code>true</code> must return
  the same hash code value. This means that subclasses of <code>Object</code>
@@ -7750,6 +8883,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns the high surrogate for the given code point. The result is meaningless if
  the given code point is not a supplementary character.</p></div>
 
@@ -7780,6 +8916,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Returns true if the given code point is alphabetic. That is,
  if it is in any of the Lu, Ll, Lt, Lm, Lo, Nl, or Other_Alphabetic categories.</p></div>
@@ -7812,6 +8951,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns true if the given code point is in the Basic Multilingual Plane (BMP).
  Such code points can be represented by a single <code>char</code>.</p></div>
 
@@ -7842,6 +8984,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Indicates whether the specified code point is defined in the Unicode
  specification.</p></div>
@@ -7889,6 +9034,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Indicates whether the specified character is defined in the Unicode
  specification.</p></div>
   <div class="jd-tagdata">
@@ -7935,6 +9083,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Indicates whether the specified character is a digit.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -7980,6 +9131,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Indicates whether the specified code point is a digit.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -8024,6 +9178,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Indicates whether <code>ch</code> is a high- (or leading-) surrogate code unit
  that is used for representing supplementary characters in UTF-16
@@ -8076,6 +9233,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Indicates whether the specified character is an ISO control character.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -8120,6 +9280,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Indicates whether the specified code point is an ISO control character.</p></div>
   <div class="jd-tagdata">
@@ -8166,6 +9329,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Indicates whether the specified character is ignorable in a Java or
  Unicode identifier.</p></div>
   <div class="jd-tagdata">
@@ -8210,6 +9376,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Indicates whether the specified code point is ignorable in a Java or
  Unicode identifier.</p></div>
@@ -8257,6 +9426,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns true if the given code point is a CJKV ideographic character.</p></div>
 
     </div>
@@ -8286,6 +9458,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Indicates whether the specified code point is a valid part of a Java
  identifier other than the first character.</p></div>
@@ -8333,6 +9508,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Indicates whether the specified character is a valid part of a Java
  identifier other than the first character.</p></div>
   <div class="jd-tagdata">
@@ -8378,6 +9556,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Indicates whether the specified character is a valid first character for
  a Java identifier.</p></div>
@@ -8425,6 +9606,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Indicates whether the specified code point is a valid first character for
  a Java identifier.</p></div>
   <div class="jd-tagdata">
@@ -8470,6 +9654,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       <p>
   <p class="caution"><strong>
       This method was deprecated
@@ -8520,6 +9707,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       <p>
   <p class="caution"><strong>
       This method was deprecated
@@ -8572,6 +9762,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Indicates whether the specified character is a letter.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -8615,6 +9808,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Indicates whether the specified code point is a letter.</p></div>
   <div class="jd-tagdata">
@@ -8661,6 +9857,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Indicates whether the specified character is a letter or a digit.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -8706,6 +9905,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Indicates whether the specified code point is a letter or a digit.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -8750,6 +9952,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Indicates whether <code>ch</code> is a low- (or trailing-) surrogate code unit
  that is used for representing supplementary characters in UTF-16
@@ -8802,6 +10007,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Indicates whether the specified code point is a lower case letter.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -8846,6 +10054,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Indicates whether the specified character is a lower case letter.</p></div>
   <div class="jd-tagdata">
@@ -8892,6 +10103,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Indicates whether the specified character is mirrored.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -8937,6 +10151,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Indicates whether the specified code point is mirrored.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -8981,6 +10198,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       <p>
   <p class="caution"><strong>
       This method was deprecated
@@ -9018,6 +10238,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>See <code><a href="../../../reference/java/lang/Character.html#isSpaceChar(int)">isSpaceChar(int)</a></code>.
 </p></div>
 
@@ -9048,6 +10271,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Returns true if the given code point is a Unicode space character.
  The exact set of characters considered as whitespace varies with Unicode version.
@@ -9083,6 +10309,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Indicates whether <code>codePoint</code> is within the supplementary code
  point range.</p></div>
@@ -9129,6 +10358,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns true if the given character is a high or low surrogate.</p></div>
 
     </div>
@@ -9158,6 +10390,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Indicates whether the specified character pair is a valid surrogate pair.</p></div>
   <div class="jd-tagdata">
@@ -9213,6 +10448,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Indicates whether the specified code point is a titlecase character.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -9258,6 +10496,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Indicates whether the specified character is a titlecase character.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -9302,6 +10543,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Indicates whether the specified code point is valid as part of a Unicode
  identifier other than the first character.</p></div>
@@ -9349,6 +10593,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Indicates whether the specified character is valid as part of a Unicode
  identifier other than the first character.</p></div>
   <div class="jd-tagdata">
@@ -9394,6 +10641,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Indicates whether the specified character is a valid initial character
  for a Unicode identifier.</p></div>
@@ -9441,6 +10691,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Indicates whether the specified code point is a valid initial character
  for a Unicode identifier.</p></div>
   <div class="jd-tagdata">
@@ -9487,6 +10740,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Indicates whether the specified code point is an upper case letter.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -9531,6 +10787,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Indicates whether the specified character is an upper case letter.</p></div>
   <div class="jd-tagdata">
@@ -9577,6 +10836,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Indicates whether <code>codePoint</code> is a valid Unicode code point.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -9621,6 +10883,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>See <code><a href="../../../reference/java/lang/Character.html#isWhitespace(int)">isWhitespace(int)</a></code>.
 </p></div>
 
@@ -9651,6 +10916,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Returns true if the given code point is a Unicode whitespace character.
  The exact set of characters considered as whitespace varies with Unicode version.
@@ -9687,6 +10955,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns the low surrogate for the given code point. The result is meaningless if
  the given code point is not a supplementary character.</p></div>
 
@@ -9717,6 +10988,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Determines the index in the specified character sequence that is offset
  <code>codePointOffset</code> code points from <code>index</code>.</p></div>
@@ -9788,6 +11062,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Determines the index in a subsequence of the specified character array
  that is offset <code>codePointOffset</code> code points from <code>index</code>.
@@ -9873,6 +11150,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Reverses the order of the first and second byte in the specified
  character.</p></div>
   <div class="jd-tagdata">
@@ -9917,6 +11197,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Converts the specified Unicode code point into a UTF-16 encoded sequence
  and returns it as a char array.</p></div>
@@ -9973,6 +11256,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Converts the specified Unicode code point into a UTF-16 encoded sequence
  and copies the value(s) into the char array <code>dst</code>, starting at
@@ -10047,6 +11333,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Converts a surrogate pair into a Unicode code point. This method assumes
  that the pair are valid surrogates. If the pair are <i>not</i> valid
  surrogates, then the result is indeterminate. The
@@ -10103,6 +11392,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns the lower case equivalent for the specified character if the
  character is an upper case letter. Otherwise, the specified character is
  returned unchanged.</p></div>
@@ -10149,6 +11441,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Returns the lower case equivalent for the specified code point if it is
  an upper case letter. Otherwise, the specified code point is returned
@@ -10197,6 +11492,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Converts the specified character to its string representation.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -10241,6 +11539,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns a string containing a concise, human-readable description of this
  object. Subclasses are encouraged to override this method and provide an
  implementation that takes into account the object's type and data. The
@@ -10283,6 +11584,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Returns the title case equivalent for the specified character if it
  exists. Otherwise, the specified character is returned unchanged.</p></div>
@@ -10330,6 +11634,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns the title case equivalent for the specified code point if it
  exists. Otherwise, the specified code point is returned unchanged.</p></div>
   <div class="jd-tagdata">
@@ -10375,6 +11682,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Returns the upper case equivalent for the specified character if the
  character is a lower case letter. Otherwise, the specified character is
@@ -10423,6 +11733,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns the upper case equivalent for the specified code point if the
  code point is a lower case letter. Otherwise, the specified code point is
  returned unchanged.</p></div>
@@ -10469,6 +11782,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Returns a <code>Character</code> instance for the <code>char</code> value passed.
  <p>

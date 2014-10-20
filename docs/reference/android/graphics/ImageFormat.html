@@ -82,6 +82,19 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 <html>
 <head>
 
@@ -97,7 +110,7 @@
 href="http://fonts.useso.com/css?family=Roboto+Condensed">
 <link rel="stylesheet" href="http://fonts.useso.com/css?family=Roboto:light,regular,medium,thin,italic,mediumitalic,bold"
   title="roboto">
-<link href="../../../assets/css/default.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/default.css?v=2" rel="stylesheet" type="text/css">
 
 
 <!-- FULLSCREEN STYLESHEET -->
@@ -106,30 +119,31 @@ type="text/css">
 
 
 <!-- JAVASCRIPT -->
-<script src="http://googleapiscdn.qiniudn.com/www.google.com/jsapi" type="text/javascript"></script>
+<script src="http://www.google.com/jsapi" type="text/javascript"></script>
 <script src="../../../assets/js/android_3p-bundle.js" type="text/javascript"></script>
 <script type="text/javascript">
   var toRoot = "../../../";
   var metaTags = [];
   var devsite = false;
 </script>
-<script src="../../../assets/js/docs.js" type="text/javascript"></script>
+<script src="../../../assets/js/docs.js?v=2" type="text/javascript"></script>
 
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-5831155-1']);
-  _gaq.push(['_trackPageview']);
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
+  ga('create', 'UA-5831155-1', 'android.com');
+  ga('create', 'UA-49880327-2', 'android.com', {'name': 'universal'});  // New tracker);
+  ga('send', 'pageview');
+  ga('universal.send', 'pageview'); // Send page view for new tracker.
 </script>
+
 </head>
 
 <body class="gc-documentation 
-  develop" itemscope itemtype="http://schema.org/Article">
+  develop reference" itemscope itemtype="http://schema.org/Article">
   <div id="doc-api-level" class="8" style="display:none"></div>
   <a name="top"></a>
 
@@ -139,6 +153,10 @@ type="text/css">
   <!-- Header -->
   <div id="header-wrapper">
     <div id="header">
+
+    
+
+
       <div class="wrap" id="header-wrap">
         <div class="col-3 logo">
           <a href="../../../index.html">
@@ -260,11 +278,20 @@ type="text/css">
 
 
         <!-- Expanded quicknav -->
-        <div id="quicknav" class="col-9">
+        <div id="quicknav" class="col-13">
           <ul>
+            <li class="about">
+              <ul>
+                <li><a href="../../../about/index.html">About</a></li>
+                <li><a href="../../../wear/index.html">Wear</a></li>
+                <li><a href="../../../tv/index.html">TV</a></li>
+                <li><a href="../../../auto/index.html">Auto</a></li>
+              </ul>
+            </li>
             <li class="design">
               <ul>
                 <li><a href="../../../design/index.html">Get Started</a></li>
+                <li><a href="../../../design/devices.html">Devices</a></li>
                 <li><a href="../../../design/style/index.html">Style</a></li>
                 <li><a href="../../../design/patterns/index.html">Patterns</a></li>
                 <li><a href="../../../design/building-blocks/index.html">Building Blocks</a></li>
@@ -298,7 +325,7 @@ type="text/css">
                   ja-lang="リファレンス"
                   es-lang="Referencia"
                   >Reference</a></li>
-                <li><a href="../../../tools/index.html"
+                <li><a href="../../../sdk/index.html"
                   zh-tw-lang="相關工具"
                   zh-cn-lang="工具"
                   ru-lang="Инструменты"
@@ -306,7 +333,6 @@ type="text/css">
                   ja-lang="ツール"
                   es-lang="Herramientas"
                   >Tools</a>
-                  <ul><li><a href="../../../sdk/index.html">Get the SDK</a></li></ul>
                 </li>
                 <li><a href="../../../google/index.html">Google Services</a>
                 </li>
@@ -358,7 +384,7 @@ type="text/css">
                   ja-lang="リファレンス"
                   es-lang="Referencia"
                   >Reference</a></li>
-                <li class="tools"><a href="../../../tools/index.html"
+                <li class="tools"><a href="../../../sdk/index.html"
                   zh-tw-lang="相關工具"
                   zh-cn-lang="工具"
                   ru-lang="Инструменты"
@@ -373,7 +399,7 @@ type="text/css">
             </ul>
         </div>
     </div>
-    <!-- /Sendondary x-nav -->
+    <!-- /Sendondary x-nav DEVELOP -->
 
   
 
@@ -414,7 +440,7 @@ type="text/css">
         <div id="api-nav-title">Android APIs</div>
         </div><!-- end nav header -->
       <script>
-        var SINCE_DATA = [ '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19' ];
+        var SINCE_DATA = [ '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21' ];
         buildApiLevelSelector();
       </script>
                   
@@ -441,13 +467,15 @@ type="text/css">
   <a href="../../../reference/android/app/admin/package-summary.html">android.app.admin</a></li>
     <li class="api apilevel-8">
   <a href="../../../reference/android/app/backup/package-summary.html">android.app.backup</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/app/job/package-summary.html">android.app.job</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/app/usage/package-summary.html">android.app.usage</a></li>
     <li class="api apilevel-3">
   <a href="../../../reference/android/appwidget/package-summary.html">android.appwidget</a></li>
     <li class="api apilevel-5">
   <a href="../../../reference/android/bluetooth/package-summary.html">android.bluetooth</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/bluetooth/le/package-summary.html">android.bluetooth.le</a></li>
     <li class="api apilevel-1">
   <a href="../../../reference/android/content/package-summary.html">android.content</a></li>
@@ -473,16 +501,14 @@ type="text/css">
   <a href="../../../reference/android/graphics/pdf/package-summary.html">android.graphics.pdf</a></li>
     <li class="api apilevel-1">
   <a href="../../../reference/android/hardware/package-summary.html">android.hardware</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/hardware/camera2/package-summary.html">android.hardware.camera2</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/hardware/camera2/params/package-summary.html">android.hardware.camera2.params</a></li>
     <li class="api apilevel-17">
   <a href="../../../reference/android/hardware/display/package-summary.html">android.hardware.display</a></li>
     <li class="api apilevel-16">
   <a href="../../../reference/android/hardware/input/package-summary.html">android.hardware.input</a></li>
-    <li class="api apilevel-18">
-  <a href="../../../reference/android/hardware/location/package-summary.html">android.hardware.location</a></li>
     <li class="api apilevel-12">
   <a href="../../../reference/android/hardware/usb/package-summary.html">android.hardware.usb</a></li>
     <li class="api apilevel-3">
@@ -493,11 +519,15 @@ type="text/css">
   <a href="../../../reference/android/media/package-summary.html">android.media</a></li>
     <li class="api apilevel-9">
   <a href="../../../reference/android/media/audiofx/package-summary.html">android.media.audiofx</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/media/browse/package-summary.html">android.media.browse</a></li>
     <li class="api apilevel-14">
   <a href="../../../reference/android/media/effect/package-summary.html">android.media.effect</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/media/projection/package-summary.html">android.media.projection</a></li>
+    <li class="api apilevel-21">
   <a href="../../../reference/android/media/session/package-summary.html">android.media.session</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/media/tv/package-summary.html">android.media.tv</a></li>
     <li class="api apilevel-12">
   <a href="../../../reference/android/mtp/package-summary.html">android.mtp</a></li>
@@ -547,11 +577,15 @@ type="text/css">
   <a href="../../../reference/android/security/package-summary.html">android.security</a></li>
     <li class="api apilevel-17">
   <a href="../../../reference/android/service/dreams/package-summary.html">android.service.dreams</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/service/media/package-summary.html">android.service.media</a></li>
     <li class="api apilevel-18">
   <a href="../../../reference/android/service/notification/package-summary.html">android.service.notification</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/service/restrictions/package-summary.html">android.service.restrictions</a></li>
     <li class="api apilevel-14">
   <a href="../../../reference/android/service/textservice/package-summary.html">android.service.textservice</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/service/voice/package-summary.html">android.service.voice</a></li>
     <li class="api apilevel-7">
   <a href="../../../reference/android/service/wallpaper/package-summary.html">android.service.wallpaper</a></li>
@@ -596,11 +630,15 @@ type="text/css">
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/media/package-summary.html">android.support.v4.media</a></li>
     <li class="api apilevel-">
+  <a href="../../../reference/android/support/v4/media/session/package-summary.html">android.support.v4.media.session</a></li>
+    <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/net/package-summary.html">android.support.v4.net</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/os/package-summary.html">android.support.v4.os</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/print/package-summary.html">android.support.v4.print</a></li>
+    <li class="api apilevel-">
+  <a href="../../../reference/android/support/v4/provider/package-summary.html">android.support.v4.provider</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/text/package-summary.html">android.support.v4.text</a></li>
     <li class="api apilevel-">
@@ -616,6 +654,10 @@ type="text/css">
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v7/appcompat/package-summary.html">android.support.v7.appcompat</a></li>
     <li class="api apilevel-">
+  <a href="../../../reference/android/support/v7/cardview/package-summary.html">android.support.v7.cardview</a></li>
+    <li class="api apilevel-">
+  <a href="../../../reference/android/support/v7/graphics/package-summary.html">android.support.v7.graphics</a></li>
+    <li class="api apilevel-">
   <a href="../../../reference/android/support/v7/gridlayout/package-summary.html">android.support.v7.gridlayout</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v7/media/package-summary.html">android.support.v7.media</a></li>
@@ -627,8 +669,10 @@ type="text/css">
   <a href="../../../reference/android/support/v7/widget/package-summary.html">android.support.v7.widget</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v8/renderscript/package-summary.html">android.support.v8.renderscript</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/system/package-summary.html">android.system</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/telecom/package-summary.html">android.telecom</a></li>
     <li class="api apilevel-1">
   <a href="../../../reference/android/telephony/package-summary.html">android.telephony</a></li>
     <li class="api apilevel-5">
@@ -923,7 +967,7 @@ type="text/css">
           <li class="api apilevel-1"><a href="../../../reference/android/graphics/Matrix.html">Matrix</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/graphics/Movie.html">Movie</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/graphics/NinePatch.html">NinePatch</a></li>
-          <li class="api apilevel-"><a href="../../../reference/android/graphics/Outline.html">Outline</a></li>
+          <li class="api apilevel-21"><a href="../../../reference/android/graphics/Outline.html">Outline</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/graphics/Paint.html">Paint</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/graphics/Paint.FontMetrics.html">Paint.FontMetrics</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/graphics/Paint.FontMetricsInt.html">Paint.FontMetricsInt</a></li>
@@ -1109,6 +1153,9 @@ Summary:
   
 
 
+    
+
+
 </div><!-- end header -->
 
 <div id="naMessage"></div>
@@ -1188,68 +1235,131 @@ Summary:
     <tr class="alt-color api apilevel-8" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/graphics/ImageFormat.html#JPEG">JPEG</a></td>
-        <td class="jd-descrcol" width="100%">Encoded formats.</td>
+        <td class="jd-descrcol" width="100%">
+          Compressed JPEG format.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-8" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/graphics/ImageFormat.html#NV16">NV16</a></td>
-        <td class="jd-descrcol" width="100%">YCbCr format, used for video.</td>
+        <td class="jd-descrcol" width="100%">
+          YCbCr format, used for video.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-8" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/graphics/ImageFormat.html#NV21">NV21</a></td>
-        <td class="jd-descrcol" width="100%">YCrCb format used for images, which uses the NV21 encoding format.</td>
+        <td class="jd-descrcol" width="100%">
+          YCrCb format used for images, which uses the NV21 encoding format.
+          
+    
+
+        </td>
     </tr>
     
     
-    <tr class=" api apilevel-" >
+    <tr class=" api apilevel-21" >
+        <td class="jd-typecol">int</td>
+        <td class="jd-linkcol"><a href="../../../reference/android/graphics/ImageFormat.html#RAW10">RAW10</a></td>
+        <td class="jd-descrcol" width="100%">
+          <p>
+ Android 10-bit raw format
+ </p>
+ <p>
+ This is a single-plane, 10-bit per pixel, densely packed (in each row),
+ unprocessed format, usually representing raw Bayer-pattern images coming
+ from an image sensor.
+          
+    
+
+        </td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-21" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/graphics/ImageFormat.html#RAW_SENSOR">RAW_SENSOR</a></td>
-        <td class="jd-descrcol" width="100%"><p>General raw camera sensor image format, usually representing a
- single-channel Bayer-mosaic image.</td>
+        <td class="jd-descrcol" width="100%">
+          <p>General raw camera sensor image format, usually representing a
+ single-channel Bayer-mosaic image.
+          
+    
+
+        </td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-8" >
+        <td class="jd-typecol">int</td>
+        <td class="jd-linkcol"><a href="../../../reference/android/graphics/ImageFormat.html#RGB_565">RGB_565</a></td>
+        <td class="jd-descrcol" width="100%">
+          RGB format used for pictures encoded as RGB_565.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-8" >
         <td class="jd-typecol">int</td>
-        <td class="jd-linkcol"><a href="../../../reference/android/graphics/ImageFormat.html#RGB_565">RGB_565</a></td>
-        <td class="jd-descrcol" width="100%">RGB format used for pictures encoded as RGB_565.</td>
-    </tr>
-    
-    
-    <tr class=" api apilevel-8" >
-        <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/graphics/ImageFormat.html#UNKNOWN">UNKNOWN</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
-    <tr class="alt-color api apilevel-19" >
+    <tr class=" api apilevel-19" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/graphics/ImageFormat.html#YUV_420_888">YUV_420_888</a></td>
-        <td class="jd-descrcol" width="100%"><p>Multi-plane Android YUV format</p>
+        <td class="jd-descrcol" width="100%">
+          <p>Multi-plane Android YUV format</p>
 
  <p>This format is a generic YCbCr format, capable of describing any 4:2:0
  chroma-subsampled planar or semiplanar buffer (but not fully interleaved),
- with 8 bits per color sample.</td>
+ with 8 bits per color sample.
+          
+    
+
+        </td>
     </tr>
     
     
-    <tr class=" api apilevel-8" >
+    <tr class="alt-color api apilevel-8" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/graphics/ImageFormat.html#YUY2">YUY2</a></td>
-        <td class="jd-descrcol" width="100%">YCbCr format used for images, which uses YUYV (YUY2) encoding format.</td>
+        <td class="jd-descrcol" width="100%">
+          YCbCr format used for images, which uses YUYV (YUY2) encoding format.
+          
+    
+
+        </td>
     </tr>
     
     
-    <tr class="alt-color api apilevel-9" >
+    <tr class=" api apilevel-9" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/graphics/ImageFormat.html#YV12">YV12</a></td>
-        <td class="jd-descrcol" width="100%"><p>Android YUV format.</td>
+        <td class="jd-descrcol" width="100%">
+          <p>Android YUV format.
+          
+    
+
+        </td>
     </tr>
     
     
@@ -1314,8 +1424,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/graphics/ImageFormat.html#getBitsPerPixel(int)">getBitsPerPixel</a></span>(int format)</nobr>
         
-        <div class="jd-descrdiv">Use this function to retrieve the number of bits per pixel of an
- ImageFormat.</div>
+        <div class="jd-descrdiv">
+          Use this function to retrieve the number of bits per pixel of an
+ ImageFormat.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1367,7 +1482,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#clone()">clone</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Creates and returns a copy of this <code>Object</code>.</div>
+        <div class="jd-descrdiv">
+          Creates and returns a copy of this <code>Object</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1385,8 +1505,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#equals(java.lang.Object)">equals</a></span>(<a href="../../../reference/java/lang/Object.html">Object</a> o)</nobr>
         
-        <div class="jd-descrdiv">Compares this instance with the specified object and indicates if they
- are equal.</div>
+        <div class="jd-descrdiv">
+          Compares this instance with the specified object and indicates if they
+ are equal.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1404,7 +1529,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#finalize()">finalize</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Invoked when the garbage collector has detected that this instance is no longer reachable.</div>
+        <div class="jd-descrdiv">
+          Invoked when the garbage collector has detected that this instance is no longer reachable.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1422,8 +1552,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#getClass()">getClass</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns the unique instance of <code><a href="../../../reference/java/lang/Class.html">Class</a></code> that represents this
- object's class.</div>
+        <div class="jd-descrdiv">
+          Returns the unique instance of <code><a href="../../../reference/java/lang/Class.html">Class</a></code> that represents this
+ object's class.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1441,7 +1576,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#hashCode()">hashCode</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns an integer hash code for this object.</div>
+        <div class="jd-descrdiv">
+          Returns an integer hash code for this object.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1459,8 +1599,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#notify()">notify</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Causes a thread which is waiting on this object's monitor (by means of
- calling one of the <code>wait()</code> methods) to be woken up.</div>
+        <div class="jd-descrdiv">
+          Causes a thread which is waiting on this object's monitor (by means of
+ calling one of the <code>wait()</code> methods) to be woken up.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1478,8 +1623,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#notifyAll()">notifyAll</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Causes all threads which are waiting on this object's monitor (by means
- of calling one of the <code>wait()</code> methods) to be woken up.</div>
+        <div class="jd-descrdiv">
+          Causes all threads which are waiting on this object's monitor (by means
+ of calling one of the <code>wait()</code> methods) to be woken up.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1497,8 +1647,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#toString()">toString</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns a string containing a concise, human-readable description of this
- object.</div>
+        <div class="jd-descrdiv">
+          Returns a string containing a concise, human-readable description of this
+ object.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1516,7 +1671,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#wait()">wait</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object.</div>
+        <div class="jd-descrdiv">
+          Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1534,8 +1694,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#wait(long, int)">wait</a></span>(long millis, int nanos)</nobr>
         
-        <div class="jd-descrdiv">Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object or until the
- specified timeout expires.</div>
+        <div class="jd-descrdiv">
+          Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object or until the
+ specified timeout expires.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1553,8 +1718,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#wait(long)">wait</a></span>(long millis)</nobr>
         
-        <div class="jd-descrdiv">Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object or until the
- specified timeout expires.</div>
+        <div class="jd-descrdiv">
+          Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object or until the
+ specified timeout expires.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1615,7 +1785,14 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Encoded formats. These are not necessarily supported by the hardware.
+    
+
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Compressed JPEG format.
+
+ <p>This format is always supported as an output format for the
+ <code><a href="../../../reference/android/hardware/camera2/package-summary.html">android.hardware.camera2</a></code> API, and as a picture format for the older
+ <code><a href="../../../reference/android/hardware/Camera.html">Camera</a></code> API</p>
 </p></div>
 
     
@@ -1655,9 +1832,17 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>YCbCr format, used for video. Whether this format is supported by the
- camera hardware can be determined by
- <code><a href="../../../reference/android/hardware/Camera.Parameters.html#getSupportedPreviewFormats()">getSupportedPreviewFormats()</a></code>.
+    
+
+      
+  <div class="jd-tagdata jd-tagdescr"><p>YCbCr format, used for video.
+
+ <p>For the <code><a href="../../../reference/android/hardware/camera2/package-summary.html">android.hardware.camera2</a></code> API, the <code><a href="../../../reference/android/graphics/ImageFormat.html#YUV_420_888">YUV_420_888</a></code> format is
+ recommended for YUV output instead.</p>
+
+ <p>Whether this format is supported by the old camera API can be determined by
+ <code><a href="../../../reference/android/hardware/Camera.Parameters.html#getSupportedPreviewFormats()">getSupportedPreviewFormats()</a></code>.</p>
+
 </p></div>
 
     
@@ -1697,9 +1882,17 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>YCrCb format used for images, which uses the NV21 encoding format. This
- is the default format for camera preview images, when not otherwise set
- with <code><a href="../../../reference/android/hardware/Camera.Parameters.html#setPreviewFormat(int)">setPreviewFormat(int)</a></code>.
+    
+
+      
+  <div class="jd-tagdata jd-tagdescr"><p>YCrCb format used for images, which uses the NV21 encoding format.
+
+ <p>This is the default format
+ for <code><a href="../../../reference/android/hardware/Camera.html">Camera</a></code> preview images, when not otherwise set with
+ <code><a href="../../../reference/android/hardware/Camera.Parameters.html#setPreviewFormat(int)">setPreviewFormat(int)</a></code>.</p>
+
+ <p>For the <code><a href="../../../reference/android/hardware/camera2/package-summary.html">android.hardware.camera2</a></code> API, the <code><a href="../../../reference/android/graphics/ImageFormat.html#YUV_420_888">YUV_420_888</a></code> format is
+ recommended for YUV output instead.</p>
 </p></div>
 
     
@@ -1718,9 +1911,171 @@ From class
 
 
 
+<A NAME="RAW10"></A>
+
+<div class="jd-details api apilevel-21"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        int
+      </span>
+        RAW10
+    </h4>
+      <div class="api-level">
+        
+  Added in <a href="../../../guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 21</a>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+    
+
+      
+  <div class="jd-tagdata jd-tagdescr"><p><p>
+ Android 10-bit raw format
+ </p>
+ <p>
+ This is a single-plane, 10-bit per pixel, densely packed (in each row),
+ unprocessed format, usually representing raw Bayer-pattern images coming
+ from an image sensor.
+ </p>
+ <p>
+ In an image buffer with this format, starting from the first pixel of
+ each row, each 4 consecutive pixels are packed into 5 bytes (40 bits).
+ Each one of the first 4 bytes contains the top 8 bits of each pixel, The
+ fifth byte contains the 2 least significant bits of the 4 pixels, the
+ exact layout data for each 4 consecutive pixels is illustrated below
+ (<code>Pi[j]</code> stands for the jth bit of the ith pixel):
+ </p>
+ <table>
+ <thead>
+ <tr>
+ <th align="center"></th>
+ <th align="center">bit 7</th>
+ <th align="center">bit 6</th>
+ <th align="center">bit 5</th>
+ <th align="center">bit 4</th>
+ <th align="center">bit 3</th>
+ <th align="center">bit 2</th>
+ <th align="center">bit 1</th>
+ <th align="center">bit 0</th>
+ </tr>
+ </thead> <tbody>
+ <tr>
+ <td align="center">Byte 0:</td>
+ <td align="center">P0[9]</td>
+ <td align="center">P0[8]</td>
+ <td align="center">P0[7]</td>
+ <td align="center">P0[6]</td>
+ <td align="center">P0[5]</td>
+ <td align="center">P0[4]</td>
+ <td align="center">P0[3]</td>
+ <td align="center">P0[2]</td>
+ </tr>
+ <tr>
+ <td align="center">Byte 1:</td>
+ <td align="center">P1[9]</td>
+ <td align="center">P1[8]</td>
+ <td align="center">P1[7]</td>
+ <td align="center">P1[6]</td>
+ <td align="center">P1[5]</td>
+ <td align="center">P1[4]</td>
+ <td align="center">P1[3]</td>
+ <td align="center">P1[2]</td>
+ </tr>
+ <tr>
+ <td align="center">Byte 2:</td>
+ <td align="center">P2[9]</td>
+ <td align="center">P2[8]</td>
+ <td align="center">P2[7]</td>
+ <td align="center">P2[6]</td>
+ <td align="center">P2[5]</td>
+ <td align="center">P2[4]</td>
+ <td align="center">P2[3]</td>
+ <td align="center">P2[2]</td>
+ </tr>
+ <tr>
+ <td align="center">Byte 3:</td>
+ <td align="center">P3[9]</td>
+ <td align="center">P3[8]</td>
+ <td align="center">P3[7]</td>
+ <td align="center">P3[6]</td>
+ <td align="center">P3[5]</td>
+ <td align="center">P3[4]</td>
+ <td align="center">P3[3]</td>
+ <td align="center">P3[2]</td>
+ </tr>
+ <tr>
+ <td align="center">Byte 4:</td>
+ <td align="center">P3[1]</td>
+ <td align="center">P3[0]</td>
+ <td align="center">P2[1]</td>
+ <td align="center">P2[0]</td>
+ <td align="center">P1[1]</td>
+ <td align="center">P1[0]</td>
+ <td align="center">P0[1]</td>
+ <td align="center">P0[0]</td>
+ </tr>
+ </tbody>
+ </table>
+ <p>
+ This format assumes
+ <ul>
+ <li>a width multiple of 4 pixels</li>
+ <li>an even height</li>
+ </ul>
+ </p>
+
+ <pre>size = row stride * height</pre> where the row stride is in <em>bytes</em>,
+ not pixels.
+
+ <p>
+ Since this is a densely packed format, the pixel stride is always 0. The
+ application must use the pixel data layout defined in above table to
+ access each row data. When row stride is equal to <code>width * (10 / 8)</code>, there
+ will be no padding bytes at the end of each row, the entire image data is
+ densely packed. When stride is larger than <code>width * (10 / 8)</code>, padding
+ bytes will be present at the end of each row.
+ </p>
+ <p>
+ For example, the <code><a href="../../../reference/android/media/Image.html">Image</a></code> object can provide data in
+ this format from a <code><a href="../../../reference/android/hardware/camera2/CameraDevice.html">CameraDevice</a></code> (if
+ supported) through a <code><a href="../../../reference/android/media/ImageReader.html">ImageReader</a></code> object. The
+ <code><a href="../../../reference/android/media/Image.html#getPlanes()">Image#getPlanes()</a></code> will return a
+ single plane containing the pixel data. The pixel stride is always 0 in
+ <code><a href="../../../reference/android/media/Image.Plane.html#getPixelStride()">getPixelStride()</a></code>, and the
+ <code><a href="../../../reference/android/media/Image.Plane.html#getRowStride()">getRowStride()</a></code> describes the vertical
+ neighboring pixel distance (in bytes) between adjacent rows.
+ </p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">See Also</h5>
+      <ul class="nolist"><li><code><a href="../../../reference/android/media/Image.html">Image</a></code></li><li><code><a href="../../../reference/android/media/ImageReader.html">ImageReader</a></code></li><li><code><a href="../../../reference/android/hardware/camera2/CameraDevice.html">CameraDevice</a></code></li>
+      </ul>
+  </div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                37
+                (0x00000025)
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
 <A NAME="RAW_SENSOR"></A>
 
-<div class="jd-details api apilevel-"> 
+<div class="jd-details api apilevel-21"> 
     <h4 class="jd-details-title">
       <span class="normal">
         public 
@@ -1732,11 +2087,15 @@ From class
     </h4>
       <div class="api-level">
         
+  Added in <a href="../../../guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 21</a>
         
   
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p><p>General raw camera sensor image format, usually representing a
  single-channel Bayer-mosaic image. Each pixel color sample is stored with
@@ -1786,6 +2145,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>RGB format used for pictures encoded as RGB_565. See
  <code><a href="../../../reference/android/hardware/Camera.Parameters.html#setPictureFormat(int)">setPictureFormat(int)</a></code>.
 </p></div>
@@ -1827,6 +2189,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -1865,6 +2230,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p><p>Multi-plane Android YUV format</p>
 
@@ -1939,10 +2307,17 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>YCbCr format used for images, which uses YUYV (YUY2) encoding format.
- This is an alternative format for camera preview images. Whether this
- format is supported by the camera hardware can be determined by
- <code><a href="../../../reference/android/hardware/Camera.Parameters.html#getSupportedPreviewFormats()">getSupportedPreviewFormats()</a></code>.
+
+ <p>For the <code><a href="../../../reference/android/hardware/camera2/package-summary.html">android.hardware.camera2</a></code> API, the <code><a href="../../../reference/android/graphics/ImageFormat.html#YUV_420_888">YUV_420_888</a></code> format is
+ recommended for YUV output instead.</p>
+
+ <p>This is an alternative format for <code><a href="../../../reference/android/hardware/Camera.html">Camera</a></code> preview images. Whether
+ this format is supported by the camera hardware can be determined by
+ <code><a href="../../../reference/android/hardware/Camera.Parameters.html#getSupportedPreviewFormats()">getSupportedPreviewFormats()</a></code>.</p>
 </p></div>
 
     
@@ -1982,6 +2357,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p><p>Android YUV format.</p>
 
  <p>This format is exposed to software decoders and applications.</p>
@@ -2005,9 +2383,12 @@ From class
  cr_offset = y_size
  cb_offset = y_size + c_size</pre>
 
- <p>This format is guaranteed to be supported for camera preview images since
- API level 12; for earlier API versions, check
- <code><a href="../../../reference/android/hardware/Camera.Parameters.html#getSupportedPreviewFormats()">getSupportedPreviewFormats()</a></code>.
+ <p>For the <code><a href="../../../reference/android/hardware/camera2/package-summary.html">android.hardware.camera2</a></code> API, the <code><a href="../../../reference/android/graphics/ImageFormat.html#YUV_420_888">YUV_420_888</a></code> format is
+ recommended for YUV output instead.</p>
+
+ <p>For the older camera API, this format is guaranteed to be supported for
+ <code><a href="../../../reference/android/hardware/Camera.html">Camera</a></code> preview images since API level 12; for earlier API versions,
+ check <code><a href="../../../reference/android/hardware/Camera.Parameters.html#getSupportedPreviewFormats()">getSupportedPreviewFormats()</a></code>.
 
  <p>Note that for camera preview callback use (see
  <code><a href="../../../reference/android/hardware/Camera.html#setPreviewCallback(android.hardware.Camera.PreviewCallback)">setPreviewCallback(Camera.PreviewCallback)</a></code>), the
@@ -2074,6 +2455,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     </div>
@@ -2118,6 +2502,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Use this function to retrieve the number of bits per pixel of an
  ImageFormat.</p></div>

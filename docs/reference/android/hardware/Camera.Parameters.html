@@ -82,6 +82,19 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 <html>
 <head>
 
@@ -97,7 +110,7 @@
 href="http://fonts.useso.com/css?family=Roboto+Condensed">
 <link rel="stylesheet" href="http://fonts.useso.com/css?family=Roboto:light,regular,medium,thin,italic,mediumitalic,bold"
   title="roboto">
-<link href="../../../assets/css/default.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/default.css?v=2" rel="stylesheet" type="text/css">
 
 
 <!-- FULLSCREEN STYLESHEET -->
@@ -106,30 +119,31 @@ type="text/css">
 
 
 <!-- JAVASCRIPT -->
-<script src="http://googleapiscdn.qiniudn.com/www.google.com/jsapi" type="text/javascript"></script>
+<script src="http://www.google.com/jsapi" type="text/javascript"></script>
 <script src="../../../assets/js/android_3p-bundle.js" type="text/javascript"></script>
 <script type="text/javascript">
   var toRoot = "../../../";
   var metaTags = [];
   var devsite = false;
 </script>
-<script src="../../../assets/js/docs.js" type="text/javascript"></script>
+<script src="../../../assets/js/docs.js?v=2" type="text/javascript"></script>
 
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-5831155-1']);
-  _gaq.push(['_trackPageview']);
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
+  ga('create', 'UA-5831155-1', 'android.com');
+  ga('create', 'UA-49880327-2', 'android.com', {'name': 'universal'});  // New tracker);
+  ga('send', 'pageview');
+  ga('universal.send', 'pageview'); // Send page view for new tracker.
 </script>
+
 </head>
 
 <body class="gc-documentation 
-  develop" itemscope itemtype="http://schema.org/Article">
+  develop reference" itemscope itemtype="http://schema.org/Article">
   <div id="doc-api-level" class="1" style="display:none"></div>
   <a name="top"></a>
 
@@ -139,6 +153,10 @@ type="text/css">
   <!-- Header -->
   <div id="header-wrapper">
     <div id="header">
+
+    
+
+
       <div class="wrap" id="header-wrap">
         <div class="col-3 logo">
           <a href="../../../index.html">
@@ -260,11 +278,20 @@ type="text/css">
 
 
         <!-- Expanded quicknav -->
-        <div id="quicknav" class="col-9">
+        <div id="quicknav" class="col-13">
           <ul>
+            <li class="about">
+              <ul>
+                <li><a href="../../../about/index.html">About</a></li>
+                <li><a href="../../../wear/index.html">Wear</a></li>
+                <li><a href="../../../tv/index.html">TV</a></li>
+                <li><a href="../../../auto/index.html">Auto</a></li>
+              </ul>
+            </li>
             <li class="design">
               <ul>
                 <li><a href="../../../design/index.html">Get Started</a></li>
+                <li><a href="../../../design/devices.html">Devices</a></li>
                 <li><a href="../../../design/style/index.html">Style</a></li>
                 <li><a href="../../../design/patterns/index.html">Patterns</a></li>
                 <li><a href="../../../design/building-blocks/index.html">Building Blocks</a></li>
@@ -298,7 +325,7 @@ type="text/css">
                   ja-lang="リファレンス"
                   es-lang="Referencia"
                   >Reference</a></li>
-                <li><a href="../../../tools/index.html"
+                <li><a href="../../../sdk/index.html"
                   zh-tw-lang="相關工具"
                   zh-cn-lang="工具"
                   ru-lang="Инструменты"
@@ -306,7 +333,6 @@ type="text/css">
                   ja-lang="ツール"
                   es-lang="Herramientas"
                   >Tools</a>
-                  <ul><li><a href="../../../sdk/index.html">Get the SDK</a></li></ul>
                 </li>
                 <li><a href="../../../google/index.html">Google Services</a>
                 </li>
@@ -358,7 +384,7 @@ type="text/css">
                   ja-lang="リファレンス"
                   es-lang="Referencia"
                   >Reference</a></li>
-                <li class="tools"><a href="../../../tools/index.html"
+                <li class="tools"><a href="../../../sdk/index.html"
                   zh-tw-lang="相關工具"
                   zh-cn-lang="工具"
                   ru-lang="Инструменты"
@@ -373,7 +399,7 @@ type="text/css">
             </ul>
         </div>
     </div>
-    <!-- /Sendondary x-nav -->
+    <!-- /Sendondary x-nav DEVELOP -->
 
   
 
@@ -414,7 +440,7 @@ type="text/css">
         <div id="api-nav-title">Android APIs</div>
         </div><!-- end nav header -->
       <script>
-        var SINCE_DATA = [ '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19' ];
+        var SINCE_DATA = [ '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21' ];
         buildApiLevelSelector();
       </script>
                   
@@ -441,13 +467,15 @@ type="text/css">
   <a href="../../../reference/android/app/admin/package-summary.html">android.app.admin</a></li>
     <li class="api apilevel-8">
   <a href="../../../reference/android/app/backup/package-summary.html">android.app.backup</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/app/job/package-summary.html">android.app.job</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/app/usage/package-summary.html">android.app.usage</a></li>
     <li class="api apilevel-3">
   <a href="../../../reference/android/appwidget/package-summary.html">android.appwidget</a></li>
     <li class="api apilevel-5">
   <a href="../../../reference/android/bluetooth/package-summary.html">android.bluetooth</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/bluetooth/le/package-summary.html">android.bluetooth.le</a></li>
     <li class="api apilevel-1">
   <a href="../../../reference/android/content/package-summary.html">android.content</a></li>
@@ -473,16 +501,14 @@ type="text/css">
   <a href="../../../reference/android/graphics/pdf/package-summary.html">android.graphics.pdf</a></li>
     <li class="selected api apilevel-1">
   <a href="../../../reference/android/hardware/package-summary.html">android.hardware</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/hardware/camera2/package-summary.html">android.hardware.camera2</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/hardware/camera2/params/package-summary.html">android.hardware.camera2.params</a></li>
     <li class="api apilevel-17">
   <a href="../../../reference/android/hardware/display/package-summary.html">android.hardware.display</a></li>
     <li class="api apilevel-16">
   <a href="../../../reference/android/hardware/input/package-summary.html">android.hardware.input</a></li>
-    <li class="api apilevel-18">
-  <a href="../../../reference/android/hardware/location/package-summary.html">android.hardware.location</a></li>
     <li class="api apilevel-12">
   <a href="../../../reference/android/hardware/usb/package-summary.html">android.hardware.usb</a></li>
     <li class="api apilevel-3">
@@ -493,11 +519,15 @@ type="text/css">
   <a href="../../../reference/android/media/package-summary.html">android.media</a></li>
     <li class="api apilevel-9">
   <a href="../../../reference/android/media/audiofx/package-summary.html">android.media.audiofx</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/media/browse/package-summary.html">android.media.browse</a></li>
     <li class="api apilevel-14">
   <a href="../../../reference/android/media/effect/package-summary.html">android.media.effect</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/media/projection/package-summary.html">android.media.projection</a></li>
+    <li class="api apilevel-21">
   <a href="../../../reference/android/media/session/package-summary.html">android.media.session</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/media/tv/package-summary.html">android.media.tv</a></li>
     <li class="api apilevel-12">
   <a href="../../../reference/android/mtp/package-summary.html">android.mtp</a></li>
@@ -547,11 +577,15 @@ type="text/css">
   <a href="../../../reference/android/security/package-summary.html">android.security</a></li>
     <li class="api apilevel-17">
   <a href="../../../reference/android/service/dreams/package-summary.html">android.service.dreams</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/service/media/package-summary.html">android.service.media</a></li>
     <li class="api apilevel-18">
   <a href="../../../reference/android/service/notification/package-summary.html">android.service.notification</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/service/restrictions/package-summary.html">android.service.restrictions</a></li>
     <li class="api apilevel-14">
   <a href="../../../reference/android/service/textservice/package-summary.html">android.service.textservice</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/service/voice/package-summary.html">android.service.voice</a></li>
     <li class="api apilevel-7">
   <a href="../../../reference/android/service/wallpaper/package-summary.html">android.service.wallpaper</a></li>
@@ -596,11 +630,15 @@ type="text/css">
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/media/package-summary.html">android.support.v4.media</a></li>
     <li class="api apilevel-">
+  <a href="../../../reference/android/support/v4/media/session/package-summary.html">android.support.v4.media.session</a></li>
+    <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/net/package-summary.html">android.support.v4.net</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/os/package-summary.html">android.support.v4.os</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/print/package-summary.html">android.support.v4.print</a></li>
+    <li class="api apilevel-">
+  <a href="../../../reference/android/support/v4/provider/package-summary.html">android.support.v4.provider</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/text/package-summary.html">android.support.v4.text</a></li>
     <li class="api apilevel-">
@@ -616,6 +654,10 @@ type="text/css">
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v7/appcompat/package-summary.html">android.support.v7.appcompat</a></li>
     <li class="api apilevel-">
+  <a href="../../../reference/android/support/v7/cardview/package-summary.html">android.support.v7.cardview</a></li>
+    <li class="api apilevel-">
+  <a href="../../../reference/android/support/v7/graphics/package-summary.html">android.support.v7.graphics</a></li>
+    <li class="api apilevel-">
   <a href="../../../reference/android/support/v7/gridlayout/package-summary.html">android.support.v7.gridlayout</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v7/media/package-summary.html">android.support.v7.media</a></li>
@@ -627,8 +669,10 @@ type="text/css">
   <a href="../../../reference/android/support/v7/widget/package-summary.html">android.support.v7.widget</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v8/renderscript/package-summary.html">android.support.v8.renderscript</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/system/package-summary.html">android.system</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/telecom/package-summary.html">android.telecom</a></li>
     <li class="api apilevel-1">
   <a href="../../../reference/android/telephony/package-summary.html">android.telephony</a></li>
     <li class="api apilevel-5">
@@ -1012,7 +1056,8 @@ Summary:
 </div><!-- end sum-details-links -->
 <div class="api-level">
   
-  Added in <a href="../../../guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 1</a>
+  Added in <a href="../../../guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 1</a><br>Deprecated since <a href="../../../guide/topics/manifest/uses-sdk-element.html#ApiLevels"
+        >API level 21</a>
   
   
 
@@ -1041,6 +1086,9 @@ Summary:
   
   
   
+
+
+    
 
 
 </div><!-- end header -->
@@ -1074,7 +1122,14 @@ Summary:
 
 
 <div class="jd-descr">
+<p>
+  <p class="caution"><strong>
+      This class was deprecated
+      in API level 21.</strong><br/>
+    We recommend using the new <code><a href="../../../reference/android/hardware/camera2/package-summary.html">android.hardware.camera2</a></code> API for new
+             applications.
 
+  </p>
 
 <h2>Class Overview</h2>
 <p itemprop="articleBody">Camera service settings.
@@ -1091,8 +1146,7 @@ Summary:
  should call <code><a href="../../../reference/android/hardware/Camera.Parameters.html#getSupportedColorEffects()">getSupportedColorEffects()</a></code> before
  calling <code><a href="../../../reference/android/hardware/Camera.Parameters.html#setColorEffect(java.lang.String)">setColorEffect(String)</a></code>. If the
  camera does not support color effects,
- <code><a href="../../../reference/android/hardware/Camera.Parameters.html#getSupportedColorEffects()">getSupportedColorEffects()</a></code> will return null.
-</p>
+ <code><a href="../../../reference/android/hardware/Camera.Parameters.html#getSupportedColorEffects()">getSupportedColorEffects()</a></code> will return null.</p>
 
 
 
@@ -1140,388 +1194,663 @@ Summary:
     <tr class="alt-color api apilevel-5" >
         <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.Parameters.html#ANTIBANDING_50HZ">ANTIBANDING_50HZ</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-5" >
         <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.Parameters.html#ANTIBANDING_60HZ">ANTIBANDING_60HZ</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-5" >
         <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.Parameters.html#ANTIBANDING_AUTO">ANTIBANDING_AUTO</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-5" >
         <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.Parameters.html#ANTIBANDING_OFF">ANTIBANDING_OFF</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-5" >
         <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.Parameters.html#EFFECT_AQUA">EFFECT_AQUA</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-5" >
         <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.Parameters.html#EFFECT_BLACKBOARD">EFFECT_BLACKBOARD</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-5" >
         <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.Parameters.html#EFFECT_MONO">EFFECT_MONO</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-5" >
         <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.Parameters.html#EFFECT_NEGATIVE">EFFECT_NEGATIVE</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-5" >
         <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.Parameters.html#EFFECT_NONE">EFFECT_NONE</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-5" >
         <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.Parameters.html#EFFECT_POSTERIZE">EFFECT_POSTERIZE</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-5" >
         <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.Parameters.html#EFFECT_SEPIA">EFFECT_SEPIA</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-5" >
         <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.Parameters.html#EFFECT_SOLARIZE">EFFECT_SOLARIZE</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-5" >
         <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.Parameters.html#EFFECT_WHITEBOARD">EFFECT_WHITEBOARD</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-5" >
         <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.Parameters.html#FLASH_MODE_AUTO">FLASH_MODE_AUTO</a></td>
-        <td class="jd-descrcol" width="100%">Flash will be fired automatically when required.</td>
+        <td class="jd-descrcol" width="100%">
+          Flash will be fired automatically when required.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-5" >
         <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.Parameters.html#FLASH_MODE_OFF">FLASH_MODE_OFF</a></td>
-        <td class="jd-descrcol" width="100%">Flash will not be fired.</td>
+        <td class="jd-descrcol" width="100%">
+          Flash will not be fired.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-5" >
         <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.Parameters.html#FLASH_MODE_ON">FLASH_MODE_ON</a></td>
-        <td class="jd-descrcol" width="100%">Flash will always be fired during snapshot.</td>
+        <td class="jd-descrcol" width="100%">
+          Flash will always be fired during snapshot.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-5" >
         <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.Parameters.html#FLASH_MODE_RED_EYE">FLASH_MODE_RED_EYE</a></td>
-        <td class="jd-descrcol" width="100%">Flash will be fired in red-eye reduction mode.</td>
+        <td class="jd-descrcol" width="100%">
+          Flash will be fired in red-eye reduction mode.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-5" >
         <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.Parameters.html#FLASH_MODE_TORCH">FLASH_MODE_TORCH</a></td>
-        <td class="jd-descrcol" width="100%">Constant emission of light during preview, auto-focus and snapshot.</td>
+        <td class="jd-descrcol" width="100%">
+          Constant emission of light during preview, auto-focus and snapshot.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-9" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.Parameters.html#FOCUS_DISTANCE_FAR_INDEX">FOCUS_DISTANCE_FAR_INDEX</a></td>
-        <td class="jd-descrcol" width="100%">The array index of far focus distance for use with
- <code><a href="../../../reference/android/hardware/Camera.Parameters.html#getFocusDistances(float[])">getFocusDistances(float[])</a></code>.</td>
+        <td class="jd-descrcol" width="100%">
+          The array index of far focus distance for use with
+ <code><a href="../../../reference/android/hardware/Camera.Parameters.html#getFocusDistances(float[])">getFocusDistances(float[])</a></code>.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-9" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.Parameters.html#FOCUS_DISTANCE_NEAR_INDEX">FOCUS_DISTANCE_NEAR_INDEX</a></td>
-        <td class="jd-descrcol" width="100%">The array index of near focus distance for use with
- <code><a href="../../../reference/android/hardware/Camera.Parameters.html#getFocusDistances(float[])">getFocusDistances(float[])</a></code>.</td>
+        <td class="jd-descrcol" width="100%">
+          The array index of near focus distance for use with
+ <code><a href="../../../reference/android/hardware/Camera.Parameters.html#getFocusDistances(float[])">getFocusDistances(float[])</a></code>.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-9" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.Parameters.html#FOCUS_DISTANCE_OPTIMAL_INDEX">FOCUS_DISTANCE_OPTIMAL_INDEX</a></td>
-        <td class="jd-descrcol" width="100%">The array index of optimal focus distance for use with
- <code><a href="../../../reference/android/hardware/Camera.Parameters.html#getFocusDistances(float[])">getFocusDistances(float[])</a></code>.</td>
+        <td class="jd-descrcol" width="100%">
+          The array index of optimal focus distance for use with
+ <code><a href="../../../reference/android/hardware/Camera.Parameters.html#getFocusDistances(float[])">getFocusDistances(float[])</a></code>.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-5" >
         <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.Parameters.html#FOCUS_MODE_AUTO">FOCUS_MODE_AUTO</a></td>
-        <td class="jd-descrcol" width="100%">Auto-focus mode.</td>
+        <td class="jd-descrcol" width="100%">
+          Auto-focus mode.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-14" >
         <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.Parameters.html#FOCUS_MODE_CONTINUOUS_PICTURE">FOCUS_MODE_CONTINUOUS_PICTURE</a></td>
-        <td class="jd-descrcol" width="100%">Continuous auto focus mode intended for taking pictures.</td>
+        <td class="jd-descrcol" width="100%">
+          Continuous auto focus mode intended for taking pictures.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-9" >
         <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.Parameters.html#FOCUS_MODE_CONTINUOUS_VIDEO">FOCUS_MODE_CONTINUOUS_VIDEO</a></td>
-        <td class="jd-descrcol" width="100%">Continuous auto focus mode intended for video recording.</td>
+        <td class="jd-descrcol" width="100%">
+          Continuous auto focus mode intended for video recording.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-8" >
         <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.Parameters.html#FOCUS_MODE_EDOF">FOCUS_MODE_EDOF</a></td>
-        <td class="jd-descrcol" width="100%">Extended depth of field (EDOF).</td>
+        <td class="jd-descrcol" width="100%">
+          Extended depth of field (EDOF).
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-5" >
         <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.Parameters.html#FOCUS_MODE_FIXED">FOCUS_MODE_FIXED</a></td>
-        <td class="jd-descrcol" width="100%">Focus is fixed.</td>
+        <td class="jd-descrcol" width="100%">
+          Focus is fixed.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-5" >
         <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.Parameters.html#FOCUS_MODE_INFINITY">FOCUS_MODE_INFINITY</a></td>
-        <td class="jd-descrcol" width="100%">Focus is set at infinity.</td>
+        <td class="jd-descrcol" width="100%">
+          Focus is set at infinity.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-5" >
         <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.Parameters.html#FOCUS_MODE_MACRO">FOCUS_MODE_MACRO</a></td>
-        <td class="jd-descrcol" width="100%">Macro (close-up) focus mode.</td>
+        <td class="jd-descrcol" width="100%">
+          Macro (close-up) focus mode.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-9" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.Parameters.html#PREVIEW_FPS_MAX_INDEX">PREVIEW_FPS_MAX_INDEX</a></td>
-        <td class="jd-descrcol" width="100%">The array index of maximum preview fps for use with <code><a href="../../../reference/android/hardware/Camera.Parameters.html#getPreviewFpsRange(int[])">getPreviewFpsRange(int[])</a></code> or <code><a href="../../../reference/android/hardware/Camera.Parameters.html#getSupportedPreviewFpsRange()">getSupportedPreviewFpsRange()</a></code>.</td>
+        <td class="jd-descrcol" width="100%">
+          The array index of maximum preview fps for use with <code><a href="../../../reference/android/hardware/Camera.Parameters.html#getPreviewFpsRange(int[])">getPreviewFpsRange(int[])</a></code> or <code><a href="../../../reference/android/hardware/Camera.Parameters.html#getSupportedPreviewFpsRange()">getSupportedPreviewFpsRange()</a></code>.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-9" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.Parameters.html#PREVIEW_FPS_MIN_INDEX">PREVIEW_FPS_MIN_INDEX</a></td>
-        <td class="jd-descrcol" width="100%">The array index of minimum preview fps for use with <code><a href="../../../reference/android/hardware/Camera.Parameters.html#getPreviewFpsRange(int[])">getPreviewFpsRange(int[])</a></code> or <code><a href="../../../reference/android/hardware/Camera.Parameters.html#getSupportedPreviewFpsRange()">getSupportedPreviewFpsRange()</a></code>.</td>
+        <td class="jd-descrcol" width="100%">
+          The array index of minimum preview fps for use with <code><a href="../../../reference/android/hardware/Camera.Parameters.html#getPreviewFpsRange(int[])">getPreviewFpsRange(int[])</a></code> or <code><a href="../../../reference/android/hardware/Camera.Parameters.html#getSupportedPreviewFpsRange()">getSupportedPreviewFpsRange()</a></code>.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-5" >
         <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.Parameters.html#SCENE_MODE_ACTION">SCENE_MODE_ACTION</a></td>
-        <td class="jd-descrcol" width="100%">Take photos of fast moving objects.</td>
+        <td class="jd-descrcol" width="100%">
+          Take photos of fast moving objects.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-5" >
         <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.Parameters.html#SCENE_MODE_AUTO">SCENE_MODE_AUTO</a></td>
-        <td class="jd-descrcol" width="100%">Scene mode is off.</td>
+        <td class="jd-descrcol" width="100%">
+          Scene mode is off.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-8" >
         <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.Parameters.html#SCENE_MODE_BARCODE">SCENE_MODE_BARCODE</a></td>
-        <td class="jd-descrcol" width="100%">Applications are looking for a barcode.</td>
+        <td class="jd-descrcol" width="100%">
+          Applications are looking for a barcode.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-5" >
         <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.Parameters.html#SCENE_MODE_BEACH">SCENE_MODE_BEACH</a></td>
-        <td class="jd-descrcol" width="100%">Take pictures on the beach.</td>
+        <td class="jd-descrcol" width="100%">
+          Take pictures on the beach.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-5" >
         <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.Parameters.html#SCENE_MODE_CANDLELIGHT">SCENE_MODE_CANDLELIGHT</a></td>
-        <td class="jd-descrcol" width="100%">Capture the naturally warm color of scenes lit by candles.</td>
+        <td class="jd-descrcol" width="100%">
+          Capture the naturally warm color of scenes lit by candles.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-5" >
         <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.Parameters.html#SCENE_MODE_FIREWORKS">SCENE_MODE_FIREWORKS</a></td>
-        <td class="jd-descrcol" width="100%">For shooting firework displays.</td>
+        <td class="jd-descrcol" width="100%">
+          For shooting firework displays.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-17" >
         <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.Parameters.html#SCENE_MODE_HDR">SCENE_MODE_HDR</a></td>
-        <td class="jd-descrcol" width="100%">Capture a scene using high dynamic range imaging techniques.</td>
+        <td class="jd-descrcol" width="100%">
+          Capture a scene using high dynamic range imaging techniques.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-5" >
         <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.Parameters.html#SCENE_MODE_LANDSCAPE">SCENE_MODE_LANDSCAPE</a></td>
-        <td class="jd-descrcol" width="100%">Take pictures on distant objects.</td>
+        <td class="jd-descrcol" width="100%">
+          Take pictures on distant objects.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-5" >
         <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.Parameters.html#SCENE_MODE_NIGHT">SCENE_MODE_NIGHT</a></td>
-        <td class="jd-descrcol" width="100%">Take photos at night.</td>
+        <td class="jd-descrcol" width="100%">
+          Take photos at night.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-5" >
         <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.Parameters.html#SCENE_MODE_NIGHT_PORTRAIT">SCENE_MODE_NIGHT_PORTRAIT</a></td>
-        <td class="jd-descrcol" width="100%">Take people pictures at night.</td>
+        <td class="jd-descrcol" width="100%">
+          Take people pictures at night.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-5" >
         <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.Parameters.html#SCENE_MODE_PARTY">SCENE_MODE_PARTY</a></td>
-        <td class="jd-descrcol" width="100%">Take indoor low-light shot.</td>
+        <td class="jd-descrcol" width="100%">
+          Take indoor low-light shot.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-5" >
         <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.Parameters.html#SCENE_MODE_PORTRAIT">SCENE_MODE_PORTRAIT</a></td>
-        <td class="jd-descrcol" width="100%">Take people pictures.</td>
+        <td class="jd-descrcol" width="100%">
+          Take people pictures.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-5" >
         <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.Parameters.html#SCENE_MODE_SNOW">SCENE_MODE_SNOW</a></td>
-        <td class="jd-descrcol" width="100%">Take pictures on the snow.</td>
+        <td class="jd-descrcol" width="100%">
+          Take pictures on the snow.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-5" >
         <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.Parameters.html#SCENE_MODE_SPORTS">SCENE_MODE_SPORTS</a></td>
-        <td class="jd-descrcol" width="100%">Take photos of fast moving objects.</td>
+        <td class="jd-descrcol" width="100%">
+          Take photos of fast moving objects.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-5" >
         <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.Parameters.html#SCENE_MODE_STEADYPHOTO">SCENE_MODE_STEADYPHOTO</a></td>
-        <td class="jd-descrcol" width="100%">Avoid blurry pictures (for example, due to hand shake).</td>
+        <td class="jd-descrcol" width="100%">
+          Avoid blurry pictures (for example, due to hand shake).
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-5" >
         <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.Parameters.html#SCENE_MODE_SUNSET">SCENE_MODE_SUNSET</a></td>
-        <td class="jd-descrcol" width="100%">Take sunset photos.</td>
+        <td class="jd-descrcol" width="100%">
+          Take sunset photos.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-5" >
         <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.Parameters.html#SCENE_MODE_THEATRE">SCENE_MODE_THEATRE</a></td>
-        <td class="jd-descrcol" width="100%">Take photos in a theater.</td>
+        <td class="jd-descrcol" width="100%">
+          Take photos in a theater.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-5" >
         <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.Parameters.html#WHITE_BALANCE_AUTO">WHITE_BALANCE_AUTO</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-5" >
         <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.Parameters.html#WHITE_BALANCE_CLOUDY_DAYLIGHT">WHITE_BALANCE_CLOUDY_DAYLIGHT</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-5" >
         <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.Parameters.html#WHITE_BALANCE_DAYLIGHT">WHITE_BALANCE_DAYLIGHT</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-5" >
         <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.Parameters.html#WHITE_BALANCE_FLUORESCENT">WHITE_BALANCE_FLUORESCENT</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-5" >
         <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.Parameters.html#WHITE_BALANCE_INCANDESCENT">WHITE_BALANCE_INCANDESCENT</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-5" >
         <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.Parameters.html#WHITE_BALANCE_SHADE">WHITE_BALANCE_SHADE</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-5" >
         <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.Parameters.html#WHITE_BALANCE_TWILIGHT">WHITE_BALANCE_TWILIGHT</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-5" >
         <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.Parameters.html#WHITE_BALANCE_WARM_FLUORESCENT">WHITE_BALANCE_WARM_FLUORESCENT</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
@@ -1561,8 +1890,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#flatten()">flatten</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Creates a single string with all the parameters set in
- this Parameters object.</div>
+        <div class="jd-descrdiv">
+          Creates a single string with all the parameters set in
+ this Parameters object.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1580,7 +1914,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#get(java.lang.String)">get</a></span>(<a href="../../../reference/java/lang/String.html">String</a> key)</nobr>
         
-        <div class="jd-descrdiv">Returns the value of a String parameter.</div>
+        <div class="jd-descrdiv">
+          Returns the value of a String parameter.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1598,7 +1937,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#getAntibanding()">getAntibanding</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Gets the current antibanding setting.</div>
+        <div class="jd-descrdiv">
+          Gets the current antibanding setting.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1616,7 +1960,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#getAutoExposureLock()">getAutoExposureLock</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Gets the state of the auto-exposure lock.</div>
+        <div class="jd-descrdiv">
+          Gets the state of the auto-exposure lock.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1634,7 +1983,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#getAutoWhiteBalanceLock()">getAutoWhiteBalanceLock</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Gets the state of the auto-white balance lock.</div>
+        <div class="jd-descrdiv">
+          Gets the state of the auto-white balance lock.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1652,7 +2006,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#getColorEffect()">getColorEffect</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Gets the current color effect setting.</div>
+        <div class="jd-descrdiv">
+          Gets the current color effect setting.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1670,7 +2029,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#getExposureCompensation()">getExposureCompensation</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Gets the current exposure compensation index.</div>
+        <div class="jd-descrdiv">
+          Gets the current exposure compensation index.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1688,7 +2052,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#getExposureCompensationStep()">getExposureCompensationStep</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Gets the exposure compensation step.</div>
+        <div class="jd-descrdiv">
+          Gets the exposure compensation step.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1706,7 +2075,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#getFlashMode()">getFlashMode</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Gets the current flash mode setting.</div>
+        <div class="jd-descrdiv">
+          Gets the current flash mode setting.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1724,7 +2098,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#getFocalLength()">getFocalLength</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Gets the focal length (in millimeter) of the camera.</div>
+        <div class="jd-descrdiv">
+          Gets the focal length (in millimeter) of the camera.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1742,7 +2121,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#getFocusAreas()">getFocusAreas</a></span>()</nobr>
         
-        <div class="jd-descrdiv"><p>Gets the current focus areas.</div>
+        <div class="jd-descrdiv">
+          <p>Gets the current focus areas.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1760,8 +2144,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#getFocusDistances(float[])">getFocusDistances</a></span>(float[] output)</nobr>
         
-        <div class="jd-descrdiv"><p>Gets the distances from the camera to where an object appears to be
- in focus.</div>
+        <div class="jd-descrdiv">
+          <p>Gets the distances from the camera to where an object appears to be
+ in focus.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1779,7 +2168,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#getFocusMode()">getFocusMode</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Gets the current focus mode setting.</div>
+        <div class="jd-descrdiv">
+          Gets the current focus mode setting.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1797,7 +2191,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#getHorizontalViewAngle()">getHorizontalViewAngle</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Gets the horizontal angle of view in degrees.</div>
+        <div class="jd-descrdiv">
+          Gets the horizontal angle of view in degrees.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1815,7 +2214,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#getInt(java.lang.String)">getInt</a></span>(<a href="../../../reference/java/lang/String.html">String</a> key)</nobr>
         
-        <div class="jd-descrdiv">Returns the value of an integer parameter.</div>
+        <div class="jd-descrdiv">
+          Returns the value of an integer parameter.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1833,7 +2237,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#getJpegQuality()">getJpegQuality</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns the quality setting for the JPEG picture.</div>
+        <div class="jd-descrdiv">
+          Returns the quality setting for the JPEG picture.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1851,7 +2260,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#getJpegThumbnailQuality()">getJpegThumbnailQuality</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns the quality setting for the EXIF thumbnail in Jpeg picture.</div>
+        <div class="jd-descrdiv">
+          Returns the quality setting for the EXIF thumbnail in Jpeg picture.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1869,7 +2283,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#getJpegThumbnailSize()">getJpegThumbnailSize</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns the dimensions for EXIF thumbnail in Jpeg picture.</div>
+        <div class="jd-descrdiv">
+          Returns the dimensions for EXIF thumbnail in Jpeg picture.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1887,7 +2306,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#getMaxExposureCompensation()">getMaxExposureCompensation</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Gets the maximum exposure compensation index.</div>
+        <div class="jd-descrdiv">
+          Gets the maximum exposure compensation index.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1905,7 +2329,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#getMaxNumDetectedFaces()">getMaxNumDetectedFaces</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Gets the maximum number of detected faces supported.</div>
+        <div class="jd-descrdiv">
+          Gets the maximum number of detected faces supported.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1923,7 +2352,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#getMaxNumFocusAreas()">getMaxNumFocusAreas</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Gets the maximum number of focus areas supported.</div>
+        <div class="jd-descrdiv">
+          Gets the maximum number of focus areas supported.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1941,7 +2375,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#getMaxNumMeteringAreas()">getMaxNumMeteringAreas</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Gets the maximum number of metering areas supported.</div>
+        <div class="jd-descrdiv">
+          Gets the maximum number of metering areas supported.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1959,7 +2398,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#getMaxZoom()">getMaxZoom</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Gets the maximum zoom value allowed for snapshot.</div>
+        <div class="jd-descrdiv">
+          Gets the maximum zoom value allowed for snapshot.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1977,7 +2421,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#getMeteringAreas()">getMeteringAreas</a></span>()</nobr>
         
-        <div class="jd-descrdiv"><p>Gets the current metering areas.</div>
+        <div class="jd-descrdiv">
+          <p>Gets the current metering areas.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1995,7 +2444,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#getMinExposureCompensation()">getMinExposureCompensation</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Gets the minimum exposure compensation index.</div>
+        <div class="jd-descrdiv">
+          Gets the minimum exposure compensation index.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2013,7 +2467,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#getPictureFormat()">getPictureFormat</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns the image format for pictures.</div>
+        <div class="jd-descrdiv">
+          Returns the image format for pictures.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2031,7 +2490,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#getPictureSize()">getPictureSize</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns the dimension setting for pictures.</div>
+        <div class="jd-descrdiv">
+          Returns the dimension setting for pictures.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2049,8 +2513,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#getPreferredPreviewSizeForVideo()">getPreferredPreviewSizeForVideo</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns the preferred or recommended preview size (width and height)
- in pixels for video recording.</div>
+        <div class="jd-descrdiv">
+          Returns the preferred or recommended preview size (width and height)
+ in pixels for video recording.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2068,8 +2537,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#getPreviewFormat()">getPreviewFormat</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns the image format for preview frames got from
- <code><a href="../../../reference/android/hardware/Camera.PreviewCallback.html">Camera.PreviewCallback</a></code>.</div>
+        <div class="jd-descrdiv">
+          Returns the image format for preview frames got from
+ <code><a href="../../../reference/android/hardware/Camera.PreviewCallback.html">Camera.PreviewCallback</a></code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2087,7 +2561,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#getPreviewFpsRange(int[])">getPreviewFpsRange</a></span>(int[] range)</nobr>
         
-        <div class="jd-descrdiv">Returns the current minimum and maximum preview fps.</div>
+        <div class="jd-descrdiv">
+          Returns the current minimum and maximum preview fps.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2105,11 +2584,16 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#getPreviewFrameRate()">getPreviewFrameRate</a></span>()</nobr>
         
-        <div class="jd-descrdiv"><em>
+        <div class="jd-descrdiv">
+          <em>
       This method was deprecated
       in API level 9.
     replaced by <code><a href="../../../reference/android/hardware/Camera.Parameters.html#getPreviewFpsRange(int[])">getPreviewFpsRange(int[])</a></code>
-</em></div>
+</em>
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2127,7 +2611,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#getPreviewSize()">getPreviewSize</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns the dimensions setting for preview pictures.</div>
+        <div class="jd-descrdiv">
+          Returns the dimensions setting for preview pictures.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2145,7 +2634,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#getSceneMode()">getSceneMode</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Gets the current scene mode setting.</div>
+        <div class="jd-descrdiv">
+          Gets the current scene mode setting.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2163,7 +2657,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#getSupportedAntibanding()">getSupportedAntibanding</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Gets the supported antibanding values.</div>
+        <div class="jd-descrdiv">
+          Gets the supported antibanding values.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2181,7 +2680,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#getSupportedColorEffects()">getSupportedColorEffects</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Gets the supported color effects.</div>
+        <div class="jd-descrdiv">
+          Gets the supported color effects.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2199,7 +2703,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#getSupportedFlashModes()">getSupportedFlashModes</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Gets the supported flash modes.</div>
+        <div class="jd-descrdiv">
+          Gets the supported flash modes.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2217,7 +2726,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#getSupportedFocusModes()">getSupportedFocusModes</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Gets the supported focus modes.</div>
+        <div class="jd-descrdiv">
+          Gets the supported focus modes.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2235,7 +2749,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#getSupportedJpegThumbnailSizes()">getSupportedJpegThumbnailSizes</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Gets the supported jpeg thumbnail sizes.</div>
+        <div class="jd-descrdiv">
+          Gets the supported jpeg thumbnail sizes.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2253,7 +2772,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#getSupportedPictureFormats()">getSupportedPictureFormats</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Gets the supported picture formats.</div>
+        <div class="jd-descrdiv">
+          Gets the supported picture formats.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2271,7 +2795,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#getSupportedPictureSizes()">getSupportedPictureSizes</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Gets the supported picture sizes.</div>
+        <div class="jd-descrdiv">
+          Gets the supported picture sizes.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2289,7 +2818,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#getSupportedPreviewFormats()">getSupportedPreviewFormats</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Gets the supported preview formats.</div>
+        <div class="jd-descrdiv">
+          Gets the supported preview formats.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2307,7 +2841,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#getSupportedPreviewFpsRange()">getSupportedPreviewFpsRange</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Gets the supported preview fps (frame-per-second) ranges.</div>
+        <div class="jd-descrdiv">
+          Gets the supported preview fps (frame-per-second) ranges.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2325,11 +2864,16 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#getSupportedPreviewFrameRates()">getSupportedPreviewFrameRates</a></span>()</nobr>
         
-        <div class="jd-descrdiv"><em>
+        <div class="jd-descrdiv">
+          <em>
       This method was deprecated
       in API level 9.
     replaced by <code><a href="../../../reference/android/hardware/Camera.Parameters.html#getSupportedPreviewFpsRange()">getSupportedPreviewFpsRange()</a></code>
-</em></div>
+</em>
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2347,7 +2891,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#getSupportedPreviewSizes()">getSupportedPreviewSizes</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Gets the supported preview sizes.</div>
+        <div class="jd-descrdiv">
+          Gets the supported preview sizes.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2365,7 +2914,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#getSupportedSceneModes()">getSupportedSceneModes</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Gets the supported scene modes.</div>
+        <div class="jd-descrdiv">
+          Gets the supported scene modes.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2383,8 +2937,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#getSupportedVideoSizes()">getSupportedVideoSizes</a></span>()</nobr>
         
-        <div class="jd-descrdiv"><p>Gets the supported video frame sizes that can be used by
- MediaRecorder.</div>
+        <div class="jd-descrdiv">
+          <p>Gets the supported video frame sizes that can be used by
+ MediaRecorder.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2402,7 +2961,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#getSupportedWhiteBalance()">getSupportedWhiteBalance</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Gets the supported white balance.</div>
+        <div class="jd-descrdiv">
+          Gets the supported white balance.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2420,7 +2984,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#getVerticalViewAngle()">getVerticalViewAngle</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Gets the vertical angle of view in degrees.</div>
+        <div class="jd-descrdiv">
+          Gets the vertical angle of view in degrees.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2438,7 +3007,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#getVideoStabilization()">getVideoStabilization</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Get the current state of video stabilization.</div>
+        <div class="jd-descrdiv">
+          Get the current state of video stabilization.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2456,7 +3030,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#getWhiteBalance()">getWhiteBalance</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Gets the current white balance setting.</div>
+        <div class="jd-descrdiv">
+          Gets the current white balance setting.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2474,7 +3053,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#getZoom()">getZoom</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Gets current zoom value.</div>
+        <div class="jd-descrdiv">
+          Gets current zoom value.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2492,7 +3076,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#getZoomRatios()">getZoomRatios</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Gets the zoom ratios of all zoom values.</div>
+        <div class="jd-descrdiv">
+          Gets the zoom ratios of all zoom values.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2510,7 +3099,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#isAutoExposureLockSupported()">isAutoExposureLockSupported</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns true if auto-exposure locking is supported.</div>
+        <div class="jd-descrdiv">
+          Returns true if auto-exposure locking is supported.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2528,7 +3122,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#isAutoWhiteBalanceLockSupported()">isAutoWhiteBalanceLockSupported</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns true if auto-white balance locking is supported.</div>
+        <div class="jd-descrdiv">
+          Returns true if auto-white balance locking is supported.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2546,7 +3145,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#isSmoothZoomSupported()">isSmoothZoomSupported</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns true if smooth zoom is supported.</div>
+        <div class="jd-descrdiv">
+          Returns true if smooth zoom is supported.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2564,7 +3168,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#isVideoSnapshotSupported()">isVideoSnapshotSupported</a></span>()</nobr>
         
-        <div class="jd-descrdiv"><p>Returns true if video snapshot is supported.</div>
+        <div class="jd-descrdiv">
+          <p>Returns true if video snapshot is supported.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2582,7 +3191,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#isVideoStabilizationSupported()">isVideoStabilizationSupported</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns true if video stabilization is supported.</div>
+        <div class="jd-descrdiv">
+          Returns true if video stabilization is supported.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2600,7 +3214,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#isZoomSupported()">isZoomSupported</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns true if zoom is supported.</div>
+        <div class="jd-descrdiv">
+          Returns true if zoom is supported.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2634,8 +3253,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#removeGpsData()">removeGpsData</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Removes GPS latitude, longitude, altitude, and timestamp from the
- parameters.</div>
+        <div class="jd-descrdiv">
+          Removes GPS latitude, longitude, altitude, and timestamp from the
+ parameters.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2653,7 +3277,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#set(java.lang.String, java.lang.String)">set</a></span>(<a href="../../../reference/java/lang/String.html">String</a> key, <a href="../../../reference/java/lang/String.html">String</a> value)</nobr>
         
-        <div class="jd-descrdiv">Sets a String parameter.</div>
+        <div class="jd-descrdiv">
+          Sets a String parameter.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2671,7 +3300,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#set(java.lang.String, int)">set</a></span>(<a href="../../../reference/java/lang/String.html">String</a> key, int value)</nobr>
         
-        <div class="jd-descrdiv">Sets an integer parameter.</div>
+        <div class="jd-descrdiv">
+          Sets an integer parameter.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2689,7 +3323,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#setAntibanding(java.lang.String)">setAntibanding</a></span>(<a href="../../../reference/java/lang/String.html">String</a> antibanding)</nobr>
         
-        <div class="jd-descrdiv">Sets the antibanding.</div>
+        <div class="jd-descrdiv">
+          Sets the antibanding.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2707,7 +3346,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#setAutoExposureLock(boolean)">setAutoExposureLock</a></span>(boolean toggle)</nobr>
         
-        <div class="jd-descrdiv"><p>Sets the auto-exposure lock state.</div>
+        <div class="jd-descrdiv">
+          <p>Sets the auto-exposure lock state.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2725,7 +3369,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#setAutoWhiteBalanceLock(boolean)">setAutoWhiteBalanceLock</a></span>(boolean toggle)</nobr>
         
-        <div class="jd-descrdiv"><p>Sets the auto-white balance lock state.</div>
+        <div class="jd-descrdiv">
+          <p>Sets the auto-white balance lock state.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2743,7 +3392,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#setColorEffect(java.lang.String)">setColorEffect</a></span>(<a href="../../../reference/java/lang/String.html">String</a> value)</nobr>
         
-        <div class="jd-descrdiv">Sets the current color effect setting.</div>
+        <div class="jd-descrdiv">
+          Sets the current color effect setting.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2761,7 +3415,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#setExposureCompensation(int)">setExposureCompensation</a></span>(int value)</nobr>
         
-        <div class="jd-descrdiv">Sets the exposure compensation index.</div>
+        <div class="jd-descrdiv">
+          Sets the exposure compensation index.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2779,7 +3438,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#setFlashMode(java.lang.String)">setFlashMode</a></span>(<a href="../../../reference/java/lang/String.html">String</a> value)</nobr>
         
-        <div class="jd-descrdiv">Sets the flash mode.</div>
+        <div class="jd-descrdiv">
+          Sets the flash mode.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2797,7 +3461,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#setFocusAreas(java.util.List<android.hardware.Camera.Area>)">setFocusAreas</a></span>(<a href="../../../reference/java/util/List.html">List</a>&lt;<a href="../../../reference/android/hardware/Camera.Area.html">Camera.Area</a>&gt; focusAreas)</nobr>
         
-        <div class="jd-descrdiv">Sets focus areas.</div>
+        <div class="jd-descrdiv">
+          Sets focus areas.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2815,7 +3484,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#setFocusMode(java.lang.String)">setFocusMode</a></span>(<a href="../../../reference/java/lang/String.html">String</a> value)</nobr>
         
-        <div class="jd-descrdiv">Sets the focus mode.</div>
+        <div class="jd-descrdiv">
+          Sets the focus mode.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2833,7 +3507,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#setGpsAltitude(double)">setGpsAltitude</a></span>(double altitude)</nobr>
         
-        <div class="jd-descrdiv">Sets GPS altitude.</div>
+        <div class="jd-descrdiv">
+          Sets GPS altitude.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2851,7 +3530,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#setGpsLatitude(double)">setGpsLatitude</a></span>(double latitude)</nobr>
         
-        <div class="jd-descrdiv">Sets GPS latitude coordinate.</div>
+        <div class="jd-descrdiv">
+          Sets GPS latitude coordinate.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2869,7 +3553,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#setGpsLongitude(double)">setGpsLongitude</a></span>(double longitude)</nobr>
         
-        <div class="jd-descrdiv">Sets GPS longitude coordinate.</div>
+        <div class="jd-descrdiv">
+          Sets GPS longitude coordinate.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2887,7 +3576,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#setGpsProcessingMethod(java.lang.String)">setGpsProcessingMethod</a></span>(<a href="../../../reference/java/lang/String.html">String</a> processing_method)</nobr>
         
-        <div class="jd-descrdiv">Sets GPS processing method.</div>
+        <div class="jd-descrdiv">
+          Sets GPS processing method.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2905,7 +3599,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#setGpsTimestamp(long)">setGpsTimestamp</a></span>(long timestamp)</nobr>
         
-        <div class="jd-descrdiv">Sets GPS timestamp.</div>
+        <div class="jd-descrdiv">
+          Sets GPS timestamp.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2923,7 +3622,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#setJpegQuality(int)">setJpegQuality</a></span>(int quality)</nobr>
         
-        <div class="jd-descrdiv">Sets Jpeg quality of captured picture.</div>
+        <div class="jd-descrdiv">
+          Sets Jpeg quality of captured picture.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2941,7 +3645,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#setJpegThumbnailQuality(int)">setJpegThumbnailQuality</a></span>(int quality)</nobr>
         
-        <div class="jd-descrdiv">Sets the quality of the EXIF thumbnail in Jpeg picture.</div>
+        <div class="jd-descrdiv">
+          Sets the quality of the EXIF thumbnail in Jpeg picture.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2959,7 +3668,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#setJpegThumbnailSize(int, int)">setJpegThumbnailSize</a></span>(int width, int height)</nobr>
         
-        <div class="jd-descrdiv"><p>Sets the dimensions for EXIF thumbnail in Jpeg picture.</div>
+        <div class="jd-descrdiv">
+          <p>Sets the dimensions for EXIF thumbnail in Jpeg picture.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2977,7 +3691,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#setMeteringAreas(java.util.List<android.hardware.Camera.Area>)">setMeteringAreas</a></span>(<a href="../../../reference/java/util/List.html">List</a>&lt;<a href="../../../reference/android/hardware/Camera.Area.html">Camera.Area</a>&gt; meteringAreas)</nobr>
         
-        <div class="jd-descrdiv">Sets metering areas.</div>
+        <div class="jd-descrdiv">
+          Sets metering areas.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2995,7 +3714,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#setPictureFormat(int)">setPictureFormat</a></span>(int pixel_format)</nobr>
         
-        <div class="jd-descrdiv">Sets the image format for pictures.</div>
+        <div class="jd-descrdiv">
+          Sets the image format for pictures.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3013,7 +3737,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#setPictureSize(int, int)">setPictureSize</a></span>(int width, int height)</nobr>
         
-        <div class="jd-descrdiv"><p>Sets the dimensions for pictures.</div>
+        <div class="jd-descrdiv">
+          <p>Sets the dimensions for pictures.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3031,7 +3760,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#setPreviewFormat(int)">setPreviewFormat</a></span>(int pixel_format)</nobr>
         
-        <div class="jd-descrdiv">Sets the image format for preview pictures.</div>
+        <div class="jd-descrdiv">
+          Sets the image format for preview pictures.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3049,7 +3783,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#setPreviewFpsRange(int, int)">setPreviewFpsRange</a></span>(int min, int max)</nobr>
         
-        <div class="jd-descrdiv">Sets the minimum and maximum preview fps.</div>
+        <div class="jd-descrdiv">
+          Sets the minimum and maximum preview fps.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3067,11 +3806,16 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#setPreviewFrameRate(int)">setPreviewFrameRate</a></span>(int fps)</nobr>
         
-        <div class="jd-descrdiv"><em>
+        <div class="jd-descrdiv">
+          <em>
       This method was deprecated
       in API level 9.
     replaced by <code><a href="../../../reference/android/hardware/Camera.Parameters.html#setPreviewFpsRange(int, int)">setPreviewFpsRange(int, int)</a></code>
-</em></div>
+</em>
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3089,7 +3833,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#setPreviewSize(int, int)">setPreviewSize</a></span>(int width, int height)</nobr>
         
-        <div class="jd-descrdiv">Sets the dimensions for preview pictures.</div>
+        <div class="jd-descrdiv">
+          Sets the dimensions for preview pictures.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3107,7 +3856,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#setRecordingHint(boolean)">setRecordingHint</a></span>(boolean hint)</nobr>
         
-        <div class="jd-descrdiv">Sets recording mode hint.</div>
+        <div class="jd-descrdiv">
+          Sets recording mode hint.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3125,8 +3879,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#setRotation(int)">setRotation</a></span>(int rotation)</nobr>
         
-        <div class="jd-descrdiv">Sets the clockwise rotation angle in degrees relative to the
- orientation of the camera.</div>
+        <div class="jd-descrdiv">
+          Sets the clockwise rotation angle in degrees relative to the
+ orientation of the camera.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3144,7 +3903,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#setSceneMode(java.lang.String)">setSceneMode</a></span>(<a href="../../../reference/java/lang/String.html">String</a> value)</nobr>
         
-        <div class="jd-descrdiv">Sets the scene mode.</div>
+        <div class="jd-descrdiv">
+          Sets the scene mode.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3162,7 +3926,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#setVideoStabilization(boolean)">setVideoStabilization</a></span>(boolean toggle)</nobr>
         
-        <div class="jd-descrdiv"><p>Enables and disables video stabilization.</div>
+        <div class="jd-descrdiv">
+          <p>Enables and disables video stabilization.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3180,7 +3949,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#setWhiteBalance(java.lang.String)">setWhiteBalance</a></span>(<a href="../../../reference/java/lang/String.html">String</a> value)</nobr>
         
-        <div class="jd-descrdiv">Sets the white balance.</div>
+        <div class="jd-descrdiv">
+          Sets the white balance.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3198,7 +3972,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#setZoom(int)">setZoom</a></span>(int value)</nobr>
         
-        <div class="jd-descrdiv">Sets current zoom value.</div>
+        <div class="jd-descrdiv">
+          Sets current zoom value.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3216,8 +3995,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#unflatten(java.lang.String)">unflatten</a></span>(<a href="../../../reference/java/lang/String.html">String</a> flattened)</nobr>
         
-        <div class="jd-descrdiv">Takes a flattened string of parameters and adds each one to
- this Parameters object.</div>
+        <div class="jd-descrdiv">
+          Takes a flattened string of parameters and adds each one to
+ this Parameters object.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3269,7 +4053,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#clone()">clone</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Creates and returns a copy of this <code>Object</code>.</div>
+        <div class="jd-descrdiv">
+          Creates and returns a copy of this <code>Object</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3287,8 +4076,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#equals(java.lang.Object)">equals</a></span>(<a href="../../../reference/java/lang/Object.html">Object</a> o)</nobr>
         
-        <div class="jd-descrdiv">Compares this instance with the specified object and indicates if they
- are equal.</div>
+        <div class="jd-descrdiv">
+          Compares this instance with the specified object and indicates if they
+ are equal.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3306,7 +4100,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#finalize()">finalize</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Invoked when the garbage collector has detected that this instance is no longer reachable.</div>
+        <div class="jd-descrdiv">
+          Invoked when the garbage collector has detected that this instance is no longer reachable.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3324,8 +4123,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#getClass()">getClass</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns the unique instance of <code><a href="../../../reference/java/lang/Class.html">Class</a></code> that represents this
- object's class.</div>
+        <div class="jd-descrdiv">
+          Returns the unique instance of <code><a href="../../../reference/java/lang/Class.html">Class</a></code> that represents this
+ object's class.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3343,7 +4147,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#hashCode()">hashCode</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns an integer hash code for this object.</div>
+        <div class="jd-descrdiv">
+          Returns an integer hash code for this object.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3361,8 +4170,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#notify()">notify</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Causes a thread which is waiting on this object's monitor (by means of
- calling one of the <code>wait()</code> methods) to be woken up.</div>
+        <div class="jd-descrdiv">
+          Causes a thread which is waiting on this object's monitor (by means of
+ calling one of the <code>wait()</code> methods) to be woken up.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3380,8 +4194,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#notifyAll()">notifyAll</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Causes all threads which are waiting on this object's monitor (by means
- of calling one of the <code>wait()</code> methods) to be woken up.</div>
+        <div class="jd-descrdiv">
+          Causes all threads which are waiting on this object's monitor (by means
+ of calling one of the <code>wait()</code> methods) to be woken up.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3399,8 +4218,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#toString()">toString</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns a string containing a concise, human-readable description of this
- object.</div>
+        <div class="jd-descrdiv">
+          Returns a string containing a concise, human-readable description of this
+ object.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3418,7 +4242,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#wait()">wait</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object.</div>
+        <div class="jd-descrdiv">
+          Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3436,8 +4265,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#wait(long, int)">wait</a></span>(long millis, int nanos)</nobr>
         
-        <div class="jd-descrdiv">Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object or until the
- specified timeout expires.</div>
+        <div class="jd-descrdiv">
+          Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object or until the
+ specified timeout expires.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3455,8 +4289,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#wait(long)">wait</a></span>(long millis)</nobr>
         
-        <div class="jd-descrdiv">Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object or until the
- specified timeout expires.</div>
+        <div class="jd-descrdiv">
+          Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object or until the
+ specified timeout expires.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3517,6 +4356,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -3554,6 +4396,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
@@ -3593,6 +4438,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -3630,6 +4478,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
@@ -3669,6 +4520,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -3706,6 +4560,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
@@ -3745,6 +4602,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -3782,6 +4642,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
@@ -3821,6 +4684,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -3858,6 +4724,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
@@ -3897,6 +4766,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -3934,6 +4806,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
@@ -3973,6 +4848,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -4010,6 +4888,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Flash will be fired automatically when required. The flash may be fired
  during preview, auto-focus, or snapshot depending on the driver.
@@ -4051,6 +4932,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Flash will not be fired.
 </p></div>
 
@@ -4089,6 +4973,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Flash will always be fired during snapshot. The flash may also be
  fired during preview or auto-focus depending on the driver.
@@ -4130,6 +5017,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Flash will be fired in red-eye reduction mode.
 </p></div>
 
@@ -4168,6 +5058,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Constant emission of light during preview, auto-focus and snapshot.
  This can also be used for video recording.
@@ -4208,6 +5101,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>The array index of far focus distance for use with
  <code><a href="../../../reference/android/hardware/Camera.Parameters.html#getFocusDistances(float[])">getFocusDistances(float[])</a></code>.
@@ -4250,6 +5146,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>The array index of near focus distance for use with
  <code><a href="../../../reference/android/hardware/Camera.Parameters.html#getFocusDistances(float[])">getFocusDistances(float[])</a></code>.
 </p></div>
@@ -4290,6 +5189,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>The array index of optimal focus distance for use with
  <code><a href="../../../reference/android/hardware/Camera.Parameters.html#getFocusDistances(float[])">getFocusDistances(float[])</a></code>.
@@ -4332,6 +5234,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Auto-focus mode. Applications should call <code><a href="../../../reference/android/hardware/Camera.html#autoFocus(android.hardware.Camera.AutoFocusCallback)">autoFocus(AutoFocusCallback)</a></code> to start the focus in this mode.
 </p></div>
 
@@ -4370,6 +5275,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Continuous auto focus mode intended for taking pictures. The camera
  continuously tries to focus. The speed of focus change is more
@@ -4430,6 +5338,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Continuous auto focus mode intended for video recording. The camera
  continuously tries to focus. This is the best choice for video
  recording because the focus changes smoothly . Applications still can
@@ -4486,6 +5397,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Extended depth of field (EDOF). Focusing is done digitally and
  continuously. Applications should not call <code><a href="../../../reference/android/hardware/Camera.html#autoFocus(android.hardware.Camera.AutoFocusCallback)">autoFocus(AutoFocusCallback)</a></code> in this mode.
 </p></div>
@@ -4525,6 +5439,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Focus is fixed. The camera is always in this mode if the focus is not
  adjustable. If the camera has auto-focus, this mode can fix the
@@ -4568,6 +5485,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Focus is set at infinity. Applications should not call
  <code><a href="../../../reference/android/hardware/Camera.html#autoFocus(android.hardware.Camera.AutoFocusCallback)">autoFocus(AutoFocusCallback)</a></code> in this mode.
 </p></div>
@@ -4607,6 +5527,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Macro (close-up) focus mode. Applications should call
  <code><a href="../../../reference/android/hardware/Camera.html#autoFocus(android.hardware.Camera.AutoFocusCallback)">autoFocus(AutoFocusCallback)</a></code> to start the focus in this
@@ -4649,6 +5572,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>The array index of maximum preview fps for use with <code><a href="../../../reference/android/hardware/Camera.Parameters.html#getPreviewFpsRange(int[])">getPreviewFpsRange(int[])</a></code> or <code><a href="../../../reference/android/hardware/Camera.Parameters.html#getSupportedPreviewFpsRange()">getSupportedPreviewFpsRange()</a></code>.
 </p></div>
 
@@ -4688,6 +5614,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>The array index of minimum preview fps for use with <code><a href="../../../reference/android/hardware/Camera.Parameters.html#getPreviewFpsRange(int[])">getPreviewFpsRange(int[])</a></code> or <code><a href="../../../reference/android/hardware/Camera.Parameters.html#getSupportedPreviewFpsRange()">getSupportedPreviewFpsRange()</a></code>.
 </p></div>
@@ -4729,6 +5658,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Take photos of fast moving objects. Same as <code><a href="../../../reference/android/hardware/Camera.Parameters.html#SCENE_MODE_SPORTS">SCENE_MODE_SPORTS</a></code>.
 </p></div>
 
@@ -4768,6 +5700,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Scene mode is off.
 </p></div>
 
@@ -4806,6 +5741,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Applications are looking for a barcode. Camera driver will be
  optimized for barcode reading.
@@ -4847,6 +5785,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Take pictures on the beach.
 </p></div>
 
@@ -4885,6 +5826,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Capture the naturally warm color of scenes lit by candles.
 </p></div>
@@ -4925,6 +5869,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>For shooting firework displays.
 </p></div>
 
@@ -4963,6 +5910,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Capture a scene using high dynamic range imaging techniques. The
  camera will return an image that has an extended dynamic range
@@ -5006,6 +5956,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Take pictures on distant objects.
 </p></div>
 
@@ -5044,6 +5997,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Take photos at night.
 </p></div>
@@ -5084,6 +6040,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Take people pictures at night.
 </p></div>
 
@@ -5122,6 +6081,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Take indoor low-light shot.
 </p></div>
@@ -5162,6 +6124,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Take people pictures.
 </p></div>
 
@@ -5200,6 +6165,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Take pictures on the snow.
 </p></div>
@@ -5240,6 +6208,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Take photos of fast moving objects. Same as <code><a href="../../../reference/android/hardware/Camera.Parameters.html#SCENE_MODE_ACTION">SCENE_MODE_ACTION</a></code>.
 </p></div>
 
@@ -5278,6 +6249,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Avoid blurry pictures (for example, due to hand shake).
 </p></div>
@@ -5318,6 +6292,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Take sunset photos.
 </p></div>
 
@@ -5356,6 +6333,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Take photos in a theater. Flash light is off.
 </p></div>
@@ -5396,6 +6376,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -5433,6 +6416,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
@@ -5472,6 +6458,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -5509,6 +6498,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
@@ -5548,6 +6540,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -5585,6 +6580,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
@@ -5624,6 +6622,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -5661,6 +6662,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
@@ -5723,6 +6727,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Creates a single string with all the parameters set in
  this Parameters object.
  <p>The <code><a href="../../../reference/android/hardware/Camera.Parameters.html#unflatten(java.lang.String)">unflatten(String)</a></code> method does the reverse.</p></p></div>
@@ -5760,6 +6767,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Returns the value of a String parameter.</p></div>
   <div class="jd-tagdata">
@@ -5805,6 +6815,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Gets the current antibanding setting.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
@@ -5844,6 +6857,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Gets the state of the auto-exposure lock. Applications should check
  <code><a href="../../../reference/android/hardware/Camera.Parameters.html#isAutoExposureLockSupported()">isAutoExposureLockSupported()</a></code> before using this method. See
@@ -5886,6 +6902,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Gets the state of the auto-white balance lock. Applications should
  check <code><a href="../../../reference/android/hardware/Camera.Parameters.html#isAutoWhiteBalanceLockSupported()">isAutoWhiteBalanceLockSupported()</a></code> before using this
@@ -5931,6 +6950,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Gets the current color effect setting.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
@@ -5971,6 +6993,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Gets the current exposure compensation index.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
@@ -6006,6 +7031,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Gets the exposure compensation step.</p></div>
   <div class="jd-tagdata">
@@ -6044,6 +7072,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Gets the current flash mode setting.</p></div>
   <div class="jd-tagdata">
@@ -6085,6 +7116,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Gets the focal length (in millimeter) of the camera.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
@@ -6120,6 +7154,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p><p>Gets the current focus areas. Camera driver uses the areas to decide
  focus.</p>
@@ -6193,6 +7230,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p><p>Gets the distances from the camera to where an object appears to be
  in focus. The object is sharpest at the optimal focus distance. The
  depth of field is the far focus distance minus near focus distance.</p>
@@ -6256,6 +7296,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Gets the current focus mode setting.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
@@ -6297,6 +7340,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Gets the horizontal angle of view in degrees.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
@@ -6332,6 +7378,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Returns the value of an integer parameter.</p></div>
   <div class="jd-tagdata">
@@ -6377,6 +7426,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns the quality setting for the JPEG picture.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
@@ -6412,6 +7464,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns the quality setting for the EXIF thumbnail in Jpeg picture.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
@@ -6446,6 +7501,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Returns the dimensions for EXIF thumbnail in Jpeg picture.</p></div>
   <div class="jd-tagdata">
@@ -6483,6 +7541,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Gets the maximum exposure compensation index.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
@@ -6519,6 +7580,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Gets the maximum number of detected faces supported. This is the
  maximum length of the list returned from <code><a href="../../../reference/android/hardware/Camera.FaceDetectionListener.html">Camera.FaceDetectionListener</a></code>.
@@ -6562,6 +7626,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Gets the maximum number of focus areas supported. This is the maximum
  length of the list in <code><a href="../../../reference/android/hardware/Camera.Parameters.html#setFocusAreas(java.util.List<android.hardware.Camera.Area>)">setFocusAreas(List)</a></code> and
  <code><a href="../../../reference/android/hardware/Camera.Parameters.html#getFocusAreas()">getFocusAreas()</a></code>.</p></div>
@@ -6602,6 +7669,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Gets the maximum number of metering areas supported. This is the
  maximum length of the list in <code><a href="../../../reference/android/hardware/Camera.Parameters.html#setMeteringAreas(java.util.List<android.hardware.Camera.Area>)">setMeteringAreas(List)</a></code> and
@@ -6644,6 +7714,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Gets the maximum zoom value allowed for snapshot. This is the maximum
  value that applications can set to <code><a href="../../../reference/android/hardware/Camera.Parameters.html#setZoom(int)">setZoom(int)</a></code>.
  Applications should call <code><a href="../../../reference/android/hardware/Camera.Parameters.html#isZoomSupported()">isZoomSupported()</a></code> before using this
@@ -6682,6 +7755,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p><p>Gets the current metering areas. Camera driver uses these areas to
  decide exposure.</p>
@@ -6753,6 +7829,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Gets the minimum exposure compensation index.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
@@ -6789,6 +7868,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Returns the image format for pictures.</p></div>
   <div class="jd-tagdata">
@@ -6829,6 +7911,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns the dimension setting for pictures.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
@@ -6864,6 +7949,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Returns the preferred or recommended preview size (width and height)
  in pixels for video recording. Camcorder applications should
@@ -6913,6 +8001,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns the image format for preview frames got from
  <code><a href="../../../reference/android/hardware/Camera.PreviewCallback.html">Camera.PreviewCallback</a></code>.</p></div>
   <div class="jd-tagdata">
@@ -6953,6 +8044,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns the current minimum and maximum preview fps. The values are
  one of the elements returned by <code><a href="../../../reference/android/hardware/Camera.Parameters.html#getSupportedPreviewFpsRange()">getSupportedPreviewFpsRange()</a></code>.</p></div>
   <div class="jd-tagdata">
@@ -6992,6 +8086,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       <p>
   <p class="caution"><strong>
       This method was deprecated
@@ -7035,6 +8132,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns the dimensions setting for preview pictures.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
@@ -7070,6 +8170,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Gets the current scene mode setting.</p></div>
   <div class="jd-tagdata">
@@ -7111,6 +8214,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Gets the supported antibanding values.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
@@ -7150,6 +8256,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Gets the supported color effects.</p></div>
   <div class="jd-tagdata">
@@ -7191,6 +8300,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Gets the supported flash modes.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
@@ -7230,6 +8342,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Gets the supported focus modes.</p></div>
   <div class="jd-tagdata">
@@ -7271,6 +8386,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Gets the supported jpeg thumbnail sizes.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
@@ -7307,6 +8425,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Gets the supported picture formats.</p></div>
   <div class="jd-tagdata">
@@ -7348,6 +8469,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Gets the supported picture sizes.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
@@ -7383,6 +8507,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Gets the supported preview formats. <code><a href="../../../reference/android/graphics/ImageFormat.html#NV21">NV21</a></code>
  is always supported. <code><a href="../../../reference/android/graphics/ImageFormat.html#YV12">YV12</a></code>
@@ -7425,6 +8552,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Gets the supported preview fps (frame-per-second) ranges. Each range
  contains a minimum fps and maximum fps. If minimum fps equals to
@@ -7474,6 +8604,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       <p>
   <p class="caution"><strong>
       This method was deprecated
@@ -7516,6 +8649,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Gets the supported preview sizes.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
@@ -7551,6 +8687,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Gets the supported scene modes.</p></div>
   <div class="jd-tagdata">
@@ -7591,6 +8730,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p><p>Gets the supported video frame sizes that can be used by
  MediaRecorder.</p>
@@ -7640,6 +8782,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Gets the supported white balance.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
@@ -7680,6 +8825,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Gets the vertical angle of view in degrees.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
@@ -7715,6 +8863,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Get the current state of video stabilization. See
  <code><a href="../../../reference/android/hardware/Camera.Parameters.html#setVideoStabilization(boolean)">setVideoStabilization(boolean)</a></code> for details of video stabilization.</p></div>
@@ -7756,6 +8907,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Gets the current white balance setting.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
@@ -7796,6 +8950,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Gets current zoom value. This also works when smooth zoom is in
  progress. Applications should check <code><a href="../../../reference/android/hardware/Camera.Parameters.html#isZoomSupported()">isZoomSupported()</a></code> before
  using this method.</p></div>
@@ -7832,6 +8989,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Gets the zoom ratios of all zoom values. Applications should check
  <code><a href="../../../reference/android/hardware/Camera.Parameters.html#isZoomSupported()">isZoomSupported()</a></code> before using this method.</p></div>
@@ -7871,6 +9031,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Returns true if auto-exposure locking is supported. Applications
  should call this before trying to lock auto-exposure. See
@@ -7913,6 +9076,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns true if auto-white balance locking is supported. Applications
  should call this before trying to lock auto-white balance. See
  <code><a href="../../../reference/android/hardware/Camera.Parameters.html#setAutoWhiteBalanceLock(boolean)">setAutoWhiteBalanceLock(boolean)</a></code> for details about the lock.</p></div>
@@ -7954,6 +9120,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns true if smooth zoom is supported. Applications should call
  this before using other smooth zoom methods.</p></div>
   <div class="jd-tagdata">
@@ -7989,6 +9158,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p><p>Returns true if video snapshot is supported. That is, applications
  can call <code><a href="../../../reference/android/hardware/Camera.html#takePicture(android.hardware.Camera.ShutterCallback, android.hardware.Camera.PictureCallback, android.hardware.Camera.PictureCallback, android.hardware.Camera.PictureCallback)">takePicture(Camera.ShutterCallback, Camera.PictureCallback, Camera.PictureCallback, Camera.PictureCallback)</a></code> during recording. Applications do not need
@@ -8045,6 +9217,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns true if video stabilization is supported. See
  <code><a href="../../../reference/android/hardware/Camera.Parameters.html#setVideoStabilization(boolean)">setVideoStabilization(boolean)</a></code> for details of video stabilization.</p></div>
   <div class="jd-tagdata">
@@ -8085,6 +9260,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns true if zoom is supported. Applications should call this
  before using other zoom methods.</p></div>
   <div class="jd-tagdata">
@@ -8121,6 +9299,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     </div>
@@ -8150,6 +9331,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Removes GPS latitude, longitude, altitude, and timestamp from the
  parameters.
@@ -8182,6 +9366,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Sets a String parameter.</p></div>
   <div class="jd-tagdata">
@@ -8227,6 +9414,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Sets an integer parameter.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -8271,6 +9461,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Sets the antibanding.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -8314,6 +9507,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p><p>Sets the auto-exposure lock state. Applications should check
  <code><a href="../../../reference/android/hardware/Camera.Parameters.html#isAutoExposureLockSupported()">isAutoExposureLockSupported()</a></code> before using this method.</p>
@@ -8383,6 +9579,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p><p>Sets the auto-white balance lock state. Applications should check
  <code><a href="../../../reference/android/hardware/Camera.Parameters.html#isAutoWhiteBalanceLockSupported()">isAutoWhiteBalanceLockSupported()</a></code> before using this
@@ -8455,6 +9654,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Sets the current color effect setting.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -8498,6 +9700,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Sets the exposure compensation index.</p></div>
   <div class="jd-tagdata">
@@ -8543,6 +9748,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Sets the flash mode.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -8586,6 +9794,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Sets focus areas. See <code><a href="../../../reference/android/hardware/Camera.Parameters.html#getFocusAreas()">getFocusAreas()</a></code> for documentation.</p></div>
   <div class="jd-tagdata">
@@ -8631,6 +9842,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Sets the focus mode.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -8675,6 +9889,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Sets GPS altitude. This will be stored in JPEG EXIF header.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -8714,6 +9931,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Sets GPS latitude coordinate. This will be stored in JPEG EXIF
  header.</p></div>
@@ -8756,6 +9976,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Sets GPS longitude coordinate. This will be stored in JPEG EXIF
  header.</p></div>
   <div class="jd-tagdata">
@@ -8796,6 +10019,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Sets GPS processing method. It will store up to 32 characters
  in JPEG EXIF header.</p></div>
@@ -8838,6 +10064,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Sets GPS timestamp. This will be stored in JPEG EXIF header.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -8878,6 +10107,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Sets Jpeg quality of captured picture.</p></div>
   <div class="jd-tagdata">
@@ -8920,6 +10152,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Sets the quality of the EXIF thumbnail in Jpeg picture.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -8960,6 +10195,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p><p>Sets the dimensions for EXIF thumbnail in Jpeg picture. If
  applications set both width and height to 0, EXIF will not contain
@@ -9013,6 +10251,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Sets metering areas. See <code><a href="../../../reference/android/hardware/Camera.Parameters.html#getMeteringAreas()">getMeteringAreas()</a></code> for
  documentation.</p></div>
   <div class="jd-tagdata">
@@ -9057,6 +10298,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Sets the image format for pictures.</p></div>
   <div class="jd-tagdata">
@@ -9104,6 +10348,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p><p>Sets the dimensions for pictures.</p>
 
@@ -9154,6 +10401,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Sets the image format for preview pictures.
  <p>If this is never called, the default format will be
@@ -9235,6 +10485,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Sets the minimum and maximum preview fps. This controls the rate of
  preview frames received in <code><a href="../../../reference/android/hardware/Camera.PreviewCallback.html">Camera.PreviewCallback</a></code>. The minimum and
  maximum preview fps must be one of the elements from <code><a href="../../../reference/android/hardware/Camera.Parameters.html#getSupportedPreviewFpsRange()">getSupportedPreviewFpsRange()</a></code>.</p></div>
@@ -9293,6 +10546,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       <p>
   <p class="caution"><strong>
       This method was deprecated
@@ -9339,6 +10595,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Sets the dimensions for preview pictures. If the preview has already
  started, applications should stop the preview first before changing
@@ -9401,6 +10660,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Sets recording mode hint. This tells the camera that the intent of
  the application is to record videos <code><a href="../../../reference/android/media/MediaRecorder.html#start()">start()</a></code>, not to take still pictures
  <code><a href="../../../reference/android/hardware/Camera.html#takePicture(android.hardware.Camera.ShutterCallback, android.hardware.Camera.PictureCallback, android.hardware.Camera.PictureCallback, android.hardware.Camera.PictureCallback)">takePicture(Camera.ShutterCallback, Camera.PictureCallback, Camera.PictureCallback, Camera.PictureCallback)</a></code>. Using this hint can
@@ -9451,6 +10713,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Sets the clockwise rotation angle in degrees relative to the
  orientation of the camera. This affects the pictures returned from
@@ -9553,6 +10818,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Sets the scene mode. Changing scene mode may override other
  parameters (such as flash mode, focus mode, white balance). For
  example, suppose originally flash mode is on and supported flash
@@ -9602,6 +10870,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p><p>Enables and disables video stabilization. Use
  <code><a href="../../../reference/android/hardware/Camera.Parameters.html#isVideoStabilizationSupported()">isVideoStabilizationSupported()</a></code> to determine if calling this
@@ -9660,6 +10931,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Sets the white balance. Changing the setting will release the
  auto-white balance lock. It is recommended not to change white
  balance and AWB lock at the same time.</p></div>
@@ -9706,6 +10980,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Sets current zoom value. If the camera is zoomed (value > 0), the
  actual picture size may be smaller than picture size setting.
  Applications can check the actual picture size after picture is
@@ -9750,6 +11027,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Takes a flattened string of parameters and adds each one to
  this Parameters object.

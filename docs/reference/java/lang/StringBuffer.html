@@ -82,6 +82,19 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 <html>
 <head>
 
@@ -97,7 +110,7 @@
 href="http://fonts.useso.com/css?family=Roboto+Condensed">
 <link rel="stylesheet" href="http://fonts.useso.com/css?family=Roboto:light,regular,medium,thin,italic,mediumitalic,bold"
   title="roboto">
-<link href="../../../assets/css/default.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/default.css?v=2" rel="stylesheet" type="text/css">
 
 
 <!-- FULLSCREEN STYLESHEET -->
@@ -106,30 +119,31 @@ type="text/css">
 
 
 <!-- JAVASCRIPT -->
-<script src="http://googleapiscdn.qiniudn.com/www.google.com/jsapi" type="text/javascript"></script>
+<script src="http://www.google.com/jsapi" type="text/javascript"></script>
 <script src="../../../assets/js/android_3p-bundle.js" type="text/javascript"></script>
 <script type="text/javascript">
   var toRoot = "../../../";
   var metaTags = [];
   var devsite = false;
 </script>
-<script src="../../../assets/js/docs.js" type="text/javascript"></script>
+<script src="../../../assets/js/docs.js?v=2" type="text/javascript"></script>
 
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-5831155-1']);
-  _gaq.push(['_trackPageview']);
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
+  ga('create', 'UA-5831155-1', 'android.com');
+  ga('create', 'UA-49880327-2', 'android.com', {'name': 'universal'});  // New tracker);
+  ga('send', 'pageview');
+  ga('universal.send', 'pageview'); // Send page view for new tracker.
 </script>
+
 </head>
 
 <body class="gc-documentation 
-  develop" itemscope itemtype="http://schema.org/Article">
+  develop reference" itemscope itemtype="http://schema.org/Article">
   <div id="doc-api-level" class="1" style="display:none"></div>
   <a name="top"></a>
 
@@ -139,6 +153,10 @@ type="text/css">
   <!-- Header -->
   <div id="header-wrapper">
     <div id="header">
+
+    
+
+
       <div class="wrap" id="header-wrap">
         <div class="col-3 logo">
           <a href="../../../index.html">
@@ -260,11 +278,20 @@ type="text/css">
 
 
         <!-- Expanded quicknav -->
-        <div id="quicknav" class="col-9">
+        <div id="quicknav" class="col-13">
           <ul>
+            <li class="about">
+              <ul>
+                <li><a href="../../../about/index.html">About</a></li>
+                <li><a href="../../../wear/index.html">Wear</a></li>
+                <li><a href="../../../tv/index.html">TV</a></li>
+                <li><a href="../../../auto/index.html">Auto</a></li>
+              </ul>
+            </li>
             <li class="design">
               <ul>
                 <li><a href="../../../design/index.html">Get Started</a></li>
+                <li><a href="../../../design/devices.html">Devices</a></li>
                 <li><a href="../../../design/style/index.html">Style</a></li>
                 <li><a href="../../../design/patterns/index.html">Patterns</a></li>
                 <li><a href="../../../design/building-blocks/index.html">Building Blocks</a></li>
@@ -298,7 +325,7 @@ type="text/css">
                   ja-lang="リファレンス"
                   es-lang="Referencia"
                   >Reference</a></li>
-                <li><a href="../../../tools/index.html"
+                <li><a href="../../../sdk/index.html"
                   zh-tw-lang="相關工具"
                   zh-cn-lang="工具"
                   ru-lang="Инструменты"
@@ -306,7 +333,6 @@ type="text/css">
                   ja-lang="ツール"
                   es-lang="Herramientas"
                   >Tools</a>
-                  <ul><li><a href="../../../sdk/index.html">Get the SDK</a></li></ul>
                 </li>
                 <li><a href="../../../google/index.html">Google Services</a>
                 </li>
@@ -358,7 +384,7 @@ type="text/css">
                   ja-lang="リファレンス"
                   es-lang="Referencia"
                   >Reference</a></li>
-                <li class="tools"><a href="../../../tools/index.html"
+                <li class="tools"><a href="../../../sdk/index.html"
                   zh-tw-lang="相關工具"
                   zh-cn-lang="工具"
                   ru-lang="Инструменты"
@@ -373,7 +399,7 @@ type="text/css">
             </ul>
         </div>
     </div>
-    <!-- /Sendondary x-nav -->
+    <!-- /Sendondary x-nav DEVELOP -->
 
   
 
@@ -414,7 +440,7 @@ type="text/css">
         <div id="api-nav-title">Android APIs</div>
         </div><!-- end nav header -->
       <script>
-        var SINCE_DATA = [ '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19' ];
+        var SINCE_DATA = [ '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21' ];
         buildApiLevelSelector();
       </script>
                   
@@ -441,13 +467,15 @@ type="text/css">
   <a href="../../../reference/android/app/admin/package-summary.html">android.app.admin</a></li>
     <li class="api apilevel-8">
   <a href="../../../reference/android/app/backup/package-summary.html">android.app.backup</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/app/job/package-summary.html">android.app.job</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/app/usage/package-summary.html">android.app.usage</a></li>
     <li class="api apilevel-3">
   <a href="../../../reference/android/appwidget/package-summary.html">android.appwidget</a></li>
     <li class="api apilevel-5">
   <a href="../../../reference/android/bluetooth/package-summary.html">android.bluetooth</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/bluetooth/le/package-summary.html">android.bluetooth.le</a></li>
     <li class="api apilevel-1">
   <a href="../../../reference/android/content/package-summary.html">android.content</a></li>
@@ -473,16 +501,14 @@ type="text/css">
   <a href="../../../reference/android/graphics/pdf/package-summary.html">android.graphics.pdf</a></li>
     <li class="api apilevel-1">
   <a href="../../../reference/android/hardware/package-summary.html">android.hardware</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/hardware/camera2/package-summary.html">android.hardware.camera2</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/hardware/camera2/params/package-summary.html">android.hardware.camera2.params</a></li>
     <li class="api apilevel-17">
   <a href="../../../reference/android/hardware/display/package-summary.html">android.hardware.display</a></li>
     <li class="api apilevel-16">
   <a href="../../../reference/android/hardware/input/package-summary.html">android.hardware.input</a></li>
-    <li class="api apilevel-18">
-  <a href="../../../reference/android/hardware/location/package-summary.html">android.hardware.location</a></li>
     <li class="api apilevel-12">
   <a href="../../../reference/android/hardware/usb/package-summary.html">android.hardware.usb</a></li>
     <li class="api apilevel-3">
@@ -493,11 +519,15 @@ type="text/css">
   <a href="../../../reference/android/media/package-summary.html">android.media</a></li>
     <li class="api apilevel-9">
   <a href="../../../reference/android/media/audiofx/package-summary.html">android.media.audiofx</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/media/browse/package-summary.html">android.media.browse</a></li>
     <li class="api apilevel-14">
   <a href="../../../reference/android/media/effect/package-summary.html">android.media.effect</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/media/projection/package-summary.html">android.media.projection</a></li>
+    <li class="api apilevel-21">
   <a href="../../../reference/android/media/session/package-summary.html">android.media.session</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/media/tv/package-summary.html">android.media.tv</a></li>
     <li class="api apilevel-12">
   <a href="../../../reference/android/mtp/package-summary.html">android.mtp</a></li>
@@ -547,11 +577,15 @@ type="text/css">
   <a href="../../../reference/android/security/package-summary.html">android.security</a></li>
     <li class="api apilevel-17">
   <a href="../../../reference/android/service/dreams/package-summary.html">android.service.dreams</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/service/media/package-summary.html">android.service.media</a></li>
     <li class="api apilevel-18">
   <a href="../../../reference/android/service/notification/package-summary.html">android.service.notification</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/service/restrictions/package-summary.html">android.service.restrictions</a></li>
     <li class="api apilevel-14">
   <a href="../../../reference/android/service/textservice/package-summary.html">android.service.textservice</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/service/voice/package-summary.html">android.service.voice</a></li>
     <li class="api apilevel-7">
   <a href="../../../reference/android/service/wallpaper/package-summary.html">android.service.wallpaper</a></li>
@@ -596,11 +630,15 @@ type="text/css">
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/media/package-summary.html">android.support.v4.media</a></li>
     <li class="api apilevel-">
+  <a href="../../../reference/android/support/v4/media/session/package-summary.html">android.support.v4.media.session</a></li>
+    <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/net/package-summary.html">android.support.v4.net</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/os/package-summary.html">android.support.v4.os</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/print/package-summary.html">android.support.v4.print</a></li>
+    <li class="api apilevel-">
+  <a href="../../../reference/android/support/v4/provider/package-summary.html">android.support.v4.provider</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/text/package-summary.html">android.support.v4.text</a></li>
     <li class="api apilevel-">
@@ -616,6 +654,10 @@ type="text/css">
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v7/appcompat/package-summary.html">android.support.v7.appcompat</a></li>
     <li class="api apilevel-">
+  <a href="../../../reference/android/support/v7/cardview/package-summary.html">android.support.v7.cardview</a></li>
+    <li class="api apilevel-">
+  <a href="../../../reference/android/support/v7/graphics/package-summary.html">android.support.v7.graphics</a></li>
+    <li class="api apilevel-">
   <a href="../../../reference/android/support/v7/gridlayout/package-summary.html">android.support.v7.gridlayout</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v7/media/package-summary.html">android.support.v7.media</a></li>
@@ -627,8 +669,10 @@ type="text/css">
   <a href="../../../reference/android/support/v7/widget/package-summary.html">android.support.v7.widget</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v8/renderscript/package-summary.html">android.support.v8.renderscript</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/system/package-summary.html">android.system</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/telecom/package-summary.html">android.telecom</a></li>
     <li class="api apilevel-1">
   <a href="../../../reference/android/telephony/package-summary.html">android.telephony</a></li>
     <li class="api apilevel-5">
@@ -1160,6 +1204,9 @@ Summary:
   
 
 
+    
+
+
 </div><!-- end header -->
 
 <div id="naMessage"></div>
@@ -1275,7 +1322,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/StringBuffer.html#StringBuffer()">StringBuffer</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Constructs a new StringBuffer using the default capacity which is 16.</div>
+        <div class="jd-descrdiv">
+          Constructs a new StringBuffer using the default capacity which is 16.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1293,7 +1345,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/StringBuffer.html#StringBuffer(int)">StringBuffer</a></span>(int capacity)</nobr>
         
-        <div class="jd-descrdiv">Constructs a new StringBuffer using the specified capacity.</div>
+        <div class="jd-descrdiv">
+          Constructs a new StringBuffer using the specified capacity.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1311,8 +1368,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/StringBuffer.html#StringBuffer(java.lang.String)">StringBuffer</a></span>(<a href="../../../reference/java/lang/String.html">String</a> string)</nobr>
         
-        <div class="jd-descrdiv">Constructs a new StringBuffer containing the characters in the specified
- string.</div>
+        <div class="jd-descrdiv">
+          Constructs a new StringBuffer containing the characters in the specified
+ string.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1330,8 +1392,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/StringBuffer.html#StringBuffer(java.lang.CharSequence)">StringBuffer</a></span>(<a href="../../../reference/java/lang/CharSequence.html">CharSequence</a> cs)</nobr>
         
-        <div class="jd-descrdiv">Constructs a StringBuffer and initializes it with the content from the
- specified <code>CharSequence</code>.</div>
+        <div class="jd-descrdiv">
+          Constructs a StringBuffer and initializes it with the content from the
+ specified <code>CharSequence</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1362,7 +1429,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/StringBuffer.html#append(char[], int, int)">append</a></span>(char[] chars, int start, int length)</nobr>
         
-        <div class="jd-descrdiv">Adds the specified sequence of characters to the end of this buffer.</div>
+        <div class="jd-descrdiv">
+          Adds the specified sequence of characters to the end of this buffer.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1380,8 +1452,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/StringBuffer.html#append(double)">append</a></span>(double d)</nobr>
         
-        <div class="jd-descrdiv">Adds the string representation of the specified double to the end of this
- StringBuffer.</div>
+        <div class="jd-descrdiv">
+          Adds the string representation of the specified double to the end of this
+ StringBuffer.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1399,7 +1476,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/StringBuffer.html#append(char)">append</a></span>(char ch)</nobr>
         
-        <div class="jd-descrdiv">Adds the specified character to the end of this buffer.</div>
+        <div class="jd-descrdiv">
+          Adds the specified character to the end of this buffer.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1417,8 +1499,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/StringBuffer.html#append(long)">append</a></span>(long l)</nobr>
         
-        <div class="jd-descrdiv">Adds the string representation of the specified long to the end of this
- StringBuffer.</div>
+        <div class="jd-descrdiv">
+          Adds the string representation of the specified long to the end of this
+ StringBuffer.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1436,8 +1523,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/StringBuffer.html#append(boolean)">append</a></span>(boolean b)</nobr>
         
-        <div class="jd-descrdiv">Adds the string representation of the specified boolean to the end of
- this StringBuffer.</div>
+        <div class="jd-descrdiv">
+          Adds the string representation of the specified boolean to the end of
+ this StringBuffer.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1455,8 +1547,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/StringBuffer.html#append(float)">append</a></span>(float f)</nobr>
         
-        <div class="jd-descrdiv">Adds the string representation of the specified float to the end of this
- StringBuffer.</div>
+        <div class="jd-descrdiv">
+          Adds the string representation of the specified float to the end of this
+ StringBuffer.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1474,7 +1571,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/StringBuffer.html#append(char[])">append</a></span>(char[] chars)</nobr>
         
-        <div class="jd-descrdiv">Adds the character array to the end of this buffer.</div>
+        <div class="jd-descrdiv">
+          Adds the character array to the end of this buffer.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1492,8 +1594,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/StringBuffer.html#append(int)">append</a></span>(int i)</nobr>
         
-        <div class="jd-descrdiv">Adds the string representation of the specified integer to the end of
- this StringBuffer.</div>
+        <div class="jd-descrdiv">
+          Adds the string representation of the specified integer to the end of
+ this StringBuffer.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1511,7 +1618,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/StringBuffer.html#append(java.lang.String)">append</a></span>(<a href="../../../reference/java/lang/String.html">String</a> string)</nobr>
         
-        <div class="jd-descrdiv">Adds the specified string to the end of this buffer.</div>
+        <div class="jd-descrdiv">
+          Adds the specified string to the end of this buffer.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1529,7 +1641,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/StringBuffer.html#append(java.lang.CharSequence, int, int)">append</a></span>(<a href="../../../reference/java/lang/CharSequence.html">CharSequence</a> s, int start, int end)</nobr>
         
-        <div class="jd-descrdiv">Appends the specified subsequence of the CharSequence to this buffer.</div>
+        <div class="jd-descrdiv">
+          Appends the specified subsequence of the CharSequence to this buffer.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1547,7 +1664,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/StringBuffer.html#append(java.lang.StringBuffer)">append</a></span>(<a href="../../../reference/java/lang/StringBuffer.html">StringBuffer</a> sb)</nobr>
         
-        <div class="jd-descrdiv">Adds the specified StringBuffer to the end of this buffer.</div>
+        <div class="jd-descrdiv">
+          Adds the specified StringBuffer to the end of this buffer.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1565,8 +1687,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/StringBuffer.html#append(java.lang.Object)">append</a></span>(<a href="../../../reference/java/lang/Object.html">Object</a> obj)</nobr>
         
-        <div class="jd-descrdiv">Adds the string representation of the specified object to the end of this
- StringBuffer.</div>
+        <div class="jd-descrdiv">
+          Adds the string representation of the specified object to the end of this
+ StringBuffer.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1584,7 +1711,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/StringBuffer.html#append(java.lang.CharSequence)">append</a></span>(<a href="../../../reference/java/lang/CharSequence.html">CharSequence</a> s)</nobr>
         
-        <div class="jd-descrdiv">Appends the specified CharSequence to this buffer.</div>
+        <div class="jd-descrdiv">
+          Appends the specified CharSequence to this buffer.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1602,8 +1734,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/StringBuffer.html#appendCodePoint(int)">appendCodePoint</a></span>(int codePoint)</nobr>
         
-        <div class="jd-descrdiv">Appends the string representation of the specified Unicode code point to
- the end of this buffer.</div>
+        <div class="jd-descrdiv">
+          Appends the string representation of the specified Unicode code point to
+ the end of this buffer.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1621,7 +1758,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/StringBuffer.html#capacity()">capacity</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns the number of characters that can be held without growing.</div>
+        <div class="jd-descrdiv">
+          Returns the number of characters that can be held without growing.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1639,7 +1781,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/StringBuffer.html#charAt(int)">charAt</a></span>(int index)</nobr>
         
-        <div class="jd-descrdiv">Returns the character at <code>index</code>.</div>
+        <div class="jd-descrdiv">
+          Returns the character at <code>index</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1657,7 +1804,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/StringBuffer.html#codePointAt(int)">codePointAt</a></span>(int index)</nobr>
         
-        <div class="jd-descrdiv">Retrieves the Unicode code point value at the <code>index</code>.</div>
+        <div class="jd-descrdiv">
+          Retrieves the Unicode code point value at the <code>index</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1675,7 +1827,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/StringBuffer.html#codePointBefore(int)">codePointBefore</a></span>(int index)</nobr>
         
-        <div class="jd-descrdiv">Retrieves the Unicode code point value that precedes the <code>index</code>.</div>
+        <div class="jd-descrdiv">
+          Retrieves the Unicode code point value that precedes the <code>index</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1693,8 +1850,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/StringBuffer.html#codePointCount(int, int)">codePointCount</a></span>(int beginIndex, int endIndex)</nobr>
         
-        <div class="jd-descrdiv">Calculates the number of Unicode code points between <code>start</code>
- and <code>end</code>.</div>
+        <div class="jd-descrdiv">
+          Calculates the number of Unicode code points between <code>start</code>
+ and <code>end</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1712,7 +1874,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/StringBuffer.html#delete(int, int)">delete</a></span>(int start, int end)</nobr>
         
-        <div class="jd-descrdiv">Deletes a range of characters.</div>
+        <div class="jd-descrdiv">
+          Deletes a range of characters.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1730,7 +1897,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/StringBuffer.html#deleteCharAt(int)">deleteCharAt</a></span>(int location)</nobr>
         
-        <div class="jd-descrdiv">Deletes the character at the specified offset.</div>
+        <div class="jd-descrdiv">
+          Deletes the character at the specified offset.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1748,8 +1920,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/StringBuffer.html#ensureCapacity(int)">ensureCapacity</a></span>(int min)</nobr>
         
-        <div class="jd-descrdiv">Ensures that this object has a minimum capacity available before
- requiring the internal buffer to be enlarged.</div>
+        <div class="jd-descrdiv">
+          Ensures that this object has a minimum capacity available before
+ requiring the internal buffer to be enlarged.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1767,8 +1944,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/StringBuffer.html#getChars(int, int, char[], int)">getChars</a></span>(int start, int end, char[] buffer, int idx)</nobr>
         
-        <div class="jd-descrdiv">Copies the requested sequence of characters to the <code>char[]</code> passed
- starting at <code>idx</code>.</div>
+        <div class="jd-descrdiv">
+          Copies the requested sequence of characters to the <code>char[]</code> passed
+ starting at <code>idx</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1786,7 +1968,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/StringBuffer.html#indexOf(java.lang.String, int)">indexOf</a></span>(<a href="../../../reference/java/lang/String.html">String</a> subString, int start)</nobr>
         
-        <div class="jd-descrdiv">Searches for the index of the specified character.</div>
+        <div class="jd-descrdiv">
+          Searches for the index of the specified character.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1804,7 +1991,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/StringBuffer.html#indexOf(java.lang.String)">indexOf</a></span>(<a href="../../../reference/java/lang/String.html">String</a> string)</nobr>
         
-        <div class="jd-descrdiv">Searches for the first index of the specified character.</div>
+        <div class="jd-descrdiv">
+          Searches for the first index of the specified character.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1822,8 +2014,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/StringBuffer.html#insert(int, java.lang.CharSequence, int, int)">insert</a></span>(int index, <a href="../../../reference/java/lang/CharSequence.html">CharSequence</a> s, int start, int end)</nobr>
         
-        <div class="jd-descrdiv">Inserts the specified subsequence into this buffer at the specified
- index.</div>
+        <div class="jd-descrdiv">
+          Inserts the specified subsequence into this buffer at the specified
+ index.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1841,8 +2038,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/StringBuffer.html#insert(int, java.lang.Object)">insert</a></span>(int index, <a href="../../../reference/java/lang/Object.html">Object</a> obj)</nobr>
         
-        <div class="jd-descrdiv">Inserts the string representation of the specified object into this
- buffer at the specified offset.</div>
+        <div class="jd-descrdiv">
+          Inserts the string representation of the specified object into this
+ buffer at the specified offset.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1860,8 +2062,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/StringBuffer.html#insert(int, float)">insert</a></span>(int index, float f)</nobr>
         
-        <div class="jd-descrdiv">Inserts the string representation of the specified float into this buffer
- at the specified offset.</div>
+        <div class="jd-descrdiv">
+          Inserts the string representation of the specified float into this buffer
+ at the specified offset.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1879,7 +2086,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/StringBuffer.html#insert(int, char)">insert</a></span>(int index, char ch)</nobr>
         
-        <div class="jd-descrdiv">Inserts the character into this buffer at the specified offset.</div>
+        <div class="jd-descrdiv">
+          Inserts the character into this buffer at the specified offset.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1897,8 +2109,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/StringBuffer.html#insert(int, int)">insert</a></span>(int index, int i)</nobr>
         
-        <div class="jd-descrdiv">Inserts the string representation of the specified integer into this
- buffer at the specified offset.</div>
+        <div class="jd-descrdiv">
+          Inserts the string representation of the specified integer into this
+ buffer at the specified offset.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1916,7 +2133,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/StringBuffer.html#insert(int, char[])">insert</a></span>(int index, char[] chars)</nobr>
         
-        <div class="jd-descrdiv">Inserts the character array into this buffer at the specified offset.</div>
+        <div class="jd-descrdiv">
+          Inserts the character array into this buffer at the specified offset.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1934,8 +2156,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/StringBuffer.html#insert(int, double)">insert</a></span>(int index, double d)</nobr>
         
-        <div class="jd-descrdiv">Inserts the string representation of the specified into this buffer
- double at the specified offset.</div>
+        <div class="jd-descrdiv">
+          Inserts the string representation of the specified into this buffer
+ double at the specified offset.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1953,8 +2180,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/StringBuffer.html#insert(int, java.lang.CharSequence)">insert</a></span>(int index, <a href="../../../reference/java/lang/CharSequence.html">CharSequence</a> s)</nobr>
         
-        <div class="jd-descrdiv">Inserts the specified CharSequence into this buffer at the specified
- index.</div>
+        <div class="jd-descrdiv">
+          Inserts the specified CharSequence into this buffer at the specified
+ index.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1972,8 +2204,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/StringBuffer.html#insert(int, char[], int, int)">insert</a></span>(int index, char[] chars, int start, int length)</nobr>
         
-        <div class="jd-descrdiv">Inserts the specified subsequence of characters into this buffer at the
- specified index.</div>
+        <div class="jd-descrdiv">
+          Inserts the specified subsequence of characters into this buffer at the
+ specified index.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1991,7 +2228,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/StringBuffer.html#insert(int, java.lang.String)">insert</a></span>(int index, <a href="../../../reference/java/lang/String.html">String</a> string)</nobr>
         
-        <div class="jd-descrdiv">Inserts the string into this buffer at the specified offset.</div>
+        <div class="jd-descrdiv">
+          Inserts the string into this buffer at the specified offset.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2009,8 +2251,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/StringBuffer.html#insert(int, long)">insert</a></span>(int index, long l)</nobr>
         
-        <div class="jd-descrdiv">Inserts the string representation of the specified long into this buffer
- at the specified offset.</div>
+        <div class="jd-descrdiv">
+          Inserts the string representation of the specified long into this buffer
+ at the specified offset.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2028,8 +2275,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/StringBuffer.html#insert(int, boolean)">insert</a></span>(int index, boolean b)</nobr>
         
-        <div class="jd-descrdiv">Inserts the string representation of the specified boolean into this
- buffer at the specified offset.</div>
+        <div class="jd-descrdiv">
+          Inserts the string representation of the specified boolean into this
+ buffer at the specified offset.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2047,7 +2299,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/StringBuffer.html#lastIndexOf(java.lang.String, int)">lastIndexOf</a></span>(<a href="../../../reference/java/lang/String.html">String</a> subString, int start)</nobr>
         
-        <div class="jd-descrdiv">Searches for the index of the specified character.</div>
+        <div class="jd-descrdiv">
+          Searches for the index of the specified character.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2065,7 +2322,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/StringBuffer.html#lastIndexOf(java.lang.String)">lastIndexOf</a></span>(<a href="../../../reference/java/lang/String.html">String</a> string)</nobr>
         
-        <div class="jd-descrdiv">Searches for the last index of the specified character.</div>
+        <div class="jd-descrdiv">
+          Searches for the last index of the specified character.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2083,7 +2345,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/StringBuffer.html#length()">length</a></span>()</nobr>
         
-        <div class="jd-descrdiv">The current length.</div>
+        <div class="jd-descrdiv">
+          The current length.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2101,8 +2368,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/StringBuffer.html#offsetByCodePoints(int, int)">offsetByCodePoints</a></span>(int index, int codePointOffset)</nobr>
         
-        <div class="jd-descrdiv">Returns the index that is offset <code>codePointOffset</code> code points from
- <code>index</code>.</div>
+        <div class="jd-descrdiv">
+          Returns the index that is offset <code>codePointOffset</code> code points from
+ <code>index</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2120,8 +2392,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/StringBuffer.html#replace(int, int, java.lang.String)">replace</a></span>(int start, int end, <a href="../../../reference/java/lang/String.html">String</a> string)</nobr>
         
-        <div class="jd-descrdiv">Replaces the characters in the specified range with the contents of the
- specified string.</div>
+        <div class="jd-descrdiv">
+          Replaces the characters in the specified range with the contents of the
+ specified string.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2139,7 +2416,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/StringBuffer.html#reverse()">reverse</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Reverses the order of characters in this buffer.</div>
+        <div class="jd-descrdiv">
+          Reverses the order of characters in this buffer.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2157,7 +2439,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/StringBuffer.html#setCharAt(int, char)">setCharAt</a></span>(int index, char ch)</nobr>
         
-        <div class="jd-descrdiv">Sets the character at the <code>index</code>.</div>
+        <div class="jd-descrdiv">
+          Sets the character at the <code>index</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2175,7 +2462,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/StringBuffer.html#setLength(int)">setLength</a></span>(int length)</nobr>
         
-        <div class="jd-descrdiv">Sets the current length to a new value.</div>
+        <div class="jd-descrdiv">
+          Sets the current length to a new value.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2193,8 +2485,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/StringBuffer.html#subSequence(int, int)">subSequence</a></span>(int start, int end)</nobr>
         
-        <div class="jd-descrdiv">Returns a <code>CharSequence</code> of the subsequence from the <code>start</code>
- index to the <code>end</code> index.</div>
+        <div class="jd-descrdiv">
+          Returns a <code>CharSequence</code> of the subsequence from the <code>start</code>
+ index to the <code>end</code> index.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2212,8 +2509,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/StringBuffer.html#substring(int)">substring</a></span>(int start)</nobr>
         
-        <div class="jd-descrdiv">Returns the String value of the subsequence from the <code>start</code> index
- to the current end.</div>
+        <div class="jd-descrdiv">
+          Returns the String value of the subsequence from the <code>start</code> index
+ to the current end.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2231,8 +2533,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/StringBuffer.html#substring(int, int)">substring</a></span>(int start, int end)</nobr>
         
-        <div class="jd-descrdiv">Returns the String value of the subsequence from the <code>start</code> index
- to the <code>end</code> index.</div>
+        <div class="jd-descrdiv">
+          Returns the String value of the subsequence from the <code>start</code> index
+ to the <code>end</code> index.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2250,7 +2557,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/StringBuffer.html#toString()">toString</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns the current String representation.</div>
+        <div class="jd-descrdiv">
+          Returns the current String representation.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2268,7 +2580,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/StringBuffer.html#trimToSize()">trimToSize</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Trims off any extra capacity beyond the current length.</div>
+        <div class="jd-descrdiv">
+          Trims off any extra capacity beyond the current length.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2320,7 +2637,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#clone()">clone</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Creates and returns a copy of this <code>Object</code>.</div>
+        <div class="jd-descrdiv">
+          Creates and returns a copy of this <code>Object</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2338,8 +2660,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#equals(java.lang.Object)">equals</a></span>(<a href="../../../reference/java/lang/Object.html">Object</a> o)</nobr>
         
-        <div class="jd-descrdiv">Compares this instance with the specified object and indicates if they
- are equal.</div>
+        <div class="jd-descrdiv">
+          Compares this instance with the specified object and indicates if they
+ are equal.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2357,7 +2684,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#finalize()">finalize</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Invoked when the garbage collector has detected that this instance is no longer reachable.</div>
+        <div class="jd-descrdiv">
+          Invoked when the garbage collector has detected that this instance is no longer reachable.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2375,8 +2707,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#getClass()">getClass</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns the unique instance of <code><a href="../../../reference/java/lang/Class.html">Class</a></code> that represents this
- object's class.</div>
+        <div class="jd-descrdiv">
+          Returns the unique instance of <code><a href="../../../reference/java/lang/Class.html">Class</a></code> that represents this
+ object's class.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2394,7 +2731,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#hashCode()">hashCode</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns an integer hash code for this object.</div>
+        <div class="jd-descrdiv">
+          Returns an integer hash code for this object.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2412,8 +2754,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#notify()">notify</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Causes a thread which is waiting on this object's monitor (by means of
- calling one of the <code>wait()</code> methods) to be woken up.</div>
+        <div class="jd-descrdiv">
+          Causes a thread which is waiting on this object's monitor (by means of
+ calling one of the <code>wait()</code> methods) to be woken up.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2431,8 +2778,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#notifyAll()">notifyAll</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Causes all threads which are waiting on this object's monitor (by means
- of calling one of the <code>wait()</code> methods) to be woken up.</div>
+        <div class="jd-descrdiv">
+          Causes all threads which are waiting on this object's monitor (by means
+ of calling one of the <code>wait()</code> methods) to be woken up.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2450,8 +2802,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#toString()">toString</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns a string containing a concise, human-readable description of this
- object.</div>
+        <div class="jd-descrdiv">
+          Returns a string containing a concise, human-readable description of this
+ object.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2469,7 +2826,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#wait()">wait</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object.</div>
+        <div class="jd-descrdiv">
+          Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2487,8 +2849,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#wait(long, int)">wait</a></span>(long millis, int nanos)</nobr>
         
-        <div class="jd-descrdiv">Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object or until the
- specified timeout expires.</div>
+        <div class="jd-descrdiv">
+          Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object or until the
+ specified timeout expires.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2506,8 +2873,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#wait(long)">wait</a></span>(long millis)</nobr>
         
-        <div class="jd-descrdiv">Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object or until the
- specified timeout expires.</div>
+        <div class="jd-descrdiv">
+          Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object or until the
+ specified timeout expires.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2553,7 +2925,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Appendable.html#append(java.lang.CharSequence)">append</a></span>(<a href="../../../reference/java/lang/CharSequence.html">CharSequence</a> csq)</nobr>
         
-        <div class="jd-descrdiv">Appends the character sequence <code>csq</code>.</div>
+        <div class="jd-descrdiv">
+          Appends the character sequence <code>csq</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2571,7 +2948,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Appendable.html#append(java.lang.CharSequence, int, int)">append</a></span>(<a href="../../../reference/java/lang/CharSequence.html">CharSequence</a> csq, int start, int end)</nobr>
         
-        <div class="jd-descrdiv">Appends a subsequence of <code>csq</code>.</div>
+        <div class="jd-descrdiv">
+          Appends a subsequence of <code>csq</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2589,7 +2971,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Appendable.html#append(char)">append</a></span>(char c)</nobr>
         
-        <div class="jd-descrdiv">Appends the specified character.</div>
+        <div class="jd-descrdiv">
+          Appends the specified character.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2633,7 +3020,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/CharSequence.html#charAt(int)">charAt</a></span>(int index)</nobr>
         
-        <div class="jd-descrdiv">Returns the character at <code>index</code>.</div>
+        <div class="jd-descrdiv">
+          Returns the character at <code>index</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2651,7 +3043,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/CharSequence.html#length()">length</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns the number of characters in this sequence.</div>
+        <div class="jd-descrdiv">
+          Returns the number of characters in this sequence.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2669,8 +3066,13 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/CharSequence.html#subSequence(int, int)">subSequence</a></span>(int start, int end)</nobr>
         
-        <div class="jd-descrdiv">Returns a <code>CharSequence</code> from the <code>start</code> index (inclusive)
- to the <code>end</code> index (exclusive) of this sequence.</div>
+        <div class="jd-descrdiv">
+          Returns a <code>CharSequence</code> from the <code>start</code> index (inclusive)
+ to the <code>end</code> index (exclusive) of this sequence.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2688,8 +3090,13 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/CharSequence.html#toString()">toString</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns a string with the same characters in the same order as in this
- sequence.</div>
+        <div class="jd-descrdiv">
+          Returns a string with the same characters in the same order as in this
+ sequence.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2758,6 +3165,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Constructs a new StringBuffer using the default capacity which is 16.
 </p></div>
 
@@ -2788,6 +3198,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Constructs a new StringBuffer using the specified capacity.</p></div>
   <div class="jd-tagdata">
@@ -2828,6 +3241,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Constructs a new StringBuffer containing the characters in the specified
  string. The capacity of the new buffer will be the length of the
@@ -2879,6 +3295,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Constructs a StringBuffer and initializes it with the content from the
  specified <code>CharSequence</code>. The capacity of the new buffer will be
@@ -2944,6 +3363,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Adds the specified sequence of characters to the end of this buffer.</p></div>
   <div class="jd-tagdata">
@@ -3011,6 +3433,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Adds the string representation of the specified double to the end of this
  StringBuffer.</p></div>
   <div class="jd-tagdata">
@@ -3060,6 +3485,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Adds the specified character to the end of this buffer.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -3107,6 +3535,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Adds the string representation of the specified long to the end of this
  StringBuffer.</p></div>
@@ -3156,6 +3587,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Adds the string representation of the specified boolean to the end of
  this StringBuffer.
@@ -3209,6 +3643,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Adds the string representation of the specified float to the end of this
  StringBuffer.</p></div>
   <div class="jd-tagdata">
@@ -3257,6 +3694,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Adds the character array to the end of this buffer.</p></div>
   <div class="jd-tagdata">
@@ -3311,6 +3751,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Adds the string representation of the specified integer to the end of
  this StringBuffer.</p></div>
   <div class="jd-tagdata">
@@ -3360,6 +3803,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Adds the specified string to the end of this buffer.
  <p>
  If the specified string is <code>null</code> the string <code>"null"</code> is
@@ -3406,6 +3852,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Appends the specified subsequence of the CharSequence to this buffer.
  <p>
@@ -3471,6 +3920,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Adds the specified StringBuffer to the end of this buffer.
  <p>
  If the specified StringBuffer is <code>null</code> the string <code>"null"</code>
@@ -3517,6 +3969,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Adds the string representation of the specified object to the end of this
  StringBuffer.
@@ -3571,6 +4026,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Appends the specified CharSequence to this buffer.
  <p>
  If the specified CharSequence is <code>null</code> the string <code>"null"</code>
@@ -3617,6 +4075,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Appends the string representation of the specified Unicode code point to
  the end of this buffer.
@@ -3670,6 +4131,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns the number of characters that can be held without growing.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
@@ -3709,6 +4173,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns the character at <code>index</code>.</p></div>
 
     </div>
@@ -3738,6 +4205,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Retrieves the Unicode code point value at the <code>index</code>.</p></div>
   <div class="jd-tagdata">
@@ -3782,6 +4252,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Retrieves the Unicode code point value that precedes the <code>index</code>.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -3824,6 +4297,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Calculates the number of Unicode code points between <code>start</code>
  and <code>end</code>.</p></div>
@@ -3872,6 +4348,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Deletes a range of characters.</p></div>
   <div class="jd-tagdata">
@@ -3931,6 +4410,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Deletes the character at the specified offset.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -3984,6 +4466,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Ensures that this object has a minimum capacity available before
  requiring the internal buffer to be enlarged. The general policy of this
  method is that if the <code>minimumCapacity</code> is larger than the current
@@ -4029,6 +4514,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Copies the requested sequence of characters to the <code>char[]</code> passed
  starting at <code>idx</code>.</p></div>
@@ -4094,6 +4582,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Searches for the index of the specified character. The search for the
  character starts at the specified offset and moves towards the end.</p></div>
   <div class="jd-tagdata">
@@ -4142,6 +4633,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Searches for the first index of the specified character. The search for
  the character starts at the beginning and moves towards the end.</p></div>
@@ -4192,6 +4686,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Inserts the specified subsequence into this buffer at the specified
  index.
@@ -4263,6 +4760,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Inserts the string representation of the specified object into this
  buffer at the specified offset.
  <p>
@@ -4325,6 +4825,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Inserts the string representation of the specified float into this buffer
  at the specified offset.</p></div>
   <div class="jd-tagdata">
@@ -4383,6 +4886,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Inserts the character into this buffer at the specified offset.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -4439,6 +4945,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Inserts the string representation of the specified integer into this
  buffer at the specified offset.</p></div>
@@ -4497,6 +5006,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Inserts the character array into this buffer at the specified offset.</p></div>
   <div class="jd-tagdata">
@@ -4559,6 +5071,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Inserts the string representation of the specified into this buffer
  double at the specified offset.</p></div>
   <div class="jd-tagdata">
@@ -4616,6 +5131,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Inserts the specified CharSequence into this buffer at the specified
  index.
@@ -4676,6 +5194,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Inserts the specified subsequence of characters into this buffer at the
  specified index.</p></div>
@@ -4749,6 +5270,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Inserts the string into this buffer at the specified offset.
  <p>
  If the specified string is <code>null</code>, the string <code>"null"</code> is
@@ -4809,6 +5333,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Inserts the string representation of the specified long into this buffer
  at the specified offset.</p></div>
   <div class="jd-tagdata">
@@ -4866,6 +5393,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Inserts the string representation of the specified boolean into this
  buffer at the specified offset.</p></div>
@@ -4925,6 +5455,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Searches for the index of the specified character. The search for the
  character starts at the specified offset and moves towards the beginning.</p></div>
   <div class="jd-tagdata">
@@ -4973,6 +5506,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Searches for the last index of the specified character. The search for
  the character starts at the end and moves towards the beginning.</p></div>
@@ -5033,6 +5569,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>The current length.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
@@ -5067,6 +5606,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Returns the index that is offset <code>codePointOffset</code> code points from
  <code>index</code>.</p></div>
@@ -5116,6 +5658,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Replaces the characters in the specified range with the contents of the
  specified string.</p></div>
@@ -5181,6 +5726,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Reverses the order of characters in this buffer.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
@@ -5215,6 +5763,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Sets the character at the <code>index</code>.</p></div>
   <div class="jd-tagdata">
@@ -5259,127 +5810,12 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Sets the current length to a new value. If the new length is larger than
  the current length, then the new characters at the end of this object
- will contain the <code>char</code> value of <code>  </table>
-  </div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Returns</h5>
-      <ul class="nolist"><li>a String containing the subsequence.</li></ul>
-  </div>
-
-    </div>
-</div>
-
-
-<A NAME="substring(int, int)"></A>
-
-<div class="jd-details api apilevel-1"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-        synchronized 
-        <a href="../../../reference/java/lang/String.html">String</a>
-      </span>
-      <span class="sympad">substring</span>
-      <span class="normal">(int start, int end)</span>
-    </h4>
-      <div class="api-level">
-        <div>
-  Added in <a href="../../../guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 1</a></div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Returns the String value of the subsequence from the <code>start</code> index
- to the <code>end</code> index.</p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Parameters</h5>
-      <table class="jd-tagtable">
-        <tr>
-          <th>start</td>
-          <td>the inclusive start index to begin the subsequence.</td>
-        </tr>
-        <tr>
-          <th>end</td>
-          <td>the exclusive end index to end the subsequence.</td>
-        </tr>
-      </table>
-  </div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Returns</h5>
-      <ul class="nolist"><li>a String containing the subsequence.</li></ul>
-  </div>
-
-    </div>
-</div>
-
-
-<A NAME="toString()"></A>
-
-<div class="jd-details api apilevel-1"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-        synchronized 
-        <a href="../../../reference/java/lang/String.html">String</a>
-      </span>
-      <span class="sympad">toString</span>
-      <span class="normal">()</span>
-    </h4>
-      <div class="api-level">
-        <div>
-  Added in <a href="../../../guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 1</a></div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Returns the current String representation.</p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Returns</h5>
-      <ul class="nolist"><li>a String containing the characters in this instance.
-</li></ul>
-  </div>
-
-    </div>
-</div>
-
-
-<A NAME="trimToSize()"></A>
-
-<div class="jd-details api apilevel-1"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-        synchronized 
-        void
-      </span>
-      <span class="sympad">trimToSize</span>
-      <span class="normal">()</span>
-    </h4>
-      <div class="api-level">
-        <div>
-  Added in <a href="../../../guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 1</a></div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Trims off any extra capacity beyond the current length. Note, this method
+ will contain the <code>char</code> value of <code>nd the current length. Note, this method
  is NOT guaranteed to change the capacity of this object.</p></div>
 
     </div>

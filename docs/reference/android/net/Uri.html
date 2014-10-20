@@ -82,6 +82,19 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 <html>
 <head>
 
@@ -97,7 +110,7 @@
 href="http://fonts.useso.com/css?family=Roboto+Condensed">
 <link rel="stylesheet" href="http://fonts.useso.com/css?family=Roboto:light,regular,medium,thin,italic,mediumitalic,bold"
   title="roboto">
-<link href="../../../assets/css/default.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/default.css?v=2" rel="stylesheet" type="text/css">
 
 
 <!-- FULLSCREEN STYLESHEET -->
@@ -106,30 +119,31 @@ type="text/css">
 
 
 <!-- JAVASCRIPT -->
-<script src="http://googleapiscdn.qiniudn.com/www.google.com/jsapi" type="text/javascript"></script>
+<script src="http://www.google.com/jsapi" type="text/javascript"></script>
 <script src="../../../assets/js/android_3p-bundle.js" type="text/javascript"></script>
 <script type="text/javascript">
   var toRoot = "../../../";
   var metaTags = [];
   var devsite = false;
 </script>
-<script src="../../../assets/js/docs.js" type="text/javascript"></script>
+<script src="../../../assets/js/docs.js?v=2" type="text/javascript"></script>
 
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-5831155-1']);
-  _gaq.push(['_trackPageview']);
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
+  ga('create', 'UA-5831155-1', 'android.com');
+  ga('create', 'UA-49880327-2', 'android.com', {'name': 'universal'});  // New tracker);
+  ga('send', 'pageview');
+  ga('universal.send', 'pageview'); // Send page view for new tracker.
 </script>
+
 </head>
 
 <body class="gc-documentation 
-  develop" itemscope itemtype="http://schema.org/Article">
+  develop reference" itemscope itemtype="http://schema.org/Article">
   <div id="doc-api-level" class="1" style="display:none"></div>
   <a name="top"></a>
 
@@ -139,6 +153,10 @@ type="text/css">
   <!-- Header -->
   <div id="header-wrapper">
     <div id="header">
+
+    
+
+
       <div class="wrap" id="header-wrap">
         <div class="col-3 logo">
           <a href="../../../index.html">
@@ -260,11 +278,20 @@ type="text/css">
 
 
         <!-- Expanded quicknav -->
-        <div id="quicknav" class="col-9">
+        <div id="quicknav" class="col-13">
           <ul>
+            <li class="about">
+              <ul>
+                <li><a href="../../../about/index.html">About</a></li>
+                <li><a href="../../../wear/index.html">Wear</a></li>
+                <li><a href="../../../tv/index.html">TV</a></li>
+                <li><a href="../../../auto/index.html">Auto</a></li>
+              </ul>
+            </li>
             <li class="design">
               <ul>
                 <li><a href="../../../design/index.html">Get Started</a></li>
+                <li><a href="../../../design/devices.html">Devices</a></li>
                 <li><a href="../../../design/style/index.html">Style</a></li>
                 <li><a href="../../../design/patterns/index.html">Patterns</a></li>
                 <li><a href="../../../design/building-blocks/index.html">Building Blocks</a></li>
@@ -298,7 +325,7 @@ type="text/css">
                   ja-lang="リファレンス"
                   es-lang="Referencia"
                   >Reference</a></li>
-                <li><a href="../../../tools/index.html"
+                <li><a href="../../../sdk/index.html"
                   zh-tw-lang="相關工具"
                   zh-cn-lang="工具"
                   ru-lang="Инструменты"
@@ -306,7 +333,6 @@ type="text/css">
                   ja-lang="ツール"
                   es-lang="Herramientas"
                   >Tools</a>
-                  <ul><li><a href="../../../sdk/index.html">Get the SDK</a></li></ul>
                 </li>
                 <li><a href="../../../google/index.html">Google Services</a>
                 </li>
@@ -358,7 +384,7 @@ type="text/css">
                   ja-lang="リファレンス"
                   es-lang="Referencia"
                   >Reference</a></li>
-                <li class="tools"><a href="../../../tools/index.html"
+                <li class="tools"><a href="../../../sdk/index.html"
                   zh-tw-lang="相關工具"
                   zh-cn-lang="工具"
                   ru-lang="Инструменты"
@@ -373,7 +399,7 @@ type="text/css">
             </ul>
         </div>
     </div>
-    <!-- /Sendondary x-nav -->
+    <!-- /Sendondary x-nav DEVELOP -->
 
   
 
@@ -414,7 +440,7 @@ type="text/css">
         <div id="api-nav-title">Android APIs</div>
         </div><!-- end nav header -->
       <script>
-        var SINCE_DATA = [ '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19' ];
+        var SINCE_DATA = [ '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21' ];
         buildApiLevelSelector();
       </script>
                   
@@ -441,13 +467,15 @@ type="text/css">
   <a href="../../../reference/android/app/admin/package-summary.html">android.app.admin</a></li>
     <li class="api apilevel-8">
   <a href="../../../reference/android/app/backup/package-summary.html">android.app.backup</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/app/job/package-summary.html">android.app.job</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/app/usage/package-summary.html">android.app.usage</a></li>
     <li class="api apilevel-3">
   <a href="../../../reference/android/appwidget/package-summary.html">android.appwidget</a></li>
     <li class="api apilevel-5">
   <a href="../../../reference/android/bluetooth/package-summary.html">android.bluetooth</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/bluetooth/le/package-summary.html">android.bluetooth.le</a></li>
     <li class="api apilevel-1">
   <a href="../../../reference/android/content/package-summary.html">android.content</a></li>
@@ -473,16 +501,14 @@ type="text/css">
   <a href="../../../reference/android/graphics/pdf/package-summary.html">android.graphics.pdf</a></li>
     <li class="api apilevel-1">
   <a href="../../../reference/android/hardware/package-summary.html">android.hardware</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/hardware/camera2/package-summary.html">android.hardware.camera2</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/hardware/camera2/params/package-summary.html">android.hardware.camera2.params</a></li>
     <li class="api apilevel-17">
   <a href="../../../reference/android/hardware/display/package-summary.html">android.hardware.display</a></li>
     <li class="api apilevel-16">
   <a href="../../../reference/android/hardware/input/package-summary.html">android.hardware.input</a></li>
-    <li class="api apilevel-18">
-  <a href="../../../reference/android/hardware/location/package-summary.html">android.hardware.location</a></li>
     <li class="api apilevel-12">
   <a href="../../../reference/android/hardware/usb/package-summary.html">android.hardware.usb</a></li>
     <li class="api apilevel-3">
@@ -493,11 +519,15 @@ type="text/css">
   <a href="../../../reference/android/media/package-summary.html">android.media</a></li>
     <li class="api apilevel-9">
   <a href="../../../reference/android/media/audiofx/package-summary.html">android.media.audiofx</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/media/browse/package-summary.html">android.media.browse</a></li>
     <li class="api apilevel-14">
   <a href="../../../reference/android/media/effect/package-summary.html">android.media.effect</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/media/projection/package-summary.html">android.media.projection</a></li>
+    <li class="api apilevel-21">
   <a href="../../../reference/android/media/session/package-summary.html">android.media.session</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/media/tv/package-summary.html">android.media.tv</a></li>
     <li class="api apilevel-12">
   <a href="../../../reference/android/mtp/package-summary.html">android.mtp</a></li>
@@ -547,11 +577,15 @@ type="text/css">
   <a href="../../../reference/android/security/package-summary.html">android.security</a></li>
     <li class="api apilevel-17">
   <a href="../../../reference/android/service/dreams/package-summary.html">android.service.dreams</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/service/media/package-summary.html">android.service.media</a></li>
     <li class="api apilevel-18">
   <a href="../../../reference/android/service/notification/package-summary.html">android.service.notification</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/service/restrictions/package-summary.html">android.service.restrictions</a></li>
     <li class="api apilevel-14">
   <a href="../../../reference/android/service/textservice/package-summary.html">android.service.textservice</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/service/voice/package-summary.html">android.service.voice</a></li>
     <li class="api apilevel-7">
   <a href="../../../reference/android/service/wallpaper/package-summary.html">android.service.wallpaper</a></li>
@@ -596,11 +630,15 @@ type="text/css">
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/media/package-summary.html">android.support.v4.media</a></li>
     <li class="api apilevel-">
+  <a href="../../../reference/android/support/v4/media/session/package-summary.html">android.support.v4.media.session</a></li>
+    <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/net/package-summary.html">android.support.v4.net</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/os/package-summary.html">android.support.v4.os</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/print/package-summary.html">android.support.v4.print</a></li>
+    <li class="api apilevel-">
+  <a href="../../../reference/android/support/v4/provider/package-summary.html">android.support.v4.provider</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/text/package-summary.html">android.support.v4.text</a></li>
     <li class="api apilevel-">
@@ -616,6 +654,10 @@ type="text/css">
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v7/appcompat/package-summary.html">android.support.v7.appcompat</a></li>
     <li class="api apilevel-">
+  <a href="../../../reference/android/support/v7/cardview/package-summary.html">android.support.v7.cardview</a></li>
+    <li class="api apilevel-">
+  <a href="../../../reference/android/support/v7/graphics/package-summary.html">android.support.v7.graphics</a></li>
+    <li class="api apilevel-">
   <a href="../../../reference/android/support/v7/gridlayout/package-summary.html">android.support.v7.gridlayout</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v7/media/package-summary.html">android.support.v7.media</a></li>
@@ -627,8 +669,10 @@ type="text/css">
   <a href="../../../reference/android/support/v7/widget/package-summary.html">android.support.v7.widget</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v8/renderscript/package-summary.html">android.support.v8.renderscript</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/system/package-summary.html">android.system</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/telecom/package-summary.html">android.telecom</a></li>
     <li class="api apilevel-1">
   <a href="../../../reference/android/telephony/package-summary.html">android.telephony</a></li>
     <li class="api apilevel-5">
@@ -888,7 +932,7 @@ type="text/css">
               
     <li><h2>Interfaces</h2>
       <ul>
-          <li class="api apilevel-"><a href="../../../reference/android/net/ConnectivityManager.OnNetworkActiveListener.html">ConnectivityManager.OnNetworkActiveListener</a></li>
+          <li class="api apilevel-21"><a href="../../../reference/android/net/ConnectivityManager.OnNetworkActiveListener.html">ConnectivityManager.OnNetworkActiveListener</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/net/UrlQuerySanitizer.ValueSanitizer.html">UrlQuerySanitizer.ValueSanitizer</a></li>
       </ul>
     </li>
@@ -896,24 +940,25 @@ type="text/css">
     <li><h2>Classes</h2>
       <ul>
           <li class="api apilevel-1"><a href="../../../reference/android/net/ConnectivityManager.html">ConnectivityManager</a></li>
-          <li class="api apilevel-"><a href="../../../reference/android/net/ConnectivityManager.NetworkCallback.html">ConnectivityManager.NetworkCallback</a></li>
+          <li class="api apilevel-21"><a href="../../../reference/android/net/ConnectivityManager.NetworkCallback.html">ConnectivityManager.NetworkCallback</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/net/Credentials.html">Credentials</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/net/DhcpInfo.html">DhcpInfo</a></li>
-          <li class="api apilevel-"><a href="../../../reference/android/net/IpPrefix.html">IpPrefix</a></li>
-          <li class="api apilevel-"><a href="../../../reference/android/net/LinkAddress.html">LinkAddress</a></li>
-          <li class="api apilevel-"><a href="../../../reference/android/net/LinkProperties.html">LinkProperties</a></li>
+          <li class="api apilevel-21"><a href="../../../reference/android/net/IpPrefix.html">IpPrefix</a></li>
+          <li class="api apilevel-21"><a href="../../../reference/android/net/LinkAddress.html">LinkAddress</a></li>
+          <li class="api apilevel-21"><a href="../../../reference/android/net/LinkProperties.html">LinkProperties</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/net/LocalServerSocket.html">LocalServerSocket</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/net/LocalSocket.html">LocalSocket</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/net/LocalSocketAddress.html">LocalSocketAddress</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/net/MailTo.html">MailTo</a></li>
-          <li class="api apilevel-"><a href="../../../reference/android/net/Network.html">Network</a></li>
-          <li class="api apilevel-"><a href="../../../reference/android/net/NetworkCapabilities.html">NetworkCapabilities</a></li>
+          <li class="api apilevel-21"><a href="../../../reference/android/net/Network.html">Network</a></li>
+          <li class="api apilevel-21"><a href="../../../reference/android/net/NetworkCapabilities.html">NetworkCapabilities</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/net/NetworkInfo.html">NetworkInfo</a></li>
-          <li class="api apilevel-"><a href="../../../reference/android/net/NetworkRequest.html">NetworkRequest</a></li>
-          <li class="api apilevel-"><a href="../../../reference/android/net/NetworkRequest.Builder.html">NetworkRequest.Builder</a></li>
+          <li class="api apilevel-21"><a href="../../../reference/android/net/NetworkRequest.html">NetworkRequest</a></li>
+          <li class="api apilevel-21"><a href="../../../reference/android/net/NetworkRequest.Builder.html">NetworkRequest.Builder</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/net/Proxy.html">Proxy</a></li>
-          <li class="api apilevel-"><a href="../../../reference/android/net/ProxyInfo.html">ProxyInfo</a></li>
-          <li class="api apilevel-"><a href="../../../reference/android/net/RouteInfo.html">RouteInfo</a></li>
+          <li class="api apilevel-21"><a href="../../../reference/android/net/ProxyInfo.html">ProxyInfo</a></li>
+          <li class="api apilevel-21"><a href="../../../reference/android/net/PskKeyManager.html">PskKeyManager</a></li>
+          <li class="api apilevel-21"><a href="../../../reference/android/net/RouteInfo.html">RouteInfo</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/net/SSLCertificateSocketFactory.html">SSLCertificateSocketFactory</a></li>
           <li class="api apilevel-8"><a href="../../../reference/android/net/SSLSessionCache.html">SSLSessionCache</a></li>
           <li class="api apilevel-8"><a href="../../../reference/android/net/TrafficStats.html">TrafficStats</a></li>
@@ -1090,6 +1135,9 @@ Summary:
   
 
 
+    
+
+
 </div><!-- end header -->
 
 <div id="naMessage"></div>
@@ -1176,7 +1224,12 @@ Summary:
         
         class</nobr></td>
       <td class="jd-linkcol"><a href="../../../reference/android/net/Uri.Builder.html">Uri.Builder</a></td>
-      <td class="jd-descrcol" width="100%">Helper class for building or manipulating URI references.&nbsp;</td>
+      <td class="jd-descrcol" width="100%">
+        Helper class for building or manipulating URI references.&nbsp;
+        
+    
+
+      </td>
     </tr>
     
     
@@ -1224,20 +1277,30 @@ Summary:
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/os/Parcelable.html#CONTENTS_FILE_DESCRIPTOR">CONTENTS_FILE_DESCRIPTOR</a></td>
-        <td class="jd-descrcol" width="100%">Bit masks for use with <code><a href="../../../reference/android/os/Parcelable.html#describeContents()">describeContents()</a></code>: each bit represents a
+        <td class="jd-descrcol" width="100%">
+          Bit masks for use with <code><a href="../../../reference/android/os/Parcelable.html#describeContents()">describeContents()</a></code>: each bit represents a
  kind of object considered to have potential special significance when
- marshalled.</td>
+ marshalled.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/os/Parcelable.html#PARCELABLE_WRITE_RETURN_VALUE">PARCELABLE_WRITE_RETURN_VALUE</a></td>
-        <td class="jd-descrcol" width="100%">Flag for use with <code><a href="../../../reference/android/os/Parcelable.html#writeToParcel(android.os.Parcel, int)">writeToParcel(Parcel, int)</a></code>: the object being written
+        <td class="jd-descrcol" width="100%">
+          Flag for use with <code><a href="../../../reference/android/os/Parcelable.html#writeToParcel(android.os.Parcel, int)">writeToParcel(Parcel, int)</a></code>: the object being written
  is a return value, that is the result of a function such as
  "<code>Parcelable someFunction()</code>",
  "<code>void someFunction(out Parcelable)</code>", or
- "<code>void someFunction(inout Parcelable)</code>".</td>
+ "<code>void someFunction(inout Parcelable)</code>".
+          
+    
+
+        </td>
     </tr>
     
     
@@ -1266,7 +1329,12 @@ Summary:
           final
           <a href="../../../reference/android/os/Parcelable.Creator.html">Creator</a>&lt;<a href="../../../reference/android/net/Uri.html">Uri</a>&gt;</nobr></td>
           <td class="jd-linkcol"><a href="../../../reference/android/net/Uri.html#CREATOR">CREATOR</a></td>
-          <td class="jd-descrcol" width="100%">Reads Uris from Parcels.</td>
+          <td class="jd-descrcol" width="100%">
+            Reads Uris from Parcels.
+            
+    
+
+          </td>
       </tr>
       
     
@@ -1277,7 +1345,12 @@ Summary:
           final
           <a href="../../../reference/android/net/Uri.html">Uri</a></nobr></td>
           <td class="jd-linkcol"><a href="../../../reference/android/net/Uri.html#EMPTY">EMPTY</a></td>
-          <td class="jd-descrcol" width="100%">The empty URI, equivalent to "".</td>
+          <td class="jd-descrcol" width="100%">
+            The empty URI, equivalent to "".
+            
+    
+
+          </td>
       </tr>
       
     
@@ -1312,7 +1385,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/net/Uri.html#buildUpon()">buildUpon</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Constructs a new builder, copying the attributes from this Uri.</div>
+        <div class="jd-descrdiv">
+          Constructs a new builder, copying the attributes from this Uri.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1330,8 +1408,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/net/Uri.html#compareTo(android.net.Uri)">compareTo</a></span>(<a href="../../../reference/android/net/Uri.html">Uri</a> other)</nobr>
         
-        <div class="jd-descrdiv">Compares the string representation of this Uri with that of
- another.</div>
+        <div class="jd-descrdiv">
+          Compares the string representation of this Uri with that of
+ another.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1349,7 +1432,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/net/Uri.html#decode(java.lang.String)">decode</a></span>(<a href="../../../reference/java/lang/String.html">String</a> s)</nobr>
         
-        <div class="jd-descrdiv">Decodes '%'-escaped octets in the given string using the UTF-8 scheme.</div>
+        <div class="jd-descrdiv">
+          Decodes '%'-escaped octets in the given string using the UTF-8 scheme.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1367,8 +1455,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/net/Uri.html#encode(java.lang.String, java.lang.String)">encode</a></span>(<a href="../../../reference/java/lang/String.html">String</a> s, <a href="../../../reference/java/lang/String.html">String</a> allow)</nobr>
         
-        <div class="jd-descrdiv">Encodes characters in the given string as '%'-escaped octets
- using the UTF-8 scheme.</div>
+        <div class="jd-descrdiv">
+          Encodes characters in the given string as '%'-escaped octets
+ using the UTF-8 scheme.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1386,8 +1479,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/net/Uri.html#encode(java.lang.String)">encode</a></span>(<a href="../../../reference/java/lang/String.html">String</a> s)</nobr>
         
-        <div class="jd-descrdiv">Encodes characters in the given string as '%'-escaped octets
- using the UTF-8 scheme.</div>
+        <div class="jd-descrdiv">
+          Encodes characters in the given string as '%'-escaped octets
+ using the UTF-8 scheme.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1405,7 +1503,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/net/Uri.html#equals(java.lang.Object)">equals</a></span>(<a href="../../../reference/java/lang/Object.html">Object</a> o)</nobr>
         
-        <div class="jd-descrdiv">Compares this Uri to another object for equality.</div>
+        <div class="jd-descrdiv">
+          Compares this Uri to another object for equality.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1423,7 +1526,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/net/Uri.html#fromFile(java.io.File)">fromFile</a></span>(<a href="../../../reference/java/io/File.html">File</a> file)</nobr>
         
-        <div class="jd-descrdiv">Creates a Uri from a file.</div>
+        <div class="jd-descrdiv">
+          Creates a Uri from a file.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1441,7 +1549,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/net/Uri.html#fromParts(java.lang.String, java.lang.String, java.lang.String)">fromParts</a></span>(<a href="../../../reference/java/lang/String.html">String</a> scheme, <a href="../../../reference/java/lang/String.html">String</a> ssp, <a href="../../../reference/java/lang/String.html">String</a> fragment)</nobr>
         
-        <div class="jd-descrdiv">Creates an opaque Uri from the given components.</div>
+        <div class="jd-descrdiv">
+          Creates an opaque Uri from the given components.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1459,7 +1572,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/net/Uri.html#getAuthority()">getAuthority</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Gets the decoded authority part of this URI.</div>
+        <div class="jd-descrdiv">
+          Gets the decoded authority part of this URI.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1477,8 +1595,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/net/Uri.html#getBooleanQueryParameter(java.lang.String, boolean)">getBooleanQueryParameter</a></span>(<a href="../../../reference/java/lang/String.html">String</a> key, boolean defaultValue)</nobr>
         
-        <div class="jd-descrdiv">Searches the query string for the first value with the given key and interprets it
- as a boolean value.</div>
+        <div class="jd-descrdiv">
+          Searches the query string for the first value with the given key and interprets it
+ as a boolean value.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1496,7 +1619,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/net/Uri.html#getEncodedAuthority()">getEncodedAuthority</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Gets the encoded authority part of this URI.</div>
+        <div class="jd-descrdiv">
+          Gets the encoded authority part of this URI.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1514,7 +1642,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/net/Uri.html#getEncodedFragment()">getEncodedFragment</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Gets the encoded fragment part of this URI, everything after the '#'.</div>
+        <div class="jd-descrdiv">
+          Gets the encoded fragment part of this URI, everything after the '#'.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1532,7 +1665,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/net/Uri.html#getEncodedPath()">getEncodedPath</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Gets the encoded path.</div>
+        <div class="jd-descrdiv">
+          Gets the encoded path.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1550,7 +1688,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/net/Uri.html#getEncodedQuery()">getEncodedQuery</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Gets the encoded query component from this URI.</div>
+        <div class="jd-descrdiv">
+          Gets the encoded query component from this URI.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1568,7 +1711,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/net/Uri.html#getEncodedSchemeSpecificPart()">getEncodedSchemeSpecificPart</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Gets the scheme-specific part of this URI, i.e.</div>
+        <div class="jd-descrdiv">
+          Gets the scheme-specific part of this URI, i.e.&nbsp;everything between
+ the scheme separator ':' and the fragment separator '#'.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1586,7 +1735,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/net/Uri.html#getEncodedUserInfo()">getEncodedUserInfo</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Gets the encoded user information from the authority.</div>
+        <div class="jd-descrdiv">
+          Gets the encoded user information from the authority.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1604,7 +1758,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/net/Uri.html#getFragment()">getFragment</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Gets the decoded fragment part of this URI, everything after the '#'.</div>
+        <div class="jd-descrdiv">
+          Gets the decoded fragment part of this URI, everything after the '#'.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1622,7 +1781,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/net/Uri.html#getHost()">getHost</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Gets the encoded host from the authority for this URI.</div>
+        <div class="jd-descrdiv">
+          Gets the encoded host from the authority for this URI.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1640,7 +1804,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/net/Uri.html#getLastPathSegment()">getLastPathSegment</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Gets the decoded last segment in the path.</div>
+        <div class="jd-descrdiv">
+          Gets the decoded last segment in the path.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1658,7 +1827,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/net/Uri.html#getPath()">getPath</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Gets the decoded path.</div>
+        <div class="jd-descrdiv">
+          Gets the decoded path.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1676,7 +1850,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/net/Uri.html#getPathSegments()">getPathSegments</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Gets the decoded path segments.</div>
+        <div class="jd-descrdiv">
+          Gets the decoded path segments.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1694,7 +1873,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/net/Uri.html#getPort()">getPort</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Gets the port from the authority for this URI.</div>
+        <div class="jd-descrdiv">
+          Gets the port from the authority for this URI.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1712,7 +1896,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/net/Uri.html#getQuery()">getQuery</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Gets the decoded query component from this URI.</div>
+        <div class="jd-descrdiv">
+          Gets the decoded query component from this URI.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1730,7 +1919,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/net/Uri.html#getQueryParameter(java.lang.String)">getQueryParameter</a></span>(<a href="../../../reference/java/lang/String.html">String</a> key)</nobr>
         
-        <div class="jd-descrdiv">Searches the query string for the first value with the given key.</div>
+        <div class="jd-descrdiv">
+          Searches the query string for the first value with the given key.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1748,7 +1942,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/net/Uri.html#getQueryParameterNames()">getQueryParameterNames</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns a set of the unique names of all query parameters.</div>
+        <div class="jd-descrdiv">
+          Returns a set of the unique names of all query parameters.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1766,7 +1965,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/net/Uri.html#getQueryParameters(java.lang.String)">getQueryParameters</a></span>(<a href="../../../reference/java/lang/String.html">String</a> key)</nobr>
         
-        <div class="jd-descrdiv">Searches the query string for parameter values with the given key.</div>
+        <div class="jd-descrdiv">
+          Searches the query string for parameter values with the given key.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1784,7 +1988,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/net/Uri.html#getScheme()">getScheme</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Gets the scheme of this URI.</div>
+        <div class="jd-descrdiv">
+          Gets the scheme of this URI.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1802,7 +2011,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/net/Uri.html#getSchemeSpecificPart()">getSchemeSpecificPart</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Gets the scheme-specific part of this URI, i.e.</div>
+        <div class="jd-descrdiv">
+          Gets the scheme-specific part of this URI, i.e.&nbsp;everything between
+ the scheme separator ':' and the fragment separator '#'.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1820,7 +2035,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/net/Uri.html#getUserInfo()">getUserInfo</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Gets the decoded user information from the authority.</div>
+        <div class="jd-descrdiv">
+          Gets the decoded user information from the authority.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1838,8 +2058,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/net/Uri.html#hashCode()">hashCode</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Hashes the encoded string represention of this Uri consistently with
- <code><a href="../../../reference/android/net/Uri.html#equals(java.lang.Object)">equals(Object)</a></code>.</div>
+        <div class="jd-descrdiv">
+          Hashes the encoded string represention of this Uri consistently with
+ <code><a href="../../../reference/android/net/Uri.html#equals(java.lang.Object)">equals(Object)</a></code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1857,7 +2082,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/net/Uri.html#isAbsolute()">isAbsolute</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns true if this URI is absolute, i.e.</div>
+        <div class="jd-descrdiv">
+          Returns true if this URI is absolute, i.e.&nbsp;if it contains an
+ explicit scheme.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1875,7 +2106,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/net/Uri.html#isHierarchical()">isHierarchical</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns true if this URI is hierarchical like "http://google.com".</div>
+        <div class="jd-descrdiv">
+          Returns true if this URI is hierarchical like "http://google.com".
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1893,7 +2129,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/net/Uri.html#isOpaque()">isOpaque</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns true if this URI is opaque like "mailto:nobody@google.com".</div>
+        <div class="jd-descrdiv">
+          Returns true if this URI is opaque like "mailto:nobody@google.com".
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1911,7 +2152,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/net/Uri.html#isRelative()">isRelative</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns true if this URI is relative, i.e.</div>
+        <div class="jd-descrdiv">
+          Returns true if this URI is relative, i.e.&nbsp;if it doesn't contain an
+ explicit scheme.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1929,7 +2176,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/net/Uri.html#normalizeScheme()">normalizeScheme</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Return an equivalent URI with a lowercase scheme component.</div>
+        <div class="jd-descrdiv">
+          Return an equivalent URI with a lowercase scheme component.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1947,7 +2199,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/net/Uri.html#parse(java.lang.String)">parse</a></span>(<a href="../../../reference/java/lang/String.html">String</a> uriString)</nobr>
         
-        <div class="jd-descrdiv">Creates a Uri which parses the given encoded URI string.</div>
+        <div class="jd-descrdiv">
+          Creates a Uri which parses the given encoded URI string.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1965,7 +2222,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/net/Uri.html#toString()">toString</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns the encoded string representation of this URI.</div>
+        <div class="jd-descrdiv">
+          Returns the encoded string representation of this URI.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1983,8 +2245,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/net/Uri.html#withAppendedPath(android.net.Uri, java.lang.String)">withAppendedPath</a></span>(<a href="../../../reference/android/net/Uri.html">Uri</a> baseUri, <a href="../../../reference/java/lang/String.html">String</a> pathSegment)</nobr>
         
-        <div class="jd-descrdiv">Creates a new Uri by appending an already-encoded path segment to a
- base Uri.</div>
+        <div class="jd-descrdiv">
+          Creates a new Uri by appending an already-encoded path segment to a
+ base Uri.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2002,7 +2269,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/net/Uri.html#writeToParcel(android.os.Parcel, android.net.Uri)">writeToParcel</a></span>(<a href="../../../reference/android/os/Parcel.html">Parcel</a> out, <a href="../../../reference/android/net/Uri.html">Uri</a> uri)</nobr>
         
-        <div class="jd-descrdiv">Writes a Uri to a Parcel.</div>
+        <div class="jd-descrdiv">
+          Writes a Uri to a Parcel.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2054,7 +2326,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#clone()">clone</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Creates and returns a copy of this <code>Object</code>.</div>
+        <div class="jd-descrdiv">
+          Creates and returns a copy of this <code>Object</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2072,8 +2349,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#equals(java.lang.Object)">equals</a></span>(<a href="../../../reference/java/lang/Object.html">Object</a> o)</nobr>
         
-        <div class="jd-descrdiv">Compares this instance with the specified object and indicates if they
- are equal.</div>
+        <div class="jd-descrdiv">
+          Compares this instance with the specified object and indicates if they
+ are equal.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2091,7 +2373,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#finalize()">finalize</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Invoked when the garbage collector has detected that this instance is no longer reachable.</div>
+        <div class="jd-descrdiv">
+          Invoked when the garbage collector has detected that this instance is no longer reachable.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2109,8 +2396,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#getClass()">getClass</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns the unique instance of <code><a href="../../../reference/java/lang/Class.html">Class</a></code> that represents this
- object's class.</div>
+        <div class="jd-descrdiv">
+          Returns the unique instance of <code><a href="../../../reference/java/lang/Class.html">Class</a></code> that represents this
+ object's class.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2128,7 +2420,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#hashCode()">hashCode</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns an integer hash code for this object.</div>
+        <div class="jd-descrdiv">
+          Returns an integer hash code for this object.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2146,8 +2443,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#notify()">notify</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Causes a thread which is waiting on this object's monitor (by means of
- calling one of the <code>wait()</code> methods) to be woken up.</div>
+        <div class="jd-descrdiv">
+          Causes a thread which is waiting on this object's monitor (by means of
+ calling one of the <code>wait()</code> methods) to be woken up.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2165,8 +2467,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#notifyAll()">notifyAll</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Causes all threads which are waiting on this object's monitor (by means
- of calling one of the <code>wait()</code> methods) to be woken up.</div>
+        <div class="jd-descrdiv">
+          Causes all threads which are waiting on this object's monitor (by means
+ of calling one of the <code>wait()</code> methods) to be woken up.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2184,8 +2491,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#toString()">toString</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns a string containing a concise, human-readable description of this
- object.</div>
+        <div class="jd-descrdiv">
+          Returns a string containing a concise, human-readable description of this
+ object.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2203,7 +2515,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#wait()">wait</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object.</div>
+        <div class="jd-descrdiv">
+          Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2221,8 +2538,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#wait(long, int)">wait</a></span>(long millis, int nanos)</nobr>
         
-        <div class="jd-descrdiv">Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object or until the
- specified timeout expires.</div>
+        <div class="jd-descrdiv">
+          Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object or until the
+ specified timeout expires.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2240,8 +2562,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#wait(long)">wait</a></span>(long millis)</nobr>
         
-        <div class="jd-descrdiv">Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object or until the
- specified timeout expires.</div>
+        <div class="jd-descrdiv">
+          Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object or until the
+ specified timeout expires.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2285,8 +2612,13 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/os/Parcelable.html#describeContents()">describeContents</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Describe the kinds of special objects contained in this Parcelable's
- marshalled representation.</div>
+        <div class="jd-descrdiv">
+          Describe the kinds of special objects contained in this Parcelable's
+ marshalled representation.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2304,7 +2636,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/os/Parcelable.html#writeToParcel(android.os.Parcel, int)">writeToParcel</a></span>(<a href="../../../reference/android/os/Parcel.html">Parcel</a> dest, int flags)</nobr>
         
-        <div class="jd-descrdiv">Flatten this object in to a Parcel.</div>
+        <div class="jd-descrdiv">
+          Flatten this object in to a Parcel.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2348,8 +2685,13 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Comparable.html#compareTo(T)">compareTo</a></span>(T another)</nobr>
         
-        <div class="jd-descrdiv">Compares this object to the specified object to determine their relative
- order.</div>
+        <div class="jd-descrdiv">
+          Compares this object to the specified object to determine their relative
+ order.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2413,6 +2755,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Reads Uris from Parcels.
 </p></div>
 
@@ -2442,6 +2787,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>The empty URI, equivalent to "".
 </p></div>
@@ -2493,6 +2841,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Constructs a new builder, copying the attributes from this Uri.
 </p></div>
 
@@ -2523,6 +2874,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Compares the string representation of this Uri with that of
  another.
@@ -2555,6 +2909,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Decodes '%'-escaped octets in the given string using the UTF-8 scheme.
  Replaces invalid octets with the unicode replacement character
@@ -2602,6 +2959,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Encodes characters in the given string as '%'-escaped octets
  using the UTF-8 scheme. Leaves letters ("A-Z", "a-z"), numbers
@@ -2657,6 +3017,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Encodes characters in the given string as '%'-escaped octets
  using the UTF-8 scheme. Leaves letters ("A-Z", "a-z"), numbers
  ("0-9"), and unreserved characters ("_-!.~'()*") intact. Encodes
@@ -2704,6 +3067,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Compares this Uri to another object for equality. Returns true if the
  encoded string representations of this Uri and the given Uri are
@@ -2753,6 +3119,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Creates a Uri from a file. The URI has the form
  "file://<absolute path>". Encodes path characters with the exception of
  '/'.
@@ -2800,6 +3169,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Creates an opaque Uri from the given components. Encodes the ssp
  which means this method cannot be used to create hierarchical URIs.</p></div>
@@ -2871,6 +3243,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Gets the decoded authority part of this URI. For
  server addresses, the authority is structured as follows:
  <code>[ userinfo '@' ] host [ ':' port ]</code>
@@ -2909,6 +3284,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Searches the query string for the first value with the given key and interprets it
  as a boolean value. "false" and "0" are interpreted as <code>false</code>, everything
@@ -2960,6 +3338,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Gets the encoded authority part of this URI. For
  server addresses, the authority is structured as follows:
  <code>[ userinfo '@' ] host [ ':' port ]</code>
@@ -2999,6 +3380,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Gets the encoded fragment part of this URI, everything after the '#'.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
@@ -3033,6 +3417,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Gets the encoded path.</p></div>
   <div class="jd-tagdata">
@@ -3069,6 +3456,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Gets the encoded query component from this URI. The query comes after
  the query separator ('?') and before the fragment separator ('#'). This
@@ -3108,8 +3498,11 @@ From interface
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Gets the scheme-specific part of this URI, i.e. everything between the
- scheme separator ':' and the fragment separator '#'. If this is a
+    
+
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Gets the scheme-specific part of this URI, i.e.&nbsp;everything between
+ the scheme separator ':' and the fragment separator '#'. If this is a
  relative URI, this method returns the entire URI. Leaves escaped octets
  intact.
 
@@ -3148,6 +3541,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Gets the encoded user information from the authority.
  For example, if the authority is "nobody@google.com", this method will
  return "nobody".</p></div>
@@ -3185,6 +3581,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Gets the decoded fragment part of this URI, everything after the '#'.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
@@ -3219,6 +3618,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Gets the encoded host from the authority for this URI. For example,
  if the authority is "bob@google.com", this method will return
@@ -3257,6 +3659,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Gets the decoded last segment in the path.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
@@ -3291,6 +3696,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Gets the decoded path.</p></div>
   <div class="jd-tagdata">
@@ -3328,6 +3736,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Gets the decoded path segments.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
@@ -3362,6 +3773,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Gets the port from the authority for this URI. For example,
  if the authority is "google.com:80", this method will return 80.</p></div>
@@ -3398,6 +3812,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Gets the decoded query component from this URI. The query comes after
  the query separator ('?') and before the fragment separator ('#'). This
@@ -3436,6 +3853,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Searches the query string for the first value with the given key.
 
@@ -3497,6 +3917,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns a set of the unique names of all query parameters. Iterating
  over the set will return the names in order of their first occurrence.</p></div>
   <div class="jd-tagdata">
@@ -3541,6 +3964,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Searches the query string for parameter values with the given key.</p></div>
   <div class="jd-tagdata">
@@ -3599,6 +4025,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Gets the scheme of this URI. Example: "http"</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
@@ -3634,8 +4063,11 @@ From interface
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Gets the scheme-specific part of this URI, i.e. everything between the
- scheme separator ':' and the fragment separator '#'. If this is a
+    
+
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Gets the scheme-specific part of this URI, i.e.&nbsp;everything between
+ the scheme separator ':' and the fragment separator '#'. If this is a
  relative URI, this method returns the entire URI. Decodes escaped octets.
 
  <p>Example: "//www.google.com/search?q=android"</p></div>
@@ -3672,6 +4104,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Gets the decoded user information from the authority.
  For example, if the authority is "nobody@google.com", this method will
@@ -3710,6 +4145,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Hashes the encoded string represention of this Uri consistently with
  <code><a href="../../../reference/android/net/Uri.html#equals(java.lang.Object)">equals(Object)</a></code>.
 </p></div>
@@ -3746,7 +4184,10 @@ From interface
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Returns true if this URI is absolute, i.e. if it contains an
+    
+
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Returns true if this URI is absolute, i.e.&nbsp;if it contains an
  explicit scheme.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
@@ -3782,6 +4223,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns true if this URI is hierarchical like "http://google.com".
  Absolute URIs are hierarchical if the scheme-specific part starts with
  a '/'. Relative URIs are always hierarchical.
@@ -3815,6 +4259,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns true if this URI is opaque like "mailto:nobody@google.com". The
  scheme-specific part of an opaque URI cannot start with a '/'.
 </p></div>
@@ -3847,7 +4294,10 @@ From interface
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Returns true if this URI is relative, i.e. if it doesn't contain an
+    
+
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Returns true if this URI is relative, i.e.&nbsp;if it doesn't contain an
  explicit scheme.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
@@ -3882,6 +4332,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Return an equivalent URI with a lowercase scheme component.
  This aligns the Uri with Android best practices for
@@ -3937,6 +4390,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Creates a Uri which parses the given encoded URI string.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -3990,6 +4446,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns the encoded string representation of this URI.
  Example: "http://google.com/"
 </p></div>
@@ -4026,6 +4485,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Creates a new Uri by appending an already-encoded path segment to a
  base Uri.</p></div>
@@ -4085,6 +4547,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Writes a Uri to a Parcel.</p></div>
   <div class="jd-tagdata">

@@ -82,6 +82,19 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 <html>
 <head>
 
@@ -97,7 +110,7 @@
 href="http://fonts.useso.com/css?family=Roboto+Condensed">
 <link rel="stylesheet" href="http://fonts.useso.com/css?family=Roboto:light,regular,medium,thin,italic,mediumitalic,bold"
   title="roboto">
-<link href="../../../assets/css/default.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/default.css?v=2" rel="stylesheet" type="text/css">
 
 
 <!-- FULLSCREEN STYLESHEET -->
@@ -106,31 +119,32 @@ type="text/css">
 
 
 <!-- JAVASCRIPT -->
-<script src="http://googleapiscdn.qiniudn.com/www.google.com/jsapi" type="text/javascript"></script>
+<script src="http://www.google.com/jsapi" type="text/javascript"></script>
 <script src="../../../assets/js/android_3p-bundle.js" type="text/javascript"></script>
 <script type="text/javascript">
   var toRoot = "../../../";
   var metaTags = [];
   var devsite = false;
 </script>
-<script src="../../../assets/js/docs.js" type="text/javascript"></script>
+<script src="../../../assets/js/docs.js?v=2" type="text/javascript"></script>
 
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-5831155-1']);
-  _gaq.push(['_trackPageview']);
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
+  ga('create', 'UA-5831155-1', 'android.com');
+  ga('create', 'UA-49880327-2', 'android.com', {'name': 'universal'});  // New tracker);
+  ga('send', 'pageview');
+  ga('universal.send', 'pageview'); // Send page view for new tracker.
 </script>
+
 </head>
 
 
 <body class="gc-documentation 
-  develop">
+  develop reference">
   <div id="doc-api-level" class="1" style="display:none"></div>
   <a name="top"></a>
 
@@ -140,6 +154,10 @@ type="text/css">
   <!-- Header -->
   <div id="header-wrapper">
     <div id="header">
+
+    
+
+
       <div class="wrap" id="header-wrap">
         <div class="col-3 logo">
           <a href="../../../index.html">
@@ -261,11 +279,20 @@ type="text/css">
 
 
         <!-- Expanded quicknav -->
-        <div id="quicknav" class="col-9">
+        <div id="quicknav" class="col-13">
           <ul>
+            <li class="about">
+              <ul>
+                <li><a href="../../../about/index.html">About</a></li>
+                <li><a href="../../../wear/index.html">Wear</a></li>
+                <li><a href="../../../tv/index.html">TV</a></li>
+                <li><a href="../../../auto/index.html">Auto</a></li>
+              </ul>
+            </li>
             <li class="design">
               <ul>
                 <li><a href="../../../design/index.html">Get Started</a></li>
+                <li><a href="../../../design/devices.html">Devices</a></li>
                 <li><a href="../../../design/style/index.html">Style</a></li>
                 <li><a href="../../../design/patterns/index.html">Patterns</a></li>
                 <li><a href="../../../design/building-blocks/index.html">Building Blocks</a></li>
@@ -299,7 +326,7 @@ type="text/css">
                   ja-lang="リファレンス"
                   es-lang="Referencia"
                   >Reference</a></li>
-                <li><a href="../../../tools/index.html"
+                <li><a href="../../../sdk/index.html"
                   zh-tw-lang="相關工具"
                   zh-cn-lang="工具"
                   ru-lang="Инструменты"
@@ -307,7 +334,6 @@ type="text/css">
                   ja-lang="ツール"
                   es-lang="Herramientas"
                   >Tools</a>
-                  <ul><li><a href="../../../sdk/index.html">Get the SDK</a></li></ul>
                 </li>
                 <li><a href="../../../google/index.html">Google Services</a>
                 </li>
@@ -359,7 +385,7 @@ type="text/css">
                   ja-lang="リファレンス"
                   es-lang="Referencia"
                   >Reference</a></li>
-                <li class="tools"><a href="../../../tools/index.html"
+                <li class="tools"><a href="../../../sdk/index.html"
                   zh-tw-lang="相關工具"
                   zh-cn-lang="工具"
                   ru-lang="Инструменты"
@@ -374,7 +400,7 @@ type="text/css">
             </ul>
         </div>
     </div>
-    <!-- /Sendondary x-nav -->
+    <!-- /Sendondary x-nav DEVELOP -->
 
   
 
@@ -415,7 +441,7 @@ type="text/css">
         <div id="api-nav-title">Android APIs</div>
         </div><!-- end nav header -->
       <script>
-        var SINCE_DATA = [ '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19' ];
+        var SINCE_DATA = [ '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21' ];
         buildApiLevelSelector();
       </script>
                   
@@ -442,13 +468,15 @@ type="text/css">
   <a href="../../../reference/android/app/admin/package-summary.html">android.app.admin</a></li>
     <li class="api apilevel-8">
   <a href="../../../reference/android/app/backup/package-summary.html">android.app.backup</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/app/job/package-summary.html">android.app.job</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/app/usage/package-summary.html">android.app.usage</a></li>
     <li class="api apilevel-3">
   <a href="../../../reference/android/appwidget/package-summary.html">android.appwidget</a></li>
     <li class="api apilevel-5">
   <a href="../../../reference/android/bluetooth/package-summary.html">android.bluetooth</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/bluetooth/le/package-summary.html">android.bluetooth.le</a></li>
     <li class="api apilevel-1">
   <a href="../../../reference/android/content/package-summary.html">android.content</a></li>
@@ -474,16 +502,14 @@ type="text/css">
   <a href="../../../reference/android/graphics/pdf/package-summary.html">android.graphics.pdf</a></li>
     <li class="api apilevel-1">
   <a href="../../../reference/android/hardware/package-summary.html">android.hardware</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/hardware/camera2/package-summary.html">android.hardware.camera2</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/hardware/camera2/params/package-summary.html">android.hardware.camera2.params</a></li>
     <li class="api apilevel-17">
   <a href="../../../reference/android/hardware/display/package-summary.html">android.hardware.display</a></li>
     <li class="api apilevel-16">
   <a href="../../../reference/android/hardware/input/package-summary.html">android.hardware.input</a></li>
-    <li class="api apilevel-18">
-  <a href="../../../reference/android/hardware/location/package-summary.html">android.hardware.location</a></li>
     <li class="api apilevel-12">
   <a href="../../../reference/android/hardware/usb/package-summary.html">android.hardware.usb</a></li>
     <li class="api apilevel-3">
@@ -494,11 +520,15 @@ type="text/css">
   <a href="../../../reference/android/media/package-summary.html">android.media</a></li>
     <li class="api apilevel-9">
   <a href="../../../reference/android/media/audiofx/package-summary.html">android.media.audiofx</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/media/browse/package-summary.html">android.media.browse</a></li>
     <li class="api apilevel-14">
   <a href="../../../reference/android/media/effect/package-summary.html">android.media.effect</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/media/projection/package-summary.html">android.media.projection</a></li>
+    <li class="api apilevel-21">
   <a href="../../../reference/android/media/session/package-summary.html">android.media.session</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/media/tv/package-summary.html">android.media.tv</a></li>
     <li class="api apilevel-12">
   <a href="../../../reference/android/mtp/package-summary.html">android.mtp</a></li>
@@ -548,11 +578,15 @@ type="text/css">
   <a href="../../../reference/android/security/package-summary.html">android.security</a></li>
     <li class="api apilevel-17">
   <a href="../../../reference/android/service/dreams/package-summary.html">android.service.dreams</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/service/media/package-summary.html">android.service.media</a></li>
     <li class="api apilevel-18">
   <a href="../../../reference/android/service/notification/package-summary.html">android.service.notification</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/service/restrictions/package-summary.html">android.service.restrictions</a></li>
     <li class="api apilevel-14">
   <a href="../../../reference/android/service/textservice/package-summary.html">android.service.textservice</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/service/voice/package-summary.html">android.service.voice</a></li>
     <li class="api apilevel-7">
   <a href="../../../reference/android/service/wallpaper/package-summary.html">android.service.wallpaper</a></li>
@@ -597,11 +631,15 @@ type="text/css">
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/media/package-summary.html">android.support.v4.media</a></li>
     <li class="api apilevel-">
+  <a href="../../../reference/android/support/v4/media/session/package-summary.html">android.support.v4.media.session</a></li>
+    <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/net/package-summary.html">android.support.v4.net</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/os/package-summary.html">android.support.v4.os</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/print/package-summary.html">android.support.v4.print</a></li>
+    <li class="api apilevel-">
+  <a href="../../../reference/android/support/v4/provider/package-summary.html">android.support.v4.provider</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/text/package-summary.html">android.support.v4.text</a></li>
     <li class="api apilevel-">
@@ -617,6 +655,10 @@ type="text/css">
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v7/appcompat/package-summary.html">android.support.v7.appcompat</a></li>
     <li class="api apilevel-">
+  <a href="../../../reference/android/support/v7/cardview/package-summary.html">android.support.v7.cardview</a></li>
+    <li class="api apilevel-">
+  <a href="../../../reference/android/support/v7/graphics/package-summary.html">android.support.v7.graphics</a></li>
+    <li class="api apilevel-">
   <a href="../../../reference/android/support/v7/gridlayout/package-summary.html">android.support.v7.gridlayout</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v7/media/package-summary.html">android.support.v7.media</a></li>
@@ -628,8 +670,10 @@ type="text/css">
   <a href="../../../reference/android/support/v7/widget/package-summary.html">android.support.v7.widget</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v8/renderscript/package-summary.html">android.support.v8.renderscript</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/system/package-summary.html">android.system</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/telecom/package-summary.html">android.telecom</a></li>
     <li class="api apilevel-1">
   <a href="../../../reference/android/telephony/package-summary.html">android.telephony</a></li>
     <li class="api apilevel-5">
@@ -1046,42 +1090,101 @@ type="text/css">
     <h2>Interfaces</h2>
     <div class="jd-sumtable">
     
+  
   <table class="jd-sumtable-expando">
-        <tr class="alt-color api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/java/net/ContentHandlerFactory.html">ContentHandlerFactory</a></td>
-              <td class="jd-descrcol" width="100%">Defines a factory which is responsible for creating a <code>ContentHandler</code>.&nbsp;</td>
-          </tr>
-        <tr class=" api apilevel-9" >
-              <td class="jd-linkcol"><a href="../../../reference/java/net/CookiePolicy.html">CookiePolicy</a></td>
-              <td class="jd-descrcol" width="100%">CookiePolicy has three pre-defined policy.&nbsp;</td>
-          </tr>
-        <tr class="alt-color api apilevel-9" >
-              <td class="jd-linkcol"><a href="../../../reference/java/net/CookieStore.html">CookieStore</a></td>
-              <td class="jd-descrcol" width="100%">A CookieStore object is a repository for cookies.&nbsp;</td>
-          </tr>
-        <tr class=" api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/java/net/DatagramSocketImplFactory.html">DatagramSocketImplFactory</a></td>
-              <td class="jd-descrcol" width="100%">This interface defines a factory for datagram socket implementations.&nbsp;</td>
-          </tr>
-        <tr class="alt-color api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/java/net/FileNameMap.html">FileNameMap</a></td>
-              <td class="jd-descrcol" width="100%">Defines a scheme for mapping a filename type to a MIME content type.&nbsp;</td>
-          </tr>
-        <tr class=" api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/java/net/SocketImplFactory.html">SocketImplFactory</a></td>
-              <td class="jd-descrcol" width="100%">This interface defines a factory for socket implementations.&nbsp;</td>
-          </tr>
-        <tr class="alt-color api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/java/net/SocketOptions.html">SocketOptions</a></td>
-              <td class="jd-descrcol" width="100%">Defines an interface for socket implementations to get and set socket
- options.&nbsp;</td>
-          </tr>
-        <tr class=" api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/java/net/URLStreamHandlerFactory.html">URLStreamHandlerFactory</a></td>
-              <td class="jd-descrcol" width="100%">Defines a factory which creates an <code>URLStreamHandler</code> for a specified
- protocol.&nbsp;</td>
-          </tr>
+    
+      <tr class="alt-color api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/java/net/ContentHandlerFactory.html">ContentHandlerFactory</a></td>
+        <td class="jd-descrcol" width="100%">
+          Defines a factory which is responsible for creating a <code>ContentHandler</code>.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-9" >
+        <td class="jd-linkcol"><a href="../../../reference/java/net/CookiePolicy.html">CookiePolicy</a></td>
+        <td class="jd-descrcol" width="100%">
+          CookiePolicy has three pre-defined policy.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-9" >
+        <td class="jd-linkcol"><a href="../../../reference/java/net/CookieStore.html">CookieStore</a></td>
+        <td class="jd-descrcol" width="100%">
+          A CookieStore object is a repository for cookies.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/java/net/DatagramSocketImplFactory.html">DatagramSocketImplFactory</a></td>
+        <td class="jd-descrcol" width="100%">
+          This interface defines a factory for datagram socket implementations.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/java/net/FileNameMap.html">FileNameMap</a></td>
+        <td class="jd-descrcol" width="100%">
+          Defines a scheme for mapping a filename type to a MIME content type.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/java/net/SocketImplFactory.html">SocketImplFactory</a></td>
+        <td class="jd-descrcol" width="100%">
+          This interface defines a factory for socket implementations.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/java/net/SocketOptions.html">SocketOptions</a></td>
+        <td class="jd-descrcol" width="100%">
+          Defines an interface for socket implementations to get and set socket
+ options.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/java/net/URLStreamHandlerFactory.html">URLStreamHandlerFactory</a></td>
+        <td class="jd-descrcol" width="100%">
+          Defines a factory which creates an <code>URLStreamHandler</code> for a specified
+ protocol.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
   </table>
+
     </div>
   
 
@@ -1090,181 +1193,450 @@ type="text/css">
     <h2>Classes</h2>
     <div class="jd-sumtable">
     
+  
   <table class="jd-sumtable-expando">
-        <tr class="alt-color api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/java/net/Authenticator.html">Authenticator</a></td>
-              <td class="jd-descrcol" width="100%">An implementation of this class is able to obtain authentication information
- for a connection in several ways.&nbsp;</td>
-          </tr>
-        <tr class=" api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/java/net/CacheRequest.html">CacheRequest</a></td>
-              <td class="jd-descrcol" width="100%"><code>CacheRequest</code> is a kind of channel for storing resource data in the
- <code>ResponseCache</code>.&nbsp;</td>
-          </tr>
-        <tr class="alt-color api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/java/net/CacheResponse.html">CacheResponse</a></td>
-              <td class="jd-descrcol" width="100%">A response cache entry.&nbsp;</td>
-          </tr>
-        <tr class=" api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/java/net/ContentHandler.html">ContentHandler</a></td>
-              <td class="jd-descrcol" width="100%">This class converts the content of a certain format (i.e.&nbsp;</td>
-          </tr>
-        <tr class="alt-color api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/java/net/CookieHandler.html">CookieHandler</a></td>
-              <td class="jd-descrcol" width="100%">This class provides a way to manage cookies with a HTTP protocol handler.&nbsp;</td>
-          </tr>
-        <tr class=" api apilevel-9" >
-              <td class="jd-linkcol"><a href="../../../reference/java/net/CookieManager.html">CookieManager</a></td>
-              <td class="jd-descrcol" width="100%">This class provides a concrete implementation of CookieHandler.&nbsp;</td>
-          </tr>
-        <tr class="alt-color api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/java/net/DatagramPacket.html">DatagramPacket</a></td>
-              <td class="jd-descrcol" width="100%">This class represents a datagram packet which contains data either to be sent
- or received through a <code>DatagramSocket</code>.&nbsp;</td>
-          </tr>
-        <tr class=" api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/java/net/DatagramSocket.html">DatagramSocket</a></td>
-              <td class="jd-descrcol" width="100%">This class implements a UDP socket for sending and receiving <code>DatagramPacket</code>.&nbsp;</td>
-          </tr>
-        <tr class="alt-color api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/java/net/DatagramSocketImpl.html">DatagramSocketImpl</a></td>
-              <td class="jd-descrcol" width="100%">The abstract superclass for datagram and multicast socket implementations.&nbsp;</td>
-          </tr>
-        <tr class=" api apilevel-9" >
-              <td class="jd-linkcol"><a href="../../../reference/java/net/HttpCookie.html">HttpCookie</a></td>
-              <td class="jd-descrcol" width="100%">An opaque key-value value pair held by an HTTP client to permit a stateful
- session with an HTTP server.&nbsp;</td>
-          </tr>
-        <tr class="alt-color api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/java/net/HttpURLConnection.html">HttpURLConnection</a></td>
-              <td class="jd-descrcol" width="100%">An <code><a href="../../../reference/java/net/URLConnection.html">URLConnection</a></code> for HTTP (<a
+    
+      <tr class="alt-color api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/java/net/Authenticator.html">Authenticator</a></td>
+        <td class="jd-descrcol" width="100%">
+          An implementation of this class is able to obtain authentication information
+ for a connection in several ways.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/java/net/CacheRequest.html">CacheRequest</a></td>
+        <td class="jd-descrcol" width="100%">
+          <code>CacheRequest</code> is a kind of channel for storing resource data in the
+ <code>ResponseCache</code>.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/java/net/CacheResponse.html">CacheResponse</a></td>
+        <td class="jd-descrcol" width="100%">
+          A response cache entry.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/java/net/ContentHandler.html">ContentHandler</a></td>
+        <td class="jd-descrcol" width="100%">
+          This class converts the content of a certain format (i.e.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/java/net/CookieHandler.html">CookieHandler</a></td>
+        <td class="jd-descrcol" width="100%">
+          This class provides a way to manage cookies with a HTTP protocol handler.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-9" >
+        <td class="jd-linkcol"><a href="../../../reference/java/net/CookieManager.html">CookieManager</a></td>
+        <td class="jd-descrcol" width="100%">
+          This class provides a concrete implementation of CookieHandler.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/java/net/DatagramPacket.html">DatagramPacket</a></td>
+        <td class="jd-descrcol" width="100%">
+          This class represents a datagram packet which contains data either to be sent
+ or received through a <code>DatagramSocket</code>.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/java/net/DatagramSocket.html">DatagramSocket</a></td>
+        <td class="jd-descrcol" width="100%">
+          This class implements a UDP socket for sending and receiving <code>DatagramPacket</code>.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/java/net/DatagramSocketImpl.html">DatagramSocketImpl</a></td>
+        <td class="jd-descrcol" width="100%">
+          The abstract superclass for datagram and multicast socket implementations.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-9" >
+        <td class="jd-linkcol"><a href="../../../reference/java/net/HttpCookie.html">HttpCookie</a></td>
+        <td class="jd-descrcol" width="100%">
+          An opaque key-value value pair held by an HTTP client to permit a stateful
+ session with an HTTP server.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/java/net/HttpURLConnection.html">HttpURLConnection</a></td>
+        <td class="jd-descrcol" width="100%">
+          An <code><a href="../../../reference/java/net/URLConnection.html">URLConnection</a></code> for HTTP (<a
  href="http://tools.ietf.org/html/rfc2616">RFC 2616</a>) used to send and
- receive data over the web.&nbsp;</td>
-          </tr>
-        <tr class=" api apilevel-9" >
-              <td class="jd-linkcol"><a href="../../../reference/java/net/IDN.html">IDN</a></td>
-              <td class="jd-descrcol" width="100%">Converts internationalized domain names between Unicode and the ASCII Compatible Encoding
- (ACE) representation.&nbsp;</td>
-          </tr>
-        <tr class="alt-color api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/java/net/Inet4Address.html">Inet4Address</a></td>
-              <td class="jd-descrcol" width="100%">An IPv4 address.&nbsp;</td>
-          </tr>
-        <tr class=" api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/java/net/Inet6Address.html">Inet6Address</a></td>
-              <td class="jd-descrcol" width="100%">An IPv6 address.&nbsp;</td>
-          </tr>
-        <tr class="alt-color api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/java/net/InetAddress.html">InetAddress</a></td>
-              <td class="jd-descrcol" width="100%">An Internet Protocol (IP) address.&nbsp;</td>
-          </tr>
-        <tr class=" api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/java/net/InetSocketAddress.html">InetSocketAddress</a></td>
-              <td class="jd-descrcol" width="100%">This class represents a socket endpoint described by a IP address and a port
- number.&nbsp;</td>
-          </tr>
-        <tr class="alt-color api apilevel-9" >
-              <td class="jd-linkcol"><a href="../../../reference/java/net/InterfaceAddress.html">InterfaceAddress</a></td>
-              <td class="jd-descrcol" width="100%">Identifies one of a network interface's addresses.&nbsp;</td>
-          </tr>
-        <tr class=" api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/java/net/JarURLConnection.html">JarURLConnection</a></td>
-              <td class="jd-descrcol" width="100%">This class establishes a connection to a <code>jar:</code> URL using the <code>JAR</code> protocol.&nbsp;</td>
-          </tr>
-        <tr class="alt-color api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/java/net/MulticastSocket.html">MulticastSocket</a></td>
-              <td class="jd-descrcol" width="100%">This class implements a multicast socket for sending and receiving IP
- multicast datagram packets.&nbsp;</td>
-          </tr>
-        <tr class=" api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/java/net/NetPermission.html">NetPermission</a></td>
-              <td class="jd-descrcol" width="100%">Legacy security code; do not use.&nbsp;</td>
-          </tr>
-        <tr class="alt-color api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/java/net/NetworkInterface.html">NetworkInterface</a></td>
-              <td class="jd-descrcol" width="100%">This class is used to represent a network interface of the local device.&nbsp;</td>
-          </tr>
-        <tr class=" api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/java/net/PasswordAuthentication.html">PasswordAuthentication</a></td>
-              <td class="jd-descrcol" width="100%">This immutable class is a data structure that encapsulates username and
- password which is used by the <code>Authenticator</code> class.&nbsp;</td>
-          </tr>
-        <tr class="alt-color api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/java/net/Proxy.html">Proxy</a></td>
-              <td class="jd-descrcol" width="100%">This class represents proxy server settings.&nbsp;</td>
-          </tr>
-        <tr class=" api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/java/net/ProxySelector.html">ProxySelector</a></td>
-              <td class="jd-descrcol" width="100%">Selects the proxy server to use, if any, when connecting to a given URL.&nbsp;</td>
-          </tr>
-        <tr class="alt-color api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/java/net/ResponseCache.html">ResponseCache</a></td>
-              <td class="jd-descrcol" width="100%">Caches <code>URLConnection</code> responses.&nbsp;</td>
-          </tr>
-        <tr class=" api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/java/net/SecureCacheResponse.html">SecureCacheResponse</a></td>
-              <td class="jd-descrcol" width="100%">A secure cache response represents data which is originally retrieved over a
- secure connection.&nbsp;</td>
-          </tr>
-        <tr class="alt-color api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/java/net/ServerSocket.html">ServerSocket</a></td>
-              <td class="jd-descrcol" width="100%">This class represents a server-side socket that waits for incoming client
- connections.&nbsp;</td>
-          </tr>
-        <tr class=" api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/java/net/Socket.html">Socket</a></td>
-              <td class="jd-descrcol" width="100%">Provides a client-side TCP socket.&nbsp;</td>
-          </tr>
-        <tr class="alt-color api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/java/net/SocketAddress.html">SocketAddress</a></td>
-              <td class="jd-descrcol" width="100%">This abstract class represents a protocol-independent base for
- socket-endpoint representing classes.&nbsp;</td>
-          </tr>
-        <tr class=" api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/java/net/SocketImpl.html">SocketImpl</a></td>
-              <td class="jd-descrcol" width="100%">This class is the base of all streaming socket implementation classes.&nbsp;</td>
-          </tr>
-        <tr class="alt-color api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/java/net/SocketPermission.html">SocketPermission</a></td>
-              <td class="jd-descrcol" width="100%">Legacy security code; do not use.&nbsp;</td>
-          </tr>
-        <tr class=" api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/java/net/URI.html">URI</a></td>
-              <td class="jd-descrcol" width="100%">A Uniform Resource Identifier that identifies an abstract or physical
+ receive data over the web.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-9" >
+        <td class="jd-linkcol"><a href="../../../reference/java/net/IDN.html">IDN</a></td>
+        <td class="jd-descrcol" width="100%">
+          Converts internationalized domain names between Unicode and the ASCII Compatible Encoding
+ (ACE) representation.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/java/net/Inet4Address.html">Inet4Address</a></td>
+        <td class="jd-descrcol" width="100%">
+          An IPv4 address.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/java/net/Inet6Address.html">Inet6Address</a></td>
+        <td class="jd-descrcol" width="100%">
+          An IPv6 address.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/java/net/InetAddress.html">InetAddress</a></td>
+        <td class="jd-descrcol" width="100%">
+          An Internet Protocol (IP) address.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/java/net/InetSocketAddress.html">InetSocketAddress</a></td>
+        <td class="jd-descrcol" width="100%">
+          This class represents a socket endpoint described by a IP address and a port
+ number.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-9" >
+        <td class="jd-linkcol"><a href="../../../reference/java/net/InterfaceAddress.html">InterfaceAddress</a></td>
+        <td class="jd-descrcol" width="100%">
+          Identifies one of a network interface's addresses.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/java/net/JarURLConnection.html">JarURLConnection</a></td>
+        <td class="jd-descrcol" width="100%">
+          This class establishes a connection to a <code>jar:</code> URL using the <code>JAR</code> protocol.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/java/net/MulticastSocket.html">MulticastSocket</a></td>
+        <td class="jd-descrcol" width="100%">
+          This class implements a multicast socket for sending and receiving IP
+ multicast datagram packets.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/java/net/NetPermission.html">NetPermission</a></td>
+        <td class="jd-descrcol" width="100%">
+          Legacy security code; do not use.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/java/net/NetworkInterface.html">NetworkInterface</a></td>
+        <td class="jd-descrcol" width="100%">
+          This class is used to represent a network interface of the local device.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/java/net/PasswordAuthentication.html">PasswordAuthentication</a></td>
+        <td class="jd-descrcol" width="100%">
+          This immutable class is a data structure that encapsulates username and
+ password which is used by the <code>Authenticator</code> class.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/java/net/Proxy.html">Proxy</a></td>
+        <td class="jd-descrcol" width="100%">
+          This class represents proxy server settings.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/java/net/ProxySelector.html">ProxySelector</a></td>
+        <td class="jd-descrcol" width="100%">
+          Selects the proxy server to use, if any, when connecting to a given URL.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/java/net/ResponseCache.html">ResponseCache</a></td>
+        <td class="jd-descrcol" width="100%">
+          Caches <code>URLConnection</code> responses.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/java/net/SecureCacheResponse.html">SecureCacheResponse</a></td>
+        <td class="jd-descrcol" width="100%">
+          A secure cache response represents data which is originally retrieved over a
+ secure connection.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/java/net/ServerSocket.html">ServerSocket</a></td>
+        <td class="jd-descrcol" width="100%">
+          This class represents a server-side socket that waits for incoming client
+ connections.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/java/net/Socket.html">Socket</a></td>
+        <td class="jd-descrcol" width="100%">
+          Provides a client-side TCP socket.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/java/net/SocketAddress.html">SocketAddress</a></td>
+        <td class="jd-descrcol" width="100%">
+          This abstract class represents a protocol-independent base for
+ socket-endpoint representing classes.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/java/net/SocketImpl.html">SocketImpl</a></td>
+        <td class="jd-descrcol" width="100%">
+          This class is the base of all streaming socket implementation classes.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/java/net/SocketPermission.html">SocketPermission</a></td>
+        <td class="jd-descrcol" width="100%">
+          Legacy security code; do not use.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/java/net/URI.html">URI</a></td>
+        <td class="jd-descrcol" width="100%">
+          A Uniform Resource Identifier that identifies an abstract or physical
  resource, as specified by <a href="http://www.ietf.org/rfc/rfc2396.txt">RFC
- 2396</a>.&nbsp;</td>
-          </tr>
-        <tr class="alt-color api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/java/net/URL.html">URL</a></td>
-              <td class="jd-descrcol" width="100%">A Uniform Resource Locator that identifies the location of an Internet
+ 2396</a>.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/java/net/URL.html">URL</a></td>
+        <td class="jd-descrcol" width="100%">
+          A Uniform Resource Locator that identifies the location of an Internet
  resource as specified by <a href="http://www.ietf.org/rfc/rfc1738.txt">RFC
- 1738</a>.&nbsp;</td>
-          </tr>
-        <tr class=" api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/java/net/URLClassLoader.html">URLClassLoader</a></td>
-              <td class="jd-descrcol" width="100%">This class loader is responsible for loading classes and resources from a
- list of URLs which can refer to either directories or JAR files.&nbsp;</td>
-          </tr>
-        <tr class="alt-color api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/java/net/URLConnection.html">URLConnection</a></td>
-              <td class="jd-descrcol" width="100%">A connection to a URL for reading or writing.&nbsp;</td>
-          </tr>
-        <tr class=" api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/java/net/URLDecoder.html">URLDecoder</a></td>
-              <td class="jd-descrcol" width="100%">This class is used to decode a string which is encoded in the <code>application/x-www-form-urlencoded</code> MIME content type.&nbsp;</td>
-          </tr>
-        <tr class="alt-color api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/java/net/URLEncoder.html">URLEncoder</a></td>
-              <td class="jd-descrcol" width="100%">This class is used to encode a string using the format required by
- <code>application/x-www-form-urlencoded</code> MIME content type.&nbsp;</td>
-          </tr>
-        <tr class=" api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/java/net/URLStreamHandler.html">URLStreamHandler</a></td>
-              <td class="jd-descrcol" width="100%">The abstract class <code>URLStreamHandler</code> is the base for all classes which
+ 1738</a>.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/java/net/URLClassLoader.html">URLClassLoader</a></td>
+        <td class="jd-descrcol" width="100%">
+          This class loader is responsible for loading classes and resources from a
+ list of URLs which can refer to either directories or JAR files.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/java/net/URLConnection.html">URLConnection</a></td>
+        <td class="jd-descrcol" width="100%">
+          A connection to a URL for reading or writing.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/java/net/URLDecoder.html">URLDecoder</a></td>
+        <td class="jd-descrcol" width="100%">
+          This class is used to decode a string which is encoded in the <code>application/x-www-form-urlencoded</code> MIME content type.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/java/net/URLEncoder.html">URLEncoder</a></td>
+        <td class="jd-descrcol" width="100%">
+          This class is used to encode a string using the format required by
+ <code>application/x-www-form-urlencoded</code> MIME content type.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/java/net/URLStreamHandler.html">URLStreamHandler</a></td>
+        <td class="jd-descrcol" width="100%">
+          The abstract class <code>URLStreamHandler</code> is the base for all classes which
  can handle the communication with a URL object over a particular protocol
- type.&nbsp;</td>
-          </tr>
+ type.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
   </table>
+
     </div>
   
 
@@ -1273,16 +1645,33 @@ type="text/css">
     <h2>Enums</h2>
     <div class="jd-sumtable">
     
+  
   <table class="jd-sumtable-expando">
-        <tr class="alt-color api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/java/net/Authenticator.RequestorType.html">Authenticator.RequestorType</a></td>
-              <td class="jd-descrcol" width="100%">Enumeration class for the origin of the authentication request.&nbsp;</td>
-          </tr>
-        <tr class=" api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/java/net/Proxy.Type.html">Proxy.Type</a></td>
-              <td class="jd-descrcol" width="100%"><code>Enum</code> class for the proxy type.&nbsp;</td>
-          </tr>
+    
+      <tr class="alt-color api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/java/net/Authenticator.RequestorType.html">Authenticator.RequestorType</a></td>
+        <td class="jd-descrcol" width="100%">
+          Enumeration class for the origin of the authentication request.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/java/net/Proxy.Type.html">Proxy.Type</a></td>
+        <td class="jd-descrcol" width="100%">
+          <code>Enum</code> class for the proxy type.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
   </table>
+
     </div>
   
 
@@ -1291,68 +1680,155 @@ type="text/css">
     <h2>Exceptions</h2>
     <div class="jd-sumtable">
     
+  
   <table class="jd-sumtable-expando">
-        <tr class="alt-color api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/java/net/BindException.html">BindException</a></td>
-              <td class="jd-descrcol" width="100%">A <code>BindException</code> is thrown when a process cannot bind a local
- address/port, either because it is already bound or reserved by the OS.&nbsp;</td>
-          </tr>
-        <tr class=" api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/java/net/ConnectException.html">ConnectException</a></td>
-              <td class="jd-descrcol" width="100%">A <code>ConnectException</code> is thrown if a connection cannot be established to
- a remote host on a specific port.&nbsp;</td>
-          </tr>
-        <tr class="alt-color api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/java/net/HttpRetryException.html">HttpRetryException</a></td>
-              <td class="jd-descrcol" width="100%">If a HTTP request has to be retried, this exception will be thrown if the
- request cannot be retried automatically.&nbsp;</td>
-          </tr>
-        <tr class=" api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/java/net/MalformedURLException.html">MalformedURLException</a></td>
-              <td class="jd-descrcol" width="100%">This exception is thrown when a program attempts to create an URL from an
- incorrect specification.&nbsp;</td>
-          </tr>
-        <tr class="alt-color api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/java/net/NoRouteToHostException.html">NoRouteToHostException</a></td>
-              <td class="jd-descrcol" width="100%">The <code>NoRouteToHostException</code> will be thrown while attempting to connect
+    
+      <tr class="alt-color api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/java/net/BindException.html">BindException</a></td>
+        <td class="jd-descrcol" width="100%">
+          A <code>BindException</code> is thrown when a process cannot bind a local
+ address/port, either because it is already bound or reserved by the OS.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/java/net/ConnectException.html">ConnectException</a></td>
+        <td class="jd-descrcol" width="100%">
+          A <code>ConnectException</code> is thrown if a connection cannot be established to
+ a remote host on a specific port.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/java/net/HttpRetryException.html">HttpRetryException</a></td>
+        <td class="jd-descrcol" width="100%">
+          If a HTTP request has to be retried, this exception will be thrown if the
+ request cannot be retried automatically.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/java/net/MalformedURLException.html">MalformedURLException</a></td>
+        <td class="jd-descrcol" width="100%">
+          This exception is thrown when a program attempts to create an URL from an
+ incorrect specification.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/java/net/NoRouteToHostException.html">NoRouteToHostException</a></td>
+        <td class="jd-descrcol" width="100%">
+          The <code>NoRouteToHostException</code> will be thrown while attempting to connect
  to a remote host but the host cannot be reached for instance because of a
- badly configured router or a blocking firewall.&nbsp;</td>
-          </tr>
-        <tr class=" api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/java/net/PortUnreachableException.html">PortUnreachableException</a></td>
-              <td class="jd-descrcol" width="100%">This <code>PortUnreachableException</code> will be thrown if an <code>ICMP_Port_Unreachable</code> message has been received.&nbsp;</td>
-          </tr>
-        <tr class="alt-color api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/java/net/ProtocolException.html">ProtocolException</a></td>
-              <td class="jd-descrcol" width="100%">Signals that either a connection attempt to a socket of the wrong type, the
+ badly configured router or a blocking firewall.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/java/net/PortUnreachableException.html">PortUnreachableException</a></td>
+        <td class="jd-descrcol" width="100%">
+          This <code>PortUnreachableException</code> will be thrown if an <code>ICMP_Port_Unreachable</code> message has been received.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/java/net/ProtocolException.html">ProtocolException</a></td>
+        <td class="jd-descrcol" width="100%">
+          Signals that either a connection attempt to a socket of the wrong type, the
  application of an unsupported operation or that a general error in the
- underlying protocol has occurred.&nbsp;</td>
-          </tr>
-        <tr class=" api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/java/net/SocketException.html">SocketException</a></td>
-              <td class="jd-descrcol" width="100%">This <code>SocketException</code> may be thrown during socket creation or setting
- options, and is the superclass of all other socket related exceptions.&nbsp;</td>
-          </tr>
-        <tr class="alt-color api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/java/net/SocketTimeoutException.html">SocketTimeoutException</a></td>
-              <td class="jd-descrcol" width="100%">This exception is thrown when a timeout expired on a socket <code>read</code> or
- <code>accept</code> operation.&nbsp;</td>
-          </tr>
-        <tr class=" api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/java/net/UnknownHostException.html">UnknownHostException</a></td>
-              <td class="jd-descrcol" width="100%">Thrown when a hostname can not be resolved.&nbsp;</td>
-          </tr>
-        <tr class="alt-color api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/java/net/UnknownServiceException.html">UnknownServiceException</a></td>
-              <td class="jd-descrcol" width="100%">Is thrown if no appropriate <code>ContentHandler</code> could be found for a
- particular service requested by the URL connection.&nbsp;</td>
-          </tr>
-        <tr class=" api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/java/net/URISyntaxException.html">URISyntaxException</a></td>
-              <td class="jd-descrcol" width="100%">A <code>URISyntaxException</code> will be thrown if some information could not be parsed
- while creating a URI.&nbsp;</td>
-          </tr>
+ underlying protocol has occurred.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/java/net/SocketException.html">SocketException</a></td>
+        <td class="jd-descrcol" width="100%">
+          This <code>SocketException</code> may be thrown during socket creation or setting
+ options, and is the superclass of all other socket related exceptions.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/java/net/SocketTimeoutException.html">SocketTimeoutException</a></td>
+        <td class="jd-descrcol" width="100%">
+          This exception is thrown when a timeout expired on a socket <code>read</code> or
+ <code>accept</code> operation.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/java/net/UnknownHostException.html">UnknownHostException</a></td>
+        <td class="jd-descrcol" width="100%">
+          Thrown when a hostname can not be resolved.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/java/net/UnknownServiceException.html">UnknownServiceException</a></td>
+        <td class="jd-descrcol" width="100%">
+          Is thrown if no appropriate <code>ContentHandler</code> could be found for a
+ particular service requested by the URL connection.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/java/net/URISyntaxException.html">URISyntaxException</a></td>
+        <td class="jd-descrcol" width="100%">
+          A <code>URISyntaxException</code> will be thrown if some information could not be parsed
+ while creating a URI.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
   </table>
+
     </div>
   
 

@@ -82,6 +82,19 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 <html>
 <head>
 
@@ -97,7 +110,7 @@
 href="http://fonts.useso.com/css?family=Roboto+Condensed">
 <link rel="stylesheet" href="http://fonts.useso.com/css?family=Roboto:light,regular,medium,thin,italic,mediumitalic,bold"
   title="roboto">
-<link href="../../../assets/css/default.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/default.css?v=2" rel="stylesheet" type="text/css">
 
 
 <!-- FULLSCREEN STYLESHEET -->
@@ -106,30 +119,31 @@ type="text/css">
 
 
 <!-- JAVASCRIPT -->
-<script src="http://googleapiscdn.qiniudn.com/www.google.com/jsapi" type="text/javascript"></script>
+<script src="http://www.google.com/jsapi" type="text/javascript"></script>
 <script src="../../../assets/js/android_3p-bundle.js" type="text/javascript"></script>
 <script type="text/javascript">
   var toRoot = "../../../";
   var metaTags = [];
   var devsite = false;
 </script>
-<script src="../../../assets/js/docs.js" type="text/javascript"></script>
+<script src="../../../assets/js/docs.js?v=2" type="text/javascript"></script>
 
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-5831155-1']);
-  _gaq.push(['_trackPageview']);
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
+  ga('create', 'UA-5831155-1', 'android.com');
+  ga('create', 'UA-49880327-2', 'android.com', {'name': 'universal'});  // New tracker);
+  ga('send', 'pageview');
+  ga('universal.send', 'pageview'); // Send page view for new tracker.
 </script>
+
 </head>
 
 <body class="gc-documentation 
-  develop" itemscope itemtype="http://schema.org/Article">
+  develop reference" itemscope itemtype="http://schema.org/Article">
   <div id="doc-api-level" class="1" style="display:none"></div>
   <a name="top"></a>
 
@@ -139,6 +153,10 @@ type="text/css">
   <!-- Header -->
   <div id="header-wrapper">
     <div id="header">
+
+    
+
+
       <div class="wrap" id="header-wrap">
         <div class="col-3 logo">
           <a href="../../../index.html">
@@ -260,11 +278,20 @@ type="text/css">
 
 
         <!-- Expanded quicknav -->
-        <div id="quicknav" class="col-9">
+        <div id="quicknav" class="col-13">
           <ul>
+            <li class="about">
+              <ul>
+                <li><a href="../../../about/index.html">About</a></li>
+                <li><a href="../../../wear/index.html">Wear</a></li>
+                <li><a href="../../../tv/index.html">TV</a></li>
+                <li><a href="../../../auto/index.html">Auto</a></li>
+              </ul>
+            </li>
             <li class="design">
               <ul>
                 <li><a href="../../../design/index.html">Get Started</a></li>
+                <li><a href="../../../design/devices.html">Devices</a></li>
                 <li><a href="../../../design/style/index.html">Style</a></li>
                 <li><a href="../../../design/patterns/index.html">Patterns</a></li>
                 <li><a href="../../../design/building-blocks/index.html">Building Blocks</a></li>
@@ -298,7 +325,7 @@ type="text/css">
                   ja-lang="リファレンス"
                   es-lang="Referencia"
                   >Reference</a></li>
-                <li><a href="../../../tools/index.html"
+                <li><a href="../../../sdk/index.html"
                   zh-tw-lang="相關工具"
                   zh-cn-lang="工具"
                   ru-lang="Инструменты"
@@ -306,7 +333,6 @@ type="text/css">
                   ja-lang="ツール"
                   es-lang="Herramientas"
                   >Tools</a>
-                  <ul><li><a href="../../../sdk/index.html">Get the SDK</a></li></ul>
                 </li>
                 <li><a href="../../../google/index.html">Google Services</a>
                 </li>
@@ -358,7 +384,7 @@ type="text/css">
                   ja-lang="リファレンス"
                   es-lang="Referencia"
                   >Reference</a></li>
-                <li class="tools"><a href="../../../tools/index.html"
+                <li class="tools"><a href="../../../sdk/index.html"
                   zh-tw-lang="相關工具"
                   zh-cn-lang="工具"
                   ru-lang="Инструменты"
@@ -373,7 +399,7 @@ type="text/css">
             </ul>
         </div>
     </div>
-    <!-- /Sendondary x-nav -->
+    <!-- /Sendondary x-nav DEVELOP -->
 
   
 
@@ -414,7 +440,7 @@ type="text/css">
         <div id="api-nav-title">Android APIs</div>
         </div><!-- end nav header -->
       <script>
-        var SINCE_DATA = [ '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19' ];
+        var SINCE_DATA = [ '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21' ];
         buildApiLevelSelector();
       </script>
                   
@@ -441,13 +467,15 @@ type="text/css">
   <a href="../../../reference/android/app/admin/package-summary.html">android.app.admin</a></li>
     <li class="api apilevel-8">
   <a href="../../../reference/android/app/backup/package-summary.html">android.app.backup</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/app/job/package-summary.html">android.app.job</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/app/usage/package-summary.html">android.app.usage</a></li>
     <li class="api apilevel-3">
   <a href="../../../reference/android/appwidget/package-summary.html">android.appwidget</a></li>
     <li class="api apilevel-5">
   <a href="../../../reference/android/bluetooth/package-summary.html">android.bluetooth</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/bluetooth/le/package-summary.html">android.bluetooth.le</a></li>
     <li class="api apilevel-1">
   <a href="../../../reference/android/content/package-summary.html">android.content</a></li>
@@ -473,16 +501,14 @@ type="text/css">
   <a href="../../../reference/android/graphics/pdf/package-summary.html">android.graphics.pdf</a></li>
     <li class="api apilevel-1">
   <a href="../../../reference/android/hardware/package-summary.html">android.hardware</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/hardware/camera2/package-summary.html">android.hardware.camera2</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/hardware/camera2/params/package-summary.html">android.hardware.camera2.params</a></li>
     <li class="api apilevel-17">
   <a href="../../../reference/android/hardware/display/package-summary.html">android.hardware.display</a></li>
     <li class="api apilevel-16">
   <a href="../../../reference/android/hardware/input/package-summary.html">android.hardware.input</a></li>
-    <li class="api apilevel-18">
-  <a href="../../../reference/android/hardware/location/package-summary.html">android.hardware.location</a></li>
     <li class="api apilevel-12">
   <a href="../../../reference/android/hardware/usb/package-summary.html">android.hardware.usb</a></li>
     <li class="api apilevel-3">
@@ -493,11 +519,15 @@ type="text/css">
   <a href="../../../reference/android/media/package-summary.html">android.media</a></li>
     <li class="api apilevel-9">
   <a href="../../../reference/android/media/audiofx/package-summary.html">android.media.audiofx</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/media/browse/package-summary.html">android.media.browse</a></li>
     <li class="api apilevel-14">
   <a href="../../../reference/android/media/effect/package-summary.html">android.media.effect</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/media/projection/package-summary.html">android.media.projection</a></li>
+    <li class="api apilevel-21">
   <a href="../../../reference/android/media/session/package-summary.html">android.media.session</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/media/tv/package-summary.html">android.media.tv</a></li>
     <li class="api apilevel-12">
   <a href="../../../reference/android/mtp/package-summary.html">android.mtp</a></li>
@@ -547,11 +577,15 @@ type="text/css">
   <a href="../../../reference/android/security/package-summary.html">android.security</a></li>
     <li class="api apilevel-17">
   <a href="../../../reference/android/service/dreams/package-summary.html">android.service.dreams</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/service/media/package-summary.html">android.service.media</a></li>
     <li class="api apilevel-18">
   <a href="../../../reference/android/service/notification/package-summary.html">android.service.notification</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/service/restrictions/package-summary.html">android.service.restrictions</a></li>
     <li class="api apilevel-14">
   <a href="../../../reference/android/service/textservice/package-summary.html">android.service.textservice</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/service/voice/package-summary.html">android.service.voice</a></li>
     <li class="api apilevel-7">
   <a href="../../../reference/android/service/wallpaper/package-summary.html">android.service.wallpaper</a></li>
@@ -596,11 +630,15 @@ type="text/css">
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/media/package-summary.html">android.support.v4.media</a></li>
     <li class="api apilevel-">
+  <a href="../../../reference/android/support/v4/media/session/package-summary.html">android.support.v4.media.session</a></li>
+    <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/net/package-summary.html">android.support.v4.net</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/os/package-summary.html">android.support.v4.os</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/print/package-summary.html">android.support.v4.print</a></li>
+    <li class="api apilevel-">
+  <a href="../../../reference/android/support/v4/provider/package-summary.html">android.support.v4.provider</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/text/package-summary.html">android.support.v4.text</a></li>
     <li class="api apilevel-">
@@ -616,6 +654,10 @@ type="text/css">
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v7/appcompat/package-summary.html">android.support.v7.appcompat</a></li>
     <li class="api apilevel-">
+  <a href="../../../reference/android/support/v7/cardview/package-summary.html">android.support.v7.cardview</a></li>
+    <li class="api apilevel-">
+  <a href="../../../reference/android/support/v7/graphics/package-summary.html">android.support.v7.graphics</a></li>
+    <li class="api apilevel-">
   <a href="../../../reference/android/support/v7/gridlayout/package-summary.html">android.support.v7.gridlayout</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v7/media/package-summary.html">android.support.v7.media</a></li>
@@ -627,8 +669,10 @@ type="text/css">
   <a href="../../../reference/android/support/v7/widget/package-summary.html">android.support.v7.widget</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v8/renderscript/package-summary.html">android.support.v8.renderscript</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/system/package-summary.html">android.system</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/telecom/package-summary.html">android.telecom</a></li>
     <li class="api apilevel-1">
   <a href="../../../reference/android/telephony/package-summary.html">android.telephony</a></li>
     <li class="api apilevel-5">
@@ -1096,6 +1140,9 @@ Summary:
   
 
 
+    
+
+
 </div><!-- end header -->
 
 <div id="naMessage"></div>
@@ -1223,53 +1270,88 @@ Summary:
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/java/sql/Statement.html#CLOSE_ALL_RESULTS">CLOSE_ALL_RESULTS</a></td>
-        <td class="jd-descrcol" width="100%">Passing this constant to <code><a href="../../../reference/java/sql/Statement.html#getMoreResults()">getMoreResults()</a></code> implies that all <code>ResultSet</code> objects previously kept open should be closed.</td>
+        <td class="jd-descrcol" width="100%">
+          Passing this constant to <code><a href="../../../reference/java/sql/Statement.html#getMoreResults()">getMoreResults()</a></code> implies that all <code>ResultSet</code> objects previously kept open should be closed.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/java/sql/Statement.html#CLOSE_CURRENT_RESULT">CLOSE_CURRENT_RESULT</a></td>
-        <td class="jd-descrcol" width="100%">Passing this constant to <code><a href="../../../reference/java/sql/Statement.html#getMoreResults()">getMoreResults()</a></code> implies that the current
- <code>ResultSet</code> object should be closed.</td>
+        <td class="jd-descrcol" width="100%">
+          Passing this constant to <code><a href="../../../reference/java/sql/Statement.html#getMoreResults()">getMoreResults()</a></code> implies that the current
+ <code>ResultSet</code> object should be closed.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/java/sql/Statement.html#EXECUTE_FAILED">EXECUTE_FAILED</a></td>
-        <td class="jd-descrcol" width="100%">Indicates that an error was encountered during execution of a batch
- statement.</td>
+        <td class="jd-descrcol" width="100%">
+          Indicates that an error was encountered during execution of a batch
+ statement.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/java/sql/Statement.html#KEEP_CURRENT_RESULT">KEEP_CURRENT_RESULT</a></td>
-        <td class="jd-descrcol" width="100%">Passing this constant to <i>getMoreResults</i> implies that the current
- <code>ResultSet</code> object should not be closed.</td>
+        <td class="jd-descrcol" width="100%">
+          Passing this constant to <i>getMoreResults</i> implies that the current
+ <code>ResultSet</code> object should not be closed.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/java/sql/Statement.html#NO_GENERATED_KEYS">NO_GENERATED_KEYS</a></td>
-        <td class="jd-descrcol" width="100%">Indicates that generated keys should not be accessible for retrieval.</td>
+        <td class="jd-descrcol" width="100%">
+          Indicates that generated keys should not be accessible for retrieval.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/java/sql/Statement.html#RETURN_GENERATED_KEYS">RETURN_GENERATED_KEYS</a></td>
-        <td class="jd-descrcol" width="100%">Indicates that generated keys should be accessible for retrieval.</td>
+        <td class="jd-descrcol" width="100%">
+          Indicates that generated keys should be accessible for retrieval.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/java/sql/Statement.html#SUCCESS_NO_INFO">SUCCESS_NO_INFO</a></td>
-        <td class="jd-descrcol" width="100%">Indicates that a batch statement was executed with a successful result,
- but a count of the number of rows it affected is unavailable.</td>
+        <td class="jd-descrcol" width="100%">
+          Indicates that a batch statement was executed with a successful result,
+ but a count of the number of rows it affected is unavailable.
+          
+    
+
+        </td>
     </tr>
     
     
@@ -1313,8 +1395,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/CallableStatement.html#getArray(int)">getArray</a></span>(int parameterIndex)</nobr>
         
-        <div class="jd-descrdiv">Gets the value of a specified JDBC <code>ARRAY</code> parameter as a
- <code>java.sql.Array</code>.</div>
+        <div class="jd-descrdiv">
+          Gets the value of a specified JDBC <code>ARRAY</code> parameter as a
+ <code>java.sql.Array</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1332,7 +1419,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/CallableStatement.html#getArray(java.lang.String)">getArray</a></span>(<a href="../../../reference/java/lang/String.html">String</a> parameterName)</nobr>
         
-        <div class="jd-descrdiv">Gets the value of a specified JDBC <code>ARRAY</code> parameter as a <code>java.sql.Array</code>.</div>
+        <div class="jd-descrdiv">
+          Gets the value of a specified JDBC <code>ARRAY</code> parameter as a <code>java.sql.Array</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1350,7 +1442,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/CallableStatement.html#getBigDecimal(java.lang.String)">getBigDecimal</a></span>(<a href="../../../reference/java/lang/String.html">String</a> parameterName)</nobr>
         
-        <div class="jd-descrdiv">Returns a new <code><a href="../../../reference/java/math/BigDecimal.html">BigDecimal</a></code> representation of the JDBC <code>NUMERIC</code> parameter specified by the input name.</div>
+        <div class="jd-descrdiv">
+          Returns a new <code><a href="../../../reference/java/math/BigDecimal.html">BigDecimal</a></code> representation of the JDBC <code>NUMERIC</code> parameter specified by the input name.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1368,11 +1465,16 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/CallableStatement.html#getBigDecimal(int, int)">getBigDecimal</a></span>(int parameterIndex, int scale)</nobr>
         
-        <div class="jd-descrdiv"><em>
+        <div class="jd-descrdiv">
+          <em>
       This method was deprecated
       in API level 1.
     Use <code><a href="../../../reference/java/sql/CallableStatement.html#getBigDecimal(int)">getBigDecimal(int)</a></code> or <code><a href="../../../reference/java/sql/CallableStatement.html#getBigDecimal(java.lang.String)">getBigDecimal(String)</a></code> instead.
-</em></div>
+</em>
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1390,7 +1492,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/CallableStatement.html#getBigDecimal(int)">getBigDecimal</a></span>(int parameterIndex)</nobr>
         
-        <div class="jd-descrdiv">Returns a new <code><a href="../../../reference/java/math/BigDecimal.html">BigDecimal</a></code> representation of the JDBC <code>NUMERIC</code> parameter specified by the input index.</div>
+        <div class="jd-descrdiv">
+          Returns a new <code><a href="../../../reference/java/math/BigDecimal.html">BigDecimal</a></code> representation of the JDBC <code>NUMERIC</code> parameter specified by the input index.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1408,7 +1515,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/CallableStatement.html#getBlob(java.lang.String)">getBlob</a></span>(<a href="../../../reference/java/lang/String.html">String</a> parameterName)</nobr>
         
-        <div class="jd-descrdiv">Gets the value of a specified JDBC <code>BLOB</code> parameter as a <code>java.sql.Blob</code>.</div>
+        <div class="jd-descrdiv">
+          Gets the value of a specified JDBC <code>BLOB</code> parameter as a <code>java.sql.Blob</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1426,7 +1538,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/CallableStatement.html#getBlob(int)">getBlob</a></span>(int parameterIndex)</nobr>
         
-        <div class="jd-descrdiv">Gets the value of a specified JDBC <code>BLOB</code> parameter as a <code>java.sql.Blob</code>.</div>
+        <div class="jd-descrdiv">
+          Gets the value of a specified JDBC <code>BLOB</code> parameter as a <code>java.sql.Blob</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1444,7 +1561,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/CallableStatement.html#getBoolean(int)">getBoolean</a></span>(int parameterIndex)</nobr>
         
-        <div class="jd-descrdiv">Gets the value of a specified JDBC <code>BIT</code> parameter as a boolean.</div>
+        <div class="jd-descrdiv">
+          Gets the value of a specified JDBC <code>BIT</code> parameter as a boolean.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1462,7 +1584,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/CallableStatement.html#getBoolean(java.lang.String)">getBoolean</a></span>(<a href="../../../reference/java/lang/String.html">String</a> parameterName)</nobr>
         
-        <div class="jd-descrdiv">Gets the value of a specified JDBC <code>BIT</code> parameter as a <code>boolean</code>.</div>
+        <div class="jd-descrdiv">
+          Gets the value of a specified JDBC <code>BIT</code> parameter as a <code>boolean</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1480,8 +1607,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/CallableStatement.html#getByte(java.lang.String)">getByte</a></span>(<a href="../../../reference/java/lang/String.html">String</a> parameterName)</nobr>
         
-        <div class="jd-descrdiv">Gets the value of a specified JDBC <code>TINYINT</code> parameter as a Java
- <code>byte</code>.</div>
+        <div class="jd-descrdiv">
+          Gets the value of a specified JDBC <code>TINYINT</code> parameter as a Java
+ <code>byte</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1499,7 +1631,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/CallableStatement.html#getByte(int)">getByte</a></span>(int parameterIndex)</nobr>
         
-        <div class="jd-descrdiv">Gets the value of a specified JDBC <code>TINYINT</code> parameter as a <code>byte</code>.</div>
+        <div class="jd-descrdiv">
+          Gets the value of a specified JDBC <code>TINYINT</code> parameter as a <code>byte</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1517,8 +1654,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/CallableStatement.html#getBytes(int)">getBytes</a></span>(int parameterIndex)</nobr>
         
-        <div class="jd-descrdiv">Returns a byte array representation of the indexed JDBC <code>BINARY</code> or
- <code>VARBINARY</code> parameter.</div>
+        <div class="jd-descrdiv">
+          Returns a byte array representation of the indexed JDBC <code>BINARY</code> or
+ <code>VARBINARY</code> parameter.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1536,8 +1678,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/CallableStatement.html#getBytes(java.lang.String)">getBytes</a></span>(<a href="../../../reference/java/lang/String.html">String</a> parameterName)</nobr>
         
-        <div class="jd-descrdiv">Returns a byte array representation of the named JDBC <code>BINARY</code> or
- <code>VARBINARY</code> parameter.</div>
+        <div class="jd-descrdiv">
+          Returns a byte array representation of the named JDBC <code>BINARY</code> or
+ <code>VARBINARY</code> parameter.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1555,7 +1702,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/CallableStatement.html#getCharacterStream(java.lang.String)">getCharacterStream</a></span>(<a href="../../../reference/java/lang/String.html">String</a> parameterName)</nobr>
         
-        <div class="jd-descrdiv">Returns the value of the specified parameter as a <code>java.io.Reader</code>.</div>
+        <div class="jd-descrdiv">
+          Returns the value of the specified parameter as a <code>java.io.Reader</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1573,7 +1725,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/CallableStatement.html#getCharacterStream(int)">getCharacterStream</a></span>(int parameterIndex)</nobr>
         
-        <div class="jd-descrdiv">Returns the value of the specified parameter as a <code>java.io.Reader</code>.</div>
+        <div class="jd-descrdiv">
+          Returns the value of the specified parameter as a <code>java.io.Reader</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1591,7 +1748,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/CallableStatement.html#getClob(int)">getClob</a></span>(int parameterIndex)</nobr>
         
-        <div class="jd-descrdiv">Gets the value of a specified JDBC <code>CLOB</code> parameter as a <code>java.sql.Clob</code>.</div>
+        <div class="jd-descrdiv">
+          Gets the value of a specified JDBC <code>CLOB</code> parameter as a <code>java.sql.Clob</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1609,7 +1771,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/CallableStatement.html#getClob(java.lang.String)">getClob</a></span>(<a href="../../../reference/java/lang/String.html">String</a> parameterName)</nobr>
         
-        <div class="jd-descrdiv">Gets the value of a specified JDBC <code>CLOB</code> parameter as a <code>java.sql.Clob</code>.</div>
+        <div class="jd-descrdiv">
+          Gets the value of a specified JDBC <code>CLOB</code> parameter as a <code>java.sql.Clob</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1627,7 +1794,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/CallableStatement.html#getDate(int, java.util.Calendar)">getDate</a></span>(int parameterIndex, <a href="../../../reference/java/util/Calendar.html">Calendar</a> cal)</nobr>
         
-        <div class="jd-descrdiv">Gets the value of the specified JDBC <code>DATE</code> parameter as a <code>java.sql.Date</code>, using the specified <code>Calendar</code> to construct the date.</div>
+        <div class="jd-descrdiv">
+          Gets the value of the specified JDBC <code>DATE</code> parameter as a <code>java.sql.Date</code>, using the specified <code>Calendar</code> to construct the date.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1645,7 +1817,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/CallableStatement.html#getDate(int)">getDate</a></span>(int parameterIndex)</nobr>
         
-        <div class="jd-descrdiv">Gets the value of the specified JDBC <code>DATE</code> parameter as a <code>java.sql.Date</code>.</div>
+        <div class="jd-descrdiv">
+          Gets the value of the specified JDBC <code>DATE</code> parameter as a <code>java.sql.Date</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1663,7 +1840,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/CallableStatement.html#getDate(java.lang.String, java.util.Calendar)">getDate</a></span>(<a href="../../../reference/java/lang/String.html">String</a> parameterName, <a href="../../../reference/java/util/Calendar.html">Calendar</a> cal)</nobr>
         
-        <div class="jd-descrdiv">Gets the value of the specified JDBC <code>DATE</code> parameter as a <code>java.sql.Date</code>, using the specified <code>Calendar</code> to construct the date.</div>
+        <div class="jd-descrdiv">
+          Gets the value of the specified JDBC <code>DATE</code> parameter as a <code>java.sql.Date</code>, using the specified <code>Calendar</code> to construct the date.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1681,7 +1863,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/CallableStatement.html#getDate(java.lang.String)">getDate</a></span>(<a href="../../../reference/java/lang/String.html">String</a> parameterName)</nobr>
         
-        <div class="jd-descrdiv">Gets the value of the specified JDBC <code>DATE</code> parameter as a <code>java.sql.Date</code>.</div>
+        <div class="jd-descrdiv">
+          Gets the value of the specified JDBC <code>DATE</code> parameter as a <code>java.sql.Date</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1699,8 +1886,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/CallableStatement.html#getDouble(java.lang.String)">getDouble</a></span>(<a href="../../../reference/java/lang/String.html">String</a> parameterName)</nobr>
         
-        <div class="jd-descrdiv">Gets the value of the specified JDBC <code>DOUBLE</code> parameter as a
- <code>double</code>.</div>
+        <div class="jd-descrdiv">
+          Gets the value of the specified JDBC <code>DOUBLE</code> parameter as a
+ <code>double</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1718,8 +1910,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/CallableStatement.html#getDouble(int)">getDouble</a></span>(int parameterIndex)</nobr>
         
-        <div class="jd-descrdiv">Gets the value of the specified JDBC <code>DOUBLE</code> parameter as a
- <code>double</code>.</div>
+        <div class="jd-descrdiv">
+          Gets the value of the specified JDBC <code>DOUBLE</code> parameter as a
+ <code>double</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1737,7 +1934,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/CallableStatement.html#getFloat(int)">getFloat</a></span>(int parameterIndex)</nobr>
         
-        <div class="jd-descrdiv">Gets the value of the specified JDBC <code>FLOAT</code> parameter as a <code>float</code>.</div>
+        <div class="jd-descrdiv">
+          Gets the value of the specified JDBC <code>FLOAT</code> parameter as a <code>float</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1755,8 +1957,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/CallableStatement.html#getFloat(java.lang.String)">getFloat</a></span>(<a href="../../../reference/java/lang/String.html">String</a> parameterName)</nobr>
         
-        <div class="jd-descrdiv">Gets the value of the specified JDBC <code>FLOAT</code> parameter as a Java
- <code>float</code>.</div>
+        <div class="jd-descrdiv">
+          Gets the value of the specified JDBC <code>FLOAT</code> parameter as a Java
+ <code>float</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1774,8 +1981,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/CallableStatement.html#getInt(java.lang.String)">getInt</a></span>(<a href="../../../reference/java/lang/String.html">String</a> parameterName)</nobr>
         
-        <div class="jd-descrdiv">Gets the value of the specified JDBC <code>INTEGER</code> parameter as an
- <code>int</code>.</div>
+        <div class="jd-descrdiv">
+          Gets the value of the specified JDBC <code>INTEGER</code> parameter as an
+ <code>int</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1793,8 +2005,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/CallableStatement.html#getInt(int)">getInt</a></span>(int parameterIndex)</nobr>
         
-        <div class="jd-descrdiv">Gets the value of the specified JDBC <code>INTEGER</code> parameter as an
- <code>int</code>.</div>
+        <div class="jd-descrdiv">
+          Gets the value of the specified JDBC <code>INTEGER</code> parameter as an
+ <code>int</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1812,8 +2029,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/CallableStatement.html#getLong(java.lang.String)">getLong</a></span>(<a href="../../../reference/java/lang/String.html">String</a> parameterName)</nobr>
         
-        <div class="jd-descrdiv">Gets the value of the specified JDBC <code>BIGINT</code> parameter as a
- <code>long</code>.</div>
+        <div class="jd-descrdiv">
+          Gets the value of the specified JDBC <code>BIGINT</code> parameter as a
+ <code>long</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1831,8 +2053,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/CallableStatement.html#getLong(int)">getLong</a></span>(int parameterIndex)</nobr>
         
-        <div class="jd-descrdiv">Gets the value of the specified JDBC <code>BIGINT</code> parameter as a
- <code>long</code>.</div>
+        <div class="jd-descrdiv">
+          Gets the value of the specified JDBC <code>BIGINT</code> parameter as a
+ <code>long</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1850,8 +2077,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/CallableStatement.html#getNCharacterStream(int)">getNCharacterStream</a></span>(int parameterIndex)</nobr>
         
-        <div class="jd-descrdiv">Returns the value of the specified SQL NCHAR, NVARCHAR, or LONGNVARCHAR parameter
- as a <code><a href="../../../reference/java/io/Reader.html">Reader</a></code>.</div>
+        <div class="jd-descrdiv">
+          Returns the value of the specified SQL NCHAR, NVARCHAR, or LONGNVARCHAR parameter
+ as a <code><a href="../../../reference/java/io/Reader.html">Reader</a></code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1869,7 +2101,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/CallableStatement.html#getNCharacterStream(java.lang.String)">getNCharacterStream</a></span>(<a href="../../../reference/java/lang/String.html">String</a> parameterName)</nobr>
         
-        <div class="jd-descrdiv">Returns the value of the specified SQL NCHAR, NVARCHAR, or LONGNVARCHAR parameter as a <code>java.io.Reader</code>.</div>
+        <div class="jd-descrdiv">
+          Returns the value of the specified SQL NCHAR, NVARCHAR, or LONGNVARCHAR parameter as a <code>java.io.Reader</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1887,7 +2124,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/CallableStatement.html#getNClob(java.lang.String)">getNClob</a></span>(<a href="../../../reference/java/lang/String.html">String</a> parameterName)</nobr>
         
-        <div class="jd-descrdiv">Returns the value of the specified SQL NCLOB parameter as a <code>java.sql.NClob</code>.</div>
+        <div class="jd-descrdiv">
+          Returns the value of the specified SQL NCLOB parameter as a <code>java.sql.NClob</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1905,7 +2147,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/CallableStatement.html#getNClob(int)">getNClob</a></span>(int parameterIndex)</nobr>
         
-        <div class="jd-descrdiv">Returns the value of the specified SQL NCLOB parameter as a <code>java.sql.NClob</code>.</div>
+        <div class="jd-descrdiv">
+          Returns the value of the specified SQL NCLOB parameter as a <code>java.sql.NClob</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1923,7 +2170,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/CallableStatement.html#getNString(java.lang.String)">getNString</a></span>(<a href="../../../reference/java/lang/String.html">String</a> parameterName)</nobr>
         
-        <div class="jd-descrdiv">Returns the value of the specified SQL NCHAR, NVARCHAR, or LONGNVARCHAR parameter as a <code>java.lang.String</code>.</div>
+        <div class="jd-descrdiv">
+          Returns the value of the specified SQL NCHAR, NVARCHAR, or LONGNVARCHAR parameter as a <code>java.lang.String</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1941,8 +2193,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/CallableStatement.html#getNString(int)">getNString</a></span>(int parameterIndex)</nobr>
         
-        <div class="jd-descrdiv">Returns the value of the specified SQL NCHAR, NVARCHAR, or LONGNVARCHAR parameter as a
- <code>java.lang.String</code>.</div>
+        <div class="jd-descrdiv">
+          Returns the value of the specified SQL NCHAR, NVARCHAR, or LONGNVARCHAR parameter as a
+ <code>java.lang.String</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1960,7 +2217,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/CallableStatement.html#getObject(java.lang.String, java.util.Map<java.lang.String, java.lang.Class<?>>)">getObject</a></span>(<a href="../../../reference/java/lang/String.html">String</a> parameterName, <a href="../../../reference/java/util/Map.html">Map</a>&lt;<a href="../../../reference/java/lang/String.html">String</a>,&nbsp;<a href="../../../reference/java/lang/Class.html">Class</a>&lt;?&gt;&gt; map)</nobr>
         
-        <div class="jd-descrdiv">Gets the value of a specified parameter as an <code>Object</code>.</div>
+        <div class="jd-descrdiv">
+          Gets the value of a specified parameter as an <code>Object</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1978,7 +2240,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/CallableStatement.html#getObject(int, java.util.Map<java.lang.String, java.lang.Class<?>>)">getObject</a></span>(int parameterIndex, <a href="../../../reference/java/util/Map.html">Map</a>&lt;<a href="../../../reference/java/lang/String.html">String</a>,&nbsp;<a href="../../../reference/java/lang/Class.html">Class</a>&lt;?&gt;&gt; map)</nobr>
         
-        <div class="jd-descrdiv">Gets the value of the specified parameter as an <code>Object</code>.</div>
+        <div class="jd-descrdiv">
+          Gets the value of the specified parameter as an <code>Object</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1996,7 +2263,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/CallableStatement.html#getObject(java.lang.String)">getObject</a></span>(<a href="../../../reference/java/lang/String.html">String</a> parameterName)</nobr>
         
-        <div class="jd-descrdiv">Gets the value of the specified parameter as an <code>Object</code>.</div>
+        <div class="jd-descrdiv">
+          Gets the value of the specified parameter as an <code>Object</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2014,7 +2286,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/CallableStatement.html#getObject(int)">getObject</a></span>(int parameterIndex)</nobr>
         
-        <div class="jd-descrdiv">Gets the value of the specified parameter as a Java <code>Object</code>.</div>
+        <div class="jd-descrdiv">
+          Gets the value of the specified parameter as a Java <code>Object</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2032,8 +2309,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/CallableStatement.html#getRef(java.lang.String)">getRef</a></span>(<a href="../../../reference/java/lang/String.html">String</a> parameterName)</nobr>
         
-        <div class="jd-descrdiv">Gets the value of a specified SQL <code>REF(<structured type>)</code>
- parameter as a <code>java.sql.Ref</code>.</div>
+        <div class="jd-descrdiv">
+          Gets the value of a specified SQL <code>REF(<structured type>)</code>
+ parameter as a <code>java.sql.Ref</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2051,8 +2333,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/CallableStatement.html#getRef(int)">getRef</a></span>(int parameterIndex)</nobr>
         
-        <div class="jd-descrdiv">Gets the value of a specified SQL <code>REF(<structured type>)</code>
- parameter as a <code>java.sql.Ref</code>.</div>
+        <div class="jd-descrdiv">
+          Gets the value of a specified SQL <code>REF(<structured type>)</code>
+ parameter as a <code>java.sql.Ref</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2070,7 +2357,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/CallableStatement.html#getRowId(java.lang.String)">getRowId</a></span>(<a href="../../../reference/java/lang/String.html">String</a> parameterName)</nobr>
         
-        <div class="jd-descrdiv">Returns the value of the specified SQL ROWID parameter as a <code>java.sql.RowId</code>.</div>
+        <div class="jd-descrdiv">
+          Returns the value of the specified SQL ROWID parameter as a <code>java.sql.RowId</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2088,7 +2380,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/CallableStatement.html#getRowId(int)">getRowId</a></span>(int parameterIndex)</nobr>
         
-        <div class="jd-descrdiv">Gets the value of a specified <code>ROWID</code> parameter as a <code>java.sql.RowId</code>.</div>
+        <div class="jd-descrdiv">
+          Gets the value of a specified <code>ROWID</code> parameter as a <code>java.sql.RowId</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2106,7 +2403,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/CallableStatement.html#getSQLXML(java.lang.String)">getSQLXML</a></span>(<a href="../../../reference/java/lang/String.html">String</a> parameterName)</nobr>
         
-        <div class="jd-descrdiv">Returns the value of the specified SQL XML parameter as a <code>java.sql.SQLXML</code>.</div>
+        <div class="jd-descrdiv">
+          Returns the value of the specified SQL XML parameter as a <code>java.sql.SQLXML</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2124,7 +2426,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/CallableStatement.html#getSQLXML(int)">getSQLXML</a></span>(int parameterIndex)</nobr>
         
-        <div class="jd-descrdiv">Returns the value of the specified SQL XML parameter as a <code>java.sql.SQLXML</code>.</div>
+        <div class="jd-descrdiv">
+          Returns the value of the specified SQL XML parameter as a <code>java.sql.SQLXML</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2142,8 +2449,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/CallableStatement.html#getShort(java.lang.String)">getShort</a></span>(<a href="../../../reference/java/lang/String.html">String</a> parameterName)</nobr>
         
-        <div class="jd-descrdiv">Gets the value of a specified JDBC <code>SMALLINT</code> parameter as a
- <code>short</code>.</div>
+        <div class="jd-descrdiv">
+          Gets the value of a specified JDBC <code>SMALLINT</code> parameter as a
+ <code>short</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2161,8 +2473,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/CallableStatement.html#getShort(int)">getShort</a></span>(int parameterIndex)</nobr>
         
-        <div class="jd-descrdiv">Gets the value of a specified JDBC <code>SMALLINT</code> parameter as a
- <code>short</code>.</div>
+        <div class="jd-descrdiv">
+          Gets the value of a specified JDBC <code>SMALLINT</code> parameter as a
+ <code>short</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2180,7 +2497,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/CallableStatement.html#getString(int)">getString</a></span>(int parameterIndex)</nobr>
         
-        <div class="jd-descrdiv">Returns the indexed parameter's value as a <code>String</code>.</div>
+        <div class="jd-descrdiv">
+          Returns the indexed parameter's value as a <code>String</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2198,7 +2520,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/CallableStatement.html#getString(java.lang.String)">getString</a></span>(<a href="../../../reference/java/lang/String.html">String</a> parameterName)</nobr>
         
-        <div class="jd-descrdiv">Returns the named parameter's value as a string.</div>
+        <div class="jd-descrdiv">
+          Returns the named parameter's value as a string.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2216,8 +2543,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/CallableStatement.html#getTime(java.lang.String, java.util.Calendar)">getTime</a></span>(<a href="../../../reference/java/lang/String.html">String</a> parameterName, <a href="../../../reference/java/util/Calendar.html">Calendar</a> cal)</nobr>
         
-        <div class="jd-descrdiv">Gets the value of a specified JDBC <code>TIME</code> parameter as a <code>java.sql.Time</code>, using the supplied <code>Calendar</code> to construct
- the time.</div>
+        <div class="jd-descrdiv">
+          Gets the value of a specified JDBC <code>TIME</code> parameter as a <code>java.sql.Time</code>, using the supplied <code>Calendar</code> to construct
+ the time.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2235,7 +2567,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/CallableStatement.html#getTime(java.lang.String)">getTime</a></span>(<a href="../../../reference/java/lang/String.html">String</a> parameterName)</nobr>
         
-        <div class="jd-descrdiv">Gets the value of a specified JDBC <code>TIME</code> parameter as a <code>java.sql.Time</code>.</div>
+        <div class="jd-descrdiv">
+          Gets the value of a specified JDBC <code>TIME</code> parameter as a <code>java.sql.Time</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2253,8 +2590,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/CallableStatement.html#getTime(int, java.util.Calendar)">getTime</a></span>(int parameterIndex, <a href="../../../reference/java/util/Calendar.html">Calendar</a> cal)</nobr>
         
-        <div class="jd-descrdiv">Gets the value of a specified JDBC <code>TIME</code> parameter as a <code>java.sql.Time</code>, using the supplied <code>Calendar</code> to construct the
- time.</div>
+        <div class="jd-descrdiv">
+          Gets the value of a specified JDBC <code>TIME</code> parameter as a <code>java.sql.Time</code>, using the supplied <code>Calendar</code> to construct the
+ time.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2272,7 +2614,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/CallableStatement.html#getTime(int)">getTime</a></span>(int parameterIndex)</nobr>
         
-        <div class="jd-descrdiv">Gets the value of a specified JDBC <code>TIME</code> parameter as a <code>java.sql.Time</code>.</div>
+        <div class="jd-descrdiv">
+          Gets the value of a specified JDBC <code>TIME</code> parameter as a <code>java.sql.Time</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2290,7 +2637,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/CallableStatement.html#getTimestamp(int, java.util.Calendar)">getTimestamp</a></span>(int parameterIndex, <a href="../../../reference/java/util/Calendar.html">Calendar</a> cal)</nobr>
         
-        <div class="jd-descrdiv">Returns the indexed parameter's <code>TIMESTAMP</code> value as a <code>java.sql.Timestamp</code>.</div>
+        <div class="jd-descrdiv">
+          Returns the indexed parameter's <code>TIMESTAMP</code> value as a <code>java.sql.Timestamp</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2308,7 +2660,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/CallableStatement.html#getTimestamp(java.lang.String)">getTimestamp</a></span>(<a href="../../../reference/java/lang/String.html">String</a> parameterName)</nobr>
         
-        <div class="jd-descrdiv">Returns the named parameter's <code>TIMESTAMP</code> value as a <code>java.sql.Timestamp</code>.</div>
+        <div class="jd-descrdiv">
+          Returns the named parameter's <code>TIMESTAMP</code> value as a <code>java.sql.Timestamp</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2326,7 +2683,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/CallableStatement.html#getTimestamp(java.lang.String, java.util.Calendar)">getTimestamp</a></span>(<a href="../../../reference/java/lang/String.html">String</a> parameterName, <a href="../../../reference/java/util/Calendar.html">Calendar</a> cal)</nobr>
         
-        <div class="jd-descrdiv">Returns the indexed parameter's <code>TIMESTAMP</code> value as a <code>java.sql.Timestamp</code>.</div>
+        <div class="jd-descrdiv">
+          Returns the indexed parameter's <code>TIMESTAMP</code> value as a <code>java.sql.Timestamp</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2344,7 +2706,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/CallableStatement.html#getTimestamp(int)">getTimestamp</a></span>(int parameterIndex)</nobr>
         
-        <div class="jd-descrdiv">Returns the indexed parameter's <code>TIMESTAMP</code> value as a <code>java.sql.Timestamp</code>.</div>
+        <div class="jd-descrdiv">
+          Returns the indexed parameter's <code>TIMESTAMP</code> value as a <code>java.sql.Timestamp</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2362,8 +2729,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/CallableStatement.html#getURL(int)">getURL</a></span>(int parameterIndex)</nobr>
         
-        <div class="jd-descrdiv">Gets the value of a specified JDBC <code>DATALINK</code> parameter as a
- <code>java.net.URL</code>.</div>
+        <div class="jd-descrdiv">
+          Gets the value of a specified JDBC <code>DATALINK</code> parameter as a
+ <code>java.net.URL</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2381,8 +2753,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/CallableStatement.html#getURL(java.lang.String)">getURL</a></span>(<a href="../../../reference/java/lang/String.html">String</a> parameterName)</nobr>
         
-        <div class="jd-descrdiv">Returns the named parameter's JDBC <code>DATALINK</code> value in a new Java
- <code>java.net.URL</code>.</div>
+        <div class="jd-descrdiv">
+          Returns the named parameter's JDBC <code>DATALINK</code> value in a new Java
+ <code>java.net.URL</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2400,7 +2777,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/CallableStatement.html#registerOutParameter(java.lang.String, int)">registerOutParameter</a></span>(<a href="../../../reference/java/lang/String.html">String</a> parameterName, int sqlType)</nobr>
         
-        <div class="jd-descrdiv">Defines the Type of a specified <code>OUT</code> parameter.</div>
+        <div class="jd-descrdiv">
+          Defines the Type of a specified <code>OUT</code> parameter.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2418,7 +2800,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/CallableStatement.html#registerOutParameter(int, int)">registerOutParameter</a></span>(int parameterIndex, int sqlType)</nobr>
         
-        <div class="jd-descrdiv">Defines the type of a specified <code>OUT</code> parameter.</div>
+        <div class="jd-descrdiv">
+          Defines the type of a specified <code>OUT</code> parameter.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2436,7 +2823,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/CallableStatement.html#registerOutParameter(java.lang.String, int, java.lang.String)">registerOutParameter</a></span>(<a href="../../../reference/java/lang/String.html">String</a> parameterName, int sqlType, <a href="../../../reference/java/lang/String.html">String</a> typeName)</nobr>
         
-        <div class="jd-descrdiv">Defines the Type of a specified <code>OUT</code> parameter.</div>
+        <div class="jd-descrdiv">
+          Defines the Type of a specified <code>OUT</code> parameter.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2454,7 +2846,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/CallableStatement.html#registerOutParameter(java.lang.String, int, int)">registerOutParameter</a></span>(<a href="../../../reference/java/lang/String.html">String</a> parameterName, int sqlType, int scale)</nobr>
         
-        <div class="jd-descrdiv">Defines the Type of a specified <code>OUT</code> parameter.</div>
+        <div class="jd-descrdiv">
+          Defines the Type of a specified <code>OUT</code> parameter.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2472,7 +2869,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/CallableStatement.html#registerOutParameter(int, int, int)">registerOutParameter</a></span>(int parameterIndex, int sqlType, int scale)</nobr>
         
-        <div class="jd-descrdiv">Defines the Type of a specified <code>OUT</code> parameter.</div>
+        <div class="jd-descrdiv">
+          Defines the Type of a specified <code>OUT</code> parameter.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2490,7 +2892,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/CallableStatement.html#registerOutParameter(int, int, java.lang.String)">registerOutParameter</a></span>(int paramIndex, int sqlType, <a href="../../../reference/java/lang/String.html">String</a> typeName)</nobr>
         
-        <div class="jd-descrdiv">Defines the Type of a specified <code>OUT</code> parameter.</div>
+        <div class="jd-descrdiv">
+          Defines the Type of a specified <code>OUT</code> parameter.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2508,8 +2915,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/CallableStatement.html#setAsciiStream(java.lang.String, java.io.InputStream, int)">setAsciiStream</a></span>(<a href="../../../reference/java/lang/String.html">String</a> parameterName, <a href="../../../reference/java/io/InputStream.html">InputStream</a> theInputStream, int length)</nobr>
         
-        <div class="jd-descrdiv">Sets the value of a specified parameter to the content of a supplied
- <code>InputStream</code>, which has a specified number of bytes.</div>
+        <div class="jd-descrdiv">
+          Sets the value of a specified parameter to the content of a supplied
+ <code>InputStream</code>, which has a specified number of bytes.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2527,7 +2939,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/CallableStatement.html#setAsciiStream(java.lang.String, java.io.InputStream)">setAsciiStream</a></span>(<a href="../../../reference/java/lang/String.html">String</a> parameterName, <a href="../../../reference/java/io/InputStream.html">InputStream</a> x)</nobr>
         
-        <div class="jd-descrdiv">Sets the named parameter to the bytes from the given <code>reader</code>.</div>
+        <div class="jd-descrdiv">
+          Sets the named parameter to the bytes from the given <code>reader</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2545,7 +2962,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/CallableStatement.html#setAsciiStream(java.lang.String, java.io.InputStream, long)">setAsciiStream</a></span>(<a href="../../../reference/java/lang/String.html">String</a> parameterName, <a href="../../../reference/java/io/InputStream.html">InputStream</a> x, long length)</nobr>
         
-        <div class="jd-descrdiv">Sets the named parameter to the next <code>length</code> bytes from the given <code>inputStream</code>.</div>
+        <div class="jd-descrdiv">
+          Sets the named parameter to the next <code>length</code> bytes from the given <code>inputStream</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2563,7 +2985,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/CallableStatement.html#setBigDecimal(java.lang.String, java.math.BigDecimal)">setBigDecimal</a></span>(<a href="../../../reference/java/lang/String.html">String</a> parameterName, <a href="../../../reference/java/math/BigDecimal.html">BigDecimal</a> theBigDecimal)</nobr>
         
-        <div class="jd-descrdiv">Sets the value of a specified parameter to a supplied <code>java.math.BigDecimal</code> value.</div>
+        <div class="jd-descrdiv">
+          Sets the value of a specified parameter to a supplied <code>java.math.BigDecimal</code> value.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2581,7 +3008,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/CallableStatement.html#setBinaryStream(java.lang.String, java.io.InputStream)">setBinaryStream</a></span>(<a href="../../../reference/java/lang/String.html">String</a> parameterName, <a href="../../../reference/java/io/InputStream.html">InputStream</a> x)</nobr>
         
-        <div class="jd-descrdiv">Sets the named parameter to the bytes from the given <code>reader</code>.</div>
+        <div class="jd-descrdiv">
+          Sets the named parameter to the bytes from the given <code>reader</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2599,7 +3031,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/CallableStatement.html#setBinaryStream(java.lang.String, java.io.InputStream, long)">setBinaryStream</a></span>(<a href="../../../reference/java/lang/String.html">String</a> parameterName, <a href="../../../reference/java/io/InputStream.html">InputStream</a> x, long length)</nobr>
         
-        <div class="jd-descrdiv">Sets the named parameter to the next <code>length</code> bytes from the given <code>inputStream</code>.</div>
+        <div class="jd-descrdiv">
+          Sets the named parameter to the next <code>length</code> bytes from the given <code>inputStream</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2617,8 +3054,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/CallableStatement.html#setBinaryStream(java.lang.String, java.io.InputStream, int)">setBinaryStream</a></span>(<a href="../../../reference/java/lang/String.html">String</a> parameterName, <a href="../../../reference/java/io/InputStream.html">InputStream</a> theInputStream, int length)</nobr>
         
-        <div class="jd-descrdiv">Sets the value of a specified parameter to the content of a supplied
- binary <code>InputStream</code>, which has a specified number of bytes.</div>
+        <div class="jd-descrdiv">
+          Sets the value of a specified parameter to the content of a supplied
+ binary <code>InputStream</code>, which has a specified number of bytes.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2636,7 +3078,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/CallableStatement.html#setBlob(java.lang.String, java.io.InputStream, long)">setBlob</a></span>(<a href="../../../reference/java/lang/String.html">String</a> parameterName, <a href="../../../reference/java/io/InputStream.html">InputStream</a> inputStream, long length)</nobr>
         
-        <div class="jd-descrdiv">Sets the named parameter to the next <code>length</code> bytes from the given <code>inputStream</code>.</div>
+        <div class="jd-descrdiv">
+          Sets the named parameter to the next <code>length</code> bytes from the given <code>inputStream</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2654,7 +3101,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/CallableStatement.html#setBlob(java.lang.String, java.io.InputStream)">setBlob</a></span>(<a href="../../../reference/java/lang/String.html">String</a> parameterName, <a href="../../../reference/java/io/InputStream.html">InputStream</a> inputStream)</nobr>
         
-        <div class="jd-descrdiv">Sets the named parameter to the bytes from the given <code>inputStream</code>.</div>
+        <div class="jd-descrdiv">
+          Sets the named parameter to the bytes from the given <code>inputStream</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2672,7 +3124,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/CallableStatement.html#setBlob(java.lang.String, java.sql.Blob)">setBlob</a></span>(<a href="../../../reference/java/lang/String.html">String</a> parameterName, <a href="../../../reference/java/sql/Blob.html">Blob</a> blob)</nobr>
         
-        <div class="jd-descrdiv">Sets the named parameter to the given <code>blob</code>.</div>
+        <div class="jd-descrdiv">
+          Sets the named parameter to the given <code>blob</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2690,8 +3147,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/CallableStatement.html#setBoolean(java.lang.String, boolean)">setBoolean</a></span>(<a href="../../../reference/java/lang/String.html">String</a> parameterName, boolean theBoolean)</nobr>
         
-        <div class="jd-descrdiv">Sets the value of a specified parameter to a supplied <code>boolean</code>
- value.</div>
+        <div class="jd-descrdiv">
+          Sets the value of a specified parameter to a supplied <code>boolean</code>
+ value.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2709,7 +3171,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/CallableStatement.html#setByte(java.lang.String, byte)">setByte</a></span>(<a href="../../../reference/java/lang/String.html">String</a> parameterName, byte theByte)</nobr>
         
-        <div class="jd-descrdiv">Sets the value of a specified parameter to a supplied <code>byte</code> value.</div>
+        <div class="jd-descrdiv">
+          Sets the value of a specified parameter to a supplied <code>byte</code> value.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2727,7 +3194,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/CallableStatement.html#setBytes(java.lang.String, byte[])">setBytes</a></span>(<a href="../../../reference/java/lang/String.html">String</a> parameterName, byte[] theBytes)</nobr>
         
-        <div class="jd-descrdiv">Sets the value of a specified parameter to a supplied array of bytes.</div>
+        <div class="jd-descrdiv">
+          Sets the value of a specified parameter to a supplied array of bytes.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2745,8 +3217,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/CallableStatement.html#setCharacterStream(java.lang.String, java.io.Reader, int)">setCharacterStream</a></span>(<a href="../../../reference/java/lang/String.html">String</a> parameterName, <a href="../../../reference/java/io/Reader.html">Reader</a> reader, int length)</nobr>
         
-        <div class="jd-descrdiv">Sets the value of a specified parameter to the character content of a
- <code>Reader</code> object, with the specified length of character data.</div>
+        <div class="jd-descrdiv">
+          Sets the value of a specified parameter to the character content of a
+ <code>Reader</code> object, with the specified length of character data.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2764,7 +3241,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/CallableStatement.html#setCharacterStream(java.lang.String, java.io.Reader, long)">setCharacterStream</a></span>(<a href="../../../reference/java/lang/String.html">String</a> parameterName, <a href="../../../reference/java/io/Reader.html">Reader</a> reader, long length)</nobr>
         
-        <div class="jd-descrdiv">Sets the named parameter to the next <code>length</code> characters from the given <code>reader</code>.</div>
+        <div class="jd-descrdiv">
+          Sets the named parameter to the next <code>length</code> characters from the given <code>reader</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2782,7 +3264,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/CallableStatement.html#setCharacterStream(java.lang.String, java.io.Reader)">setCharacterStream</a></span>(<a href="../../../reference/java/lang/String.html">String</a> parameterName, <a href="../../../reference/java/io/Reader.html">Reader</a> reader)</nobr>
         
-        <div class="jd-descrdiv">Sets the named parameter to the characters from the given <code>reader</code>.</div>
+        <div class="jd-descrdiv">
+          Sets the named parameter to the characters from the given <code>reader</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2800,7 +3287,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/CallableStatement.html#setClob(java.lang.String, java.io.Reader, long)">setClob</a></span>(<a href="../../../reference/java/lang/String.html">String</a> parameterName, <a href="../../../reference/java/io/Reader.html">Reader</a> reader, long length)</nobr>
         
-        <div class="jd-descrdiv">Sets the named parameter to the next <code>length</code> characters from the given <code>reader</code>.</div>
+        <div class="jd-descrdiv">
+          Sets the named parameter to the next <code>length</code> characters from the given <code>reader</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2818,7 +3310,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/CallableStatement.html#setClob(java.lang.String, java.sql.Clob)">setClob</a></span>(<a href="../../../reference/java/lang/String.html">String</a> parameterName, <a href="../../../reference/java/sql/Clob.html">Clob</a> clob)</nobr>
         
-        <div class="jd-descrdiv">Sets the named parameter to the given <code>clob</code>.</div>
+        <div class="jd-descrdiv">
+          Sets the named parameter to the given <code>clob</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2836,7 +3333,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/CallableStatement.html#setClob(java.lang.String, java.io.Reader)">setClob</a></span>(<a href="../../../reference/java/lang/String.html">String</a> parameterName, <a href="../../../reference/java/io/Reader.html">Reader</a> reader)</nobr>
         
-        <div class="jd-descrdiv">Sets the named parameter to the characters from the given <code>reader</code>.</div>
+        <div class="jd-descrdiv">
+          Sets the named parameter to the characters from the given <code>reader</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2854,7 +3356,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/CallableStatement.html#setDate(java.lang.String, java.sql.Date, java.util.Calendar)">setDate</a></span>(<a href="../../../reference/java/lang/String.html">String</a> parameterName, <a href="../../../reference/java/sql/Date.html">Date</a> theDate, <a href="../../../reference/java/util/Calendar.html">Calendar</a> cal)</nobr>
         
-        <div class="jd-descrdiv">Sets the value of a specified parameter to a supplied <code>java.sql.Date</code> value, using a supplied calendar to map the date.</div>
+        <div class="jd-descrdiv">
+          Sets the value of a specified parameter to a supplied <code>java.sql.Date</code> value, using a supplied calendar to map the date.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2872,7 +3379,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/CallableStatement.html#setDate(java.lang.String, java.sql.Date)">setDate</a></span>(<a href="../../../reference/java/lang/String.html">String</a> parameterName, <a href="../../../reference/java/sql/Date.html">Date</a> theDate)</nobr>
         
-        <div class="jd-descrdiv">Sets the value of a specified parameter to a supplied <code>java.sql.Date</code> value.</div>
+        <div class="jd-descrdiv">
+          Sets the value of a specified parameter to a supplied <code>java.sql.Date</code> value.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2890,8 +3402,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/CallableStatement.html#setDouble(java.lang.String, double)">setDouble</a></span>(<a href="../../../reference/java/lang/String.html">String</a> parameterName, double theDouble)</nobr>
         
-        <div class="jd-descrdiv">Sets the value of a specified parameter to a supplied <code>double</code>
- value.</div>
+        <div class="jd-descrdiv">
+          Sets the value of a specified parameter to a supplied <code>double</code>
+ value.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2909,8 +3426,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/CallableStatement.html#setFloat(java.lang.String, float)">setFloat</a></span>(<a href="../../../reference/java/lang/String.html">String</a> parameterName, float theFloat)</nobr>
         
-        <div class="jd-descrdiv">Sets the value of a specified parameter to to a supplied <code>float</code>
- value.</div>
+        <div class="jd-descrdiv">
+          Sets the value of a specified parameter to to a supplied <code>float</code>
+ value.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2928,7 +3450,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/CallableStatement.html#setInt(java.lang.String, int)">setInt</a></span>(<a href="../../../reference/java/lang/String.html">String</a> parameterName, int theInt)</nobr>
         
-        <div class="jd-descrdiv">Sets the value of a specified parameter to a supplied <code>int</code> value.</div>
+        <div class="jd-descrdiv">
+          Sets the value of a specified parameter to a supplied <code>int</code> value.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2946,7 +3473,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/CallableStatement.html#setLong(java.lang.String, long)">setLong</a></span>(<a href="../../../reference/java/lang/String.html">String</a> parameterName, long theLong)</nobr>
         
-        <div class="jd-descrdiv">Sets the value of a specified parameter to a supplied <code>long</code> value.</div>
+        <div class="jd-descrdiv">
+          Sets the value of a specified parameter to a supplied <code>long</code> value.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2964,7 +3496,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/CallableStatement.html#setNCharacterStream(java.lang.String, java.io.Reader)">setNCharacterStream</a></span>(<a href="../../../reference/java/lang/String.html">String</a> parameterName, <a href="../../../reference/java/io/Reader.html">Reader</a> value)</nobr>
         
-        <div class="jd-descrdiv">Sets the named parameter to the characters from the given <code>reader</code>.</div>
+        <div class="jd-descrdiv">
+          Sets the named parameter to the characters from the given <code>reader</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2982,7 +3519,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/CallableStatement.html#setNCharacterStream(java.lang.String, java.io.Reader, long)">setNCharacterStream</a></span>(<a href="../../../reference/java/lang/String.html">String</a> parameterName, <a href="../../../reference/java/io/Reader.html">Reader</a> reader, long length)</nobr>
         
-        <div class="jd-descrdiv">Sets the named parameter to the characters from the given <code>reader</code>.</div>
+        <div class="jd-descrdiv">
+          Sets the named parameter to the characters from the given <code>reader</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3000,7 +3542,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/CallableStatement.html#setNClob(java.lang.String, java.io.Reader, long)">setNClob</a></span>(<a href="../../../reference/java/lang/String.html">String</a> parameterName, <a href="../../../reference/java/io/Reader.html">Reader</a> reader, long length)</nobr>
         
-        <div class="jd-descrdiv">Sets the named parameter to the next <code>length</code> characters from the given <code>reader</code>.</div>
+        <div class="jd-descrdiv">
+          Sets the named parameter to the next <code>length</code> characters from the given <code>reader</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3018,7 +3565,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/CallableStatement.html#setNClob(java.lang.String, java.sql.NClob)">setNClob</a></span>(<a href="../../../reference/java/lang/String.html">String</a> parameterName, <a href="../../../reference/java/sql/NClob.html">NClob</a> nclob)</nobr>
         
-        <div class="jd-descrdiv">Sets the named parameter to the given <code>nclob</code>.</div>
+        <div class="jd-descrdiv">
+          Sets the named parameter to the given <code>nclob</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3036,7 +3588,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/CallableStatement.html#setNClob(java.lang.String, java.io.Reader)">setNClob</a></span>(<a href="../../../reference/java/lang/String.html">String</a> parameterName, <a href="../../../reference/java/io/Reader.html">Reader</a> reader)</nobr>
         
-        <div class="jd-descrdiv">Sets the named parameter to the characters from the given <code>reader</code>.</div>
+        <div class="jd-descrdiv">
+          Sets the named parameter to the characters from the given <code>reader</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3054,7 +3611,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/CallableStatement.html#setNString(java.lang.String, java.lang.String)">setNString</a></span>(<a href="../../../reference/java/lang/String.html">String</a> parameterName, <a href="../../../reference/java/lang/String.html">String</a> string)</nobr>
         
-        <div class="jd-descrdiv">Sets the named parameter to the given <code>string</code>.</div>
+        <div class="jd-descrdiv">
+          Sets the named parameter to the given <code>string</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3072,7 +3634,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/CallableStatement.html#setNull(java.lang.String, int)">setNull</a></span>(<a href="../../../reference/java/lang/String.html">String</a> parameterName, int sqlType)</nobr>
         
-        <div class="jd-descrdiv">Sets the value of a specified parameter to SQL <code>NULL</code>.</div>
+        <div class="jd-descrdiv">
+          Sets the value of a specified parameter to SQL <code>NULL</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3090,8 +3657,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/CallableStatement.html#setNull(java.lang.String, int, java.lang.String)">setNull</a></span>(<a href="../../../reference/java/lang/String.html">String</a> parameterName, int sqlType, <a href="../../../reference/java/lang/String.html">String</a> typeName)</nobr>
         
-        <div class="jd-descrdiv">Sets the value of a specified parameter to be SQL <code>NULL</code> where the
- parameter type is either <code>REF</code> or user defined (e.g.</div>
+        <div class="jd-descrdiv">
+          Sets the value of a specified parameter to be SQL <code>NULL</code> where the
+ parameter type is either <code>REF</code> or user defined (e.g.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3109,7 +3681,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/CallableStatement.html#setObject(java.lang.String, java.lang.Object)">setObject</a></span>(<a href="../../../reference/java/lang/String.html">String</a> parameterName, <a href="../../../reference/java/lang/Object.html">Object</a> theObject)</nobr>
         
-        <div class="jd-descrdiv">Sets the value of a specified parameter using a supplied object.</div>
+        <div class="jd-descrdiv">
+          Sets the value of a specified parameter using a supplied object.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3127,7 +3704,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/CallableStatement.html#setObject(java.lang.String, java.lang.Object, int)">setObject</a></span>(<a href="../../../reference/java/lang/String.html">String</a> parameterName, <a href="../../../reference/java/lang/Object.html">Object</a> theObject, int targetSqlType)</nobr>
         
-        <div class="jd-descrdiv">Sets the value of a specified parameter using a supplied object.</div>
+        <div class="jd-descrdiv">
+          Sets the value of a specified parameter using a supplied object.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3145,7 +3727,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/CallableStatement.html#setObject(java.lang.String, java.lang.Object, int, int)">setObject</a></span>(<a href="../../../reference/java/lang/String.html">String</a> parameterName, <a href="../../../reference/java/lang/Object.html">Object</a> theObject, int targetSqlType, int scale)</nobr>
         
-        <div class="jd-descrdiv">Sets the value of a specified parameter using a supplied object.</div>
+        <div class="jd-descrdiv">
+          Sets the value of a specified parameter using a supplied object.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3163,7 +3750,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/CallableStatement.html#setRowId(java.lang.String, java.sql.RowId)">setRowId</a></span>(<a href="../../../reference/java/lang/String.html">String</a> parameterName, <a href="../../../reference/java/sql/RowId.html">RowId</a> rowId)</nobr>
         
-        <div class="jd-descrdiv">Sets the named parameter to the given <code>rowId</code>.</div>
+        <div class="jd-descrdiv">
+          Sets the named parameter to the given <code>rowId</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3181,7 +3773,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/CallableStatement.html#setSQLXML(java.lang.String, java.sql.SQLXML)">setSQLXML</a></span>(<a href="../../../reference/java/lang/String.html">String</a> parameterName, <a href="../../../reference/java/sql/SQLXML.html">SQLXML</a> sqlXml)</nobr>
         
-        <div class="jd-descrdiv">Sets the named parameter to the given <code>sqlXml</code>.</div>
+        <div class="jd-descrdiv">
+          Sets the named parameter to the given <code>sqlXml</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3199,8 +3796,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/CallableStatement.html#setShort(java.lang.String, short)">setShort</a></span>(<a href="../../../reference/java/lang/String.html">String</a> parameterName, short theShort)</nobr>
         
-        <div class="jd-descrdiv">Sets the value of a specified parameter to a supplied <code>short</code>
- value.</div>
+        <div class="jd-descrdiv">
+          Sets the value of a specified parameter to a supplied <code>short</code>
+ value.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3218,7 +3820,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/CallableStatement.html#setString(java.lang.String, java.lang.String)">setString</a></span>(<a href="../../../reference/java/lang/String.html">String</a> parameterName, <a href="../../../reference/java/lang/String.html">String</a> theString)</nobr>
         
-        <div class="jd-descrdiv">Sets the value of a specified parameter to a supplied <code>String</code>.</div>
+        <div class="jd-descrdiv">
+          Sets the value of a specified parameter to a supplied <code>String</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3236,8 +3843,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/CallableStatement.html#setTime(java.lang.String, java.sql.Time, java.util.Calendar)">setTime</a></span>(<a href="../../../reference/java/lang/String.html">String</a> parameterName, <a href="../../../reference/java/sql/Time.html">Time</a> theTime, <a href="../../../reference/java/util/Calendar.html">Calendar</a> cal)</nobr>
         
-        <div class="jd-descrdiv">Sets the value of the parameter named <code>parameterName</code> to the value
- of the supplied <code>java.sql.Time</code> using the supplied calendar.</div>
+        <div class="jd-descrdiv">
+          Sets the value of the parameter named <code>parameterName</code> to the value
+ of the supplied <code>java.sql.Time</code> using the supplied calendar.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3255,8 +3867,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/CallableStatement.html#setTime(java.lang.String, java.sql.Time)">setTime</a></span>(<a href="../../../reference/java/lang/String.html">String</a> parameterName, <a href="../../../reference/java/sql/Time.html">Time</a> theTime)</nobr>
         
-        <div class="jd-descrdiv">Sets the value of the parameter named <code>parameterName</code> to the value
- of the supplied <code>java.sql.Time</code>.</div>
+        <div class="jd-descrdiv">
+          Sets the value of the parameter named <code>parameterName</code> to the value
+ of the supplied <code>java.sql.Time</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3274,7 +3891,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/CallableStatement.html#setTimestamp(java.lang.String, java.sql.Timestamp, java.util.Calendar)">setTimestamp</a></span>(<a href="../../../reference/java/lang/String.html">String</a> parameterName, <a href="../../../reference/java/sql/Timestamp.html">Timestamp</a> theTimestamp, <a href="../../../reference/java/util/Calendar.html">Calendar</a> cal)</nobr>
         
-        <div class="jd-descrdiv">Sets the value of a specified parameter to a supplied <code>java.sql.Timestamp</code> value, using the supplied calendar.</div>
+        <div class="jd-descrdiv">
+          Sets the value of a specified parameter to a supplied <code>java.sql.Timestamp</code> value, using the supplied calendar.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3292,7 +3914,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/CallableStatement.html#setTimestamp(java.lang.String, java.sql.Timestamp)">setTimestamp</a></span>(<a href="../../../reference/java/lang/String.html">String</a> parameterName, <a href="../../../reference/java/sql/Timestamp.html">Timestamp</a> theTimestamp)</nobr>
         
-        <div class="jd-descrdiv">Sets the value of a specified parameter to a supplied <code>java.sql.Timestamp</code> value.</div>
+        <div class="jd-descrdiv">
+          Sets the value of a specified parameter to a supplied <code>java.sql.Timestamp</code> value.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3310,7 +3937,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/CallableStatement.html#setURL(java.lang.String, java.net.URL)">setURL</a></span>(<a href="../../../reference/java/lang/String.html">String</a> parameterName, <a href="../../../reference/java/net/URL.html">URL</a> theURL)</nobr>
         
-        <div class="jd-descrdiv">Sets the value of a specified parameter to the supplied <code>java.net.URL</code>.</div>
+        <div class="jd-descrdiv">
+          Sets the value of a specified parameter to the supplied <code>java.net.URL</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3328,8 +3960,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/CallableStatement.html#wasNull()">wasNull</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Gets whether the value of the last <code>OUT</code> parameter read was SQL
- <code>NULL</code>.</div>
+        <div class="jd-descrdiv">
+          Gets whether the value of the last <code>OUT</code> parameter read was SQL
+ <code>NULL</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3381,7 +4018,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/AutoCloseable.html#close()">close</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Closes the object and release any system resources it holds.</div>
+        <div class="jd-descrdiv">
+          Closes the object and release any system resources it holds.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3425,7 +4067,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/PreparedStatement.html#addBatch()">addBatch</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Add a set of parameters to the <code>PreparedStatement</code>'s command batch.</div>
+        <div class="jd-descrdiv">
+          Add a set of parameters to the <code>PreparedStatement</code>'s command batch.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3443,7 +4090,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/PreparedStatement.html#clearParameters()">clearParameters</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Clear the current parameter values.</div>
+        <div class="jd-descrdiv">
+          Clear the current parameter values.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3461,7 +4113,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/PreparedStatement.html#execute()">execute</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Executes the SQL statement in this <code>PreparedStatement</code>.</div>
+        <div class="jd-descrdiv">
+          Executes the SQL statement in this <code>PreparedStatement</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3479,8 +4136,13 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/PreparedStatement.html#executeQuery()">executeQuery</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Executes the SQL query in the <code>PreparedStatement</code> and returns the
- <code>ResultSet</code> generated by the query.</div>
+        <div class="jd-descrdiv">
+          Executes the SQL query in the <code>PreparedStatement</code> and returns the
+ <code>ResultSet</code> generated by the query.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3498,7 +4160,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/PreparedStatement.html#executeUpdate()">executeUpdate</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Invokes the SQL command contained within the prepared statement.</div>
+        <div class="jd-descrdiv">
+          Invokes the SQL command contained within the prepared statement.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3516,7 +4183,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/PreparedStatement.html#getMetaData()">getMetaData</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns a <code>ResultSetMetaData</code> describing the <code>ResultSet</code> that would be produced by execution of the <code>PreparedStatement</code>.</div>
+        <div class="jd-descrdiv">
+          Returns a <code>ResultSetMetaData</code> describing the <code>ResultSet</code> that would be produced by execution of the <code>PreparedStatement</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3534,7 +4206,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/PreparedStatement.html#getParameterMetaData()">getParameterMetaData</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Gets information about the parameters of the <code>PreparedStatement</code>.</div>
+        <div class="jd-descrdiv">
+          Gets information about the parameters of the <code>PreparedStatement</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3552,7 +4229,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/PreparedStatement.html#setArray(int, java.sql.Array)">setArray</a></span>(int parameterIndex, <a href="../../../reference/java/sql/Array.html">Array</a> theArray)</nobr>
         
-        <div class="jd-descrdiv">Sets the value of a specified parameter to the supplied <code>Array</code>.</div>
+        <div class="jd-descrdiv">
+          Sets the value of a specified parameter to the supplied <code>Array</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3570,8 +4252,13 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/PreparedStatement.html#setAsciiStream(int, java.io.InputStream, int)">setAsciiStream</a></span>(int parameterIndex, <a href="../../../reference/java/io/InputStream.html">InputStream</a> theInputStream, int length)</nobr>
         
-        <div class="jd-descrdiv">Sets the value of a specified parameter to the content of a supplied
- <code>InputStream</code>, which has a specified number of bytes.</div>
+        <div class="jd-descrdiv">
+          Sets the value of a specified parameter to the content of a supplied
+ <code>InputStream</code>, which has a specified number of bytes.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3589,8 +4276,13 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/PreparedStatement.html#setAsciiStream(int, java.io.InputStream)">setAsciiStream</a></span>(int parameterIndex, <a href="../../../reference/java/io/InputStream.html">InputStream</a> inputStream)</nobr>
         
-        <div class="jd-descrdiv">Sets the value of the specified parameter to the bytes
- from <code>inputStream</code>.</div>
+        <div class="jd-descrdiv">
+          Sets the value of the specified parameter to the bytes
+ from <code>inputStream</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3608,8 +4300,13 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/PreparedStatement.html#setAsciiStream(int, java.io.InputStream, long)">setAsciiStream</a></span>(int parameterIndex, <a href="../../../reference/java/io/InputStream.html">InputStream</a> inputStream, long length)</nobr>
         
-        <div class="jd-descrdiv">Sets the value of the specified parameter to the next <code>length</code> bytes
- from <code>inputStream</code>.</div>
+        <div class="jd-descrdiv">
+          Sets the value of the specified parameter to the next <code>length</code> bytes
+ from <code>inputStream</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3627,7 +4324,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/PreparedStatement.html#setBigDecimal(int, java.math.BigDecimal)">setBigDecimal</a></span>(int parameterIndex, <a href="../../../reference/java/math/BigDecimal.html">BigDecimal</a> theBigDecimal)</nobr>
         
-        <div class="jd-descrdiv">Sets the value of a specified parameter to a supplied <code>java.math.BigDecimal</code> value.</div>
+        <div class="jd-descrdiv">
+          Sets the value of a specified parameter to a supplied <code>java.math.BigDecimal</code> value.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3645,8 +4347,13 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/PreparedStatement.html#setBinaryStream(int, java.io.InputStream)">setBinaryStream</a></span>(int parameterIndex, <a href="../../../reference/java/io/InputStream.html">InputStream</a> inputStream)</nobr>
         
-        <div class="jd-descrdiv">Sets the value of the specified parameter to the bytes
- from <code>inputStream</code>.</div>
+        <div class="jd-descrdiv">
+          Sets the value of the specified parameter to the bytes
+ from <code>inputStream</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3664,8 +4371,13 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/PreparedStatement.html#setBinaryStream(int, java.io.InputStream, long)">setBinaryStream</a></span>(int parameterIndex, <a href="../../../reference/java/io/InputStream.html">InputStream</a> inputStream, long length)</nobr>
         
-        <div class="jd-descrdiv">Sets the value of the specified parameter to the next <code>length</code> bytes
- from <code>inputStream</code>.</div>
+        <div class="jd-descrdiv">
+          Sets the value of the specified parameter to the next <code>length</code> bytes
+ from <code>inputStream</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3683,8 +4395,13 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/PreparedStatement.html#setBinaryStream(int, java.io.InputStream, int)">setBinaryStream</a></span>(int parameterIndex, <a href="../../../reference/java/io/InputStream.html">InputStream</a> theInputStream, int length)</nobr>
         
-        <div class="jd-descrdiv">Sets the value of a specified parameter to the content of a supplied
- binary <code>InputStream</code>, which has a specified number of bytes.</div>
+        <div class="jd-descrdiv">
+          Sets the value of a specified parameter to the content of a supplied
+ binary <code>InputStream</code>, which has a specified number of bytes.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3702,8 +4419,13 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/PreparedStatement.html#setBlob(int, java.io.InputStream, long)">setBlob</a></span>(int parameterIndex, <a href="../../../reference/java/io/InputStream.html">InputStream</a> inputStream, long length)</nobr>
         
-        <div class="jd-descrdiv">Sets the value of the specified parameter to the next <code>length</code> bytes
- from <code>inputStream</code>.</div>
+        <div class="jd-descrdiv">
+          Sets the value of the specified parameter to the next <code>length</code> bytes
+ from <code>inputStream</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3721,8 +4443,13 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/PreparedStatement.html#setBlob(int, java.io.InputStream)">setBlob</a></span>(int parameterIndex, <a href="../../../reference/java/io/InputStream.html">InputStream</a> inputStream)</nobr>
         
-        <div class="jd-descrdiv">Sets the value of the specified parameter to the bytes
- from <code>inputStream</code>.</div>
+        <div class="jd-descrdiv">
+          Sets the value of the specified parameter to the bytes
+ from <code>inputStream</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3740,7 +4467,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/PreparedStatement.html#setBlob(int, java.sql.Blob)">setBlob</a></span>(int parameterIndex, <a href="../../../reference/java/sql/Blob.html">Blob</a> theBlob)</nobr>
         
-        <div class="jd-descrdiv">Sets the value of a specified parameter to the given <code>Blob</code> object.</div>
+        <div class="jd-descrdiv">
+          Sets the value of a specified parameter to the given <code>Blob</code> object.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3758,8 +4490,13 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/PreparedStatement.html#setBoolean(int, boolean)">setBoolean</a></span>(int parameterIndex, boolean theBoolean)</nobr>
         
-        <div class="jd-descrdiv">Sets the value of a specified parameter to a supplied <code>boolean</code>
- value.</div>
+        <div class="jd-descrdiv">
+          Sets the value of a specified parameter to a supplied <code>boolean</code>
+ value.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3777,7 +4514,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/PreparedStatement.html#setByte(int, byte)">setByte</a></span>(int parameterIndex, byte theByte)</nobr>
         
-        <div class="jd-descrdiv">Sets the value of a specified parameter to a supplied <code>byte</code> value.</div>
+        <div class="jd-descrdiv">
+          Sets the value of a specified parameter to a supplied <code>byte</code> value.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3795,7 +4537,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/PreparedStatement.html#setBytes(int, byte[])">setBytes</a></span>(int parameterIndex, byte[] theBytes)</nobr>
         
-        <div class="jd-descrdiv">Sets the value of a specified parameter to a supplied array of bytes.</div>
+        <div class="jd-descrdiv">
+          Sets the value of a specified parameter to a supplied array of bytes.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3813,8 +4560,13 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/PreparedStatement.html#setCharacterStream(int, java.io.Reader)">setCharacterStream</a></span>(int parameterIndex, <a href="../../../reference/java/io/Reader.html">Reader</a> reader)</nobr>
         
-        <div class="jd-descrdiv">Sets the value of the specified parameter to the characters
- from <code>reader</code>.</div>
+        <div class="jd-descrdiv">
+          Sets the value of the specified parameter to the characters
+ from <code>reader</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3832,8 +4584,13 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/PreparedStatement.html#setCharacterStream(int, java.io.Reader, int)">setCharacterStream</a></span>(int parameterIndex, <a href="../../../reference/java/io/Reader.html">Reader</a> reader, int length)</nobr>
         
-        <div class="jd-descrdiv">Sets the value of a specified parameter to the character content of a
- <code>Reader</code> object, with the specified length of character data.</div>
+        <div class="jd-descrdiv">
+          Sets the value of a specified parameter to the character content of a
+ <code>Reader</code> object, with the specified length of character data.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3851,8 +4608,13 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/PreparedStatement.html#setCharacterStream(int, java.io.Reader, long)">setCharacterStream</a></span>(int parameterIndex, <a href="../../../reference/java/io/Reader.html">Reader</a> reader, long length)</nobr>
         
-        <div class="jd-descrdiv">Sets the value of the specified parameter to the next <code>length</code> characters
- from <code>reader</code>.</div>
+        <div class="jd-descrdiv">
+          Sets the value of the specified parameter to the next <code>length</code> characters
+ from <code>reader</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3870,8 +4632,13 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/PreparedStatement.html#setClob(int, java.io.Reader)">setClob</a></span>(int parameterIndex, <a href="../../../reference/java/io/Reader.html">Reader</a> reader)</nobr>
         
-        <div class="jd-descrdiv">Sets the value of the specified parameter to the characters
- from <code>reader</code>.</div>
+        <div class="jd-descrdiv">
+          Sets the value of the specified parameter to the characters
+ from <code>reader</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3889,8 +4656,13 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/PreparedStatement.html#setClob(int, java.io.Reader, long)">setClob</a></span>(int parameterIndex, <a href="../../../reference/java/io/Reader.html">Reader</a> reader, long length)</nobr>
         
-        <div class="jd-descrdiv">Sets the value of the specified parameter to the next <code>length</code> characters
- from <code>reader</code>.</div>
+        <div class="jd-descrdiv">
+          Sets the value of the specified parameter to the next <code>length</code> characters
+ from <code>reader</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3908,7 +4680,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/PreparedStatement.html#setClob(int, java.sql.Clob)">setClob</a></span>(int parameterIndex, <a href="../../../reference/java/sql/Clob.html">Clob</a> theClob)</nobr>
         
-        <div class="jd-descrdiv">Sets the value of a specified parameter to the given <code>Clob</code> object.</div>
+        <div class="jd-descrdiv">
+          Sets the value of a specified parameter to the given <code>Clob</code> object.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3926,7 +4703,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/PreparedStatement.html#setDate(int, java.sql.Date, java.util.Calendar)">setDate</a></span>(int parameterIndex, <a href="../../../reference/java/sql/Date.html">Date</a> theDate, <a href="../../../reference/java/util/Calendar.html">Calendar</a> cal)</nobr>
         
-        <div class="jd-descrdiv">Sets the value of a specified parameter to a supplied <code>java.sql.Date</code> value, using a supplied <code>Calendar</code> to map the Date.</div>
+        <div class="jd-descrdiv">
+          Sets the value of a specified parameter to a supplied <code>java.sql.Date</code> value, using a supplied <code>Calendar</code> to map the Date.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3944,7 +4726,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/PreparedStatement.html#setDate(int, java.sql.Date)">setDate</a></span>(int parameterIndex, <a href="../../../reference/java/sql/Date.html">Date</a> theDate)</nobr>
         
-        <div class="jd-descrdiv">Sets the value of a specified parameter to a supplied <code>java.sql.Date</code> value.</div>
+        <div class="jd-descrdiv">
+          Sets the value of a specified parameter to a supplied <code>java.sql.Date</code> value.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3962,8 +4749,13 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/PreparedStatement.html#setDouble(int, double)">setDouble</a></span>(int parameterIndex, double theDouble)</nobr>
         
-        <div class="jd-descrdiv">Sets the value of a specified parameter to a supplied <code>double</code>
- value.</div>
+        <div class="jd-descrdiv">
+          Sets the value of a specified parameter to a supplied <code>double</code>
+ value.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3981,8 +4773,13 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/PreparedStatement.html#setFloat(int, float)">setFloat</a></span>(int parameterIndex, float theFloat)</nobr>
         
-        <div class="jd-descrdiv">Sets the value of a specified parameter to to a supplied <code>float</code>
- value.</div>
+        <div class="jd-descrdiv">
+          Sets the value of a specified parameter to to a supplied <code>float</code>
+ value.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -4000,7 +4797,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/PreparedStatement.html#setInt(int, int)">setInt</a></span>(int parameterIndex, int theInt)</nobr>
         
-        <div class="jd-descrdiv">Sets the value of a specified parameter to a supplied <code>int</code> value.</div>
+        <div class="jd-descrdiv">
+          Sets the value of a specified parameter to a supplied <code>int</code> value.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -4018,7 +4820,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/PreparedStatement.html#setLong(int, long)">setLong</a></span>(int parameterIndex, long theLong)</nobr>
         
-        <div class="jd-descrdiv">Sets the value of a specified parameter to a supplied <code>long</code> value.</div>
+        <div class="jd-descrdiv">
+          Sets the value of a specified parameter to a supplied <code>long</code> value.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -4036,8 +4843,13 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/PreparedStatement.html#setNCharacterStream(int, java.io.Reader)">setNCharacterStream</a></span>(int parameterIndex, <a href="../../../reference/java/io/Reader.html">Reader</a> reader)</nobr>
         
-        <div class="jd-descrdiv">Sets the value of the specified parameter to the characters
- from <code>reader</code>.</div>
+        <div class="jd-descrdiv">
+          Sets the value of the specified parameter to the characters
+ from <code>reader</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -4055,8 +4867,13 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/PreparedStatement.html#setNCharacterStream(int, java.io.Reader, long)">setNCharacterStream</a></span>(int parameterIndex, <a href="../../../reference/java/io/Reader.html">Reader</a> reader, long length)</nobr>
         
-        <div class="jd-descrdiv">Sets the value of the specified parameter to the next <code>length</code> characters
- from <code>reader</code>.</div>
+        <div class="jd-descrdiv">
+          Sets the value of the specified parameter to the next <code>length</code> characters
+ from <code>reader</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -4074,8 +4891,13 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/PreparedStatement.html#setNClob(int, java.io.Reader)">setNClob</a></span>(int parameterIndex, <a href="../../../reference/java/io/Reader.html">Reader</a> reader)</nobr>
         
-        <div class="jd-descrdiv">Sets the value of the specified parameter to the characters
- from <code>reader</code>.</div>
+        <div class="jd-descrdiv">
+          Sets the value of the specified parameter to the characters
+ from <code>reader</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -4093,7 +4915,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/PreparedStatement.html#setNClob(int, java.sql.NClob)">setNClob</a></span>(int parameterIndex, <a href="../../../reference/java/sql/NClob.html">NClob</a> value)</nobr>
         
-        <div class="jd-descrdiv">Sets the value of the specified parameter to <code>value</code>.</div>
+        <div class="jd-descrdiv">
+          Sets the value of the specified parameter to <code>value</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -4111,8 +4938,13 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/PreparedStatement.html#setNClob(int, java.io.Reader, long)">setNClob</a></span>(int parameterIndex, <a href="../../../reference/java/io/Reader.html">Reader</a> reader, long length)</nobr>
         
-        <div class="jd-descrdiv">Sets the value of the specified parameter to the next <code>length</code> characters
- from <code>reader</code>.</div>
+        <div class="jd-descrdiv">
+          Sets the value of the specified parameter to the next <code>length</code> characters
+ from <code>reader</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -4130,7 +4962,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/PreparedStatement.html#setNString(int, java.lang.String)">setNString</a></span>(int parameterIndex, <a href="../../../reference/java/lang/String.html">String</a> theString)</nobr>
         
-        <div class="jd-descrdiv">Sets the value of a specified parameter to a supplied string.</div>
+        <div class="jd-descrdiv">
+          Sets the value of a specified parameter to a supplied string.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -4148,7 +4985,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/PreparedStatement.html#setNull(int, int)">setNull</a></span>(int parameterIndex, int sqlType)</nobr>
         
-        <div class="jd-descrdiv">Sets the value of a specified parameter to SQL <code>NULL</code>.</div>
+        <div class="jd-descrdiv">
+          Sets the value of a specified parameter to SQL <code>NULL</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -4166,7 +5008,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/PreparedStatement.html#setNull(int, int, java.lang.String)">setNull</a></span>(int paramIndex, int sqlType, <a href="../../../reference/java/lang/String.html">String</a> typeName)</nobr>
         
-        <div class="jd-descrdiv">Sets the value of a specified parameter to SQL <code>NULL</code>.</div>
+        <div class="jd-descrdiv">
+          Sets the value of a specified parameter to SQL <code>NULL</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -4184,7 +5031,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/PreparedStatement.html#setObject(int, java.lang.Object)">setObject</a></span>(int parameterIndex, <a href="../../../reference/java/lang/Object.html">Object</a> theObject)</nobr>
         
-        <div class="jd-descrdiv">Sets the value of a specified parameter using a supplied object.</div>
+        <div class="jd-descrdiv">
+          Sets the value of a specified parameter using a supplied object.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -4202,7 +5054,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/PreparedStatement.html#setObject(int, java.lang.Object, int, int)">setObject</a></span>(int parameterIndex, <a href="../../../reference/java/lang/Object.html">Object</a> theObject, int targetSqlType, int scale)</nobr>
         
-        <div class="jd-descrdiv">Sets the value of a specified parameter using a supplied object.</div>
+        <div class="jd-descrdiv">
+          Sets the value of a specified parameter using a supplied object.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -4220,7 +5077,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/PreparedStatement.html#setObject(int, java.lang.Object, int)">setObject</a></span>(int parameterIndex, <a href="../../../reference/java/lang/Object.html">Object</a> theObject, int targetSqlType)</nobr>
         
-        <div class="jd-descrdiv">Sets the value of a specified parameter using a supplied object.</div>
+        <div class="jd-descrdiv">
+          Sets the value of a specified parameter using a supplied object.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -4238,7 +5100,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/PreparedStatement.html#setRef(int, java.sql.Ref)">setRef</a></span>(int parameterIndex, <a href="../../../reference/java/sql/Ref.html">Ref</a> theRef)</nobr>
         
-        <div class="jd-descrdiv">Sets the value of a specified parameter to a supplied <code>REF(<structured-type>)</code> value.</div>
+        <div class="jd-descrdiv">
+          Sets the value of a specified parameter to a supplied <code>REF(<structured-type>)</code> value.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -4256,7 +5123,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/PreparedStatement.html#setRowId(int, java.sql.RowId)">setRowId</a></span>(int parameterIndex, <a href="../../../reference/java/sql/RowId.html">RowId</a> theRowId)</nobr>
         
-        <div class="jd-descrdiv">Sets the value of a specified parameter to a supplied <code>java.sql.RowId</code>.</div>
+        <div class="jd-descrdiv">
+          Sets the value of a specified parameter to a supplied <code>java.sql.RowId</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -4274,7 +5146,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/PreparedStatement.html#setSQLXML(int, java.sql.SQLXML)">setSQLXML</a></span>(int parameterIndex, <a href="../../../reference/java/sql/SQLXML.html">SQLXML</a> xmlObject)</nobr>
         
-        <div class="jd-descrdiv">Sets the value of the specified parameter to the value of <code>xmlObject</code>.</div>
+        <div class="jd-descrdiv">
+          Sets the value of the specified parameter to the value of <code>xmlObject</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -4292,8 +5169,13 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/PreparedStatement.html#setShort(int, short)">setShort</a></span>(int parameterIndex, short theShort)</nobr>
         
-        <div class="jd-descrdiv">Sets the value of a specified parameter to a supplied <code>short</code>
- value.</div>
+        <div class="jd-descrdiv">
+          Sets the value of a specified parameter to a supplied <code>short</code>
+ value.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -4311,7 +5193,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/PreparedStatement.html#setString(int, java.lang.String)">setString</a></span>(int parameterIndex, <a href="../../../reference/java/lang/String.html">String</a> theString)</nobr>
         
-        <div class="jd-descrdiv">Sets the value of a specified parameter to a supplied string.</div>
+        <div class="jd-descrdiv">
+          Sets the value of a specified parameter to a supplied string.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -4329,7 +5216,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/PreparedStatement.html#setTime(int, java.sql.Time)">setTime</a></span>(int parameterIndex, <a href="../../../reference/java/sql/Time.html">Time</a> theTime)</nobr>
         
-        <div class="jd-descrdiv">Sets the value of a specified parameter to a supplied <code>java.sql.Time</code> value.</div>
+        <div class="jd-descrdiv">
+          Sets the value of a specified parameter to a supplied <code>java.sql.Time</code> value.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -4347,7 +5239,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/PreparedStatement.html#setTime(int, java.sql.Time, java.util.Calendar)">setTime</a></span>(int parameterIndex, <a href="../../../reference/java/sql/Time.html">Time</a> theTime, <a href="../../../reference/java/util/Calendar.html">Calendar</a> cal)</nobr>
         
-        <div class="jd-descrdiv">Sets the value of a specified parameter to a supplied <code>java.sql.Time</code> value, using a supplied <code>Calendar</code>.</div>
+        <div class="jd-descrdiv">
+          Sets the value of a specified parameter to a supplied <code>java.sql.Time</code> value, using a supplied <code>Calendar</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -4365,7 +5262,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/PreparedStatement.html#setTimestamp(int, java.sql.Timestamp, java.util.Calendar)">setTimestamp</a></span>(int parameterIndex, <a href="../../../reference/java/sql/Timestamp.html">Timestamp</a> theTimestamp, <a href="../../../reference/java/util/Calendar.html">Calendar</a> cal)</nobr>
         
-        <div class="jd-descrdiv">Sets the value of a specified parameter to a supplied <code>java.sql.Timestamp</code> value, using the supplied <code>Calendar</code>.</div>
+        <div class="jd-descrdiv">
+          Sets the value of a specified parameter to a supplied <code>java.sql.Timestamp</code> value, using the supplied <code>Calendar</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -4383,8 +5285,13 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/PreparedStatement.html#setTimestamp(int, java.sql.Timestamp)">setTimestamp</a></span>(int parameterIndex, <a href="../../../reference/java/sql/Timestamp.html">Timestamp</a> theTimestamp)</nobr>
         
-        <div class="jd-descrdiv">Sets the value of a specified parameter to a supplied java.sql.Timestamp
- value.</div>
+        <div class="jd-descrdiv">
+          Sets the value of a specified parameter to a supplied java.sql.Timestamp
+ value.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -4402,7 +5309,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/PreparedStatement.html#setURL(int, java.net.URL)">setURL</a></span>(int parameterIndex, <a href="../../../reference/java/net/URL.html">URL</a> theURL)</nobr>
         
-        <div class="jd-descrdiv">Sets the value of a specified parameter to a supplied <code>java.net.URL</code>.</div>
+        <div class="jd-descrdiv">
+          Sets the value of a specified parameter to a supplied <code>java.net.URL</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -4420,10 +5332,15 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/PreparedStatement.html#setUnicodeStream(int, java.io.InputStream, int)">setUnicodeStream</a></span>(int parameterIndex, <a href="../../../reference/java/io/InputStream.html">InputStream</a> theInputStream, int length)</nobr>
         
-        <div class="jd-descrdiv"><em>
+        <div class="jd-descrdiv">
+          <em>
       This method was deprecated
       in API level 1.
-    Use <code><a href="../../../reference/java/sql/PreparedStatement.html#setCharacterStream(int, java.io.Reader, int)">setCharacterStream(int, Reader, int)</a></code></em></div>
+    Use <code><a href="../../../reference/java/sql/PreparedStatement.html#setCharacterStream(int, java.io.Reader, int)">setCharacterStream(int, Reader, int)</a></code></em>
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -4467,7 +5384,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/Statement.html#addBatch(java.lang.String)">addBatch</a></span>(<a href="../../../reference/java/lang/String.html">String</a> sql)</nobr>
         
-        <div class="jd-descrdiv">Adds a specified SQL command to the list of commands for this <code>Statement</code>.</div>
+        <div class="jd-descrdiv">
+          Adds a specified SQL command to the list of commands for this <code>Statement</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -4485,8 +5407,13 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/Statement.html#cancel()">cancel</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Cancels this statement's execution if both the database and the JDBC
- driver support aborting an SQL statement in flight.</div>
+        <div class="jd-descrdiv">
+          Cancels this statement's execution if both the database and the JDBC
+ driver support aborting an SQL statement in flight.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -4504,7 +5431,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/Statement.html#clearBatch()">clearBatch</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Clears the current list of SQL commands for this statement.</div>
+        <div class="jd-descrdiv">
+          Clears the current list of SQL commands for this statement.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -4522,7 +5454,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/Statement.html#clearWarnings()">clearWarnings</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Clears all <code>SQLWarnings</code> from this statement.</div>
+        <div class="jd-descrdiv">
+          Clears all <code>SQLWarnings</code> from this statement.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -4540,7 +5477,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/Statement.html#close()">close</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Releases this statement's database and JDBC driver resources.</div>
+        <div class="jd-descrdiv">
+          Releases this statement's database and JDBC driver resources.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -4558,7 +5500,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/Statement.html#execute(java.lang.String)">execute</a></span>(<a href="../../../reference/java/lang/String.html">String</a> sql)</nobr>
         
-        <div class="jd-descrdiv">Executes a supplied SQL statement.</div>
+        <div class="jd-descrdiv">
+          Executes a supplied SQL statement.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -4576,7 +5523,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/Statement.html#execute(java.lang.String, int)">execute</a></span>(<a href="../../../reference/java/lang/String.html">String</a> sql, int autoGeneratedKeys)</nobr>
         
-        <div class="jd-descrdiv">Executes a supplied SQL statement.</div>
+        <div class="jd-descrdiv">
+          Executes a supplied SQL statement.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -4594,7 +5546,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/Statement.html#execute(java.lang.String, java.lang.String[])">execute</a></span>(<a href="../../../reference/java/lang/String.html">String</a> sql, <a href="../../../reference/java/lang/String.html">String[]</a> columnNames)</nobr>
         
-        <div class="jd-descrdiv">Executes the supplied SQL statement.</div>
+        <div class="jd-descrdiv">
+          Executes the supplied SQL statement.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -4612,7 +5569,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/Statement.html#execute(java.lang.String, int[])">execute</a></span>(<a href="../../../reference/java/lang/String.html">String</a> sql, int[] columnIndexes)</nobr>
         
-        <div class="jd-descrdiv">Executes the supplied SQL statement.</div>
+        <div class="jd-descrdiv">
+          Executes the supplied SQL statement.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -4630,7 +5592,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/Statement.html#executeBatch()">executeBatch</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Submits a batch of SQL commands to the database.</div>
+        <div class="jd-descrdiv">
+          Submits a batch of SQL commands to the database.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -4648,7 +5615,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/Statement.html#executeQuery(java.lang.String)">executeQuery</a></span>(<a href="../../../reference/java/lang/String.html">String</a> sql)</nobr>
         
-        <div class="jd-descrdiv">Executes a supplied SQL statement.</div>
+        <div class="jd-descrdiv">
+          Executes a supplied SQL statement.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -4666,7 +5638,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/Statement.html#executeUpdate(java.lang.String, int)">executeUpdate</a></span>(<a href="../../../reference/java/lang/String.html">String</a> sql, int autoGeneratedKeys)</nobr>
         
-        <div class="jd-descrdiv">Executes the supplied SQL statement.</div>
+        <div class="jd-descrdiv">
+          Executes the supplied SQL statement.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -4684,7 +5661,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/Statement.html#executeUpdate(java.lang.String, java.lang.String[])">executeUpdate</a></span>(<a href="../../../reference/java/lang/String.html">String</a> sql, <a href="../../../reference/java/lang/String.html">String[]</a> columnNames)</nobr>
         
-        <div class="jd-descrdiv">Executes the supplied SQL statement.</div>
+        <div class="jd-descrdiv">
+          Executes the supplied SQL statement.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -4702,7 +5684,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/Statement.html#executeUpdate(java.lang.String)">executeUpdate</a></span>(<a href="../../../reference/java/lang/String.html">String</a> sql)</nobr>
         
-        <div class="jd-descrdiv">Executes the supplied SQL statement.</div>
+        <div class="jd-descrdiv">
+          Executes the supplied SQL statement.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -4720,7 +5707,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/Statement.html#executeUpdate(java.lang.String, int[])">executeUpdate</a></span>(<a href="../../../reference/java/lang/String.html">String</a> sql, int[] columnIndexes)</nobr>
         
-        <div class="jd-descrdiv">Executes the supplied SQL statement.</div>
+        <div class="jd-descrdiv">
+          Executes the supplied SQL statement.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -4738,7 +5730,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/Statement.html#getConnection()">getConnection</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Gets the <code>Connection</code> object which created this statement.</div>
+        <div class="jd-descrdiv">
+          Gets the <code>Connection</code> object which created this statement.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -4756,8 +5753,13 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/Statement.html#getFetchDirection()">getFetchDirection</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Gets the default direction for fetching rows for <code>ResultSet</code>s
- generated from this statement.</div>
+        <div class="jd-descrdiv">
+          Gets the default direction for fetching rows for <code>ResultSet</code>s
+ generated from this statement.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -4775,8 +5777,13 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/Statement.html#getFetchSize()">getFetchSize</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Gets the default number of rows for a fetch for the <code>ResultSet</code>
- objects returned from this statement.</div>
+        <div class="jd-descrdiv">
+          Gets the default number of rows for a fetch for the <code>ResultSet</code>
+ objects returned from this statement.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -4794,7 +5801,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/Statement.html#getGeneratedKeys()">getGeneratedKeys</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns auto generated keys created by executing this statement.</div>
+        <div class="jd-descrdiv">
+          Returns auto generated keys created by executing this statement.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -4812,9 +5824,14 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/Statement.html#getMaxFieldSize()">getMaxFieldSize</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Gets the maximum number of bytes which can be returned as values from
+        <div class="jd-descrdiv">
+          Gets the maximum number of bytes which can be returned as values from
  character and binary type columns in a <code>ResultSet</code> derived from this
- statement.</div>
+ statement.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -4832,8 +5849,13 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/Statement.html#getMaxRows()">getMaxRows</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Gets the maximum number of rows that a <code>ResultSet</code> can contain when
- produced from this statement.</div>
+        <div class="jd-descrdiv">
+          Gets the maximum number of rows that a <code>ResultSet</code> can contain when
+ produced from this statement.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -4851,7 +5873,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/Statement.html#getMoreResults(int)">getMoreResults</a></span>(int current)</nobr>
         
-        <div class="jd-descrdiv">Moves to this statement's next result.</div>
+        <div class="jd-descrdiv">
+          Moves to this statement's next result.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -4869,7 +5896,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/Statement.html#getMoreResults()">getMoreResults</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Moves to this statement's next result.</div>
+        <div class="jd-descrdiv">
+          Moves to this statement's next result.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -4887,7 +5919,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/Statement.html#getQueryTimeout()">getQueryTimeout</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Gets the timeout value for the statement's execution time.</div>
+        <div class="jd-descrdiv">
+          Gets the timeout value for the statement's execution time.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -4905,7 +5942,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/Statement.html#getResultSet()">getResultSet</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Gets the current result.</div>
+        <div class="jd-descrdiv">
+          Gets the current result.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -4923,8 +5965,13 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/Statement.html#getResultSetConcurrency()">getResultSetConcurrency</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Gets the concurrency setting for <code>ResultSet</code> objects generated by
- this statement.</div>
+        <div class="jd-descrdiv">
+          Gets the concurrency setting for <code>ResultSet</code> objects generated by
+ this statement.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -4942,8 +5989,13 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/Statement.html#getResultSetHoldability()">getResultSetHoldability</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Gets the cursor hold setting for <code>ResultSet</code> objects generated by
- this statement.</div>
+        <div class="jd-descrdiv">
+          Gets the cursor hold setting for <code>ResultSet</code> objects generated by
+ this statement.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -4961,8 +6013,13 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/Statement.html#getResultSetType()">getResultSetType</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Gets the <code>ResultSet</code> type setting for <code>ResultSet</code>s derived
- from this statement.</div>
+        <div class="jd-descrdiv">
+          Gets the <code>ResultSet</code> type setting for <code>ResultSet</code>s derived
+ from this statement.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -4980,7 +6037,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/Statement.html#getUpdateCount()">getUpdateCount</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Gets an update count for the current result if it is not a <code>ResultSet</code>.</div>
+        <div class="jd-descrdiv">
+          Gets an update count for the current result if it is not a <code>ResultSet</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -4998,8 +6060,13 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/Statement.html#getWarnings()">getWarnings</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Retrieves the first <code>SQLWarning</code> reported by calls on this
- statement.</div>
+        <div class="jd-descrdiv">
+          Retrieves the first <code>SQLWarning</code> reported by calls on this
+ statement.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -5017,7 +6084,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/Statement.html#isClosed()">isClosed</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns true if this statement has been closed, false otherwise.</div>
+        <div class="jd-descrdiv">
+          Returns true if this statement has been closed, false otherwise.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -5035,7 +6107,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/Statement.html#isPoolable()">isPoolable</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns true if this statement is poolable, false otherwise.</div>
+        <div class="jd-descrdiv">
+          Returns true if this statement is poolable, false otherwise.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -5053,7 +6130,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/Statement.html#setCursorName(java.lang.String)">setCursorName</a></span>(<a href="../../../reference/java/lang/String.html">String</a> name)</nobr>
         
-        <div class="jd-descrdiv">Sets the SQL cursor name.</div>
+        <div class="jd-descrdiv">
+          Sets the SQL cursor name.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -5071,7 +6153,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/Statement.html#setEscapeProcessing(boolean)">setEscapeProcessing</a></span>(boolean enable)</nobr>
         
-        <div class="jd-descrdiv">Sets Escape Processing mode.</div>
+        <div class="jd-descrdiv">
+          Sets Escape Processing mode.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -5089,8 +6176,13 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/Statement.html#setFetchDirection(int)">setFetchDirection</a></span>(int direction)</nobr>
         
-        <div class="jd-descrdiv">Sets the fetch direction - a hint to the JDBC driver about the direction
- of processing of rows in <code>ResultSet</code>s created by this statement.</div>
+        <div class="jd-descrdiv">
+          Sets the fetch direction - a hint to the JDBC driver about the direction
+ of processing of rows in <code>ResultSet</code>s created by this statement.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -5108,7 +6200,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/Statement.html#setFetchSize(int)">setFetchSize</a></span>(int rows)</nobr>
         
-        <div class="jd-descrdiv">Sets the fetch size.</div>
+        <div class="jd-descrdiv">
+          Sets the fetch size.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -5126,8 +6223,13 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/Statement.html#setMaxFieldSize(int)">setMaxFieldSize</a></span>(int max)</nobr>
         
-        <div class="jd-descrdiv">Sets the maximum number of bytes for <code>ResultSet</code> columns that
- contain character or binary values.</div>
+        <div class="jd-descrdiv">
+          Sets the maximum number of bytes for <code>ResultSet</code> columns that
+ contain character or binary values.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -5145,7 +6247,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/Statement.html#setMaxRows(int)">setMaxRows</a></span>(int max)</nobr>
         
-        <div class="jd-descrdiv">Sets the maximum number of rows that any <code>ResultSet</code> can contain.</div>
+        <div class="jd-descrdiv">
+          Sets the maximum number of rows that any <code>ResultSet</code> can contain.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -5163,7 +6270,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/Statement.html#setPoolable(boolean)">setPoolable</a></span>(boolean poolable)</nobr>
         
-        <div class="jd-descrdiv">Hints whether this statement should be pooled.</div>
+        <div class="jd-descrdiv">
+          Hints whether this statement should be pooled.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -5181,8 +6293,13 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/Statement.html#setQueryTimeout(int)">setQueryTimeout</a></span>(int seconds)</nobr>
         
-        <div class="jd-descrdiv">Sets the timeout, in seconds, for queries - how long the driver will
- allow for completion of a statement execution.</div>
+        <div class="jd-descrdiv">
+          Sets the timeout, in seconds, for queries - how long the driver will
+ allow for completion of a statement execution.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -5226,8 +6343,13 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/Wrapper.html#isWrapperFor(java.lang.Class<?>)">isWrapperFor</a></span>(<a href="../../../reference/java/lang/Class.html">Class</a>&lt;?&gt; iface)</nobr>
         
-        <div class="jd-descrdiv">If the caller is a wrapper of the class or implements the given
- interface, the methods return false and vice versa.</div>
+        <div class="jd-descrdiv">
+          If the caller is a wrapper of the class or implements the given
+ interface, the methods return false and vice versa.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -5245,7 +6367,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/Wrapper.html#unwrap(java.lang.Class<T>)">unwrap</a></span>(<a href="../../../reference/java/lang/Class.html">Class</a>&lt;T&gt; iface)</nobr>
         
-        <div class="jd-descrdiv">Returns an object that implements the given interface.</div>
+        <div class="jd-descrdiv">
+          Returns an object that implements the given interface.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -5322,6 +6449,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Gets the value of a specified JDBC <code>ARRAY</code> parameter as a
  <code>java.sql.Array</code>.</p></div>
   <div class="jd-tagdata">
@@ -5377,6 +6507,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Gets the value of a specified JDBC <code>ARRAY</code> parameter as a <code>java.sql.Array</code>.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -5429,6 +6562,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Returns a new <code><a href="../../../reference/java/math/BigDecimal.html">BigDecimal</a></code> representation of the JDBC <code>NUMERIC</code> parameter specified by the input name.</p></div>
   <div class="jd-tagdata">
@@ -5484,6 +6620,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       <p>
   <p class="caution"><strong>
       This method was deprecated
@@ -5551,6 +6690,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns a new <code><a href="../../../reference/java/math/BigDecimal.html">BigDecimal</a></code> representation of the JDBC <code>NUMERIC</code> parameter specified by the input index.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -5607,6 +6749,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Gets the value of a specified JDBC <code>BLOB</code> parameter as a <code>java.sql.Blob</code>.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -5661,6 +6806,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Gets the value of a specified JDBC <code>BLOB</code> parameter as a <code>java.sql.Blob</code>.</p></div>
   <div class="jd-tagdata">
@@ -5718,6 +6866,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Gets the value of a specified JDBC <code>BIT</code> parameter as a boolean.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -5773,6 +6924,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Gets the value of a specified JDBC <code>BIT</code> parameter as a <code>boolean</code>.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -5826,6 +6980,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Gets the value of a specified JDBC <code>TINYINT</code> parameter as a Java
  <code>byte</code>.</p></div>
@@ -5882,6 +7039,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Gets the value of a specified JDBC <code>TINYINT</code> parameter as a <code>byte</code>.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -5936,6 +7096,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Returns a byte array representation of the indexed JDBC <code>BINARY</code> or
  <code>VARBINARY</code> parameter.</p></div>
@@ -5993,6 +7156,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns a byte array representation of the named JDBC <code>BINARY</code> or
  <code>VARBINARY</code> parameter.</p></div>
   <div class="jd-tagdata">
@@ -6048,6 +7214,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns the value of the specified parameter as a <code>java.io.Reader</code>.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -6096,6 +7265,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Returns the value of the specified parameter as a <code>java.io.Reader</code>.</p></div>
   <div class="jd-tagdata">
@@ -6146,6 +7318,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Gets the value of a specified JDBC <code>CLOB</code> parameter as a <code>java.sql.Clob</code>.</p></div>
   <div class="jd-tagdata">
@@ -6207,6 +7382,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Gets the value of a specified JDBC <code>CLOB</code> parameter as a <code>java.sql.Clob</code>.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -6263,6 +7441,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Gets the value of the specified JDBC <code>DATE</code> parameter as a <code>java.sql.Date</code>, using the specified <code>Calendar</code> to construct the date.
 
@@ -6331,6 +7512,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Gets the value of the specified JDBC <code>DATE</code> parameter as a <code>java.sql.Date</code>.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -6389,6 +7573,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Gets the value of the specified JDBC <code>DATE</code> parameter as a <code>java.sql.Date</code>, using the specified <code>Calendar</code> to construct the date.
 
@@ -6456,6 +7643,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Gets the value of the specified JDBC <code>DATE</code> parameter as a <code>java.sql.Date</code>.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -6514,6 +7704,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Gets the value of the specified JDBC <code>DOUBLE</code> parameter as a
  <code>double</code>.</p></div>
   <div class="jd-tagdata">
@@ -6568,6 +7761,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Gets the value of the specified JDBC <code>DOUBLE</code> parameter as a
  <code>double</code>.</p></div>
@@ -6625,6 +7821,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Gets the value of the specified JDBC <code>FLOAT</code> parameter as a <code>float</code>.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -6679,6 +7878,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Gets the value of the specified JDBC <code>FLOAT</code> parameter as a Java
  <code>float</code>.</p></div>
@@ -6735,6 +7937,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Gets the value of the specified JDBC <code>INTEGER</code> parameter as an
  <code>int</code>.</p></div>
   <div class="jd-tagdata">
@@ -6789,6 +7994,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Gets the value of the specified JDBC <code>INTEGER</code> parameter as an
  <code>int</code>.</p></div>
@@ -6846,6 +8054,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Gets the value of the specified JDBC <code>BIGINT</code> parameter as a
  <code>long</code>.</p></div>
   <div class="jd-tagdata">
@@ -6900,6 +8111,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Gets the value of the specified JDBC <code>BIGINT</code> parameter as a
  <code>long</code>.</p></div>
@@ -6957,6 +8171,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns the value of the specified SQL NCHAR, NVARCHAR, or LONGNVARCHAR parameter
  as a <code><a href="../../../reference/java/io/Reader.html">Reader</a></code>.</p></div>
   <div class="jd-tagdata">
@@ -7008,6 +8225,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns the value of the specified SQL NCHAR, NVARCHAR, or LONGNVARCHAR parameter as a <code>java.io.Reader</code>.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -7057,6 +8277,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns the value of the specified SQL NCLOB parameter as a <code>java.sql.NClob</code>.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -7105,6 +8328,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Returns the value of the specified SQL NCLOB parameter as a <code>java.sql.NClob</code>.</p></div>
   <div class="jd-tagdata">
@@ -7156,6 +8382,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns the value of the specified SQL NCHAR, NVARCHAR, or LONGNVARCHAR parameter as a <code>java.lang.String</code>.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -7204,6 +8433,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Returns the value of the specified SQL NCHAR, NVARCHAR, or LONGNVARCHAR parameter as a
  <code>java.lang.String</code>.</p></div>
@@ -7255,6 +8487,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Gets the value of a specified parameter as an <code>Object</code>. The
  actual return type is determined by the <code>Map</code> parameter which
@@ -7314,6 +8549,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Gets the value of the specified parameter as an <code>Object</code>. The
  <code>Map</code> gives the correspondence between SQL types and Java classes.</p></div>
@@ -7375,6 +8613,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Gets the value of the specified parameter as an <code>Object</code>.
  <p>
  The object type returned is the JDBC type that was registered for
@@ -7435,6 +8676,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Gets the value of the specified parameter as a Java <code>Object</code>.
  <p>
  The object type returned is the JDBC type registered for the parameter
@@ -7493,6 +8737,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Gets the value of a specified SQL <code>REF(<structured type>)</code>
  parameter as a <code>java.sql.Ref</code>.</p></div>
@@ -7553,6 +8800,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Gets the value of a specified SQL <code>REF(<structured type>)</code>
  parameter as a <code>java.sql.Ref</code>.</p></div>
   <div class="jd-tagdata">
@@ -7609,6 +8859,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns the value of the specified SQL ROWID parameter as a <code>java.sql.RowId</code>.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -7657,6 +8910,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Gets the value of a specified <code>ROWID</code> parameter as a <code>java.sql.RowId</code>.</p></div>
   <div class="jd-tagdata">
@@ -7708,6 +8964,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns the value of the specified SQL XML parameter as a <code>java.sql.SQLXML</code>.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -7756,6 +9015,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Returns the value of the specified SQL XML parameter as a <code>java.sql.SQLXML</code>.</p></div>
   <div class="jd-tagdata">
@@ -7806,6 +9068,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Gets the value of a specified JDBC <code>SMALLINT</code> parameter as a
  <code>short</code>.</p></div>
@@ -7862,6 +9127,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Gets the value of a specified JDBC <code>SMALLINT</code> parameter as a
  <code>short</code>.</p></div>
   <div class="jd-tagdata">
@@ -7917,6 +9185,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Returns the indexed parameter's value as a <code>String</code>. The
  parameter value must be one of the JDBC types <code>CHAR</code>,
@@ -7979,6 +9250,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns the named parameter's value as a string. The parameter value must
  be one of the JDBC types <code>CHAR</code>, <code>VARCHAR</code> or <code>LONGVARCHAR</code>.
  <p>
@@ -8037,6 +9311,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Gets the value of a specified JDBC <code>TIME</code> parameter as a <code>java.sql.Time</code>, using the supplied <code>Calendar</code> to construct
  the time. The JDBC driver uses the calendar to handle specific
@@ -8101,6 +9378,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Gets the value of a specified JDBC <code>TIME</code> parameter as a <code>java.sql.Time</code>.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -8157,6 +9437,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Gets the value of a specified JDBC <code>TIME</code> parameter as a <code>java.sql.Time</code>, using the supplied <code>Calendar</code> to construct the
  time. The JDBC driver uses the calendar to handle specific timezones
@@ -8223,6 +9506,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Gets the value of a specified JDBC <code>TIME</code> parameter as a <code>java.sql.Time</code>.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -8281,6 +9567,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Returns the indexed parameter's <code>TIMESTAMP</code> value as a <code>java.sql.Timestamp</code>. The JDBC driver uses the supplied <code>Calendar</code>
  to handle specific timezones and locales when creating the result.</p></div>
@@ -8346,6 +9635,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns the named parameter's <code>TIMESTAMP</code> value as a <code>java.sql.Timestamp</code>.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -8403,6 +9695,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Returns the indexed parameter's <code>TIMESTAMP</code> value as a <code>java.sql.Timestamp</code>. The JDBC driver uses the supplied <code>Calendar</code>
  to handle specific timezones and locales when creating the result.</p></div>
@@ -8467,6 +9762,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns the indexed parameter's <code>TIMESTAMP</code> value as a <code>java.sql.Timestamp</code>.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -8525,6 +9823,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Gets the value of a specified JDBC <code>DATALINK</code> parameter as a
  <code>java.net.URL</code>.</p></div>
@@ -8586,6 +9887,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns the named parameter's JDBC <code>DATALINK</code> value in a new Java
  <code>java.net.URL</code>.</p></div>
   <div class="jd-tagdata">
@@ -8644,6 +9948,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Defines the Type of a specified <code>OUT</code> parameter. All OUT parameters
  must have their Type defined before a stored procedure is executed.
@@ -8707,6 +10014,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Defines the type of a specified <code>OUT</code> parameter. All <code>OUT</code>
  parameters must have their type defined before a stored procedure is
@@ -8776,6 +10086,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Defines the Type of a specified <code>OUT</code> parameter. This variant of
  the method is designed for use with parameters that are <i>User Defined
  Types</i> (UDT) or a <code>REF</code> type, although it can be used for any
@@ -8837,6 +10150,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Defines the Type of a specified <code>OUT</code> parameter. All <code>OUT</code>
  parameters must have their Type defined before a stored procedure is
@@ -8904,6 +10220,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Defines the Type of a specified <code>OUT</code> parameter. All <code>OUT</code>
  parameters must have their type defined before a stored procedure is
@@ -8977,6 +10296,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Defines the Type of a specified <code>OUT</code> parameter. This variant
  of the method is designed for use with parameters that are
  <i>User Defined Types</i> (UDT) or a <code>REF</code> type, although it
@@ -9043,6 +10365,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Sets the value of a specified parameter to the content of a supplied
  <code>InputStream</code>, which has a specified number of bytes.
  <p>
@@ -9107,6 +10432,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Sets the named parameter to the bytes from the given <code>reader</code>.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Throws</h5>
@@ -9147,6 +10475,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Sets the named parameter to the next <code>length</code> bytes from the given <code>inputStream</code>.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Throws</h5>
@@ -9186,6 +10517,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Sets the value of a specified parameter to a supplied <code>java.math.BigDecimal</code> value.</p></div>
   <div class="jd-tagdata">
@@ -9240,6 +10574,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Sets the named parameter to the bytes from the given <code>reader</code>.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Throws</h5>
@@ -9280,6 +10617,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Sets the named parameter to the next <code>length</code> bytes from the given <code>inputStream</code>.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Throws</h5>
@@ -9319,6 +10659,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Sets the value of a specified parameter to the content of a supplied
  binary <code>InputStream</code>, which has a specified number of bytes.
@@ -9383,6 +10726,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Sets the named parameter to the next <code>length</code> bytes from the given <code>inputStream</code>.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Throws</h5>
@@ -9422,6 +10768,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Sets the named parameter to the bytes from the given <code>inputStream</code>.</p></div>
   <div class="jd-tagdata">
@@ -9463,6 +10812,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Sets the named parameter to the given <code>blob</code>.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Throws</h5>
@@ -9502,6 +10854,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Sets the value of a specified parameter to a supplied <code>boolean</code>
  value.</p></div>
@@ -9557,6 +10912,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Sets the value of a specified parameter to a supplied <code>byte</code> value.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -9609,6 +10967,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Sets the value of a specified parameter to a supplied array of bytes. The
  array is mapped to <code>VARBINARY</code> or else <code>LONGVARBINARY</code> in the
@@ -9664,6 +11025,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Sets the value of a specified parameter to the character content of a
  <code>Reader</code> object, with the specified length of character data.</p></div>
@@ -9723,6 +11087,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Sets the named parameter to the next <code>length</code> characters from the given <code>reader</code>.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Throws</h5>
@@ -9762,6 +11129,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Sets the named parameter to the characters from the given <code>reader</code>.</p></div>
   <div class="jd-tagdata">
@@ -9803,6 +11173,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Sets the named parameter to the next <code>length</code> characters from the given <code>reader</code>.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Throws</h5>
@@ -9842,6 +11215,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Sets the named parameter to the given <code>clob</code>.</p></div>
   <div class="jd-tagdata">
@@ -9883,6 +11259,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Sets the named parameter to the characters from the given <code>reader</code>.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Throws</h5>
@@ -9922,6 +11301,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Sets the value of a specified parameter to a supplied <code>java.sql.Date</code> value, using a supplied calendar to map the date. The
  calendar allows the application to control the timezone used to compute
@@ -9989,6 +11371,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Sets the value of a specified parameter to a supplied <code>java.sql.Date</code> value.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -10041,6 +11426,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Sets the value of a specified parameter to a supplied <code>double</code>
  value.</p></div>
@@ -10096,6 +11484,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Sets the value of a specified parameter to to a supplied <code>float</code>
  value.</p></div>
   <div class="jd-tagdata">
@@ -10150,6 +11541,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Sets the value of a specified parameter to a supplied <code>int</code> value.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -10202,6 +11596,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Sets the value of a specified parameter to a supplied <code>long</code> value.</p></div>
   <div class="jd-tagdata">
@@ -10256,6 +11653,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Sets the named parameter to the characters from the given <code>reader</code>.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Throws</h5>
@@ -10295,6 +11695,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Sets the named parameter to the characters from the given <code>reader</code>.</p></div>
   <div class="jd-tagdata">
@@ -10336,6 +11739,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Sets the named parameter to the next <code>length</code> characters from the given <code>reader</code>.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Throws</h5>
@@ -10375,6 +11781,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Sets the named parameter to the given <code>nclob</code>.</p></div>
   <div class="jd-tagdata">
@@ -10416,6 +11825,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Sets the named parameter to the characters from the given <code>reader</code>.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Throws</h5>
@@ -10456,6 +11868,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Sets the named parameter to the given <code>string</code>.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Throws</h5>
@@ -10495,6 +11910,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Sets the value of a specified parameter to SQL <code>NULL</code>. Don't use
  this version of <code>setNull</code> for <i>User Defined Types</i> (UDT) or
@@ -10550,6 +11968,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Sets the value of a specified parameter to be SQL <code>NULL</code> where the
  parameter type is either <code>REF</code> or user defined (e.g. <code>STRUCT</code>
@@ -10622,6 +12043,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Sets the value of a specified parameter using a supplied object. Prior to
  issuing this request to the connected database <code>theObject</code> is
  transformed to the corresponding SQL type according to the standard Java
@@ -10691,6 +12115,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Sets the value of a specified parameter using a supplied object.
  <p>
@@ -10767,6 +12194,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Sets the value of a specified parameter using a supplied object.
  <p>
@@ -10849,6 +12279,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Sets the named parameter to the given <code>rowId</code>.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Throws</h5>
@@ -10889,6 +12322,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Sets the named parameter to the given <code>sqlXml</code>.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Throws</h5>
@@ -10928,6 +12364,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Sets the value of a specified parameter to a supplied <code>short</code>
  value.</p></div>
@@ -10983,6 +12422,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Sets the value of a specified parameter to a supplied <code>String</code>.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -11035,6 +12477,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Sets the value of the parameter named <code>parameterName</code> to the value
  of the supplied <code>java.sql.Time</code> using the supplied calendar.
@@ -11103,6 +12548,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Sets the value of the parameter named <code>parameterName</code> to the value
  of the supplied <code>java.sql.Time</code>.</p></div>
   <div class="jd-tagdata">
@@ -11160,6 +12608,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Sets the value of a specified parameter to a supplied <code>java.sql.Timestamp</code> value, using the supplied calendar.
 
@@ -11227,6 +12678,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Sets the value of a specified parameter to a supplied <code>java.sql.Timestamp</code> value.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -11284,6 +12738,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Sets the value of a specified parameter to the supplied <code>java.net.URL</code>.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -11340,6 +12797,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Gets whether the value of the last <code>OUT</code> parameter read was SQL
  <code>NULL</code>.</p></div>

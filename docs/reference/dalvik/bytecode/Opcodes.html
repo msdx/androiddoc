@@ -82,6 +82,19 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 <html>
 <head>
 
@@ -97,7 +110,7 @@
 href="http://fonts.useso.com/css?family=Roboto+Condensed">
 <link rel="stylesheet" href="http://fonts.useso.com/css?family=Roboto:light,regular,medium,thin,italic,mediumitalic,bold"
   title="roboto">
-<link href="../../../assets/css/default.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/default.css?v=2" rel="stylesheet" type="text/css">
 
 
 <!-- FULLSCREEN STYLESHEET -->
@@ -106,30 +119,31 @@ type="text/css">
 
 
 <!-- JAVASCRIPT -->
-<script src="http://googleapiscdn.qiniudn.com/www.google.com/jsapi" type="text/javascript"></script>
+<script src="http://www.google.com/jsapi" type="text/javascript"></script>
 <script src="../../../assets/js/android_3p-bundle.js" type="text/javascript"></script>
 <script type="text/javascript">
   var toRoot = "../../../";
   var metaTags = [];
   var devsite = false;
 </script>
-<script src="../../../assets/js/docs.js" type="text/javascript"></script>
+<script src="../../../assets/js/docs.js?v=2" type="text/javascript"></script>
 
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-5831155-1']);
-  _gaq.push(['_trackPageview']);
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
+  ga('create', 'UA-5831155-1', 'android.com');
+  ga('create', 'UA-49880327-2', 'android.com', {'name': 'universal'});  // New tracker);
+  ga('send', 'pageview');
+  ga('universal.send', 'pageview'); // Send page view for new tracker.
 </script>
+
 </head>
 
 <body class="gc-documentation 
-  develop" itemscope itemtype="http://schema.org/Article">
+  develop reference" itemscope itemtype="http://schema.org/Article">
   <div id="doc-api-level" class="1" style="display:none"></div>
   <a name="top"></a>
 
@@ -139,6 +153,10 @@ type="text/css">
   <!-- Header -->
   <div id="header-wrapper">
     <div id="header">
+
+    
+
+
       <div class="wrap" id="header-wrap">
         <div class="col-3 logo">
           <a href="../../../index.html">
@@ -260,11 +278,20 @@ type="text/css">
 
 
         <!-- Expanded quicknav -->
-        <div id="quicknav" class="col-9">
+        <div id="quicknav" class="col-13">
           <ul>
+            <li class="about">
+              <ul>
+                <li><a href="../../../about/index.html">About</a></li>
+                <li><a href="../../../wear/index.html">Wear</a></li>
+                <li><a href="../../../tv/index.html">TV</a></li>
+                <li><a href="../../../auto/index.html">Auto</a></li>
+              </ul>
+            </li>
             <li class="design">
               <ul>
                 <li><a href="../../../design/index.html">Get Started</a></li>
+                <li><a href="../../../design/devices.html">Devices</a></li>
                 <li><a href="../../../design/style/index.html">Style</a></li>
                 <li><a href="../../../design/patterns/index.html">Patterns</a></li>
                 <li><a href="../../../design/building-blocks/index.html">Building Blocks</a></li>
@@ -298,7 +325,7 @@ type="text/css">
                   ja-lang="リファレンス"
                   es-lang="Referencia"
                   >Reference</a></li>
-                <li><a href="../../../tools/index.html"
+                <li><a href="../../../sdk/index.html"
                   zh-tw-lang="相關工具"
                   zh-cn-lang="工具"
                   ru-lang="Инструменты"
@@ -306,7 +333,6 @@ type="text/css">
                   ja-lang="ツール"
                   es-lang="Herramientas"
                   >Tools</a>
-                  <ul><li><a href="../../../sdk/index.html">Get the SDK</a></li></ul>
                 </li>
                 <li><a href="../../../google/index.html">Google Services</a>
                 </li>
@@ -358,7 +384,7 @@ type="text/css">
                   ja-lang="リファレンス"
                   es-lang="Referencia"
                   >Reference</a></li>
-                <li class="tools"><a href="../../../tools/index.html"
+                <li class="tools"><a href="../../../sdk/index.html"
                   zh-tw-lang="相關工具"
                   zh-cn-lang="工具"
                   ru-lang="Инструменты"
@@ -373,7 +399,7 @@ type="text/css">
             </ul>
         </div>
     </div>
-    <!-- /Sendondary x-nav -->
+    <!-- /Sendondary x-nav DEVELOP -->
 
   
 
@@ -414,7 +440,7 @@ type="text/css">
         <div id="api-nav-title">Android APIs</div>
         </div><!-- end nav header -->
       <script>
-        var SINCE_DATA = [ '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19' ];
+        var SINCE_DATA = [ '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21' ];
         buildApiLevelSelector();
       </script>
                   
@@ -441,13 +467,15 @@ type="text/css">
   <a href="../../../reference/android/app/admin/package-summary.html">android.app.admin</a></li>
     <li class="api apilevel-8">
   <a href="../../../reference/android/app/backup/package-summary.html">android.app.backup</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/app/job/package-summary.html">android.app.job</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/app/usage/package-summary.html">android.app.usage</a></li>
     <li class="api apilevel-3">
   <a href="../../../reference/android/appwidget/package-summary.html">android.appwidget</a></li>
     <li class="api apilevel-5">
   <a href="../../../reference/android/bluetooth/package-summary.html">android.bluetooth</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/bluetooth/le/package-summary.html">android.bluetooth.le</a></li>
     <li class="api apilevel-1">
   <a href="../../../reference/android/content/package-summary.html">android.content</a></li>
@@ -473,16 +501,14 @@ type="text/css">
   <a href="../../../reference/android/graphics/pdf/package-summary.html">android.graphics.pdf</a></li>
     <li class="api apilevel-1">
   <a href="../../../reference/android/hardware/package-summary.html">android.hardware</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/hardware/camera2/package-summary.html">android.hardware.camera2</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/hardware/camera2/params/package-summary.html">android.hardware.camera2.params</a></li>
     <li class="api apilevel-17">
   <a href="../../../reference/android/hardware/display/package-summary.html">android.hardware.display</a></li>
     <li class="api apilevel-16">
   <a href="../../../reference/android/hardware/input/package-summary.html">android.hardware.input</a></li>
-    <li class="api apilevel-18">
-  <a href="../../../reference/android/hardware/location/package-summary.html">android.hardware.location</a></li>
     <li class="api apilevel-12">
   <a href="../../../reference/android/hardware/usb/package-summary.html">android.hardware.usb</a></li>
     <li class="api apilevel-3">
@@ -493,11 +519,15 @@ type="text/css">
   <a href="../../../reference/android/media/package-summary.html">android.media</a></li>
     <li class="api apilevel-9">
   <a href="../../../reference/android/media/audiofx/package-summary.html">android.media.audiofx</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/media/browse/package-summary.html">android.media.browse</a></li>
     <li class="api apilevel-14">
   <a href="../../../reference/android/media/effect/package-summary.html">android.media.effect</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/media/projection/package-summary.html">android.media.projection</a></li>
+    <li class="api apilevel-21">
   <a href="../../../reference/android/media/session/package-summary.html">android.media.session</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/media/tv/package-summary.html">android.media.tv</a></li>
     <li class="api apilevel-12">
   <a href="../../../reference/android/mtp/package-summary.html">android.mtp</a></li>
@@ -547,11 +577,15 @@ type="text/css">
   <a href="../../../reference/android/security/package-summary.html">android.security</a></li>
     <li class="api apilevel-17">
   <a href="../../../reference/android/service/dreams/package-summary.html">android.service.dreams</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/service/media/package-summary.html">android.service.media</a></li>
     <li class="api apilevel-18">
   <a href="../../../reference/android/service/notification/package-summary.html">android.service.notification</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/service/restrictions/package-summary.html">android.service.restrictions</a></li>
     <li class="api apilevel-14">
   <a href="../../../reference/android/service/textservice/package-summary.html">android.service.textservice</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/service/voice/package-summary.html">android.service.voice</a></li>
     <li class="api apilevel-7">
   <a href="../../../reference/android/service/wallpaper/package-summary.html">android.service.wallpaper</a></li>
@@ -596,11 +630,15 @@ type="text/css">
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/media/package-summary.html">android.support.v4.media</a></li>
     <li class="api apilevel-">
+  <a href="../../../reference/android/support/v4/media/session/package-summary.html">android.support.v4.media.session</a></li>
+    <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/net/package-summary.html">android.support.v4.net</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/os/package-summary.html">android.support.v4.os</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/print/package-summary.html">android.support.v4.print</a></li>
+    <li class="api apilevel-">
+  <a href="../../../reference/android/support/v4/provider/package-summary.html">android.support.v4.provider</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/text/package-summary.html">android.support.v4.text</a></li>
     <li class="api apilevel-">
@@ -616,6 +654,10 @@ type="text/css">
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v7/appcompat/package-summary.html">android.support.v7.appcompat</a></li>
     <li class="api apilevel-">
+  <a href="../../../reference/android/support/v7/cardview/package-summary.html">android.support.v7.cardview</a></li>
+    <li class="api apilevel-">
+  <a href="../../../reference/android/support/v7/graphics/package-summary.html">android.support.v7.graphics</a></li>
+    <li class="api apilevel-">
   <a href="../../../reference/android/support/v7/gridlayout/package-summary.html">android.support.v7.gridlayout</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v7/media/package-summary.html">android.support.v7.media</a></li>
@@ -627,8 +669,10 @@ type="text/css">
   <a href="../../../reference/android/support/v7/widget/package-summary.html">android.support.v7.widget</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v8/renderscript/package-summary.html">android.support.v8.renderscript</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/system/package-summary.html">android.system</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/telecom/package-summary.html">android.telecom</a></li>
     <li class="api apilevel-1">
   <a href="../../../reference/android/telephony/package-summary.html">android.telephony</a></li>
     <li class="api apilevel-5">
@@ -983,6 +1027,9 @@ type="text/css">
   
 
 
+    
+
+
 </div><!-- end header -->
 
 <div id="naMessage"></div>
@@ -1058,2008 +1105,3388 @@ type="text/css">
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_ADD_DOUBLE">OP_ADD_DOUBLE</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_ADD_DOUBLE_2ADDR">OP_ADD_DOUBLE_2ADDR</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_ADD_FLOAT">OP_ADD_FLOAT</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_ADD_FLOAT_2ADDR">OP_ADD_FLOAT_2ADDR</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_ADD_INT">OP_ADD_INT</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_ADD_INT_2ADDR">OP_ADD_INT_2ADDR</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_ADD_INT_LIT16">OP_ADD_INT_LIT16</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_ADD_INT_LIT8">OP_ADD_INT_LIT8</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_ADD_LONG">OP_ADD_LONG</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_ADD_LONG_2ADDR">OP_ADD_LONG_2ADDR</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_AGET">OP_AGET</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_AGET_BOOLEAN">OP_AGET_BOOLEAN</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_AGET_BYTE">OP_AGET_BYTE</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_AGET_CHAR">OP_AGET_CHAR</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_AGET_OBJECT">OP_AGET_OBJECT</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_AGET_SHORT">OP_AGET_SHORT</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_AGET_WIDE">OP_AGET_WIDE</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_AND_INT">OP_AND_INT</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_AND_INT_2ADDR">OP_AND_INT_2ADDR</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_AND_INT_LIT16">OP_AND_INT_LIT16</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_AND_INT_LIT8">OP_AND_INT_LIT8</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_AND_LONG">OP_AND_LONG</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_AND_LONG_2ADDR">OP_AND_LONG_2ADDR</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_APUT">OP_APUT</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_APUT_BOOLEAN">OP_APUT_BOOLEAN</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_APUT_BYTE">OP_APUT_BYTE</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_APUT_CHAR">OP_APUT_CHAR</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_APUT_OBJECT">OP_APUT_OBJECT</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_APUT_SHORT">OP_APUT_SHORT</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_APUT_WIDE">OP_APUT_WIDE</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_ARRAY_LENGTH">OP_ARRAY_LENGTH</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-8" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_BREAKPOINT">OP_BREAKPOINT</a></td>
-        <td class="jd-descrcol" width="100%"><em>
+        <td class="jd-descrcol" width="100%">
+          <em>
       This constant was deprecated
       in API level 11.
     Implementation detail.
-</em></td>
+</em>
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_CHECK_CAST">OP_CHECK_CAST</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-11" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_CHECK_CAST_JUMBO">OP_CHECK_CAST_JUMBO</a></td>
-        <td class="jd-descrcol" width="100%">Never implemented; do not use.</td>
+        <td class="jd-descrcol" width="100%">
+          Never implemented; do not use.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_CMPG_DOUBLE">OP_CMPG_DOUBLE</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_CMPG_FLOAT">OP_CMPG_FLOAT</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_CMPL_DOUBLE">OP_CMPL_DOUBLE</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_CMPL_FLOAT">OP_CMPL_FLOAT</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_CMP_LONG">OP_CMP_LONG</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_CONST">OP_CONST</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_CONST_16">OP_CONST_16</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_CONST_4">OP_CONST_4</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_CONST_CLASS">OP_CONST_CLASS</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-11" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_CONST_CLASS_JUMBO">OP_CONST_CLASS_JUMBO</a></td>
-        <td class="jd-descrcol" width="100%">Never implemented; do not use.</td>
+        <td class="jd-descrcol" width="100%">
+          Never implemented; do not use.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_CONST_HIGH16">OP_CONST_HIGH16</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_CONST_STRING">OP_CONST_STRING</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_CONST_STRING_JUMBO">OP_CONST_STRING_JUMBO</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_CONST_WIDE">OP_CONST_WIDE</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_CONST_WIDE_16">OP_CONST_WIDE_16</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_CONST_WIDE_32">OP_CONST_WIDE_32</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_CONST_WIDE_HIGH16">OP_CONST_WIDE_HIGH16</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_DIV_DOUBLE">OP_DIV_DOUBLE</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_DIV_DOUBLE_2ADDR">OP_DIV_DOUBLE_2ADDR</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_DIV_FLOAT">OP_DIV_FLOAT</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_DIV_FLOAT_2ADDR">OP_DIV_FLOAT_2ADDR</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_DIV_INT">OP_DIV_INT</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_DIV_INT_2ADDR">OP_DIV_INT_2ADDR</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_DIV_INT_LIT16">OP_DIV_INT_LIT16</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_DIV_INT_LIT8">OP_DIV_INT_LIT8</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_DIV_LONG">OP_DIV_LONG</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_DIV_LONG_2ADDR">OP_DIV_LONG_2ADDR</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_DOUBLE_TO_FLOAT">OP_DOUBLE_TO_FLOAT</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_DOUBLE_TO_INT">OP_DOUBLE_TO_INT</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_DOUBLE_TO_LONG">OP_DOUBLE_TO_LONG</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_EXECUTE_INLINE">OP_EXECUTE_INLINE</a></td>
-        <td class="jd-descrcol" width="100%"><em>
+        <td class="jd-descrcol" width="100%">
+          <em>
       This constant was deprecated
       in API level 11.
     Implementation detail.
-</em></td>
+</em>
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-8" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_EXECUTE_INLINE_RANGE">OP_EXECUTE_INLINE_RANGE</a></td>
-        <td class="jd-descrcol" width="100%"><em>
+        <td class="jd-descrcol" width="100%">
+          <em>
       This constant was deprecated
       in API level 11.
     Implementation detail.
-</em></td>
+</em>
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_FILLED_NEW_ARRAY">OP_FILLED_NEW_ARRAY</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-11" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_FILLED_NEW_ARRAY_JUMBO">OP_FILLED_NEW_ARRAY_JUMBO</a></td>
-        <td class="jd-descrcol" width="100%">Never implemented; do not use.</td>
+        <td class="jd-descrcol" width="100%">
+          Never implemented; do not use.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_FILLED_NEW_ARRAY_RANGE">OP_FILLED_NEW_ARRAY_RANGE</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_FILL_ARRAY_DATA">OP_FILL_ARRAY_DATA</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_FLOAT_TO_DOUBLE">OP_FLOAT_TO_DOUBLE</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_FLOAT_TO_INT">OP_FLOAT_TO_INT</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_FLOAT_TO_LONG">OP_FLOAT_TO_LONG</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_GOTO">OP_GOTO</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_GOTO_16">OP_GOTO_16</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_GOTO_32">OP_GOTO_32</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_IF_EQ">OP_IF_EQ</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_IF_EQZ">OP_IF_EQZ</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_IF_GE">OP_IF_GE</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_IF_GEZ">OP_IF_GEZ</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_IF_GT">OP_IF_GT</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_IF_GTZ">OP_IF_GTZ</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_IF_LE">OP_IF_LE</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_IF_LEZ">OP_IF_LEZ</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_IF_LT">OP_IF_LT</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_IF_LTZ">OP_IF_LTZ</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_IF_NE">OP_IF_NE</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_IF_NEZ">OP_IF_NEZ</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_IGET">OP_IGET</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_IGET_BOOLEAN">OP_IGET_BOOLEAN</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-11" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_IGET_BOOLEAN_JUMBO">OP_IGET_BOOLEAN_JUMBO</a></td>
-        <td class="jd-descrcol" width="100%">Never implemented; do not use.</td>
+        <td class="jd-descrcol" width="100%">
+          Never implemented; do not use.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_IGET_BYTE">OP_IGET_BYTE</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-11" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_IGET_BYTE_JUMBO">OP_IGET_BYTE_JUMBO</a></td>
-        <td class="jd-descrcol" width="100%">Never implemented; do not use.</td>
+        <td class="jd-descrcol" width="100%">
+          Never implemented; do not use.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_IGET_CHAR">OP_IGET_CHAR</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-11" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_IGET_CHAR_JUMBO">OP_IGET_CHAR_JUMBO</a></td>
-        <td class="jd-descrcol" width="100%">Never implemented; do not use.</td>
+        <td class="jd-descrcol" width="100%">
+          Never implemented; do not use.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-11" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_IGET_JUMBO">OP_IGET_JUMBO</a></td>
-        <td class="jd-descrcol" width="100%">Never implemented; do not use.</td>
+        <td class="jd-descrcol" width="100%">
+          Never implemented; do not use.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_IGET_OBJECT">OP_IGET_OBJECT</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-11" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_IGET_OBJECT_JUMBO">OP_IGET_OBJECT_JUMBO</a></td>
-        <td class="jd-descrcol" width="100%">Never implemented; do not use.</td>
+        <td class="jd-descrcol" width="100%">
+          Never implemented; do not use.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_IGET_OBJECT_QUICK">OP_IGET_OBJECT_QUICK</a></td>
-        <td class="jd-descrcol" width="100%"><em>
+        <td class="jd-descrcol" width="100%">
+          <em>
       This constant was deprecated
       in API level 11.
     Implementation detail.
-</em></td>
+</em>
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_IGET_QUICK">OP_IGET_QUICK</a></td>
-        <td class="jd-descrcol" width="100%"><em>
+        <td class="jd-descrcol" width="100%">
+          <em>
       This constant was deprecated
       in API level 11.
     Implementation detail.
-</em></td>
+</em>
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_IGET_SHORT">OP_IGET_SHORT</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-11" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_IGET_SHORT_JUMBO">OP_IGET_SHORT_JUMBO</a></td>
-        <td class="jd-descrcol" width="100%">Never implemented; do not use.</td>
+        <td class="jd-descrcol" width="100%">
+          Never implemented; do not use.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_IGET_WIDE">OP_IGET_WIDE</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-11" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_IGET_WIDE_JUMBO">OP_IGET_WIDE_JUMBO</a></td>
-        <td class="jd-descrcol" width="100%">Never implemented; do not use.</td>
+        <td class="jd-descrcol" width="100%">
+          Never implemented; do not use.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_IGET_WIDE_QUICK">OP_IGET_WIDE_QUICK</a></td>
-        <td class="jd-descrcol" width="100%"><em>
+        <td class="jd-descrcol" width="100%">
+          <em>
       This constant was deprecated
       in API level 11.
     Implementation detail.
-</em></td>
+</em>
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-9" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_IGET_WIDE_VOLATILE">OP_IGET_WIDE_VOLATILE</a></td>
-        <td class="jd-descrcol" width="100%"><em>
+        <td class="jd-descrcol" width="100%">
+          <em>
       This constant was deprecated
       in API level 11.
     Implementation detail.
-</em></td>
+</em>
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_INSTANCE_OF">OP_INSTANCE_OF</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-11" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_INSTANCE_OF_JUMBO">OP_INSTANCE_OF_JUMBO</a></td>
-        <td class="jd-descrcol" width="100%">Never implemented; do not use.</td>
+        <td class="jd-descrcol" width="100%">
+          Never implemented; do not use.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_INT_TO_BYTE">OP_INT_TO_BYTE</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_INT_TO_CHAR">OP_INT_TO_CHAR</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_INT_TO_DOUBLE">OP_INT_TO_DOUBLE</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_INT_TO_FLOAT">OP_INT_TO_FLOAT</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_INT_TO_LONG">OP_INT_TO_LONG</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_INT_TO_SHORT">OP_INT_TO_SHORT</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_INVOKE_DIRECT">OP_INVOKE_DIRECT</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_INVOKE_DIRECT_EMPTY">OP_INVOKE_DIRECT_EMPTY</a></td>
-        <td class="jd-descrcol" width="100%"><em>
+        <td class="jd-descrcol" width="100%">
+          <em>
       This constant was deprecated
       in API level 11.
     Implementation detail.
-</em></td>
+</em>
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-11" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_INVOKE_DIRECT_JUMBO">OP_INVOKE_DIRECT_JUMBO</a></td>
-        <td class="jd-descrcol" width="100%">Never implemented; do not use.</td>
+        <td class="jd-descrcol" width="100%">
+          Never implemented; do not use.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_INVOKE_DIRECT_RANGE">OP_INVOKE_DIRECT_RANGE</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_INVOKE_INTERFACE">OP_INVOKE_INTERFACE</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-11" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_INVOKE_INTERFACE_JUMBO">OP_INVOKE_INTERFACE_JUMBO</a></td>
-        <td class="jd-descrcol" width="100%">Never implemented; do not use.</td>
+        <td class="jd-descrcol" width="100%">
+          Never implemented; do not use.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_INVOKE_INTERFACE_RANGE">OP_INVOKE_INTERFACE_RANGE</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_INVOKE_STATIC">OP_INVOKE_STATIC</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-11" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_INVOKE_STATIC_JUMBO">OP_INVOKE_STATIC_JUMBO</a></td>
-        <td class="jd-descrcol" width="100%">Never implemented; do not use.</td>
+        <td class="jd-descrcol" width="100%">
+          Never implemented; do not use.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_INVOKE_STATIC_RANGE">OP_INVOKE_STATIC_RANGE</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_INVOKE_SUPER">OP_INVOKE_SUPER</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-11" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_INVOKE_SUPER_JUMBO">OP_INVOKE_SUPER_JUMBO</a></td>
-        <td class="jd-descrcol" width="100%">Never implemented; do not use.</td>
+        <td class="jd-descrcol" width="100%">
+          Never implemented; do not use.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_INVOKE_SUPER_QUICK">OP_INVOKE_SUPER_QUICK</a></td>
-        <td class="jd-descrcol" width="100%"><em>
+        <td class="jd-descrcol" width="100%">
+          <em>
       This constant was deprecated
       in API level 11.
     Implementation detail.
-</em></td>
+</em>
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_INVOKE_SUPER_QUICK_RANGE">OP_INVOKE_SUPER_QUICK_RANGE</a></td>
-        <td class="jd-descrcol" width="100%"><em>
+        <td class="jd-descrcol" width="100%">
+          <em>
       This constant was deprecated
       in API level 11.
     Implementation detail.
-</em></td>
+</em>
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_INVOKE_SUPER_RANGE">OP_INVOKE_SUPER_RANGE</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_INVOKE_VIRTUAL">OP_INVOKE_VIRTUAL</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-11" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_INVOKE_VIRTUAL_JUMBO">OP_INVOKE_VIRTUAL_JUMBO</a></td>
-        <td class="jd-descrcol" width="100%">Never implemented; do not use.</td>
+        <td class="jd-descrcol" width="100%">
+          Never implemented; do not use.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_INVOKE_VIRTUAL_QUICK">OP_INVOKE_VIRTUAL_QUICK</a></td>
-        <td class="jd-descrcol" width="100%"><em>
+        <td class="jd-descrcol" width="100%">
+          <em>
       This constant was deprecated
       in API level 11.
     Implementation detail.
-</em></td>
+</em>
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_INVOKE_VIRTUAL_QUICK_RANGE">OP_INVOKE_VIRTUAL_QUICK_RANGE</a></td>
-        <td class="jd-descrcol" width="100%"><em>
+        <td class="jd-descrcol" width="100%">
+          <em>
       This constant was deprecated
       in API level 11.
     Implementation detail.
-</em></td>
+</em>
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_INVOKE_VIRTUAL_RANGE">OP_INVOKE_VIRTUAL_RANGE</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_IPUT">OP_IPUT</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_IPUT_BOOLEAN">OP_IPUT_BOOLEAN</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-11" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_IPUT_BOOLEAN_JUMBO">OP_IPUT_BOOLEAN_JUMBO</a></td>
-        <td class="jd-descrcol" width="100%">Never implemented; do not use.</td>
+        <td class="jd-descrcol" width="100%">
+          Never implemented; do not use.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_IPUT_BYTE">OP_IPUT_BYTE</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-11" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_IPUT_BYTE_JUMBO">OP_IPUT_BYTE_JUMBO</a></td>
-        <td class="jd-descrcol" width="100%">Never implemented; do not use.</td>
+        <td class="jd-descrcol" width="100%">
+          Never implemented; do not use.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_IPUT_CHAR">OP_IPUT_CHAR</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-11" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_IPUT_CHAR_JUMBO">OP_IPUT_CHAR_JUMBO</a></td>
-        <td class="jd-descrcol" width="100%">Never implemented; do not use.</td>
+        <td class="jd-descrcol" width="100%">
+          Never implemented; do not use.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-11" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_IPUT_JUMBO">OP_IPUT_JUMBO</a></td>
-        <td class="jd-descrcol" width="100%">Never implemented; do not use.</td>
+        <td class="jd-descrcol" width="100%">
+          Never implemented; do not use.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_IPUT_OBJECT">OP_IPUT_OBJECT</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-11" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_IPUT_OBJECT_JUMBO">OP_IPUT_OBJECT_JUMBO</a></td>
-        <td class="jd-descrcol" width="100%">Never implemented; do not use.</td>
+        <td class="jd-descrcol" width="100%">
+          Never implemented; do not use.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_IPUT_OBJECT_QUICK">OP_IPUT_OBJECT_QUICK</a></td>
-        <td class="jd-descrcol" width="100%"><em>
+        <td class="jd-descrcol" width="100%">
+          <em>
       This constant was deprecated
       in API level 11.
     Implementation detail.
-</em></td>
+</em>
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_IPUT_QUICK">OP_IPUT_QUICK</a></td>
-        <td class="jd-descrcol" width="100%"><em>
+        <td class="jd-descrcol" width="100%">
+          <em>
       This constant was deprecated
       in API level 11.
     Implementation detail.
-</em></td>
+</em>
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_IPUT_SHORT">OP_IPUT_SHORT</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-11" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_IPUT_SHORT_JUMBO">OP_IPUT_SHORT_JUMBO</a></td>
-        <td class="jd-descrcol" width="100%">Never implemented; do not use.</td>
+        <td class="jd-descrcol" width="100%">
+          Never implemented; do not use.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_IPUT_WIDE">OP_IPUT_WIDE</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-11" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_IPUT_WIDE_JUMBO">OP_IPUT_WIDE_JUMBO</a></td>
-        <td class="jd-descrcol" width="100%">Never implemented; do not use.</td>
+        <td class="jd-descrcol" width="100%">
+          Never implemented; do not use.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_IPUT_WIDE_QUICK">OP_IPUT_WIDE_QUICK</a></td>
-        <td class="jd-descrcol" width="100%"><em>
+        <td class="jd-descrcol" width="100%">
+          <em>
       This constant was deprecated
       in API level 11.
     Implementation detail.
-</em></td>
+</em>
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-9" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_IPUT_WIDE_VOLATILE">OP_IPUT_WIDE_VOLATILE</a></td>
-        <td class="jd-descrcol" width="100%"><em>
+        <td class="jd-descrcol" width="100%">
+          <em>
       This constant was deprecated
       in API level 11.
     Implementation detail.
-</em></td>
+</em>
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_LONG_TO_DOUBLE">OP_LONG_TO_DOUBLE</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_LONG_TO_FLOAT">OP_LONG_TO_FLOAT</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_LONG_TO_INT">OP_LONG_TO_INT</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_MONITOR_ENTER">OP_MONITOR_ENTER</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_MONITOR_EXIT">OP_MONITOR_EXIT</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_MOVE">OP_MOVE</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_MOVE_16">OP_MOVE_16</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_MOVE_EXCEPTION">OP_MOVE_EXCEPTION</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_MOVE_FROM16">OP_MOVE_FROM16</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_MOVE_OBJECT">OP_MOVE_OBJECT</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_MOVE_OBJECT_16">OP_MOVE_OBJECT_16</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_MOVE_OBJECT_FROM16">OP_MOVE_OBJECT_FROM16</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_MOVE_RESULT">OP_MOVE_RESULT</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_MOVE_RESULT_OBJECT">OP_MOVE_RESULT_OBJECT</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_MOVE_RESULT_WIDE">OP_MOVE_RESULT_WIDE</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_MOVE_WIDE">OP_MOVE_WIDE</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_MOVE_WIDE_16">OP_MOVE_WIDE_16</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_MOVE_WIDE_FROM16">OP_MOVE_WIDE_FROM16</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_MUL_DOUBLE">OP_MUL_DOUBLE</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_MUL_DOUBLE_2ADDR">OP_MUL_DOUBLE_2ADDR</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_MUL_FLOAT">OP_MUL_FLOAT</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_MUL_FLOAT_2ADDR">OP_MUL_FLOAT_2ADDR</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_MUL_INT">OP_MUL_INT</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_MUL_INT_2ADDR">OP_MUL_INT_2ADDR</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_MUL_INT_LIT16">OP_MUL_INT_LIT16</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_MUL_INT_LIT8">OP_MUL_INT_LIT8</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_MUL_LONG">OP_MUL_LONG</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_MUL_LONG_2ADDR">OP_MUL_LONG_2ADDR</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_NEG_DOUBLE">OP_NEG_DOUBLE</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_NEG_FLOAT">OP_NEG_FLOAT</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_NEG_INT">OP_NEG_INT</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_NEG_LONG">OP_NEG_LONG</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_NEW_ARRAY">OP_NEW_ARRAY</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-11" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_NEW_ARRAY_JUMBO">OP_NEW_ARRAY_JUMBO</a></td>
-        <td class="jd-descrcol" width="100%">Never implemented; do not use.</td>
+        <td class="jd-descrcol" width="100%">
+          Never implemented; do not use.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_NEW_INSTANCE">OP_NEW_INSTANCE</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-11" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_NEW_INSTANCE_JUMBO">OP_NEW_INSTANCE_JUMBO</a></td>
-        <td class="jd-descrcol" width="100%">Never implemented; do not use.</td>
+        <td class="jd-descrcol" width="100%">
+          Never implemented; do not use.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_NOP">OP_NOP</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_NOT_INT">OP_NOT_INT</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_NOT_LONG">OP_NOT_LONG</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_OR_INT">OP_OR_INT</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_OR_INT_2ADDR">OP_OR_INT_2ADDR</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_OR_INT_LIT16">OP_OR_INT_LIT16</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_OR_INT_LIT8">OP_OR_INT_LIT8</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_OR_LONG">OP_OR_LONG</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_OR_LONG_2ADDR">OP_OR_LONG_2ADDR</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_PACKED_SWITCH">OP_PACKED_SWITCH</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_REM_DOUBLE">OP_REM_DOUBLE</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_REM_DOUBLE_2ADDR">OP_REM_DOUBLE_2ADDR</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_REM_FLOAT">OP_REM_FLOAT</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_REM_FLOAT_2ADDR">OP_REM_FLOAT_2ADDR</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_REM_INT">OP_REM_INT</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_REM_INT_2ADDR">OP_REM_INT_2ADDR</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_REM_INT_LIT16">OP_REM_INT_LIT16</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_REM_INT_LIT8">OP_REM_INT_LIT8</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_REM_LONG">OP_REM_LONG</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_REM_LONG_2ADDR">OP_REM_LONG_2ADDR</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_RETURN">OP_RETURN</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_RETURN_OBJECT">OP_RETURN_OBJECT</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_RETURN_VOID">OP_RETURN_VOID</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_RETURN_WIDE">OP_RETURN_WIDE</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_RSUB_INT">OP_RSUB_INT</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_RSUB_INT_LIT8">OP_RSUB_INT_LIT8</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_SGET">OP_SGET</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_SGET_BOOLEAN">OP_SGET_BOOLEAN</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-11" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_SGET_BOOLEAN_JUMBO">OP_SGET_BOOLEAN_JUMBO</a></td>
-        <td class="jd-descrcol" width="100%">Never implemented; do not use.</td>
+        <td class="jd-descrcol" width="100%">
+          Never implemented; do not use.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_SGET_BYTE">OP_SGET_BYTE</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-11" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_SGET_BYTE_JUMBO">OP_SGET_BYTE_JUMBO</a></td>
-        <td class="jd-descrcol" width="100%">Never implemented; do not use.</td>
+        <td class="jd-descrcol" width="100%">
+          Never implemented; do not use.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_SGET_CHAR">OP_SGET_CHAR</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-11" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_SGET_CHAR_JUMBO">OP_SGET_CHAR_JUMBO</a></td>
-        <td class="jd-descrcol" width="100%">Never implemented; do not use.</td>
+        <td class="jd-descrcol" width="100%">
+          Never implemented; do not use.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-11" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_SGET_JUMBO">OP_SGET_JUMBO</a></td>
-        <td class="jd-descrcol" width="100%">Never implemented; do not use.</td>
+        <td class="jd-descrcol" width="100%">
+          Never implemented; do not use.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_SGET_OBJECT">OP_SGET_OBJECT</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-11" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_SGET_OBJECT_JUMBO">OP_SGET_OBJECT_JUMBO</a></td>
-        <td class="jd-descrcol" width="100%">Never implemented; do not use.</td>
+        <td class="jd-descrcol" width="100%">
+          Never implemented; do not use.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_SGET_SHORT">OP_SGET_SHORT</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-11" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_SGET_SHORT_JUMBO">OP_SGET_SHORT_JUMBO</a></td>
-        <td class="jd-descrcol" width="100%">Never implemented; do not use.</td>
+        <td class="jd-descrcol" width="100%">
+          Never implemented; do not use.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_SGET_WIDE">OP_SGET_WIDE</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-11" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_SGET_WIDE_JUMBO">OP_SGET_WIDE_JUMBO</a></td>
-        <td class="jd-descrcol" width="100%">Never implemented; do not use.</td>
+        <td class="jd-descrcol" width="100%">
+          Never implemented; do not use.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-9" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_SGET_WIDE_VOLATILE">OP_SGET_WIDE_VOLATILE</a></td>
-        <td class="jd-descrcol" width="100%"><em>
+        <td class="jd-descrcol" width="100%">
+          <em>
       This constant was deprecated
       in API level 11.
     Implementation detail.
-</em></td>
+</em>
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_SHL_INT">OP_SHL_INT</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_SHL_INT_2ADDR">OP_SHL_INT_2ADDR</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_SHL_INT_LIT8">OP_SHL_INT_LIT8</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_SHL_LONG">OP_SHL_LONG</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_SHL_LONG_2ADDR">OP_SHL_LONG_2ADDR</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_SHR_INT">OP_SHR_INT</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_SHR_INT_2ADDR">OP_SHR_INT_2ADDR</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_SHR_INT_LIT8">OP_SHR_INT_LIT8</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_SHR_LONG">OP_SHR_LONG</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_SHR_LONG_2ADDR">OP_SHR_LONG_2ADDR</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_SPARSE_SWITCH">OP_SPARSE_SWITCH</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_SPUT">OP_SPUT</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_SPUT_BOOLEAN">OP_SPUT_BOOLEAN</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-11" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_SPUT_BOOLEAN_JUMBO">OP_SPUT_BOOLEAN_JUMBO</a></td>
-        <td class="jd-descrcol" width="100%">Never implemented; do not use.</td>
+        <td class="jd-descrcol" width="100%">
+          Never implemented; do not use.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_SPUT_BYTE">OP_SPUT_BYTE</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-11" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_SPUT_BYTE_JUMBO">OP_SPUT_BYTE_JUMBO</a></td>
-        <td class="jd-descrcol" width="100%">Never implemented; do not use.</td>
+        <td class="jd-descrcol" width="100%">
+          Never implemented; do not use.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_SPUT_CHAR">OP_SPUT_CHAR</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-11" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_SPUT_CHAR_JUMBO">OP_SPUT_CHAR_JUMBO</a></td>
-        <td class="jd-descrcol" width="100%">Never implemented; do not use.</td>
+        <td class="jd-descrcol" width="100%">
+          Never implemented; do not use.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-11" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_SPUT_JUMBO">OP_SPUT_JUMBO</a></td>
-        <td class="jd-descrcol" width="100%">Never implemented; do not use.</td>
+        <td class="jd-descrcol" width="100%">
+          Never implemented; do not use.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_SPUT_OBJECT">OP_SPUT_OBJECT</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-11" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_SPUT_OBJECT_JUMBO">OP_SPUT_OBJECT_JUMBO</a></td>
-        <td class="jd-descrcol" width="100%">Never implemented; do not use.</td>
+        <td class="jd-descrcol" width="100%">
+          Never implemented; do not use.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_SPUT_SHORT">OP_SPUT_SHORT</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-11" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_SPUT_SHORT_JUMBO">OP_SPUT_SHORT_JUMBO</a></td>
-        <td class="jd-descrcol" width="100%">Never implemented; do not use.</td>
+        <td class="jd-descrcol" width="100%">
+          Never implemented; do not use.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_SPUT_WIDE">OP_SPUT_WIDE</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-11" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_SPUT_WIDE_JUMBO">OP_SPUT_WIDE_JUMBO</a></td>
-        <td class="jd-descrcol" width="100%">Never implemented; do not use.</td>
+        <td class="jd-descrcol" width="100%">
+          Never implemented; do not use.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-9" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_SPUT_WIDE_VOLATILE">OP_SPUT_WIDE_VOLATILE</a></td>
-        <td class="jd-descrcol" width="100%"><em>
+        <td class="jd-descrcol" width="100%">
+          <em>
       This constant was deprecated
       in API level 11.
     Implementation detail.
-</em></td>
+</em>
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_SUB_DOUBLE">OP_SUB_DOUBLE</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_SUB_DOUBLE_2ADDR">OP_SUB_DOUBLE_2ADDR</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_SUB_FLOAT">OP_SUB_FLOAT</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_SUB_FLOAT_2ADDR">OP_SUB_FLOAT_2ADDR</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_SUB_INT">OP_SUB_INT</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_SUB_INT_2ADDR">OP_SUB_INT_2ADDR</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_SUB_LONG">OP_SUB_LONG</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_SUB_LONG_2ADDR">OP_SUB_LONG_2ADDR</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_THROW">OP_THROW</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-8" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_THROW_VERIFICATION_ERROR">OP_THROW_VERIFICATION_ERROR</a></td>
-        <td class="jd-descrcol" width="100%"><em>
+        <td class="jd-descrcol" width="100%">
+          <em>
       This constant was deprecated
       in API level 11.
     Implementation detail.
-</em></td>
+</em>
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_USHR_INT">OP_USHR_INT</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_USHR_INT_2ADDR">OP_USHR_INT_2ADDR</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_USHR_INT_LIT8">OP_USHR_INT_LIT8</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_USHR_LONG">OP_USHR_LONG</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_USHR_LONG_2ADDR">OP_USHR_LONG_2ADDR</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_XOR_INT">OP_XOR_INT</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_XOR_INT_2ADDR">OP_XOR_INT_2ADDR</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_XOR_INT_LIT16">OP_XOR_INT_LIT16</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_XOR_INT_LIT8">OP_XOR_INT_LIT8</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_XOR_LONG">OP_XOR_LONG</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/dalvik/bytecode/Opcodes.html#OP_XOR_LONG_2ADDR">OP_XOR_LONG_2ADDR</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
@@ -3133,6 +4560,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -3171,6 +4601,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
@@ -3211,6 +4644,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -3249,6 +4685,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
@@ -3289,6 +4728,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -3327,6 +4769,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
@@ -3367,6 +4812,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -3405,6 +4853,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
@@ -3445,6 +4896,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -3483,6 +4937,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
@@ -3523,6 +4980,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -3561,6 +5021,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
@@ -3601,6 +5064,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -3639,6 +5105,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
@@ -3679,6 +5148,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -3717,6 +5189,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
@@ -3757,6 +5232,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -3795,6 +5273,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
@@ -3835,6 +5316,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -3873,6 +5357,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
@@ -3913,6 +5400,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -3951,6 +5441,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
@@ -3991,6 +5484,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -4029,6 +5525,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
@@ -4069,6 +5568,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -4107,6 +5609,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
@@ -4147,6 +5652,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -4185,6 +5693,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
@@ -4225,6 +5736,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -4263,6 +5777,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
@@ -4303,6 +5820,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -4341,6 +5861,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       <p>
   <p class="caution"><strong>
       This constant was deprecated
@@ -4387,6 +5910,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -4425,6 +5951,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Never implemented; do not use. </p></div>
 
@@ -4465,6 +5994,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -4503,6 +6035,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
@@ -4543,6 +6078,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -4581,6 +6119,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
@@ -4621,6 +6162,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -4659,6 +6203,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
@@ -4699,6 +6246,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -4737,6 +6287,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
@@ -4777,6 +6330,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -4815,6 +6371,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Never implemented; do not use. </p></div>
 
@@ -4855,6 +6414,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -4893,6 +6455,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
@@ -4933,6 +6498,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -4971,6 +6539,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
@@ -5011,6 +6582,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -5049,6 +6623,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
@@ -5089,6 +6666,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -5127,6 +6707,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
@@ -5167,6 +6750,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -5205,6 +6791,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
@@ -5245,6 +6834,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -5283,6 +6875,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
@@ -5323,6 +6918,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -5361,6 +6959,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
@@ -5401,6 +7002,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -5439,6 +7043,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
@@ -5479,6 +7086,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -5517,6 +7127,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
@@ -5557,6 +7170,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -5596,6 +7212,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -5634,6 +7253,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       <p>
   <p class="caution"><strong>
       This constant was deprecated
@@ -5679,6 +7301,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       <p>
   <p class="caution"><strong>
       This constant was deprecated
@@ -5725,6 +7350,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -5763,6 +7391,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Never implemented; do not use. </p></div>
 
@@ -5803,6 +7434,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -5841,6 +7475,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
@@ -5881,6 +7518,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -5919,6 +7559,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
@@ -5959,6 +7602,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -5997,6 +7643,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
@@ -6037,6 +7686,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -6075,6 +7727,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
@@ -6115,6 +7770,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -6153,6 +7811,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
@@ -6193,6 +7854,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -6231,6 +7895,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
@@ -6271,6 +7938,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -6309,6 +7979,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
@@ -6349,6 +8022,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -6387,6 +8063,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
@@ -6427,6 +8106,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -6465,6 +8147,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
@@ -6505,6 +8190,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -6543,6 +8231,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
@@ -6583,6 +8274,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -6621,6 +8315,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
@@ -6661,6 +8358,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Never implemented; do not use. </p></div>
 
     
@@ -6699,6 +8399,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
@@ -6739,6 +8442,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Never implemented; do not use. </p></div>
 
     
@@ -6777,6 +8483,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
@@ -6817,6 +8526,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Never implemented; do not use. </p></div>
 
     
@@ -6855,6 +8567,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Never implemented; do not use. </p></div>
 
@@ -6895,6 +8610,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -6934,6 +8652,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Never implemented; do not use. </p></div>
 
     
@@ -6972,6 +8693,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       <p>
   <p class="caution"><strong>
       This constant was deprecated
@@ -7017,6 +8741,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       <p>
   <p class="caution"><strong>
       This constant was deprecated
@@ -7063,6 +8790,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -7101,6 +8831,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Never implemented; do not use. </p></div>
 
@@ -7141,6 +8874,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -7180,6 +8916,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Never implemented; do not use. </p></div>
 
     
@@ -7218,6 +8957,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       <p>
   <p class="caution"><strong>
       This constant was deprecated
@@ -7263,6 +9005,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       <p>
   <p class="caution"><strong>
       This constant was deprecated
@@ -7309,6 +9054,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -7347,6 +9095,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Never implemented; do not use. </p></div>
 
@@ -7387,6 +9138,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -7425,6 +9179,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
@@ -7465,6 +9222,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -7503,6 +9263,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
@@ -7543,6 +9306,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -7581,6 +9347,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
@@ -7621,6 +9390,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -7659,6 +9431,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       <p>
   <p class="caution"><strong>
       This constant was deprecated
@@ -7705,6 +9480,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Never implemented; do not use. </p></div>
 
     
@@ -7743,6 +9521,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
@@ -7783,6 +9564,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -7821,6 +9605,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Never implemented; do not use. </p></div>
 
@@ -7861,6 +9648,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -7899,6 +9689,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
@@ -7939,6 +9732,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Never implemented; do not use. </p></div>
 
     
@@ -7977,6 +9773,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
@@ -8017,6 +9816,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -8056,6 +9858,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Never implemented; do not use. </p></div>
 
     
@@ -8094,6 +9899,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       <p>
   <p class="caution"><strong>
       This constant was deprecated
@@ -8139,6 +9947,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       <p>
   <p class="caution"><strong>
       This constant was deprecated
@@ -8185,6 +9996,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -8223,6 +10037,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
@@ -8263,6 +10080,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Never implemented; do not use. </p></div>
 
     
@@ -8301,6 +10121,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       <p>
   <p class="caution"><strong>
       This constant was deprecated
@@ -8346,6 +10169,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       <p>
   <p class="caution"><strong>
       This constant was deprecated
@@ -8392,6 +10218,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -8430,6 +10259,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
@@ -8470,6 +10302,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -8508,6 +10343,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Never implemented; do not use. </p></div>
 
@@ -8548,6 +10386,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -8586,6 +10427,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Never implemented; do not use. </p></div>
 
@@ -8626,6 +10470,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -8664,6 +10511,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Never implemented; do not use. </p></div>
 
@@ -8704,6 +10554,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Never implemented; do not use. </p></div>
 
     
@@ -8742,6 +10595,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
@@ -8782,6 +10638,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Never implemented; do not use. </p></div>
 
     
@@ -8820,6 +10679,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       <p>
   <p class="caution"><strong>
       This constant was deprecated
@@ -8865,6 +10727,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       <p>
   <p class="caution"><strong>
       This constant was deprecated
@@ -8911,6 +10776,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -8949,6 +10817,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Never implemented; do not use. </p></div>
 
@@ -8989,6 +10860,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -9028,6 +10902,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Never implemented; do not use. </p></div>
 
     
@@ -9066,6 +10943,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       <p>
   <p class="caution"><strong>
       This constant was deprecated
@@ -9111,6 +10991,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       <p>
   <p class="caution"><strong>
       This constant was deprecated
@@ -9157,6 +11040,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -9195,6 +11081,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
@@ -9235,6 +11124,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -9273,6 +11165,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
@@ -9313,6 +11208,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -9351,6 +11249,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
@@ -9391,6 +11292,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -9429,6 +11333,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
@@ -9469,6 +11376,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -9507,6 +11417,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
@@ -9547,6 +11460,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -9585,6 +11501,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
@@ -9625,6 +11544,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -9663,6 +11585,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
@@ -9703,6 +11628,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -9741,6 +11669,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
@@ -9781,6 +11712,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -9819,6 +11753,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
@@ -9859,6 +11796,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -9897,6 +11837,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
@@ -9937,6 +11880,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -9975,6 +11921,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
@@ -10015,6 +11964,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -10053,6 +12005,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
@@ -10093,6 +12048,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -10131,6 +12089,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
@@ -10171,6 +12132,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -10209,6 +12173,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
@@ -10249,6 +12216,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -10287,6 +12257,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
@@ -10327,6 +12300,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -10365,6 +12341,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
@@ -10405,6 +12384,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -10443,6 +12425,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Never implemented; do not use. </p></div>
 
@@ -10483,6 +12468,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -10521,6 +12509,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Never implemented; do not use. </p></div>
 
@@ -10561,6 +12552,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -10599,6 +12593,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
@@ -10639,6 +12636,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -10677,6 +12677,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
@@ -10717,6 +12720,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -10755,6 +12761,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
@@ -10795,6 +12804,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -10833,6 +12845,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
@@ -10873,6 +12888,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -10911,6 +12929,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
@@ -10951,6 +12972,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -10989,6 +13013,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
@@ -11029,6 +13056,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -11067,6 +13097,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
@@ -11107,6 +13140,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -11145,6 +13181,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
@@ -11185,6 +13224,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -11223,6 +13265,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
@@ -11263,6 +13308,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -11301,6 +13349,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
@@ -11341,6 +13392,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -11379,6 +13433,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
@@ -11419,6 +13476,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -11457,6 +13517,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
@@ -11497,6 +13560,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -11535,6 +13601,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
@@ -11575,6 +13644,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -11613,6 +13685,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
@@ -11653,6 +13728,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Never implemented; do not use. </p></div>
 
     
@@ -11691,6 +13769,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
@@ -11731,6 +13812,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Never implemented; do not use. </p></div>
 
     
@@ -11769,6 +13853,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
@@ -11809,6 +13896,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Never implemented; do not use. </p></div>
 
     
@@ -11847,6 +13937,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Never implemented; do not use. </p></div>
 
@@ -11887,6 +13980,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -11925,6 +14021,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Never implemented; do not use. </p></div>
 
@@ -11965,6 +14064,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -12003,6 +14105,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Never implemented; do not use. </p></div>
 
@@ -12043,6 +14148,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -12082,6 +14190,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Never implemented; do not use. </p></div>
 
     
@@ -12120,6 +14231,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       <p>
   <p class="caution"><strong>
       This constant was deprecated
@@ -12166,6 +14280,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -12204,6 +14321,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
@@ -12244,6 +14364,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -12282,6 +14405,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
@@ -12322,6 +14448,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -12360,6 +14489,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
@@ -12400,6 +14532,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -12438,6 +14573,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
@@ -12478,6 +14616,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -12516,6 +14657,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
@@ -12556,6 +14700,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -12594,6 +14741,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
@@ -12634,6 +14784,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -12672,6 +14825,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Never implemented; do not use. </p></div>
 
@@ -12712,6 +14868,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -12750,6 +14909,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Never implemented; do not use. </p></div>
 
@@ -12790,6 +14952,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -12828,6 +14993,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Never implemented; do not use. </p></div>
 
@@ -12868,6 +15036,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Never implemented; do not use. </p></div>
 
     
@@ -12906,6 +15077,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
@@ -12946,6 +15120,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Never implemented; do not use. </p></div>
 
     
@@ -12984,6 +15161,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
@@ -13024,6 +15204,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Never implemented; do not use. </p></div>
 
     
@@ -13062,6 +15245,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
@@ -13102,6 +15288,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Never implemented; do not use. </p></div>
 
     
@@ -13140,6 +15329,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       <p>
   <p class="caution"><strong>
       This constant was deprecated
@@ -13186,6 +15378,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -13224,6 +15419,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
@@ -13264,6 +15462,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -13302,6 +15503,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
@@ -13342,6 +15546,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -13380,6 +15587,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
@@ -13420,6 +15630,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -13458,6 +15671,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
@@ -13498,6 +15714,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -13536,6 +15755,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       <p>
   <p class="caution"><strong>
       This constant was deprecated
@@ -13582,6 +15804,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -13620,6 +15845,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
@@ -13660,6 +15888,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -13698,6 +15929,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
@@ -13738,6 +15972,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -13776,6 +16013,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
@@ -13816,6 +16056,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -13854,6 +16097,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
@@ -13894,6 +16140,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -13933,6 +16182,9 @@ type="text/css">
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -13971,6 +16223,9 @@ type="text/css">
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 

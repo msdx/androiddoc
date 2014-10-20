@@ -82,6 +82,19 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 <html>
 <head>
 
@@ -97,7 +110,7 @@
 href="http://fonts.useso.com/css?family=Roboto+Condensed">
 <link rel="stylesheet" href="http://fonts.useso.com/css?family=Roboto:light,regular,medium,thin,italic,mediumitalic,bold"
   title="roboto">
-<link href="../../../assets/css/default.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/default.css?v=2" rel="stylesheet" type="text/css">
 
 
 <!-- FULLSCREEN STYLESHEET -->
@@ -106,30 +119,31 @@ type="text/css">
 
 
 <!-- JAVASCRIPT -->
-<script src="http://googleapiscdn.qiniudn.com/www.google.com/jsapi" type="text/javascript"></script>
+<script src="http://www.google.com/jsapi" type="text/javascript"></script>
 <script src="../../../assets/js/android_3p-bundle.js" type="text/javascript"></script>
 <script type="text/javascript">
   var toRoot = "../../../";
   var metaTags = [];
   var devsite = false;
 </script>
-<script src="../../../assets/js/docs.js" type="text/javascript"></script>
+<script src="../../../assets/js/docs.js?v=2" type="text/javascript"></script>
 
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-5831155-1']);
-  _gaq.push(['_trackPageview']);
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
+  ga('create', 'UA-5831155-1', 'android.com');
+  ga('create', 'UA-49880327-2', 'android.com', {'name': 'universal'});  // New tracker);
+  ga('send', 'pageview');
+  ga('universal.send', 'pageview'); // Send page view for new tracker.
 </script>
+
 </head>
 
 <body class="gc-documentation 
-  develop" itemscope itemtype="http://schema.org/Article">
+  develop reference" itemscope itemtype="http://schema.org/Article">
   <div id="doc-api-level" class="1" style="display:none"></div>
   <a name="top"></a>
 
@@ -139,6 +153,10 @@ type="text/css">
   <!-- Header -->
   <div id="header-wrapper">
     <div id="header">
+
+    
+
+
       <div class="wrap" id="header-wrap">
         <div class="col-3 logo">
           <a href="../../../index.html">
@@ -260,11 +278,20 @@ type="text/css">
 
 
         <!-- Expanded quicknav -->
-        <div id="quicknav" class="col-9">
+        <div id="quicknav" class="col-13">
           <ul>
+            <li class="about">
+              <ul>
+                <li><a href="../../../about/index.html">About</a></li>
+                <li><a href="../../../wear/index.html">Wear</a></li>
+                <li><a href="../../../tv/index.html">TV</a></li>
+                <li><a href="../../../auto/index.html">Auto</a></li>
+              </ul>
+            </li>
             <li class="design">
               <ul>
                 <li><a href="../../../design/index.html">Get Started</a></li>
+                <li><a href="../../../design/devices.html">Devices</a></li>
                 <li><a href="../../../design/style/index.html">Style</a></li>
                 <li><a href="../../../design/patterns/index.html">Patterns</a></li>
                 <li><a href="../../../design/building-blocks/index.html">Building Blocks</a></li>
@@ -298,7 +325,7 @@ type="text/css">
                   ja-lang="リファレンス"
                   es-lang="Referencia"
                   >Reference</a></li>
-                <li><a href="../../../tools/index.html"
+                <li><a href="../../../sdk/index.html"
                   zh-tw-lang="相關工具"
                   zh-cn-lang="工具"
                   ru-lang="Инструменты"
@@ -306,7 +333,6 @@ type="text/css">
                   ja-lang="ツール"
                   es-lang="Herramientas"
                   >Tools</a>
-                  <ul><li><a href="../../../sdk/index.html">Get the SDK</a></li></ul>
                 </li>
                 <li><a href="../../../google/index.html">Google Services</a>
                 </li>
@@ -358,7 +384,7 @@ type="text/css">
                   ja-lang="リファレンス"
                   es-lang="Referencia"
                   >Reference</a></li>
-                <li class="tools"><a href="../../../tools/index.html"
+                <li class="tools"><a href="../../../sdk/index.html"
                   zh-tw-lang="相關工具"
                   zh-cn-lang="工具"
                   ru-lang="Инструменты"
@@ -373,7 +399,7 @@ type="text/css">
             </ul>
         </div>
     </div>
-    <!-- /Sendondary x-nav -->
+    <!-- /Sendondary x-nav DEVELOP -->
 
   
 
@@ -414,7 +440,7 @@ type="text/css">
         <div id="api-nav-title">Android APIs</div>
         </div><!-- end nav header -->
       <script>
-        var SINCE_DATA = [ '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19' ];
+        var SINCE_DATA = [ '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21' ];
         buildApiLevelSelector();
       </script>
                   
@@ -441,13 +467,15 @@ type="text/css">
   <a href="../../../reference/android/app/admin/package-summary.html">android.app.admin</a></li>
     <li class="api apilevel-8">
   <a href="../../../reference/android/app/backup/package-summary.html">android.app.backup</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/app/job/package-summary.html">android.app.job</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/app/usage/package-summary.html">android.app.usage</a></li>
     <li class="api apilevel-3">
   <a href="../../../reference/android/appwidget/package-summary.html">android.appwidget</a></li>
     <li class="api apilevel-5">
   <a href="../../../reference/android/bluetooth/package-summary.html">android.bluetooth</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/bluetooth/le/package-summary.html">android.bluetooth.le</a></li>
     <li class="api apilevel-1">
   <a href="../../../reference/android/content/package-summary.html">android.content</a></li>
@@ -473,16 +501,14 @@ type="text/css">
   <a href="../../../reference/android/graphics/pdf/package-summary.html">android.graphics.pdf</a></li>
     <li class="api apilevel-1">
   <a href="../../../reference/android/hardware/package-summary.html">android.hardware</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/hardware/camera2/package-summary.html">android.hardware.camera2</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/hardware/camera2/params/package-summary.html">android.hardware.camera2.params</a></li>
     <li class="api apilevel-17">
   <a href="../../../reference/android/hardware/display/package-summary.html">android.hardware.display</a></li>
     <li class="api apilevel-16">
   <a href="../../../reference/android/hardware/input/package-summary.html">android.hardware.input</a></li>
-    <li class="api apilevel-18">
-  <a href="../../../reference/android/hardware/location/package-summary.html">android.hardware.location</a></li>
     <li class="api apilevel-12">
   <a href="../../../reference/android/hardware/usb/package-summary.html">android.hardware.usb</a></li>
     <li class="api apilevel-3">
@@ -493,11 +519,15 @@ type="text/css">
   <a href="../../../reference/android/media/package-summary.html">android.media</a></li>
     <li class="api apilevel-9">
   <a href="../../../reference/android/media/audiofx/package-summary.html">android.media.audiofx</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/media/browse/package-summary.html">android.media.browse</a></li>
     <li class="api apilevel-14">
   <a href="../../../reference/android/media/effect/package-summary.html">android.media.effect</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/media/projection/package-summary.html">android.media.projection</a></li>
+    <li class="api apilevel-21">
   <a href="../../../reference/android/media/session/package-summary.html">android.media.session</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/media/tv/package-summary.html">android.media.tv</a></li>
     <li class="api apilevel-12">
   <a href="../../../reference/android/mtp/package-summary.html">android.mtp</a></li>
@@ -547,11 +577,15 @@ type="text/css">
   <a href="../../../reference/android/security/package-summary.html">android.security</a></li>
     <li class="api apilevel-17">
   <a href="../../../reference/android/service/dreams/package-summary.html">android.service.dreams</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/service/media/package-summary.html">android.service.media</a></li>
     <li class="api apilevel-18">
   <a href="../../../reference/android/service/notification/package-summary.html">android.service.notification</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/service/restrictions/package-summary.html">android.service.restrictions</a></li>
     <li class="api apilevel-14">
   <a href="../../../reference/android/service/textservice/package-summary.html">android.service.textservice</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/service/voice/package-summary.html">android.service.voice</a></li>
     <li class="api apilevel-7">
   <a href="../../../reference/android/service/wallpaper/package-summary.html">android.service.wallpaper</a></li>
@@ -596,11 +630,15 @@ type="text/css">
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/media/package-summary.html">android.support.v4.media</a></li>
     <li class="api apilevel-">
+  <a href="../../../reference/android/support/v4/media/session/package-summary.html">android.support.v4.media.session</a></li>
+    <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/net/package-summary.html">android.support.v4.net</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/os/package-summary.html">android.support.v4.os</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/print/package-summary.html">android.support.v4.print</a></li>
+    <li class="api apilevel-">
+  <a href="../../../reference/android/support/v4/provider/package-summary.html">android.support.v4.provider</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/text/package-summary.html">android.support.v4.text</a></li>
     <li class="api apilevel-">
@@ -616,6 +654,10 @@ type="text/css">
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v7/appcompat/package-summary.html">android.support.v7.appcompat</a></li>
     <li class="api apilevel-">
+  <a href="../../../reference/android/support/v7/cardview/package-summary.html">android.support.v7.cardview</a></li>
+    <li class="api apilevel-">
+  <a href="../../../reference/android/support/v7/graphics/package-summary.html">android.support.v7.graphics</a></li>
+    <li class="api apilevel-">
   <a href="../../../reference/android/support/v7/gridlayout/package-summary.html">android.support.v7.gridlayout</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v7/media/package-summary.html">android.support.v7.media</a></li>
@@ -627,8 +669,10 @@ type="text/css">
   <a href="../../../reference/android/support/v7/widget/package-summary.html">android.support.v7.widget</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v8/renderscript/package-summary.html">android.support.v8.renderscript</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/system/package-summary.html">android.system</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/telecom/package-summary.html">android.telecom</a></li>
     <li class="api apilevel-1">
   <a href="../../../reference/android/telephony/package-summary.html">android.telephony</a></li>
     <li class="api apilevel-5">
@@ -1104,6 +1148,9 @@ Summary:
   
 
 
+    
+
+
 </div><!-- end header -->
 
 <div id="naMessage"></div>
@@ -1194,11 +1241,16 @@ Summary:
         
         class</nobr></td>
       <td class="jd-linkcol"><a href="../../../reference/android/database/MatrixCursor.RowBuilder.html">MatrixCursor.RowBuilder</a></td>
-      <td class="jd-descrcol" width="100%">Builds a row of values using either of these approaches:
+      <td class="jd-descrcol" width="100%">
+        Builds a row of values using either of these approaches:
  <ul>
  <li>Values can be added with explicit column ordering using
  <code><a href="../../../reference/android/database/MatrixCursor.RowBuilder.html#add(java.lang.Object)">add(Object)</a></code>, which starts from the left-most column and adds one
- column value at a time.&nbsp;</td>
+ column value at a time.&nbsp;
+        
+    
+
+      </td>
     </tr>
     
     
@@ -1250,35 +1302,60 @@ Summary:
     <tr class="alt-color api apilevel-11" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/database/Cursor.html#FIELD_TYPE_BLOB">FIELD_TYPE_BLOB</a></td>
-        <td class="jd-descrcol" width="100%">Value returned by <code><a href="../../../reference/android/database/Cursor.html#getType(int)">getType(int)</a></code> if the specified column type is blob </td>
+        <td class="jd-descrcol" width="100%">
+          Value returned by <code><a href="../../../reference/android/database/Cursor.html#getType(int)">getType(int)</a></code> if the specified column type is blob 
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-11" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/database/Cursor.html#FIELD_TYPE_FLOAT">FIELD_TYPE_FLOAT</a></td>
-        <td class="jd-descrcol" width="100%">Value returned by <code><a href="../../../reference/android/database/Cursor.html#getType(int)">getType(int)</a></code> if the specified column type is float </td>
+        <td class="jd-descrcol" width="100%">
+          Value returned by <code><a href="../../../reference/android/database/Cursor.html#getType(int)">getType(int)</a></code> if the specified column type is float 
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-11" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/database/Cursor.html#FIELD_TYPE_INTEGER">FIELD_TYPE_INTEGER</a></td>
-        <td class="jd-descrcol" width="100%">Value returned by <code><a href="../../../reference/android/database/Cursor.html#getType(int)">getType(int)</a></code> if the specified  column type is integer </td>
+        <td class="jd-descrcol" width="100%">
+          Value returned by <code><a href="../../../reference/android/database/Cursor.html#getType(int)">getType(int)</a></code> if the specified  column type is integer 
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-11" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/database/Cursor.html#FIELD_TYPE_NULL">FIELD_TYPE_NULL</a></td>
-        <td class="jd-descrcol" width="100%">Value returned by <code><a href="../../../reference/android/database/Cursor.html#getType(int)">getType(int)</a></code> if the specified column is null </td>
+        <td class="jd-descrcol" width="100%">
+          Value returned by <code><a href="../../../reference/android/database/Cursor.html#getType(int)">getType(int)</a></code> if the specified column is null 
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-11" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/database/Cursor.html#FIELD_TYPE_STRING">FIELD_TYPE_STRING</a></td>
-        <td class="jd-descrcol" width="100%">Value returned by <code><a href="../../../reference/android/database/Cursor.html#getType(int)">getType(int)</a></code> if the specified column type is string </td>
+        <td class="jd-descrcol" width="100%">
+          Value returned by <code><a href="../../../reference/android/database/Cursor.html#getType(int)">getType(int)</a></code> if the specified column type is string 
+          
+    
+
+        </td>
     </tr>
     
     
@@ -1330,7 +1407,12 @@ Summary:
           
           boolean</nobr></td>
           <td class="jd-linkcol"><a href="../../../reference/android/database/AbstractCursor.html#mClosed">mClosed</a></td>
-          <td class="jd-descrcol" width="100%"></td>
+          <td class="jd-descrcol" width="100%">
+            
+            
+    
+
+          </td>
       </tr>
       
     
@@ -1341,7 +1423,12 @@ Summary:
           
           <a href="../../../reference/android/content/ContentResolver.html">ContentResolver</a></nobr></td>
           <td class="jd-linkcol"><a href="../../../reference/android/database/AbstractCursor.html#mContentResolver">mContentResolver</a></td>
-          <td class="jd-descrcol" width="100%"></td>
+          <td class="jd-descrcol" width="100%">
+            
+            
+    
+
+          </td>
       </tr>
       
     
@@ -1352,11 +1439,16 @@ Summary:
           
           <a href="../../../reference/java/lang/Long.html">Long</a></nobr></td>
           <td class="jd-linkcol"><a href="../../../reference/android/database/AbstractCursor.html#mCurrentRowID">mCurrentRowID</a></td>
-          <td class="jd-descrcol" width="100%"><em>
+          <td class="jd-descrcol" width="100%">
+            <em>
       This field was deprecated
       in API level 16.
     This field should not be used.
-</em></td>
+</em>
+            
+    
+
+          </td>
       </tr>
       
     
@@ -1367,7 +1459,12 @@ Summary:
           
           int</nobr></td>
           <td class="jd-linkcol"><a href="../../../reference/android/database/AbstractCursor.html#mPos">mPos</a></td>
-          <td class="jd-descrcol" width="100%"></td>
+          <td class="jd-descrcol" width="100%">
+            
+            
+    
+
+          </td>
       </tr>
       
     
@@ -1378,11 +1475,16 @@ Summary:
           
           int</nobr></td>
           <td class="jd-linkcol"><a href="../../../reference/android/database/AbstractCursor.html#mRowIdColumnIndex">mRowIdColumnIndex</a></td>
-          <td class="jd-descrcol" width="100%"><em>
+          <td class="jd-descrcol" width="100%">
+            <em>
       This field was deprecated
       in API level 16.
     This field should not be used.
-</em></td>
+</em>
+            
+    
+
+          </td>
       </tr>
       
     
@@ -1393,11 +1495,16 @@ Summary:
           
           <a href="../../../reference/java/util/HashMap.html">HashMap</a>&lt;<a href="../../../reference/java/lang/Long.html">Long</a>,&nbsp;<a href="../../../reference/java/util/Map.html">Map</a>&lt;<a href="../../../reference/java/lang/String.html">String</a>,&nbsp;<a href="../../../reference/java/lang/Object.html">Object</a>&gt;&gt;</nobr></td>
           <td class="jd-linkcol"><a href="../../../reference/android/database/AbstractCursor.html#mUpdatedRows">mUpdatedRows</a></td>
-          <td class="jd-descrcol" width="100%"><em>
+          <td class="jd-descrcol" width="100%">
+            <em>
       This field was deprecated
       in API level 11.
     This is never updated by this class and should not be used
-</em></td>
+</em>
+            
+    
+
+          </td>
       </tr>
       
     
@@ -1440,7 +1547,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/database/MatrixCursor.html#MatrixCursor(java.lang.String[], int)">MatrixCursor</a></span>(<a href="../../../reference/java/lang/String.html">String[]</a> columnNames, int initialCapacity)</nobr>
         
-        <div class="jd-descrdiv">Constructs a new cursor with the given initial capacity.</div>
+        <div class="jd-descrdiv">
+          Constructs a new cursor with the given initial capacity.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1458,7 +1570,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/database/MatrixCursor.html#MatrixCursor(java.lang.String[])">MatrixCursor</a></span>(<a href="../../../reference/java/lang/String.html">String[]</a> columnNames)</nobr>
         
-        <div class="jd-descrdiv">Constructs a new cursor.</div>
+        <div class="jd-descrdiv">
+          Constructs a new cursor.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1489,7 +1606,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/database/MatrixCursor.html#addRow(java.lang.Iterable<?>)">addRow</a></span>(<a href="../../../reference/java/lang/Iterable.html">Iterable</a>&lt;?&gt; columnValues)</nobr>
         
-        <div class="jd-descrdiv">Adds a new row to the end with the given column values.</div>
+        <div class="jd-descrdiv">
+          Adds a new row to the end with the given column values.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1507,7 +1629,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/database/MatrixCursor.html#addRow(java.lang.Object[])">addRow</a></span>(<a href="../../../reference/java/lang/Object.html">Object[]</a> columnValues)</nobr>
         
-        <div class="jd-descrdiv">Adds a new row to the end with the given column values.</div>
+        <div class="jd-descrdiv">
+          Adds a new row to the end with the given column values.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1525,7 +1652,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/database/MatrixCursor.html#getBlob(int)">getBlob</a></span>(int column)</nobr>
         
-        <div class="jd-descrdiv">Returns the value of the requested column as a byte array.</div>
+        <div class="jd-descrdiv">
+          Returns the value of the requested column as a byte array.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1543,8 +1675,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/database/MatrixCursor.html#getColumnNames()">getColumnNames</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns a string array holding the names of all of the columns in the
- result set in the order in which they were listed in the result.</div>
+        <div class="jd-descrdiv">
+          Returns a string array holding the names of all of the columns in the
+ result set in the order in which they were listed in the result.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1562,7 +1699,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/database/MatrixCursor.html#getCount()">getCount</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns the numbers of rows in the cursor.</div>
+        <div class="jd-descrdiv">
+          Returns the numbers of rows in the cursor.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1580,7 +1722,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/database/MatrixCursor.html#getDouble(int)">getDouble</a></span>(int column)</nobr>
         
-        <div class="jd-descrdiv">Returns the value of the requested column as a double.</div>
+        <div class="jd-descrdiv">
+          Returns the value of the requested column as a double.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1598,7 +1745,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/database/MatrixCursor.html#getFloat(int)">getFloat</a></span>(int column)</nobr>
         
-        <div class="jd-descrdiv">Returns the value of the requested column as a float.</div>
+        <div class="jd-descrdiv">
+          Returns the value of the requested column as a float.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1616,7 +1768,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/database/MatrixCursor.html#getInt(int)">getInt</a></span>(int column)</nobr>
         
-        <div class="jd-descrdiv">Returns the value of the requested column as an int.</div>
+        <div class="jd-descrdiv">
+          Returns the value of the requested column as an int.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1634,7 +1791,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/database/MatrixCursor.html#getLong(int)">getLong</a></span>(int column)</nobr>
         
-        <div class="jd-descrdiv">Returns the value of the requested column as a long.</div>
+        <div class="jd-descrdiv">
+          Returns the value of the requested column as a long.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1652,7 +1814,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/database/MatrixCursor.html#getShort(int)">getShort</a></span>(int column)</nobr>
         
-        <div class="jd-descrdiv">Returns the value of the requested column as a short.</div>
+        <div class="jd-descrdiv">
+          Returns the value of the requested column as a short.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1670,7 +1837,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/database/MatrixCursor.html#getString(int)">getString</a></span>(int column)</nobr>
         
-        <div class="jd-descrdiv">Returns the value of the requested column as a String.</div>
+        <div class="jd-descrdiv">
+          Returns the value of the requested column as a String.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1688,7 +1860,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/database/MatrixCursor.html#getType(int)">getType</a></span>(int column)</nobr>
         
-        <div class="jd-descrdiv">Returns data type of the given column's value.</div>
+        <div class="jd-descrdiv">
+          Returns data type of the given column's value.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1706,7 +1883,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/database/MatrixCursor.html#isNull(int)">isNull</a></span>(int column)</nobr>
         
-        <div class="jd-descrdiv">Returns <code>true</code> if the value in the indicated column is null.</div>
+        <div class="jd-descrdiv">
+          Returns <code>true</code> if the value in the indicated column is null.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1724,7 +1906,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/database/MatrixCursor.html#newRow()">newRow</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Adds a new row to the end and returns a builder for that row.</div>
+        <div class="jd-descrdiv">
+          Adds a new row to the end and returns a builder for that row.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1776,8 +1963,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/database/AbstractCursor.html#checkPosition()">checkPosition</a></span>()</nobr>
         
-        <div class="jd-descrdiv">This function throws CursorIndexOutOfBoundsException if
- the cursor position is out of bounds.</div>
+        <div class="jd-descrdiv">
+          This function throws CursorIndexOutOfBoundsException if
+ the cursor position is out of bounds.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1795,7 +1987,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/database/AbstractCursor.html#close()">close</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Closes the Cursor, releasing all of its resources and making it completely invalid.</div>
+        <div class="jd-descrdiv">
+          Closes the Cursor, releasing all of its resources and making it completely invalid.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1813,7 +2010,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/database/AbstractCursor.html#copyStringToBuffer(int, android.database.CharArrayBuffer)">copyStringToBuffer</a></span>(int columnIndex, <a href="../../../reference/android/database/CharArrayBuffer.html">CharArrayBuffer</a> buffer)</nobr>
         
-        <div class="jd-descrdiv">Retrieves the requested column text and stores it in the buffer provided.</div>
+        <div class="jd-descrdiv">
+          Retrieves the requested column text and stores it in the buffer provided.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1831,7 +2033,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/database/AbstractCursor.html#deactivate()">deactivate</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Deactivates the Cursor, making all calls on it fail until <code><a href="../../../reference/android/database/Cursor.html#requery()">requery()</a></code> is called.</div>
+        <div class="jd-descrdiv">
+          Deactivates the Cursor, making all calls on it fail until <code><a href="../../../reference/android/database/Cursor.html#requery()">requery()</a></code> is called.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1849,7 +2056,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/database/AbstractCursor.html#fillWindow(int, android.database.CursorWindow)">fillWindow</a></span>(int position, <a href="../../../reference/android/database/CursorWindow.html">CursorWindow</a> window)</nobr>
         
-        <div class="jd-descrdiv">Copies cursor data into the window.</div>
+        <div class="jd-descrdiv">
+          Copies cursor data into the window.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1867,7 +2079,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/database/AbstractCursor.html#finalize()">finalize</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Invoked when the garbage collector has detected that this instance is no longer reachable.</div>
+        <div class="jd-descrdiv">
+          Invoked when the garbage collector has detected that this instance is no longer reachable.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1885,7 +2102,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/database/AbstractCursor.html#getBlob(int)">getBlob</a></span>(int column)</nobr>
         
-        <div class="jd-descrdiv">Returns the value of the requested column as a byte array.</div>
+        <div class="jd-descrdiv">
+          Returns the value of the requested column as a byte array.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1903,7 +2125,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/database/AbstractCursor.html#getColumnCount()">getColumnCount</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Return total number of columns</div>
+        <div class="jd-descrdiv">
+          Return total number of columns
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1921,7 +2148,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/database/AbstractCursor.html#getColumnIndex(java.lang.String)">getColumnIndex</a></span>(<a href="../../../reference/java/lang/String.html">String</a> columnName)</nobr>
         
-        <div class="jd-descrdiv">Returns the zero-based index for the given column name, or -1 if the column doesn't exist.</div>
+        <div class="jd-descrdiv">
+          Returns the zero-based index for the given column name, or -1 if the column doesn't exist.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1939,8 +2171,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/database/AbstractCursor.html#getColumnIndexOrThrow(java.lang.String)">getColumnIndexOrThrow</a></span>(<a href="../../../reference/java/lang/String.html">String</a> columnName)</nobr>
         
-        <div class="jd-descrdiv">Returns the zero-based index for the given column name, or throws
- <code><a href="../../../reference/java/lang/IllegalArgumentException.html">IllegalArgumentException</a></code> if the column doesn't exist.</div>
+        <div class="jd-descrdiv">
+          Returns the zero-based index for the given column name, or throws
+ <code><a href="../../../reference/java/lang/IllegalArgumentException.html">IllegalArgumentException</a></code> if the column doesn't exist.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1958,7 +2195,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/database/AbstractCursor.html#getColumnName(int)">getColumnName</a></span>(int columnIndex)</nobr>
         
-        <div class="jd-descrdiv">Returns the column name at the given zero-based column index.</div>
+        <div class="jd-descrdiv">
+          Returns the column name at the given zero-based column index.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1976,8 +2218,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/database/AbstractCursor.html#getColumnNames()">getColumnNames</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns a string array holding the names of all of the columns in the
- result set in the order in which they were listed in the result.</div>
+        <div class="jd-descrdiv">
+          Returns a string array holding the names of all of the columns in the
+ result set in the order in which they were listed in the result.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1995,7 +2242,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/database/AbstractCursor.html#getCount()">getCount</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns the numbers of rows in the cursor.</div>
+        <div class="jd-descrdiv">
+          Returns the numbers of rows in the cursor.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2013,7 +2265,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/database/AbstractCursor.html#getDouble(int)">getDouble</a></span>(int column)</nobr>
         
-        <div class="jd-descrdiv">Returns the value of the requested column as a double.</div>
+        <div class="jd-descrdiv">
+          Returns the value of the requested column as a double.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2031,7 +2288,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/database/AbstractCursor.html#getExtras()">getExtras</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns a bundle of extra values.</div>
+        <div class="jd-descrdiv">
+          Returns a bundle of extra values.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2049,7 +2311,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/database/AbstractCursor.html#getFloat(int)">getFloat</a></span>(int column)</nobr>
         
-        <div class="jd-descrdiv">Returns the value of the requested column as a float.</div>
+        <div class="jd-descrdiv">
+          Returns the value of the requested column as a float.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2067,7 +2334,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/database/AbstractCursor.html#getInt(int)">getInt</a></span>(int column)</nobr>
         
-        <div class="jd-descrdiv">Returns the value of the requested column as an int.</div>
+        <div class="jd-descrdiv">
+          Returns the value of the requested column as an int.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2085,7 +2357,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/database/AbstractCursor.html#getLong(int)">getLong</a></span>(int column)</nobr>
         
-        <div class="jd-descrdiv">Returns the value of the requested column as a long.</div>
+        <div class="jd-descrdiv">
+          Returns the value of the requested column as a long.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2103,8 +2380,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/database/AbstractCursor.html#getNotificationUri()">getNotificationUri</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Return the URI at which notifications of changes in this Cursor's data
- will be delivered, as previously set by <code><a href="../../../reference/android/database/Cursor.html#setNotificationUri(android.content.ContentResolver, android.net.Uri)">setNotificationUri(ContentResolver, Uri)</a></code>.</div>
+        <div class="jd-descrdiv">
+          Return the URI at which notifications of changes in this Cursor's data
+ will be delivered, as previously set by <code><a href="../../../reference/android/database/Cursor.html#setNotificationUri(android.content.ContentResolver, android.net.Uri)">setNotificationUri(ContentResolver, Uri)</a></code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2122,7 +2404,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/database/AbstractCursor.html#getPosition()">getPosition</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns the current position of the cursor in the row set.</div>
+        <div class="jd-descrdiv">
+          Returns the current position of the cursor in the row set.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2140,7 +2427,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/database/AbstractCursor.html#getShort(int)">getShort</a></span>(int column)</nobr>
         
-        <div class="jd-descrdiv">Returns the value of the requested column as a short.</div>
+        <div class="jd-descrdiv">
+          Returns the value of the requested column as a short.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2158,7 +2450,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/database/AbstractCursor.html#getString(int)">getString</a></span>(int column)</nobr>
         
-        <div class="jd-descrdiv">Returns the value of the requested column as a String.</div>
+        <div class="jd-descrdiv">
+          Returns the value of the requested column as a String.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2176,7 +2473,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/database/AbstractCursor.html#getType(int)">getType</a></span>(int column)</nobr>
         
-        <div class="jd-descrdiv">Returns data type of the given column's value.</div>
+        <div class="jd-descrdiv">
+          Returns data type of the given column's value.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2194,11 +2496,16 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/database/AbstractCursor.html#getUpdatedField(int)">getUpdatedField</a></span>(int columnIndex)</nobr>
         
-        <div class="jd-descrdiv"><em>
+        <div class="jd-descrdiv">
+          <em>
       This method was deprecated
       in API level 11.
     Always returns null since Cursors do not support updating rows
-</em></div>
+</em>
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2216,7 +2523,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/database/AbstractCursor.html#getWantsAllOnMoveCalls()">getWantsAllOnMoveCalls</a></span>()</nobr>
         
-        <div class="jd-descrdiv">onMove() will only be called across processes if this method returns true.</div>
+        <div class="jd-descrdiv">
+          onMove() will only be called across processes if this method returns true.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2234,8 +2546,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/database/AbstractCursor.html#getWindow()">getWindow</a></span>()</nobr>
         
-        <div class="jd-descrdiv">If the cursor is backed by a <code><a href="../../../reference/android/database/CursorWindow.html">CursorWindow</a></code>, returns a pre-filled
- window with the contents of the cursor, otherwise null.</div>
+        <div class="jd-descrdiv">
+          If the cursor is backed by a <code><a href="../../../reference/android/database/CursorWindow.html">CursorWindow</a></code>, returns a pre-filled
+ window with the contents of the cursor, otherwise null.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2253,8 +2570,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/database/AbstractCursor.html#isAfterLast()">isAfterLast</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns whether the cursor is pointing to the position after the last
- row.</div>
+        <div class="jd-descrdiv">
+          Returns whether the cursor is pointing to the position after the last
+ row.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2272,8 +2594,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/database/AbstractCursor.html#isBeforeFirst()">isBeforeFirst</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns whether the cursor is pointing to the position before the first
- row.</div>
+        <div class="jd-descrdiv">
+          Returns whether the cursor is pointing to the position before the first
+ row.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2291,7 +2618,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/database/AbstractCursor.html#isClosed()">isClosed</a></span>()</nobr>
         
-        <div class="jd-descrdiv">return true if the cursor is closed</div>
+        <div class="jd-descrdiv">
+          return true if the cursor is closed
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2309,11 +2641,16 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/database/AbstractCursor.html#isFieldUpdated(int)">isFieldUpdated</a></span>(int columnIndex)</nobr>
         
-        <div class="jd-descrdiv"><em>
+        <div class="jd-descrdiv">
+          <em>
       This method was deprecated
       in API level 11.
     Always returns false since Cursors do not support updating rows
-</em></div>
+</em>
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2331,7 +2668,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/database/AbstractCursor.html#isFirst()">isFirst</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns whether the cursor is pointing to the first row.</div>
+        <div class="jd-descrdiv">
+          Returns whether the cursor is pointing to the first row.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2349,7 +2691,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/database/AbstractCursor.html#isLast()">isLast</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns whether the cursor is pointing to the last row.</div>
+        <div class="jd-descrdiv">
+          Returns whether the cursor is pointing to the last row.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2367,7 +2714,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/database/AbstractCursor.html#isNull(int)">isNull</a></span>(int column)</nobr>
         
-        <div class="jd-descrdiv">Returns <code>true</code> if the value in the indicated column is null.</div>
+        <div class="jd-descrdiv">
+          Returns <code>true</code> if the value in the indicated column is null.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2385,8 +2737,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/database/AbstractCursor.html#move(int)">move</a></span>(int offset)</nobr>
         
-        <div class="jd-descrdiv">Move the cursor by a relative amount, forward or backward, from the
- current position.</div>
+        <div class="jd-descrdiv">
+          Move the cursor by a relative amount, forward or backward, from the
+ current position.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2404,7 +2761,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/database/AbstractCursor.html#moveToFirst()">moveToFirst</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Move the cursor to the first row.</div>
+        <div class="jd-descrdiv">
+          Move the cursor to the first row.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2422,7 +2784,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/database/AbstractCursor.html#moveToLast()">moveToLast</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Move the cursor to the last row.</div>
+        <div class="jd-descrdiv">
+          Move the cursor to the last row.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2440,7 +2807,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/database/AbstractCursor.html#moveToNext()">moveToNext</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Move the cursor to the next row.</div>
+        <div class="jd-descrdiv">
+          Move the cursor to the next row.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2458,7 +2830,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/database/AbstractCursor.html#moveToPosition(int)">moveToPosition</a></span>(int position)</nobr>
         
-        <div class="jd-descrdiv">Move the cursor to an absolute position.</div>
+        <div class="jd-descrdiv">
+          Move the cursor to an absolute position.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2476,7 +2853,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/database/AbstractCursor.html#moveToPrevious()">moveToPrevious</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Move the cursor to the previous row.</div>
+        <div class="jd-descrdiv">
+          Move the cursor to the previous row.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2494,8 +2876,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/database/AbstractCursor.html#onChange(boolean)">onChange</a></span>(boolean selfChange)</nobr>
         
-        <div class="jd-descrdiv">Subclasses must call this method when they finish committing updates to notify all
- observers.</div>
+        <div class="jd-descrdiv">
+          Subclasses must call this method when they finish committing updates to notify all
+ observers.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2513,9 +2900,14 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/database/AbstractCursor.html#onMove(int, int)">onMove</a></span>(int oldPosition, int newPosition)</nobr>
         
-        <div class="jd-descrdiv">This function is called every time the cursor is successfully scrolled
+        <div class="jd-descrdiv">
+          This function is called every time the cursor is successfully scrolled
  to a new position, giving the subclass a chance to update any state it
- may have.</div>
+ may have.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2533,7 +2925,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/database/AbstractCursor.html#registerContentObserver(android.database.ContentObserver)">registerContentObserver</a></span>(<a href="../../../reference/android/database/ContentObserver.html">ContentObserver</a> observer)</nobr>
         
-        <div class="jd-descrdiv">Register an observer that is called when changes happen to the content backing this cursor.</div>
+        <div class="jd-descrdiv">
+          Register an observer that is called when changes happen to the content backing this cursor.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2551,9 +2948,14 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/database/AbstractCursor.html#registerDataSetObserver(android.database.DataSetObserver)">registerDataSetObserver</a></span>(<a href="../../../reference/android/database/DataSetObserver.html">DataSetObserver</a> observer)</nobr>
         
-        <div class="jd-descrdiv">Register an observer that is called when changes happen to the contents
+        <div class="jd-descrdiv">
+          Register an observer that is called when changes happen to the contents
  of the this cursors data set, for example, when the data set is changed via
- <code><a href="../../../reference/android/database/Cursor.html#requery()">requery()</a></code>, <code><a href="../../../reference/android/database/Cursor.html#deactivate()">deactivate()</a></code>, or <code><a href="../../../reference/android/database/Cursor.html#close()">close()</a></code>.</div>
+ <code><a href="../../../reference/android/database/Cursor.html#requery()">requery()</a></code>, <code><a href="../../../reference/android/database/Cursor.html#deactivate()">deactivate()</a></code>, or <code><a href="../../../reference/android/database/Cursor.html#close()">close()</a></code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2571,8 +2973,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/database/AbstractCursor.html#requery()">requery</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Performs the query that created the cursor again, refreshing its 
- contents.</div>
+        <div class="jd-descrdiv">
+          Performs the query that created the cursor again, refreshing its 
+ contents.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2590,7 +2997,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/database/AbstractCursor.html#respond(android.os.Bundle)">respond</a></span>(<a href="../../../reference/android/os/Bundle.html">Bundle</a> extras)</nobr>
         
-        <div class="jd-descrdiv">This is an out-of-band way for the the user of a cursor to communicate with the cursor.</div>
+        <div class="jd-descrdiv">
+          This is an out-of-band way for the the user of a cursor to communicate with the cursor.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2608,7 +3020,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/database/AbstractCursor.html#setNotificationUri(android.content.ContentResolver, android.net.Uri)">setNotificationUri</a></span>(<a href="../../../reference/android/content/ContentResolver.html">ContentResolver</a> cr, <a href="../../../reference/android/net/Uri.html">Uri</a> notifyUri)</nobr>
         
-        <div class="jd-descrdiv">Specifies a content URI to watch for changes.</div>
+        <div class="jd-descrdiv">
+          Specifies a content URI to watch for changes.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2626,8 +3043,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/database/AbstractCursor.html#unregisterContentObserver(android.database.ContentObserver)">unregisterContentObserver</a></span>(<a href="../../../reference/android/database/ContentObserver.html">ContentObserver</a> observer)</nobr>
         
-        <div class="jd-descrdiv">Unregister an observer that has previously been registered with this
- cursor via <code><a href="../../../reference/android/database/Cursor.html#registerContentObserver(android.database.ContentObserver)">registerContentObserver(ContentObserver)</a></code>.</div>
+        <div class="jd-descrdiv">
+          Unregister an observer that has previously been registered with this
+ cursor via <code><a href="../../../reference/android/database/Cursor.html#registerContentObserver(android.database.ContentObserver)">registerContentObserver(ContentObserver)</a></code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2645,8 +3067,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/database/AbstractCursor.html#unregisterDataSetObserver(android.database.DataSetObserver)">unregisterDataSetObserver</a></span>(<a href="../../../reference/android/database/DataSetObserver.html">DataSetObserver</a> observer)</nobr>
         
-        <div class="jd-descrdiv">Unregister an observer that has previously been registered with this
- cursor via <code><a href="../../../reference/android/database/Cursor.html#registerContentObserver(android.database.ContentObserver)">registerContentObserver(ContentObserver)</a></code>.</div>
+        <div class="jd-descrdiv">
+          Unregister an observer that has previously been registered with this
+ cursor via <code><a href="../../../reference/android/database/Cursor.html#registerContentObserver(android.database.ContentObserver)">registerContentObserver(ContentObserver)</a></code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2690,7 +3117,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#clone()">clone</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Creates and returns a copy of this <code>Object</code>.</div>
+        <div class="jd-descrdiv">
+          Creates and returns a copy of this <code>Object</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2708,8 +3140,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#equals(java.lang.Object)">equals</a></span>(<a href="../../../reference/java/lang/Object.html">Object</a> o)</nobr>
         
-        <div class="jd-descrdiv">Compares this instance with the specified object and indicates if they
- are equal.</div>
+        <div class="jd-descrdiv">
+          Compares this instance with the specified object and indicates if they
+ are equal.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2727,7 +3164,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#finalize()">finalize</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Invoked when the garbage collector has detected that this instance is no longer reachable.</div>
+        <div class="jd-descrdiv">
+          Invoked when the garbage collector has detected that this instance is no longer reachable.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2745,8 +3187,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#getClass()">getClass</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns the unique instance of <code><a href="../../../reference/java/lang/Class.html">Class</a></code> that represents this
- object's class.</div>
+        <div class="jd-descrdiv">
+          Returns the unique instance of <code><a href="../../../reference/java/lang/Class.html">Class</a></code> that represents this
+ object's class.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2764,7 +3211,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#hashCode()">hashCode</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns an integer hash code for this object.</div>
+        <div class="jd-descrdiv">
+          Returns an integer hash code for this object.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2782,8 +3234,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#notify()">notify</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Causes a thread which is waiting on this object's monitor (by means of
- calling one of the <code>wait()</code> methods) to be woken up.</div>
+        <div class="jd-descrdiv">
+          Causes a thread which is waiting on this object's monitor (by means of
+ calling one of the <code>wait()</code> methods) to be woken up.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2801,8 +3258,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#notifyAll()">notifyAll</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Causes all threads which are waiting on this object's monitor (by means
- of calling one of the <code>wait()</code> methods) to be woken up.</div>
+        <div class="jd-descrdiv">
+          Causes all threads which are waiting on this object's monitor (by means
+ of calling one of the <code>wait()</code> methods) to be woken up.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2820,8 +3282,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#toString()">toString</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns a string containing a concise, human-readable description of this
- object.</div>
+        <div class="jd-descrdiv">
+          Returns a string containing a concise, human-readable description of this
+ object.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2839,7 +3306,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#wait()">wait</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object.</div>
+        <div class="jd-descrdiv">
+          Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2857,8 +3329,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#wait(long, int)">wait</a></span>(long millis, int nanos)</nobr>
         
-        <div class="jd-descrdiv">Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object or until the
- specified timeout expires.</div>
+        <div class="jd-descrdiv">
+          Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object or until the
+ specified timeout expires.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2876,8 +3353,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#wait(long)">wait</a></span>(long millis)</nobr>
         
-        <div class="jd-descrdiv">Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object or until the
- specified timeout expires.</div>
+        <div class="jd-descrdiv">
+          Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object or until the
+ specified timeout expires.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2921,7 +3403,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/database/CrossProcessCursor.html#fillWindow(int, android.database.CursorWindow)">fillWindow</a></span>(int position, <a href="../../../reference/android/database/CursorWindow.html">CursorWindow</a> window)</nobr>
         
-        <div class="jd-descrdiv">Copies cursor data into the window.</div>
+        <div class="jd-descrdiv">
+          Copies cursor data into the window.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2939,7 +3426,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/database/CrossProcessCursor.html#getWindow()">getWindow</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns a pre-filled window that contains the data within this cursor.</div>
+        <div class="jd-descrdiv">
+          Returns a pre-filled window that contains the data within this cursor.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2957,9 +3449,14 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/database/CrossProcessCursor.html#onMove(int, int)">onMove</a></span>(int oldPosition, int newPosition)</nobr>
         
-        <div class="jd-descrdiv">This function is called every time the cursor is successfully scrolled
+        <div class="jd-descrdiv">
+          This function is called every time the cursor is successfully scrolled
  to a new position, giving the subclass a chance to update any state it
- may have.</div>
+ may have.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3003,7 +3500,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/database/Cursor.html#close()">close</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Closes the Cursor, releasing all of its resources and making it completely invalid.</div>
+        <div class="jd-descrdiv">
+          Closes the Cursor, releasing all of its resources and making it completely invalid.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3021,7 +3523,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/database/Cursor.html#copyStringToBuffer(int, android.database.CharArrayBuffer)">copyStringToBuffer</a></span>(int columnIndex, <a href="../../../reference/android/database/CharArrayBuffer.html">CharArrayBuffer</a> buffer)</nobr>
         
-        <div class="jd-descrdiv">Retrieves the requested column text and stores it in the buffer provided.</div>
+        <div class="jd-descrdiv">
+          Retrieves the requested column text and stores it in the buffer provided.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3039,11 +3546,16 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/database/Cursor.html#deactivate()">deactivate</a></span>()</nobr>
         
-        <div class="jd-descrdiv"><em>
+        <div class="jd-descrdiv">
+          <em>
       This method was deprecated
       in API level 16.
     Since <code><a href="../../../reference/android/database/Cursor.html#requery()">requery()</a></code> is deprecated, so too is this.
-</em></div>
+</em>
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3061,7 +3573,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/database/Cursor.html#getBlob(int)">getBlob</a></span>(int columnIndex)</nobr>
         
-        <div class="jd-descrdiv">Returns the value of the requested column as a byte array.</div>
+        <div class="jd-descrdiv">
+          Returns the value of the requested column as a byte array.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3079,7 +3596,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/database/Cursor.html#getColumnCount()">getColumnCount</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Return total number of columns</div>
+        <div class="jd-descrdiv">
+          Return total number of columns
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3097,7 +3619,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/database/Cursor.html#getColumnIndex(java.lang.String)">getColumnIndex</a></span>(<a href="../../../reference/java/lang/String.html">String</a> columnName)</nobr>
         
-        <div class="jd-descrdiv">Returns the zero-based index for the given column name, or -1 if the column doesn't exist.</div>
+        <div class="jd-descrdiv">
+          Returns the zero-based index for the given column name, or -1 if the column doesn't exist.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3115,8 +3642,13 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/database/Cursor.html#getColumnIndexOrThrow(java.lang.String)">getColumnIndexOrThrow</a></span>(<a href="../../../reference/java/lang/String.html">String</a> columnName)</nobr>
         
-        <div class="jd-descrdiv">Returns the zero-based index for the given column name, or throws
- <code><a href="../../../reference/java/lang/IllegalArgumentException.html">IllegalArgumentException</a></code> if the column doesn't exist.</div>
+        <div class="jd-descrdiv">
+          Returns the zero-based index for the given column name, or throws
+ <code><a href="../../../reference/java/lang/IllegalArgumentException.html">IllegalArgumentException</a></code> if the column doesn't exist.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3134,7 +3666,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/database/Cursor.html#getColumnName(int)">getColumnName</a></span>(int columnIndex)</nobr>
         
-        <div class="jd-descrdiv">Returns the column name at the given zero-based column index.</div>
+        <div class="jd-descrdiv">
+          Returns the column name at the given zero-based column index.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3152,8 +3689,13 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/database/Cursor.html#getColumnNames()">getColumnNames</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns a string array holding the names of all of the columns in the
- result set in the order in which they were listed in the result.</div>
+        <div class="jd-descrdiv">
+          Returns a string array holding the names of all of the columns in the
+ result set in the order in which they were listed in the result.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3171,7 +3713,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/database/Cursor.html#getCount()">getCount</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns the numbers of rows in the cursor.</div>
+        <div class="jd-descrdiv">
+          Returns the numbers of rows in the cursor.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3189,7 +3736,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/database/Cursor.html#getDouble(int)">getDouble</a></span>(int columnIndex)</nobr>
         
-        <div class="jd-descrdiv">Returns the value of the requested column as a double.</div>
+        <div class="jd-descrdiv">
+          Returns the value of the requested column as a double.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3207,7 +3759,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/database/Cursor.html#getExtras()">getExtras</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns a bundle of extra values.</div>
+        <div class="jd-descrdiv">
+          Returns a bundle of extra values.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3225,7 +3782,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/database/Cursor.html#getFloat(int)">getFloat</a></span>(int columnIndex)</nobr>
         
-        <div class="jd-descrdiv">Returns the value of the requested column as a float.</div>
+        <div class="jd-descrdiv">
+          Returns the value of the requested column as a float.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3243,7 +3805,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/database/Cursor.html#getInt(int)">getInt</a></span>(int columnIndex)</nobr>
         
-        <div class="jd-descrdiv">Returns the value of the requested column as an int.</div>
+        <div class="jd-descrdiv">
+          Returns the value of the requested column as an int.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3261,7 +3828,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/database/Cursor.html#getLong(int)">getLong</a></span>(int columnIndex)</nobr>
         
-        <div class="jd-descrdiv">Returns the value of the requested column as a long.</div>
+        <div class="jd-descrdiv">
+          Returns the value of the requested column as a long.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3279,8 +3851,13 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/database/Cursor.html#getNotificationUri()">getNotificationUri</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Return the URI at which notifications of changes in this Cursor's data
- will be delivered, as previously set by <code><a href="../../../reference/android/database/Cursor.html#setNotificationUri(android.content.ContentResolver, android.net.Uri)">setNotificationUri(ContentResolver, Uri)</a></code>.</div>
+        <div class="jd-descrdiv">
+          Return the URI at which notifications of changes in this Cursor's data
+ will be delivered, as previously set by <code><a href="../../../reference/android/database/Cursor.html#setNotificationUri(android.content.ContentResolver, android.net.Uri)">setNotificationUri(ContentResolver, Uri)</a></code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3298,7 +3875,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/database/Cursor.html#getPosition()">getPosition</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns the current position of the cursor in the row set.</div>
+        <div class="jd-descrdiv">
+          Returns the current position of the cursor in the row set.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3316,7 +3898,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/database/Cursor.html#getShort(int)">getShort</a></span>(int columnIndex)</nobr>
         
-        <div class="jd-descrdiv">Returns the value of the requested column as a short.</div>
+        <div class="jd-descrdiv">
+          Returns the value of the requested column as a short.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3334,7 +3921,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/database/Cursor.html#getString(int)">getString</a></span>(int columnIndex)</nobr>
         
-        <div class="jd-descrdiv">Returns the value of the requested column as a String.</div>
+        <div class="jd-descrdiv">
+          Returns the value of the requested column as a String.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3352,7 +3944,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/database/Cursor.html#getType(int)">getType</a></span>(int columnIndex)</nobr>
         
-        <div class="jd-descrdiv">Returns data type of the given column's value.</div>
+        <div class="jd-descrdiv">
+          Returns data type of the given column's value.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3370,7 +3967,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/database/Cursor.html#getWantsAllOnMoveCalls()">getWantsAllOnMoveCalls</a></span>()</nobr>
         
-        <div class="jd-descrdiv">onMove() will only be called across processes if this method returns true.</div>
+        <div class="jd-descrdiv">
+          onMove() will only be called across processes if this method returns true.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3388,8 +3990,13 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/database/Cursor.html#isAfterLast()">isAfterLast</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns whether the cursor is pointing to the position after the last
- row.</div>
+        <div class="jd-descrdiv">
+          Returns whether the cursor is pointing to the position after the last
+ row.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3407,8 +4014,13 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/database/Cursor.html#isBeforeFirst()">isBeforeFirst</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns whether the cursor is pointing to the position before the first
- row.</div>
+        <div class="jd-descrdiv">
+          Returns whether the cursor is pointing to the position before the first
+ row.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3426,7 +4038,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/database/Cursor.html#isClosed()">isClosed</a></span>()</nobr>
         
-        <div class="jd-descrdiv">return true if the cursor is closed</div>
+        <div class="jd-descrdiv">
+          return true if the cursor is closed
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3444,7 +4061,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/database/Cursor.html#isFirst()">isFirst</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns whether the cursor is pointing to the first row.</div>
+        <div class="jd-descrdiv">
+          Returns whether the cursor is pointing to the first row.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3462,7 +4084,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/database/Cursor.html#isLast()">isLast</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns whether the cursor is pointing to the last row.</div>
+        <div class="jd-descrdiv">
+          Returns whether the cursor is pointing to the last row.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3480,7 +4107,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/database/Cursor.html#isNull(int)">isNull</a></span>(int columnIndex)</nobr>
         
-        <div class="jd-descrdiv">Returns <code>true</code> if the value in the indicated column is null.</div>
+        <div class="jd-descrdiv">
+          Returns <code>true</code> if the value in the indicated column is null.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3498,8 +4130,13 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/database/Cursor.html#move(int)">move</a></span>(int offset)</nobr>
         
-        <div class="jd-descrdiv">Move the cursor by a relative amount, forward or backward, from the
- current position.</div>
+        <div class="jd-descrdiv">
+          Move the cursor by a relative amount, forward or backward, from the
+ current position.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3517,7 +4154,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/database/Cursor.html#moveToFirst()">moveToFirst</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Move the cursor to the first row.</div>
+        <div class="jd-descrdiv">
+          Move the cursor to the first row.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3535,7 +4177,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/database/Cursor.html#moveToLast()">moveToLast</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Move the cursor to the last row.</div>
+        <div class="jd-descrdiv">
+          Move the cursor to the last row.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3553,7 +4200,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/database/Cursor.html#moveToNext()">moveToNext</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Move the cursor to the next row.</div>
+        <div class="jd-descrdiv">
+          Move the cursor to the next row.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3571,7 +4223,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/database/Cursor.html#moveToPosition(int)">moveToPosition</a></span>(int position)</nobr>
         
-        <div class="jd-descrdiv">Move the cursor to an absolute position.</div>
+        <div class="jd-descrdiv">
+          Move the cursor to an absolute position.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3589,7 +4246,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/database/Cursor.html#moveToPrevious()">moveToPrevious</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Move the cursor to the previous row.</div>
+        <div class="jd-descrdiv">
+          Move the cursor to the previous row.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3607,7 +4269,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/database/Cursor.html#registerContentObserver(android.database.ContentObserver)">registerContentObserver</a></span>(<a href="../../../reference/android/database/ContentObserver.html">ContentObserver</a> observer)</nobr>
         
-        <div class="jd-descrdiv">Register an observer that is called when changes happen to the content backing this cursor.</div>
+        <div class="jd-descrdiv">
+          Register an observer that is called when changes happen to the content backing this cursor.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3625,9 +4292,14 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/database/Cursor.html#registerDataSetObserver(android.database.DataSetObserver)">registerDataSetObserver</a></span>(<a href="../../../reference/android/database/DataSetObserver.html">DataSetObserver</a> observer)</nobr>
         
-        <div class="jd-descrdiv">Register an observer that is called when changes happen to the contents
+        <div class="jd-descrdiv">
+          Register an observer that is called when changes happen to the contents
  of the this cursors data set, for example, when the data set is changed via
- <code><a href="../../../reference/android/database/Cursor.html#requery()">requery()</a></code>, <code><a href="../../../reference/android/database/Cursor.html#deactivate()">deactivate()</a></code>, or <code><a href="../../../reference/android/database/Cursor.html#close()">close()</a></code>.</div>
+ <code><a href="../../../reference/android/database/Cursor.html#requery()">requery()</a></code>, <code><a href="../../../reference/android/database/Cursor.html#deactivate()">deactivate()</a></code>, or <code><a href="../../../reference/android/database/Cursor.html#close()">close()</a></code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3645,12 +4317,17 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/database/Cursor.html#requery()">requery</a></span>()</nobr>
         
-        <div class="jd-descrdiv"><em>
+        <div class="jd-descrdiv">
+          <em>
       This method was deprecated
       in API level 11.
     Don't use this. Just request a new cursor, so you can do this
  asynchronously and update your list view once the new cursor comes back.
-</em></div>
+</em>
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3668,7 +4345,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/database/Cursor.html#respond(android.os.Bundle)">respond</a></span>(<a href="../../../reference/android/os/Bundle.html">Bundle</a> extras)</nobr>
         
-        <div class="jd-descrdiv">This is an out-of-band way for the the user of a cursor to communicate with the cursor.</div>
+        <div class="jd-descrdiv">
+          This is an out-of-band way for the the user of a cursor to communicate with the cursor.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3686,7 +4368,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/database/Cursor.html#setNotificationUri(android.content.ContentResolver, android.net.Uri)">setNotificationUri</a></span>(<a href="../../../reference/android/content/ContentResolver.html">ContentResolver</a> cr, <a href="../../../reference/android/net/Uri.html">Uri</a> uri)</nobr>
         
-        <div class="jd-descrdiv">Register to watch a content URI for changes.</div>
+        <div class="jd-descrdiv">
+          Register to watch a content URI for changes.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3704,8 +4391,13 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/database/Cursor.html#unregisterContentObserver(android.database.ContentObserver)">unregisterContentObserver</a></span>(<a href="../../../reference/android/database/ContentObserver.html">ContentObserver</a> observer)</nobr>
         
-        <div class="jd-descrdiv">Unregister an observer that has previously been registered with this
- cursor via <code><a href="../../../reference/android/database/Cursor.html#registerContentObserver(android.database.ContentObserver)">registerContentObserver(ContentObserver)</a></code>.</div>
+        <div class="jd-descrdiv">
+          Unregister an observer that has previously been registered with this
+ cursor via <code><a href="../../../reference/android/database/Cursor.html#registerContentObserver(android.database.ContentObserver)">registerContentObserver(ContentObserver)</a></code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3723,8 +4415,13 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/database/Cursor.html#unregisterDataSetObserver(android.database.DataSetObserver)">unregisterDataSetObserver</a></span>(<a href="../../../reference/android/database/DataSetObserver.html">DataSetObserver</a> observer)</nobr>
         
-        <div class="jd-descrdiv">Unregister an observer that has previously been registered with this
- cursor via <code><a href="../../../reference/android/database/Cursor.html#registerContentObserver(android.database.ContentObserver)">registerContentObserver(ContentObserver)</a></code>.</div>
+        <div class="jd-descrdiv">
+          Unregister an observer that has previously been registered with this
+ cursor via <code><a href="../../../reference/android/database/Cursor.html#registerContentObserver(android.database.ContentObserver)">registerContentObserver(ContentObserver)</a></code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3768,7 +4465,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/io/Closeable.html#close()">close</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Closes the object and release any system resources it holds.</div>
+        <div class="jd-descrdiv">
+          Closes the object and release any system resources it holds.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3812,7 +4514,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/AutoCloseable.html#close()">close</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Closes the object and release any system resources it holds.</div>
+        <div class="jd-descrdiv">
+          Closes the object and release any system resources it holds.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3881,6 +4588,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Constructs a new cursor with the given initial capacity.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -3925,6 +4635,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Constructs a new cursor.</p></div>
   <div class="jd-tagdata">
@@ -3982,6 +4695,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Adds a new row to the end with the given column values. Not safe
  for concurrent use.</p></div>
   <div class="jd-tagdata">
@@ -4033,6 +4749,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Adds a new row to the end with the given column values. Not safe
  for concurrent use.</p></div>
@@ -4086,6 +4805,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns the value of the requested column as a byte array.
 
  <p>The result and whether this method throws an exception when the
@@ -4134,6 +4856,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns a string array holding the names of all of the columns in the
  result set in the order in which they were listed in the result.</p></div>
   <div class="jd-tagdata">
@@ -4170,6 +4895,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns the numbers of rows in the cursor.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
@@ -4204,6 +4932,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Returns the value of the requested column as a double.
 
@@ -4254,6 +4985,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns the value of the requested column as a float.
 
  <p>The result and whether this method throws an exception when the
@@ -4302,6 +5036,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Returns the value of the requested column as an int.
 
@@ -4352,6 +5089,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns the value of the requested column as a long.
 
  <p>The result and whether this method throws an exception when the
@@ -4400,6 +5140,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Returns the value of the requested column as a short.
 
@@ -4450,6 +5193,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns the value of the requested column as a String.
 
  <p>The result and whether this method throws an exception when the
@@ -4497,6 +5243,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Returns data type of the given column's value.
  The preferred type of the column is returned but the data may be converted to other types
@@ -4555,6 +5304,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns <code>true</code> if the value in the indicated column is null.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -4598,6 +5350,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Adds a new row to the end and returns a builder for that row. Not safe
  for concurrent use.</p></div>

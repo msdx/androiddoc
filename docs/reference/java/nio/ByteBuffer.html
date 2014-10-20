@@ -82,6 +82,19 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 <html>
 <head>
 
@@ -97,7 +110,7 @@
 href="http://fonts.useso.com/css?family=Roboto+Condensed">
 <link rel="stylesheet" href="http://fonts.useso.com/css?family=Roboto:light,regular,medium,thin,italic,mediumitalic,bold"
   title="roboto">
-<link href="../../../assets/css/default.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/default.css?v=2" rel="stylesheet" type="text/css">
 
 
 <!-- FULLSCREEN STYLESHEET -->
@@ -106,30 +119,31 @@ type="text/css">
 
 
 <!-- JAVASCRIPT -->
-<script src="http://googleapiscdn.qiniudn.com/www.google.com/jsapi" type="text/javascript"></script>
+<script src="http://www.google.com/jsapi" type="text/javascript"></script>
 <script src="../../../assets/js/android_3p-bundle.js" type="text/javascript"></script>
 <script type="text/javascript">
   var toRoot = "../../../";
   var metaTags = [];
   var devsite = false;
 </script>
-<script src="../../../assets/js/docs.js" type="text/javascript"></script>
+<script src="../../../assets/js/docs.js?v=2" type="text/javascript"></script>
 
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-5831155-1']);
-  _gaq.push(['_trackPageview']);
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
+  ga('create', 'UA-5831155-1', 'android.com');
+  ga('create', 'UA-49880327-2', 'android.com', {'name': 'universal'});  // New tracker);
+  ga('send', 'pageview');
+  ga('universal.send', 'pageview'); // Send page view for new tracker.
 </script>
+
 </head>
 
 <body class="gc-documentation 
-  develop" itemscope itemtype="http://schema.org/Article">
+  develop reference" itemscope itemtype="http://schema.org/Article">
   <div id="doc-api-level" class="1" style="display:none"></div>
   <a name="top"></a>
 
@@ -139,6 +153,10 @@ type="text/css">
   <!-- Header -->
   <div id="header-wrapper">
     <div id="header">
+
+    
+
+
       <div class="wrap" id="header-wrap">
         <div class="col-3 logo">
           <a href="../../../index.html">
@@ -260,11 +278,20 @@ type="text/css">
 
 
         <!-- Expanded quicknav -->
-        <div id="quicknav" class="col-9">
+        <div id="quicknav" class="col-13">
           <ul>
+            <li class="about">
+              <ul>
+                <li><a href="../../../about/index.html">About</a></li>
+                <li><a href="../../../wear/index.html">Wear</a></li>
+                <li><a href="../../../tv/index.html">TV</a></li>
+                <li><a href="../../../auto/index.html">Auto</a></li>
+              </ul>
+            </li>
             <li class="design">
               <ul>
                 <li><a href="../../../design/index.html">Get Started</a></li>
+                <li><a href="../../../design/devices.html">Devices</a></li>
                 <li><a href="../../../design/style/index.html">Style</a></li>
                 <li><a href="../../../design/patterns/index.html">Patterns</a></li>
                 <li><a href="../../../design/building-blocks/index.html">Building Blocks</a></li>
@@ -298,7 +325,7 @@ type="text/css">
                   ja-lang="リファレンス"
                   es-lang="Referencia"
                   >Reference</a></li>
-                <li><a href="../../../tools/index.html"
+                <li><a href="../../../sdk/index.html"
                   zh-tw-lang="相關工具"
                   zh-cn-lang="工具"
                   ru-lang="Инструменты"
@@ -306,7 +333,6 @@ type="text/css">
                   ja-lang="ツール"
                   es-lang="Herramientas"
                   >Tools</a>
-                  <ul><li><a href="../../../sdk/index.html">Get the SDK</a></li></ul>
                 </li>
                 <li><a href="../../../google/index.html">Google Services</a>
                 </li>
@@ -358,7 +384,7 @@ type="text/css">
                   ja-lang="リファレンス"
                   es-lang="Referencia"
                   >Reference</a></li>
-                <li class="tools"><a href="../../../tools/index.html"
+                <li class="tools"><a href="../../../sdk/index.html"
                   zh-tw-lang="相關工具"
                   zh-cn-lang="工具"
                   ru-lang="Инструменты"
@@ -373,7 +399,7 @@ type="text/css">
             </ul>
         </div>
     </div>
-    <!-- /Sendondary x-nav -->
+    <!-- /Sendondary x-nav DEVELOP -->
 
   
 
@@ -414,7 +440,7 @@ type="text/css">
         <div id="api-nav-title">Android APIs</div>
         </div><!-- end nav header -->
       <script>
-        var SINCE_DATA = [ '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19' ];
+        var SINCE_DATA = [ '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21' ];
         buildApiLevelSelector();
       </script>
                   
@@ -441,13 +467,15 @@ type="text/css">
   <a href="../../../reference/android/app/admin/package-summary.html">android.app.admin</a></li>
     <li class="api apilevel-8">
   <a href="../../../reference/android/app/backup/package-summary.html">android.app.backup</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/app/job/package-summary.html">android.app.job</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/app/usage/package-summary.html">android.app.usage</a></li>
     <li class="api apilevel-3">
   <a href="../../../reference/android/appwidget/package-summary.html">android.appwidget</a></li>
     <li class="api apilevel-5">
   <a href="../../../reference/android/bluetooth/package-summary.html">android.bluetooth</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/bluetooth/le/package-summary.html">android.bluetooth.le</a></li>
     <li class="api apilevel-1">
   <a href="../../../reference/android/content/package-summary.html">android.content</a></li>
@@ -473,16 +501,14 @@ type="text/css">
   <a href="../../../reference/android/graphics/pdf/package-summary.html">android.graphics.pdf</a></li>
     <li class="api apilevel-1">
   <a href="../../../reference/android/hardware/package-summary.html">android.hardware</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/hardware/camera2/package-summary.html">android.hardware.camera2</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/hardware/camera2/params/package-summary.html">android.hardware.camera2.params</a></li>
     <li class="api apilevel-17">
   <a href="../../../reference/android/hardware/display/package-summary.html">android.hardware.display</a></li>
     <li class="api apilevel-16">
   <a href="../../../reference/android/hardware/input/package-summary.html">android.hardware.input</a></li>
-    <li class="api apilevel-18">
-  <a href="../../../reference/android/hardware/location/package-summary.html">android.hardware.location</a></li>
     <li class="api apilevel-12">
   <a href="../../../reference/android/hardware/usb/package-summary.html">android.hardware.usb</a></li>
     <li class="api apilevel-3">
@@ -493,11 +519,15 @@ type="text/css">
   <a href="../../../reference/android/media/package-summary.html">android.media</a></li>
     <li class="api apilevel-9">
   <a href="../../../reference/android/media/audiofx/package-summary.html">android.media.audiofx</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/media/browse/package-summary.html">android.media.browse</a></li>
     <li class="api apilevel-14">
   <a href="../../../reference/android/media/effect/package-summary.html">android.media.effect</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/media/projection/package-summary.html">android.media.projection</a></li>
+    <li class="api apilevel-21">
   <a href="../../../reference/android/media/session/package-summary.html">android.media.session</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/media/tv/package-summary.html">android.media.tv</a></li>
     <li class="api apilevel-12">
   <a href="../../../reference/android/mtp/package-summary.html">android.mtp</a></li>
@@ -547,11 +577,15 @@ type="text/css">
   <a href="../../../reference/android/security/package-summary.html">android.security</a></li>
     <li class="api apilevel-17">
   <a href="../../../reference/android/service/dreams/package-summary.html">android.service.dreams</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/service/media/package-summary.html">android.service.media</a></li>
     <li class="api apilevel-18">
   <a href="../../../reference/android/service/notification/package-summary.html">android.service.notification</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/service/restrictions/package-summary.html">android.service.restrictions</a></li>
     <li class="api apilevel-14">
   <a href="../../../reference/android/service/textservice/package-summary.html">android.service.textservice</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/service/voice/package-summary.html">android.service.voice</a></li>
     <li class="api apilevel-7">
   <a href="../../../reference/android/service/wallpaper/package-summary.html">android.service.wallpaper</a></li>
@@ -596,11 +630,15 @@ type="text/css">
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/media/package-summary.html">android.support.v4.media</a></li>
     <li class="api apilevel-">
+  <a href="../../../reference/android/support/v4/media/session/package-summary.html">android.support.v4.media.session</a></li>
+    <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/net/package-summary.html">android.support.v4.net</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/os/package-summary.html">android.support.v4.os</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/print/package-summary.html">android.support.v4.print</a></li>
+    <li class="api apilevel-">
+  <a href="../../../reference/android/support/v4/provider/package-summary.html">android.support.v4.provider</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/text/package-summary.html">android.support.v4.text</a></li>
     <li class="api apilevel-">
@@ -616,6 +654,10 @@ type="text/css">
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v7/appcompat/package-summary.html">android.support.v7.appcompat</a></li>
     <li class="api apilevel-">
+  <a href="../../../reference/android/support/v7/cardview/package-summary.html">android.support.v7.cardview</a></li>
+    <li class="api apilevel-">
+  <a href="../../../reference/android/support/v7/graphics/package-summary.html">android.support.v7.graphics</a></li>
+    <li class="api apilevel-">
   <a href="../../../reference/android/support/v7/gridlayout/package-summary.html">android.support.v7.gridlayout</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v7/media/package-summary.html">android.support.v7.media</a></li>
@@ -627,8 +669,10 @@ type="text/css">
   <a href="../../../reference/android/support/v7/widget/package-summary.html">android.support.v7.widget</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v8/renderscript/package-summary.html">android.support.v8.renderscript</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/system/package-summary.html">android.system</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/telecom/package-summary.html">android.telecom</a></li>
     <li class="api apilevel-1">
   <a href="../../../reference/android/telephony/package-summary.html">android.telephony</a></li>
     <li class="api apilevel-5">
@@ -1052,6 +1096,9 @@ Summary:
   
 
 
+    
+
+
 </div><!-- end header -->
 
 <div id="naMessage"></div>
@@ -1110,13 +1157,23 @@ Summary:
       <div id="subclasses-direct-summary"
               style="display: none;"
               >
+  
   <table class="jd-sumtable-expando">
-        <tr class="alt-color api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/java/nio/MappedByteBuffer.html">MappedByteBuffer</a></td>
-              <td class="jd-descrcol" width="100%"><code>MappedByteBuffer</code> is a special kind of direct byte buffer which maps a
- region of file to memory.&nbsp;</td>
-          </tr>
+    
+      <tr class="alt-color api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/java/nio/MappedByteBuffer.html">MappedByteBuffer</a></td>
+        <td class="jd-descrcol" width="100%">
+          <code>MappedByteBuffer</code> is a special kind of direct byte buffer which maps a
+ region of file to memory.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
   </table>
+
       </div>
   </div>
 </td></tr></table>
@@ -1212,7 +1269,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/nio/ByteBuffer.html#allocate(int)">allocate</a></span>(int capacity)</nobr>
         
-        <div class="jd-descrdiv">Creates a byte buffer based on a newly allocated byte array.</div>
+        <div class="jd-descrdiv">
+          Creates a byte buffer based on a newly allocated byte array.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1230,7 +1292,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/nio/ByteBuffer.html#allocateDirect(int)">allocateDirect</a></span>(int capacity)</nobr>
         
-        <div class="jd-descrdiv">Creates a direct byte buffer based on a newly allocated memory block.</div>
+        <div class="jd-descrdiv">
+          Creates a direct byte buffer based on a newly allocated memory block.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1248,7 +1315,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/nio/ByteBuffer.html#array()">array</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns the byte array which this buffer is based on, if there is one.</div>
+        <div class="jd-descrdiv">
+          Returns the byte array which this buffer is based on, if there is one.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1266,8 +1338,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/nio/ByteBuffer.html#arrayOffset()">arrayOffset</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns the offset of the byte array which this buffer is based on, if
- there is one.</div>
+        <div class="jd-descrdiv">
+          Returns the offset of the byte array which this buffer is based on, if
+ there is one.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1285,8 +1362,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/nio/ByteBuffer.html#asCharBuffer()">asCharBuffer</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns a char buffer which is based on the remaining content of this
- byte buffer.</div>
+        <div class="jd-descrdiv">
+          Returns a char buffer which is based on the remaining content of this
+ byte buffer.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1304,8 +1386,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/nio/ByteBuffer.html#asDoubleBuffer()">asDoubleBuffer</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns a double buffer which is based on the remaining content of this
- byte buffer.</div>
+        <div class="jd-descrdiv">
+          Returns a double buffer which is based on the remaining content of this
+ byte buffer.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1323,8 +1410,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/nio/ByteBuffer.html#asFloatBuffer()">asFloatBuffer</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns a float buffer which is based on the remaining content of this
- byte buffer.</div>
+        <div class="jd-descrdiv">
+          Returns a float buffer which is based on the remaining content of this
+ byte buffer.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1342,8 +1434,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/nio/ByteBuffer.html#asIntBuffer()">asIntBuffer</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns a int buffer which is based on the remaining content of this byte
- buffer.</div>
+        <div class="jd-descrdiv">
+          Returns a int buffer which is based on the remaining content of this byte
+ buffer.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1361,8 +1458,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/nio/ByteBuffer.html#asLongBuffer()">asLongBuffer</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns a long buffer which is based on the remaining content of this
- byte buffer.</div>
+        <div class="jd-descrdiv">
+          Returns a long buffer which is based on the remaining content of this
+ byte buffer.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1380,7 +1482,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/nio/ByteBuffer.html#asReadOnlyBuffer()">asReadOnlyBuffer</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns a read-only buffer that shares its content with this buffer.</div>
+        <div class="jd-descrdiv">
+          Returns a read-only buffer that shares its content with this buffer.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1398,8 +1505,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/nio/ByteBuffer.html#asShortBuffer()">asShortBuffer</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns a short buffer which is based on the remaining content of this
- byte buffer.</div>
+        <div class="jd-descrdiv">
+          Returns a short buffer which is based on the remaining content of this
+ byte buffer.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1417,7 +1529,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/nio/ByteBuffer.html#compact()">compact</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Compacts this byte buffer.</div>
+        <div class="jd-descrdiv">
+          Compacts this byte buffer.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1435,8 +1552,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/nio/ByteBuffer.html#compareTo(java.nio.ByteBuffer)">compareTo</a></span>(<a href="../../../reference/java/nio/ByteBuffer.html">ByteBuffer</a> otherBuffer)</nobr>
         
-        <div class="jd-descrdiv">Compares the remaining bytes of this buffer to another byte buffer's
- remaining bytes.</div>
+        <div class="jd-descrdiv">
+          Compares the remaining bytes of this buffer to another byte buffer's
+ remaining bytes.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1454,7 +1576,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/nio/ByteBuffer.html#duplicate()">duplicate</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns a duplicated buffer that shares its content with this buffer.</div>
+        <div class="jd-descrdiv">
+          Returns a duplicated buffer that shares its content with this buffer.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1472,7 +1599,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/nio/ByteBuffer.html#equals(java.lang.Object)">equals</a></span>(<a href="../../../reference/java/lang/Object.html">Object</a> other)</nobr>
         
-        <div class="jd-descrdiv">Checks whether this byte buffer is equal to another object.</div>
+        <div class="jd-descrdiv">
+          Checks whether this byte buffer is equal to another object.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1490,7 +1622,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/nio/ByteBuffer.html#get()">get</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns the byte at the current position and increases the position by 1.</div>
+        <div class="jd-descrdiv">
+          Returns the byte at the current position and increases the position by 1.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1508,9 +1645,14 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/nio/ByteBuffer.html#get(byte[], int, int)">get</a></span>(byte[] dst, int dstOffset, int byteCount)</nobr>
         
-        <div class="jd-descrdiv">Reads bytes from the current position into the specified byte array,
+        <div class="jd-descrdiv">
+          Reads bytes from the current position into the specified byte array,
  starting at the specified offset, and increases the position by the
- number of bytes read.</div>
+ number of bytes read.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1528,8 +1670,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/nio/ByteBuffer.html#get(byte[])">get</a></span>(byte[] dst)</nobr>
         
-        <div class="jd-descrdiv">Reads bytes from the current position into the specified byte array and
- increases the position by the number of bytes read.</div>
+        <div class="jd-descrdiv">
+          Reads bytes from the current position into the specified byte array and
+ increases the position by the number of bytes read.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1547,7 +1694,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/nio/ByteBuffer.html#get(int)">get</a></span>(int index)</nobr>
         
-        <div class="jd-descrdiv">Returns the byte at the specified index and does not change the position.</div>
+        <div class="jd-descrdiv">
+          Returns the byte at the specified index and does not change the position.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1565,7 +1717,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/nio/ByteBuffer.html#getChar()">getChar</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns the char at the current position and increases the position by 2.</div>
+        <div class="jd-descrdiv">
+          Returns the char at the current position and increases the position by 2.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1583,7 +1740,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/nio/ByteBuffer.html#getChar(int)">getChar</a></span>(int index)</nobr>
         
-        <div class="jd-descrdiv">Returns the char at the specified index.</div>
+        <div class="jd-descrdiv">
+          Returns the char at the specified index.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1601,8 +1763,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/nio/ByteBuffer.html#getDouble()">getDouble</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns the double at the current position and increases the position by
- 8.</div>
+        <div class="jd-descrdiv">
+          Returns the double at the current position and increases the position by
+ 8.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1620,7 +1787,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/nio/ByteBuffer.html#getDouble(int)">getDouble</a></span>(int index)</nobr>
         
-        <div class="jd-descrdiv">Returns the double at the specified index.</div>
+        <div class="jd-descrdiv">
+          Returns the double at the specified index.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1638,7 +1810,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/nio/ByteBuffer.html#getFloat(int)">getFloat</a></span>(int index)</nobr>
         
-        <div class="jd-descrdiv">Returns the float at the specified index.</div>
+        <div class="jd-descrdiv">
+          Returns the float at the specified index.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1656,8 +1833,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/nio/ByteBuffer.html#getFloat()">getFloat</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns the float at the current position and increases the position by
- 4.</div>
+        <div class="jd-descrdiv">
+          Returns the float at the current position and increases the position by
+ 4.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1675,7 +1857,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/nio/ByteBuffer.html#getInt()">getInt</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns the int at the current position and increases the position by 4.</div>
+        <div class="jd-descrdiv">
+          Returns the int at the current position and increases the position by 4.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1693,7 +1880,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/nio/ByteBuffer.html#getInt(int)">getInt</a></span>(int index)</nobr>
         
-        <div class="jd-descrdiv">Returns the int at the specified index.</div>
+        <div class="jd-descrdiv">
+          Returns the int at the specified index.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1711,7 +1903,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/nio/ByteBuffer.html#getLong()">getLong</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns the long at the current position and increases the position by 8.</div>
+        <div class="jd-descrdiv">
+          Returns the long at the current position and increases the position by 8.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1729,7 +1926,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/nio/ByteBuffer.html#getLong(int)">getLong</a></span>(int index)</nobr>
         
-        <div class="jd-descrdiv">Returns the long at the specified index.</div>
+        <div class="jd-descrdiv">
+          Returns the long at the specified index.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1747,7 +1949,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/nio/ByteBuffer.html#getShort(int)">getShort</a></span>(int index)</nobr>
         
-        <div class="jd-descrdiv">Returns the short at the specified index.</div>
+        <div class="jd-descrdiv">
+          Returns the short at the specified index.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1765,7 +1972,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/nio/ByteBuffer.html#getShort()">getShort</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns the short at the current position and increases the position by 2.</div>
+        <div class="jd-descrdiv">
+          Returns the short at the current position and increases the position by 2.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1783,7 +1995,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/nio/ByteBuffer.html#hasArray()">hasArray</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns true if <code>array</code> and <code>arrayOffset</code> won't throw.</div>
+        <div class="jd-descrdiv">
+          Returns true if <code>array</code> and <code>arrayOffset</code> won't throw.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1801,7 +2018,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/nio/ByteBuffer.html#hashCode()">hashCode</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Calculates this buffer's hash code from the remaining chars.</div>
+        <div class="jd-descrdiv">
+          Calculates this buffer's hash code from the remaining chars.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1819,7 +2041,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/nio/ByteBuffer.html#isDirect()">isDirect</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Indicates whether this buffer is direct.</div>
+        <div class="jd-descrdiv">
+          Indicates whether this buffer is direct.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1837,7 +2064,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/nio/ByteBuffer.html#order(java.nio.ByteOrder)">order</a></span>(<a href="../../../reference/java/nio/ByteOrder.html">ByteOrder</a> byteOrder)</nobr>
         
-        <div class="jd-descrdiv">Sets the byte order of this buffer.</div>
+        <div class="jd-descrdiv">
+          Sets the byte order of this buffer.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1855,8 +2087,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/nio/ByteBuffer.html#order()">order</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns the byte order used by this buffer when converting bytes from/to
- other primitive types.</div>
+        <div class="jd-descrdiv">
+          Returns the byte order used by this buffer when converting bytes from/to
+ other primitive types.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1874,8 +2111,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/nio/ByteBuffer.html#put(byte)">put</a></span>(byte b)</nobr>
         
-        <div class="jd-descrdiv">Writes the given byte to the current position and increases the position
- by 1.</div>
+        <div class="jd-descrdiv">
+          Writes the given byte to the current position and increases the position
+ by 1.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1893,9 +2135,14 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/nio/ByteBuffer.html#put(byte[], int, int)">put</a></span>(byte[] src, int srcOffset, int byteCount)</nobr>
         
-        <div class="jd-descrdiv">Writes bytes in the given byte array, starting from the specified offset,
+        <div class="jd-descrdiv">
+          Writes bytes in the given byte array, starting from the specified offset,
  to the current position and increases the position by the number of bytes
- written.</div>
+ written.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1913,8 +2160,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/nio/ByteBuffer.html#put(int, byte)">put</a></span>(int index, byte b)</nobr>
         
-        <div class="jd-descrdiv">Write a byte to the specified index of this buffer without changing the
- position.</div>
+        <div class="jd-descrdiv">
+          Write a byte to the specified index of this buffer without changing the
+ position.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1932,8 +2184,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/nio/ByteBuffer.html#put(byte[])">put</a></span>(byte[] src)</nobr>
         
-        <div class="jd-descrdiv">Writes bytes in the given byte array to the current position and
- increases the position by the number of bytes written.</div>
+        <div class="jd-descrdiv">
+          Writes bytes in the given byte array to the current position and
+ increases the position by the number of bytes written.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1951,9 +2208,14 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/nio/ByteBuffer.html#put(java.nio.ByteBuffer)">put</a></span>(<a href="../../../reference/java/nio/ByteBuffer.html">ByteBuffer</a> src)</nobr>
         
-        <div class="jd-descrdiv">Writes all the remaining bytes of the <code>src</code> byte buffer to this
+        <div class="jd-descrdiv">
+          Writes all the remaining bytes of the <code>src</code> byte buffer to this
  buffer's current position, and increases both buffers' position by the
- number of bytes copied.</div>
+ number of bytes copied.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1971,7 +2233,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/nio/ByteBuffer.html#putChar(int, char)">putChar</a></span>(int index, char value)</nobr>
         
-        <div class="jd-descrdiv">Writes the given char to the specified index of this buffer.</div>
+        <div class="jd-descrdiv">
+          Writes the given char to the specified index of this buffer.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1989,8 +2256,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/nio/ByteBuffer.html#putChar(char)">putChar</a></span>(char value)</nobr>
         
-        <div class="jd-descrdiv">Writes the given char to the current position and increases the position
- by 2.</div>
+        <div class="jd-descrdiv">
+          Writes the given char to the current position and increases the position
+ by 2.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2008,7 +2280,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/nio/ByteBuffer.html#putDouble(int, double)">putDouble</a></span>(int index, double value)</nobr>
         
-        <div class="jd-descrdiv">Writes the given double to the specified index of this buffer.</div>
+        <div class="jd-descrdiv">
+          Writes the given double to the specified index of this buffer.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2026,8 +2303,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/nio/ByteBuffer.html#putDouble(double)">putDouble</a></span>(double value)</nobr>
         
-        <div class="jd-descrdiv">Writes the given double to the current position and increases the position
- by 8.</div>
+        <div class="jd-descrdiv">
+          Writes the given double to the current position and increases the position
+ by 8.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2045,7 +2327,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/nio/ByteBuffer.html#putFloat(int, float)">putFloat</a></span>(int index, float value)</nobr>
         
-        <div class="jd-descrdiv">Writes the given float to the specified index of this buffer.</div>
+        <div class="jd-descrdiv">
+          Writes the given float to the specified index of this buffer.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2063,8 +2350,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/nio/ByteBuffer.html#putFloat(float)">putFloat</a></span>(float value)</nobr>
         
-        <div class="jd-descrdiv">Writes the given float to the current position and increases the position
- by 4.</div>
+        <div class="jd-descrdiv">
+          Writes the given float to the current position and increases the position
+ by 4.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2082,8 +2374,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/nio/ByteBuffer.html#putInt(int)">putInt</a></span>(int value)</nobr>
         
-        <div class="jd-descrdiv">Writes the given int to the current position and increases the position by
- 4.</div>
+        <div class="jd-descrdiv">
+          Writes the given int to the current position and increases the position by
+ 4.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2101,7 +2398,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/nio/ByteBuffer.html#putInt(int, int)">putInt</a></span>(int index, int value)</nobr>
         
-        <div class="jd-descrdiv">Writes the given int to the specified index of this buffer.</div>
+        <div class="jd-descrdiv">
+          Writes the given int to the specified index of this buffer.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2119,8 +2421,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/nio/ByteBuffer.html#putLong(long)">putLong</a></span>(long value)</nobr>
         
-        <div class="jd-descrdiv">Writes the given long to the current position and increases the position
- by 8.</div>
+        <div class="jd-descrdiv">
+          Writes the given long to the current position and increases the position
+ by 8.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2138,7 +2445,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/nio/ByteBuffer.html#putLong(int, long)">putLong</a></span>(int index, long value)</nobr>
         
-        <div class="jd-descrdiv">Writes the given long to the specified index of this buffer.</div>
+        <div class="jd-descrdiv">
+          Writes the given long to the specified index of this buffer.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2156,7 +2468,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/nio/ByteBuffer.html#putShort(int, short)">putShort</a></span>(int index, short value)</nobr>
         
-        <div class="jd-descrdiv">Writes the given short to the specified index of this buffer.</div>
+        <div class="jd-descrdiv">
+          Writes the given short to the specified index of this buffer.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2174,8 +2491,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/nio/ByteBuffer.html#putShort(short)">putShort</a></span>(short value)</nobr>
         
-        <div class="jd-descrdiv">Writes the given short to the current position and increases the position
- by 2.</div>
+        <div class="jd-descrdiv">
+          Writes the given short to the current position and increases the position
+ by 2.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2193,7 +2515,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/nio/ByteBuffer.html#slice()">slice</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns a sliced buffer that shares its content with this buffer.</div>
+        <div class="jd-descrdiv">
+          Returns a sliced buffer that shares its content with this buffer.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2211,7 +2538,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/nio/ByteBuffer.html#wrap(byte[])">wrap</a></span>(byte[] array)</nobr>
         
-        <div class="jd-descrdiv">Creates a new byte buffer by wrapping the given byte array.</div>
+        <div class="jd-descrdiv">
+          Creates a new byte buffer by wrapping the given byte array.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2229,7 +2561,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/nio/ByteBuffer.html#wrap(byte[], int, int)">wrap</a></span>(byte[] array, int start, int byteCount)</nobr>
         
-        <div class="jd-descrdiv">Creates a new byte buffer by wrapping the given byte array.</div>
+        <div class="jd-descrdiv">
+          Creates a new byte buffer by wrapping the given byte array.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2281,7 +2618,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/nio/Buffer.html#array()">array</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns the array that backs this buffer (optional operation).</div>
+        <div class="jd-descrdiv">
+          Returns the array that backs this buffer (optional operation).
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2299,8 +2641,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/nio/Buffer.html#arrayOffset()">arrayOffset</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns the offset into the array returned by <code>array</code> of the first
- element of the buffer (optional operation).</div>
+        <div class="jd-descrdiv">
+          Returns the offset into the array returned by <code>array</code> of the first
+ element of the buffer (optional operation).
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2318,7 +2665,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/nio/Buffer.html#capacity()">capacity</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns the capacity of this buffer.</div>
+        <div class="jd-descrdiv">
+          Returns the capacity of this buffer.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2336,7 +2688,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/nio/Buffer.html#clear()">clear</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Clears this buffer.</div>
+        <div class="jd-descrdiv">
+          Clears this buffer.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2354,7 +2711,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/nio/Buffer.html#flip()">flip</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Flips this buffer.</div>
+        <div class="jd-descrdiv">
+          Flips this buffer.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2372,7 +2734,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/nio/Buffer.html#hasArray()">hasArray</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns true if <code>array</code> and <code>arrayOffset</code> won't throw.</div>
+        <div class="jd-descrdiv">
+          Returns true if <code>array</code> and <code>arrayOffset</code> won't throw.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2390,8 +2757,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/nio/Buffer.html#hasRemaining()">hasRemaining</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Indicates if there are elements remaining in this buffer, that is if
- <code>position < limit</code>.</div>
+        <div class="jd-descrdiv">
+          Indicates if there are elements remaining in this buffer, that is if
+ <code>position < limit</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2409,7 +2781,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/nio/Buffer.html#isDirect()">isDirect</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns true if this is a direct buffer.</div>
+        <div class="jd-descrdiv">
+          Returns true if this is a direct buffer.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2427,7 +2804,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/nio/Buffer.html#isReadOnly()">isReadOnly</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Indicates whether this buffer is read-only.</div>
+        <div class="jd-descrdiv">
+          Indicates whether this buffer is read-only.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2445,7 +2827,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/nio/Buffer.html#limit()">limit</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns the limit of this buffer.</div>
+        <div class="jd-descrdiv">
+          Returns the limit of this buffer.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2463,7 +2850,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/nio/Buffer.html#limit(int)">limit</a></span>(int newLimit)</nobr>
         
-        <div class="jd-descrdiv">Sets the limit of this buffer.</div>
+        <div class="jd-descrdiv">
+          Sets the limit of this buffer.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2481,8 +2873,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/nio/Buffer.html#mark()">mark</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Marks the current position, so that the position may return to this point
- later by calling <code>reset()</code>.</div>
+        <div class="jd-descrdiv">
+          Marks the current position, so that the position may return to this point
+ later by calling <code>reset()</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2500,7 +2897,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/nio/Buffer.html#position(int)">position</a></span>(int newPosition)</nobr>
         
-        <div class="jd-descrdiv">Sets the position of this buffer.</div>
+        <div class="jd-descrdiv">
+          Sets the position of this buffer.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2518,7 +2920,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/nio/Buffer.html#position()">position</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns the position of this buffer.</div>
+        <div class="jd-descrdiv">
+          Returns the position of this buffer.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2536,8 +2943,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/nio/Buffer.html#remaining()">remaining</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns the number of remaining elements in this buffer, that is
- <code>limit - position</code>.</div>
+        <div class="jd-descrdiv">
+          Returns the number of remaining elements in this buffer, that is
+ <code>limit - position</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2555,7 +2967,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/nio/Buffer.html#reset()">reset</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Resets the position of this buffer to the <code>mark</code>.</div>
+        <div class="jd-descrdiv">
+          Resets the position of this buffer to the <code>mark</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2573,7 +2990,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/nio/Buffer.html#rewind()">rewind</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Rewinds this buffer.</div>
+        <div class="jd-descrdiv">
+          Rewinds this buffer.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2591,7 +3013,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/nio/Buffer.html#toString()">toString</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns a string describing this buffer.</div>
+        <div class="jd-descrdiv">
+          Returns a string describing this buffer.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2635,7 +3062,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#clone()">clone</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Creates and returns a copy of this <code>Object</code>.</div>
+        <div class="jd-descrdiv">
+          Creates and returns a copy of this <code>Object</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2653,8 +3085,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#equals(java.lang.Object)">equals</a></span>(<a href="../../../reference/java/lang/Object.html">Object</a> o)</nobr>
         
-        <div class="jd-descrdiv">Compares this instance with the specified object and indicates if they
- are equal.</div>
+        <div class="jd-descrdiv">
+          Compares this instance with the specified object and indicates if they
+ are equal.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2672,7 +3109,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#finalize()">finalize</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Invoked when the garbage collector has detected that this instance is no longer reachable.</div>
+        <div class="jd-descrdiv">
+          Invoked when the garbage collector has detected that this instance is no longer reachable.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2690,8 +3132,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#getClass()">getClass</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns the unique instance of <code><a href="../../../reference/java/lang/Class.html">Class</a></code> that represents this
- object's class.</div>
+        <div class="jd-descrdiv">
+          Returns the unique instance of <code><a href="../../../reference/java/lang/Class.html">Class</a></code> that represents this
+ object's class.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2709,7 +3156,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#hashCode()">hashCode</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns an integer hash code for this object.</div>
+        <div class="jd-descrdiv">
+          Returns an integer hash code for this object.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2727,8 +3179,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#notify()">notify</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Causes a thread which is waiting on this object's monitor (by means of
- calling one of the <code>wait()</code> methods) to be woken up.</div>
+        <div class="jd-descrdiv">
+          Causes a thread which is waiting on this object's monitor (by means of
+ calling one of the <code>wait()</code> methods) to be woken up.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2746,8 +3203,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#notifyAll()">notifyAll</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Causes all threads which are waiting on this object's monitor (by means
- of calling one of the <code>wait()</code> methods) to be woken up.</div>
+        <div class="jd-descrdiv">
+          Causes all threads which are waiting on this object's monitor (by means
+ of calling one of the <code>wait()</code> methods) to be woken up.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2765,8 +3227,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#toString()">toString</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns a string containing a concise, human-readable description of this
- object.</div>
+        <div class="jd-descrdiv">
+          Returns a string containing a concise, human-readable description of this
+ object.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2784,7 +3251,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#wait()">wait</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object.</div>
+        <div class="jd-descrdiv">
+          Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2802,8 +3274,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#wait(long, int)">wait</a></span>(long millis, int nanos)</nobr>
         
-        <div class="jd-descrdiv">Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object or until the
- specified timeout expires.</div>
+        <div class="jd-descrdiv">
+          Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object or until the
+ specified timeout expires.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2821,8 +3298,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#wait(long)">wait</a></span>(long millis)</nobr>
         
-        <div class="jd-descrdiv">Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object or until the
- specified timeout expires.</div>
+        <div class="jd-descrdiv">
+          Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object or until the
+ specified timeout expires.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2866,8 +3348,13 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Comparable.html#compareTo(T)">compareTo</a></span>(T another)</nobr>
         
-        <div class="jd-descrdiv">Compares this object to the specified object to determine their relative
- order.</div>
+        <div class="jd-descrdiv">
+          Compares this object to the specified object to determine their relative
+ order.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2944,6 +3431,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Creates a byte buffer based on a newly allocated byte array.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -2996,6 +3486,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Creates a direct byte buffer based on a newly allocated memory block.</p></div>
   <div class="jd-tagdata">
@@ -3050,6 +3543,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns the byte array which this buffer is based on, if there is one.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
@@ -3097,6 +3593,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Returns the offset of the byte array which this buffer is based on, if
  there is one.
@@ -3150,6 +3649,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns a char buffer which is based on the remaining content of this
  byte buffer.
  <p>
@@ -3190,6 +3692,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Returns a double buffer which is based on the remaining content of this
  byte buffer.
@@ -3232,6 +3737,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns a float buffer which is based on the remaining content of this
  byte buffer.
  <p>
@@ -3272,6 +3780,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Returns a int buffer which is based on the remaining content of this byte
  buffer.
@@ -3314,6 +3825,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns a long buffer which is based on the remaining content of this
  byte buffer.
  <p>
@@ -3354,6 +3868,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Returns a read-only buffer that shares its content with this buffer.
  <p>
@@ -3398,6 +3915,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns a short buffer which is based on the remaining content of this
  byte buffer.
  <p>
@@ -3438,6 +3958,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Compacts this byte buffer.
  <p>
@@ -3487,6 +4010,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Compares the remaining bytes of this buffer to another byte buffer's
  remaining bytes.</p></div>
@@ -3544,6 +4070,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns a duplicated buffer that shares its content with this buffer.
  <p>
  The duplicated buffer's position, limit, capacity and mark are the same
@@ -3586,6 +4115,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Checks whether this byte buffer is equal to another object.
  <p>
@@ -3636,6 +4168,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns the byte at the current position and increases the position by 1.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
@@ -3679,6 +4214,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Reads bytes from the current position into the specified byte array,
  starting at the specified offset, and increases the position by the
@@ -3749,6 +4287,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Reads bytes from the current position into the specified byte array and
  increases the position by the number of bytes read.
  <p>
@@ -3806,6 +4347,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns the byte at the specified index and does not change the position.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -3859,6 +4403,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns the char at the current position and increases the position by 2.
  <p>
  The 2 bytes starting at the current position are composed into a char
@@ -3905,6 +4452,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Returns the char at the specified index.
  <p>
@@ -3964,6 +4514,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns the double at the current position and increases the position by
  8.
  <p>
@@ -4011,6 +4564,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Returns the double at the specified index.
  <p>
@@ -4070,6 +4626,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns the float at the specified index.
  <p>
  The 4 bytes starting at the specified index are composed into a float
@@ -4128,6 +4687,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns the float at the current position and increases the position by
  4.
  <p>
@@ -4176,6 +4738,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns the int at the current position and increases the position by 4.
  <p>
  The 4 bytes starting at the current position are composed into a int
@@ -4222,6 +4787,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Returns the int at the specified index.
  <p>
@@ -4281,6 +4849,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns the long at the current position and increases the position by 8.
  <p>
  The 8 bytes starting at the current position are composed into a long
@@ -4327,6 +4898,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Returns the long at the specified index.
  <p>
@@ -4386,6 +4960,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns the short at the specified index.
  <p>
  The 2 bytes starting at the specified index are composed into a short
@@ -4444,6 +5021,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns the short at the current position and increases the position by 2.
  <p>
  The 2 bytes starting at the current position are composed into a short
@@ -4491,6 +5071,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns true if <code>array</code> and <code>arrayOffset</code> won't throw. This method does not
  return true for buffers not backed by arrays because the other methods would throw
  <code>UnsupportedOperationException</code>, nor does it return true for buffers backed by
@@ -4523,6 +5106,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Calculates this buffer's hash code from the remaining chars. The
  position, limit, capacity and mark don't affect the hash code.</p></div>
@@ -4560,6 +5146,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Indicates whether this buffer is direct.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
@@ -4594,6 +5183,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Sets the byte order of this buffer.</p></div>
   <div class="jd-tagdata">
@@ -4644,6 +5236,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns the byte order used by this buffer when converting bytes from/to
  other primitive types.
  <p>
@@ -4683,6 +5278,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Writes the given byte to the current position and increases the position
  by 1.</p></div>
@@ -4741,6 +5339,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Writes bytes in the given byte array, starting from the specified offset,
  to the current position and increases the position by the number of bytes
@@ -4815,6 +5416,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Write a byte to the specified index of this buffer without changing the
  position.</p></div>
   <div class="jd-tagdata">
@@ -4877,6 +5481,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Writes bytes in the given byte array to the current position and
  increases the position by the number of bytes written.
  <p>
@@ -4937,6 +5544,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Writes all the remaining bytes of the <code>src</code> byte buffer to this
  buffer's current position, and increases both buffers' position by the
@@ -5001,6 +5611,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Writes the given char to the specified index of this buffer.
  <p>
@@ -5067,6 +5680,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Writes the given char to the current position and increases the position
  by 2.
  <p>
@@ -5126,6 +5742,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Writes the given double to the specified index of this buffer.
  <p>
@@ -5192,6 +5811,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Writes the given double to the current position and increases the position
  by 8.
  <p>
@@ -5251,6 +5873,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Writes the given float to the specified index of this buffer.
  <p>
@@ -5317,6 +5942,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Writes the given float to the current position and increases the position
  by 4.
  <p>
@@ -5377,6 +6005,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Writes the given int to the current position and increases the position by
  4.
  <p>
@@ -5436,6 +6067,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Writes the given int to the specified index of this buffer.
  <p>
@@ -5502,6 +6136,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Writes the given long to the current position and increases the position
  by 8.
  <p>
@@ -5561,6 +6198,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Writes the given long to the specified index of this buffer.
  <p>
@@ -5627,6 +6267,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Writes the given short to the specified index of this buffer.
  <p>
  The short is converted to bytes using the current byte order. The
@@ -5692,6 +6335,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Writes the given short to the current position and increases the position
  by 2.
  <p>
@@ -5752,6 +6398,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns a sliced buffer that shares its content with this buffer.
  <p>
  The sliced buffer's capacity will be this buffer's
@@ -5792,6 +6441,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Creates a new byte buffer by wrapping the given byte array.
  <p>
@@ -5839,6 +6491,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Creates a new byte buffer by wrapping the given byte array.
  <p>

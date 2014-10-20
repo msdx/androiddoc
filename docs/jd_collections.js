@@ -1,4 +1,34 @@
 var RESOURCE_COLLECTIONS = {
+  "index/primary": {
+    "title": "",
+    "resources": [
+      "training/building-wearables.html",
+      "preview/material/index.html",
+      "sdk/installing/studio.html" 
+    ]
+  },
+  "distribute/edu/videos/stories": {
+    "title": "",
+    "resources": [
+      "https://www.youtube.com/watch?v=Idu7VcTTXfk",
+      "https://www.youtube.com/watch?v=iokH4SAIfRw"
+    ]
+  },
+  "distribute/edu/videos/bestpractices": {
+    "title": "",
+    "resources": [
+      "https://www.youtube.com/watch?v=iulXz8QTD1g",
+      "https://www.youtube.com/watch?v=IKhU180eJMo",
+      "https://www.youtube.com/watch?v=_AZ6UcPz-_g",
+      "https://www.youtube.com/watch?v=Eh2adsAyTKc"
+    ]
+  },
+  "distribute/edu/videos/experience": {
+    "title": "",
+    "resources": [
+      "http://youtu.be/vzvpcEffvaE"
+    ]
+  },
   "launch/static": {
     "title": "",
     "resources": [
@@ -29,14 +59,14 @@ var RESOURCE_COLLECTIONS = {
     "resources": [
       "distribute/googleplay/edu/about.html",
       "distribute/googleplay/edu/start.html",
-      "distribute/googleplay/edu/faq.html"
+      "distribute/googleplay/edu/videos.html"
     ]
   },
   "distribute/essentials": {
     "resources": [
       "distribute/essentials/quality/core.html",
       "distribute/essentials/quality/tablets.html",
-      "distribute/essentials/gpfe-guidelines.html",
+      "https://developers.google.com/edu/guidelines",
       "distribute/essentials/optimizing-your-app.html",
       "distribute/essentials/best-practices/apps.html",
       "distribute/essentials/best-practices/games.html"
@@ -49,7 +79,8 @@ var RESOURCE_COLLECTIONS = {
       "distribute/users/your-listing.html",
       "distribute/users/build-buzz.html",
       "distribute/users/build-community.html",
-      "distribute/users/expand-to-new-markets.html"
+      "distribute/users/expand-to-new-markets.html",
+      "distribute/users/promote-with-ads.html"
     ]
   },
   "distribute/engagelanding": {
@@ -60,6 +91,7 @@ var RESOURCE_COLLECTIONS = {
       "distribute/engage/easy-signin.html",
       "distribute/engage/deep-linking.html",
       "distribute/engage/game-services.html",
+      "distribute/engage/analytics.html",
       "distribute/engage/app-updates.html",
       "distribute/engage/community.html",
       "distribute/engage/video.html"
@@ -147,16 +179,18 @@ var RESOURCE_COLLECTIONS = {
     "title": "About Google Play for Education / Developers",
     "resources": [
       "distribute/googleplay/edu/start.html",
-      "distribute/essentials/gpfe-guidelines.html",
-      "distribute/googleplay/edu/faq.html",
-      "distribute/essentials/quality/tablets.html"
+      "https://developers.google.com/edu/guidelines",
+      "https://developers.google.com/edu/faq",
+      "distribute/essentials/quality/tablets.html",
+      "https://developers.google.com/edu/",
+      "https://www.google.com/edu/tablets/#tablets-family"
     ]
   },
   "distribute/googleplay/gpfe/dev": {
     "title": "About Google Play for Education / Developers",
     "resources": [
       "distribute/googleplay/edu/about.html",
-      "distribute/essentials/gpfe-guidelines.html",
+      "https://developers.google.com/edu/guidelines",
       "distribute/essentials/quality/tablets.html",
       "distribute/googleplay/developer-console.html",
       "http://play.google.com/about/developer-distribution-agreement-addendum.html",
@@ -188,7 +222,7 @@ var RESOURCE_COLLECTIONS = {
     "resources": [
       "distribute/googleplay/developer-console.html",
       "distribute/googleplay/edu/start.html",
-      "distribute/googleplay/edu/faq.html"
+      "https://developers.google.com/edu/faq"
     ]
   },
   "distribute/essentials/eduessentials/educators": {
@@ -212,6 +246,13 @@ var RESOURCE_COLLECTIONS = {
       "distribute/essentials/optimizing-your-app.html",
       "http://www.youtube.com/watch?v=RRelFvc6Czo",
       "distribute/stories/localization.html"
+    ]
+  },
+  "distribute/users/promotewithads": {
+    "title": "",
+    "resources": [
+      "http://www.google.com/ads/admob/#subid=us-en-et-dac",
+      "distribute/essentials/optimizing-your-app.html"
     ]
   },
   "distribute/users/buildbuzz": {
@@ -394,6 +435,14 @@ var RESOURCE_COLLECTIONS = {
       "http://play.google.com/about/developer-content-policy.html"
     ]
   },
+  "distribute/engage/analytics": {
+    "title": "",
+    "resources": [
+      "http://www.google.com/analytics/mobile/",
+      "http://android-developers.blogspot.com/2013/10/improved-app-insight-by-linking-google.html",
+      "https://developers.google.com/analytics/devguides/collection/android/"
+    ]
+  },
   "distribute/engage/widgets": {
     "title": "",
     "resources": [
@@ -553,7 +602,7 @@ var RESOURCE_COLLECTIONS = {
     "resources": [
       "distribute/essentials/quality/core.html",
       "distribute/essentials/quality/tablets.html",
-      "distribute/essentials/gpfe-guidelines.html"
+      "https://developers.google.com/edu/guidelines"
     ]
   },
   "distribute/toolsreference/launchchecklist/rating": {
@@ -694,4 +743,19 @@ var RESOURCE_COLLECTIONS = {
       "https://support.google.com/googleplay/answer/2651410"
     ]
   },
+  "distribute/stories/games": {
+    "title": "",
+    "resources": [
+      "http://storage.googleapis.com/androiddevelopers/shareables/stories/Glu_Deerhunter2014_gpgs.pdf",
+      "http://storage.googleapis.com/androiddevelopers/shareables/stories/ConcreteSoftware_PBABowling_gpgs.pdf",
+      "http://storage.googleapis.com/androiddevelopers/shareables/stories/Dragonplay_DragonplaySlots_gpgs.pdf",
+      "http://storage.googleapis.com/androiddevelopers/shareables/stories/Gameloft_Asphalt8_gpgs.pdf",
+      "http://storage.googleapis.com/androiddevelopers/shareables/stories/Glu_EternityWarriors3_gpgs.pdf",
+      "http://storage.googleapis.com/androiddevelopers/shareables/stories/HotheadGames_RivalsatWar_gpgs.pdf",
+      "http://storage.googleapis.com/androiddevelopers/shareables/stories/TMSOFT_Compulsive_gpgs.pdf",
+      "http://storage.googleapis.com/androiddevelopers/shareables/stories/Noodlecake_SuperStickmanGolf2_gpgs.pdf",
+      "http://storage.googleapis.com/androiddevelopers/shareables/stories/TinyRebel_DoctorWhoLegacy_gpgs.pdf",
+      "http://storage.googleapis.com/androiddevelopers/shareables/stories/Senri_LeosFortune_gpgs.pdf"
+    ]
+  }
 }

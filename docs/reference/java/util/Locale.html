@@ -82,6 +82,19 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 <html>
 <head>
 
@@ -97,7 +110,7 @@
 href="http://fonts.useso.com/css?family=Roboto+Condensed">
 <link rel="stylesheet" href="http://fonts.useso.com/css?family=Roboto:light,regular,medium,thin,italic,mediumitalic,bold"
   title="roboto">
-<link href="../../../assets/css/default.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/default.css?v=2" rel="stylesheet" type="text/css">
 
 
 <!-- FULLSCREEN STYLESHEET -->
@@ -106,30 +119,31 @@ type="text/css">
 
 
 <!-- JAVASCRIPT -->
-<script src="http://googleapiscdn.qiniudn.com/www.google.com/jsapi" type="text/javascript"></script>
+<script src="http://www.google.com/jsapi" type="text/javascript"></script>
 <script src="../../../assets/js/android_3p-bundle.js" type="text/javascript"></script>
 <script type="text/javascript">
   var toRoot = "../../../";
   var metaTags = [];
   var devsite = false;
 </script>
-<script src="../../../assets/js/docs.js" type="text/javascript"></script>
+<script src="../../../assets/js/docs.js?v=2" type="text/javascript"></script>
 
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-5831155-1']);
-  _gaq.push(['_trackPageview']);
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
+  ga('create', 'UA-5831155-1', 'android.com');
+  ga('create', 'UA-49880327-2', 'android.com', {'name': 'universal'});  // New tracker);
+  ga('send', 'pageview');
+  ga('universal.send', 'pageview'); // Send page view for new tracker.
 </script>
+
 </head>
 
 <body class="gc-documentation 
-  develop" itemscope itemtype="http://schema.org/Article">
+  develop reference" itemscope itemtype="http://schema.org/Article">
   <div id="doc-api-level" class="1" style="display:none"></div>
   <a name="top"></a>
 
@@ -139,6 +153,10 @@ type="text/css">
   <!-- Header -->
   <div id="header-wrapper">
     <div id="header">
+
+    
+
+
       <div class="wrap" id="header-wrap">
         <div class="col-3 logo">
           <a href="../../../index.html">
@@ -260,11 +278,20 @@ type="text/css">
 
 
         <!-- Expanded quicknav -->
-        <div id="quicknav" class="col-9">
+        <div id="quicknav" class="col-13">
           <ul>
+            <li class="about">
+              <ul>
+                <li><a href="../../../about/index.html">About</a></li>
+                <li><a href="../../../wear/index.html">Wear</a></li>
+                <li><a href="../../../tv/index.html">TV</a></li>
+                <li><a href="../../../auto/index.html">Auto</a></li>
+              </ul>
+            </li>
             <li class="design">
               <ul>
                 <li><a href="../../../design/index.html">Get Started</a></li>
+                <li><a href="../../../design/devices.html">Devices</a></li>
                 <li><a href="../../../design/style/index.html">Style</a></li>
                 <li><a href="../../../design/patterns/index.html">Patterns</a></li>
                 <li><a href="../../../design/building-blocks/index.html">Building Blocks</a></li>
@@ -298,7 +325,7 @@ type="text/css">
                   ja-lang="リファレンス"
                   es-lang="Referencia"
                   >Reference</a></li>
-                <li><a href="../../../tools/index.html"
+                <li><a href="../../../sdk/index.html"
                   zh-tw-lang="相關工具"
                   zh-cn-lang="工具"
                   ru-lang="Инструменты"
@@ -306,7 +333,6 @@ type="text/css">
                   ja-lang="ツール"
                   es-lang="Herramientas"
                   >Tools</a>
-                  <ul><li><a href="../../../sdk/index.html">Get the SDK</a></li></ul>
                 </li>
                 <li><a href="../../../google/index.html">Google Services</a>
                 </li>
@@ -358,7 +384,7 @@ type="text/css">
                   ja-lang="リファレンス"
                   es-lang="Referencia"
                   >Reference</a></li>
-                <li class="tools"><a href="../../../tools/index.html"
+                <li class="tools"><a href="../../../sdk/index.html"
                   zh-tw-lang="相關工具"
                   zh-cn-lang="工具"
                   ru-lang="Инструменты"
@@ -373,7 +399,7 @@ type="text/css">
             </ul>
         </div>
     </div>
-    <!-- /Sendondary x-nav -->
+    <!-- /Sendondary x-nav DEVELOP -->
 
   
 
@@ -414,7 +440,7 @@ type="text/css">
         <div id="api-nav-title">Android APIs</div>
         </div><!-- end nav header -->
       <script>
-        var SINCE_DATA = [ '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19' ];
+        var SINCE_DATA = [ '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21' ];
         buildApiLevelSelector();
       </script>
                   
@@ -441,13 +467,15 @@ type="text/css">
   <a href="../../../reference/android/app/admin/package-summary.html">android.app.admin</a></li>
     <li class="api apilevel-8">
   <a href="../../../reference/android/app/backup/package-summary.html">android.app.backup</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/app/job/package-summary.html">android.app.job</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/app/usage/package-summary.html">android.app.usage</a></li>
     <li class="api apilevel-3">
   <a href="../../../reference/android/appwidget/package-summary.html">android.appwidget</a></li>
     <li class="api apilevel-5">
   <a href="../../../reference/android/bluetooth/package-summary.html">android.bluetooth</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/bluetooth/le/package-summary.html">android.bluetooth.le</a></li>
     <li class="api apilevel-1">
   <a href="../../../reference/android/content/package-summary.html">android.content</a></li>
@@ -473,16 +501,14 @@ type="text/css">
   <a href="../../../reference/android/graphics/pdf/package-summary.html">android.graphics.pdf</a></li>
     <li class="api apilevel-1">
   <a href="../../../reference/android/hardware/package-summary.html">android.hardware</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/hardware/camera2/package-summary.html">android.hardware.camera2</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/hardware/camera2/params/package-summary.html">android.hardware.camera2.params</a></li>
     <li class="api apilevel-17">
   <a href="../../../reference/android/hardware/display/package-summary.html">android.hardware.display</a></li>
     <li class="api apilevel-16">
   <a href="../../../reference/android/hardware/input/package-summary.html">android.hardware.input</a></li>
-    <li class="api apilevel-18">
-  <a href="../../../reference/android/hardware/location/package-summary.html">android.hardware.location</a></li>
     <li class="api apilevel-12">
   <a href="../../../reference/android/hardware/usb/package-summary.html">android.hardware.usb</a></li>
     <li class="api apilevel-3">
@@ -493,11 +519,15 @@ type="text/css">
   <a href="../../../reference/android/media/package-summary.html">android.media</a></li>
     <li class="api apilevel-9">
   <a href="../../../reference/android/media/audiofx/package-summary.html">android.media.audiofx</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/media/browse/package-summary.html">android.media.browse</a></li>
     <li class="api apilevel-14">
   <a href="../../../reference/android/media/effect/package-summary.html">android.media.effect</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/media/projection/package-summary.html">android.media.projection</a></li>
+    <li class="api apilevel-21">
   <a href="../../../reference/android/media/session/package-summary.html">android.media.session</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/media/tv/package-summary.html">android.media.tv</a></li>
     <li class="api apilevel-12">
   <a href="../../../reference/android/mtp/package-summary.html">android.mtp</a></li>
@@ -547,11 +577,15 @@ type="text/css">
   <a href="../../../reference/android/security/package-summary.html">android.security</a></li>
     <li class="api apilevel-17">
   <a href="../../../reference/android/service/dreams/package-summary.html">android.service.dreams</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/service/media/package-summary.html">android.service.media</a></li>
     <li class="api apilevel-18">
   <a href="../../../reference/android/service/notification/package-summary.html">android.service.notification</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/service/restrictions/package-summary.html">android.service.restrictions</a></li>
     <li class="api apilevel-14">
   <a href="../../../reference/android/service/textservice/package-summary.html">android.service.textservice</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/service/voice/package-summary.html">android.service.voice</a></li>
     <li class="api apilevel-7">
   <a href="../../../reference/android/service/wallpaper/package-summary.html">android.service.wallpaper</a></li>
@@ -596,11 +630,15 @@ type="text/css">
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/media/package-summary.html">android.support.v4.media</a></li>
     <li class="api apilevel-">
+  <a href="../../../reference/android/support/v4/media/session/package-summary.html">android.support.v4.media.session</a></li>
+    <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/net/package-summary.html">android.support.v4.net</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/os/package-summary.html">android.support.v4.os</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/print/package-summary.html">android.support.v4.print</a></li>
+    <li class="api apilevel-">
+  <a href="../../../reference/android/support/v4/provider/package-summary.html">android.support.v4.provider</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/text/package-summary.html">android.support.v4.text</a></li>
     <li class="api apilevel-">
@@ -616,6 +654,10 @@ type="text/css">
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v7/appcompat/package-summary.html">android.support.v7.appcompat</a></li>
     <li class="api apilevel-">
+  <a href="../../../reference/android/support/v7/cardview/package-summary.html">android.support.v7.cardview</a></li>
+    <li class="api apilevel-">
+  <a href="../../../reference/android/support/v7/graphics/package-summary.html">android.support.v7.graphics</a></li>
+    <li class="api apilevel-">
   <a href="../../../reference/android/support/v7/gridlayout/package-summary.html">android.support.v7.gridlayout</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v7/media/package-summary.html">android.support.v7.media</a></li>
@@ -627,8 +669,10 @@ type="text/css">
   <a href="../../../reference/android/support/v7/widget/package-summary.html">android.support.v7.widget</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v8/renderscript/package-summary.html">android.support.v8.renderscript</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/system/package-summary.html">android.system</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/telecom/package-summary.html">android.telecom</a></li>
     <li class="api apilevel-1">
   <a href="../../../reference/android/telephony/package-summary.html">android.telephony</a></li>
     <li class="api apilevel-5">
@@ -945,6 +989,7 @@ type="text/css">
           <li class="api apilevel-1"><a href="../../../reference/java/util/LinkedList.html">LinkedList</a></li>
           <li class="api apilevel-1"><a href="../../../reference/java/util/ListResourceBundle.html">ListResourceBundle</a></li>
           <li class="selected api apilevel-1"><a href="../../../reference/java/util/Locale.html">Locale</a></li>
+          <li class="api apilevel-21"><a href="../../../reference/java/util/Locale.Builder.html">Locale.Builder</a></li>
           <li class="api apilevel-19"><a href="../../../reference/java/util/Objects.html">Objects</a></li>
           <li class="api apilevel-1"><a href="../../../reference/java/util/Observable.html">Observable</a></li>
           <li class="api apilevel-1"><a href="../../../reference/java/util/PriorityQueue.html">PriorityQueue</a></li>
@@ -989,6 +1034,7 @@ type="text/css">
           <li class="api apilevel-1"><a href="../../../reference/java/util/IllegalFormatFlagsException.html">IllegalFormatFlagsException</a></li>
           <li class="api apilevel-1"><a href="../../../reference/java/util/IllegalFormatPrecisionException.html">IllegalFormatPrecisionException</a></li>
           <li class="api apilevel-1"><a href="../../../reference/java/util/IllegalFormatWidthException.html">IllegalFormatWidthException</a></li>
+          <li class="api apilevel-21"><a href="../../../reference/java/util/IllformedLocaleException.html">IllformedLocaleException</a></li>
           <li class="api apilevel-1"><a href="../../../reference/java/util/InputMismatchException.html">InputMismatchException</a></li>
           <li class="api apilevel-1"><a href="../../../reference/java/util/InvalidPropertiesFormatException.html">InvalidPropertiesFormatException</a></li>
           <li class="api apilevel-1"><a href="../../../reference/java/util/MissingFormatArgumentException.html">MissingFormatArgumentException</a></li>
@@ -1080,13 +1126,19 @@ type="text/css">
 
 Summary:
 
+  <a href="#nestedclasses">Nested Classes</a>
+  
 
 
 
 
 
+  &#124; <a href="#constants">Constants</a>
+  
 
-  <a href="#lfields">Fields</a>
+
+
+  &#124; <a href="#lfields">Fields</a>
   
 
 
@@ -1144,6 +1196,9 @@ Summary:
       
   
   
+
+
+    
 
 
 </div><!-- end header -->
@@ -1313,6 +1368,28 @@ Summary:
 
 
 
+<!-- ======== NESTED CLASS SUMMARY ======== -->
+<table id="nestedclasses" class="jd-sumtable"><tr><th colspan="12">Nested Classes</th></tr>
+
+
+  
+    <tr class="alt-color api apilevel-21" >
+      <td class="jd-typecol"><nobr>
+        
+         
+         
+        
+        class</nobr></td>
+      <td class="jd-linkcol"><a href="../../../reference/java/util/Locale.Builder.html">Locale.Builder</a></td>
+      <td class="jd-descrcol" width="100%">
+        A class that helps construct <code><a href="../../../reference/java/util/Locale.html">Locale</a></code> instances.&nbsp;
+        
+    
+
+      </td>
+    </tr>
+    
+    
 
 
 
@@ -1321,6 +1398,43 @@ Summary:
 
 
 
+
+
+
+
+
+<!-- =========== ENUM CONSTANT SUMMARY =========== -->
+<table id="constants" class="jd-sumtable"><tr><th colspan="12">Constants</th></tr>
+
+
+    
+    <tr class="alt-color api apilevel-21" >
+        <td class="jd-typecol">char</td>
+        <td class="jd-linkcol"><a href="../../../reference/java/util/Locale.html#PRIVATE_USE_EXTENSION">PRIVATE_USE_EXTENSION</a></td>
+        <td class="jd-descrcol" width="100%">
+          BCP-47 extension identifier (or "singleton") for the private
+ use extension.
+          
+    
+
+        </td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-21" >
+        <td class="jd-typecol">char</td>
+        <td class="jd-linkcol"><a href="../../../reference/java/util/Locale.html#UNICODE_LOCALE_EXTENSION">UNICODE_LOCALE_EXTENSION</a></td>
+        <td class="jd-descrcol" width="100%">
+          BCP-47 extension identifier (or "singleton") for the unicode locale extension.
+          
+    
+
+        </td>
+    </tr>
+    
+    
+
+</table>
 
 
 
@@ -1340,7 +1454,12 @@ Summary:
           final
           <a href="../../../reference/java/util/Locale.html">Locale</a></nobr></td>
           <td class="jd-linkcol"><a href="../../../reference/java/util/Locale.html#CANADA">CANADA</a></td>
-          <td class="jd-descrcol" width="100%">Locale constant for en_CA.</td>
+          <td class="jd-descrcol" width="100%">
+            Locale constant for en_CA.
+            
+    
+
+          </td>
       </tr>
       
     
@@ -1351,7 +1470,12 @@ Summary:
           final
           <a href="../../../reference/java/util/Locale.html">Locale</a></nobr></td>
           <td class="jd-linkcol"><a href="../../../reference/java/util/Locale.html#CANADA_FRENCH">CANADA_FRENCH</a></td>
-          <td class="jd-descrcol" width="100%">Locale constant for fr_CA.</td>
+          <td class="jd-descrcol" width="100%">
+            Locale constant for fr_CA.
+            
+    
+
+          </td>
       </tr>
       
     
@@ -1362,7 +1486,12 @@ Summary:
           final
           <a href="../../../reference/java/util/Locale.html">Locale</a></nobr></td>
           <td class="jd-linkcol"><a href="../../../reference/java/util/Locale.html#CHINA">CHINA</a></td>
-          <td class="jd-descrcol" width="100%">Locale constant for zh_CN.</td>
+          <td class="jd-descrcol" width="100%">
+            Locale constant for zh_CN.
+            
+    
+
+          </td>
       </tr>
       
     
@@ -1373,7 +1502,12 @@ Summary:
           final
           <a href="../../../reference/java/util/Locale.html">Locale</a></nobr></td>
           <td class="jd-linkcol"><a href="../../../reference/java/util/Locale.html#CHINESE">CHINESE</a></td>
-          <td class="jd-descrcol" width="100%">Locale constant for zh.</td>
+          <td class="jd-descrcol" width="100%">
+            Locale constant for zh.
+            
+    
+
+          </td>
       </tr>
       
     
@@ -1384,7 +1518,12 @@ Summary:
           final
           <a href="../../../reference/java/util/Locale.html">Locale</a></nobr></td>
           <td class="jd-linkcol"><a href="../../../reference/java/util/Locale.html#ENGLISH">ENGLISH</a></td>
-          <td class="jd-descrcol" width="100%">Locale constant for en.</td>
+          <td class="jd-descrcol" width="100%">
+            Locale constant for en.
+            
+    
+
+          </td>
       </tr>
       
     
@@ -1395,7 +1534,12 @@ Summary:
           final
           <a href="../../../reference/java/util/Locale.html">Locale</a></nobr></td>
           <td class="jd-linkcol"><a href="../../../reference/java/util/Locale.html#FRANCE">FRANCE</a></td>
-          <td class="jd-descrcol" width="100%">Locale constant for fr_FR.</td>
+          <td class="jd-descrcol" width="100%">
+            Locale constant for fr_FR.
+            
+    
+
+          </td>
       </tr>
       
     
@@ -1406,7 +1550,12 @@ Summary:
           final
           <a href="../../../reference/java/util/Locale.html">Locale</a></nobr></td>
           <td class="jd-linkcol"><a href="../../../reference/java/util/Locale.html#FRENCH">FRENCH</a></td>
-          <td class="jd-descrcol" width="100%">Locale constant for fr.</td>
+          <td class="jd-descrcol" width="100%">
+            Locale constant for fr.
+            
+    
+
+          </td>
       </tr>
       
     
@@ -1417,7 +1566,12 @@ Summary:
           final
           <a href="../../../reference/java/util/Locale.html">Locale</a></nobr></td>
           <td class="jd-linkcol"><a href="../../../reference/java/util/Locale.html#GERMAN">GERMAN</a></td>
-          <td class="jd-descrcol" width="100%">Locale constant for de.</td>
+          <td class="jd-descrcol" width="100%">
+            Locale constant for de.
+            
+    
+
+          </td>
       </tr>
       
     
@@ -1428,7 +1582,12 @@ Summary:
           final
           <a href="../../../reference/java/util/Locale.html">Locale</a></nobr></td>
           <td class="jd-linkcol"><a href="../../../reference/java/util/Locale.html#GERMANY">GERMANY</a></td>
-          <td class="jd-descrcol" width="100%">Locale constant for de_DE.</td>
+          <td class="jd-descrcol" width="100%">
+            Locale constant for de_DE.
+            
+    
+
+          </td>
       </tr>
       
     
@@ -1439,7 +1598,12 @@ Summary:
           final
           <a href="../../../reference/java/util/Locale.html">Locale</a></nobr></td>
           <td class="jd-linkcol"><a href="../../../reference/java/util/Locale.html#ITALIAN">ITALIAN</a></td>
-          <td class="jd-descrcol" width="100%">Locale constant for it.</td>
+          <td class="jd-descrcol" width="100%">
+            Locale constant for it.
+            
+    
+
+          </td>
       </tr>
       
     
@@ -1450,7 +1614,12 @@ Summary:
           final
           <a href="../../../reference/java/util/Locale.html">Locale</a></nobr></td>
           <td class="jd-linkcol"><a href="../../../reference/java/util/Locale.html#ITALY">ITALY</a></td>
-          <td class="jd-descrcol" width="100%">Locale constant for it_IT.</td>
+          <td class="jd-descrcol" width="100%">
+            Locale constant for it_IT.
+            
+    
+
+          </td>
       </tr>
       
     
@@ -1461,7 +1630,12 @@ Summary:
           final
           <a href="../../../reference/java/util/Locale.html">Locale</a></nobr></td>
           <td class="jd-linkcol"><a href="../../../reference/java/util/Locale.html#JAPAN">JAPAN</a></td>
-          <td class="jd-descrcol" width="100%">Locale constant for ja_JP.</td>
+          <td class="jd-descrcol" width="100%">
+            Locale constant for ja_JP.
+            
+    
+
+          </td>
       </tr>
       
     
@@ -1472,7 +1646,12 @@ Summary:
           final
           <a href="../../../reference/java/util/Locale.html">Locale</a></nobr></td>
           <td class="jd-linkcol"><a href="../../../reference/java/util/Locale.html#JAPANESE">JAPANESE</a></td>
-          <td class="jd-descrcol" width="100%">Locale constant for ja.</td>
+          <td class="jd-descrcol" width="100%">
+            Locale constant for ja.
+            
+    
+
+          </td>
       </tr>
       
     
@@ -1483,7 +1662,12 @@ Summary:
           final
           <a href="../../../reference/java/util/Locale.html">Locale</a></nobr></td>
           <td class="jd-linkcol"><a href="../../../reference/java/util/Locale.html#KOREA">KOREA</a></td>
-          <td class="jd-descrcol" width="100%">Locale constant for ko_KR.</td>
+          <td class="jd-descrcol" width="100%">
+            Locale constant for ko_KR.
+            
+    
+
+          </td>
       </tr>
       
     
@@ -1494,7 +1678,12 @@ Summary:
           final
           <a href="../../../reference/java/util/Locale.html">Locale</a></nobr></td>
           <td class="jd-linkcol"><a href="../../../reference/java/util/Locale.html#KOREAN">KOREAN</a></td>
-          <td class="jd-descrcol" width="100%">Locale constant for ko.</td>
+          <td class="jd-descrcol" width="100%">
+            Locale constant for ko.
+            
+    
+
+          </td>
       </tr>
       
     
@@ -1505,7 +1694,12 @@ Summary:
           final
           <a href="../../../reference/java/util/Locale.html">Locale</a></nobr></td>
           <td class="jd-linkcol"><a href="../../../reference/java/util/Locale.html#PRC">PRC</a></td>
-          <td class="jd-descrcol" width="100%">Locale constant for zh_CN.</td>
+          <td class="jd-descrcol" width="100%">
+            Locale constant for zh_CN.
+            
+    
+
+          </td>
       </tr>
       
     
@@ -1516,7 +1710,12 @@ Summary:
           final
           <a href="../../../reference/java/util/Locale.html">Locale</a></nobr></td>
           <td class="jd-linkcol"><a href="../../../reference/java/util/Locale.html#ROOT">ROOT</a></td>
-          <td class="jd-descrcol" width="100%">Locale constant for the root locale.</td>
+          <td class="jd-descrcol" width="100%">
+            Locale constant for the root locale.
+            
+    
+
+          </td>
       </tr>
       
     
@@ -1527,7 +1726,12 @@ Summary:
           final
           <a href="../../../reference/java/util/Locale.html">Locale</a></nobr></td>
           <td class="jd-linkcol"><a href="../../../reference/java/util/Locale.html#SIMPLIFIED_CHINESE">SIMPLIFIED_CHINESE</a></td>
-          <td class="jd-descrcol" width="100%">Locale constant for zh_CN.</td>
+          <td class="jd-descrcol" width="100%">
+            Locale constant for zh_CN.
+            
+    
+
+          </td>
       </tr>
       
     
@@ -1538,7 +1742,12 @@ Summary:
           final
           <a href="../../../reference/java/util/Locale.html">Locale</a></nobr></td>
           <td class="jd-linkcol"><a href="../../../reference/java/util/Locale.html#TAIWAN">TAIWAN</a></td>
-          <td class="jd-descrcol" width="100%">Locale constant for zh_TW.</td>
+          <td class="jd-descrcol" width="100%">
+            Locale constant for zh_TW.
+            
+    
+
+          </td>
       </tr>
       
     
@@ -1549,7 +1758,12 @@ Summary:
           final
           <a href="../../../reference/java/util/Locale.html">Locale</a></nobr></td>
           <td class="jd-linkcol"><a href="../../../reference/java/util/Locale.html#TRADITIONAL_CHINESE">TRADITIONAL_CHINESE</a></td>
-          <td class="jd-descrcol" width="100%">Locale constant for zh_TW.</td>
+          <td class="jd-descrcol" width="100%">
+            Locale constant for zh_TW.
+            
+    
+
+          </td>
       </tr>
       
     
@@ -1560,7 +1774,12 @@ Summary:
           final
           <a href="../../../reference/java/util/Locale.html">Locale</a></nobr></td>
           <td class="jd-linkcol"><a href="../../../reference/java/util/Locale.html#UK">UK</a></td>
-          <td class="jd-descrcol" width="100%">Locale constant for en_GB.</td>
+          <td class="jd-descrcol" width="100%">
+            Locale constant for en_GB.
+            
+    
+
+          </td>
       </tr>
       
     
@@ -1571,7 +1790,12 @@ Summary:
           final
           <a href="../../../reference/java/util/Locale.html">Locale</a></nobr></td>
           <td class="jd-linkcol"><a href="../../../reference/java/util/Locale.html#US">US</a></td>
-          <td class="jd-descrcol" width="100%">Locale constant for en_US.</td>
+          <td class="jd-descrcol" width="100%">
+            Locale constant for en_US.
+            
+    
+
+          </td>
       </tr>
       
     
@@ -1602,7 +1826,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/util/Locale.html#Locale(java.lang.String)">Locale</a></span>(<a href="../../../reference/java/lang/String.html">String</a> language)</nobr>
         
-        <div class="jd-descrdiv">Constructs a new <code>Locale</code> using the specified language.</div>
+        <div class="jd-descrdiv">
+          Constructs a new <code>Locale</code> using the specified language.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1620,7 +1849,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/util/Locale.html#Locale(java.lang.String, java.lang.String)">Locale</a></span>(<a href="../../../reference/java/lang/String.html">String</a> language, <a href="../../../reference/java/lang/String.html">String</a> country)</nobr>
         
-        <div class="jd-descrdiv">Constructs a new <code>Locale</code> using the specified language and country codes.</div>
+        <div class="jd-descrdiv">
+          Constructs a new <code>Locale</code> using the specified language and country codes.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1638,8 +1872,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/util/Locale.html#Locale(java.lang.String, java.lang.String, java.lang.String)">Locale</a></span>(<a href="../../../reference/java/lang/String.html">String</a> language, <a href="../../../reference/java/lang/String.html">String</a> country, <a href="../../../reference/java/lang/String.html">String</a> variant)</nobr>
         
-        <div class="jd-descrdiv">Constructs a new <code>Locale</code> using the specified language, country,
- and variant codes.</div>
+        <div class="jd-descrdiv">
+          Constructs a new <code>Locale</code> using the specified language, country,
+ and variant codes.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1670,7 +1909,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/util/Locale.html#clone()">clone</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Creates and returns a copy of this <code>Object</code>.</div>
+        <div class="jd-descrdiv">
+          Creates and returns a copy of this <code>Object</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1688,14 +1932,42 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/util/Locale.html#equals(java.lang.Object)">equals</a></span>(<a href="../../../reference/java/lang/Object.html">Object</a> object)</nobr>
         
-        <div class="jd-descrdiv">Returns true if <code>object</code> is a locale with the same language,
- country and variant.</div>
+        <div class="jd-descrdiv">
+          Returns true if <code>object</code> is a locale with the same language,
+ country and variant.
+          
+    
+
+        </div>
   
   </td></tr>
 
 
 	 
-    <tr class="alt-color api apilevel-1" >
+    <tr class="alt-color api apilevel-21" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            static
+            
+            <a href="../../../reference/java/util/Locale.html">Locale</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/java/util/Locale.html#forLanguageTag(java.lang.String)">forLanguageTag</a></span>(<a href="../../../reference/java/lang/String.html">String</a> languageTag)</nobr>
+        
+        <div class="jd-descrdiv">
+          Returns a locale for a given BCP-47 language tag.
+          
+    
+
+        </div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1707,13 +1979,18 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/util/Locale.html#getAvailableLocales()">getAvailableLocales</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns the system's installed locales.</div>
+        <div class="jd-descrdiv">
+          Returns the system's installed locales.
+          
+    
+
+        </div>
   
   </td></tr>
 
 
 	 
-    <tr class=" api apilevel-1" >
+    <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1725,14 +2002,19 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/util/Locale.html#getCountry()">getCountry</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns the country code for this locale, or <code>""</code> if this locale
- doesn't correspond to a specific country.</div>
+        <div class="jd-descrdiv">
+          Returns the country code for this locale, or <code>""</code> if this locale
+ doesn't correspond to a specific country.
+          
+    
+
+        </div>
   
   </td></tr>
 
 
 	 
-    <tr class="alt-color api apilevel-1" >
+    <tr class=" api apilevel-1" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1744,13 +2026,18 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/util/Locale.html#getDefault()">getDefault</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns the user's preferred locale.</div>
+        <div class="jd-descrdiv">
+          Returns the user's preferred locale.
+          
+    
+
+        </div>
   
   </td></tr>
 
 
 	 
-    <tr class=" api apilevel-1" >
+    <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1762,25 +2049,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/util/Locale.html#getDisplayCountry(java.util.Locale)">getDisplayCountry</a></span>(<a href="../../../reference/java/util/Locale.html">Locale</a> locale)</nobr>
         
-        <div class="jd-descrdiv">Returns the name of this locale's country, localized to <code>locale</code>.</div>
-  
-  </td></tr>
+        <div class="jd-descrdiv">
+          Returns the name of this locale's country, localized to <code>locale</code>.
+          
+    
 
-
-	 
-    <tr class="alt-color api apilevel-1" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            final
-            
-            
-            <a href="../../../reference/java/lang/String.html">String</a></nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/java/util/Locale.html#getDisplayCountry()">getDisplayCountry</a></span>()</nobr>
-        
-        <div class="jd-descrdiv">Equivalent to <code>getDisplayCountry(Locale.getDefault())</code>.</div>
+        </div>
   
   </td></tr>
 
@@ -1796,9 +2070,14 @@ Summary:
             <a href="../../../reference/java/lang/String.html">String</a></nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/java/util/Locale.html#getDisplayLanguage()">getDisplayLanguage</a></span>()</nobr>
+        <span class="sympad"><a href="../../../reference/java/util/Locale.html#getDisplayCountry()">getDisplayCountry</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Equivalent to <code>getDisplayLanguage(Locale.getDefault())</code>.</div>
+        <div class="jd-descrdiv">
+          Equivalent to <code>getDisplayCountry(Locale.getDefault())</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1816,7 +2095,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/util/Locale.html#getDisplayLanguage(java.util.Locale)">getDisplayLanguage</a></span>(<a href="../../../reference/java/util/Locale.html">Locale</a> locale)</nobr>
         
-        <div class="jd-descrdiv">Returns the name of this locale's language, localized to <code>locale</code>.</div>
+        <div class="jd-descrdiv">
+          Returns the name of this locale's language, localized to <code>locale</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1826,16 +2110,20 @@ Summary:
         <td class="jd-typecol"><nobr>
             
             
-            
+            final
             
             
             <a href="../../../reference/java/lang/String.html">String</a></nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/java/util/Locale.html#getDisplayName(java.util.Locale)">getDisplayName</a></span>(<a href="../../../reference/java/util/Locale.html">Locale</a> locale)</nobr>
+        <span class="sympad"><a href="../../../reference/java/util/Locale.html#getDisplayLanguage()">getDisplayLanguage</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns this locale's language name, country name, and variant, localized
- to <code>locale</code>.</div>
+        <div class="jd-descrdiv">
+          Equivalent to <code>getDisplayLanguage(Locale.getDefault())</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1853,13 +2141,88 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/util/Locale.html#getDisplayName()">getDisplayName</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Equivalent to <code>getDisplayName(Locale.getDefault())</code>.</div>
+        <div class="jd-descrdiv">
+          Equivalent to <code>getDisplayName(Locale.getDefault())</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
 
 	 
     <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../reference/java/lang/String.html">String</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/java/util/Locale.html#getDisplayName(java.util.Locale)">getDisplayName</a></span>(<a href="../../../reference/java/util/Locale.html">Locale</a> locale)</nobr>
+        
+        <div class="jd-descrdiv">
+          Returns this locale's language name, country name, and variant, localized
+ to <code>locale</code>.
+          
+    
+
+        </div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-21" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../reference/java/lang/String.html">String</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/java/util/Locale.html#getDisplayScript()">getDisplayScript</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">
+          Equivalent to <code>getDisplayScript(Locale.getDefault()))</code>
+          
+    
+
+        </div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-21" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../reference/java/lang/String.html">String</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/java/util/Locale.html#getDisplayScript(java.util.Locale)">getDisplayScript</a></span>(<a href="../../../reference/java/util/Locale.html">Locale</a> locale)</nobr>
+        
+        <div class="jd-descrdiv">
+          Returns the name of this locale's script code, localized to <code><a href="../../../reference/java/util/Locale.html">Locale</a></code>.
+          
+    
+
+        </div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1871,14 +2234,19 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/util/Locale.html#getDisplayVariant()">getDisplayVariant</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns the full variant name in the default <code>Locale</code> for the variant code of
- this <code>Locale</code>.</div>
+        <div class="jd-descrdiv">
+          Returns the full variant name in the default <code>Locale</code> for the variant code of
+ this <code>Locale</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
 
 	 
-    <tr class="alt-color api apilevel-1" >
+    <tr class=" api apilevel-1" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1890,14 +2258,66 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/util/Locale.html#getDisplayVariant(java.util.Locale)">getDisplayVariant</a></span>(<a href="../../../reference/java/util/Locale.html">Locale</a> locale)</nobr>
         
-        <div class="jd-descrdiv">Returns the full variant name in the specified <code>Locale</code> for the variant code
- of this <code>Locale</code>.</div>
+        <div class="jd-descrdiv">
+          Returns the full variant name in the specified <code>Locale</code> for the variant code
+ of this <code>Locale</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
 
 	 
-    <tr class=" api apilevel-1" >
+    <tr class="alt-color api apilevel-21" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../reference/java/lang/String.html">String</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/java/util/Locale.html#getExtension(char)">getExtension</a></span>(char extensionKey)</nobr>
+        
+        <div class="jd-descrdiv">
+          Returns the BCP-47 extension whose key is <code>extensionKey</code>, or <code>null</code>
+ if this locale does not contain the extension.
+          
+    
+
+        </div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-21" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../reference/java/util/Set.html">Set</a>&lt;<a href="../../../reference/java/lang/Character.html">Character</a>&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/java/util/Locale.html#getExtensionKeys()">getExtensionKeys</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">
+          Returns the set of BCP-47 extensions this locale contains.
+          
+    
+
+        </div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1909,14 +2329,19 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/util/Locale.html#getISO3Country()">getISO3Country</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns the three-letter ISO 3166 country code which corresponds to the country
- code for this <code>Locale</code>.</div>
+        <div class="jd-descrdiv">
+          Returns the three-letter ISO 3166 country code which corresponds to the country
+ code for this <code>Locale</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
 
 	 
-    <tr class="alt-color api apilevel-1" >
+    <tr class=" api apilevel-1" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1928,14 +2353,19 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/util/Locale.html#getISO3Language()">getISO3Language</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns the three-letter ISO 639-2/T language code which corresponds to the language
- code for this <code>Locale</code>.</div>
+        <div class="jd-descrdiv">
+          Returns the three-letter ISO 639-2/T language code which corresponds to the language
+ code for this <code>Locale</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
 
 	 
-    <tr class=" api apilevel-1" >
+    <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1947,14 +2377,19 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/util/Locale.html#getISOCountries()">getISOCountries</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns an array of strings containing all the two-letter ISO 3166 country codes that can be
- used as the country code when constructing a <code>Locale</code>.</div>
+        <div class="jd-descrdiv">
+          Returns an array of strings containing all the two-letter ISO 3166 country codes that can be
+ used as the country code when constructing a <code>Locale</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
 
 	 
-    <tr class="alt-color api apilevel-1" >
+    <tr class=" api apilevel-1" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1966,14 +2401,19 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/util/Locale.html#getISOLanguages()">getISOLanguages</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns an array of strings containing all the two-letter ISO 639-1 language codes that can be
- used as the language code when constructing a <code>Locale</code>.</div>
+        <div class="jd-descrdiv">
+          Returns an array of strings containing all the two-letter ISO 639-1 language codes that can be
+ used as the language code when constructing a <code>Locale</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
 
 	 
-    <tr class=" api apilevel-1" >
+    <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1985,14 +2425,112 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/util/Locale.html#getLanguage()">getLanguage</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns the language code for this <code>Locale</code> or the empty string if no language
- was set.</div>
+        <div class="jd-descrdiv">
+          Returns the language code for this <code>Locale</code> or the empty string if no language
+ was set.
+          
+    
+
+        </div>
   
   </td></tr>
 
 
 	 
-    <tr class="alt-color api apilevel-1" >
+    <tr class=" api apilevel-21" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../reference/java/lang/String.html">String</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/java/util/Locale.html#getScript()">getScript</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">
+          Returns the script code for this <code>Locale</code> or an empty <code>String</code> if no script
+ was set.
+          
+    
+
+        </div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-21" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../reference/java/util/Set.html">Set</a>&lt;<a href="../../../reference/java/lang/String.html">String</a>&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/java/util/Locale.html#getUnicodeLocaleAttributes()">getUnicodeLocaleAttributes</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">
+          Returns the set of unicode locale extension attributes this locale contains.
+          
+    
+
+        </div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-21" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../reference/java/util/Set.html">Set</a>&lt;<a href="../../../reference/java/lang/String.html">String</a>&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/java/util/Locale.html#getUnicodeLocaleKeys()">getUnicodeLocaleKeys</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">
+          Returns the set of unicode locale extension keywords this locale contains.
+          
+    
+
+        </div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-21" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../reference/java/lang/String.html">String</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/java/util/Locale.html#getUnicodeLocaleType(java.lang.String)">getUnicodeLocaleType</a></span>(<a href="../../../reference/java/lang/String.html">String</a> keyWord)</nobr>
+        
+        <div class="jd-descrdiv">
+          Returns the <code>type</code> for the specified unicode locale extension <code>key</code>.
+          
+    
+
+        </div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
         <td class="jd-typecol"><nobr>
             
             
@@ -2004,14 +2542,19 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/util/Locale.html#getVariant()">getVariant</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns the variant code for this <code>Locale</code> or an empty <code>String</code> if no variant
- was set.</div>
+        <div class="jd-descrdiv">
+          Returns the variant code for this <code>Locale</code> or an empty <code>String</code> if no variant
+ was set.
+          
+    
+
+        </div>
   
   </td></tr>
 
 
 	 
-    <tr class=" api apilevel-1" >
+    <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol"><nobr>
             
             synchronized
@@ -2023,13 +2566,18 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/util/Locale.html#hashCode()">hashCode</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns an integer hash code for this object.</div>
+        <div class="jd-descrdiv">
+          Returns an integer hash code for this object.
+          
+    
+
+        </div>
   
   </td></tr>
 
 
 	 
-    <tr class="alt-color api apilevel-1" >
+    <tr class=" api apilevel-1" >
         <td class="jd-typecol"><nobr>
             
             synchronized
@@ -2041,7 +2589,35 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/util/Locale.html#setDefault(java.util.Locale)">setDefault</a></span>(<a href="../../../reference/java/util/Locale.html">Locale</a> locale)</nobr>
         
-        <div class="jd-descrdiv">Overrides the default locale.</div>
+        <div class="jd-descrdiv">
+          Overrides the default locale.
+          
+    
+
+        </div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-21" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../reference/java/lang/String.html">String</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/java/util/Locale.html#toLanguageTag()">toLanguageTag</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">
+          Returns a well formed BCP-47 language tag that identifies this locale.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2059,7 +2635,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/util/Locale.html#toString()">toString</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns the string representation of this <code>Locale</code>.</div>
+        <div class="jd-descrdiv">
+          Returns the string representation of this <code>Locale</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2111,7 +2692,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#clone()">clone</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Creates and returns a copy of this <code>Object</code>.</div>
+        <div class="jd-descrdiv">
+          Creates and returns a copy of this <code>Object</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2129,8 +2715,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#equals(java.lang.Object)">equals</a></span>(<a href="../../../reference/java/lang/Object.html">Object</a> o)</nobr>
         
-        <div class="jd-descrdiv">Compares this instance with the specified object and indicates if they
- are equal.</div>
+        <div class="jd-descrdiv">
+          Compares this instance with the specified object and indicates if they
+ are equal.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2148,7 +2739,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#finalize()">finalize</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Invoked when the garbage collector has detected that this instance is no longer reachable.</div>
+        <div class="jd-descrdiv">
+          Invoked when the garbage collector has detected that this instance is no longer reachable.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2166,8 +2762,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#getClass()">getClass</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns the unique instance of <code><a href="../../../reference/java/lang/Class.html">Class</a></code> that represents this
- object's class.</div>
+        <div class="jd-descrdiv">
+          Returns the unique instance of <code><a href="../../../reference/java/lang/Class.html">Class</a></code> that represents this
+ object's class.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2185,7 +2786,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#hashCode()">hashCode</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns an integer hash code for this object.</div>
+        <div class="jd-descrdiv">
+          Returns an integer hash code for this object.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2203,8 +2809,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#notify()">notify</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Causes a thread which is waiting on this object's monitor (by means of
- calling one of the <code>wait()</code> methods) to be woken up.</div>
+        <div class="jd-descrdiv">
+          Causes a thread which is waiting on this object's monitor (by means of
+ calling one of the <code>wait()</code> methods) to be woken up.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2222,8 +2833,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#notifyAll()">notifyAll</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Causes all threads which are waiting on this object's monitor (by means
- of calling one of the <code>wait()</code> methods) to be woken up.</div>
+        <div class="jd-descrdiv">
+          Causes all threads which are waiting on this object's monitor (by means
+ of calling one of the <code>wait()</code> methods) to be woken up.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2241,8 +2857,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#toString()">toString</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns a string containing a concise, human-readable description of this
- object.</div>
+        <div class="jd-descrdiv">
+          Returns a string containing a concise, human-readable description of this
+ object.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2260,7 +2881,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#wait()">wait</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object.</div>
+        <div class="jd-descrdiv">
+          Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2278,8 +2904,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#wait(long, int)">wait</a></span>(long millis, int nanos)</nobr>
         
-        <div class="jd-descrdiv">Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object or until the
- specified timeout expires.</div>
+        <div class="jd-descrdiv">
+          Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object or until the
+ specified timeout expires.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2297,8 +2928,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#wait(long)">wait</a></span>(long millis)</nobr>
         
-        <div class="jd-descrdiv">Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object or until the
- specified timeout expires.</div>
+        <div class="jd-descrdiv">
+          Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object or until the
+ specified timeout expires.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2336,6 +2972,103 @@ From class
 <!-- Constants -->
 
 
+<!-- ========= ENUM CONSTANTS DETAIL ======== -->
+<h2>Constants</h2>
+
+
+
+
+<A NAME="PRIVATE_USE_EXTENSION"></A>
+
+<div class="jd-details api apilevel-21"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        char
+      </span>
+        PRIVATE_USE_EXTENSION
+    </h4>
+      <div class="api-level">
+        
+  Added in <a href="../../../guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 21</a>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+    
+
+      
+  <div class="jd-tagdata jd-tagdescr"><p>BCP-47 extension identifier (or "singleton") for the private
+ use extension.
+
+ See <code><a href="../../../reference/java/util/Locale.html#getExtension(char)">getExtension(char)</a></code> and <code><a href="../../../reference/java/util/Locale.Builder.html#setExtension(char, java.lang.String)">setExtension(char, String)</a></code>.</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                120
+                (0x00000078)
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="UNICODE_LOCALE_EXTENSION"></A>
+
+<div class="jd-details api apilevel-21"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        char
+      </span>
+        UNICODE_LOCALE_EXTENSION
+    </h4>
+      <div class="api-level">
+        
+  Added in <a href="../../../guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 21</a>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+    
+
+      
+  <div class="jd-tagdata jd-tagdescr"><p>BCP-47 extension identifier (or "singleton") for the unicode locale extension.
+
+
+ See <code><a href="../../../reference/java/util/Locale.html#getExtension(char)">getExtension(char)</a></code> and <code><a href="../../../reference/java/util/Locale.Builder.html#setExtension(char, java.lang.String)">setExtension(char, String)</a></code>.</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                117
+                (0x00000075)
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+
 <!-- Fields -->
 
 
@@ -2365,6 +3098,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Locale constant for en_CA.
 </p></div>
@@ -2396,6 +3132,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Locale constant for fr_CA.
 </p></div>
 
@@ -2425,6 +3164,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Locale constant for zh_CN.
 </p></div>
@@ -2456,6 +3198,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Locale constant for zh.
 </p></div>
 
@@ -2485,6 +3230,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Locale constant for en.
 </p></div>
@@ -2516,6 +3264,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Locale constant for fr_FR.
 </p></div>
 
@@ -2545,6 +3296,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Locale constant for fr.
 </p></div>
@@ -2576,6 +3330,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Locale constant for de.
 </p></div>
 
@@ -2605,6 +3362,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Locale constant for de_DE.
 </p></div>
@@ -2636,6 +3396,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Locale constant for it.
 </p></div>
 
@@ -2665,6 +3428,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Locale constant for it_IT.
 </p></div>
@@ -2696,6 +3462,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Locale constant for ja_JP.
 </p></div>
 
@@ -2725,6 +3494,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Locale constant for ja.
 </p></div>
@@ -2756,6 +3528,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Locale constant for ko_KR.
 </p></div>
 
@@ -2785,6 +3560,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Locale constant for ko.
 </p></div>
@@ -2816,6 +3594,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Locale constant for zh_CN.
 </p></div>
 
@@ -2845,6 +3626,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Locale constant for the root locale. The root locale has an empty language,
  country, and variant.</p></div>
@@ -2876,6 +3660,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Locale constant for zh_CN.
 </p></div>
 
@@ -2905,6 +3692,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Locale constant for zh_TW.
 </p></div>
@@ -2936,6 +3726,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Locale constant for zh_TW.
 </p></div>
 
@@ -2966,6 +3759,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Locale constant for en_GB.
 </p></div>
 
@@ -2995,6 +3791,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Locale constant for en_US.
 </p></div>
@@ -3038,6 +3837,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Constructs a new <code>Locale</code> using the specified language.
 </p></div>
 
@@ -3069,6 +3871,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Constructs a new <code>Locale</code> using the specified language and country codes.
 </p></div>
 
@@ -3099,6 +3904,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Constructs a new <code>Locale</code> using the specified language, country,
  and variant codes.
@@ -3147,6 +3955,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Creates and returns a copy of this <code>Object</code>. The default
  implementation returns a so-called "shallow" copy: It creates a new
  instance of the same class and then copies the field values (including
@@ -3188,6 +3999,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns true if <code>object</code> is a locale with the same language,
  country and variant.
 </p></div>
@@ -3203,6 +4017,51 @@ From class
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
       <ul class="nolist"><li><code>true</code> if the specified object is equal to this <code>Object</code>; <code>false</code> otherwise.</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="forLanguageTag(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-21"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        <a href="../../../reference/java/util/Locale.html">Locale</a>
+      </span>
+      <span class="sympad">forLanguageTag</span>
+      <span class="normal">(<a href="../../../reference/java/lang/String.html">String</a> languageTag)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+  Added in <a href="../../../guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 21</a></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+    
+
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Returns a locale for a given BCP-47 language tag. This method is more
+ lenient than <code><a href="../../../reference/java/util/Locale.Builder.html#setLanguageTag(java.lang.String)">setLanguageTag(String)</a></code>. For a given language tag, parsing
+ will proceed up to the first malformed subtag. All subsequent tags are discarded.
+ Note that language tags use <code>-</code> rather than <code>_</code>, for example <code>en-US</code>.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th><a href="../../../reference/java/lang/NullPointerException.html">NullPointerException</a></td>
+            <td>if <code>languageTag</code> is <code>null</code>.</td>
+        </tr>
+      </table>
   </div>
 
     </div>
@@ -3232,6 +4091,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Returns the system's installed locales. This array always includes <code>Locale.US</code>, and usually several others. Most locale-sensitive classes
  offer their own <code>getAvailableLocales</code> method, which should be
@@ -3270,6 +4132,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns the country code for this locale, or <code>""</code> if this locale
  doesn't correspond to a specific country.
 </p></div>
@@ -3301,6 +4166,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Returns the user's preferred locale. This may have been overridden for
  this process with <code><a href="../../../reference/java/util/Locale.html#setDefault(java.util.Locale)">setDefault(Locale)</a></code>.
@@ -3337,6 +4205,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns the name of this locale's country, localized to <code>locale</code>.
  Returns the empty string if this locale does not correspond to a specific
  country.
@@ -3370,38 +4241,10 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Equivalent to <code>getDisplayCountry(Locale.getDefault())</code>.
-</p></div>
+    
 
-    </div>
-</div>
-
-
-<A NAME="getDisplayLanguage()"></A>
-
-<div class="jd-details api apilevel-1"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-        final 
-         
-         
-        <a href="../../../reference/java/lang/String.html">String</a>
-      </span>
-      <span class="sympad">getDisplayLanguage</span>
-      <span class="normal">()</span>
-    </h4>
-      <div class="api-level">
-        <div>
-  Added in <a href="../../../guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 1</a></div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Equivalent to <code>getDisplayLanguage(Locale.getDefault())</code>.
+  <div class="jd-tagdata jd-tagdescr"><p>Equivalent to <code>getDisplayCountry(Locale.getDefault())</code>.
 </p></div>
 
     </div>
@@ -3432,6 +4275,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns the name of this locale's language, localized to <code>locale</code>.
  If the language name is unknown, the language code is returned.
 </p></div>
@@ -3440,20 +4286,20 @@ From class
 </div>
 
 
-<A NAME="getDisplayName(java.util.Locale)"></A>
+<A NAME="getDisplayLanguage()"></A>
 
 <div class="jd-details api apilevel-1"> 
     <h4 class="jd-details-title">
       <span class="normal">
         public 
          
-         
+        final 
          
          
         <a href="../../../reference/java/lang/String.html">String</a>
       </span>
-      <span class="sympad">getDisplayName</span>
-      <span class="normal">(<a href="../../../reference/java/util/Locale.html">Locale</a> locale)</span>
+      <span class="sympad">getDisplayLanguage</span>
+      <span class="normal">()</span>
     </h4>
       <div class="api-level">
         <div>
@@ -3464,20 +4310,10 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Returns this locale's language name, country name, and variant, localized
- to <code>locale</code>. The exact output form depends on whether this locale
- corresponds to a specific language, script, country and variant.
+    
 
- <p>For example:
- <ul>
- <li><code>new Locale("en").getDisplayName(Locale.US)</code> -> <code>English</code>
- <li><code>new Locale("en", "US").getDisplayName(Locale.US)</code> -> <code>English (United States)</code>
- <li><code>new Locale("en", "US", "POSIX").getDisplayName(Locale.US)</code> -> <code>English (United States,Computer)</code>
- <li><code>Locale.fromLanguageTag("zh-Hant-CN").getDisplayName(Locale.US)</code> -> <code>Chinese (Traditional Han,China)</code>
- <li><code>new Locale("en").getDisplayName(Locale.FRANCE)</code> -> <code>anglais</code>
- <li><code>new Locale("en", "US").getDisplayName(Locale.FRANCE)</code> -> <code>anglais (États-Unis)</code>
- <li><code>new Locale("en", "US", "POSIX").getDisplayName(Locale.FRANCE)</code> -> <code>anglais (États-Unis,informatique)</code>.
- </ul>
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Equivalent to <code>getDisplayLanguage(Locale.getDefault())</code>.
 </p></div>
 
     </div>
@@ -3508,8 +4344,126 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Equivalent to <code>getDisplayName(Locale.getDefault())</code>.
 </p></div>
+
+    </div>
+</div>
+
+
+<A NAME="getDisplayName(java.util.Locale)"></A>
+
+<div class="jd-details api apilevel-1"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="../../../reference/java/lang/String.html">String</a>
+      </span>
+      <span class="sympad">getDisplayName</span>
+      <span class="normal">(<a href="../../../reference/java/util/Locale.html">Locale</a> locale)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+  Added in <a href="../../../guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 1</a></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+    
+
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Returns this locale's language name, country name, and variant, localized
+ to <code>locale</code>. The exact output form depends on whether this locale
+ corresponds to a specific language, script, country and variant.
+
+ <p>For example:
+ <ul>
+ <li><code>new Locale("en").getDisplayName(Locale.US)</code> -> <code>English</code>
+ <li><code>new Locale("en", "US").getDisplayName(Locale.US)</code> -> <code>English (United States)</code>
+ <li><code>new Locale("en", "US", "POSIX").getDisplayName(Locale.US)</code> -> <code>English (United States,Computer)</code>
+ <li><code>Locale.fromLanguageTag("zh-Hant-CN").getDisplayName(Locale.US)</code> -> <code>Chinese (Traditional Han,China)</code>
+ <li><code>new Locale("en").getDisplayName(Locale.FRANCE)</code> -> <code>anglais</code>
+ <li><code>new Locale("en", "US").getDisplayName(Locale.FRANCE)</code> -> <code>anglais (États-Unis)</code>
+ <li><code>new Locale("en", "US", "POSIX").getDisplayName(Locale.FRANCE)</code> -> <code>anglais (États-Unis,informatique)</code>.
+ </ul>
+</p></div>
+
+    </div>
+</div>
+
+
+<A NAME="getDisplayScript()"></A>
+
+<div class="jd-details api apilevel-21"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="../../../reference/java/lang/String.html">String</a>
+      </span>
+      <span class="sympad">getDisplayScript</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+  Added in <a href="../../../guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 21</a></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+    
+
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Equivalent to <code>getDisplayScript(Locale.getDefault()))</code></p></div>
+
+    </div>
+</div>
+
+
+<A NAME="getDisplayScript(java.util.Locale)"></A>
+
+<div class="jd-details api apilevel-21"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="../../../reference/java/lang/String.html">String</a>
+      </span>
+      <span class="sympad">getDisplayScript</span>
+      <span class="normal">(<a href="../../../reference/java/util/Locale.html">Locale</a> locale)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+  Added in <a href="../../../guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 21</a></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+    
+
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Returns the name of this locale's script code, localized to <code><a href="../../../reference/java/util/Locale.html">Locale</a></code>. If the
+ script code is unknown, the return value of this method is the same as that of
+ <code><a href="../../../reference/java/util/Locale.html#getScript()">getScript()</a></code>.</p></div>
 
     </div>
 </div>
@@ -3538,6 +4492,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Returns the full variant name in the default <code>Locale</code> for the variant code of
  this <code>Locale</code>. If there is no matching variant name, the variant code is
@@ -3571,9 +4528,86 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns the full variant name in the specified <code>Locale</code> for the variant code
  of this <code>Locale</code>. If there is no matching variant name, the variant code is
  returned.</p></div>
+
+    </div>
+</div>
+
+
+<A NAME="getExtension(char)"></A>
+
+<div class="jd-details api apilevel-21"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="../../../reference/java/lang/String.html">String</a>
+      </span>
+      <span class="sympad">getExtension</span>
+      <span class="normal">(char extensionKey)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+  Added in <a href="../../../guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 21</a></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+    
+
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Returns the BCP-47 extension whose key is <code>extensionKey</code>, or <code>null</code>
+ if this locale does not contain the extension.
+
+ Individual Keywords and attributes for the unicode
+ locale extension can be fetched using <code><a href="../../../reference/java/util/Locale.html#getUnicodeLocaleAttributes()">getUnicodeLocaleAttributes()</a></code>,
+ <code><a href="../../../reference/java/util/Locale.html#getUnicodeLocaleKeys()">getUnicodeLocaleKeys()</a></code>  and <code><a href="../../../reference/java/util/Locale.html#getUnicodeLocaleType(java.lang.String)">getUnicodeLocaleType(String)</a></code>.</p></div>
+
+    </div>
+</div>
+
+
+<A NAME="getExtensionKeys()"></A>
+
+<div class="jd-details api apilevel-21"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="../../../reference/java/util/Set.html">Set</a>&lt;<a href="../../../reference/java/lang/Character.html">Character</a>&gt;
+      </span>
+      <span class="sympad">getExtensionKeys</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+  Added in <a href="../../../guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 21</a></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+    
+
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Returns the set of BCP-47 extensions this locale contains.
+
+ See <a href="https://tools.ietf.org/html/bcp47#section-2.1">
+     the IETF BCP-47 specification</a> (Section 2.2.6) for details.</p></div>
 
     </div>
 </div>
@@ -3602,6 +4636,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Returns the three-letter ISO 3166 country code which corresponds to the country
  code for this <code>Locale</code>.</p></div>
@@ -3644,6 +4681,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns the three-letter ISO 639-2/T language code which corresponds to the language
  code for this <code>Locale</code>.</p></div>
   <div class="jd-tagdata">
@@ -3685,6 +4725,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns an array of strings containing all the two-letter ISO 3166 country codes that can be
  used as the country code when constructing a <code>Locale</code>.
 </p></div>
@@ -3716,6 +4759,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Returns an array of strings containing all the two-letter ISO 639-1 language codes that can be
  used as the language code when constructing a <code>Locale</code>.
@@ -3749,9 +4795,157 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns the language code for this <code>Locale</code> or the empty string if no language
  was set.
 </p></div>
+
+    </div>
+</div>
+
+
+<A NAME="getScript()"></A>
+
+<div class="jd-details api apilevel-21"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="../../../reference/java/lang/String.html">String</a>
+      </span>
+      <span class="sympad">getScript</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+  Added in <a href="../../../guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 21</a></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+    
+
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Returns the script code for this <code>Locale</code> or an empty <code>String</code> if no script
+ was set.
+
+ If set, the script code will be a title cased string of length 4, as per the ISO 15924
+ specification.</p></div>
+
+    </div>
+</div>
+
+
+<A NAME="getUnicodeLocaleAttributes()"></A>
+
+<div class="jd-details api apilevel-21"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="../../../reference/java/util/Set.html">Set</a>&lt;<a href="../../../reference/java/lang/String.html">String</a>&gt;
+      </span>
+      <span class="sympad">getUnicodeLocaleAttributes</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+  Added in <a href="../../../guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 21</a></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+    
+
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Returns the set of unicode locale extension attributes this locale contains.
+
+ For more information about attributes, see <code><a href="../../../reference/java/util/Locale.Builder.html#addUnicodeLocaleAttribute(java.lang.String)">addUnicodeLocaleAttribute(String)</a></code>
+ and <a href="http://www.unicode.org/reports/tr35/#BCP47">Unicode Technical Standard #35</a></p></div>
+
+    </div>
+</div>
+
+
+<A NAME="getUnicodeLocaleKeys()"></A>
+
+<div class="jd-details api apilevel-21"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="../../../reference/java/util/Set.html">Set</a>&lt;<a href="../../../reference/java/lang/String.html">String</a>&gt;
+      </span>
+      <span class="sympad">getUnicodeLocaleKeys</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+  Added in <a href="../../../guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 21</a></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+    
+
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Returns the set of unicode locale extension keywords this locale contains.
+
+ For more information about types and keywords, see <code><a href="../../../reference/java/util/Locale.Builder.html#setUnicodeLocaleKeyword(java.lang.String, java.lang.String)">setUnicodeLocaleKeyword(String, String)</a></code>
+ and <a href="http://www.unicode.org/reports/tr35/#BCP47">Unicode Technical Standard #35</a></p></div>
+
+    </div>
+</div>
+
+
+<A NAME="getUnicodeLocaleType(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-21"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="../../../reference/java/lang/String.html">String</a>
+      </span>
+      <span class="sympad">getUnicodeLocaleType</span>
+      <span class="normal">(<a href="../../../reference/java/lang/String.html">String</a> keyWord)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+  Added in <a href="../../../guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 21</a></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+    
+
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Returns the <code>type</code> for the specified unicode locale extension <code>key</code>.
+
+ For more information about types and keywords, see <code><a href="../../../reference/java/util/Locale.Builder.html#setUnicodeLocaleKeyword(java.lang.String, java.lang.String)">setUnicodeLocaleKeyword(String, String)</a></code>
+ and <a href="http://www.unicode.org/reports/tr35/#BCP47">Unicode Technical Standard #35</a></p></div>
 
     </div>
 </div>
@@ -3780,6 +4974,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Returns the variant code for this <code>Locale</code> or an empty <code>String</code> if no variant
  was set.
@@ -3812,6 +5009,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Returns an integer hash code for this object. By contract, any two
  objects for which <code><a href="../../../reference/java/lang/Object.html#equals(java.lang.Object)">equals(Object)</a></code> returns <code>true</code> must return
@@ -3857,6 +5057,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Overrides the default locale. This does not affect system configuration,
  and attempts to override the system-provided default locale may
  themselves be overridden by actual changes to the system configuration.
@@ -3864,6 +5067,55 @@ From class
  passing the appropriate locale to each locale-sensitive method that's
  called.
 </p></div>
+
+    </div>
+</div>
+
+
+<A NAME="toLanguageTag()"></A>
+
+<div class="jd-details api apilevel-21"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="../../../reference/java/lang/String.html">String</a>
+      </span>
+      <span class="sympad">toLanguageTag</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+  Added in <a href="../../../guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 21</a></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+    
+
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Returns a well formed BCP-47 language tag that identifies this locale.
+
+ Note that this locale itself might consist of ill formed fields, since the
+ public <code>Locale</code> constructors do not perform validity checks to maintain
+ backwards compatibility. When this is the case, this method will either replace
+ ill formed fields with standard BCP-47 subtags (For eg. "und" (undetermined)
+ for invalid languages) or omit them altogether.
+
+ Additionally, ill formed variants will result in the remainder of the tag
+ (both variants and extensions) being moved to the private use extension,
+ where they will appear after a subtag whose value is <code>"lvariant"</code>.
+
+ It's also important to note that the BCP-47 tag is well formed in the sense
+ that it is unambiguously parseable into its specified components. We do not
+ require that any of the components are registered with the applicable registries.
+ For example, we do not require scripts to be a registered ISO 15924 scripts or
+ languages to appear in the ISO-639-2 code list.</p></div>
 
     </div>
 </div>
@@ -3892,6 +5144,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Returns the string representation of this <code>Locale</code>. It consists of the
  language code, country code and variant separated by underscores.

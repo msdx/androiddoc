@@ -82,6 +82,19 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 <html>
 <head>
 
@@ -97,7 +110,7 @@
 href="http://fonts.useso.com/css?family=Roboto+Condensed">
 <link rel="stylesheet" href="http://fonts.useso.com/css?family=Roboto:light,regular,medium,thin,italic,mediumitalic,bold"
   title="roboto">
-<link href="../../../assets/css/default.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/default.css?v=2" rel="stylesheet" type="text/css">
 
 
 <!-- FULLSCREEN STYLESHEET -->
@@ -106,30 +119,31 @@ type="text/css">
 
 
 <!-- JAVASCRIPT -->
-<script src="http://googleapiscdn.qiniudn.com/www.google.com/jsapi" type="text/javascript"></script>
+<script src="http://www.google.com/jsapi" type="text/javascript"></script>
 <script src="../../../assets/js/android_3p-bundle.js" type="text/javascript"></script>
 <script type="text/javascript">
   var toRoot = "../../../";
   var metaTags = [];
   var devsite = false;
 </script>
-<script src="../../../assets/js/docs.js" type="text/javascript"></script>
+<script src="../../../assets/js/docs.js?v=2" type="text/javascript"></script>
 
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-5831155-1']);
-  _gaq.push(['_trackPageview']);
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
+  ga('create', 'UA-5831155-1', 'android.com');
+  ga('create', 'UA-49880327-2', 'android.com', {'name': 'universal'});  // New tracker);
+  ga('send', 'pageview');
+  ga('universal.send', 'pageview'); // Send page view for new tracker.
 </script>
+
 </head>
 
 <body class="gc-documentation 
-  develop" itemscope itemtype="http://schema.org/Article">
+  develop reference" itemscope itemtype="http://schema.org/Article">
   <div id="doc-api-level" class="11" style="display:none"></div>
   <a name="top"></a>
 
@@ -139,6 +153,10 @@ type="text/css">
   <!-- Header -->
   <div id="header-wrapper">
     <div id="header">
+
+    
+
+
       <div class="wrap" id="header-wrap">
         <div class="col-3 logo">
           <a href="../../../index.html">
@@ -260,11 +278,20 @@ type="text/css">
 
 
         <!-- Expanded quicknav -->
-        <div id="quicknav" class="col-9">
+        <div id="quicknav" class="col-13">
           <ul>
+            <li class="about">
+              <ul>
+                <li><a href="../../../about/index.html">About</a></li>
+                <li><a href="../../../wear/index.html">Wear</a></li>
+                <li><a href="../../../tv/index.html">TV</a></li>
+                <li><a href="../../../auto/index.html">Auto</a></li>
+              </ul>
+            </li>
             <li class="design">
               <ul>
                 <li><a href="../../../design/index.html">Get Started</a></li>
+                <li><a href="../../../design/devices.html">Devices</a></li>
                 <li><a href="../../../design/style/index.html">Style</a></li>
                 <li><a href="../../../design/patterns/index.html">Patterns</a></li>
                 <li><a href="../../../design/building-blocks/index.html">Building Blocks</a></li>
@@ -298,7 +325,7 @@ type="text/css">
                   ja-lang="リファレンス"
                   es-lang="Referencia"
                   >Reference</a></li>
-                <li><a href="../../../tools/index.html"
+                <li><a href="../../../sdk/index.html"
                   zh-tw-lang="相關工具"
                   zh-cn-lang="工具"
                   ru-lang="Инструменты"
@@ -306,7 +333,6 @@ type="text/css">
                   ja-lang="ツール"
                   es-lang="Herramientas"
                   >Tools</a>
-                  <ul><li><a href="../../../sdk/index.html">Get the SDK</a></li></ul>
                 </li>
                 <li><a href="../../../google/index.html">Google Services</a>
                 </li>
@@ -358,7 +384,7 @@ type="text/css">
                   ja-lang="リファレンス"
                   es-lang="Referencia"
                   >Reference</a></li>
-                <li class="tools"><a href="../../../tools/index.html"
+                <li class="tools"><a href="../../../sdk/index.html"
                   zh-tw-lang="相關工具"
                   zh-cn-lang="工具"
                   ru-lang="Инструменты"
@@ -373,7 +399,7 @@ type="text/css">
             </ul>
         </div>
     </div>
-    <!-- /Sendondary x-nav -->
+    <!-- /Sendondary x-nav DEVELOP -->
 
   
 
@@ -414,7 +440,7 @@ type="text/css">
         <div id="api-nav-title">Android APIs</div>
         </div><!-- end nav header -->
       <script>
-        var SINCE_DATA = [ '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19' ];
+        var SINCE_DATA = [ '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21' ];
         buildApiLevelSelector();
       </script>
                   
@@ -441,13 +467,15 @@ type="text/css">
   <a href="../../../reference/android/app/admin/package-summary.html">android.app.admin</a></li>
     <li class="api apilevel-8">
   <a href="../../../reference/android/app/backup/package-summary.html">android.app.backup</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/app/job/package-summary.html">android.app.job</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/app/usage/package-summary.html">android.app.usage</a></li>
     <li class="api apilevel-3">
   <a href="../../../reference/android/appwidget/package-summary.html">android.appwidget</a></li>
     <li class="api apilevel-5">
   <a href="../../../reference/android/bluetooth/package-summary.html">android.bluetooth</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/bluetooth/le/package-summary.html">android.bluetooth.le</a></li>
     <li class="api apilevel-1">
   <a href="../../../reference/android/content/package-summary.html">android.content</a></li>
@@ -473,16 +501,14 @@ type="text/css">
   <a href="../../../reference/android/graphics/pdf/package-summary.html">android.graphics.pdf</a></li>
     <li class="api apilevel-1">
   <a href="../../../reference/android/hardware/package-summary.html">android.hardware</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/hardware/camera2/package-summary.html">android.hardware.camera2</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/hardware/camera2/params/package-summary.html">android.hardware.camera2.params</a></li>
     <li class="api apilevel-17">
   <a href="../../../reference/android/hardware/display/package-summary.html">android.hardware.display</a></li>
     <li class="api apilevel-16">
   <a href="../../../reference/android/hardware/input/package-summary.html">android.hardware.input</a></li>
-    <li class="api apilevel-18">
-  <a href="../../../reference/android/hardware/location/package-summary.html">android.hardware.location</a></li>
     <li class="api apilevel-12">
   <a href="../../../reference/android/hardware/usb/package-summary.html">android.hardware.usb</a></li>
     <li class="api apilevel-3">
@@ -493,11 +519,15 @@ type="text/css">
   <a href="../../../reference/android/media/package-summary.html">android.media</a></li>
     <li class="api apilevel-9">
   <a href="../../../reference/android/media/audiofx/package-summary.html">android.media.audiofx</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/media/browse/package-summary.html">android.media.browse</a></li>
     <li class="api apilevel-14">
   <a href="../../../reference/android/media/effect/package-summary.html">android.media.effect</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/media/projection/package-summary.html">android.media.projection</a></li>
+    <li class="api apilevel-21">
   <a href="../../../reference/android/media/session/package-summary.html">android.media.session</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/media/tv/package-summary.html">android.media.tv</a></li>
     <li class="api apilevel-12">
   <a href="../../../reference/android/mtp/package-summary.html">android.mtp</a></li>
@@ -547,11 +577,15 @@ type="text/css">
   <a href="../../../reference/android/security/package-summary.html">android.security</a></li>
     <li class="api apilevel-17">
   <a href="../../../reference/android/service/dreams/package-summary.html">android.service.dreams</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/service/media/package-summary.html">android.service.media</a></li>
     <li class="api apilevel-18">
   <a href="../../../reference/android/service/notification/package-summary.html">android.service.notification</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/service/restrictions/package-summary.html">android.service.restrictions</a></li>
     <li class="api apilevel-14">
   <a href="../../../reference/android/service/textservice/package-summary.html">android.service.textservice</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/service/voice/package-summary.html">android.service.voice</a></li>
     <li class="api apilevel-7">
   <a href="../../../reference/android/service/wallpaper/package-summary.html">android.service.wallpaper</a></li>
@@ -596,11 +630,15 @@ type="text/css">
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/media/package-summary.html">android.support.v4.media</a></li>
     <li class="api apilevel-">
+  <a href="../../../reference/android/support/v4/media/session/package-summary.html">android.support.v4.media.session</a></li>
+    <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/net/package-summary.html">android.support.v4.net</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/os/package-summary.html">android.support.v4.os</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/print/package-summary.html">android.support.v4.print</a></li>
+    <li class="api apilevel-">
+  <a href="../../../reference/android/support/v4/provider/package-summary.html">android.support.v4.provider</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/text/package-summary.html">android.support.v4.text</a></li>
     <li class="api apilevel-">
@@ -616,6 +654,10 @@ type="text/css">
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v7/appcompat/package-summary.html">android.support.v7.appcompat</a></li>
     <li class="api apilevel-">
+  <a href="../../../reference/android/support/v7/cardview/package-summary.html">android.support.v7.cardview</a></li>
+    <li class="api apilevel-">
+  <a href="../../../reference/android/support/v7/graphics/package-summary.html">android.support.v7.graphics</a></li>
+    <li class="api apilevel-">
   <a href="../../../reference/android/support/v7/gridlayout/package-summary.html">android.support.v7.gridlayout</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v7/media/package-summary.html">android.support.v7.media</a></li>
@@ -627,8 +669,10 @@ type="text/css">
   <a href="../../../reference/android/support/v7/widget/package-summary.html">android.support.v7.widget</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v8/renderscript/package-summary.html">android.support.v8.renderscript</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/system/package-summary.html">android.system</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/telecom/package-summary.html">android.telecom</a></li>
     <li class="api apilevel-1">
   <a href="../../../reference/android/telephony/package-summary.html">android.telephony</a></li>
     <li class="api apilevel-5">
@@ -900,8 +944,8 @@ type="text/css">
           <li class="api apilevel-11"><a href="../../../reference/android/app/FragmentManager.OnBackStackChangedListener.html">FragmentManager.OnBackStackChangedListener</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/app/KeyguardManager.OnKeyguardExitResult.html">KeyguardManager.OnKeyguardExitResult</a></li>
           <li class="api apilevel-11"><a href="../../../reference/android/app/LoaderManager.LoaderCallbacks.html">LoaderManager.LoaderCallbacks</a></li>
-          <li class="api apilevel-"><a href="../../../reference/android/app/Notification.Action.Extender.html">Notification.Action.Extender</a></li>
-          <li class="api apilevel-"><a href="../../../reference/android/app/Notification.Extender.html">Notification.Extender</a></li>
+          <li class="api apilevel-20"><a href="../../../reference/android/app/Notification.Action.Extender.html">Notification.Action.Extender</a></li>
+          <li class="api apilevel-20"><a href="../../../reference/android/app/Notification.Extender.html">Notification.Extender</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/app/PendingIntent.OnFinished.html">PendingIntent.OnFinished</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/app/SearchManager.OnCancelListener.html">SearchManager.OnCancelListener</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/app/SearchManager.OnDismissListener.html">SearchManager.OnDismissListener</a></li>
@@ -919,16 +963,17 @@ type="text/css">
           <li class="api apilevel-1"><a href="../../../reference/android/app/Activity.html">Activity</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/app/ActivityGroup.html">ActivityGroup</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/app/ActivityManager.html">ActivityManager</a></li>
-          <li class="api apilevel-"><a href="../../../reference/android/app/ActivityManager.AppTask.html">ActivityManager.AppTask</a></li>
+          <li class="api apilevel-21"><a href="../../../reference/android/app/ActivityManager.AppTask.html">ActivityManager.AppTask</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/app/ActivityManager.MemoryInfo.html">ActivityManager.MemoryInfo</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/app/ActivityManager.ProcessErrorStateInfo.html">ActivityManager.ProcessErrorStateInfo</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/app/ActivityManager.RecentTaskInfo.html">ActivityManager.RecentTaskInfo</a></li>
           <li class="api apilevel-3"><a href="../../../reference/android/app/ActivityManager.RunningAppProcessInfo.html">ActivityManager.RunningAppProcessInfo</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/app/ActivityManager.RunningServiceInfo.html">ActivityManager.RunningServiceInfo</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/app/ActivityManager.RunningTaskInfo.html">ActivityManager.RunningTaskInfo</a></li>
-          <li class="api apilevel-"><a href="../../../reference/android/app/ActivityManager.TaskDescription.html">ActivityManager.TaskDescription</a></li>
+          <li class="api apilevel-21"><a href="../../../reference/android/app/ActivityManager.TaskDescription.html">ActivityManager.TaskDescription</a></li>
           <li class="api apilevel-16"><a href="../../../reference/android/app/ActivityOptions.html">ActivityOptions</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/app/AlarmManager.html">AlarmManager</a></li>
+          <li class="api apilevel-21"><a href="../../../reference/android/app/AlarmManager.AlarmClockInfo.html">AlarmManager.AlarmClockInfo</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/app/AlertDialog.html">AlertDialog</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/app/AlertDialog.Builder.html">AlertDialog.Builder</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/app/AliasActivity.html">AliasActivity</a></li>
@@ -969,35 +1014,30 @@ type="text/css">
           <li class="api apilevel-9"><a href="../../../reference/android/app/NativeActivity.html">NativeActivity</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/app/Notification.html">Notification</a></li>
           <li class="api apilevel-19"><a href="../../../reference/android/app/Notification.Action.html">Notification.Action</a></li>
-          <li class="api apilevel-"><a href="../../../reference/android/app/Notification.Action.Builder.html">Notification.Action.Builder</a></li>
-          <li class="api apilevel-"><a href="../../../reference/android/app/Notification.Action.WearableExtender.html">Notification.Action.WearableExtender</a></li>
+          <li class="api apilevel-20"><a href="../../../reference/android/app/Notification.Action.Builder.html">Notification.Action.Builder</a></li>
+          <li class="api apilevel-20"><a href="../../../reference/android/app/Notification.Action.WearableExtender.html">Notification.Action.WearableExtender</a></li>
           <li class="api apilevel-16"><a href="../../../reference/android/app/Notification.BigPictureStyle.html">Notification.BigPictureStyle</a></li>
           <li class="api apilevel-16"><a href="../../../reference/android/app/Notification.BigTextStyle.html">Notification.BigTextStyle</a></li>
           <li class="api apilevel-11"><a href="../../../reference/android/app/Notification.Builder.html">Notification.Builder</a></li>
           <li class="api apilevel-16"><a href="../../../reference/android/app/Notification.InboxStyle.html">Notification.InboxStyle</a></li>
-          <li class="api apilevel-"><a href="../../../reference/android/app/Notification.MediaStyle.html">Notification.MediaStyle</a></li>
+          <li class="api apilevel-21"><a href="../../../reference/android/app/Notification.MediaStyle.html">Notification.MediaStyle</a></li>
           <li class="api apilevel-16"><a href="../../../reference/android/app/Notification.Style.html">Notification.Style</a></li>
-          <li class="api apilevel-"><a href="../../../reference/android/app/Notification.WearableExtender.html">Notification.WearableExtender</a></li>
+          <li class="api apilevel-20"><a href="../../../reference/android/app/Notification.WearableExtender.html">Notification.WearableExtender</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/app/NotificationManager.html">NotificationManager</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/app/PendingIntent.html">PendingIntent</a></li>
           <li class="api apilevel-17"><a href="../../../reference/android/app/Presentation.html">Presentation</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/app/ProgressDialog.html">ProgressDialog</a></li>
-          <li class="api apilevel-"><a href="../../../reference/android/app/RemoteInput.html">RemoteInput</a></li>
-          <li class="api apilevel-"><a href="../../../reference/android/app/RemoteInput.Builder.html">RemoteInput.Builder</a></li>
+          <li class="api apilevel-20"><a href="../../../reference/android/app/RemoteInput.html">RemoteInput</a></li>
+          <li class="api apilevel-20"><a href="../../../reference/android/app/RemoteInput.Builder.html">RemoteInput.Builder</a></li>
           <li class="api apilevel-8"><a href="../../../reference/android/app/SearchableInfo.html">SearchableInfo</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/app/SearchManager.html">SearchManager</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/app/Service.html">Service</a></li>
-          <li class="api apilevel-"><a href="../../../reference/android/app/SharedElementListener.html">SharedElementListener</a></li>
+          <li class="api apilevel-21"><a href="../../../reference/android/app/SharedElementCallback.html">SharedElementCallback</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/app/TabActivity.html">TabActivity</a></li>
           <li class="api apilevel-16"><a href="../../../reference/android/app/TaskStackBuilder.html">TaskStackBuilder</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/app/TimePickerDialog.html">TimePickerDialog</a></li>
           <li class="api apilevel-18"><a href="../../../reference/android/app/UiAutomation.html">UiAutomation</a></li>
           <li class="api apilevel-8"><a href="../../../reference/android/app/UiModeManager.html">UiModeManager</a></li>
-          <li class="api apilevel-"><a href="../../../reference/android/app/VoiceInteractor.html">VoiceInteractor</a></li>
-          <li class="api apilevel-"><a href="../../../reference/android/app/VoiceInteractor.AbortVoiceRequest.html">VoiceInteractor.AbortVoiceRequest</a></li>
-          <li class="api apilevel-"><a href="../../../reference/android/app/VoiceInteractor.CommandRequest.html">VoiceInteractor.CommandRequest</a></li>
-          <li class="api apilevel-"><a href="../../../reference/android/app/VoiceInteractor.ConfirmationRequest.html">VoiceInteractor.ConfirmationRequest</a></li>
-          <li class="api apilevel-"><a href="../../../reference/android/app/VoiceInteractor.Request.html">VoiceInteractor.Request</a></li>
           <li class="api apilevel-7"><a href="../../../reference/android/app/WallpaperInfo.html">WallpaperInfo</a></li>
           <li class="api apilevel-5"><a href="../../../reference/android/app/WallpaperManager.html">WallpaperManager</a></li>
       </ul>
@@ -1069,6 +1109,8 @@ type="text/css">
   
   
   
+   
+  
 
   
    
@@ -1121,9 +1163,12 @@ Summary:
 
 
 
+  <a href="#inhattrs">Inherited XML Attrs</a>
+  
 
 
-  <a href="#constants">Constants</a>
+
+  &#124; <a href="#constants">Constants</a>
   
 
 
@@ -1190,6 +1235,9 @@ Summary:
       
   
   
+
+
+    
 
 
 </div><!-- end header -->
@@ -1519,6 +1567,166 @@ ft.commit();</pre>
 
 
 
+<!-- =========== FIELD SUMMARY =========== -->
+<table id="inhattrs" class="jd-sumtable"><tr><th>
+  <a href="#" class="toggle-all" onclick="return toggleAllInherited(this, null)">[Expand]</a>
+  <div style="clear:left;">Inherited XML Attributes</div></th></tr>
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-attrs-android.app.Fragment" class="jd-expando-trigger closed"
+          ><img id="inherited-attrs-android.app.Fragment-trigger"
+          src="../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>From class
+<a href="../../../reference/android/app/Fragment.html">android.app.Fragment</a>
+<div id="inherited-attrs-android.app.Fragment">
+  <div id="inherited-attrs-android.app.Fragment-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-attrs-android.app.Fragment-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+    <tr>
+        <td><nobr><em>Attribute Name</em></nobr></td>
+        <td><nobr><em>Related Method</em></nobr></td>
+        <td><nobr><em>Description</em></nobr></td>
+    </tr>
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-linkcol"><a href="../../../reference/android/app/Fragment.html#attr_android:fragmentAllowEnterTransitionOverlap">android:fragmentAllowEnterTransitionOverlap</a></td>
+        <td class="jd-linkcol">
+            <a href="../../../reference/android/app/Fragment.html#setAllowEnterTransitionOverlap(boolean)">setAllowEnterTransitionOverlap(boolean)</a>
+            
+        </td>
+        <td class="jd-descrcol" width="100%">
+          Sets whether the enter and exit transitions should overlap when transitioning
+             forward.&nbsp;
+          
+    
+
+        </td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-linkcol"><a href="../../../reference/android/app/Fragment.html#attr_android:fragmentAllowReturnTransitionOverlap">android:fragmentAllowReturnTransitionOverlap</a></td>
+        <td class="jd-linkcol">
+            <a href="../../../reference/android/app/Fragment.html#setAllowReturnTransitionOverlap(boolean)">setAllowReturnTransitionOverlap(boolean)</a>
+            
+        </td>
+        <td class="jd-descrcol" width="100%">
+          Sets whether the enter and exit transitions should overlap when transitioning
+             because of popping the back stack.&nbsp;
+          
+    
+
+        </td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-linkcol"><a href="../../../reference/android/app/Fragment.html#attr_android:fragmentEnterTransition">android:fragmentEnterTransition</a></td>
+        <td class="jd-linkcol">
+            <a href="../../../reference/android/app/Fragment.html#setEnterTransition(android.transition.Transition)">setEnterTransition(Transition)</a>
+            
+        </td>
+        <td class="jd-descrcol" width="100%">
+          The Transition that will be used to move Views into the initial scene.&nbsp;
+          
+    
+
+        </td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-linkcol"><a href="../../../reference/android/app/Fragment.html#attr_android:fragmentExitTransition">android:fragmentExitTransition</a></td>
+        <td class="jd-linkcol">
+            <a href="../../../reference/android/app/Fragment.html#setReturnTransition(android.transition.Transition)">setReturnTransition(Transition)</a>
+            
+        </td>
+        <td class="jd-descrcol" width="100%">
+          The Transition that will be used to move Views out of the scene when the
+             fragment is removed, hidden, or detached when not popping the back stack.&nbsp;
+          
+    
+
+        </td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-linkcol"><a href="../../../reference/android/app/Fragment.html#attr_android:fragmentReenterTransition">android:fragmentReenterTransition</a></td>
+        <td class="jd-linkcol">
+            <a href="../../../reference/android/app/Fragment.html#setReenterTransition(android.transition.Transition)">setReenterTransition(Transition)</a>
+            
+        </td>
+        <td class="jd-descrcol" width="100%">
+          The Transition that will be used to move Views in to the scene when returning due
+             to popping a back stack.&nbsp;
+          
+    
+
+        </td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-linkcol"><a href="../../../reference/android/app/Fragment.html#attr_android:fragmentSharedElementEnterTransition">android:fragmentSharedElementEnterTransition</a></td>
+        <td class="jd-linkcol">
+            <a href="../../../reference/android/app/Fragment.html#setSharedElementEnterTransition(android.transition.Transition)">setSharedElementEnterTransition(Transition)</a>
+            
+        </td>
+        <td class="jd-descrcol" width="100%">
+          The Transition that will be used for shared elements transferred into the content
+             Scene.&nbsp;
+          
+    
+
+        </td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-linkcol"><a href="../../../reference/android/app/Fragment.html#attr_android:fragmentSharedElementReturnTransition">android:fragmentSharedElementReturnTransition</a></td>
+        <td class="jd-linkcol">
+            <a href="../../../reference/android/app/Fragment.html#setSharedElementReturnTransition(android.transition.Transition)">setSharedElementReturnTransition(Transition)</a>
+            
+        </td>
+        <td class="jd-descrcol" width="100%">
+          The Transition that will be used for shared elements transferred back during a
+             pop of the back stack.&nbsp;
+          
+    
+
+        </td>
+    </tr>
+    
+    
+</table>
+  </div>
+</div>
+</td></tr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</table>
+
+
 
 
 
@@ -1531,33 +1739,53 @@ ft.commit();</pre>
     <tr class="alt-color api apilevel-11" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/app/DialogFragment.html#STYLE_NORMAL">STYLE_NORMAL</a></td>
-        <td class="jd-descrcol" width="100%">Style for <code><a href="../../../reference/android/app/DialogFragment.html#setStyle(int, int)">setStyle(int, int)</a></code>: a basic,
- normal dialog.</td>
+        <td class="jd-descrcol" width="100%">
+          Style for <code><a href="../../../reference/android/app/DialogFragment.html#setStyle(int, int)">setStyle(int, int)</a></code>: a basic,
+ normal dialog.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-11" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/app/DialogFragment.html#STYLE_NO_FRAME">STYLE_NO_FRAME</a></td>
-        <td class="jd-descrcol" width="100%">Style for <code><a href="../../../reference/android/app/DialogFragment.html#setStyle(int, int)">setStyle(int, int)</a></code>: don't draw
+        <td class="jd-descrcol" width="100%">
+          Style for <code><a href="../../../reference/android/app/DialogFragment.html#setStyle(int, int)">setStyle(int, int)</a></code>: don't draw
  any frame at all; the view hierarchy returned by <code><a href="../../../reference/android/app/Fragment.html#onCreateView(android.view.LayoutInflater, android.view.ViewGroup, android.os.Bundle)">onCreateView(LayoutInflater, ViewGroup, Bundle)</a></code>
- is entirely responsible for drawing the dialog.</td>
+ is entirely responsible for drawing the dialog.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-11" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/app/DialogFragment.html#STYLE_NO_INPUT">STYLE_NO_INPUT</a></td>
-        <td class="jd-descrcol" width="100%">Style for <code><a href="../../../reference/android/app/DialogFragment.html#setStyle(int, int)">setStyle(int, int)</a></code>: like
- <code><a href="../../../reference/android/app/DialogFragment.html#STYLE_NO_FRAME">STYLE_NO_FRAME</a></code>, but also disables all input to the dialog.</td>
+        <td class="jd-descrcol" width="100%">
+          Style for <code><a href="../../../reference/android/app/DialogFragment.html#setStyle(int, int)">setStyle(int, int)</a></code>: like
+ <code><a href="../../../reference/android/app/DialogFragment.html#STYLE_NO_FRAME">STYLE_NO_FRAME</a></code>, but also disables all input to the dialog.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-11" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/app/DialogFragment.html#STYLE_NO_TITLE">STYLE_NO_TITLE</a></td>
-        <td class="jd-descrcol" width="100%">Style for <code><a href="../../../reference/android/app/DialogFragment.html#setStyle(int, int)">setStyle(int, int)</a></code>: don't include
- a title area.</td>
+        <td class="jd-descrcol" width="100%">
+          Style for <code><a href="../../../reference/android/app/DialogFragment.html#setStyle(int, int)">setStyle(int, int)</a></code>: don't include
+ a title area.
+          
+    
+
+        </td>
     </tr>
     
     
@@ -1600,59 +1828,94 @@ ft.commit();</pre>
     <tr class="alt-color api apilevel-14" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/content/ComponentCallbacks2.html#TRIM_MEMORY_BACKGROUND">TRIM_MEMORY_BACKGROUND</a></td>
-        <td class="jd-descrcol" width="100%">Level for <code><a href="../../../reference/android/content/ComponentCallbacks2.html#onTrimMemory(int)">onTrimMemory(int)</a></code>: the process has gone on to the
- LRU list.</td>
+        <td class="jd-descrcol" width="100%">
+          Level for <code><a href="../../../reference/android/content/ComponentCallbacks2.html#onTrimMemory(int)">onTrimMemory(int)</a></code>: the process has gone on to the
+ LRU list.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-14" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/content/ComponentCallbacks2.html#TRIM_MEMORY_COMPLETE">TRIM_MEMORY_COMPLETE</a></td>
-        <td class="jd-descrcol" width="100%">Level for <code><a href="../../../reference/android/content/ComponentCallbacks2.html#onTrimMemory(int)">onTrimMemory(int)</a></code>: the process is nearing the end
+        <td class="jd-descrcol" width="100%">
+          Level for <code><a href="../../../reference/android/content/ComponentCallbacks2.html#onTrimMemory(int)">onTrimMemory(int)</a></code>: the process is nearing the end
  of the background LRU list, and if more memory isn't found soon it will
- be killed.</td>
+ be killed.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-14" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/content/ComponentCallbacks2.html#TRIM_MEMORY_MODERATE">TRIM_MEMORY_MODERATE</a></td>
-        <td class="jd-descrcol" width="100%">Level for <code><a href="../../../reference/android/content/ComponentCallbacks2.html#onTrimMemory(int)">onTrimMemory(int)</a></code>: the process is around the middle
+        <td class="jd-descrcol" width="100%">
+          Level for <code><a href="../../../reference/android/content/ComponentCallbacks2.html#onTrimMemory(int)">onTrimMemory(int)</a></code>: the process is around the middle
  of the background LRU list; freeing memory can help the system keep
- other processes running later in the list for better overall performance.</td>
+ other processes running later in the list for better overall performance.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-16" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/content/ComponentCallbacks2.html#TRIM_MEMORY_RUNNING_CRITICAL">TRIM_MEMORY_RUNNING_CRITICAL</a></td>
-        <td class="jd-descrcol" width="100%">Level for <code><a href="../../../reference/android/content/ComponentCallbacks2.html#onTrimMemory(int)">onTrimMemory(int)</a></code>: the process is not an expendable
+        <td class="jd-descrcol" width="100%">
+          Level for <code><a href="../../../reference/android/content/ComponentCallbacks2.html#onTrimMemory(int)">onTrimMemory(int)</a></code>: the process is not an expendable
  background process, but the device is running extremely low on memory
- and is about to not be able to keep any background processes running.</td>
+ and is about to not be able to keep any background processes running.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-16" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/content/ComponentCallbacks2.html#TRIM_MEMORY_RUNNING_LOW">TRIM_MEMORY_RUNNING_LOW</a></td>
-        <td class="jd-descrcol" width="100%">Level for <code><a href="../../../reference/android/content/ComponentCallbacks2.html#onTrimMemory(int)">onTrimMemory(int)</a></code>: the process is not an expendable
- background process, but the device is running low on memory.</td>
+        <td class="jd-descrcol" width="100%">
+          Level for <code><a href="../../../reference/android/content/ComponentCallbacks2.html#onTrimMemory(int)">onTrimMemory(int)</a></code>: the process is not an expendable
+ background process, but the device is running low on memory.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-16" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/content/ComponentCallbacks2.html#TRIM_MEMORY_RUNNING_MODERATE">TRIM_MEMORY_RUNNING_MODERATE</a></td>
-        <td class="jd-descrcol" width="100%">Level for <code><a href="../../../reference/android/content/ComponentCallbacks2.html#onTrimMemory(int)">onTrimMemory(int)</a></code>: the process is not an expendable
- background process, but the device is running moderately low on memory.</td>
+        <td class="jd-descrcol" width="100%">
+          Level for <code><a href="../../../reference/android/content/ComponentCallbacks2.html#onTrimMemory(int)">onTrimMemory(int)</a></code>: the process is not an expendable
+ background process, but the device is running moderately low on memory.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-14" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/content/ComponentCallbacks2.html#TRIM_MEMORY_UI_HIDDEN">TRIM_MEMORY_UI_HIDDEN</a></td>
-        <td class="jd-descrcol" width="100%">Level for <code><a href="../../../reference/android/content/ComponentCallbacks2.html#onTrimMemory(int)">onTrimMemory(int)</a></code>: the process had been showing
- a user interface, and is no longer doing so.</td>
+        <td class="jd-descrcol" width="100%">
+          Level for <code><a href="../../../reference/android/content/ComponentCallbacks2.html#onTrimMemory(int)">onTrimMemory(int)</a></code>: the process had been showing
+ a user interface, and is no longer doing so.
+          
+    
+
+        </td>
     </tr>
     
     
@@ -1725,7 +1988,12 @@ ft.commit();</pre>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/DialogFragment.html#dismiss()">dismiss</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Dismiss the fragment and its dialog.</div>
+        <div class="jd-descrdiv">
+          Dismiss the fragment and its dialog.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1743,8 +2011,13 @@ ft.commit();</pre>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/DialogFragment.html#dismissAllowingStateLoss()">dismissAllowingStateLoss</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Version of <code><a href="../../../reference/android/app/DialogFragment.html#dismiss()">dismiss()</a></code> that uses
- <code><a href="../../../reference/android/app/FragmentTransaction.html#commitAllowingStateLoss()">FragmentTransaction.commitAllowingStateLoss()</a></code>.</div>
+        <div class="jd-descrdiv">
+          Version of <code><a href="../../../reference/android/app/DialogFragment.html#dismiss()">dismiss()</a></code> that uses
+ <code><a href="../../../reference/android/app/FragmentTransaction.html#commitAllowingStateLoss()">FragmentTransaction.commitAllowingStateLoss()</a></code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1762,7 +2035,12 @@ ft.commit();</pre>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/DialogFragment.html#dump(java.lang.String, java.io.FileDescriptor, java.io.PrintWriter, java.lang.String[])">dump</a></span>(<a href="../../../reference/java/lang/String.html">String</a> prefix, <a href="../../../reference/java/io/FileDescriptor.html">FileDescriptor</a> fd, <a href="../../../reference/java/io/PrintWriter.html">PrintWriter</a> writer, <a href="../../../reference/java/lang/String.html">String[]</a> args)</nobr>
         
-        <div class="jd-descrdiv">Print the Fragments's state into the given stream.</div>
+        <div class="jd-descrdiv">
+          Print the Fragments's state into the given stream.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1796,7 +2074,12 @@ ft.commit();</pre>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/DialogFragment.html#getShowsDialog()">getShowsDialog</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Return the current value of <code><a href="../../../reference/android/app/DialogFragment.html#setShowsDialog(boolean)">setShowsDialog(boolean)</a></code>.</div>
+        <div class="jd-descrdiv">
+          Return the current value of <code><a href="../../../reference/android/app/DialogFragment.html#setShowsDialog(boolean)">setShowsDialog(boolean)</a></code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1830,7 +2113,12 @@ ft.commit();</pre>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/DialogFragment.html#isCancelable()">isCancelable</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Return the current value of <code><a href="../../../reference/android/app/DialogFragment.html#setCancelable(boolean)">setCancelable(boolean)</a></code>.</div>
+        <div class="jd-descrdiv">
+          Return the current value of <code><a href="../../../reference/android/app/DialogFragment.html#setCancelable(boolean)">setCancelable(boolean)</a></code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1848,8 +2136,13 @@ ft.commit();</pre>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/DialogFragment.html#onActivityCreated(android.os.Bundle)">onActivityCreated</a></span>(<a href="../../../reference/android/os/Bundle.html">Bundle</a> savedInstanceState)</nobr>
         
-        <div class="jd-descrdiv">Called when the fragment's activity has been created and this
- fragment's view hierarchy instantiated.</div>
+        <div class="jd-descrdiv">
+          Called when the fragment's activity has been created and this
+ fragment's view hierarchy instantiated.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1867,7 +2160,12 @@ ft.commit();</pre>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/DialogFragment.html#onAttach(android.app.Activity)">onAttach</a></span>(<a href="../../../reference/android/app/Activity.html">Activity</a> activity)</nobr>
         
-        <div class="jd-descrdiv">Called when a fragment is first attached to its activity.</div>
+        <div class="jd-descrdiv">
+          Called when a fragment is first attached to its activity.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1885,7 +2183,12 @@ ft.commit();</pre>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/DialogFragment.html#onCancel(android.content.DialogInterface)">onCancel</a></span>(<a href="../../../reference/android/content/DialogInterface.html">DialogInterface</a> dialog)</nobr>
         
-        <div class="jd-descrdiv">This method will be invoked when the dialog is canceled.</div>
+        <div class="jd-descrdiv">
+          This method will be invoked when the dialog is canceled.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1903,7 +2206,12 @@ ft.commit();</pre>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/DialogFragment.html#onCreate(android.os.Bundle)">onCreate</a></span>(<a href="../../../reference/android/os/Bundle.html">Bundle</a> savedInstanceState)</nobr>
         
-        <div class="jd-descrdiv">Called to do initial creation of a fragment.</div>
+        <div class="jd-descrdiv">
+          Called to do initial creation of a fragment.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1921,7 +2229,12 @@ ft.commit();</pre>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/DialogFragment.html#onCreateDialog(android.os.Bundle)">onCreateDialog</a></span>(<a href="../../../reference/android/os/Bundle.html">Bundle</a> savedInstanceState)</nobr>
         
-        <div class="jd-descrdiv">Override to build your own custom Dialog container.</div>
+        <div class="jd-descrdiv">
+          Override to build your own custom Dialog container.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1939,7 +2252,12 @@ ft.commit();</pre>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/DialogFragment.html#onDestroyView()">onDestroyView</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Remove dialog.</div>
+        <div class="jd-descrdiv">
+          Remove dialog.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1957,7 +2275,12 @@ ft.commit();</pre>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/DialogFragment.html#onDetach()">onDetach</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Called when the fragment is no longer attached to its activity.</div>
+        <div class="jd-descrdiv">
+          Called when the fragment is no longer attached to its activity.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1975,7 +2298,12 @@ ft.commit();</pre>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/DialogFragment.html#onDismiss(android.content.DialogInterface)">onDismiss</a></span>(<a href="../../../reference/android/content/DialogInterface.html">DialogInterface</a> dialog)</nobr>
         
-        <div class="jd-descrdiv">This method will be invoked when the dialog is dismissed.</div>
+        <div class="jd-descrdiv">
+          This method will be invoked when the dialog is dismissed.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1993,9 +2321,14 @@ ft.commit();</pre>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/DialogFragment.html#onSaveInstanceState(android.os.Bundle)">onSaveInstanceState</a></span>(<a href="../../../reference/android/os/Bundle.html">Bundle</a> outState)</nobr>
         
-        <div class="jd-descrdiv">Called to ask the fragment to save its current dynamic state, so it
+        <div class="jd-descrdiv">
+          Called to ask the fragment to save its current dynamic state, so it
  can later be reconstructed in a new instance of its process is
- restarted.</div>
+ restarted.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2013,7 +2346,12 @@ ft.commit();</pre>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/DialogFragment.html#onStart()">onStart</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Called when the Fragment is visible to the user.</div>
+        <div class="jd-descrdiv">
+          Called when the Fragment is visible to the user.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2031,7 +2369,12 @@ ft.commit();</pre>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/DialogFragment.html#onStop()">onStop</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Called when the Fragment is no longer started.</div>
+        <div class="jd-descrdiv">
+          Called when the Fragment is no longer started.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2049,7 +2392,12 @@ ft.commit();</pre>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/DialogFragment.html#setCancelable(boolean)">setCancelable</a></span>(boolean cancelable)</nobr>
         
-        <div class="jd-descrdiv">Control whether the shown Dialog is cancelable.</div>
+        <div class="jd-descrdiv">
+          Control whether the shown Dialog is cancelable.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2067,7 +2415,12 @@ ft.commit();</pre>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/DialogFragment.html#setShowsDialog(boolean)">setShowsDialog</a></span>(boolean showsDialog)</nobr>
         
-        <div class="jd-descrdiv">Controls whether this fragment should be shown in a dialog.</div>
+        <div class="jd-descrdiv">
+          Controls whether this fragment should be shown in a dialog.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2085,8 +2438,13 @@ ft.commit();</pre>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/DialogFragment.html#setStyle(int, int)">setStyle</a></span>(int style, int theme)</nobr>
         
-        <div class="jd-descrdiv">Call to customize the basic appearance and behavior of the
- fragment's dialog.</div>
+        <div class="jd-descrdiv">
+          Call to customize the basic appearance and behavior of the
+ fragment's dialog.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2104,8 +2462,13 @@ ft.commit();</pre>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/DialogFragment.html#show(android.app.FragmentTransaction, java.lang.String)">show</a></span>(<a href="../../../reference/android/app/FragmentTransaction.html">FragmentTransaction</a> transaction, <a href="../../../reference/java/lang/String.html">String</a> tag)</nobr>
         
-        <div class="jd-descrdiv">Display the dialog, adding the fragment using an existing transaction
- and then committing the transaction.</div>
+        <div class="jd-descrdiv">
+          Display the dialog, adding the fragment using an existing transaction
+ and then committing the transaction.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2123,7 +2486,12 @@ ft.commit();</pre>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/DialogFragment.html#show(android.app.FragmentManager, java.lang.String)">show</a></span>(<a href="../../../reference/android/app/FragmentManager.html">FragmentManager</a> manager, <a href="../../../reference/java/lang/String.html">String</a> tag)</nobr>
         
-        <div class="jd-descrdiv">Display the dialog, adding the fragment to the given FragmentManager.</div>
+        <div class="jd-descrdiv">
+          Display the dialog, adding the fragment to the given FragmentManager.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2175,7 +2543,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/Fragment.html#dump(java.lang.String, java.io.FileDescriptor, java.io.PrintWriter, java.lang.String[])">dump</a></span>(<a href="../../../reference/java/lang/String.html">String</a> prefix, <a href="../../../reference/java/io/FileDescriptor.html">FileDescriptor</a> fd, <a href="../../../reference/java/io/PrintWriter.html">PrintWriter</a> writer, <a href="../../../reference/java/lang/String.html">String[]</a> args)</nobr>
         
-        <div class="jd-descrdiv">Print the Fragments's state into the given stream.</div>
+        <div class="jd-descrdiv">
+          Print the Fragments's state into the given stream.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2193,7 +2566,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/Fragment.html#equals(java.lang.Object)">equals</a></span>(<a href="../../../reference/java/lang/Object.html">Object</a> o)</nobr>
         
-        <div class="jd-descrdiv">Subclasses can not override equals().</div>
+        <div class="jd-descrdiv">
+          Subclasses can not override equals().
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2211,7 +2589,58 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/Fragment.html#getActivity()">getActivity</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Return the Activity this fragment is currently associated with.</div>
+        <div class="jd-descrdiv">
+          Return the Activity this fragment is currently associated with.
+          
+    
+
+        </div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-21" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/app/Fragment.html#getAllowEnterTransitionOverlap()">getAllowEnterTransitionOverlap</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">
+          Returns whether the the exit transition and enter transition overlap or not.
+          
+    
+
+        </div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-21" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/app/Fragment.html#getAllowReturnTransitionOverlap()">getAllowReturnTransitionOverlap</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">
+          Returns whether the the return transition and reenter transition overlap or not.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2229,8 +2658,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/Fragment.html#getArguments()">getArguments</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Return the arguments supplied when the fragment was instantiated,
- if any.</div>
+        <div class="jd-descrdiv">
+          Return the arguments supplied when the fragment was instantiated,
+ if any.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2248,8 +2682,60 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/Fragment.html#getChildFragmentManager()">getChildFragmentManager</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Return a private FragmentManager for placing and managing Fragments
- inside of this Fragment.</div>
+        <div class="jd-descrdiv">
+          Return a private FragmentManager for placing and managing Fragments
+ inside of this Fragment.
+          
+    
+
+        </div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-21" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../reference/android/transition/Transition.html">Transition</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/app/Fragment.html#getEnterTransition()">getEnterTransition</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">
+          Returns the Transition that will be used to move Views into the initial scene.
+          
+    
+
+        </div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-21" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../reference/android/transition/Transition.html">Transition</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/app/Fragment.html#getExitTransition()">getExitTransition</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">
+          Returns the Transition that will be used to move Views out of the scene when the
+ fragment is removed, hidden, or detached when not popping the back stack.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2267,8 +2753,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/Fragment.html#getFragmentManager()">getFragmentManager</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Return the FragmentManager for interacting with fragments associated
- with this fragment's activity.</div>
+        <div class="jd-descrdiv">
+          Return the FragmentManager for interacting with fragments associated
+ with this fragment's activity.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2286,7 +2777,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/Fragment.html#getId()">getId</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Return the identifier this fragment is known by.</div>
+        <div class="jd-descrdiv">
+          Return the identifier this fragment is known by.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2304,7 +2800,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/Fragment.html#getLoaderManager()">getLoaderManager</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Return the LoaderManager for this fragment, creating it if needed.</div>
+        <div class="jd-descrdiv">
+          Return the LoaderManager for this fragment, creating it if needed.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2322,25 +2823,36 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/Fragment.html#getParentFragment()">getParentFragment</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns the parent Fragment containing this Fragment.</div>
+        <div class="jd-descrdiv">
+          Returns the parent Fragment containing this Fragment.
+          
+    
+
+        </div>
   
   </td></tr>
 
 
 	 
-    <tr class=" api apilevel-11" >
+    <tr class=" api apilevel-21" >
         <td class="jd-typecol"><nobr>
             
             
-            final
             
             
-            <a href="../../../reference/android/content/res/Resources.html">Resources</a></nobr>
+            
+            <a href="../../../reference/android/transition/Transition.html">Transition</a></nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/app/Fragment.html#getResources()">getResources</a></span>()</nobr>
+        <span class="sympad"><a href="../../../reference/android/app/Fragment.html#getReenterTransition()">getReenterTransition</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Return <code>getActivity().getResources()</code>.</div>
+        <div class="jd-descrdiv">
+          Returns the Transition that will be used to move Views in to the scene when returning due
+ to popping a back stack.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2353,11 +2865,106 @@ From class
             final
             
             
+            <a href="../../../reference/android/content/res/Resources.html">Resources</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/app/Fragment.html#getResources()">getResources</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">
+          Return <code>getActivity().getResources()</code>.
+          
+    
+
+        </div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-11" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
             boolean</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/Fragment.html#getRetainInstance()">getRetainInstance</a></span>()</nobr>
         
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-21" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../reference/android/transition/Transition.html">Transition</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/app/Fragment.html#getReturnTransition()">getReturnTransition</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">
+          Returns the Transition that will be used to move Views out of the scene when the Fragment is
+ preparing to be removed, hidden, or detached because of popping the back stack.
+          
+    
+
+        </div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-21" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../reference/android/transition/Transition.html">Transition</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/app/Fragment.html#getSharedElementEnterTransition()">getSharedElementEnterTransition</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">
+          Returns the Transition that will be used for shared elements transferred into the content
+ Scene.
+          
+    
+
+        </div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-21" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../reference/android/transition/Transition.html">Transition</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/app/Fragment.html#getSharedElementReturnTransition()">getSharedElementReturnTransition</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">
+          Return the Transition that will be used for shared elements transferred back during a
+ pop of the back stack.
+          
+    
+
+        </div>
+  
   </td></tr>
 
 
@@ -2374,8 +2981,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/Fragment.html#getString(int)">getString</a></span>(int resId)</nobr>
         
-        <div class="jd-descrdiv">Return a localized string from the application's package's
- default string table.</div>
+        <div class="jd-descrdiv">
+          Return a localized string from the application's package's
+ default string table.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2393,9 +3005,14 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/Fragment.html#getString(int, java.lang.Object...)">getString</a></span>(int resId, <a href="../../../reference/java/lang/Object.html">Object...</a> formatArgs)</nobr>
         
-        <div class="jd-descrdiv">Return a localized formatted string from the application's package's
+        <div class="jd-descrdiv">
+          Return a localized formatted string from the application's package's
  default string table, substituting the format arguments as defined in
- <code><a href="../../../reference/java/util/Formatter.html">Formatter</a></code> and <code><a href="../../../reference/java/lang/String.html#format(java.lang.String, java.lang.Object...)">format(String, Object...)</a></code>.</div>
+ <code><a href="../../../reference/java/util/Formatter.html">Formatter</a></code> and <code><a href="../../../reference/java/lang/String.html#format(java.lang.String, java.lang.Object...)">format(String, Object...)</a></code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2413,7 +3030,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/Fragment.html#getTag()">getTag</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Get the tag name of the fragment, if specified.</div>
+        <div class="jd-descrdiv">
+          Get the tag name of the fragment, if specified.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2431,7 +3053,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/Fragment.html#getTargetFragment()">getTargetFragment</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Return the target fragment set by <code><a href="../../../reference/android/app/Fragment.html#setTargetFragment(android.app.Fragment, int)">setTargetFragment(Fragment, int)</a></code>.</div>
+        <div class="jd-descrdiv">
+          Return the target fragment set by <code><a href="../../../reference/android/app/Fragment.html#setTargetFragment(android.app.Fragment, int)">setTargetFragment(Fragment, int)</a></code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2449,7 +3076,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/Fragment.html#getTargetRequestCode()">getTargetRequestCode</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Return the target request code set by <code><a href="../../../reference/android/app/Fragment.html#setTargetFragment(android.app.Fragment, int)">setTargetFragment(Fragment, int)</a></code>.</div>
+        <div class="jd-descrdiv">
+          Return the target request code set by <code><a href="../../../reference/android/app/Fragment.html#setTargetFragment(android.app.Fragment, int)">setTargetFragment(Fragment, int)</a></code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2467,8 +3099,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/Fragment.html#getText(int)">getText</a></span>(int resId)</nobr>
         
-        <div class="jd-descrdiv">Return a localized, styled CharSequence from the application's package's
- default string table.</div>
+        <div class="jd-descrdiv">
+          Return a localized, styled CharSequence from the application's package's
+ default string table.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2502,8 +3139,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/Fragment.html#getView()">getView</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Get the root view for the fragment's layout (the one returned by <code><a href="../../../reference/android/app/Fragment.html#onCreateView(android.view.LayoutInflater, android.view.ViewGroup, android.os.Bundle)">onCreateView(LayoutInflater, ViewGroup, Bundle)</a></code>),
- if provided.</div>
+        <div class="jd-descrdiv">
+          Get the root view for the fragment's layout (the one returned by <code><a href="../../../reference/android/app/Fragment.html#onCreateView(android.view.LayoutInflater, android.view.ViewGroup, android.os.Bundle)">onCreateView(LayoutInflater, ViewGroup, Bundle)</a></code>),
+ if provided.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2521,7 +3163,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/Fragment.html#hashCode()">hashCode</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Subclasses can not override hashCode().</div>
+        <div class="jd-descrdiv">
+          Subclasses can not override hashCode().
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2539,8 +3186,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/Fragment.html#instantiate(android.content.Context, java.lang.String)">instantiate</a></span>(<a href="../../../reference/android/content/Context.html">Context</a> context, <a href="../../../reference/java/lang/String.html">String</a> fname)</nobr>
         
-        <div class="jd-descrdiv">Like <code><a href="../../../reference/android/app/Fragment.html#instantiate(android.content.Context, java.lang.String, android.os.Bundle)">instantiate(Context, String, Bundle)</a></code> but with a null
- argument Bundle.</div>
+        <div class="jd-descrdiv">
+          Like <code><a href="../../../reference/android/app/Fragment.html#instantiate(android.content.Context, java.lang.String, android.os.Bundle)">instantiate(Context, String, Bundle)</a></code> but with a null
+ argument Bundle.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2558,7 +3210,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/Fragment.html#instantiate(android.content.Context, java.lang.String, android.os.Bundle)">instantiate</a></span>(<a href="../../../reference/android/content/Context.html">Context</a> context, <a href="../../../reference/java/lang/String.html">String</a> fname, <a href="../../../reference/android/os/Bundle.html">Bundle</a> args)</nobr>
         
-        <div class="jd-descrdiv">Create a new instance of a Fragment with the given class name.</div>
+        <div class="jd-descrdiv">
+          Create a new instance of a Fragment with the given class name.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2576,7 +3233,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/Fragment.html#isAdded()">isAdded</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Return true if the fragment is currently added to its activity.</div>
+        <div class="jd-descrdiv">
+          Return true if the fragment is currently added to its activity.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2594,7 +3256,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/Fragment.html#isDetached()">isDetached</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Return true if the fragment has been explicitly detached from the UI.</div>
+        <div class="jd-descrdiv">
+          Return true if the fragment has been explicitly detached from the UI.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2612,7 +3279,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/Fragment.html#isHidden()">isHidden</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Return true if the fragment has been hidden.</div>
+        <div class="jd-descrdiv">
+          Return true if the fragment has been hidden.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2630,8 +3302,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/Fragment.html#isInLayout()">isInLayout</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Return true if the layout is included as part of an activity view
- hierarchy via the &lt;fragment&gt; tag.</div>
+        <div class="jd-descrdiv">
+          Return true if the layout is included as part of an activity view
+ hierarchy via the &lt;fragment&gt; tag.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2649,8 +3326,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/Fragment.html#isRemoving()">isRemoving</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Return true if this fragment is currently being removed from its
- activity.</div>
+        <div class="jd-descrdiv">
+          Return true if this fragment is currently being removed from its
+ activity.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2668,7 +3350,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/Fragment.html#isResumed()">isResumed</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Return true if the fragment is in the resumed state.</div>
+        <div class="jd-descrdiv">
+          Return true if the fragment is in the resumed state.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2686,7 +3373,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/Fragment.html#isVisible()">isVisible</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Return true if the fragment is currently visible to the user.</div>
+        <div class="jd-descrdiv">
+          Return true if the fragment is currently visible to the user.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2704,8 +3396,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/Fragment.html#onActivityCreated(android.os.Bundle)">onActivityCreated</a></span>(<a href="../../../reference/android/os/Bundle.html">Bundle</a> savedInstanceState)</nobr>
         
-        <div class="jd-descrdiv">Called when the fragment's activity has been created and this
- fragment's view hierarchy instantiated.</div>
+        <div class="jd-descrdiv">
+          Called when the fragment's activity has been created and this
+ fragment's view hierarchy instantiated.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2723,8 +3420,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/Fragment.html#onActivityResult(int, int, android.content.Intent)">onActivityResult</a></span>(int requestCode, int resultCode, <a href="../../../reference/android/content/Intent.html">Intent</a> data)</nobr>
         
-        <div class="jd-descrdiv">Receive the result from a previous call to
- <code><a href="../../../reference/android/app/Fragment.html#startActivityForResult(android.content.Intent, int)">startActivityForResult(Intent, int)</a></code>.</div>
+        <div class="jd-descrdiv">
+          Receive the result from a previous call to
+ <code><a href="../../../reference/android/app/Fragment.html#startActivityForResult(android.content.Intent, int)">startActivityForResult(Intent, int)</a></code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2742,7 +3444,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/Fragment.html#onAttach(android.app.Activity)">onAttach</a></span>(<a href="../../../reference/android/app/Activity.html">Activity</a> activity)</nobr>
         
-        <div class="jd-descrdiv">Called when a fragment is first attached to its activity.</div>
+        <div class="jd-descrdiv">
+          Called when a fragment is first attached to its activity.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2760,8 +3467,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/Fragment.html#onConfigurationChanged(android.content.res.Configuration)">onConfigurationChanged</a></span>(<a href="../../../reference/android/content/res/Configuration.html">Configuration</a> newConfig)</nobr>
         
-        <div class="jd-descrdiv">Called by the system when the device configuration changes while your
- component is running.</div>
+        <div class="jd-descrdiv">
+          Called by the system when the device configuration changes while your
+ component is running.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2779,7 +3491,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/Fragment.html#onContextItemSelected(android.view.MenuItem)">onContextItemSelected</a></span>(<a href="../../../reference/android/view/MenuItem.html">MenuItem</a> item)</nobr>
         
-        <div class="jd-descrdiv">This hook is called whenever an item in a context menu is selected.</div>
+        <div class="jd-descrdiv">
+          This hook is called whenever an item in a context menu is selected.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2797,7 +3514,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/Fragment.html#onCreate(android.os.Bundle)">onCreate</a></span>(<a href="../../../reference/android/os/Bundle.html">Bundle</a> savedInstanceState)</nobr>
         
-        <div class="jd-descrdiv">Called to do initial creation of a fragment.</div>
+        <div class="jd-descrdiv">
+          Called to do initial creation of a fragment.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2815,7 +3537,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/Fragment.html#onCreateAnimator(int, boolean, int)">onCreateAnimator</a></span>(int transit, boolean enter, int nextAnim)</nobr>
         
-        <div class="jd-descrdiv">Called when a fragment loads an animation.</div>
+        <div class="jd-descrdiv">
+          Called when a fragment loads an animation.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2833,7 +3560,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/Fragment.html#onCreateContextMenu(android.view.ContextMenu, android.view.View, android.view.ContextMenu.ContextMenuInfo)">onCreateContextMenu</a></span>(<a href="../../../reference/android/view/ContextMenu.html">ContextMenu</a> menu, <a href="../../../reference/android/view/View.html">View</a> v, <a href="../../../reference/android/view/ContextMenu.ContextMenuInfo.html">ContextMenu.ContextMenuInfo</a> menuInfo)</nobr>
         
-        <div class="jd-descrdiv">Called when a context menu for the <code>view</code> is about to be shown.</div>
+        <div class="jd-descrdiv">
+          Called when a context menu for the <code>view</code> is about to be shown.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2851,7 +3583,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/Fragment.html#onCreateOptionsMenu(android.view.Menu, android.view.MenuInflater)">onCreateOptionsMenu</a></span>(<a href="../../../reference/android/view/Menu.html">Menu</a> menu, <a href="../../../reference/android/view/MenuInflater.html">MenuInflater</a> inflater)</nobr>
         
-        <div class="jd-descrdiv">Initialize the contents of the Activity's standard options menu.</div>
+        <div class="jd-descrdiv">
+          Initialize the contents of the Activity's standard options menu.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2869,7 +3606,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/Fragment.html#onCreateView(android.view.LayoutInflater, android.view.ViewGroup, android.os.Bundle)">onCreateView</a></span>(<a href="../../../reference/android/view/LayoutInflater.html">LayoutInflater</a> inflater, <a href="../../../reference/android/view/ViewGroup.html">ViewGroup</a> container, <a href="../../../reference/android/os/Bundle.html">Bundle</a> savedInstanceState)</nobr>
         
-        <div class="jd-descrdiv">Called to have the fragment instantiate its user interface view.</div>
+        <div class="jd-descrdiv">
+          Called to have the fragment instantiate its user interface view.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2887,7 +3629,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/Fragment.html#onDestroy()">onDestroy</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Called when the fragment is no longer in use.</div>
+        <div class="jd-descrdiv">
+          Called when the fragment is no longer in use.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2905,8 +3652,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/Fragment.html#onDestroyOptionsMenu()">onDestroyOptionsMenu</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Called when this fragment's option menu items are no longer being
- included in the overall options menu.</div>
+        <div class="jd-descrdiv">
+          Called when this fragment's option menu items are no longer being
+ included in the overall options menu.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2924,8 +3676,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/Fragment.html#onDestroyView()">onDestroyView</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Called when the view previously created by <code><a href="../../../reference/android/app/Fragment.html#onCreateView(android.view.LayoutInflater, android.view.ViewGroup, android.os.Bundle)">onCreateView(LayoutInflater, ViewGroup, Bundle)</a></code> has
- been detached from the fragment.</div>
+        <div class="jd-descrdiv">
+          Called when the view previously created by <code><a href="../../../reference/android/app/Fragment.html#onCreateView(android.view.LayoutInflater, android.view.ViewGroup, android.os.Bundle)">onCreateView(LayoutInflater, ViewGroup, Bundle)</a></code> has
+ been detached from the fragment.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2943,7 +3700,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/Fragment.html#onDetach()">onDetach</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Called when the fragment is no longer attached to its activity.</div>
+        <div class="jd-descrdiv">
+          Called when the fragment is no longer attached to its activity.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2961,8 +3723,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/Fragment.html#onHiddenChanged(boolean)">onHiddenChanged</a></span>(boolean hidden)</nobr>
         
-        <div class="jd-descrdiv">Called when the hidden state (as returned by <code><a href="../../../reference/android/app/Fragment.html#isHidden()">isHidden()</a></code> of
- the fragment has changed.</div>
+        <div class="jd-descrdiv">
+          Called when the hidden state (as returned by <code><a href="../../../reference/android/app/Fragment.html#isHidden()">isHidden()</a></code> of
+ the fragment has changed.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2980,11 +3747,16 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/Fragment.html#onInflate(android.util.AttributeSet, android.os.Bundle)">onInflate</a></span>(<a href="../../../reference/android/util/AttributeSet.html">AttributeSet</a> attrs, <a href="../../../reference/android/os/Bundle.html">Bundle</a> savedInstanceState)</nobr>
         
-        <div class="jd-descrdiv"><em>
+        <div class="jd-descrdiv">
+          <em>
       This method was deprecated
       in API level 12.
     Use <code><a href="../../../reference/android/app/Fragment.html#onInflate(android.app.Activity, android.util.AttributeSet, android.os.Bundle)">onInflate(Activity, AttributeSet, Bundle)</a></code> instead.
-</em></div>
+</em>
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3002,8 +3774,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/Fragment.html#onInflate(android.app.Activity, android.util.AttributeSet, android.os.Bundle)">onInflate</a></span>(<a href="../../../reference/android/app/Activity.html">Activity</a> activity, <a href="../../../reference/android/util/AttributeSet.html">AttributeSet</a> attrs, <a href="../../../reference/android/os/Bundle.html">Bundle</a> savedInstanceState)</nobr>
         
-        <div class="jd-descrdiv">Called when a fragment is being created as part of a view layout
- inflation, typically from setting the content view of an activity.</div>
+        <div class="jd-descrdiv">
+          Called when a fragment is being created as part of a view layout
+ inflation, typically from setting the content view of an activity.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3021,8 +3798,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/Fragment.html#onLowMemory()">onLowMemory</a></span>()</nobr>
         
-        <div class="jd-descrdiv">This is called when the overall system is running low on memory, and
- actively running processes should trim their memory usage.</div>
+        <div class="jd-descrdiv">
+          This is called when the overall system is running low on memory, and
+ actively running processes should trim their memory usage.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3040,7 +3822,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/Fragment.html#onOptionsItemSelected(android.view.MenuItem)">onOptionsItemSelected</a></span>(<a href="../../../reference/android/view/MenuItem.html">MenuItem</a> item)</nobr>
         
-        <div class="jd-descrdiv">This hook is called whenever an item in your options menu is selected.</div>
+        <div class="jd-descrdiv">
+          This hook is called whenever an item in your options menu is selected.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3058,8 +3845,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/Fragment.html#onOptionsMenuClosed(android.view.Menu)">onOptionsMenuClosed</a></span>(<a href="../../../reference/android/view/Menu.html">Menu</a> menu)</nobr>
         
-        <div class="jd-descrdiv">This hook is called whenever the options menu is being closed (either by the user canceling
- the menu with the back/menu button, or when an item is selected).</div>
+        <div class="jd-descrdiv">
+          This hook is called whenever the options menu is being closed (either by the user canceling
+ the menu with the back/menu button, or when an item is selected).
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3077,7 +3869,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/Fragment.html#onPause()">onPause</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Called when the Fragment is no longer resumed.</div>
+        <div class="jd-descrdiv">
+          Called when the Fragment is no longer resumed.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3095,7 +3892,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/Fragment.html#onPrepareOptionsMenu(android.view.Menu)">onPrepareOptionsMenu</a></span>(<a href="../../../reference/android/view/Menu.html">Menu</a> menu)</nobr>
         
-        <div class="jd-descrdiv">Prepare the Screen's standard options menu to be displayed.</div>
+        <div class="jd-descrdiv">
+          Prepare the Screen's standard options menu to be displayed.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3113,7 +3915,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/Fragment.html#onResume()">onResume</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Called when the fragment is visible to the user and actively running.</div>
+        <div class="jd-descrdiv">
+          Called when the fragment is visible to the user and actively running.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3131,9 +3938,14 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/Fragment.html#onSaveInstanceState(android.os.Bundle)">onSaveInstanceState</a></span>(<a href="../../../reference/android/os/Bundle.html">Bundle</a> outState)</nobr>
         
-        <div class="jd-descrdiv">Called to ask the fragment to save its current dynamic state, so it
+        <div class="jd-descrdiv">
+          Called to ask the fragment to save its current dynamic state, so it
  can later be reconstructed in a new instance of its process is
- restarted.</div>
+ restarted.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3151,7 +3963,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/Fragment.html#onStart()">onStart</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Called when the Fragment is visible to the user.</div>
+        <div class="jd-descrdiv">
+          Called when the Fragment is visible to the user.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3169,7 +3986,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/Fragment.html#onStop()">onStop</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Called when the Fragment is no longer started.</div>
+        <div class="jd-descrdiv">
+          Called when the Fragment is no longer started.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3187,8 +4009,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/Fragment.html#onTrimMemory(int)">onTrimMemory</a></span>(int level)</nobr>
         
-        <div class="jd-descrdiv">Called when the operating system has determined that it is a good
- time for a process to trim unneeded memory from its process.</div>
+        <div class="jd-descrdiv">
+          Called when the operating system has determined that it is a good
+ time for a process to trim unneeded memory from its process.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3206,8 +4033,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/Fragment.html#onViewCreated(android.view.View, android.os.Bundle)">onViewCreated</a></span>(<a href="../../../reference/android/view/View.html">View</a> view, <a href="../../../reference/android/os/Bundle.html">Bundle</a> savedInstanceState)</nobr>
         
-        <div class="jd-descrdiv">Called immediately after <code><a href="../../../reference/android/app/Fragment.html#onCreateView(android.view.LayoutInflater, android.view.ViewGroup, android.os.Bundle)">onCreateView(LayoutInflater, ViewGroup, Bundle)</a></code>
- has returned, but before any saved state has been restored in to the view.</div>
+        <div class="jd-descrdiv">
+          Called immediately after <code><a href="../../../reference/android/app/Fragment.html#onCreateView(android.view.LayoutInflater, android.view.ViewGroup, android.os.Bundle)">onCreateView(LayoutInflater, ViewGroup, Bundle)</a></code>
+ has returned, but before any saved state has been restored in to the view.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3225,8 +4057,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/Fragment.html#onViewStateRestored(android.os.Bundle)">onViewStateRestored</a></span>(<a href="../../../reference/android/os/Bundle.html">Bundle</a> savedInstanceState)</nobr>
         
-        <div class="jd-descrdiv">Called when all saved state has been restored into the view hierarchy
- of the fragment.</div>
+        <div class="jd-descrdiv">
+          Called when all saved state has been restored into the view hierarchy
+ of the fragment.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3244,8 +4081,59 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/Fragment.html#registerForContextMenu(android.view.View)">registerForContextMenu</a></span>(<a href="../../../reference/android/view/View.html">View</a> view)</nobr>
         
-        <div class="jd-descrdiv">Registers a context menu to be shown for the given view (multiple views
- can show the context menu).</div>
+        <div class="jd-descrdiv">
+          Registers a context menu to be shown for the given view (multiple views
+ can show the context menu).
+          
+    
+
+        </div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-21" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/app/Fragment.html#setAllowEnterTransitionOverlap(boolean)">setAllowEnterTransitionOverlap</a></span>(boolean allow)</nobr>
+        
+        <div class="jd-descrdiv">
+          Sets whether the the exit transition and enter transition overlap or not.
+          
+    
+
+        </div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-21" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/app/Fragment.html#setAllowReturnTransitionOverlap(boolean)">setAllowReturnTransitionOverlap</a></span>(boolean allow)</nobr>
+        
+        <div class="jd-descrdiv">
+          Sets whether the the return transition and reenter transition overlap or not.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3263,7 +4151,107 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/Fragment.html#setArguments(android.os.Bundle)">setArguments</a></span>(<a href="../../../reference/android/os/Bundle.html">Bundle</a> args)</nobr>
         
-        <div class="jd-descrdiv">Supply the construction arguments for this fragment.</div>
+        <div class="jd-descrdiv">
+          Supply the construction arguments for this fragment.
+          
+    
+
+        </div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-21" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/app/Fragment.html#setEnterSharedElementCallback(android.app.SharedElementCallback)">setEnterSharedElementCallback</a></span>(<a href="../../../reference/android/app/SharedElementCallback.html">SharedElementCallback</a> callback)</nobr>
+        
+        <div class="jd-descrdiv">
+          When custom transitions are used with Fragments, the enter transition callback
+ is called when this Fragment is attached or detached when not popping the back stack.
+          
+    
+
+        </div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-21" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/app/Fragment.html#setEnterTransition(android.transition.Transition)">setEnterTransition</a></span>(<a href="../../../reference/android/transition/Transition.html">Transition</a> transition)</nobr>
+        
+        <div class="jd-descrdiv">
+          Sets the Transition that will be used to move Views into the initial scene.
+          
+    
+
+        </div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-21" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/app/Fragment.html#setExitSharedElementCallback(android.app.SharedElementCallback)">setExitSharedElementCallback</a></span>(<a href="../../../reference/android/app/SharedElementCallback.html">SharedElementCallback</a> callback)</nobr>
+        
+        <div class="jd-descrdiv">
+          When custom transitions are used with Fragments, the exit transition callback
+ is called when this Fragment is attached or detached when popping the back stack.
+          
+    
+
+        </div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-21" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/app/Fragment.html#setExitTransition(android.transition.Transition)">setExitTransition</a></span>(<a href="../../../reference/android/transition/Transition.html">Transition</a> transition)</nobr>
+        
+        <div class="jd-descrdiv">
+          Sets the Transition that will be used to move Views out of the scene when the
+ fragment is removed, hidden, or detached when not popping the back stack.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3281,9 +4269,14 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/Fragment.html#setHasOptionsMenu(boolean)">setHasOptionsMenu</a></span>(boolean hasMenu)</nobr>
         
-        <div class="jd-descrdiv">Report that this fragment would like to participate in populating
+        <div class="jd-descrdiv">
+          Report that this fragment would like to participate in populating
  the options menu by receiving a call to <code><a href="../../../reference/android/app/Fragment.html#onCreateOptionsMenu(android.view.Menu, android.view.MenuInflater)">onCreateOptionsMenu(Menu, MenuInflater)</a></code>
- and related methods.</div>
+ and related methods.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3301,9 +4294,14 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/Fragment.html#setInitialSavedState(android.app.Fragment.SavedState)">setInitialSavedState</a></span>(<a href="../../../reference/android/app/Fragment.SavedState.html">Fragment.SavedState</a> state)</nobr>
         
-        <div class="jd-descrdiv">Set the initial saved state that this Fragment should restore itself
+        <div class="jd-descrdiv">
+          Set the initial saved state that this Fragment should restore itself
  from when first being constructed, as returned by
- <code><a href="../../../reference/android/app/FragmentManager.html#saveFragmentInstanceState(android.app.Fragment)">FragmentManager.saveFragmentInstanceState</a></code>.</div>
+ <code><a href="../../../reference/android/app/FragmentManager.html#saveFragmentInstanceState(android.app.Fragment)">FragmentManager.saveFragmentInstanceState</a></code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3321,13 +4319,42 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/Fragment.html#setMenuVisibility(boolean)">setMenuVisibility</a></span>(boolean menuVisible)</nobr>
         
-        <div class="jd-descrdiv">Set a hint for whether this fragment's menu should be visible.</div>
+        <div class="jd-descrdiv">
+          Set a hint for whether this fragment's menu should be visible.
+          
+    
+
+        </div>
   
   </td></tr>
 
 
 	 
-    <tr class=" api apilevel-11" >
+    <tr class=" api apilevel-21" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/app/Fragment.html#setReenterTransition(android.transition.Transition)">setReenterTransition</a></span>(<a href="../../../reference/android/transition/Transition.html">Transition</a> transition)</nobr>
+        
+        <div class="jd-descrdiv">
+          Sets the Transition that will be used to move Views in to the scene when returning due
+ to popping a back stack.
+          
+    
+
+        </div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-11" >
         <td class="jd-typecol"><nobr>
             
             
@@ -3339,8 +4366,85 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/Fragment.html#setRetainInstance(boolean)">setRetainInstance</a></span>(boolean retain)</nobr>
         
-        <div class="jd-descrdiv">Control whether a fragment instance is retained across Activity
- re-creation (such as from a configuration change).</div>
+        <div class="jd-descrdiv">
+          Control whether a fragment instance is retained across Activity
+ re-creation (such as from a configuration change).
+          
+    
+
+        </div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-21" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/app/Fragment.html#setReturnTransition(android.transition.Transition)">setReturnTransition</a></span>(<a href="../../../reference/android/transition/Transition.html">Transition</a> transition)</nobr>
+        
+        <div class="jd-descrdiv">
+          Sets the Transition that will be used to move Views out of the scene when the Fragment is
+ preparing to be removed, hidden, or detached because of popping the back stack.
+          
+    
+
+        </div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-21" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/app/Fragment.html#setSharedElementEnterTransition(android.transition.Transition)">setSharedElementEnterTransition</a></span>(<a href="../../../reference/android/transition/Transition.html">Transition</a> transition)</nobr>
+        
+        <div class="jd-descrdiv">
+          Sets the Transition that will be used for shared elements transferred into the content
+ Scene.
+          
+    
+
+        </div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-21" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../reference/android/app/Fragment.html#setSharedElementReturnTransition(android.transition.Transition)">setSharedElementReturnTransition</a></span>(<a href="../../../reference/android/transition/Transition.html">Transition</a> transition)</nobr>
+        
+        <div class="jd-descrdiv">
+          Sets the Transition that will be used for shared elements transferred back during a
+ pop of the back stack.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3358,7 +4462,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/Fragment.html#setTargetFragment(android.app.Fragment, int)">setTargetFragment</a></span>(<a href="../../../reference/android/app/Fragment.html">Fragment</a> fragment, int requestCode)</nobr>
         
-        <div class="jd-descrdiv">Optional target for this fragment.</div>
+        <div class="jd-descrdiv">
+          Optional target for this fragment.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3376,8 +4485,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/Fragment.html#setUserVisibleHint(boolean)">setUserVisibleHint</a></span>(boolean isVisibleToUser)</nobr>
         
-        <div class="jd-descrdiv">Set a hint to the system about whether this fragment's UI is currently visible
- to the user.</div>
+        <div class="jd-descrdiv">
+          Set a hint to the system about whether this fragment's UI is currently visible
+ to the user.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3395,8 +4509,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/Fragment.html#startActivity(android.content.Intent)">startActivity</a></span>(<a href="../../../reference/android/content/Intent.html">Intent</a> intent)</nobr>
         
-        <div class="jd-descrdiv">Call <code><a href="../../../reference/android/app/Activity.html#startActivity(android.content.Intent)">startActivity(Intent)</a></code> from the fragment's
- containing Activity.</div>
+        <div class="jd-descrdiv">
+          Call <code><a href="../../../reference/android/app/Activity.html#startActivity(android.content.Intent)">startActivity(Intent)</a></code> from the fragment's
+ containing Activity.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3414,8 +4533,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/Fragment.html#startActivity(android.content.Intent, android.os.Bundle)">startActivity</a></span>(<a href="../../../reference/android/content/Intent.html">Intent</a> intent, <a href="../../../reference/android/os/Bundle.html">Bundle</a> options)</nobr>
         
-        <div class="jd-descrdiv">Call <code><a href="../../../reference/android/app/Activity.html#startActivity(android.content.Intent, android.os.Bundle)">startActivity(Intent, Bundle)</a></code> from the fragment's
- containing Activity.</div>
+        <div class="jd-descrdiv">
+          Call <code><a href="../../../reference/android/app/Activity.html#startActivity(android.content.Intent, android.os.Bundle)">startActivity(Intent, Bundle)</a></code> from the fragment's
+ containing Activity.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3433,8 +4557,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/Fragment.html#startActivityForResult(android.content.Intent, int)">startActivityForResult</a></span>(<a href="../../../reference/android/content/Intent.html">Intent</a> intent, int requestCode)</nobr>
         
-        <div class="jd-descrdiv">Call <code><a href="../../../reference/android/app/Activity.html#startActivityForResult(android.content.Intent, int)">startActivityForResult(Intent, int)</a></code> from the fragment's
- containing Activity.</div>
+        <div class="jd-descrdiv">
+          Call <code><a href="../../../reference/android/app/Activity.html#startActivityForResult(android.content.Intent, int)">startActivityForResult(Intent, int)</a></code> from the fragment's
+ containing Activity.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3452,8 +4581,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/Fragment.html#startActivityForResult(android.content.Intent, int, android.os.Bundle)">startActivityForResult</a></span>(<a href="../../../reference/android/content/Intent.html">Intent</a> intent, int requestCode, <a href="../../../reference/android/os/Bundle.html">Bundle</a> options)</nobr>
         
-        <div class="jd-descrdiv">Call <code><a href="../../../reference/android/app/Activity.html#startActivityForResult(android.content.Intent, int, android.os.Bundle)">startActivityForResult(Intent, int, Bundle)</a></code> from the fragment's
- containing Activity.</div>
+        <div class="jd-descrdiv">
+          Call <code><a href="../../../reference/android/app/Activity.html#startActivityForResult(android.content.Intent, int, android.os.Bundle)">startActivityForResult(Intent, int, Bundle)</a></code> from the fragment's
+ containing Activity.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3471,8 +4605,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/Fragment.html#toString()">toString</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns a string containing a concise, human-readable description of this
- object.</div>
+        <div class="jd-descrdiv">
+          Returns a string containing a concise, human-readable description of this
+ object.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3490,7 +4629,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/app/Fragment.html#unregisterForContextMenu(android.view.View)">unregisterForContextMenu</a></span>(<a href="../../../reference/android/view/View.html">View</a> view)</nobr>
         
-        <div class="jd-descrdiv">Prevents a context menu to be shown for the given view.</div>
+        <div class="jd-descrdiv">
+          Prevents a context menu to be shown for the given view.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3534,7 +4678,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#clone()">clone</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Creates and returns a copy of this <code>Object</code>.</div>
+        <div class="jd-descrdiv">
+          Creates and returns a copy of this <code>Object</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3552,8 +4701,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#equals(java.lang.Object)">equals</a></span>(<a href="../../../reference/java/lang/Object.html">Object</a> o)</nobr>
         
-        <div class="jd-descrdiv">Compares this instance with the specified object and indicates if they
- are equal.</div>
+        <div class="jd-descrdiv">
+          Compares this instance with the specified object and indicates if they
+ are equal.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3571,7 +4725,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#finalize()">finalize</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Invoked when the garbage collector has detected that this instance is no longer reachable.</div>
+        <div class="jd-descrdiv">
+          Invoked when the garbage collector has detected that this instance is no longer reachable.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3589,8 +4748,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#getClass()">getClass</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns the unique instance of <code><a href="../../../reference/java/lang/Class.html">Class</a></code> that represents this
- object's class.</div>
+        <div class="jd-descrdiv">
+          Returns the unique instance of <code><a href="../../../reference/java/lang/Class.html">Class</a></code> that represents this
+ object's class.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3608,7 +4772,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#hashCode()">hashCode</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns an integer hash code for this object.</div>
+        <div class="jd-descrdiv">
+          Returns an integer hash code for this object.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3626,8 +4795,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#notify()">notify</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Causes a thread which is waiting on this object's monitor (by means of
- calling one of the <code>wait()</code> methods) to be woken up.</div>
+        <div class="jd-descrdiv">
+          Causes a thread which is waiting on this object's monitor (by means of
+ calling one of the <code>wait()</code> methods) to be woken up.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3645,8 +4819,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#notifyAll()">notifyAll</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Causes all threads which are waiting on this object's monitor (by means
- of calling one of the <code>wait()</code> methods) to be woken up.</div>
+        <div class="jd-descrdiv">
+          Causes all threads which are waiting on this object's monitor (by means
+ of calling one of the <code>wait()</code> methods) to be woken up.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3664,8 +4843,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#toString()">toString</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns a string containing a concise, human-readable description of this
- object.</div>
+        <div class="jd-descrdiv">
+          Returns a string containing a concise, human-readable description of this
+ object.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3683,7 +4867,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#wait()">wait</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object.</div>
+        <div class="jd-descrdiv">
+          Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3701,8 +4890,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#wait(long, int)">wait</a></span>(long millis, int nanos)</nobr>
         
-        <div class="jd-descrdiv">Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object or until the
- specified timeout expires.</div>
+        <div class="jd-descrdiv">
+          Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object or until the
+ specified timeout expires.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3720,8 +4914,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#wait(long)">wait</a></span>(long millis)</nobr>
         
-        <div class="jd-descrdiv">Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object or until the
- specified timeout expires.</div>
+        <div class="jd-descrdiv">
+          Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object or until the
+ specified timeout expires.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3765,8 +4964,13 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/content/ComponentCallbacks.html#onConfigurationChanged(android.content.res.Configuration)">onConfigurationChanged</a></span>(<a href="../../../reference/android/content/res/Configuration.html">Configuration</a> newConfig)</nobr>
         
-        <div class="jd-descrdiv">Called by the system when the device configuration changes while your
- component is running.</div>
+        <div class="jd-descrdiv">
+          Called by the system when the device configuration changes while your
+ component is running.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3784,8 +4988,13 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/content/ComponentCallbacks.html#onLowMemory()">onLowMemory</a></span>()</nobr>
         
-        <div class="jd-descrdiv">This is called when the overall system is running low on memory, and
- actively running processes should trim their memory usage.</div>
+        <div class="jd-descrdiv">
+          This is called when the overall system is running low on memory, and
+ actively running processes should trim their memory usage.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3829,8 +5038,13 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/content/ComponentCallbacks2.html#onTrimMemory(int)">onTrimMemory</a></span>(int level)</nobr>
         
-        <div class="jd-descrdiv">Called when the operating system has determined that it is a good
- time for a process to trim unneeded memory from its process.</div>
+        <div class="jd-descrdiv">
+          Called when the operating system has determined that it is a good
+ time for a process to trim unneeded memory from its process.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3874,7 +5088,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/content/DialogInterface.OnCancelListener.html#onCancel(android.content.DialogInterface)">onCancel</a></span>(<a href="../../../reference/android/content/DialogInterface.html">DialogInterface</a> dialog)</nobr>
         
-        <div class="jd-descrdiv">This method will be invoked when the dialog is canceled.</div>
+        <div class="jd-descrdiv">
+          This method will be invoked when the dialog is canceled.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3918,7 +5137,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/content/DialogInterface.OnDismissListener.html#onDismiss(android.content.DialogInterface)">onDismiss</a></span>(<a href="../../../reference/android/content/DialogInterface.html">DialogInterface</a> dialog)</nobr>
         
-        <div class="jd-descrdiv">This method will be invoked when the dialog is dismissed.</div>
+        <div class="jd-descrdiv">
+          This method will be invoked when the dialog is dismissed.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -3962,7 +5186,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/view/View.OnCreateContextMenuListener.html#onCreateContextMenu(android.view.ContextMenu, android.view.View, android.view.ContextMenu.ContextMenuInfo)">onCreateContextMenu</a></span>(<a href="../../../reference/android/view/ContextMenu.html">ContextMenu</a> menu, <a href="../../../reference/android/view/View.html">View</a> v, <a href="../../../reference/android/view/ContextMenu.ContextMenuInfo.html">ContextMenu.ContextMenuInfo</a> menuInfo)</nobr>
         
-        <div class="jd-descrdiv">Called when the context menu for this view is being built.</div>
+        <div class="jd-descrdiv">
+          Called when the context menu for this view is being built.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -4023,6 +5252,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Style for <code><a href="../../../reference/android/app/DialogFragment.html#setStyle(int, int)">setStyle(int, int)</a></code>: a basic,
  normal dialog.
 </p></div>
@@ -4063,6 +5295,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Style for <code><a href="../../../reference/android/app/DialogFragment.html#setStyle(int, int)">setStyle(int, int)</a></code>: don't draw
  any frame at all; the view hierarchy returned by <code><a href="../../../reference/android/app/Fragment.html#onCreateView(android.view.LayoutInflater, android.view.ViewGroup, android.os.Bundle)">onCreateView(LayoutInflater, ViewGroup, Bundle)</a></code>
@@ -4106,6 +5341,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Style for <code><a href="../../../reference/android/app/DialogFragment.html#setStyle(int, int)">setStyle(int, int)</a></code>: like
  <code><a href="../../../reference/android/app/DialogFragment.html#STYLE_NO_FRAME">STYLE_NO_FRAME</a></code>, but also disables all input to the dialog.
  The user can not touch it, and its window will not receive input focus.
@@ -4147,6 +5385,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Style for <code><a href="../../../reference/android/app/DialogFragment.html#setStyle(int, int)">setStyle(int, int)</a></code>: don't include
  a title area.
@@ -4204,6 +5445,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     </div>
@@ -4249,6 +5493,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Dismiss the fragment and its dialog.  If the fragment was added to the
  back stack, all back stack state up to and including this entry will
  be popped.  Otherwise, a new transaction will be committed to remove
@@ -4283,6 +5530,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Version of <code><a href="../../../reference/android/app/DialogFragment.html#dismiss()">dismiss()</a></code> that uses
  <code><a href="../../../reference/android/app/FragmentTransaction.html#commitAllowingStateLoss()">FragmentTransaction.commitAllowingStateLoss()</a></code>.  See linked
  documentation for further details.
@@ -4315,6 +5565,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Print the Fragments's state into the given stream.</p></div>
   <div class="jd-tagdata">
@@ -4369,6 +5622,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     </div>
@@ -4398,6 +5654,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Return the current value of <code><a href="../../../reference/android/app/DialogFragment.html#setShowsDialog(boolean)">setShowsDialog(boolean)</a></code>.
 </p></div>
@@ -4430,6 +5689,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     </div>
@@ -4459,6 +5721,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Return the current value of <code><a href="../../../reference/android/app/DialogFragment.html#setCancelable(boolean)">setCancelable(boolean)</a></code>.
 </p></div>
@@ -4490,6 +5755,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Called when the fragment's activity has been created and this
  fragment's view hierarchy instantiated.  It can be used to do final
@@ -4539,6 +5807,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Called when a fragment is first attached to its activity.
  <code><a href="../../../reference/android/app/Fragment.html#onCreate(android.os.Bundle)">onCreate(Bundle)</a></code> will be called after this.
 </p></div>
@@ -4570,6 +5841,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>This method will be invoked when the dialog is canceled.</p></div>
   <div class="jd-tagdata">
@@ -4612,10 +5886,13 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Called to do initial creation of a fragment.  This is called after
  <code><a href="../../../reference/android/app/Fragment.html#onAttach(android.app.Activity)">onAttach(Activity)</a></code> and before
  <code><a href="../../../reference/android/app/Fragment.html#onCreateView(android.view.LayoutInflater, android.view.ViewGroup, android.os.Bundle)">onCreateView(LayoutInflater, ViewGroup, Bundle)</a></code>.
- 
+
  <p>Note that this can be called while the fragment's activity is
  still in the process of being created.  As such, you can not rely
  on things like the activity's content view hierarchy being initialized
@@ -4660,6 +5937,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Override to build your own custom Dialog container.  This is typically
  used to show an AlertDialog instead of a generic Dialog; when doing so,
@@ -4718,6 +5998,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Remove dialog.
 </p></div>
 
@@ -4748,6 +6031,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Called when the fragment is no longer attached to its activity.  This
  is called after <code><a href="../../../reference/android/app/Fragment.html#onDestroy()">onDestroy()</a></code>.
@@ -4780,6 +6066,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>This method will be invoked when the dialog is dismissed.</p></div>
   <div class="jd-tagdata">
@@ -4821,6 +6110,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Called to ask the fragment to save its current dynamic state, so it
  can later be reconstructed in a new instance of its process is
@@ -4875,6 +6167,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Called when the Fragment is visible to the user.  This is generally
  tied to <code><a href="../../../reference/android/app/Activity.html#onStart()">Activity.onStart</a></code> of the containing
  Activity's lifecycle.
@@ -4908,6 +6203,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Called when the Fragment is no longer started.  This is generally
  tied to <code><a href="../../../reference/android/app/Activity.html#onStop()">Activity.onStop</a></code> of the containing
  Activity's lifecycle.
@@ -4940,6 +6238,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Control whether the shown Dialog is cancelable.  Use this instead of
  directly calling <code><a href="../../../reference/android/app/Dialog.html#setCancelable(boolean)">Dialog.setCancelable(boolean)</a></code>, because DialogFragment needs to change
@@ -4983,6 +6284,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Controls whether this fragment should be shown in a dialog.  If not
  set, no Dialog will be created in <code><a href="../../../reference/android/app/DialogFragment.html#onActivityCreated(android.os.Bundle)">onActivityCreated(Bundle)</a></code>,
@@ -5036,6 +6340,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Call to customize the basic appearance and behavior of the
  fragment's dialog.  This can be used for some common dialog behaviors,
  taking care of selecting flags, theme, and other options for you.  The
@@ -5088,6 +6395,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Display the dialog, adding the fragment using an existing transaction
  and then committing the transaction.</p></div>
   <div class="jd-tagdata">
@@ -5138,6 +6448,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Display the dialog, adding the fragment to the given FragmentManager.  This
  is a convenience for explicitly creating a transaction, adding the

@@ -82,6 +82,19 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 <html>
 <head>
 
@@ -97,7 +110,7 @@
 href="http://fonts.useso.com/css?family=Roboto+Condensed">
 <link rel="stylesheet" href="http://fonts.useso.com/css?family=Roboto:light,regular,medium,thin,italic,mediumitalic,bold"
   title="roboto">
-<link href="../../../assets/css/default.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/default.css?v=2" rel="stylesheet" type="text/css">
 
 
 <!-- FULLSCREEN STYLESHEET -->
@@ -106,30 +119,31 @@ type="text/css">
 
 
 <!-- JAVASCRIPT -->
-<script src="http://googleapiscdn.qiniudn.com/www.google.com/jsapi" type="text/javascript"></script>
+<script src="http://www.google.com/jsapi" type="text/javascript"></script>
 <script src="../../../assets/js/android_3p-bundle.js" type="text/javascript"></script>
 <script type="text/javascript">
   var toRoot = "../../../";
   var metaTags = [];
   var devsite = false;
 </script>
-<script src="../../../assets/js/docs.js" type="text/javascript"></script>
+<script src="../../../assets/js/docs.js?v=2" type="text/javascript"></script>
 
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-5831155-1']);
-  _gaq.push(['_trackPageview']);
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
+  ga('create', 'UA-5831155-1', 'android.com');
+  ga('create', 'UA-49880327-2', 'android.com', {'name': 'universal'});  // New tracker);
+  ga('send', 'pageview');
+  ga('universal.send', 'pageview'); // Send page view for new tracker.
 </script>
+
 </head>
 
 <body class="gc-documentation 
-  develop" itemscope itemtype="http://schema.org/Article">
+  develop reference" itemscope itemtype="http://schema.org/Article">
   <div id="doc-api-level" class="1" style="display:none"></div>
   <a name="top"></a>
 
@@ -139,6 +153,10 @@ type="text/css">
   <!-- Header -->
   <div id="header-wrapper">
     <div id="header">
+
+    
+
+
       <div class="wrap" id="header-wrap">
         <div class="col-3 logo">
           <a href="../../../index.html">
@@ -260,11 +278,20 @@ type="text/css">
 
 
         <!-- Expanded quicknav -->
-        <div id="quicknav" class="col-9">
+        <div id="quicknav" class="col-13">
           <ul>
+            <li class="about">
+              <ul>
+                <li><a href="../../../about/index.html">About</a></li>
+                <li><a href="../../../wear/index.html">Wear</a></li>
+                <li><a href="../../../tv/index.html">TV</a></li>
+                <li><a href="../../../auto/index.html">Auto</a></li>
+              </ul>
+            </li>
             <li class="design">
               <ul>
                 <li><a href="../../../design/index.html">Get Started</a></li>
+                <li><a href="../../../design/devices.html">Devices</a></li>
                 <li><a href="../../../design/style/index.html">Style</a></li>
                 <li><a href="../../../design/patterns/index.html">Patterns</a></li>
                 <li><a href="../../../design/building-blocks/index.html">Building Blocks</a></li>
@@ -298,7 +325,7 @@ type="text/css">
                   ja-lang="リファレンス"
                   es-lang="Referencia"
                   >Reference</a></li>
-                <li><a href="../../../tools/index.html"
+                <li><a href="../../../sdk/index.html"
                   zh-tw-lang="相關工具"
                   zh-cn-lang="工具"
                   ru-lang="Инструменты"
@@ -306,7 +333,6 @@ type="text/css">
                   ja-lang="ツール"
                   es-lang="Herramientas"
                   >Tools</a>
-                  <ul><li><a href="../../../sdk/index.html">Get the SDK</a></li></ul>
                 </li>
                 <li><a href="../../../google/index.html">Google Services</a>
                 </li>
@@ -358,7 +384,7 @@ type="text/css">
                   ja-lang="リファレンス"
                   es-lang="Referencia"
                   >Reference</a></li>
-                <li class="tools"><a href="../../../tools/index.html"
+                <li class="tools"><a href="../../../sdk/index.html"
                   zh-tw-lang="相關工具"
                   zh-cn-lang="工具"
                   ru-lang="Инструменты"
@@ -373,7 +399,7 @@ type="text/css">
             </ul>
         </div>
     </div>
-    <!-- /Sendondary x-nav -->
+    <!-- /Sendondary x-nav DEVELOP -->
 
   
 
@@ -414,7 +440,7 @@ type="text/css">
         <div id="api-nav-title">Android APIs</div>
         </div><!-- end nav header -->
       <script>
-        var SINCE_DATA = [ '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19' ];
+        var SINCE_DATA = [ '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21' ];
         buildApiLevelSelector();
       </script>
                   
@@ -441,13 +467,15 @@ type="text/css">
   <a href="../../../reference/android/app/admin/package-summary.html">android.app.admin</a></li>
     <li class="api apilevel-8">
   <a href="../../../reference/android/app/backup/package-summary.html">android.app.backup</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/app/job/package-summary.html">android.app.job</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/app/usage/package-summary.html">android.app.usage</a></li>
     <li class="api apilevel-3">
   <a href="../../../reference/android/appwidget/package-summary.html">android.appwidget</a></li>
     <li class="api apilevel-5">
   <a href="../../../reference/android/bluetooth/package-summary.html">android.bluetooth</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/bluetooth/le/package-summary.html">android.bluetooth.le</a></li>
     <li class="api apilevel-1">
   <a href="../../../reference/android/content/package-summary.html">android.content</a></li>
@@ -473,16 +501,14 @@ type="text/css">
   <a href="../../../reference/android/graphics/pdf/package-summary.html">android.graphics.pdf</a></li>
     <li class="api apilevel-1">
   <a href="../../../reference/android/hardware/package-summary.html">android.hardware</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/hardware/camera2/package-summary.html">android.hardware.camera2</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/hardware/camera2/params/package-summary.html">android.hardware.camera2.params</a></li>
     <li class="api apilevel-17">
   <a href="../../../reference/android/hardware/display/package-summary.html">android.hardware.display</a></li>
     <li class="api apilevel-16">
   <a href="../../../reference/android/hardware/input/package-summary.html">android.hardware.input</a></li>
-    <li class="api apilevel-18">
-  <a href="../../../reference/android/hardware/location/package-summary.html">android.hardware.location</a></li>
     <li class="api apilevel-12">
   <a href="../../../reference/android/hardware/usb/package-summary.html">android.hardware.usb</a></li>
     <li class="api apilevel-3">
@@ -493,11 +519,15 @@ type="text/css">
   <a href="../../../reference/android/media/package-summary.html">android.media</a></li>
     <li class="api apilevel-9">
   <a href="../../../reference/android/media/audiofx/package-summary.html">android.media.audiofx</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/media/browse/package-summary.html">android.media.browse</a></li>
     <li class="api apilevel-14">
   <a href="../../../reference/android/media/effect/package-summary.html">android.media.effect</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/media/projection/package-summary.html">android.media.projection</a></li>
+    <li class="api apilevel-21">
   <a href="../../../reference/android/media/session/package-summary.html">android.media.session</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/media/tv/package-summary.html">android.media.tv</a></li>
     <li class="api apilevel-12">
   <a href="../../../reference/android/mtp/package-summary.html">android.mtp</a></li>
@@ -547,11 +577,15 @@ type="text/css">
   <a href="../../../reference/android/security/package-summary.html">android.security</a></li>
     <li class="api apilevel-17">
   <a href="../../../reference/android/service/dreams/package-summary.html">android.service.dreams</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/service/media/package-summary.html">android.service.media</a></li>
     <li class="api apilevel-18">
   <a href="../../../reference/android/service/notification/package-summary.html">android.service.notification</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/service/restrictions/package-summary.html">android.service.restrictions</a></li>
     <li class="api apilevel-14">
   <a href="../../../reference/android/service/textservice/package-summary.html">android.service.textservice</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/service/voice/package-summary.html">android.service.voice</a></li>
     <li class="api apilevel-7">
   <a href="../../../reference/android/service/wallpaper/package-summary.html">android.service.wallpaper</a></li>
@@ -596,11 +630,15 @@ type="text/css">
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/media/package-summary.html">android.support.v4.media</a></li>
     <li class="api apilevel-">
+  <a href="../../../reference/android/support/v4/media/session/package-summary.html">android.support.v4.media.session</a></li>
+    <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/net/package-summary.html">android.support.v4.net</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/os/package-summary.html">android.support.v4.os</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/print/package-summary.html">android.support.v4.print</a></li>
+    <li class="api apilevel-">
+  <a href="../../../reference/android/support/v4/provider/package-summary.html">android.support.v4.provider</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/text/package-summary.html">android.support.v4.text</a></li>
     <li class="api apilevel-">
@@ -616,6 +654,10 @@ type="text/css">
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v7/appcompat/package-summary.html">android.support.v7.appcompat</a></li>
     <li class="api apilevel-">
+  <a href="../../../reference/android/support/v7/cardview/package-summary.html">android.support.v7.cardview</a></li>
+    <li class="api apilevel-">
+  <a href="../../../reference/android/support/v7/graphics/package-summary.html">android.support.v7.graphics</a></li>
+    <li class="api apilevel-">
   <a href="../../../reference/android/support/v7/gridlayout/package-summary.html">android.support.v7.gridlayout</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v7/media/package-summary.html">android.support.v7.media</a></li>
@@ -627,8 +669,10 @@ type="text/css">
   <a href="../../../reference/android/support/v7/widget/package-summary.html">android.support.v7.widget</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v8/renderscript/package-summary.html">android.support.v8.renderscript</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/system/package-summary.html">android.system</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/telecom/package-summary.html">android.telecom</a></li>
     <li class="api apilevel-1">
   <a href="../../../reference/android/telephony/package-summary.html">android.telephony</a></li>
     <li class="api apilevel-5">
@@ -1082,6 +1126,9 @@ Summary:
   
 
 
+    
+
+
 </div><!-- end header -->
 
 <div id="naMessage"></div>
@@ -1126,16 +1173,33 @@ Summary:
       <div id="subclasses-indirect-summary"
               style="display: none;"
               >
+  
   <table class="jd-sumtable-expando">
-        <tr class="alt-color api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/java/sql/CallableStatement.html">CallableStatement</a></td>
-              <td class="jd-descrcol" width="100%">An interface used to call <i>Stored Procedures</i>.&nbsp;</td>
-          </tr>
-        <tr class=" api apilevel-1" >
-              <td class="jd-linkcol"><a href="../../../reference/java/sql/PreparedStatement.html">PreparedStatement</a></td>
-              <td class="jd-descrcol" width="100%">An interface for a precompiled SQL Statement.&nbsp;</td>
-          </tr>
+    
+      <tr class="alt-color api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/java/sql/CallableStatement.html">CallableStatement</a></td>
+        <td class="jd-descrcol" width="100%">
+          An interface used to call <i>Stored Procedures</i>.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-1" >
+        <td class="jd-linkcol"><a href="../../../reference/java/sql/PreparedStatement.html">PreparedStatement</a></td>
+        <td class="jd-descrcol" width="100%">
+          An interface for a precompiled SQL Statement.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
   </table>
+
       </div>
   </div>
 </td></tr></table>
@@ -1208,53 +1272,88 @@ Summary:
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/java/sql/Statement.html#CLOSE_ALL_RESULTS">CLOSE_ALL_RESULTS</a></td>
-        <td class="jd-descrcol" width="100%">Passing this constant to <code><a href="../../../reference/java/sql/Statement.html#getMoreResults()">getMoreResults()</a></code> implies that all <code>ResultSet</code> objects previously kept open should be closed.</td>
+        <td class="jd-descrcol" width="100%">
+          Passing this constant to <code><a href="../../../reference/java/sql/Statement.html#getMoreResults()">getMoreResults()</a></code> implies that all <code>ResultSet</code> objects previously kept open should be closed.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/java/sql/Statement.html#CLOSE_CURRENT_RESULT">CLOSE_CURRENT_RESULT</a></td>
-        <td class="jd-descrcol" width="100%">Passing this constant to <code><a href="../../../reference/java/sql/Statement.html#getMoreResults()">getMoreResults()</a></code> implies that the current
- <code>ResultSet</code> object should be closed.</td>
+        <td class="jd-descrcol" width="100%">
+          Passing this constant to <code><a href="../../../reference/java/sql/Statement.html#getMoreResults()">getMoreResults()</a></code> implies that the current
+ <code>ResultSet</code> object should be closed.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/java/sql/Statement.html#EXECUTE_FAILED">EXECUTE_FAILED</a></td>
-        <td class="jd-descrcol" width="100%">Indicates that an error was encountered during execution of a batch
- statement.</td>
+        <td class="jd-descrcol" width="100%">
+          Indicates that an error was encountered during execution of a batch
+ statement.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/java/sql/Statement.html#KEEP_CURRENT_RESULT">KEEP_CURRENT_RESULT</a></td>
-        <td class="jd-descrcol" width="100%">Passing this constant to <i>getMoreResults</i> implies that the current
- <code>ResultSet</code> object should not be closed.</td>
+        <td class="jd-descrcol" width="100%">
+          Passing this constant to <i>getMoreResults</i> implies that the current
+ <code>ResultSet</code> object should not be closed.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/java/sql/Statement.html#NO_GENERATED_KEYS">NO_GENERATED_KEYS</a></td>
-        <td class="jd-descrcol" width="100%">Indicates that generated keys should not be accessible for retrieval.</td>
+        <td class="jd-descrcol" width="100%">
+          Indicates that generated keys should not be accessible for retrieval.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/java/sql/Statement.html#RETURN_GENERATED_KEYS">RETURN_GENERATED_KEYS</a></td>
-        <td class="jd-descrcol" width="100%">Indicates that generated keys should be accessible for retrieval.</td>
+        <td class="jd-descrcol" width="100%">
+          Indicates that generated keys should be accessible for retrieval.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/java/sql/Statement.html#SUCCESS_NO_INFO">SUCCESS_NO_INFO</a></td>
-        <td class="jd-descrcol" width="100%">Indicates that a batch statement was executed with a successful result,
- but a count of the number of rows it affected is unavailable.</td>
+        <td class="jd-descrcol" width="100%">
+          Indicates that a batch statement was executed with a successful result,
+ but a count of the number of rows it affected is unavailable.
+          
+    
+
+        </td>
     </tr>
     
     
@@ -1294,7 +1393,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/Statement.html#addBatch(java.lang.String)">addBatch</a></span>(<a href="../../../reference/java/lang/String.html">String</a> sql)</nobr>
         
-        <div class="jd-descrdiv">Adds a specified SQL command to the list of commands for this <code>Statement</code>.</div>
+        <div class="jd-descrdiv">
+          Adds a specified SQL command to the list of commands for this <code>Statement</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1312,8 +1416,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/Statement.html#cancel()">cancel</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Cancels this statement's execution if both the database and the JDBC
- driver support aborting an SQL statement in flight.</div>
+        <div class="jd-descrdiv">
+          Cancels this statement's execution if both the database and the JDBC
+ driver support aborting an SQL statement in flight.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1331,7 +1440,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/Statement.html#clearBatch()">clearBatch</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Clears the current list of SQL commands for this statement.</div>
+        <div class="jd-descrdiv">
+          Clears the current list of SQL commands for this statement.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1349,7 +1463,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/Statement.html#clearWarnings()">clearWarnings</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Clears all <code>SQLWarnings</code> from this statement.</div>
+        <div class="jd-descrdiv">
+          Clears all <code>SQLWarnings</code> from this statement.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1367,7 +1486,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/Statement.html#close()">close</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Releases this statement's database and JDBC driver resources.</div>
+        <div class="jd-descrdiv">
+          Releases this statement's database and JDBC driver resources.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1385,7 +1509,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/Statement.html#execute(java.lang.String)">execute</a></span>(<a href="../../../reference/java/lang/String.html">String</a> sql)</nobr>
         
-        <div class="jd-descrdiv">Executes a supplied SQL statement.</div>
+        <div class="jd-descrdiv">
+          Executes a supplied SQL statement.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1403,7 +1532,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/Statement.html#execute(java.lang.String, int)">execute</a></span>(<a href="../../../reference/java/lang/String.html">String</a> sql, int autoGeneratedKeys)</nobr>
         
-        <div class="jd-descrdiv">Executes a supplied SQL statement.</div>
+        <div class="jd-descrdiv">
+          Executes a supplied SQL statement.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1421,7 +1555,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/Statement.html#execute(java.lang.String, java.lang.String[])">execute</a></span>(<a href="../../../reference/java/lang/String.html">String</a> sql, <a href="../../../reference/java/lang/String.html">String[]</a> columnNames)</nobr>
         
-        <div class="jd-descrdiv">Executes the supplied SQL statement.</div>
+        <div class="jd-descrdiv">
+          Executes the supplied SQL statement.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1439,7 +1578,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/Statement.html#execute(java.lang.String, int[])">execute</a></span>(<a href="../../../reference/java/lang/String.html">String</a> sql, int[] columnIndexes)</nobr>
         
-        <div class="jd-descrdiv">Executes the supplied SQL statement.</div>
+        <div class="jd-descrdiv">
+          Executes the supplied SQL statement.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1457,7 +1601,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/Statement.html#executeBatch()">executeBatch</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Submits a batch of SQL commands to the database.</div>
+        <div class="jd-descrdiv">
+          Submits a batch of SQL commands to the database.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1475,7 +1624,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/Statement.html#executeQuery(java.lang.String)">executeQuery</a></span>(<a href="../../../reference/java/lang/String.html">String</a> sql)</nobr>
         
-        <div class="jd-descrdiv">Executes a supplied SQL statement.</div>
+        <div class="jd-descrdiv">
+          Executes a supplied SQL statement.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1493,7 +1647,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/Statement.html#executeUpdate(java.lang.String, int)">executeUpdate</a></span>(<a href="../../../reference/java/lang/String.html">String</a> sql, int autoGeneratedKeys)</nobr>
         
-        <div class="jd-descrdiv">Executes the supplied SQL statement.</div>
+        <div class="jd-descrdiv">
+          Executes the supplied SQL statement.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1511,7 +1670,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/Statement.html#executeUpdate(java.lang.String, java.lang.String[])">executeUpdate</a></span>(<a href="../../../reference/java/lang/String.html">String</a> sql, <a href="../../../reference/java/lang/String.html">String[]</a> columnNames)</nobr>
         
-        <div class="jd-descrdiv">Executes the supplied SQL statement.</div>
+        <div class="jd-descrdiv">
+          Executes the supplied SQL statement.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1529,7 +1693,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/Statement.html#executeUpdate(java.lang.String)">executeUpdate</a></span>(<a href="../../../reference/java/lang/String.html">String</a> sql)</nobr>
         
-        <div class="jd-descrdiv">Executes the supplied SQL statement.</div>
+        <div class="jd-descrdiv">
+          Executes the supplied SQL statement.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1547,7 +1716,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/Statement.html#executeUpdate(java.lang.String, int[])">executeUpdate</a></span>(<a href="../../../reference/java/lang/String.html">String</a> sql, int[] columnIndexes)</nobr>
         
-        <div class="jd-descrdiv">Executes the supplied SQL statement.</div>
+        <div class="jd-descrdiv">
+          Executes the supplied SQL statement.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1565,7 +1739,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/Statement.html#getConnection()">getConnection</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Gets the <code>Connection</code> object which created this statement.</div>
+        <div class="jd-descrdiv">
+          Gets the <code>Connection</code> object which created this statement.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1583,8 +1762,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/Statement.html#getFetchDirection()">getFetchDirection</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Gets the default direction for fetching rows for <code>ResultSet</code>s
- generated from this statement.</div>
+        <div class="jd-descrdiv">
+          Gets the default direction for fetching rows for <code>ResultSet</code>s
+ generated from this statement.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1602,8 +1786,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/Statement.html#getFetchSize()">getFetchSize</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Gets the default number of rows for a fetch for the <code>ResultSet</code>
- objects returned from this statement.</div>
+        <div class="jd-descrdiv">
+          Gets the default number of rows for a fetch for the <code>ResultSet</code>
+ objects returned from this statement.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1621,7 +1810,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/Statement.html#getGeneratedKeys()">getGeneratedKeys</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns auto generated keys created by executing this statement.</div>
+        <div class="jd-descrdiv">
+          Returns auto generated keys created by executing this statement.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1639,9 +1833,14 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/Statement.html#getMaxFieldSize()">getMaxFieldSize</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Gets the maximum number of bytes which can be returned as values from
+        <div class="jd-descrdiv">
+          Gets the maximum number of bytes which can be returned as values from
  character and binary type columns in a <code>ResultSet</code> derived from this
- statement.</div>
+ statement.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1659,8 +1858,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/Statement.html#getMaxRows()">getMaxRows</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Gets the maximum number of rows that a <code>ResultSet</code> can contain when
- produced from this statement.</div>
+        <div class="jd-descrdiv">
+          Gets the maximum number of rows that a <code>ResultSet</code> can contain when
+ produced from this statement.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1678,7 +1882,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/Statement.html#getMoreResults(int)">getMoreResults</a></span>(int current)</nobr>
         
-        <div class="jd-descrdiv">Moves to this statement's next result.</div>
+        <div class="jd-descrdiv">
+          Moves to this statement's next result.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1696,7 +1905,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/Statement.html#getMoreResults()">getMoreResults</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Moves to this statement's next result.</div>
+        <div class="jd-descrdiv">
+          Moves to this statement's next result.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1714,7 +1928,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/Statement.html#getQueryTimeout()">getQueryTimeout</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Gets the timeout value for the statement's execution time.</div>
+        <div class="jd-descrdiv">
+          Gets the timeout value for the statement's execution time.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1732,7 +1951,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/Statement.html#getResultSet()">getResultSet</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Gets the current result.</div>
+        <div class="jd-descrdiv">
+          Gets the current result.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1750,8 +1974,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/Statement.html#getResultSetConcurrency()">getResultSetConcurrency</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Gets the concurrency setting for <code>ResultSet</code> objects generated by
- this statement.</div>
+        <div class="jd-descrdiv">
+          Gets the concurrency setting for <code>ResultSet</code> objects generated by
+ this statement.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1769,8 +1998,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/Statement.html#getResultSetHoldability()">getResultSetHoldability</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Gets the cursor hold setting for <code>ResultSet</code> objects generated by
- this statement.</div>
+        <div class="jd-descrdiv">
+          Gets the cursor hold setting for <code>ResultSet</code> objects generated by
+ this statement.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1788,8 +2022,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/Statement.html#getResultSetType()">getResultSetType</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Gets the <code>ResultSet</code> type setting for <code>ResultSet</code>s derived
- from this statement.</div>
+        <div class="jd-descrdiv">
+          Gets the <code>ResultSet</code> type setting for <code>ResultSet</code>s derived
+ from this statement.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1807,7 +2046,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/Statement.html#getUpdateCount()">getUpdateCount</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Gets an update count for the current result if it is not a <code>ResultSet</code>.</div>
+        <div class="jd-descrdiv">
+          Gets an update count for the current result if it is not a <code>ResultSet</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1825,8 +2069,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/Statement.html#getWarnings()">getWarnings</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Retrieves the first <code>SQLWarning</code> reported by calls on this
- statement.</div>
+        <div class="jd-descrdiv">
+          Retrieves the first <code>SQLWarning</code> reported by calls on this
+ statement.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1844,7 +2093,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/Statement.html#isClosed()">isClosed</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns true if this statement has been closed, false otherwise.</div>
+        <div class="jd-descrdiv">
+          Returns true if this statement has been closed, false otherwise.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1862,7 +2116,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/Statement.html#isPoolable()">isPoolable</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns true if this statement is poolable, false otherwise.</div>
+        <div class="jd-descrdiv">
+          Returns true if this statement is poolable, false otherwise.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1880,7 +2139,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/Statement.html#setCursorName(java.lang.String)">setCursorName</a></span>(<a href="../../../reference/java/lang/String.html">String</a> name)</nobr>
         
-        <div class="jd-descrdiv">Sets the SQL cursor name.</div>
+        <div class="jd-descrdiv">
+          Sets the SQL cursor name.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1898,7 +2162,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/Statement.html#setEscapeProcessing(boolean)">setEscapeProcessing</a></span>(boolean enable)</nobr>
         
-        <div class="jd-descrdiv">Sets Escape Processing mode.</div>
+        <div class="jd-descrdiv">
+          Sets Escape Processing mode.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1916,8 +2185,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/Statement.html#setFetchDirection(int)">setFetchDirection</a></span>(int direction)</nobr>
         
-        <div class="jd-descrdiv">Sets the fetch direction - a hint to the JDBC driver about the direction
- of processing of rows in <code>ResultSet</code>s created by this statement.</div>
+        <div class="jd-descrdiv">
+          Sets the fetch direction - a hint to the JDBC driver about the direction
+ of processing of rows in <code>ResultSet</code>s created by this statement.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1935,7 +2209,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/Statement.html#setFetchSize(int)">setFetchSize</a></span>(int rows)</nobr>
         
-        <div class="jd-descrdiv">Sets the fetch size.</div>
+        <div class="jd-descrdiv">
+          Sets the fetch size.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1953,8 +2232,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/Statement.html#setMaxFieldSize(int)">setMaxFieldSize</a></span>(int max)</nobr>
         
-        <div class="jd-descrdiv">Sets the maximum number of bytes for <code>ResultSet</code> columns that
- contain character or binary values.</div>
+        <div class="jd-descrdiv">
+          Sets the maximum number of bytes for <code>ResultSet</code> columns that
+ contain character or binary values.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1972,7 +2256,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/Statement.html#setMaxRows(int)">setMaxRows</a></span>(int max)</nobr>
         
-        <div class="jd-descrdiv">Sets the maximum number of rows that any <code>ResultSet</code> can contain.</div>
+        <div class="jd-descrdiv">
+          Sets the maximum number of rows that any <code>ResultSet</code> can contain.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1990,7 +2279,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/Statement.html#setPoolable(boolean)">setPoolable</a></span>(boolean poolable)</nobr>
         
-        <div class="jd-descrdiv">Hints whether this statement should be pooled.</div>
+        <div class="jd-descrdiv">
+          Hints whether this statement should be pooled.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2008,8 +2302,13 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/Statement.html#setQueryTimeout(int)">setQueryTimeout</a></span>(int seconds)</nobr>
         
-        <div class="jd-descrdiv">Sets the timeout, in seconds, for queries - how long the driver will
- allow for completion of a statement execution.</div>
+        <div class="jd-descrdiv">
+          Sets the timeout, in seconds, for queries - how long the driver will
+ allow for completion of a statement execution.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2061,7 +2360,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/AutoCloseable.html#close()">close</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Closes the object and release any system resources it holds.</div>
+        <div class="jd-descrdiv">
+          Closes the object and release any system resources it holds.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2105,8 +2409,13 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/Wrapper.html#isWrapperFor(java.lang.Class<?>)">isWrapperFor</a></span>(<a href="../../../reference/java/lang/Class.html">Class</a>&lt;?&gt; iface)</nobr>
         
-        <div class="jd-descrdiv">If the caller is a wrapper of the class or implements the given
- interface, the methods return false and vice versa.</div>
+        <div class="jd-descrdiv">
+          If the caller is a wrapper of the class or implements the given
+ interface, the methods return false and vice versa.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2124,7 +2433,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/sql/Wrapper.html#unwrap(java.lang.Class<T>)">unwrap</a></span>(<a href="../../../reference/java/lang/Class.html">Class</a>&lt;T&gt; iface)</nobr>
         
-        <div class="jd-descrdiv">Returns an object that implements the given interface.</div>
+        <div class="jd-descrdiv">
+          Returns an object that implements the given interface.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2185,6 +2499,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Passing this constant to <code><a href="../../../reference/java/sql/Statement.html#getMoreResults()">getMoreResults()</a></code> implies that all <code>ResultSet</code> objects previously kept open should be closed.
 </p></div>
 
@@ -2224,6 +2541,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Passing this constant to <code><a href="../../../reference/java/sql/Statement.html#getMoreResults()">getMoreResults()</a></code> implies that the current
  <code>ResultSet</code> object should be closed.
@@ -2266,6 +2586,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Indicates that an error was encountered during execution of a batch
  statement.
 </p></div>
@@ -2306,6 +2629,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Passing this constant to <i>getMoreResults</i> implies that the current
  <code>ResultSet</code> object should not be closed.
@@ -2348,6 +2674,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Indicates that generated keys should not be accessible for retrieval.
 </p></div>
 
@@ -2388,6 +2717,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Indicates that generated keys should be accessible for retrieval.
 </p></div>
 
@@ -2427,6 +2759,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Indicates that a batch statement was executed with a successful result,
  but a count of the number of rows it affected is unavailable.
@@ -2492,6 +2827,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Adds a specified SQL command to the list of commands for this <code>Statement</code>.
  <p>
  The list of commands is executed by invoking the <code>executeBatch</code>
@@ -2546,6 +2884,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Cancels this statement's execution if both the database and the JDBC
  driver support aborting an SQL statement in flight. This method can be
  used by one thread to stop a statement that is executed on another
@@ -2589,6 +2930,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Clears the current list of SQL commands for this statement.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Throws</h5>
@@ -2630,6 +2974,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Clears all <code>SQLWarnings</code> from this statement.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Throws</h5>
@@ -2669,6 +3016,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Releases this statement's database and JDBC driver resources.
  <p>
@@ -2716,6 +3066,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Executes a supplied SQL statement. This may return multiple <code>ResultSet</code>s.
  <p>
@@ -2773,6 +3126,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Executes a supplied SQL statement. This may return multiple <code>ResultSet</code>s. This method allows control of whether auto-generated Keys
  should be made available for retrieval, if the SQL statement is an
@@ -2837,6 +3193,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Executes the supplied SQL statement. This may return multiple <code>ResultSet</code>s. This method allows retrieval of auto generated keys
  specified by the supplied array of column indexes, if the SQL statement
@@ -2903,6 +3262,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Executes the supplied SQL statement. This may return multiple <code>ResultSet</code>s. This method allows retrieval of auto generated keys
  specified by the supplied array of column indexes, if the SQL statement
  is an <code>INSERT</code> statement.
@@ -2966,6 +3328,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Submits a batch of SQL commands to the database. Returns an array of
  update counts, if all the commands execute successfully.
@@ -3034,6 +3399,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Executes a supplied SQL statement. Returns a single <code>ResultSet</code>.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -3089,6 +3457,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Executes the supplied SQL statement. This method allows control of
  whether auto-generated Keys should be made available for retrieval.</p></div>
@@ -3152,6 +3523,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Executes the supplied SQL statement. This method allows retrieval of auto
  generated keys specified by the supplied array of column names.</p></div>
   <div class="jd-tagdata">
@@ -3214,6 +3588,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Executes the supplied SQL statement. The statement may be an <code>INSERT</code>, <code>UPDATE</code> or <code>DELETE</code> statement or a statement which
  returns nothing.</p></div>
   <div class="jd-tagdata">
@@ -3269,6 +3646,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Executes the supplied SQL statement. This method allows retrieval of auto
  generated keys specified by the supplied array of column indexes.</p></div>
@@ -3331,6 +3711,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Gets the <code>Connection</code> object which created this statement.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
@@ -3375,6 +3758,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Gets the default direction for fetching rows for <code>ResultSet</code>s
  generated from this statement.</p></div>
@@ -3425,6 +3811,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Gets the default number of rows for a fetch for the <code>ResultSet</code>
  objects returned from this statement.</p></div>
   <div class="jd-tagdata">
@@ -3471,6 +3860,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns auto generated keys created by executing this statement.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
@@ -3515,6 +3907,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Gets the maximum number of bytes which can be returned as values from
  character and binary type columns in a <code>ResultSet</code> derived from this
@@ -3565,6 +3960,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Gets the maximum number of rows that a <code>ResultSet</code> can contain when
  produced from this statement. If the limit is exceeded, the excess rows
  are discarded silently.</p></div>
@@ -3611,6 +4009,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Moves to this statement's next result. Returns <code>true</code> if the next
  result is a <code>ResultSet</code>. Any current <code>ResultSet</code> objects
@@ -3673,6 +4074,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Moves to this statement's next result. Returns <code>true</code> if it is a
  <code>ResultSet</code>. Any current <code>ResultSet</code> objects previously
  obtained with <code>getResultSet()</code> are closed implicitly.</p></div>
@@ -3722,6 +4126,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Gets the timeout value for the statement's execution time. The JDBC
  driver will wait up to this value for the execution to complete - after
  the limit is exceeded an SQL <code>Exception</code> is thrown.</p></div>
@@ -3769,6 +4176,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Gets the current result. Should only be called once per result.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
@@ -3813,6 +4223,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Gets the concurrency setting for <code>ResultSet</code> objects generated by
  this statement.</p></div>
@@ -3859,6 +4272,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Gets the cursor hold setting for <code>ResultSet</code> objects generated by
  this statement.</p></div>
   <div class="jd-tagdata">
@@ -3903,6 +4319,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Gets the <code>ResultSet</code> type setting for <code>ResultSet</code>s derived
  from this statement.</p></div>
@@ -3953,6 +4372,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Gets an update count for the current result if it is not a <code>ResultSet</code>.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
@@ -3997,6 +4419,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Retrieves the first <code>SQLWarning</code> reported by calls on this
  statement. If there are multiple warnings, subsequent warnings are
@@ -4049,6 +4474,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns true if this statement has been closed, false otherwise.
 </p></div>
   <div class="jd-tagdata">
@@ -4089,6 +4517,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns true if this statement is poolable, false otherwise.
 </p></div>
   <div class="jd-tagdata">
@@ -4128,6 +4559,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Sets the SQL cursor name. This name is used by subsequent statement
  execute methods.
@@ -4185,6 +4619,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Sets Escape Processing mode.
  <p>
  If Escape Processing is on, the JDBC driver will do escape substitution
@@ -4238,6 +4675,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Sets the fetch direction - a hint to the JDBC driver about the direction
  of processing of rows in <code>ResultSet</code>s created by this statement.
@@ -4296,6 +4736,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Sets the fetch size. This is a hint to the JDBC driver about how many
  rows should be fetched from the database when more are required by
  application processing.</p></div>
@@ -4349,6 +4792,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Sets the maximum number of bytes for <code>ResultSet</code> columns that
  contain character or binary values. This applies to <code>BINARY</code>,
@@ -4404,6 +4850,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Sets the maximum number of rows that any <code>ResultSet</code> can contain.
  If the number of rows exceeds this value, the additional rows are
  silently discarded.</p></div>
@@ -4455,6 +4904,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Hints whether this statement should be pooled. Defaults to false for <code>Statement</code>,
  but true for <code>CallableStatement</code> and <code>PreparedStatement</code>. Pool manager
  implementations may or may not honor this hint.
@@ -4496,6 +4948,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Sets the timeout, in seconds, for queries - how long the driver will
  allow for completion of a statement execution. If the timeout is

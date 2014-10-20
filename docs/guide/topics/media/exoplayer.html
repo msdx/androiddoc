@@ -1,0 +1,1583 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width" />
+
+<meta name="Description" content="Playing videos and music is a popular activity on Android devices. The Android framework provides MediaPlayer as a quick solution for playing media with minimal code, and the MediaCodec and MediaExtractor classes are provided for building custom media…">
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico" />
+<title>ExoPlayer | Android Developers</title>
+
+<!-- STYLESHEETS -->
+<link rel="stylesheet"
+href="http://fonts.useso.com/css?family=Roboto+Condensed">
+<link rel="stylesheet" href="http://fonts.useso.com/css?family=Roboto:light,regular,medium,thin,italic,mediumitalic,bold"
+  title="roboto">
+<link href="../../../assets/css/default.css?v=2" rel="stylesheet" type="text/css">
+
+
+
+<!-- JAVASCRIPT -->
+<script src="http://www.google.com/jsapi" type="text/javascript"></script>
+<script src="../../../assets/js/android_3p-bundle.js" type="text/javascript"></script>
+<script type="text/javascript">
+  var toRoot = "../../../";
+  var metaTags = ["audio","video","adaptive","streaming","dash","smoothstreaming"];
+  var devsite = false;
+</script>
+<script src="../../../assets/js/docs.js?v=2" type="text/javascript"></script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-5831155-1', 'android.com');
+  ga('create', 'UA-49880327-2', 'android.com', {'name': 'universal'});  // New tracker);
+  ga('send', 'pageview');
+  ga('universal.send', 'pageview'); // Send page view for new tracker.
+</script>
+
+</head>
+
+<body class="gc-documentation
+
+develop guide" itemscope itemtype="http://schema.org/Article">
+
+<a name="top"></a>
+
+  <!-- Header -->
+  <div id="header-wrapper">
+    <div id="header">
+
+    
+
+
+      <div class="wrap" id="header-wrap">
+        <div class="col-3 logo">
+          <a href="../../../index.html">
+            <img src="../../../assets/images/dac_logo.png"
+                srcset="../../../assets/images/dac_logo@2x.png 2x"
+                width="123" height="25" alt="Android Developers" />
+          </a>
+          <div class="btn-quicknav" id="btn-quicknav">
+            <a href="#" class="arrow-inactive">Quicknav</a>
+            <a href="#" class="arrow-active">Quicknav</a>
+          </div>
+        </div>
+        <ul class="nav-x col-9">
+            <li class="design">
+              <a href="../../../design/index.html"
+              zh-tw-lang="設計"
+              zh-cn-lang="设计"
+              ru-lang="Проектирование"
+              ko-lang="디자인"
+              ja-lang="設計"
+              es-lang="Diseñar"
+              >Design</a></li>
+            <li class="develop"><a href="../../../develop/index.html"
+              zh-tw-lang="開發"
+              zh-cn-lang="开发"
+              ru-lang="Разработка"
+              ko-lang="개발"
+              ja-lang="開発"
+              es-lang="Desarrollar"
+              >Develop</a></li>
+            <li class="distribute last"><a href="../../../distribute/googleplay/index.html"
+              zh-tw-lang="發佈"
+              zh-cn-lang="分发"
+              ru-lang="Распространение"
+              ko-lang="배포"
+              ja-lang="配布"
+              es-lang="Distribuir"
+              >Distribute</a></li>
+        </ul>
+
+
+        
+        
+<div class="menu-container">
+  <div class="moremenu">
+    <div id="more-btn"></div>
+  </div>
+  <div class="morehover" id="moremenu">
+    <div class="top"></div>
+    <div class="mid">
+      <div class="header">Links</div>
+      <ul>
+        <li><a href="https://play.google.com/apps/publish/" target="_googleplay">Google Play Developer Console</a></li>
+        <li><a href="http://android-developers.blogspot.com/">Android Developers Blog</a></li>
+        <li><a href="../../../about/index.html">About Android</a></li>
+      </ul>
+      <div class="header">Android Sites</div>
+      <ul>
+        <li><a href="http://www.android.com">Android.com</a></li>
+        <li class="active"><a>Android Developers</a></li>
+        <li><a href="http://source.android.com">Android Open Source Project</a></li>
+      </ul>
+
+      
+      
+      
+      <br class="clearfix" />
+    </div><!-- end 'mid' -->
+    <div class="bottom"></div>
+  </div><!-- end 'moremenu' -->
+
+  <div class="search" id="search-container">
+    <div class="search-inner">
+      <div id="search-btn"></div>
+      <div class="left"></div>
+      <form onsubmit="return submit_search()">
+        <input id="search_autocomplete" type="text" value="" autocomplete="off" name="q"
+          onfocus="search_focus_changed(this, true)" onblur="search_focus_changed(this, false)"
+          onkeydown="return search_changed(event, true, '../../../')"
+          onkeyup="return search_changed(event, false, '../../../')" />
+      </form>
+      <div class="right"></div>
+      <a class="close hide">close</a>
+      <div class="left"></div>
+      <div class="right"></div>
+    </div><!-- end search-inner -->
+  </div><!-- end search-container -->
+
+  <div class="search_filtered_wrapper reference">
+    <div class="suggest-card reference no-display">
+      <ul class="search_filtered">
+      </ul>
+    </div>
+  </div>
+
+  <div class="search_filtered_wrapper docs">
+    <div class="suggest-card dummy no-display">&nbsp;</div>
+    <div class="suggest-card develop no-display">
+      <ul class="search_filtered">
+      </ul>
+      <div class="child-card guides no-display">
+      </div>
+      <div class="child-card training no-display">
+      </div>
+      <div class="child-card samples no-display">
+      </div>
+    </div>
+    <div class="suggest-card design no-display">
+      <ul class="search_filtered">
+      </ul>
+    </div>
+    <div class="suggest-card distribute no-display">
+      <ul class="search_filtered">
+      </ul>
+    </div>
+  </div>
+</div><!-- end menu-container (search and menu widget) -->
+
+
+
+        <!-- Expanded quicknav -->
+        <div id="quicknav" class="col-13">
+          <ul>
+            <li class="about">
+              <ul>
+                <li><a href="../../../about/index.html">About</a></li>
+                <li><a href="../../../wear/index.html">Wear</a></li>
+                <li><a href="../../../tv/index.html">TV</a></li>
+                <li><a href="../../../auto/index.html">Auto</a></li>
+              </ul>
+            </li>
+            <li class="design">
+              <ul>
+                <li><a href="../../../design/index.html">Get Started</a></li>
+                <li><a href="../../../design/devices.html">Devices</a></li>
+                <li><a href="../../../design/style/index.html">Style</a></li>
+                <li><a href="../../../design/patterns/index.html">Patterns</a></li>
+                <li><a href="../../../design/building-blocks/index.html">Building Blocks</a></li>
+                <li><a href="../../../design/downloads/index.html">Downloads</a></li>
+                <li><a href="../../../design/videos/index.html">Videos</a></li>
+              </ul>
+            </li>
+            <li class="develop">
+              <ul>
+                <li><a href="../../../training/index.html"
+                  zh-tw-lang="訓練課程"
+                  zh-cn-lang="培训"
+                  ru-lang="Курсы"
+                  ko-lang="교육"
+                  ja-lang="トレーニング"
+                  es-lang="Capacitación"
+                  >Training</a></li>
+                <li><a href="../../../guide/index.html"
+                  zh-tw-lang="API 指南"
+                  zh-cn-lang="API 指南"
+                  ru-lang="Руководства по API"
+                  ko-lang="API 가이드"
+                  ja-lang="API ガイド"
+                  es-lang="Guías de la API"
+                  >API Guides</a></li>
+                <li><a href="../../../reference/packages.html"
+                  zh-tw-lang="參考資源"
+                  zh-cn-lang="参考"
+                  ru-lang="Справочник"
+                  ko-lang="참조문서"
+                  ja-lang="リファレンス"
+                  es-lang="Referencia"
+                  >Reference</a></li>
+                <li><a href="../../../sdk/index.html"
+                  zh-tw-lang="相關工具"
+                  zh-cn-lang="工具"
+                  ru-lang="Инструменты"
+                  ko-lang="도구"
+                  ja-lang="ツール"
+                  es-lang="Herramientas"
+                  >Tools</a>
+                </li>
+                <li><a href="../../../google/index.html">Google Services</a>
+                </li>
+                
+              </ul>
+            </li>
+            <li class="distribute last">
+              <ul>
+                <li><a href="../../../distribute/googleplay/index.html">Google Play</a></li>
+                <li><a href="../../../distribute/essentials/index.html">Essentials</a></li>
+                <li><a href="../../../distribute/users/index.html">Get Users</a></li>
+                <li><a href="../../../distribute/engage/index.html">Engage &amp; Retain</a></li>
+                <li><a href="../../../distribute/monetize/index.html">Monetize</a></li>
+                <li><a href="../../../distribute/tools/index.html">Tools &amp; Reference</a></li>
+                <li><a href="../../../distribute/stories/index.html">Developer Stories</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div><!-- /Expanded quicknav -->
+      </div><!-- end header-wrap.wrap -->
+    </div><!-- end header -->
+
+  
+    <!-- Secondary x-nav -->
+    <div id="nav-x">
+        <div class="wrap">
+            <ul class="nav-x col-9 develop" style="width:100%">
+                <li class="training"><a href="../../../training/index.html"
+                  zh-tw-lang="訓練課程"
+                  zh-cn-lang="培训"
+                  ru-lang="Курсы"
+                  ko-lang="교육"
+                  ja-lang="トレーニング"
+                  es-lang="Capacitación"
+                  >Training</a></li>
+                <li class="guide"><a href="../../../guide/index.html"
+                  zh-tw-lang="API 指南"
+                  zh-cn-lang="API 指南"
+                  ru-lang="Руководства по API"
+                  ko-lang="API 가이드"
+                  ja-lang="API ガイド"
+                  es-lang="Guías de la API"
+                  >API Guides</a></li>
+                <li class="reference"><a href="../../../reference/packages.html"
+                  zh-tw-lang="參考資源"
+                  zh-cn-lang="参考"
+                  ru-lang="Справочник"
+                  ko-lang="참조문서"
+                  ja-lang="リファレンス"
+                  es-lang="Referencia"
+                  >Reference</a></li>
+                <li class="tools"><a href="../../../sdk/index.html"
+                  zh-tw-lang="相關工具"
+                  zh-cn-lang="工具"
+                  ru-lang="Инструменты"
+                  ko-lang="도구"
+                  ja-lang="ツール"
+                  es-lang="Herramientas"
+                  >Tools</a></li>
+                <li class="google"><a href="../../../google/index.html"
+                  >Google Services</a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+    <!-- /Sendondary x-nav DEVELOP -->
+
+  
+
+    <div id="searchResults" class="wrap" style="display:none;">
+      <h2 id="searchTitle">Results</h2>
+      <div id="leftSearchControl" class="search-control">Loading...</div>
+    </div>
+  </div> <!--end header-wrapper -->
+
+  <div id="sticky-header">
+    <div>
+      <a class="logo" href="#top"></a>
+      <a class="top" href="#top"></a>
+      <ul class="breadcrumb">
+        
+        <li class="current">ExoPlayer</li>
+      </ul>
+    </div>
+  </div>
+
+
+
+
+  <div class="wrap clearfix" id="body-content">
+    <div class="col-4" id="side-nav" itemscope itemtype="http://schema.org/SiteNavigationElement">
+      <div id="devdoc-nav" class="scroll-pane">
+
+
+<ul id="nav">
+
+  <li class="nav-section">
+    <div class="nav-section-header"><a href="../../../guide/index.html">
+        <span class="en">Introduction</span>
+      </a></div>
+    <ul>
+      <li><a href="../../../guide/components/fundamentals.html">
+            <span class="en">App Fundamentals</span></a>
+      </li>
+      <li><a href="../../../guide/practices/compatibility.html">
+            <span class="en">Device Compatibility</span>
+          </a></li>
+      <li><a href="../../../guide/topics/security/permissions.html">
+          <span class="en">System Permissions</span>
+        </a>
+      </li>
+    </ul>
+  </li>
+
+
+  <li class="nav-section">
+    <div class="nav-section-header"><a href="../../../guide/components/index.html">
+        <span class="en">App Components</span>
+      </a></div>
+    <ul>
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../../guide/components/intents-filters.html">
+            <span class="en">Intents and Intent Filters</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../guide/components/intents-common.html">
+            <span class="en">Common Intents</span>
+          </a></li>
+        </ul>
+      </li>
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../../guide/components/activities.html">
+            <span class="en">Activities</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../guide/components/fragments.html">
+              <span class="en">Fragments</span>
+            </a></li>
+          <li><a href="../../../guide/components/loaders.html">
+              <span class="en">Loaders</span>
+            </a></li>
+          <li><a href="../../../guide/components/tasks-and-back-stack.html">
+              <span class="en">Tasks and Back Stack</span>
+            </a></li>
+        </ul>
+      </li>
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../../guide/components/services.html">
+            <span class="en">Services</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../guide/components/bound-services.html">
+              <span class="en">Bound Services</span>
+            </a></li>
+          <li><a href="../../../guide/components/aidl.html">
+              <span class="en">AIDL</span>
+            </a></li>
+        </ul>
+      </li>
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../../guide/topics/providers/content-providers.html">
+            <span class="en">Content Providers</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../guide/topics/providers/content-provider-basics.html">
+              <span class="en">Content Provider Basics</span>
+            </a></li>
+          <li><a href="../../../guide/topics/providers/content-provider-creating.html">
+              <span class="en">Creating a Content Provider</span>
+            </a></li>
+          <li><a href="../../../guide/topics/providers/calendar-provider.html">
+              <span class="en">Calendar Provider</span>
+            </a></li>
+          <li><a href="../../../guide/topics/providers/contacts-provider.html">
+              <span class="en">Contacts Provider</span>
+            </a></li>
+          <li><a href="../../../guide/topics/providers/document-provider.html">
+              <span class="en">Storage Access Framework</span>
+            </a></li>
+        </ul>
+      </li>
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../../guide/topics/appwidgets/index.html">
+            <span class="en">App Widgets</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../guide/topics/appwidgets/host.html">
+              <span class="en">App Widget Host</span>
+            </a></li>
+        </ul>
+      </li>
+      <li><a href="../../../guide/components/processes-and-threads.html">
+          <span class="en">Processes and Threads</span>
+        </a>
+      </li>
+    </ul>
+  </li>
+
+
+  <li class="nav-section">
+    <div class="nav-section-header"><a href="../../../guide/topics/resources/index.html">
+         <span class="en">App Resources</span>
+       </a></div>
+    <ul>
+      <li><a href="../../../guide/topics/resources/overview.html">
+          <span class="en">Overview</span>
+        </a></li>
+        <li><a href="../../../guide/topics/resources/providing-resources.html">
+          <span class="en">Providing Resources</span>
+        </a></li>
+      <li><a href="../../../guide/topics/resources/accessing-resources.html">
+          <span class="en">Accessing Resources</span>
+        </a></li>
+      <li><a href="../../../guide/topics/resources/runtime-changes.html">
+            <span class="en">Handling Runtime Changes</span>
+          </a></li>
+      <li><a href="../../../guide/topics/resources/localization.html">
+          <span class="en">Localization</span>
+        </a></li>
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../../guide/topics/resources/available-resources.html">
+            <span class="en">Resource Types</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../guide/topics/resources/animation-resource.html">Animation</a></li>
+          <li><a href="../../../guide/topics/resources/color-list-resource.html">Color State List</a></li>
+          <li><a href="../../../guide/topics/resources/drawable-resource.html">Drawable</a></li>
+          <li><a href="../../../guide/topics/resources/layout-resource.html">Layout</a></li>
+          <li><a href="../../../guide/topics/resources/menu-resource.html">Menu</a></li>
+          <li><a href="../../../guide/topics/resources/string-resource.html">String</a></li>
+          <li><a href="../../../guide/topics/resources/style-resource.html">Style</a></li>
+          <li><a href="../../../guide/topics/resources/more-resources.html">More Types</a></li>
+        </ul>
+      </li><!-- end of resource types -->
+    </ul>
+  </li><!-- end of app resources -->
+
+
+
+  <li class="nav-section">
+  <div class="nav-section-header"><a href="../../../guide/topics/manifest/manifest-intro.html">
+      <span class="en">App Manifest</span>
+    </a></div>
+    <ul>
+      <li><a href="../../../guide/topics/manifest/action-element.html">&lt;action&gt;</a></li>
+      <li><a href="../../../guide/topics/manifest/activity-element.html">&lt;activity&gt;</a></li>
+      <li><a href="../../../guide/topics/manifest/activity-alias-element.html">&lt;activity-alias&gt;</a></li>
+      <li><a href="../../../guide/topics/manifest/application-element.html">&lt;application&gt;</a></li>
+      <li><a href="../../../guide/topics/manifest/category-element.html">&lt;category&gt;</a></li>
+      <li><a href="../../../guide/topics/manifest/compatible-screens-element.html">&lt;compatible-screens&gt;</a></li>
+      <li><a href="../../../guide/topics/manifest/data-element.html">&lt;data&gt;</a></li>
+      <li><a href="../../../guide/topics/manifest/grant-uri-permission-element.html">&lt;grant-uri-permission&gt;</a></li>
+      <li><a href="../../../guide/topics/manifest/instrumentation-element.html">&lt;instrumentation&gt;</a></li>
+      <li><a href="../../../guide/topics/manifest/intent-filter-element.html">&lt;intent-filter&gt;</a></li>
+      <li><a href="../../../guide/topics/manifest/manifest-element.html">&lt;manifest&gt;</a></li>
+      <li><a href="../../../guide/topics/manifest/meta-data-element.html">&lt;meta-data&gt;</a></li>
+      <li><a href="../../../guide/topics/manifest/path-permission-element.html">&lt;path-permission&gt;</a></li>
+      <li><a href="../../../guide/topics/manifest/permission-element.html">&lt;permission&gt;</a></li>
+      <li><a href="../../../guide/topics/manifest/permission-group-element.html">&lt;permission-group&gt;</a></li>
+      <li><a href="../../../guide/topics/manifest/permission-tree-element.html">&lt;permission-tree&gt;</a></li>
+      <li><a href="../../../guide/topics/manifest/provider-element.html">&lt;provider&gt;</a></li>
+      <li><a href="../../../guide/topics/manifest/receiver-element.html">&lt;receiver&gt;</a></li>
+      <li><a href="../../../guide/topics/manifest/service-element.html">&lt;service&gt;</a></li>
+      <li><a href="../../../guide/topics/manifest/supports-gl-texture-element.html">&lt;supports-gl-texture&gt;</a></li>
+      <li><a href="../../../guide/topics/manifest/supports-screens-element.html">&lt;supports-screens&gt;</a></li><!-- ##api level 4## -->
+      <li><a href="../../../guide/topics/manifest/uses-configuration-element.html">&lt;uses-configuration&gt;</a></li>
+      <li><a href="../../../guide/topics/manifest/uses-feature-element.html">&lt;uses-feature&gt;</a></li> <!-- ##api level 4## -->
+      <li><a href="../../../guide/topics/manifest/uses-library-element.html">&lt;uses-library&gt;</a></li>
+      <li><a href="../../../guide/topics/manifest/uses-permission-element.html">&lt;uses-permission&gt;</a></li>
+      <li><a href="../../../guide/topics/manifest/uses-sdk-element.html">&lt;uses-sdk&gt;</a></li>
+    </ul>
+  </li><!-- end of the manifest file -->
+
+
+
+  <li class="nav-section">
+    <div class="nav-section-header"><a href="../../../guide/topics/ui/index.html">
+        <span class="en">User Interface</span>
+      </a></div>
+    <ul>
+      <li><a href="../../../guide/topics/ui/overview.html">
+          <span class="en">Overview</span>
+        </a></li>
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../../guide/topics/ui/declaring-layout.html">
+            <span class="en">Layouts</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../guide/topics/ui/layout/linear.html">
+              <span class="en">Linear Layout</span>
+            </a></li>
+          <li><a href="../../../guide/topics/ui/layout/relative.html">
+              <span class="en">Relative Layout</span>
+            </a></li>
+       <!--
+          <li><a href="../../../guide/topics/ui/layout/grid.html">
+              <span class="en">Grid Layout</span>
+            </a></li>
+       -->
+          <li><a href="../../../guide/topics/ui/layout/listview.html">
+              <span class="en">List View</span>
+            </a></li>
+          <li><a href="../../../guide/topics/ui/layout/gridview.html">
+              <span class="en">Grid View</span>
+            </a></li>
+        </ul>
+      </li>
+
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../../guide/topics/ui/controls.html">
+            <span class="en">Input Controls</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../guide/topics/ui/controls/button.html">
+              <span class="en">Buttons</span>
+            </a></li>
+          <li><a href="../../../guide/topics/ui/controls/text.html">
+              <span class="en">Text Fields</span>
+            </a></li>
+          <li><a href="../../../guide/topics/ui/controls/checkbox.html">
+              <span class="en">Checkboxes</span>
+            </a></li>
+          <li><a href="../../../guide/topics/ui/controls/radiobutton.html">
+              <span class="en">Radio Buttons</span>
+            </a></li>
+          <li><a href="../../../guide/topics/ui/controls/togglebutton.html">
+              <span class="en">Toggle Buttons</span>
+            </a></li>
+          <li><a href="../../../guide/topics/ui/controls/spinner.html">
+              <span class="en">Spinners</span>
+            </a></li>
+          <li><a href="../../../guide/topics/ui/controls/pickers.html">
+              <span class="en">Pickers</span>
+            </a></li>
+<!--
+          <li><a href="../../../guide/topics/ui/controls/progress.html">
+              <span class="en">Seek and Progress Bars</span>
+            </a></li>
+-->
+        </ul>
+      </li>
+      <li><a href="../../../guide/topics/ui/ui-events.html">
+          <span class="en">Input Events</span>
+        </a></li>
+      <li><a href="../../../guide/topics/ui/menus.html">
+          <span class="en">Menus</span></span>
+          </a></li>
+      <li><a href="../../../guide/topics/ui/actionbar.html">
+           <span class="en">Action Bar</span>
+          </a></li>
+      <li><a href="../../../guide/topics/ui/settings.html">
+            <span class="en">Settings</span>
+          </a></li>
+      <li><a href="../../../guide/topics/ui/dialogs.html">
+           <span class="en">Dialogs</span>
+          </a></li>
+      <li><a href="../../../guide/topics/ui/notifiers/notifications.html">
+          <span class="en">Notifications</span>
+        </a></li>
+      <li><a href="../../../guide/topics/ui/notifiers/toasts.html">
+          <span class="en">Toasts</span>
+        </a></li>
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../../guide/topics/search/index.html">
+            <span class="en">Search</span>
+          </a></div>
+          <ul>
+            <li><a href="../../../guide/topics/search/search-dialog.html">Creating a Search Interface</a></li>
+            <li><a href="../../../guide/topics/search/adding-recent-query-suggestions.html">Adding Recent Query Suggestions</a></li>
+            <li><a href="../../../guide/topics/search/adding-custom-suggestions.html">Adding Custom Suggestions</a></li>
+            <li><a href="../../../guide/topics/search/searchable-config.html">Searchable Configuration</a></li>
+          </ul>
+      </li>
+      <li><a href="../../../guide/topics/ui/drag-drop.html">
+          <span class="en">Drag and Drop</span>
+        </a></li>
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../../guide/topics/ui/accessibility/index.html">
+            <span class="en">Accessibility</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../guide/topics/ui/accessibility/apps.html">
+              <span class="en">Making Applications Accessible</span>
+            </a></li>
+          <li><a href="../../../guide/topics/ui/accessibility/checklist.html">
+              <span class="en">Accessibility Developer Checklist</span>
+            </a></li>
+          <li><a href="../../../guide/topics/ui/accessibility/services.html">
+              <span class="en">Building Accessibility Services</span>
+            </a></li>
+        </ul>
+      </li>
+      <li><a href="../../../guide/topics/ui/themes.html">
+          <span class="en">Styles and Themes</span>
+        </a></li>
+      <li><a href="../../../guide/topics/ui/custom-components.html">
+          <span class="en">Custom Components</span>
+        </a></li>
+    </ul>
+  </li><!-- end of User Interface -->
+
+   <li class="nav-section">
+      <div class="nav-section-header"><a href="../../../guide/topics/graphics/index.html">
+          <span class="en">Animation and Graphics</span>
+        </a></div>
+      <ul>
+      <li class="nav-section">
+        <li><a href="../../../guide/topics/graphics/overview.html">
+            <span class="en">Overview</span>
+          </a></li>
+        <li><a href="../../../guide/topics/graphics/prop-animation.html">
+            <span class="en">Property Animation</span>
+          </a></li>
+        <li><a href="../../../guide/topics/graphics/view-animation.html">
+            <span class="en">View Animation</span>
+          </a></li>
+        <li><a href="../../../guide/topics/graphics/drawable-animation.html">
+            <span class="en">Drawable Animation</span>
+          </a></li>
+        <li><a href="../../../guide/topics/graphics/2d-graphics.html">
+            <span class="en">Canvas and Drawables</span>
+          </a></li>
+        <li><a href="../../../guide/topics/graphics/opengl.html">
+            <span class="en">OpenGL ES</span>
+          </a></li>
+        <li><a href="../../../guide/topics/graphics/hardware-accel.html">
+            <span class="en">Hardware Acceleration</span>
+          </a></li>
+       </ul>
+    </li><!-- end of graphics and animation-->
+
+   <li class="nav-section">
+            <div class="nav-section-header"><a href="../../../guide/topics/renderscript/index.html">
+              <span class="en">Computation</span>
+            </a></div>
+            <ul>
+              <li><a href="../../../guide/topics/renderscript/compute.html">
+                    <span class="en">RenderScript</span></a>
+                  </li>
+
+              <li><a href="../../../guide/topics/renderscript/advanced.html">
+                    <span class="en">Advanced RenderScript</span></a>
+                  </li>
+              <li><a href="../../../guide/topics/renderscript/reference.html">
+                    <span class="en">Runtime API Reference</span></a>
+              </li>
+             </ul>
+   </li>
+      <li class="nav-section">
+          <div class="nav-section-header"><a href="../../../guide/topics/media/index.html">
+            <span class="en">Media and Camera</span>
+          </a></div>
+          <ul>
+            <li><a href="../../../guide/topics/media/mediaplayer.html">
+                  <span class="en">Media Playback</span></a>
+                </li>
+            <li><a href="../../../guide/topics/media/mediarouter.html">
+                  <span class="en">Media Router</span></a>
+                </li>
+            <li><a href="../../../guide/topics/media/mediarouteprovider.html">
+                  <span class="en">Media Route Provider</span></a>
+                </li>
+            <li><a href="../../../guide/topics/media/exoplayer.html">
+                  <span class="en">ExoPlayer</span></a>
+                </li>
+            <li><a href="../../../guide/appendix/media-formats.html">
+                   <span class="en">Supported Media Formats</span></a>
+                </li>
+            <li><a href="../../../guide/topics/media/audio-capture.html">
+                  <span class="en">Audio Capture</span></a>
+                </li>
+            <li><a href="../../../guide/topics/media/jetplayer.html">
+                  <span class="en">JetPlayer</span></a>
+                </li>
+            <li><a href="../../../guide/topics/media/camera.html">
+                  <span class="en">Camera</span></a>
+                </li>
+          </ul>
+      </li><!-- end of media and camera -->
+
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../../guide/topics/sensors/index.html">
+              <span class="en">Location and Sensors</span>
+              </a></div>
+        <ul>
+          <li><a href="../../../guide/topics/location/index.html">
+               <span class="en">Location and Maps</span>
+             </a>
+          <li><a href="../../../guide/topics/location/strategies.html">
+               <span class="en">Location Strategies</span>
+             </a></li>
+          <li><a href="../../../guide/topics/sensors/sensors_overview.html">
+              <span class="en">Sensors Overview</span>
+            </a></li>
+          <li><a href="../../../guide/topics/sensors/sensors_motion.html">
+              <span class="en">Motion Sensors</span>
+            </a></li>
+          <li><a href="../../../guide/topics/sensors/sensors_position.html">
+              <span class="en">Position Sensors</span>
+            </a></li>
+          <li><a href="../../../guide/topics/sensors/sensors_environment.html">
+              <span class="en">Environment Sensors</span>
+            </a></li>
+        </ul>
+      </li><!-- end of location and sensors -->
+
+
+
+<li class="nav-section">
+        <div class="nav-section-header"><a href="../../../guide/topics/connectivity/index.html">
+               <span class="en">Connectivity</span>
+             </a></div>
+        <ul>
+          <li class="nav-section">
+        <div class="nav-section-header"><a href="../../../guide/topics/connectivity/bluetooth.html">
+          <span class="en">Bluetooth</span></a>
+        </div>
+        <ul>
+          <li><a href="../../../guide/topics/connectivity/bluetooth-le.html">Bluetooth Low Energy</a></li>
+        </ul>
+      </li>
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../../guide/topics/connectivity/nfc/index.html">
+          <span class="en">NFC</span></a>
+        </div>
+        <ul>
+          <li><a href="../../../guide/topics/connectivity/nfc/nfc.html">NFC Basics</a></li>
+          <li><a href="../../../guide/topics/connectivity/nfc/advanced-nfc.html">Advanced NFC</a></li>
+          <li><a href="../../../guide/topics/connectivity/nfc/hce.html">Host-based Card Emulation</a></li>
+        </ul>
+      </li>
+      <li><a href="../../../guide/topics/connectivity/wifip2p.html">
+            <span class="en">Wi-Fi P2P</span></a>
+          </li>
+      <li class="nav-section">
+          <div class="nav-section-header"><a href="../../../guide/topics/connectivity/usb/index.html">
+            <span class="en">USB</span></a>
+          </div>
+            <ul>
+              <li><a href="../../../guide/topics/connectivity/usb/accessory.html">Accessory</a></li>
+              <li><a href="../../../guide/topics/connectivity/usb/host.html">Host</a></li>
+            </ul>
+     </li>
+     <li><a href="../../../guide/topics/connectivity/sip.html">
+            <span class="en">SIP</span>
+          </a>
+     </li>
+
+    </ul>
+  </li><!-- end of connectivity -->
+
+
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../../guide/topics/text/index.html">
+            <span class="en">Text and Input</span>
+        </a></div>
+        <ul>
+          <li><a href="../../../guide/topics/text/copy-paste.html">
+              <span class="en">Copy and Paste</span>
+            </a></li>
+          <li><a href="../../../guide/topics/text/creating-input-method.html">
+              <span class="en">Creating an IME</span>
+            </a></li>
+          <li><a href="../../../guide/topics/text/spell-checker-framework.html">
+              <span class="en">Spelling Checker</span>
+            </a></li>
+        </ul>
+      </li><!-- end of text and input -->
+
+     <li class="nav-section">
+      <div class="nav-section-header"><a href="../../../guide/topics/data/index.html">
+          <span class="en">Data Storage</span>
+        </a></div>
+      <ul>
+         <li><a href="../../../guide/topics/data/data-storage.html">
+            <span class="en">Storage Options</span>
+           </a></li>
+        <li><a href="../../../guide/topics/data/backup.html">
+            <span class="en">Data Backup</span>
+          </a></li>
+        <li><a href="../../../guide/topics/data/install-location.html">
+            <span class="en">App Install Location</span>
+          </a></li>
+      </ul>
+    </li><!-- end of data storage -->
+
+
+  <li class="nav-section">
+           <div class="nav-section-header"><a href="../../../guide/topics/admin/index.html">
+               <span class="en">Administration</span>
+             </a></div>
+           <ul>
+              <li>
+                <a href="../../../guide/topics/admin/device-admin.html">
+                <span class="en">Device Policies</span></a>
+              </li>
+            <!--
+              <li>
+                <a href="../../../guide/topics/admin/keychain.html">
+                <span class="en">Certificate Store</span></a>
+              </li>
+            -->
+           </ul>
+  </li><!-- end of administration -->
+
+  <li class="nav-section">
+    <div class="nav-section-header"><a href="../../../guide/webapps/index.html">
+    <span class="en">Web Apps</span>
+    </a></div>
+    <ul>
+      <li><a href="../../../guide/webapps/targeting.html">
+            <span class="en">Supporting Different Screens in Web Apps</span>
+          </a></li>
+      <li><a href="../../../guide/webapps/webview.html">
+            <span class="en">Building Web Apps in WebView</span>
+          </a></li>
+      <li><a href="../../../guide/webapps/migrating.html">
+            <span class="en">Migrating to WebView in Android 4.4</span>
+          </a></li>
+      <li><a href="../../../guide/webapps/debugging.html">
+            <span class="en">Debugging Web Apps</span>
+          </a></li>
+      <li><a href="../../../guide/webapps/best-practices.html">
+            <span class="en">Best Practices for Web Apps</span>
+          </a></li>
+    </ul>
+  </li><!-- end of web apps -->
+
+  <li class="nav-section">
+    <div class="nav-section-header"><a href="../../../guide/practices/index.html">
+      <span class="en">Best Practices</span>
+      <span class="de" style="display:none">Bewährte Verfahren</span>
+      <span class="es" style="display:none">Prácticas recomendadas</span>
+      <span class="fr" style="display:none">Meilleures pratiques</span>
+      <span class="it" style="display:none">Best practice</span>
+      <span class="ja" style="display:none">ベスト プラクティス</span>
+      <span class="zh-cn" style="display:none">最佳实践</span>
+      <span class="zh-tw" style="display:none">最佳實務</span>
+    </div></a>
+    <ul>
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../../guide/practices/screens_support.html">
+          <span class="en">Supporting Multiple Screens</span>
+        </a></div>
+        <ul>
+          <li><a href="../../../guide/practices/screens-distribution.html">
+            <span class="en">Distributing to Specific Screens</span>
+          </a></li>
+          <li><a href="../../../guide/practices/screen-compat-mode.html">
+            <span class="en">Screen Compatibility Mode</span>
+          </a></li>
+        </ul>
+      </li>
+      <li><a href="../../../guide/practices/tablets-and-handsets.html">
+            <span class="en">Supporting Tablets and Handsets</span>
+          </a></li>
+      <li>
+        <a href="../../../guide/practices/verifying-apps-art.html">
+          <span class="en">Verifying App Behavior on ART</span>
+        </a>
+      </li>
+    </ul>
+  </li>
+
+
+</ul>
+
+
+<script type="text/javascript">
+<!--
+    buildToggleLists();
+    changeNavLang(getLangPref());
+//-->
+</script>
+
+
+        
+
+      </div>
+    </div> <!-- end side-nav -->
+    <script>
+      $(document).ready(function() {
+        scrollIntoView("devdoc-nav");
+        });
+    </script>
+
+
+
+
+<div class="col-12" id="doc-col" >
+
+
+  
+
+  
+    
+      
+        <h1 itemprop="name" >ExoPlayer</h1>
+      
+    
+  
+
+
+  
+  <div id="jd-content">
+
+
+    <div class="jd-descr" itemprop="articleBody">
+    <div id="qv-wrapper">
+  <div id="qv">
+    <h2>In this document</h2>
+    <ol>
+      <li><a href="#overview">Overview</a></li>
+      <li><a href="#trackrenderer">TrackRenderer</a></li>
+      <li><a href="#samplesource">SampleSource</a>
+        <ol>
+          <li><a href="#mediaextractor">Providing media using MediaExtractor</a></li>
+          <li><a href="#adaptive-playback">Providing media for adaptive playback</a>
+            <ol>
+              <li><a href="#format-selection">Format selection for adaptive playback</a></li>
+            </ol>
+          </li>
+        </ol>
+      <li><a href="#events">Player Events</a>
+        <ol>
+          <li><a href="#high-events">High level events</a></li>
+          <li><a href="#low-events">Low level events</a></li>
+        </ol>
+      </li>
+      <li><a href="#sending-messages">Sending messages to components</a></li>
+      <li><a href="#customizing">Customizing ExoPlayer</a>
+        <ol>
+          <li><a href="#custom-guidelines">Custom component guidelines</a></li>
+        </ol>
+      </li>
+      <li><a href="#drm">Digital Rights Management</a></li>
+    </ol>
+    <h2>Key Classes</h2>
+    <ol>
+      <li><code><a href="../../../reference/android/media/MediaCodec.html">MediaCodec</a></code></li>
+      <li><code><a href="../../../reference/android/media/MediaExtractor.html">MediaExtractor</a></code></li>
+      <li><code><a href="../../../reference/android/media/AudioTrack.html">AudioTrack</a></code></li>
+    </ol>
+    <h2>Related Samples</h2>
+    <ol>
+      <li><a class="external-link" href="https://github.com/google/ExoPlayer">
+        ExoPlayer Project</a></li>
+      <li><a class="external-link" href="http://google.github.io/ExoPlayer/doc/reference/packages.html">
+        Class Reference</a></li>
+    </ol>
+  </div>
+</div>
+
+
+<p>Playing videos and music is a popular activity on Android devices. The Android framework
+  provides <code><a href="../../../reference/android/media/MediaPlayer.html">MediaPlayer</a></code> as a quick solution for playing media with minimal
+  code, and the <code><a href="../../../reference/android/media/MediaCodec.html">MediaCodec</a></code> and <code><a href="../../../reference/android/media/MediaExtractor.html">MediaExtractor</a></code> classes
+  are provided for building custom media players. The open source project, ExoPlayer, is a
+  solution between these two options, providing a pre-built player that you can extend.</p>
+
+<p>ExoPlayer supports features not currently provided by
+  <code><a href="../../../reference/android/media/MediaPlayer.html">MediaPlayer</a></code>, including Dynamic adaptive streaming
+  over HTTP (DASH), SmoothStreaming, and persistent caching. ExoPlayer can be extended
+  to handle additional media formats, and because you include it as part of your app code,
+  you can update it along with your app.</p>
+
+<p>This guide describes how to use ExoPlayer for playing Android supported media formats, as well as
+  DASH and SmoothStreaming playback. This guide also discusses ExoPlayer events, messages, DRM
+  support and guidelines for customizing the player.</p>
+
+<p class="note">
+  <strong>Note:</strong> ExoPlayer is an open source project that is not part of the Android
+  framework and is distributed separately from the Android SDK. The project contains a library and
+  a demo app that shows both simple and more advanced use of ExoPlayer:</p>
+
+<ul>
+    <li><a class="external-link" href="https://github.com/google/ExoPlayer/tree/master/library">
+      ExoPlayer Library</a> &mdash; This part of the project contains the core library classes.</li>
+    <li><a class="external-link" href="https://github.com/google/ExoPlayer/tree/master/demo/src/main/java/com/google/android/exoplayer/demo/simple">
+      Simple Demo</a> &mdash; This part of the app demonstrates a basic use of ExoPlayer.</li>
+    <li><a class="external-link" href="https://github.com/google/ExoPlayer/tree/master/demo/src/main/java/com/google/android/exoplayer/demo/full">
+      Full Demo</a> &mdash; This part of the app demonstrates more advanced features,
+      including the ability to select between multiple audio tracks, a background audio mode,
+      event logging and DRM protected playback. </li>
+</ul>
+
+
+<h2 id="overview">Overview</h2>
+
+<p>ExoPlayer is a media player built on top of the <code><a href="../../../reference/android/media/MediaExtractor.html">MediaExtractor</a></code> and
+  <code><a href="../../../reference/android/media/MediaCodec.html">MediaCodec</a></code> APIs released in Android 4.1 (API level 16). At the core of this
+  library is the <code>ExoPlayer</code> class. This class maintains the player’s global state, but makes few
+  assumptions about the nature of the media being played, such as how the media data is obtained,
+  how it is buffered or its format. You inject this functionality through ExoPlayer’s <code>prepare()</code> method in the form of <code>TrackRenderer</code> objects.</p>
+
+<p>ExoPlayer provides default <code>TrackRenderer</code> implementations for audio and
+  video, which make use of the <code><a href="../../../reference/android/media/MediaCodec.html">MediaCodec</a></code> and <code><a href="../../../reference/android/media/AudioTrack.html">AudioTrack</a></code>
+  classes in the Android framework. Both renderers require a <code>SampleSource</code> object, from which
+  they obtain individual media samples for playback. Figure 1 shows the high level object model for
+  an ExoPlayer implementation configured to play audio and video using these components.</p>
+
+<img src="../../../images/exoplayer/object-model.png" alt="" id="figure1" />
+<p class="img-caption">
+  <strong>Figure 1.</strong> High level object model for an ExoPlayer configured to play audio
+  and video using <code>TrackRenderer</code> objects
+</p>
+
+
+<h2 id="trackrenderer">TrackRenderer</h2>
+
+<p>A <code>TrackRenderer</code> processes a component of media for playback, such as
+  video, audio or text. The ExoPlayer class invokes methods on its <code>TrackRenderer</code> instances from a
+  single playback thread, and by doing so causes each media component to be rendered as the global
+  playback position is advanced. The ExoPlayer library provides <code>MediaCodecVideoTrackRenderer</code> as
+  the default implementations rendering video and <code>MediaCodecAudioTrackRenderer</code> for audio.
+  Both implementations make use of <code><a href="../../../reference/android/media/MediaCodec.html">MediaCodec</a></code> to decode individual media
+  samples. They can handle all audio and video formats supported by a given Android device
+  (see <a href="http://developer.android.com/guide/appendix/media-formats.html">Supported Media
+  Formats</a> for details). The ExoPlayer library also provides an implementation for rendering
+  text called <code>TextTrackRenderer</code>.
+</p>
+
+<p>The code example below outlines the main steps required to instantiate an ExoPlayer to play video
+  and audio using the standard <code>TrackRenderer</code> implementations.</p>
+
+<pre>
+// 1. Instantiate the player.
+player = ExoPlayer.Factory.newInstance(RENDERER_COUNT);
+// 2. Construct renderers.
+MediaCodecVideoTrackRenderer videoRenderer = …
+MediaCodecAudioTrackRenderer audioRenderer = ...
+// 3. Inject the renderers through prepare.
+player.prepare(videoRenderer, audioRenderer);
+// 4. Pass the surface to the video renderer.
+player.sendMessage(videoRenderer, MediaCodecVideoTrackRenderer.MSG_SET_SURFACE,
+        surface);
+// 5. Start playback.
+player.setPlayWhenReady(true);
+...
+player.release(); // Don’t forget to release when done!
+</pre>
+
+<p>For a complete example, see the <code>SimplePlayerActivity</code> in the ExoPlayer demo app, which
+  correctly manages an ExoPlayer instance with respect to both the <code><a href="../../../reference/android/app/Activity.html">Activity</a></code> and
+  <code><a href="../../../reference/android/view/Surface.html">Surface</a></code> lifecycles.</p>
+
+
+<h2 id="samplesource">SampleSource</h2>
+
+<p>A standard <code>TrackRenderer</code> implementation requires a <code>SampleSource</code> to
+  be provided in its constructor. A <code>SampleSource</code> object provides format information and
+  media samples to be rendered. The ExoPlayer library provides <code>FrameworkSampleSource</code> and
+  <code>ChunkSampleSource</code>. The <code>FrameworkSampleSource</code> class uses <code><a href="../../../reference/android/media/MediaExtractor.html">MediaExtractor</a></code> to request, buffer and extract the media samples. The <code>ChunkSampleSource</code> class provides adaptive playback using DASH or SmoothStreaming, and
+  implements networking, buffering and media extraction within the ExoPlayer library.</p>
+
+
+<h3 id="mediaextractor">Providing media using MediaExtractor</h3>
+
+<p>
+  In order to render media formats supported by the Android framework, the <code>FrameworkSampleSource</code> class uses <code><a href="../../../reference/android/media/MediaExtractor.html">MediaExtractor</a></code> for networking,
+  buffering and sample extraction functionality. By doing so, it supports any media container format
+  supported by the version of Android where it is running. For more information about media formats
+  supported by Android, see <a href="../../../guide/appendix/media-formats.html">Supported
+  Media Formats</a>.
+</p>
+
+<p>The diagram in Figure 2 shows the object model for an ExoPlayer implementation using
+  <code>FrameworkSampleSource</code>.</p>
+
+<img src="../../../images/exoplayer/frameworksamplesource.png" alt="" id="figure2" />
+<p class="img-caption">
+  <strong>Figure 2.</strong> Object model for an implementation of ExoPlayer that renders
+  media formats supported by Android using <code>FrameworkSampleSource</code>
+</p>
+
+<p>The following code example outlines how the video and audio renderers are constructed to
+  load the video from a specified URI.</p>
+
+<pre>
+FrameworkSampleSource sampleSource = new FrameworkSampleSource(
+        activity, uri, null, 2);
+MediaCodecVideoTrackRenderer videoRenderer = new MediaCodecVideoTrackRenderer(
+        sampleSource, null, true, MediaCodec.VIDEO_SCALING_MODE_SCALE_TO_FIT, 0,
+        mainHandler, playerActivity, 50);
+MediaCodecAudioTrackRenderer audioRenderer = new MediaCodecAudioTrackRenderer(
+        sampleSource, null, true);
+</pre>
+
+<p>The ExoPlayer demo app provides a complete implementation of this code in
+  <code>DefaultRendererBuilder</code>. The <code>SimplePlaybackActivity</code> class uses it to play one
+  of the videos available in the demo app. Note that in the example, video and audio
+  are muxed, meaning they are streamed together from a single URI. The <code>FrameworkSampleSource</code>
+  instance provides video samples to the <code>videoRenderer</code> object and audio samples to the
+  <code>audioRenderer</code> object as they are extracted from the media container format. It is also
+  possible to play demuxed media, where video and audio are streamed separately from different URIs.
+  This functionality can be achieved by having two <code>FrameworkSampleSource</code> instances instead
+  of one.</p>
+
+
+<h3 id="adaptive-playback">Providing media for adaptive playback</h3>
+
+<p>ExoPlayer supports adaptive streaming, which allows the quality of the
+  media data to be adjusted during playback based on the network conditions. DASH
+  and SmoothStreaming are examples of adaptive streaming technologies. Both these approaches
+  load media in small chunks (typically 2 to 10 seconds in duration). Whenever a chunk of media
+  is requested, the client selects from a number of possible formats. For example, a client may
+  select a high quality format if network conditions are good, or a low quality format if network
+  conditions are bad. In both techniques, video and audio are streamed separately.</p>
+
+<p>ExoPlayer supports adaptive playback through use of the <code>ChunkSampleSource</code> class,
+  which loads chunks of media data from which individual samples can be extracted. Each <code>ChunkSampleSource</code> requires a <code>ChunkSource</code> object to be injected through its constructor,
+  which is responsible for providing media chunks from which to load and read samples. The <code>DashMp4ChunkSource</code> and <code>SmoothStreamingChunkSource</code> classes provide DASH and SmoothStreaming
+  playback using the FMP4 container format. The <code>DashWebMChunkSource</code> class uses the WebM
+  container format to provide DASH playback.</p>
+
+<p>All of the standard <code>ChunkSource</code> implementations require a <code>FormatEvaluator</code> and
+  a <code>DataSource</code> to be injected through their constructors. The <code>FormatEvaluator</code>
+  objects select from the available formats before each chunk is loaded. The <code>DataSource</code>
+  objects are responsible for actually loading the data. Finally, the <code>ChunkSampleSources</code>
+  require a <code>LoadControl</code> object that controls the chunk buffering policy.</p>
+
+<p>The object model of an ExoPlayer configured for a DASH adaptive playback is shown in the
+  diagram below. This example uses an <code>HttpDataSource</code> object to stream the media over the
+  network. The video quality is varied at runtime using the adaptive implementation of <code>FormatEvaluator</code>, while audio is played at a fixed quality level.</p>
+
+<img src="../../../images/exoplayer/adaptive-streaming.png" alt="" id="figure3" />
+<p class="img-caption">
+  <strong>Figure 3.</strong> Object model for a DASH adaptive playback using ExoPlayer
+</p>
+
+<p>The following code example outlines how the video and audio renderers are constructed.</p>
+
+<pre>
+Handler mainHandler = playerActivity.getMainHandler();
+LoadControl loadControl = new DefaultLoadControl(
+        new BufferPool(BUFFER_SEGMENT_SIZE));
+BandwidthMeter bandwidthMeter = new BandwidthMeter();
+
+// Build the video renderer.
+DataSource videoDataSource = new HttpDataSource(userAgent,
+        HttpDataSource.REJECT_PAYWALL_TYPES, bandwidthMeter);
+ChunkSource videoChunkSource = new DashMp4ChunkSource(videoDataSource,
+        new AdaptiveEvaluator(bandwidthMeter), videoRepresentations);
+ChunkSampleSource videoSampleSource = new ChunkSampleSource(videoChunkSource,
+        loadControl, VIDEO_BUFFER_SEGMENTS * BUFFER_SEGMENT_SIZE, true);
+MediaCodecVideoTrackRenderer videoRenderer = new MediaCodecVideoTrackRenderer(
+        videoSampleSource, null, true, MediaCodec.VIDEO_SCALING_MODE_SCALE_TO_FIT,
+        0, mainHandler, playerActivity, 50);
+
+// Build the audio renderer.
+DataSource audioDataSource = new HttpDataSource(userAgent,
+        HttpDataSource.REJECT_PAYWALL_TYPES, bandwidthMeter);
+ChunkSource audioChunkSource = new DashMp4ChunkSource(audioDataSource,
+        new FormatEvaluator.FixedEvaluator(), audioRepresentation);
+SampleSource audioSampleSource = new ChunkSampleSource(audioChunkSource,
+        loadControl, AUDIO_BUFFER_SEGMENTS * BUFFER_SEGMENT_SIZE, true);
+MediaCodecAudioTrackRenderer audioRenderer = new MediaCodecAudioTrackRenderer(
+        audioSampleSource, null, true);
+</pre>
+
+<p>In this code, <code>videoRepresentations</code> and <code>audioRepresentation</code> are <code>Representation</code> objects, each of which describes one of the available media streams. In the DASH
+  model, these streams are parsed from a media presentation description (MPD) file. The ExoPlayer
+  library provides a <code>MediaPresentationDescriptionParser</code> class to obtain <code>Representation</code> objects from MPD files.</p>
+
+<p class="note">
+  <strong>Note:</strong> Building Representation objects from MPD files is not required. You can
+  build Representation objects from other data sources if necessary.
+</p>
+
+<p>The ExoPlayer demo app provides complete implementation of this code in
+  <code>DashVodRendererBuilder</code>. The <code>SimplePlaybackActivity</code> class uses this builder to
+  construct renderers for playing DASH sample videos in the demo app. It asynchronously fetches a
+  specified MPD file in order to construct the required <code>Representation</code> objects. For an
+  equivalent SmoothStreaming example, see the <code>SmoothStreamingRendererBuilder</code> class in the
+  demo app.</p>
+
+
+<h4 id="format-selection">Format selection for adaptive playback</h4>
+
+<p>For DASH and SmoothStreaming playback, consider both static format selection at the
+  start of playback and dynamic format selection during playback. Static format selection should be
+  used to filter out formats that should not be used throughout the playback, for example formats
+  with resolutions higher than the maximum supported by the playback device. Dynamic selection varies
+  the selected format during playback, typically to adapt video quality in response to changes in
+  network conditions.</p>
+
+<h5 id="static-selection">Static format selection</h5>
+
+<p>When preparing a player, you should consider filtering out some of the available formats if
+  they are not useable for playback. Static format selection allows you to filter out
+  formats that cannot be used on a particular device or are not compatible with your player.
+  For audio playback, this often means picking a single format to play and discarding the others.</p>
+
+<p>For video playback, filtering formats can be more complicated. Apps should first
+  eliminate any streams that whose resolution is too high to be played by the device. For H.264,
+  which is normally used for DASH and SmoothStreaming playback, ExoPlayer’s <code>MediaCodecUtil</code>
+  class provides a <code>maxH264DecodableFrameSize()</code> method that can be used to determine what
+  resolution streams the device is able to handle, as shown in the following code example:</p>
+
+<pre>
+int maxDecodableFrameSize = MediaCodecUtil.maxH264DecodableFrameSize();
+Format format = representation.format;
+if (format.width * format.height &lt;= maxDecodableFrameSize) {
+  // The device can play this stream.
+  videoRepresentations.add(representation);
+} else {
+  // The device isn't capable of playing this stream.
+}
+</pre>
+
+<p>This approach is used to filter <code>Representations</code> in the <code>DashVodRendererBuilder</code>
+  class of the ExoPlayer demo app, and similarly to filter track indices in <code>SmoothStreamingRendererBuilder</code>.</p>
+
+<p>In addition to eliminating unsupported formats, it should be noted that the ability to
+  seamlessly switch between H.264 streams of different resolution is an optional decoder feature
+  available in Android 4.3 (API level 16) and higher, and so is not supported by all devices. The
+  availability of an adaptive H.264 decoder can be queried using <code>MediaCodecUtil</code>, as shown in
+  the following code example:</p>
+
+<pre>
+boolean isAdaptive = MediaCodecUtil.getDecoderInfo(MimeTypes.VIDEO_H264).adaptive;
+</pre>
+
+<p>The <code>MediaCodecVideoTrackRenderer</code> class is still able to handle resolution changes on
+  devices that do not have adaptive decoders, however the switch is not seamless. Typically, the
+  switch creates a small discontinuity in visual output lasting around 50-100ms. For devices that
+  do not provide an adaptive decoder, app developers may choose to adapt between formats at
+  a single fixed resolution so as to avoid discontinuities. The ExoPlayer demo app
+  implementation does not pick a fixed resolution.</p>
+
+
+<h5 id="dynamic-selection">Dynamic format selection</h5>
+
+<p>During playback, you can use a <code>FormatEvaluator</code> to dynamically select from the
+  available video formats. The ExoPlayer library provides a <code>FormatEvaluator.Adaptive</code>
+  implementation for dynamically selecting between video formats based on the current network
+  conditions.</p>
+
+<p>This class provides a simple, general purpose reference implementation, however you are
+  encouraged to write your own <code>FormatEvaluator</code> implementation to best suit your particular
+  needs.</p>
+
+
+<h2 id="events">Player Events</h2>
+
+<p>During playback, your app can listen for events generated by the ExoPlayer that indicate the
+  overall state of the player. These events are useful as triggers for updating the app user
+  interface such as playback controls. Many ExoPlayer components also report their own component
+  specific low level events, which can be useful for performance monitoring.</p>
+
+
+<h3 id="high-events">High level events</h3>
+
+<p>ExoPlayer allows instances of <code>ExoPlayer.Listener</code> to be added and removed using its
+  <code>addListener()</code> and <code>removeListener()</code> methods. Registered listeners are notified of
+  changes in playback state, as well as when errors occur that cause playback to fail. For more
+  information about the valid playback states and the possible transitions between them, see the
+  ExoPlayer source code.</p>
+
+<p>Developers who implement custom playback controls should register a listener and use it to
+  update their controls as the player’s state changes. An app should also show an
+  appropriate error to the user if playback fails.</p>
+
+<h3 id="low-events">Low level events</h3>
+
+<p>In addition to high level listeners, many of the individual components provided by the
+  ExoPlayer library allow their own event listeners. For example, <code>MediaCodecVideoTrackRenderer</code> has constructors that take a <code>MediaCodecVideoTrackRenderer.EventListener</code>. In the ExoPlayer demo app, <code>SimplePlayerActivity</code>
+  acts as a listener so that it can adjust the dimensions of the target surface to have the correct
+  height and width ratio for the video being played:</p>
+
+<pre>
+&#64;Override
+public void onVideoSizeChanged(int width, int height) {
+  surfaceView.setVideoWidthHeightRatio(height == 0 ? 1 : (float) width / height);
+}
+</pre>
+
+<p>The <code>RendererBuilder</code> classes in the ExoPlayer demo app inject the activity as the
+  listener, for example in the <code>DashVodRendererBuilder</code> class:</p>
+
+<pre>
+MediaCodecVideoTrackRenderer videoRenderer = new MediaCodecVideoTrackRenderer(
+        videoSampleSource, null, true, MediaCodec.VIDEO_SCALING_MODE_SCALE_TO_FIT,
+        0, <strong>mainHandler, playerActivity</strong>, 50);
+</pre>
+
+<p>Note that you must pass a <code><a href="../../../reference/android/os/Handler.html">Handler</a></code> object to the renderer, which determines
+  the thread on which the listener’s methods are invoked. In most cases, you should use a
+  <code><a href="../../../reference/android/os/Handler.html">Handler</a></code> associated with the app’s main thread, as is the case in this example.
+  </p>
+
+<p>Listening to individual components can be useful for adjusting UI based on player events, as
+  in the example above. Listening to component events can also be helpful for logging performance
+  metrics. For example, <code>MediaCodecVideoTrackRenderer</code> notifies its listener of dropped video
+  frames. A developer may wish to log such metrics to track playback performance in their
+  app.</p>
+
+<p>Many components also notify their listeners when errors occur. Such errors may or may not
+  cause playback to fail. If an error does not cause playback to fail, it may still result in
+  degraded performance, and so you may wish to log all errors in order to track playback
+  performance. Note that an ExoPlayer instance always notifies its high level listeners of errors that
+  cause playback to fail, in addition to the listener of the individual component from which the error
+  originated. Hence, you should display error messages to users only from high level listeners.
+  Within individual component listeners, you should use error notifications only for informational
+  purposes.</p>
+
+
+<h2 id="sending-messages">Sending messages to components</h2>
+
+<p>Some ExoPlayer components allow changes in configuration during playback. By convention, you make
+  these changes by passing asynchronous messages through the ExoPlayer to the component.
+  This approach ensures both thread safety and that the configuration change is
+  executed in order with any other operations being performed on the player.</p>
+
+<p>The most common use of messaging is passing a target surface to
+  <code>MediaCodecVideoTrackRenderer</code>:</p>
+
+<pre>
+player.sendMessage(videoRenderer, MediaCodecVideoTrackRenderer.MSG_SET_SURFACE,
+        surface);
+</pre>
+
+<p>Note that if the surface needs to be cleared because
+  <code><a href="../../../reference/android/view/SurfaceHolder.Callback.html#surfaceDestroyed(android.view.SurfaceHolder)">SurfaceHolder.Callback.surfaceDestroyed()</a></code> has been invoked, then you must send this
+  message using the blocking variant of <code>sendMessage()</code>:</p>
+<p>
+
+<pre>
+player.blockingSendMessage(videoRenderer,
+        MediaCodecVideoTrackRenderer.MSG_SET_SURFACE, null);
+</pre>
+
+<p>You must use a blocking message because the contract of <code><a href="../../../reference/android/view/SurfaceHolder.Callback.html#surfaceDestroyed(android.view.SurfaceHolder)">surfaceDestroyed()</a></code> requires that the
+  app does not attempt to access the surface after the method returns. The <code>SimplePlayerActivity</code> class in the demo app demonstrates how the surface should be set and
+  cleared.</p>
+
+
+<h2 id="customizing">Customizing ExoPlayer</h2>
+
+<p>One of the main benefits of ExoPlayer over <code><a href="../../../reference/android/media/MediaPlayer.html">MediaPlayer</a></code> is the ability to
+  customize and extend the player to better suit the developer’s use case. The ExoPlayer library
+  is designed specifically with this in mind, defining a number of abstract base classes and
+  interfaces that make it possible for app developers to easily replace the default implementations
+  provided by the library. Here are some use cases for building custom components:</p>
+
+<ul>
+  <li><strong><code>TrackRenderer</code></strong> - You may want to implement a custom
+    <code>TrackRenderer</code> to handle media types other than audio and video. The <code>TextTrackRenderer</code> class within the ExoPlayer library is an example of how to implement a
+    custom renderer. You could use the approach it demonstrates to render custom
+    overlays or annotations. Implementing this kind of functionality as a <code>TrackRenderer</code>
+    makes it easy to keep the overlays or annotations in sync with the other media being played.</li>
+  <li><strong><code>SampleSource</code></strong> - If you need to support a container format not
+    already handled by <code><a href="../../../reference/android/media/MediaExtractor.html">MediaExtractor</a></code> or ExoPlayer, consider implementing a
+    custom <code>SampleSource</code> class.</li>
+  <li><strong><code>FormatEvaluator</code></strong> - The ExoPlayer library provides <code>FormatEvaluator.Adaptive</code> as a simple reference implementation that switches between different
+    quality video formats based on the available bandwidth. App developers are encouraged to
+    develop their own adaptive <code>FormatEvaluator</code> implementations, which can be designed to
+    suit their use specific needs.</li>
+  <li><strong><code>DataSource</code></strong> - ExoPlayer’s upstream package already contains a
+    number of <code>DataSource</code> implementations for different use cases, such as writing and
+    reading to and from a persistent media cache. You may want to implement you own
+    <code>DataSource</code> class to load data in another way, such as a custom
+    protocol or HTTP stack for data input.</li>
+</ul>
+
+
+<h3 id="custom-guidelines">Custom component guidelines</h3>
+
+<p>If a custom component needs to report events back to the app, we recommend that you
+  do so using the same model as existing ExoPlayer components, where an event listener is passed
+  together with a <code><a href="../../../reference/android/os/Handler.html">Handler</a></code> to the constructor of the component.</p>
+
+<p>We recommended that custom components use the same model as existing ExoPlayer components to
+  allow reconfiguration by the app during playback, as described in
+  <a href="#sending-messages">Sending messages to components</a>.
+  To do this, you should implement a <code>ExoPlayerComponent</code> and receive
+  configuration changes in its <code>handleMessage()</code> method. Your app should pass
+  configuration changes by calling ExoPlayer’s <code>sendMessage()</code> and <code>blockingSendMessage()</code> methods.</p>
+
+
+<h2 id="drm">Digital Rights Management</h2>
+
+<p>On Android 4.3 (API level 18) and higher, ExoPlayer supports Digital Rights Managment (DRM)
+  protected playback. In order to play DRM protected content with ExoPlayer, your app must
+  inject a <code>DrmSessionManager</code> into the <code>MediaCodecVideoTrackRenderer</code> and <code>MediaCodecAudioTrackRenderer</code> constructors. A <code>DrmSessionManager</code> object is responsible for
+  providing the <code>MediaCrypto</code> object required for decryption, as well as ensuring that the
+  required decryption keys are available to the underlying DRM module being used.</p>
+
+<p>The ExoPlayer library provides a default implementation of <code>DrmSessionManager</code>, called
+  <code>StreamingDrmSessionManager</code>, which uses <code><a href="../../../reference/android/media/MediaDrm.html">MediaDrm</a></code>. The session
+  manager supports any DRM scheme for which a modular DRM component exists on the device. All
+  Android devices are required to support Widevine modular DRM (with L3 security, although many
+  devices also support L1). Some devices may support additional schemes such as PlayReady.</p>
+
+<p>The <code>StreamingDrmSessionManager</code> class requires a <code>MediaDrmCallback</code> to be
+  injected into its constructor, which is responsible for actually making provisioning and key
+  requests. You should implement this interface to make network requests to your license
+  server and obtain the required keys. The <code>WidevineTestMediaDrmCallback</code> class in the
+  ExoPlayer demo app sends requests to a Widevine test server.</p>
+
+    </div>
+
+      <div class="content-footer layout-content-row"
+                    itemscope itemtype="http://schema.org/SiteNavigationElement">
+        
+        <div class="paging-links layout-content-col col-10">
+          
+        </div>
+        <div class="layout-content-col plus-container col-2" >
+          
+            <div class="g-plusone" data-size="medium"></div>
+          
+        </div>
+        
+      </div>
+
+  </div> <!-- end jd-content -->
+
+<div id="footer" class="wrap" >
+        
+
+  <div id="copyright">
+    
+  Except as noted, this content is 
+  licensed under <a href="http://creativecommons.org/licenses/by/2.5/">
+  Creative Commons Attribution 2.5</a>. For details and 
+  restrictions, see the <a href="../../../license.html">Content 
+  License</a>.
+  </div>
+
+
+  <div id="footerlinks">
+    
+  <p>
+    <a href="../../../about/index.html">About Android</a>&nbsp;&nbsp;|&nbsp;
+    <a href="../../../legal.html">Legal</a>&nbsp;&nbsp;|&nbsp;
+    <a href="../../../support.html">Support</a>
+  </p>
+  </div>
+
+</div> <!-- end footer -->
+</div><!-- end doc-content -->
+
+</div> <!-- end body-content --> 
+
+
+
+
+
+  <script src="https://developer.android.com/ytblogger_lists_unified.js" type="text/javascript"></script>
+  <script src="../../../jd_lists_unified.js?v=2" type="text/javascript"></script>
+  <script src="../../../jd_extras.js?v=3" type="text/javascript"></script>
+  <script src="../../../jd_collections.js?v=3" type="text/javascript"></script>
+  <script src="../../../jd_tag_helpers.js?v=2" type="text/javascript"></script>
+
+</body>
+</html>
+
+
+

@@ -82,6 +82,11 @@
 
 
 
+
+
+
+
+
 <html>
 <head>
 
@@ -91,41 +96,42 @@
 
 <meta name="Description" content="In-app Billing on Google Play provides a straightforward, simple interface for sending In-app Billing requests and managing In-app Billing transactions using Google Play. The information below covers the basics of how to make calls from your application…">
 <link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico" />
-<title>Implementing In-app Billing <span style="font-size:16px;">(IAB Version 3)</span> | Android Developers</title>
+<title>Implementing In-app Billing | Android Developers</title>
 
 <!-- STYLESHEETS -->
 <link rel="stylesheet"
 href="http://fonts.useso.com/css?family=Roboto+Condensed">
 <link rel="stylesheet" href="http://fonts.useso.com/css?family=Roboto:light,regular,medium,thin,italic,mediumitalic,bold"
   title="roboto">
-<link href="../../../assets/css/default.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/default.css?v=2" rel="stylesheet" type="text/css">
 
 
 
 <!-- JAVASCRIPT -->
-<script src="http://googleapiscdn.qiniudn.com/www.google.com/jsapi" type="text/javascript"></script>
+<script src="http://www.google.com/jsapi" type="text/javascript"></script>
 <script src="../../../assets/js/android_3p-bundle.js" type="text/javascript"></script>
 <script type="text/javascript">
   var toRoot = "../../../";
-  var metaTags = [];
+  var metaTags = ["inapp","billing","iap"];
   var devsite = false;
 </script>
-<script src="../../../assets/js/docs.js" type="text/javascript"></script>
+<script src="../../../assets/js/docs.js?v=2" type="text/javascript"></script>
 
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-5831155-1']);
-  _gaq.push(['_trackPageview']);
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
+  ga('create', 'UA-5831155-1', 'android.com');
+  ga('create', 'UA-49880327-2', 'android.com', {'name': 'universal'});  // New tracker);
+  ga('send', 'pageview');
+  ga('universal.send', 'pageview'); // Send page view for new tracker.
 </script>
+
 </head>
 
-<body class="gc-documentation 
+<body class="gc-documentation
 
 google" itemscope itemtype="http://schema.org/Article">
 
@@ -134,6 +140,10 @@ google" itemscope itemtype="http://schema.org/Article">
   <!-- Header -->
   <div id="header-wrapper">
     <div id="header">
+
+    
+
+
       <div class="wrap" id="header-wrap">
         <div class="col-3 logo">
           <a href="../../../index.html">
@@ -255,11 +265,20 @@ google" itemscope itemtype="http://schema.org/Article">
 
 
         <!-- Expanded quicknav -->
-        <div id="quicknav" class="col-9">
+        <div id="quicknav" class="col-13">
           <ul>
+            <li class="about">
+              <ul>
+                <li><a href="../../../about/index.html">About</a></li>
+                <li><a href="../../../wear/index.html">Wear</a></li>
+                <li><a href="../../../tv/index.html">TV</a></li>
+                <li><a href="../../../auto/index.html">Auto</a></li>
+              </ul>
+            </li>
             <li class="design">
               <ul>
                 <li><a href="../../../design/index.html">Get Started</a></li>
+                <li><a href="../../../design/devices.html">Devices</a></li>
                 <li><a href="../../../design/style/index.html">Style</a></li>
                 <li><a href="../../../design/patterns/index.html">Patterns</a></li>
                 <li><a href="../../../design/building-blocks/index.html">Building Blocks</a></li>
@@ -293,7 +312,7 @@ google" itemscope itemtype="http://schema.org/Article">
                   ja-lang="リファレンス"
                   es-lang="Referencia"
                   >Reference</a></li>
-                <li><a href="../../../tools/index.html"
+                <li><a href="../../../sdk/index.html"
                   zh-tw-lang="相關工具"
                   zh-cn-lang="工具"
                   ru-lang="Инструменты"
@@ -301,7 +320,6 @@ google" itemscope itemtype="http://schema.org/Article">
                   ja-lang="ツール"
                   es-lang="Herramientas"
                   >Tools</a>
-                  <ul><li><a href="../../../sdk/index.html">Get the SDK</a></li></ul>
                 </li>
                 <li><a href="../../../google/index.html">Google Services</a>
                 </li>
@@ -353,7 +371,7 @@ google" itemscope itemtype="http://schema.org/Article">
                   ja-lang="リファレンス"
                   es-lang="Referencia"
                   >Reference</a></li>
-                <li class="tools"><a href="../../../tools/index.html"
+                <li class="tools"><a href="../../../sdk/index.html"
                   zh-tw-lang="相關工具"
                   zh-cn-lang="工具"
                   ru-lang="Инструменты"
@@ -368,7 +386,7 @@ google" itemscope itemtype="http://schema.org/Article">
             </ul>
         </div>
     </div>
-    <!-- /Sendondary x-nav -->
+    <!-- /Sendondary x-nav DEVELOP -->
 
   
 
@@ -384,7 +402,7 @@ google" itemscope itemtype="http://schema.org/Article">
       <a class="top" href="#top"></a>
       <ul class="breadcrumb">
         
-        <li class="current">Implementing In-app Billing <span style="font-size:16px;">(IAB Version 3)</span></li>
+        <li class="current">Implementing In-app Billing</li>
       </ul>
     </div>
   </div>
@@ -459,11 +477,11 @@ google" itemscope itemtype="http://schema.org/Article">
     </div>
     <ul>
       <li><a href="../../../google/play-services/setup.html">
-          <span class="en">Setup</span></a>
+          <span class="en">Setting Up Google Play Services</span></a>
       </li>
       <li class="nav-section">
         <div class="nav-section-header"><a href="../../../google/auth/api-client.html">
-          <span class="en">Accessing Google Play Services APIs</span></a>
+          <span class="en">Accessing Google APIs</span></a>
         </div>
         <ul>
           <li>
@@ -524,9 +542,6 @@ google" itemscope itemtype="http://schema.org/Article">
       <li><a href="../../../google/play/billing/billing_admin.html">
               <span class="en">Administering In-app Billing</span></a>
       </li>
-      <li><a href="../../../google/play/billing/gp-purchase-status-api.html">
-              <span class="en">Purchase Status API</span></a>
-      </li>
       <li><a href="../../../google/play/billing/versions.html">
               <span class="en">Version Notes</span></a>
       </li>
@@ -578,6 +593,12 @@ google" itemscope itemtype="http://schema.org/Article">
   </li>
 
   <li class="nav-section">
+  <div class="nav-section-header empty"><a href="../../../google/gcs/index.html">
+        <span class="en">Google Cloud Save</span></a>
+      </div>
+  </li>
+
+  <li class="nav-section">
     <div class="nav-section-header"><a href="../../../google/play/dist.html">
       <span class="en">Google Play Distribution</span></a>
     </div>
@@ -585,7 +606,9 @@ google" itemscope itemtype="http://schema.org/Article">
       <li><a href="../../../google/play/filters.html">
           <span class="en">Filters on Google Play</span></a>
       </li>
-
+      <li><a href="../../../google/play/billing/gp-purchase-status-api.html">
+              <span class="en">Google Play Developer API</span></a>
+      </li>
       <li><a href="../../../google/play/publishing/multiple-apks.html">
           <span class="en">Multiple APK Support</span></a>
       </li>
@@ -659,12 +682,12 @@ google" itemscope itemtype="http://schema.org/Article">
 <div class="col-12" id="doc-col" >
 
 
-
+  
 
   
     
       
-        <h1 itemprop="name" >Implementing In-app Billing <span style="font-size:16px;">(IAB Version 3)</span></h1>
+        <h1 itemprop="name" >Implementing In-app Billing</h1>
       
     
   
@@ -812,15 +835,17 @@ ServiceConnection mServiceConn = new ServiceConnection() {
 };
 </pre>
 
-<p>In your activity’s <code><a href="../../../reference/android/app/Activity.html#onCreate(android.os.Bundle)">onCreate</a></code> method, perform the binding by calling the <code><a href="../../../reference/android/content/Context.html#bindService(android.content.Intent, android.content.ServiceConnection, int)">bindService</a></code> method. Pass the method an <code><a href="../../../reference/android/content/Intent.html">Intent</a></code> that references the In-app Billing service and an instance of the <code><a href="../../../reference/android/content/ServiceConnection.html">ServiceConnection</a></code> that you created.</p>
-<pre>
-&#64;Override
-public void onCreate(Bundle savedInstanceState) {    
-    super.onCreate(savedInstanceState);
-    setContentView(R.layout.activity_main);        
-    bindService(new 
-        Intent("com.android.vending.billing.InAppBillingService.BIND"),
-                mServiceConn, Context.BIND_AUTO_CREATE);
+<p>In your activity’s <code><a href="../../../reference/android/app/Activity.html#onCreate(android.os.Bundle)">onCreate</a></code> method, perform the binding by calling the <code><a href="../../../reference/android/content/Context.html#bindService(android.content.Intent, android.content.ServiceConnection, int)">bindService</a></code> method. Pass the method an <code><a href="../../../reference/android/content/Intent.html">Intent</a></code> that references the In-app Billing service and an instance of the <code><a href="../../../reference/android/content/ServiceConnection.html">ServiceConnection</a></code> that you created, and explicitly set the Intent's target package name to <code>com.android.vending</code> &mdash; the package name of Google Play app.</p>
+
+<p class="caution"><strong>Caution:</strong> To protect the security of billing transactions, always make sure to explicitly set the intent's target package name to <code>com.android.vending</code>, using <code><a href="../../../reference/android/content/Intent.html#setPackage(java.lang.String)">setPackage()</a></code> as shown in the example below. Setting the package name explicitly ensures that <em>only</em> the Google Play app can handle billing requests from your app, preventing other apps from intercepting those requests.</p>
+
+<pre>&#64;Override
+public void onCreate(Bundle savedInstanceState) {
+  super.onCreate(savedInstanceState);
+  setContentView(R.layout.activity_main);
+  Intent serviceIntent = new Intent("com.android.vending.billing.InAppBillingService.BIND");
+  serviceIntent.setPackage("com.android.vending");
+  bindService(serviceIntent, mServiceConn, Context.BIND_AUTO_CREATE);
 </pre>
 <p>You can now use the mService reference to communicate with the Google Play service.</p>
 <p class="note"><strong>Important:</strong> Remember to unbind from the In-app Billing service when you are done with your <code><a href="../../../reference/android/app/Activity.html">Activity</a></code>. If you don’t unbind, the open service connection could cause your device’s performance to degrade. This example shows how to perform the unbind operation on a service connection to In-app Billing called <code>mServiceConn</code> by overriding the activity’s <code><a href="../../../reference/android/app/Activity.html#onDestroy()">onDestroy</a></code> method.</p>
@@ -940,7 +965,7 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
    }
 }
 </pre>
-<p class="note"><strong>Security Recommendation:</strong> When you send a purchase request, create a String token that uniquely identifies this purchase request and include this token in the <code>developerPayload</code>.You can use a randomly generated string as the token. When you receive the purchase response from Google Play, make sure to check the returned data signature, the <code>orderId</code>, and the <code>developerPayload</code> String. For added security, you should perform the checking on your own secure server. Make sure to verify that the <code>orderId</code> is a unique value that you have not previously processed, and the <code>developerPayload</code> String matches the token that you sent previously with the purchase request.</p>
+<p class="note"><strong>Security Recommendation:</strong>  When you send a purchase request, create a String token that uniquely identifies this purchase request and include this token in the <code>developerPayload</code>.You can use a randomly generated string as the token. When you receive the purchase response from Google Play, make sure to check the returned data signature, the <code>orderId</code>, and the <code>developerPayload</code> String. For added security, you should perform the checking on your own secure server. Make sure to verify that the <code>orderId</code> is a unique value that you have not previously processed, and the <code>developerPayload</code> String matches the token that you sent previously with the purchase request.</p>
 
 <h3 id="QueryPurchases">Querying for Purchased Items</h3>
 <p>To retrieve information about purchases made by a user from your app, call the <code>getPurchases</code> method on the In-app Billing Version 3 service. Pass in to the method the In-app Billing API version (“3”), the package name of your calling app, and the purchase type (“inapp” or "subs").</p>
@@ -1074,20 +1099,17 @@ href="../../../google/play/billing/billing_best_practices.html">Security and Des
 
       <div class="content-footer layout-content-row"
                     itemscope itemtype="http://schema.org/SiteNavigationElement">
-        <div class="layout-content-col col-9" style="padding-top:4px">
+        
+        <div class="paging-links layout-content-col col-10">
+          
+        </div>
+        <div class="layout-content-col plus-container col-2" >
           
             <div class="g-plusone" data-size="medium"></div>
           
         </div>
         
-        <div class="paging-links layout-content-col col-4">
-          
-        </div>
-        
       </div>
-
-      
-      
 
   </div> <!-- end jd-content -->
 
@@ -1116,18 +1138,6 @@ href="../../../google/play/billing/billing_best_practices.html">Security and Des
 </div> <!-- end footer -->
 </div><!-- end doc-content -->
 
-<!-- Start of Tag -->
-<script type="text/javascript">
-var axel = Math.random() + "";
-var a = axel * 10000000000000;
-document.write('<iframe src="https://2507573.fls.doubleclick.net/activityi;src=2507573;type=other026;cat=googl348;ord=' + a + '?" width="1" height="1" frameborder="0" style="display:none"></iframe>');
-</script>
-<noscript>
-<iframe src="https://2507573.fls.doubleclick.net/activityi;src=2507573;type=other026;cat=googl348;ord=1?" width="1" height="1" frameborder="0" style="display:none"></iframe>
-</noscript>
-<!-- End of Tag -->
-
-
 </div> <!-- end body-content --> 
 
 
@@ -1135,10 +1145,10 @@ document.write('<iframe src="https://2507573.fls.doubleclick.net/activityi;src=2
 
 
   <script src="https://developer.android.com/ytblogger_lists_unified.js" type="text/javascript"></script>
-  <script src="../../../jd_lists_unified.js" type="text/javascript"></script>
-  <script src="../../../jd_extras.js" type="text/javascript"></script>
-  <script src="../../../jd_collections.js" type="text/javascript"></script>
-  <script src="../../../jd_tag_helpers.js" type="text/javascript"></script>
+  <script src="../../../jd_lists_unified.js?v=2" type="text/javascript"></script>
+  <script src="../../../jd_extras.js?v=3" type="text/javascript"></script>
+  <script src="../../../jd_collections.js?v=3" type="text/javascript"></script>
+  <script src="../../../jd_tag_helpers.js?v=2" type="text/javascript"></script>
 
 </body>
 </html>

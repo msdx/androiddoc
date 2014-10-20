@@ -82,6 +82,11 @@
 
 
 
+
+
+
+
+
 <html>
 <head>
 
@@ -98,34 +103,35 @@
 href="http://fonts.useso.com/css?family=Roboto+Condensed">
 <link rel="stylesheet" href="http://fonts.useso.com/css?family=Roboto:light,regular,medium,thin,italic,mediumitalic,bold"
   title="roboto">
-<link href="../../../assets/css/default.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/default.css?v=2" rel="stylesheet" type="text/css">
 
 
 
 <!-- JAVASCRIPT -->
-<script src="http://googleapiscdn.qiniudn.com/www.google.com/jsapi" type="text/javascript"></script>
+<script src="http://www.google.com/jsapi" type="text/javascript"></script>
 <script src="../../../assets/js/android_3p-bundle.js" type="text/javascript"></script>
 <script type="text/javascript">
   var toRoot = "../../../";
-  var metaTags = [];
+  var metaTags = ["inapp","billing","iap"];
   var devsite = false;
 </script>
-<script src="../../../assets/js/docs.js" type="text/javascript"></script>
+<script src="../../../assets/js/docs.js?v=2" type="text/javascript"></script>
 
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-5831155-1']);
-  _gaq.push(['_trackPageview']);
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
+  ga('create', 'UA-5831155-1', 'android.com');
+  ga('create', 'UA-49880327-2', 'android.com', {'name': 'universal'});  // New tracker);
+  ga('send', 'pageview');
+  ga('universal.send', 'pageview'); // Send page view for new tracker.
 </script>
+
 </head>
 
-<body class="gc-documentation 
+<body class="gc-documentation
 
 google" itemscope itemtype="http://schema.org/Article">
 
@@ -134,6 +140,10 @@ google" itemscope itemtype="http://schema.org/Article">
   <!-- Header -->
   <div id="header-wrapper">
     <div id="header">
+
+    
+
+
       <div class="wrap" id="header-wrap">
         <div class="col-3 logo">
           <a href="../../../index.html">
@@ -255,11 +265,20 @@ google" itemscope itemtype="http://schema.org/Article">
 
 
         <!-- Expanded quicknav -->
-        <div id="quicknav" class="col-9">
+        <div id="quicknav" class="col-13">
           <ul>
+            <li class="about">
+              <ul>
+                <li><a href="../../../about/index.html">About</a></li>
+                <li><a href="../../../wear/index.html">Wear</a></li>
+                <li><a href="../../../tv/index.html">TV</a></li>
+                <li><a href="../../../auto/index.html">Auto</a></li>
+              </ul>
+            </li>
             <li class="design">
               <ul>
                 <li><a href="../../../design/index.html">Get Started</a></li>
+                <li><a href="../../../design/devices.html">Devices</a></li>
                 <li><a href="../../../design/style/index.html">Style</a></li>
                 <li><a href="../../../design/patterns/index.html">Patterns</a></li>
                 <li><a href="../../../design/building-blocks/index.html">Building Blocks</a></li>
@@ -293,7 +312,7 @@ google" itemscope itemtype="http://schema.org/Article">
                   ja-lang="リファレンス"
                   es-lang="Referencia"
                   >Reference</a></li>
-                <li><a href="../../../tools/index.html"
+                <li><a href="../../../sdk/index.html"
                   zh-tw-lang="相關工具"
                   zh-cn-lang="工具"
                   ru-lang="Инструменты"
@@ -301,7 +320,6 @@ google" itemscope itemtype="http://schema.org/Article">
                   ja-lang="ツール"
                   es-lang="Herramientas"
                   >Tools</a>
-                  <ul><li><a href="../../../sdk/index.html">Get the SDK</a></li></ul>
                 </li>
                 <li><a href="../../../google/index.html">Google Services</a>
                 </li>
@@ -353,7 +371,7 @@ google" itemscope itemtype="http://schema.org/Article">
                   ja-lang="リファレンス"
                   es-lang="Referencia"
                   >Reference</a></li>
-                <li class="tools"><a href="../../../tools/index.html"
+                <li class="tools"><a href="../../../sdk/index.html"
                   zh-tw-lang="相關工具"
                   zh-cn-lang="工具"
                   ru-lang="Инструменты"
@@ -368,7 +386,7 @@ google" itemscope itemtype="http://schema.org/Article">
             </ul>
         </div>
     </div>
-    <!-- /Sendondary x-nav -->
+    <!-- /Sendondary x-nav DEVELOP -->
 
   
 
@@ -459,11 +477,11 @@ google" itemscope itemtype="http://schema.org/Article">
     </div>
     <ul>
       <li><a href="../../../google/play-services/setup.html">
-          <span class="en">Setup</span></a>
+          <span class="en">Setting Up Google Play Services</span></a>
       </li>
       <li class="nav-section">
         <div class="nav-section-header"><a href="../../../google/auth/api-client.html">
-          <span class="en">Accessing Google Play Services APIs</span></a>
+          <span class="en">Accessing Google APIs</span></a>
         </div>
         <ul>
           <li>
@@ -524,9 +542,6 @@ google" itemscope itemtype="http://schema.org/Article">
       <li><a href="../../../google/play/billing/billing_admin.html">
               <span class="en">Administering In-app Billing</span></a>
       </li>
-      <li><a href="../../../google/play/billing/gp-purchase-status-api.html">
-              <span class="en">Purchase Status API</span></a>
-      </li>
       <li><a href="../../../google/play/billing/versions.html">
               <span class="en">Version Notes</span></a>
       </li>
@@ -578,6 +593,12 @@ google" itemscope itemtype="http://schema.org/Article">
   </li>
 
   <li class="nav-section">
+  <div class="nav-section-header empty"><a href="../../../google/gcs/index.html">
+        <span class="en">Google Cloud Save</span></a>
+      </div>
+  </li>
+
+  <li class="nav-section">
     <div class="nav-section-header"><a href="../../../google/play/dist.html">
       <span class="en">Google Play Distribution</span></a>
     </div>
@@ -585,7 +606,9 @@ google" itemscope itemtype="http://schema.org/Article">
       <li><a href="../../../google/play/filters.html">
           <span class="en">Filters on Google Play</span></a>
       </li>
-
+      <li><a href="../../../google/play/billing/gp-purchase-status-api.html">
+              <span class="en">Google Play Developer API</span></a>
+      </li>
       <li><a href="../../../google/play/publishing/multiple-apks.html">
           <span class="en">Multiple APK Support</span></a>
       </li>
@@ -659,7 +682,7 @@ google" itemscope itemtype="http://schema.org/Article">
 <div class="col-12" id="doc-col" >
 
 
-
+  
 
   
     
@@ -680,8 +703,9 @@ google" itemscope itemtype="http://schema.org/Article">
   <h2>In this document</h2>
   <ol>
     <li><a href="#testing-purchases">Testing In-app Purchases</a></li>
-        <li><a href="#billing-testing-static">Testing with static responses</a></li>
+    <li><a href="#billing-testing-static">Testing with Static Responses</a></li>
     <li><a href="#billing-testing-real">Setting Up for Test Purchases</a></li>
+    <li><a href="#draft_apps">Draft Apps are No Longer Supported</a></li>
   </ol>
   <h2>See also</h2>
   <ol>
@@ -751,8 +775,7 @@ method).</p>
 <p>First, upload and publish in-app products that you want testers to be able to
 purchase. You can upload and publish in-app products in the Developer Console. 
 Note that you can upload and publish your in-app items before you publish the
-APK itself. For example, you can publish your in-app items while your APK is
-still a draft. </p>
+APK itself.</p>
 
 <p>Next, create license test accounts for authorized users. In the Developer
 Console, go to <strong>Settings</strong> &gt; <strong>Account details</strong>,
@@ -821,11 +844,12 @@ license accounts in your alpha and beta distribution groups, those users will
 only be able to make test purchases. </p>
 
 
-<h2 id="billing-testing-static">Testing with static responses</h2>
+<h2 id="billing-testing-static">Testing with Static Responses</h2>
 
 <p>We recommend that you first test your In-app Billing implementation using static responses from
 Google Play. This enables you to verify that your application is handling the primary Google
-Play responses correctly and that your application is able to verify signatures correctly.</p>
+Play responses correctly and that your application is able to verify signatures correctly. You can do this
+even if the app hasn't been published yet.</p>
 
 <p>To test your implementation with static responses, you make an In-app Billing request using a
 special item that has a reserved product ID. Each reserved product ID returns a specific static
@@ -844,6 +868,12 @@ already knows about the reserved product IDs. Also, you do not need to upload yo
 the Developer Console to perform static response tests with the reserved product IDs. You can simply
 install your application on a device, log into the device, and make billing requests using the
 reserved product IDs.</p>
+
+<p class="note"><strong>Note:</strong> Previously you could test an app by
+uploading an unpublished "draft" version. This functionality is no longer
+supported. However, you can test your app with static responses even before you
+upload it to the Google Play store. For more information, see <a
+href="#draft_apps">Draft Apps are No Longer Supported</a>.
 
 <p>There are four reserved product IDs for testing static In-app Billing responses:</p>
 
@@ -877,67 +907,12 @@ Pricing</a>.</p>
   </li>
 </ul>
 
-<p>In some cases, the reserved items may return signed static responses, which lets you test
-signature verification in your application. To test signature verification with the special reserved
-product IDs, you may need to set up <a
-href="../../../google/play/billing/billing_admin.html#billing-testing-setup">test accounts</a> or
-upload your application as a unpublished draft application. Table 1 shows you the conditions under
-which static responses are signed.</p>
-
-<p class="table-caption" id="static-responses-table"><strong>Table 1.</strong>
-Conditions under which static responses are signed.</p>
-
-<table>
-<tr>
-<th>Application ever been published?</th>
-<th>Draft application uploaded and unpublished?</th>
-<th>User who is running the application</th>
-<th>Static response signature</th>
-</tr>
-
-<tr>
-<td>No</td>
-<td>No</td>
-<td>Any</td>
-<td>Unsigned</td>
-</tr>
-
-<tr>
-<td>No</td>
-<td>No</td>
-<td>Developer</td>
-<td>Signed</td>
-</tr>
-
-<tr>
-<td>Yes</td>
-<td>No</td>
-<td>Any</td>
-<td>Unsigned</td>
-</tr>
-
-<tr>
-<td>Yes</td>
-<td>No</td>
-<td>Developer</td>
-<td>Signed</td>
-</tr>
-
-<tr>
-<td>Yes</td>
-<td>No</td>
-<td>Test account</td>
-<td>Signed</td>
-</tr>
-
-<tr>
-<td>Yes</td>
-<td>Yes</td>
-<td>Any</td>
-<td>Signed</td>
-</tr>
-
-</table>
+<p>In some cases, the reserved items may return signed static responses, which
+lets you test signature verification in your application. The reserved items
+only return signed responses if the user running the application has a <a
+href="../../../distribute/googleplay/start.html">developer</a> or <a
+href="../../../google/play/billing/billing_admin.html#billing-testing-setup">test
+account.</a>
 
 <p>To make an In-app Billing request with a reserved product ID, you simply construct a normal
 <code>REQUEST_PURCHASE</code> request, but instead of using a real product ID from your
@@ -982,9 +957,11 @@ purchases. Testing real in-app purchases enables you to test the end-to-end In-a
 experience, including the actual purchases from Google Play and the actual checkout flow that
 users will experience in your application.</p>
 
-<p class="note"><strong>Note</strong>: You do not need to publish your application to do end-to-end
-testing. You only need to upload your application as a draft application to perform end-to-end
-testing.</p>
+<p class="note"><strong>Note:</strong> You can do end-to-end testing of your app
+  by publishing it to an <a
+  href="../../../distribute/googleplay/developer-console.html#alpha-beta">alpha
+  distribution channel</a>. This allows you to publish the app to the Google
+  Play store, but limit its availability to just the testers you designate. </p>
 
 <p>To test your In-app Billing implementation with actual in-app purchases, you will need to
 register at least one test account on the Google Play Developer Console. You cannot use your
@@ -999,14 +976,16 @@ application does not need to be published, but the item does need to be publishe
 <p>To test your In-app Billing implementation with actual purchases, follow these steps:</p>
 
 <ol>
-  <li><strong>Upload your application as a draft application to the Developer Console.</strong>
-    <p>You do not need to publish your application to perform end-to-end testing with real product
-    IDs; you only need to upload your application as a draft application. However, you must sign
-    your application with your release key before you upload it as a draft application. Also, the
-    version number of the uploaded application must match the version number of the application you
-    load to your device for testing. To learn how to upload an application to Google Play, see
-    <a href="http://support.google.com/googleplay/android-developer/bin/answer.py?hl=en&answer=113469">Uploading
-    applications</a>.</p>
+  <li><strong>Upload your application to the <a
+  href="../../../distribute/googleplay/developer-console.html#alpha-beta">alpha
+  distribution channel</a> with the Developer Console.</strong>
+
+   <p class="note"><strong>Note:</strong> Previously you could test an app by
+    uploading an unpublished "draft" version. This functionality is no longer
+    supported; instead, you must publish it to the alpha or beta distribution
+    channel. For more information, see <a href="#draft_apps">Draft Apps are No
+    Longer Supported</a>.
+
   </li>
   <li><strong>Add items to the application's product list.</strong>
     <p>Make sure that you publish the items (the application can remain unpublished). See <a
@@ -1042,25 +1021,43 @@ href="../../../tools/publishing/app-signing.html">signing</a>, and <a
 href="../../../distribute/tools/launch-checklist.html">publishing on Google Play</a>.
 </p>
 
+<h2 id="draft_apps">Draft Apps are No Longer Supported</h2>
+
+<p>Previously, you could publish a "draft" version of your app for testing. This
+functionality is no longer supported. Instead, there are two ways you can test
+how a pre-release app functions on the Google Play store:</p>
+
+<ul>
+
+  <li>You can publish an app to the <a
+  href="../../../distribute/googleplay/developer-console.html#alpha-beta">alpha
+  or beta distribution channels</a>. This makes the app available on the Google
+  Play store, but only to the testers you put on a "whitelist".</li>
+
+  <li>In a few cases, you can test Google Play functionality with an unpublished
+  app. For example, you can test an unpublished app's in-app billing support by
+  using <a
+  href="../../../google/play/billing/billing_testing.html#billing-testing-static">static
+  responses</a>, special reserved product IDs that always return a specific
+  result (like "purchased" or "refunded").</li>
+
+</ul>
 
     </div>
 
       <div class="content-footer layout-content-row"
                     itemscope itemtype="http://schema.org/SiteNavigationElement">
-        <div class="layout-content-col col-9" style="padding-top:4px">
+        
+        <div class="paging-links layout-content-col col-10">
+          
+        </div>
+        <div class="layout-content-col plus-container col-2" >
           
             <div class="g-plusone" data-size="medium"></div>
           
         </div>
         
-        <div class="paging-links layout-content-col col-4">
-          
-        </div>
-        
       </div>
-
-      
-      
 
   </div> <!-- end jd-content -->
 
@@ -1089,18 +1086,6 @@ href="../../../distribute/tools/launch-checklist.html">publishing on Google Play
 </div> <!-- end footer -->
 </div><!-- end doc-content -->
 
-<!-- Start of Tag -->
-<script type="text/javascript">
-var axel = Math.random() + "";
-var a = axel * 10000000000000;
-document.write('<iframe src="https://2507573.fls.doubleclick.net/activityi;src=2507573;type=other026;cat=googl348;ord=' + a + '?" width="1" height="1" frameborder="0" style="display:none"></iframe>');
-</script>
-<noscript>
-<iframe src="https://2507573.fls.doubleclick.net/activityi;src=2507573;type=other026;cat=googl348;ord=1?" width="1" height="1" frameborder="0" style="display:none"></iframe>
-</noscript>
-<!-- End of Tag -->
-
-
 </div> <!-- end body-content --> 
 
 
@@ -1108,10 +1093,10 @@ document.write('<iframe src="https://2507573.fls.doubleclick.net/activityi;src=2
 
 
   <script src="https://developer.android.com/ytblogger_lists_unified.js" type="text/javascript"></script>
-  <script src="../../../jd_lists_unified.js" type="text/javascript"></script>
-  <script src="../../../jd_extras.js" type="text/javascript"></script>
-  <script src="../../../jd_collections.js" type="text/javascript"></script>
-  <script src="../../../jd_tag_helpers.js" type="text/javascript"></script>
+  <script src="../../../jd_lists_unified.js?v=2" type="text/javascript"></script>
+  <script src="../../../jd_extras.js?v=3" type="text/javascript"></script>
+  <script src="../../../jd_collections.js?v=3" type="text/javascript"></script>
+  <script src="../../../jd_tag_helpers.js?v=2" type="text/javascript"></script>
 
 </body>
 </html>

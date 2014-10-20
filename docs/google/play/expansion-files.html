@@ -82,6 +82,11 @@
 
 
 
+
+
+
+
+
 <html>
 <head>
 
@@ -98,34 +103,35 @@
 href="http://fonts.useso.com/css?family=Roboto+Condensed">
 <link rel="stylesheet" href="http://fonts.useso.com/css?family=Roboto:light,regular,medium,thin,italic,mediumitalic,bold"
   title="roboto">
-<link href="../../assets/css/default.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/default.css?v=2" rel="stylesheet" type="text/css">
 
 
 
 <!-- JAVASCRIPT -->
-<script src="http://googleapiscdn.qiniudn.com/www.google.com/jsapi" type="text/javascript"></script>
+<script src="http://www.google.com/jsapi" type="text/javascript"></script>
 <script src="../../assets/js/android_3p-bundle.js" type="text/javascript"></script>
 <script type="text/javascript">
   var toRoot = "../../";
   var metaTags = ["apksize","apkmax","largeassets"];
   var devsite = false;
 </script>
-<script src="../../assets/js/docs.js" type="text/javascript"></script>
+<script src="../../assets/js/docs.js?v=2" type="text/javascript"></script>
 
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-5831155-1']);
-  _gaq.push(['_trackPageview']);
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
+  ga('create', 'UA-5831155-1', 'android.com');
+  ga('create', 'UA-49880327-2', 'android.com', {'name': 'universal'});  // New tracker);
+  ga('send', 'pageview');
+  ga('universal.send', 'pageview'); // Send page view for new tracker.
 </script>
+
 </head>
 
-<body class="gc-documentation 
+<body class="gc-documentation
 
 google" itemscope itemtype="http://schema.org/Article">
 
@@ -134,6 +140,10 @@ google" itemscope itemtype="http://schema.org/Article">
   <!-- Header -->
   <div id="header-wrapper">
     <div id="header">
+
+    
+
+
       <div class="wrap" id="header-wrap">
         <div class="col-3 logo">
           <a href="../../index.html">
@@ -255,11 +265,20 @@ google" itemscope itemtype="http://schema.org/Article">
 
 
         <!-- Expanded quicknav -->
-        <div id="quicknav" class="col-9">
+        <div id="quicknav" class="col-13">
           <ul>
+            <li class="about">
+              <ul>
+                <li><a href="../../about/index.html">About</a></li>
+                <li><a href="../../wear/index.html">Wear</a></li>
+                <li><a href="../../tv/index.html">TV</a></li>
+                <li><a href="../../auto/index.html">Auto</a></li>
+              </ul>
+            </li>
             <li class="design">
               <ul>
                 <li><a href="../../design/index.html">Get Started</a></li>
+                <li><a href="../../design/devices.html">Devices</a></li>
                 <li><a href="../../design/style/index.html">Style</a></li>
                 <li><a href="../../design/patterns/index.html">Patterns</a></li>
                 <li><a href="../../design/building-blocks/index.html">Building Blocks</a></li>
@@ -293,7 +312,7 @@ google" itemscope itemtype="http://schema.org/Article">
                   ja-lang="リファレンス"
                   es-lang="Referencia"
                   >Reference</a></li>
-                <li><a href="../../tools/index.html"
+                <li><a href="../../sdk/index.html"
                   zh-tw-lang="相關工具"
                   zh-cn-lang="工具"
                   ru-lang="Инструменты"
@@ -301,7 +320,6 @@ google" itemscope itemtype="http://schema.org/Article">
                   ja-lang="ツール"
                   es-lang="Herramientas"
                   >Tools</a>
-                  <ul><li><a href="../../sdk/index.html">Get the SDK</a></li></ul>
                 </li>
                 <li><a href="../../google/index.html">Google Services</a>
                 </li>
@@ -353,7 +371,7 @@ google" itemscope itemtype="http://schema.org/Article">
                   ja-lang="リファレンス"
                   es-lang="Referencia"
                   >Reference</a></li>
-                <li class="tools"><a href="../../tools/index.html"
+                <li class="tools"><a href="../../sdk/index.html"
                   zh-tw-lang="相關工具"
                   zh-cn-lang="工具"
                   ru-lang="Инструменты"
@@ -368,7 +386,7 @@ google" itemscope itemtype="http://schema.org/Article">
             </ul>
         </div>
     </div>
-    <!-- /Sendondary x-nav -->
+    <!-- /Sendondary x-nav DEVELOP -->
 
   
 
@@ -459,11 +477,11 @@ google" itemscope itemtype="http://schema.org/Article">
     </div>
     <ul>
       <li><a href="../../google/play-services/setup.html">
-          <span class="en">Setup</span></a>
+          <span class="en">Setting Up Google Play Services</span></a>
       </li>
       <li class="nav-section">
         <div class="nav-section-header"><a href="../../google/auth/api-client.html">
-          <span class="en">Accessing Google Play Services APIs</span></a>
+          <span class="en">Accessing Google APIs</span></a>
         </div>
         <ul>
           <li>
@@ -524,9 +542,6 @@ google" itemscope itemtype="http://schema.org/Article">
       <li><a href="../../google/play/billing/billing_admin.html">
               <span class="en">Administering In-app Billing</span></a>
       </li>
-      <li><a href="../../google/play/billing/gp-purchase-status-api.html">
-              <span class="en">Purchase Status API</span></a>
-      </li>
       <li><a href="../../google/play/billing/versions.html">
               <span class="en">Version Notes</span></a>
       </li>
@@ -578,6 +593,12 @@ google" itemscope itemtype="http://schema.org/Article">
   </li>
 
   <li class="nav-section">
+  <div class="nav-section-header empty"><a href="../../google/gcs/index.html">
+        <span class="en">Google Cloud Save</span></a>
+      </div>
+  </li>
+
+  <li class="nav-section">
     <div class="nav-section-header"><a href="../../google/play/dist.html">
       <span class="en">Google Play Distribution</span></a>
     </div>
@@ -585,7 +606,9 @@ google" itemscope itemtype="http://schema.org/Article">
       <li><a href="../../google/play/filters.html">
           <span class="en">Filters on Google Play</span></a>
       </li>
-
+      <li><a href="../../google/play/billing/gp-purchase-status-api.html">
+              <span class="en">Google Play Developer API</span></a>
+      </li>
       <li><a href="../../google/play/publishing/multiple-apks.html">
           <span class="en">Multiple APK Support</span></a>
       </li>
@@ -659,7 +682,7 @@ google" itemscope itemtype="http://schema.org/Article">
 <div class="col-12" id="doc-col" >
 
 
-
+  
 
   
     
@@ -1191,17 +1214,21 @@ are:</p>
     &lt;!-- Required to download files from Google Play -->
     &lt;uses-permission android:name="android.permission.INTERNET" />
 
-    &lt;!-- Required to keep CPU alive while downloading files (NOT to keep screen awake) -->
+    &lt;!-- Required to keep CPU alive while downloading files
+        (NOT to keep screen awake) -->
     &lt;uses-permission android:name="android.permission.WAKE_LOCK" />
 
-    &lt;!-- Required to poll the state of the network connection and respond to changes -->
-    &lt;uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    &lt;!-- Required to poll the state of the network connection
+        and respond to changes -->
+    &lt;uses-permission
+        android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     &lt;!-- Required to check whether Wi-Fi is enabled -->
     &lt;uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
 
     &lt;!-- Required to read and write the expansion files on shared storage -->
-    &lt;uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    &lt;uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     ...
 &lt;/manifest>
 </pre>
@@ -1310,8 +1337,8 @@ public class SampleAlarmReceiver extends BroadcastReceiver {
     &#64;Override
     public void onReceive(Context context, Intent intent) {
         try {
-            DownloaderClientMarshaller.startDownloadServiceIfRequired(context, intent,
-                    SampleDownloaderService.class);
+            DownloaderClientMarshaller.startDownloadServiceIfRequired(context,
+                intent, SampleDownloaderService.class);
         } catch (NameNotFoundException e) {
             e.printStackTrace();
         }
@@ -1353,16 +1380,19 @@ versionCode)</code></li>
     <p>For example, the sample app provided in the Apk Expansion package calls the
 following method in the activity's <code><a href="../../reference/android/app/Activity.html#onCreate(android.os.Bundle)">onCreate()</a></code> method to check
 whether the expansion files already exist on the device:</p>
+
 <pre>
 boolean expansionFilesDelivered() {
     for (XAPKFile xf : xAPKS) {
-        String fileName = Helpers.getExpansionAPKFileName(this, xf.mIsBase, xf.mFileVersion);
+        String fileName = Helpers.getExpansionAPKFileName(this, xf.mIsBase,
+            xf.mFileVersion);
         if (!Helpers.doesFileExist(this, fileName, xf.mFileSize, false))
             return false;
     }
     return true;
 }
 </pre>
+
     <p>In this case, each <code>XAPKFile</code> object holds the version number and file size of a known
 expansion file and a boolean as to whether it's the main expansion file. (See the sample
 application's <code>SampleDownloaderActivity</code> class for details.)</p>
@@ -1396,6 +1426,7 @@ same and you normally don't need to be concerned about them. In your main activi
 the Downloader Library begins the download and you should update your activity UI to
 display the download progress (see the next step). If the response <em>is</em> <code>NO_DOWNLOAD_REQUIRED</code>, then the files are available and your application can start.</p>
     <p>For example:</p>
+
 <pre>
 &#64;Override
 public void onCreate(Bundle savedInstanceState) {
@@ -1410,11 +1441,14 @@ public void onCreate(Bundle savedInstanceState) {
                 notifierIntent, PendingIntent.FLAG_UPDATE_CURRENT);
 
         // Start the download service (if required)
-        int startResult = DownloaderClientMarshaller.startDownloadServiceIfRequired(this,
+        int startResult =
+            DownloaderClientMarshaller.startDownloadServiceIfRequired(this,
                         pendingIntent, SampleDownloaderService.class);
-        // If download has started, initialize this activity to show download progress
+        // If download has started, initialize this activity to show
+        // download progress
         if (startResult != DownloaderClientMarshaller.NO_DOWNLOAD_REQUIRED) {
-            // This is where you do set up to display the download progress (next step)
+            // This is where you do set up to display the download
+            // progress (next step)
             ...
             return;
         } // If the download wasn't necessary, fall through to start the app
@@ -1422,6 +1456,7 @@ public void onCreate(Bundle savedInstanceState) {
     startApp(); // Expansion files are available, start the app
 }
 </pre>
+
   </li>
   <li>When the <code>startDownloadServiceIfRequired()</code> method returns anything <em>other
 than</em> <code>NO_DOWNLOAD_REQUIRED</code>, create an instance of <code>IStub</code> by
@@ -1435,9 +1470,11 @@ the <code>IDownloaderClient</code> interface, which you should usually implement
     <p>We recommend that you call <code>CreateStub()</code> to instantiate your <code>IStub</code> during your activity's <code><a href="../../reference/android/app/Activity.html#onCreate(android.os.Bundle)">onCreate()</a></code> method, after <code>startDownloadServiceIfRequired()</code>
 starts the download. </p>
     <p>For example, in the previous code sample for <code><a href="../../reference/android/app/Activity.html#onCreate(android.os.Bundle)">onCreate()</a></code>, you can respond to the <code>startDownloadServiceIfRequired()</code> result like this:</p>
+
 <pre>
         // Start the download service (if required)
-        int startResult = DownloaderClientMarshaller.startDownloadServiceIfRequired(this,
+        int startResult =
+            DownloaderClientMarshaller.startDownloadServiceIfRequired(this,
                         pendingIntent, SampleDownloaderService.class);
         // If download has started, initialize activity to show progress
         if (startResult != DownloaderClientMarshaller.NO_DOWNLOAD_REQUIRED) {
@@ -1539,7 +1576,8 @@ others. By default, this flag is <em>not</em> enabled, so the user must be on Wi
 expansion files. You might want to provide a user preference to enable downloads over
 the cellular network. In which case, you can call:
 <pre>
-mRemoteService.setDownloadFlags(IDownloaderService.FLAGS_DOWNLOAD_OVER_CELLULAR);
+mRemoteService
+    .setDownloadFlags(IDownloaderService.FLAGS_DOWNLOAD_OVER_CELLULAR);
 </pre>
 </dd>
 </dl>
@@ -1618,10 +1656,12 @@ to both your expansion files:</p>
 // The shared path to all app expansion files
 private final static String EXP_PATH = "/Android/obb/";
 
-static String[] getAPKExpansionFiles(Context ctx, int mainVersion, int patchVersion) {
+static String[] getAPKExpansionFiles(Context ctx, int mainVersion,
+      int patchVersion) {
     String packageName = ctx.getPackageName();
     Vector&lt;String> ret = new Vector&lt;String>();
-    if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
+    if (Environment.getExternalStorageState()
+          .equals(Environment.MEDIA_MOUNTED)) {
         // Build the full path to the app's expansion files
         File root = Environment.getExternalStorageDirectory();
         File expPath = new File(root.toString() + EXP_PATH + packageName);
@@ -1738,7 +1778,8 @@ following:</p>
 
 <pre>
 // Get a ZipResourceFile representing a merger of both the main and patch files
-ZipResourceFile expansionFile = APKExpansionSupport.getAPKExpansionZipFile(appContext,
+ZipResourceFile expansionFile =
+    APKExpansionSupport.getAPKExpansionZipFile(appContext,
         mainVersion, patchVersion);
 
 // Get an input stream for a known file inside the expansion file ZIPs
@@ -1822,28 +1863,18 @@ directory</strong>. If you must unpack some data, save it into the location spec
 opens, it's important that you test this process to be sure your application can successfully query
 for the URLs, download the files, and save them to the device.</p>
 
-<p>To test your application's implementation of the manual download procedure, you must upload
-your application to Google Play as a "draft" to make your expansion files available for
-download:</p>
-
-<ol>
-  <li>Upload your APK and corresponding expansion files using the Google Play Developer
-Console.</li>
-  <li>Fill in the necessary application details (title, screenshots, etc.). You can come back and
-finalize these details before publishing your application.
-  <p>Click the <strong>Save</strong> button. <em>Do not click Publish.</em> This saves
-the application as a draft, such that your application is not published for Google Play users,
-but the expansion files are available for you to test the download process.</p></li>
-  <li>Install the application on your test device using the Eclipse tools or <a
-href="../../tools/help/adb.html"><code>adb</code></a>.</li>
-  <li>Launch the app.</li>
-</ol>
-
-<p>If everything works as expected, your application should begin downloading the expansion
+<p>To test your application's implementation of the manual download procedure,
+you can publish it to the alpha or beta channel, so it will only be available to
+authorized testers.
+If everything works as expected, your application should begin downloading the expansion
 files as soon as the main activity starts.</p>
 
-
-
+<p class="note"><strong>Note:</strong> Previously you could test an app by
+uploading an unpublished "draft" version. This functionality is no longer
+supported; instead, you must publish it to the alpha or beta distribution
+channel. For more information, see <a
+href="../../google/play/billing/billing_testing.html#draft_apps">Draft Apps
+are No Longer Supported</a>.
 
 <h2 id="Updating">Updating Your Application</h2>
 
@@ -1908,20 +1939,17 @@ obbContentPath = storage.getMountedObbPath( obbFilepath );
 
       <div class="content-footer layout-content-row"
                     itemscope itemtype="http://schema.org/SiteNavigationElement">
-        <div class="layout-content-col col-9" style="padding-top:4px">
+        
+        <div class="paging-links layout-content-col col-10">
+          
+        </div>
+        <div class="layout-content-col plus-container col-2" >
           
             <div class="g-plusone" data-size="medium"></div>
           
         </div>
         
-        <div class="paging-links layout-content-col col-4">
-          
-        </div>
-        
       </div>
-
-      
-      
 
   </div> <!-- end jd-content -->
 
@@ -1950,18 +1978,6 @@ obbContentPath = storage.getMountedObbPath( obbFilepath );
 </div> <!-- end footer -->
 </div><!-- end doc-content -->
 
-<!-- Start of Tag -->
-<script type="text/javascript">
-var axel = Math.random() + "";
-var a = axel * 10000000000000;
-document.write('<iframe src="https://2507573.fls.doubleclick.net/activityi;src=2507573;type=other026;cat=googl348;ord=' + a + '?" width="1" height="1" frameborder="0" style="display:none"></iframe>');
-</script>
-<noscript>
-<iframe src="https://2507573.fls.doubleclick.net/activityi;src=2507573;type=other026;cat=googl348;ord=1?" width="1" height="1" frameborder="0" style="display:none"></iframe>
-</noscript>
-<!-- End of Tag -->
-
-
 </div> <!-- end body-content --> 
 
 
@@ -1969,10 +1985,10 @@ document.write('<iframe src="https://2507573.fls.doubleclick.net/activityi;src=2
 
 
   <script src="https://developer.android.com/ytblogger_lists_unified.js" type="text/javascript"></script>
-  <script src="../../jd_lists_unified.js" type="text/javascript"></script>
-  <script src="../../jd_extras.js" type="text/javascript"></script>
-  <script src="../../jd_collections.js" type="text/javascript"></script>
-  <script src="../../jd_tag_helpers.js" type="text/javascript"></script>
+  <script src="../../jd_lists_unified.js?v=2" type="text/javascript"></script>
+  <script src="../../jd_extras.js?v=3" type="text/javascript"></script>
+  <script src="../../jd_collections.js?v=3" type="text/javascript"></script>
+  <script src="../../jd_tag_helpers.js?v=2" type="text/javascript"></script>
 
 </body>
 </html>

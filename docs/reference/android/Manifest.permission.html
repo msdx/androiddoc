@@ -82,6 +82,19 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 <html>
 <head>
 
@@ -97,7 +110,7 @@
 href="http://fonts.useso.com/css?family=Roboto+Condensed">
 <link rel="stylesheet" href="http://fonts.useso.com/css?family=Roboto:light,regular,medium,thin,italic,mediumitalic,bold"
   title="roboto">
-<link href="../../assets/css/default.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/default.css?v=2" rel="stylesheet" type="text/css">
 
 
 <!-- FULLSCREEN STYLESHEET -->
@@ -106,30 +119,31 @@ type="text/css">
 
 
 <!-- JAVASCRIPT -->
-<script src="http://googleapiscdn.qiniudn.com/www.google.com/jsapi" type="text/javascript"></script>
+<script src="http://www.google.com/jsapi" type="text/javascript"></script>
 <script src="../../assets/js/android_3p-bundle.js" type="text/javascript"></script>
 <script type="text/javascript">
   var toRoot = "../../";
   var metaTags = [];
   var devsite = false;
 </script>
-<script src="../../assets/js/docs.js" type="text/javascript"></script>
+<script src="../../assets/js/docs.js?v=2" type="text/javascript"></script>
 
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-5831155-1']);
-  _gaq.push(['_trackPageview']);
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
+  ga('create', 'UA-5831155-1', 'android.com');
+  ga('create', 'UA-49880327-2', 'android.com', {'name': 'universal'});  // New tracker);
+  ga('send', 'pageview');
+  ga('universal.send', 'pageview'); // Send page view for new tracker.
 </script>
+
 </head>
 
 <body class="gc-documentation 
-  develop" itemscope itemtype="http://schema.org/Article">
+  develop reference" itemscope itemtype="http://schema.org/Article">
   <div id="doc-api-level" class="1" style="display:none"></div>
   <a name="top"></a>
 
@@ -139,6 +153,10 @@ type="text/css">
   <!-- Header -->
   <div id="header-wrapper">
     <div id="header">
+
+    
+
+
       <div class="wrap" id="header-wrap">
         <div class="col-3 logo">
           <a href="../../index.html">
@@ -260,11 +278,20 @@ type="text/css">
 
 
         <!-- Expanded quicknav -->
-        <div id="quicknav" class="col-9">
+        <div id="quicknav" class="col-13">
           <ul>
+            <li class="about">
+              <ul>
+                <li><a href="../../about/index.html">About</a></li>
+                <li><a href="../../wear/index.html">Wear</a></li>
+                <li><a href="../../tv/index.html">TV</a></li>
+                <li><a href="../../auto/index.html">Auto</a></li>
+              </ul>
+            </li>
             <li class="design">
               <ul>
                 <li><a href="../../design/index.html">Get Started</a></li>
+                <li><a href="../../design/devices.html">Devices</a></li>
                 <li><a href="../../design/style/index.html">Style</a></li>
                 <li><a href="../../design/patterns/index.html">Patterns</a></li>
                 <li><a href="../../design/building-blocks/index.html">Building Blocks</a></li>
@@ -298,7 +325,7 @@ type="text/css">
                   ja-lang="リファレンス"
                   es-lang="Referencia"
                   >Reference</a></li>
-                <li><a href="../../tools/index.html"
+                <li><a href="../../sdk/index.html"
                   zh-tw-lang="相關工具"
                   zh-cn-lang="工具"
                   ru-lang="Инструменты"
@@ -306,7 +333,6 @@ type="text/css">
                   ja-lang="ツール"
                   es-lang="Herramientas"
                   >Tools</a>
-                  <ul><li><a href="../../sdk/index.html">Get the SDK</a></li></ul>
                 </li>
                 <li><a href="../../google/index.html">Google Services</a>
                 </li>
@@ -358,7 +384,7 @@ type="text/css">
                   ja-lang="リファレンス"
                   es-lang="Referencia"
                   >Reference</a></li>
-                <li class="tools"><a href="../../tools/index.html"
+                <li class="tools"><a href="../../sdk/index.html"
                   zh-tw-lang="相關工具"
                   zh-cn-lang="工具"
                   ru-lang="Инструменты"
@@ -373,7 +399,7 @@ type="text/css">
             </ul>
         </div>
     </div>
-    <!-- /Sendondary x-nav -->
+    <!-- /Sendondary x-nav DEVELOP -->
 
   
 
@@ -414,7 +440,7 @@ type="text/css">
         <div id="api-nav-title">Android APIs</div>
         </div><!-- end nav header -->
       <script>
-        var SINCE_DATA = [ '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19' ];
+        var SINCE_DATA = [ '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21' ];
         buildApiLevelSelector();
       </script>
                   
@@ -441,13 +467,15 @@ type="text/css">
   <a href="../../reference/android/app/admin/package-summary.html">android.app.admin</a></li>
     <li class="api apilevel-8">
   <a href="../../reference/android/app/backup/package-summary.html">android.app.backup</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../reference/android/app/job/package-summary.html">android.app.job</a></li>
+    <li class="api apilevel-21">
+  <a href="../../reference/android/app/usage/package-summary.html">android.app.usage</a></li>
     <li class="api apilevel-3">
   <a href="../../reference/android/appwidget/package-summary.html">android.appwidget</a></li>
     <li class="api apilevel-5">
   <a href="../../reference/android/bluetooth/package-summary.html">android.bluetooth</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../reference/android/bluetooth/le/package-summary.html">android.bluetooth.le</a></li>
     <li class="api apilevel-1">
   <a href="../../reference/android/content/package-summary.html">android.content</a></li>
@@ -473,16 +501,14 @@ type="text/css">
   <a href="../../reference/android/graphics/pdf/package-summary.html">android.graphics.pdf</a></li>
     <li class="api apilevel-1">
   <a href="../../reference/android/hardware/package-summary.html">android.hardware</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../reference/android/hardware/camera2/package-summary.html">android.hardware.camera2</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../reference/android/hardware/camera2/params/package-summary.html">android.hardware.camera2.params</a></li>
     <li class="api apilevel-17">
   <a href="../../reference/android/hardware/display/package-summary.html">android.hardware.display</a></li>
     <li class="api apilevel-16">
   <a href="../../reference/android/hardware/input/package-summary.html">android.hardware.input</a></li>
-    <li class="api apilevel-18">
-  <a href="../../reference/android/hardware/location/package-summary.html">android.hardware.location</a></li>
     <li class="api apilevel-12">
   <a href="../../reference/android/hardware/usb/package-summary.html">android.hardware.usb</a></li>
     <li class="api apilevel-3">
@@ -493,11 +519,15 @@ type="text/css">
   <a href="../../reference/android/media/package-summary.html">android.media</a></li>
     <li class="api apilevel-9">
   <a href="../../reference/android/media/audiofx/package-summary.html">android.media.audiofx</a></li>
+    <li class="api apilevel-21">
+  <a href="../../reference/android/media/browse/package-summary.html">android.media.browse</a></li>
     <li class="api apilevel-14">
   <a href="../../reference/android/media/effect/package-summary.html">android.media.effect</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
+  <a href="../../reference/android/media/projection/package-summary.html">android.media.projection</a></li>
+    <li class="api apilevel-21">
   <a href="../../reference/android/media/session/package-summary.html">android.media.session</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../reference/android/media/tv/package-summary.html">android.media.tv</a></li>
     <li class="api apilevel-12">
   <a href="../../reference/android/mtp/package-summary.html">android.mtp</a></li>
@@ -547,11 +577,15 @@ type="text/css">
   <a href="../../reference/android/security/package-summary.html">android.security</a></li>
     <li class="api apilevel-17">
   <a href="../../reference/android/service/dreams/package-summary.html">android.service.dreams</a></li>
+    <li class="api apilevel-21">
+  <a href="../../reference/android/service/media/package-summary.html">android.service.media</a></li>
     <li class="api apilevel-18">
   <a href="../../reference/android/service/notification/package-summary.html">android.service.notification</a></li>
+    <li class="api apilevel-21">
+  <a href="../../reference/android/service/restrictions/package-summary.html">android.service.restrictions</a></li>
     <li class="api apilevel-14">
   <a href="../../reference/android/service/textservice/package-summary.html">android.service.textservice</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../reference/android/service/voice/package-summary.html">android.service.voice</a></li>
     <li class="api apilevel-7">
   <a href="../../reference/android/service/wallpaper/package-summary.html">android.service.wallpaper</a></li>
@@ -596,11 +630,15 @@ type="text/css">
     <li class="api apilevel-">
   <a href="../../reference/android/support/v4/media/package-summary.html">android.support.v4.media</a></li>
     <li class="api apilevel-">
+  <a href="../../reference/android/support/v4/media/session/package-summary.html">android.support.v4.media.session</a></li>
+    <li class="api apilevel-">
   <a href="../../reference/android/support/v4/net/package-summary.html">android.support.v4.net</a></li>
     <li class="api apilevel-">
   <a href="../../reference/android/support/v4/os/package-summary.html">android.support.v4.os</a></li>
     <li class="api apilevel-">
   <a href="../../reference/android/support/v4/print/package-summary.html">android.support.v4.print</a></li>
+    <li class="api apilevel-">
+  <a href="../../reference/android/support/v4/provider/package-summary.html">android.support.v4.provider</a></li>
     <li class="api apilevel-">
   <a href="../../reference/android/support/v4/text/package-summary.html">android.support.v4.text</a></li>
     <li class="api apilevel-">
@@ -616,6 +654,10 @@ type="text/css">
     <li class="api apilevel-">
   <a href="../../reference/android/support/v7/appcompat/package-summary.html">android.support.v7.appcompat</a></li>
     <li class="api apilevel-">
+  <a href="../../reference/android/support/v7/cardview/package-summary.html">android.support.v7.cardview</a></li>
+    <li class="api apilevel-">
+  <a href="../../reference/android/support/v7/graphics/package-summary.html">android.support.v7.graphics</a></li>
+    <li class="api apilevel-">
   <a href="../../reference/android/support/v7/gridlayout/package-summary.html">android.support.v7.gridlayout</a></li>
     <li class="api apilevel-">
   <a href="../../reference/android/support/v7/media/package-summary.html">android.support.v7.media</a></li>
@@ -627,8 +669,10 @@ type="text/css">
   <a href="../../reference/android/support/v7/widget/package-summary.html">android.support.v7.widget</a></li>
     <li class="api apilevel-">
   <a href="../../reference/android/support/v8/renderscript/package-summary.html">android.support.v8.renderscript</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../reference/android/system/package-summary.html">android.system</a></li>
+    <li class="api apilevel-21">
+  <a href="../../reference/android/telecom/package-summary.html">android.telecom</a></li>
     <li class="api apilevel-1">
   <a href="../../reference/android/telephony/package-summary.html">android.telephony</a></li>
     <li class="api apilevel-5">
@@ -913,7 +957,7 @@ type="text/css">
           <li class="api apilevel-1"><a href="../../reference/android/R.string.html">R.string</a></li>
           <li class="api apilevel-1"><a href="../../reference/android/R.style.html">R.style</a></li>
           <li class="api apilevel-"><a href="../../reference/android/R.styleable.html">R.styleable</a></li>
-          <li class="api apilevel-"><a href="../../reference/android/R.transition.html">R.transition</a></li>
+          <li class="api apilevel-21"><a href="../../reference/android/R.transition.html">R.transition</a></li>
           <li class="api apilevel-1"><a href="../../reference/android/R.xml.html">R.xml</a></li>
       </ul>
     </li>
@@ -1040,6 +1084,9 @@ Summary:
   
 
 
+    
+
+
 </div><!-- end header -->
 
 <div id="naMessage"></div>
@@ -1119,1150 +1166,1941 @@ Summary:
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#ACCESS_CHECKIN_PROPERTIES">ACCESS_CHECKIN_PROPERTIES</a></td>
-        <td class="jd-descrcol" width="100%">Allows read/write access to the "properties" table in the checkin
-         database, to change values that get uploaded.</td>
+        <td class="jd-descrcol" width="100%">
+          Allows read/write access to the "properties" table in the checkin
+         database, to change values that get uploaded.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#ACCESS_COARSE_LOCATION">ACCESS_COARSE_LOCATION</a></td>
-        <td class="jd-descrcol" width="100%">Allows an app to access approximate location derived from network location
-         sources such as cell towers and Wi-Fi.</td>
+        <td class="jd-descrcol" width="100%">
+          Allows an app to access approximate location derived from network location
+         sources such as cell towers and Wi-Fi.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#ACCESS_FINE_LOCATION">ACCESS_FINE_LOCATION</a></td>
-        <td class="jd-descrcol" width="100%">Allows an app to access precise location from location sources such
-         as GPS, cell towers, and Wi-Fi.</td>
+        <td class="jd-descrcol" width="100%">
+          Allows an app to access precise location from location sources such
+         as GPS, cell towers, and Wi-Fi.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#ACCESS_LOCATION_EXTRA_COMMANDS">ACCESS_LOCATION_EXTRA_COMMANDS</a></td>
-        <td class="jd-descrcol" width="100%">Allows an application to access extra location provider commands 
-</td>
+        <td class="jd-descrcol" width="100%">
+          Allows an application to access extra location provider commands 
+
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#ACCESS_MOCK_LOCATION">ACCESS_MOCK_LOCATION</a></td>
-        <td class="jd-descrcol" width="100%">Allows an application to create mock location providers for testing 
-</td>
+        <td class="jd-descrcol" width="100%">
+          Allows an application to create mock location providers for testing 
+
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#ACCESS_NETWORK_STATE">ACCESS_NETWORK_STATE</a></td>
-        <td class="jd-descrcol" width="100%">Allows applications to access information about networks 
-</td>
+        <td class="jd-descrcol" width="100%">
+          Allows applications to access information about networks 
+
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#ACCESS_SURFACE_FLINGER">ACCESS_SURFACE_FLINGER</a></td>
-        <td class="jd-descrcol" width="100%">Allows an application to use SurfaceFlinger's low level features.</td>
+        <td class="jd-descrcol" width="100%">
+          Allows an application to use SurfaceFlinger's low level features.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#ACCESS_WIFI_STATE">ACCESS_WIFI_STATE</a></td>
-        <td class="jd-descrcol" width="100%">Allows applications to access information about Wi-Fi networks 
-</td>
+        <td class="jd-descrcol" width="100%">
+          Allows applications to access information about Wi-Fi networks 
+
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-5" >
         <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#ACCOUNT_MANAGER">ACCOUNT_MANAGER</a></td>
-        <td class="jd-descrcol" width="100%">Allows applications to call into AccountAuthenticators.</td>
+        <td class="jd-descrcol" width="100%">
+          Allows applications to call into AccountAuthenticators.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-14" >
         <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#ADD_VOICEMAIL">ADD_VOICEMAIL</a></td>
-        <td class="jd-descrcol" width="100%">Allows an application to add voicemails into the system.</td>
+        <td class="jd-descrcol" width="100%">
+          Allows an application to add voicemails into the system.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-5" >
         <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#AUTHENTICATE_ACCOUNTS">AUTHENTICATE_ACCOUNTS</a></td>
-        <td class="jd-descrcol" width="100%">Allows an application to act as an AccountAuthenticator for
+        <td class="jd-descrcol" width="100%">
+          Allows an application to act as an AccountAuthenticator for
          the AccountManager 
-</td>
+
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#BATTERY_STATS">BATTERY_STATS</a></td>
-        <td class="jd-descrcol" width="100%">Allows an application to collect battery statistics 
-</td>
+        <td class="jd-descrcol" width="100%">
+          Allows an application to collect battery statistics 
+
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-16" >
         <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#BIND_ACCESSIBILITY_SERVICE">BIND_ACCESSIBILITY_SERVICE</a></td>
-        <td class="jd-descrcol" width="100%">Must be required by an <code><a href="../../reference/android/accessibilityservice/AccessibilityService.html">AccessibilityService</a></code>,
-         to ensure that only the system can bind to it.</td>
+        <td class="jd-descrcol" width="100%">
+          Must be required by an <code><a href="../../reference/android/accessibilityservice/AccessibilityService.html">AccessibilityService</a></code>,
+         to ensure that only the system can bind to it.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-3" >
         <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#BIND_APPWIDGET">BIND_APPWIDGET</a></td>
-        <td class="jd-descrcol" width="100%">Allows an application to tell the AppWidget service which application
-         can access AppWidget's data.</td>
+        <td class="jd-descrcol" width="100%">
+          Allows an application to tell the AppWidget service which application
+         can access AppWidget's data.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-8" >
         <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#BIND_DEVICE_ADMIN">BIND_DEVICE_ADMIN</a></td>
-        <td class="jd-descrcol" width="100%">Must be required by device administration receiver, to ensure that only the
-         system can interact with it.</td>
+        <td class="jd-descrcol" width="100%">
+          Must be required by device administration receiver, to ensure that only the
+         system can interact with it.
+          
+    
+
+        </td>
     </tr>
     
     
-    <tr class=" api apilevel-3" >
+    <tr class=" api apilevel-21" >
+        <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#BIND_DREAM_SERVICE">BIND_DREAM_SERVICE</a></td>
+        <td class="jd-descrcol" width="100%">
+          Must be required by an <code><a href="../../reference/android/service/dreams/DreamService.html">DreamService</a></code>,
+         to ensure that only the system can bind to it.
+          
+    
+
+        </td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-3" >
         <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#BIND_INPUT_METHOD">BIND_INPUT_METHOD</a></td>
-        <td class="jd-descrcol" width="100%">Must be required by an <code><a href="../../reference/android/inputmethodservice/InputMethodService.html">InputMethodService</a></code>,
-         to ensure that only the system can bind to it.</td>
+        <td class="jd-descrcol" width="100%">
+          Must be required by an <code><a href="../../reference/android/inputmethodservice/InputMethodService.html">InputMethodService</a></code>,
+         to ensure that only the system can bind to it.
+          
+    
+
+        </td>
     </tr>
     
     
-    <tr class="alt-color api apilevel-19" >
+    <tr class=" api apilevel-19" >
         <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#BIND_NFC_SERVICE">BIND_NFC_SERVICE</a></td>
-        <td class="jd-descrcol" width="100%">Must be required by a <code><a href="../../reference/android/nfc/cardemulation/HostApduService.html">HostApduService</a></code>
+        <td class="jd-descrcol" width="100%">
+          Must be required by a <code><a href="../../reference/android/nfc/cardemulation/HostApduService.html">HostApduService</a></code>
          or <code><a href="../../reference/android/nfc/cardemulation/OffHostApduService.html">OffHostApduService</a></code> to ensure that only
-         the system can bind to it.</td>
+         the system can bind to it.
+          
+    
+
+        </td>
     </tr>
     
     
-    <tr class=" api apilevel-18" >
+    <tr class="alt-color api apilevel-18" >
         <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#BIND_NOTIFICATION_LISTENER_SERVICE">BIND_NOTIFICATION_LISTENER_SERVICE</a></td>
-        <td class="jd-descrcol" width="100%">Must be required by an <code><a href="../../reference/android/service/notification/NotificationListenerService.html">NotificationListenerService</a></code>,
-         to ensure that only the system can bind to it.</td>
+        <td class="jd-descrcol" width="100%">
+          Must be required by an <code><a href="../../reference/android/service/notification/NotificationListenerService.html">NotificationListenerService</a></code>,
+         to ensure that only the system can bind to it.
+          
+    
+
+        </td>
     </tr>
     
     
-    <tr class="alt-color api apilevel-19" >
+    <tr class=" api apilevel-19" >
         <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#BIND_PRINT_SERVICE">BIND_PRINT_SERVICE</a></td>
-        <td class="jd-descrcol" width="100%">Must be required by a <code><a href="../../reference/android/printservice/PrintService.html">PrintService</a></code>,
-         to ensure that only the system can bind to it.</td>
+        <td class="jd-descrcol" width="100%">
+          Must be required by a <code><a href="../../reference/android/printservice/PrintService.html">PrintService</a></code>,
+         to ensure that only the system can bind to it.
+          
+    
+
+        </td>
     </tr>
     
     
-    <tr class=" api apilevel-11" >
+    <tr class="alt-color api apilevel-11" >
         <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#BIND_REMOTEVIEWS">BIND_REMOTEVIEWS</a></td>
-        <td class="jd-descrcol" width="100%">Must be required by a <code><a href="../../reference/android/widget/RemoteViewsService.html">RemoteViewsService</a></code>,
-         to ensure that only the system can bind to it.</td>
+        <td class="jd-descrcol" width="100%">
+          Must be required by a <code><a href="../../reference/android/widget/RemoteViewsService.html">RemoteViewsService</a></code>,
+         to ensure that only the system can bind to it.
+          
+    
+
+        </td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-14" >
+        <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#BIND_TEXT_SERVICE">BIND_TEXT_SERVICE</a></td>
+        <td class="jd-descrcol" width="100%">
+          Must be required by a TextService (e.g.
+          
+    
+
+        </td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-21" >
+        <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#BIND_TV_INPUT">BIND_TV_INPUT</a></td>
+        <td class="jd-descrcol" width="100%">
+          Must be required by a <code><a href="../../reference/android/media/tv/TvInputService.html">TvInputService</a></code>
+         to ensure that only the system can bind to it.
+          
+    
+
+        </td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-21" >
+        <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#BIND_VOICE_INTERACTION">BIND_VOICE_INTERACTION</a></td>
+        <td class="jd-descrcol" width="100%">
+          Must be required by a <code><a href="../../reference/android/service/voice/VoiceInteractionService.html">VoiceInteractionService</a></code>,
+         to ensure that only the system can bind to it.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-14" >
         <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#BIND_TEXT_SERVICE">BIND_TEXT_SERVICE</a></td>
-        <td class="jd-descrcol" width="100%">Must be required by a TextService (e.g.</td>
-    </tr>
-    
-    
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#BIND_TV_INPUT">BIND_TV_INPUT</a></td>
-        <td class="jd-descrcol" width="100%">Must be required by a <code><a href="../../reference/android/media/tv/TvInputService.html">TvInputService</a></code>
-         to ensure that only the system can bind to it.</td>
-    </tr>
-    
-    
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#BIND_VOICE_INTERACTION">BIND_VOICE_INTERACTION</a></td>
-        <td class="jd-descrcol" width="100%">Must be required by a <code><a href="../../reference/android/service/voice/VoiceInteractionService.html">VoiceInteractionService</a></code>,
-         to ensure that only the system can bind to it.</td>
-    </tr>
-    
-    
-    <tr class=" api apilevel-14" >
-        <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#BIND_VPN_SERVICE">BIND_VPN_SERVICE</a></td>
-        <td class="jd-descrcol" width="100%">Must be required by a <code><a href="../../reference/android/net/VpnService.html">VpnService</a></code>,
-         to ensure that only the system can bind to it.</td>
+        <td class="jd-descrcol" width="100%">
+          Must be required by a <code><a href="../../reference/android/net/VpnService.html">VpnService</a></code>,
+         to ensure that only the system can bind to it.
+          
+    
+
+        </td>
     </tr>
     
     
-    <tr class="alt-color api apilevel-8" >
+    <tr class=" api apilevel-8" >
         <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#BIND_WALLPAPER">BIND_WALLPAPER</a></td>
-        <td class="jd-descrcol" width="100%">Must be required by a <code><a href="../../reference/android/service/wallpaper/WallpaperService.html">WallpaperService</a></code>,
-         to ensure that only the system can bind to it.</td>
+        <td class="jd-descrcol" width="100%">
+          Must be required by a <code><a href="../../reference/android/service/wallpaper/WallpaperService.html">WallpaperService</a></code>,
+         to ensure that only the system can bind to it.
+          
+    
+
+        </td>
     </tr>
     
     
-    <tr class=" api apilevel-1" >
+    <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#BLUETOOTH">BLUETOOTH</a></td>
-        <td class="jd-descrcol" width="100%">Allows applications to connect to paired bluetooth devices 
-</td>
+        <td class="jd-descrcol" width="100%">
+          Allows applications to connect to paired bluetooth devices 
+
+          
+    
+
+        </td>
     </tr>
     
     
-    <tr class="alt-color api apilevel-1" >
+    <tr class=" api apilevel-1" >
         <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#BLUETOOTH_ADMIN">BLUETOOTH_ADMIN</a></td>
-        <td class="jd-descrcol" width="100%">Allows applications to discover and pair bluetooth devices 
-</td>
-    </tr>
+        <td class="jd-descrcol" width="100%">
+          Allows applications to discover and pair bluetooth devices 
+
+          
     
-    
-    <tr class=" api apilevel-19" >
-        <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#BLUETOOTH_PRIVILEGED">BLUETOOTH_PRIVILEGED</a></td>
-        <td class="jd-descrcol" width="100%">Allows applications to pair bluetooth devices without user interaction.</td>
-    </tr>
-    
-    
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#BODY_SENSORS">BODY_SENSORS</a></td>
-        <td class="jd-descrcol" width="100%">Allows an application to access data from sensors that the user uses to
-         measure what is happening inside his/her body, such as heart rate.</td>
-    </tr>
-    
-    
-    <tr class=" api apilevel-1" >
-        <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#BRICK">BRICK</a></td>
-        <td class="jd-descrcol" width="100%">Required to be able to disable the device (very dangerous!).</td>
-    </tr>
-    
-    
-    <tr class="alt-color api apilevel-1" >
-        <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#BROADCAST_PACKAGE_REMOVED">BROADCAST_PACKAGE_REMOVED</a></td>
-        <td class="jd-descrcol" width="100%">Allows an application to broadcast a notification that an application
-         package has been removed.</td>
-    </tr>
-    
-    
-    <tr class=" api apilevel-2" >
-        <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#BROADCAST_SMS">BROADCAST_SMS</a></td>
-        <td class="jd-descrcol" width="100%">Allows an application to broadcast an SMS receipt notification.</td>
-    </tr>
-    
-    
-    <tr class="alt-color api apilevel-1" >
-        <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#BROADCAST_STICKY">BROADCAST_STICKY</a></td>
-        <td class="jd-descrcol" width="100%">Allows an application to broadcast sticky intents.</td>
-    </tr>
-    
-    
-    <tr class=" api apilevel-2" >
-        <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#BROADCAST_WAP_PUSH">BROADCAST_WAP_PUSH</a></td>
-        <td class="jd-descrcol" width="100%">Allows an application to broadcast a WAP PUSH receipt notification.</td>
-    </tr>
-    
-    
-    <tr class="alt-color api apilevel-1" >
-        <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#CALL_PHONE">CALL_PHONE</a></td>
-        <td class="jd-descrcol" width="100%">Allows an application to initiate a phone call without going through
-         the Dialer user interface for the user to confirm the call
-         being placed.</td>
-    </tr>
-    
-    
-    <tr class=" api apilevel-1" >
-        <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#CALL_PRIVILEGED">CALL_PRIVILEGED</a></td>
-        <td class="jd-descrcol" width="100%">Allows an application to call any phone number, including emergency
-         numbers, without going through the Dialer user interface for the user
-         to confirm the call being placed.</td>
-    </tr>
-    
-    
-    <tr class="alt-color api apilevel-1" >
-        <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#CAMERA">CAMERA</a></td>
-        <td class="jd-descrcol" width="100%">Required to be able to access the camera device.</td>
-    </tr>
-    
-    
-    <tr class=" api apilevel-19" >
-        <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#CAPTURE_AUDIO_OUTPUT">CAPTURE_AUDIO_OUTPUT</a></td>
-        <td class="jd-descrcol" width="100%">Allows an application to capture audio output.</td>
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-19" >
         <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#CAPTURE_SECURE_VIDEO_OUTPUT">CAPTURE_SECURE_VIDEO_OUTPUT</a></td>
-        <td class="jd-descrcol" width="100%">Allows an application to capture secure video output.</td>
+        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#BLUETOOTH_PRIVILEGED">BLUETOOTH_PRIVILEGED</a></td>
+        <td class="jd-descrcol" width="100%">
+          Allows applications to pair bluetooth devices without user interaction, and to
+         allow or disallow phonebook access or message access.
+          
+    
+
+        </td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-20" >
+        <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#BODY_SENSORS">BODY_SENSORS</a></td>
+        <td class="jd-descrcol" width="100%">
+          Allows an application to access data from sensors that the user uses to
+         measure what is happening inside his/her body, such as heart rate.
+          
+    
+
+        </td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#BRICK">BRICK</a></td>
+        <td class="jd-descrcol" width="100%">
+          Required to be able to disable the device (very dangerous!).
+          
+    
+
+        </td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#BROADCAST_PACKAGE_REMOVED">BROADCAST_PACKAGE_REMOVED</a></td>
+        <td class="jd-descrcol" width="100%">
+          Allows an application to broadcast a notification that an application
+         package has been removed.
+          
+    
+
+        </td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-2" >
+        <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#BROADCAST_SMS">BROADCAST_SMS</a></td>
+        <td class="jd-descrcol" width="100%">
+          Allows an application to broadcast an SMS receipt notification.
+          
+    
+
+        </td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#BROADCAST_STICKY">BROADCAST_STICKY</a></td>
+        <td class="jd-descrcol" width="100%">
+          Allows an application to broadcast sticky intents.
+          
+    
+
+        </td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-2" >
+        <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#BROADCAST_WAP_PUSH">BROADCAST_WAP_PUSH</a></td>
+        <td class="jd-descrcol" width="100%">
+          Allows an application to broadcast a WAP PUSH receipt notification.
+          
+    
+
+        </td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#CALL_PHONE">CALL_PHONE</a></td>
+        <td class="jd-descrcol" width="100%">
+          Allows an application to initiate a phone call without going through
+         the Dialer user interface for the user to confirm the call
+         being placed.
+          
+    
+
+        </td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#CALL_PRIVILEGED">CALL_PRIVILEGED</a></td>
+        <td class="jd-descrcol" width="100%">
+          Allows an application to call any phone number, including emergency
+         numbers, without going through the Dialer user interface for the user
+         to confirm the call being placed.
+          
+    
+
+        </td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#CAMERA">CAMERA</a></td>
+        <td class="jd-descrcol" width="100%">
+          Required to be able to access the camera device.
+          
+    
+
+        </td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-19" >
+        <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#CAPTURE_AUDIO_OUTPUT">CAPTURE_AUDIO_OUTPUT</a></td>
+        <td class="jd-descrcol" width="100%">
+          Allows an application to capture audio output.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-19" >
         <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#CAPTURE_VIDEO_OUTPUT">CAPTURE_VIDEO_OUTPUT</a></td>
-        <td class="jd-descrcol" width="100%">Allows an application to capture video output.</td>
+        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#CAPTURE_SECURE_VIDEO_OUTPUT">CAPTURE_SECURE_VIDEO_OUTPUT</a></td>
+        <td class="jd-descrcol" width="100%">
+          Allows an application to capture secure video output.
+          
+    
+
+        </td>
     </tr>
     
     
-    <tr class="alt-color api apilevel-1" >
+    <tr class="alt-color api apilevel-19" >
+        <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#CAPTURE_VIDEO_OUTPUT">CAPTURE_VIDEO_OUTPUT</a></td>
+        <td class="jd-descrcol" width="100%">
+          Allows an application to capture video output.
+          
+    
+
+        </td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-1" >
         <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#CHANGE_COMPONENT_ENABLED_STATE">CHANGE_COMPONENT_ENABLED_STATE</a></td>
-        <td class="jd-descrcol" width="100%">Allows an application to change whether an application component (other than its own) is
-         enabled or not.</td>
+        <td class="jd-descrcol" width="100%">
+          Allows an application to change whether an application component (other than its own) is
+         enabled or not.
+          
+    
+
+        </td>
     </tr>
     
     
-    <tr class=" api apilevel-1" >
+    <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#CHANGE_CONFIGURATION">CHANGE_CONFIGURATION</a></td>
-        <td class="jd-descrcol" width="100%">Allows an application to modify the current configuration, such
-         as locale.</td>
+        <td class="jd-descrcol" width="100%">
+          Allows an application to modify the current configuration, such
+         as locale.
+          
+    
+
+        </td>
     </tr>
     
     
-    <tr class="alt-color api apilevel-1" >
+    <tr class=" api apilevel-1" >
         <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#CHANGE_NETWORK_STATE">CHANGE_NETWORK_STATE</a></td>
-        <td class="jd-descrcol" width="100%">Allows applications to change network connectivity state 
-</td>
-    </tr>
+        <td class="jd-descrcol" width="100%">
+          Allows applications to change network connectivity state 
+
+          
     
-    
-    <tr class=" api apilevel-4" >
-        <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#CHANGE_WIFI_MULTICAST_STATE">CHANGE_WIFI_MULTICAST_STATE</a></td>
-        <td class="jd-descrcol" width="100%">Allows applications to enter Wi-Fi Multicast mode 
-</td>
-    </tr>
-    
-    
-    <tr class="alt-color api apilevel-1" >
-        <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#CHANGE_WIFI_STATE">CHANGE_WIFI_STATE</a></td>
-        <td class="jd-descrcol" width="100%">Allows applications to change Wi-Fi connectivity state 
-</td>
-    </tr>
-    
-    
-    <tr class=" api apilevel-1" >
-        <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#CLEAR_APP_CACHE">CLEAR_APP_CACHE</a></td>
-        <td class="jd-descrcol" width="100%">Allows an application to clear the caches of all installed
-         applications on the device.</td>
-    </tr>
-    
-    
-    <tr class="alt-color api apilevel-1" >
-        <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#CLEAR_APP_USER_DATA">CLEAR_APP_USER_DATA</a></td>
-        <td class="jd-descrcol" width="100%">Allows an application to clear user data.</td>
-    </tr>
-    
-    
-    <tr class=" api apilevel-1" >
-        <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#CONTROL_LOCATION_UPDATES">CONTROL_LOCATION_UPDATES</a></td>
-        <td class="jd-descrcol" width="100%">Allows enabling/disabling location update notifications from
-         the radio.</td>
-    </tr>
-    
-    
-    <tr class="alt-color api apilevel-1" >
-        <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#DELETE_CACHE_FILES">DELETE_CACHE_FILES</a></td>
-        <td class="jd-descrcol" width="100%">Allows an application to delete cache files.</td>
-    </tr>
-    
-    
-    <tr class=" api apilevel-1" >
-        <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#DELETE_PACKAGES">DELETE_PACKAGES</a></td>
-        <td class="jd-descrcol" width="100%">Allows an application to delete packages.</td>
-    </tr>
-    
-    
-    <tr class="alt-color api apilevel-1" >
-        <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#DEVICE_POWER">DEVICE_POWER</a></td>
-        <td class="jd-descrcol" width="100%">Allows low-level access to power management.</td>
-    </tr>
-    
-    
-    <tr class=" api apilevel-1" >
-        <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#DIAGNOSTIC">DIAGNOSTIC</a></td>
-        <td class="jd-descrcol" width="100%">Allows applications to RW to diagnostic resources.</td>
-    </tr>
-    
-    
-    <tr class="alt-color api apilevel-1" >
-        <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#DISABLE_KEYGUARD">DISABLE_KEYGUARD</a></td>
-        <td class="jd-descrcol" width="100%">Allows applications to disable the keyguard 
-</td>
-    </tr>
-    
-    
-    <tr class=" api apilevel-1" >
-        <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#DUMP">DUMP</a></td>
-        <td class="jd-descrcol" width="100%">Allows an application to retrieve state dump information from system services.</td>
-    </tr>
-    
-    
-    <tr class="alt-color api apilevel-1" >
-        <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#EXPAND_STATUS_BAR">EXPAND_STATUS_BAR</a></td>
-        <td class="jd-descrcol" width="100%">Allows an application to expand or collapse the status bar.</td>
-    </tr>
-    
-    
-    <tr class=" api apilevel-1" >
-        <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#FACTORY_TEST">FACTORY_TEST</a></td>
-        <td class="jd-descrcol" width="100%">Run as a manufacturer test application, running as the root user.</td>
-    </tr>
-    
-    
-    <tr class="alt-color api apilevel-1" >
-        <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#FLASHLIGHT">FLASHLIGHT</a></td>
-        <td class="jd-descrcol" width="100%">Allows access to the flashlight 
-</td>
-    </tr>
-    
-    
-    <tr class=" api apilevel-1" >
-        <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#FORCE_BACK">FORCE_BACK</a></td>
-        <td class="jd-descrcol" width="100%">Allows an application to force a BACK operation on whatever is the
-         top activity.</td>
-    </tr>
-    
-    
-    <tr class="alt-color api apilevel-1" >
-        <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#GET_ACCOUNTS">GET_ACCOUNTS</a></td>
-        <td class="jd-descrcol" width="100%">Allows access to the list of accounts in the Accounts Service 
-</td>
-    </tr>
-    
-    
-    <tr class=" api apilevel-1" >
-        <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#GET_PACKAGE_SIZE">GET_PACKAGE_SIZE</a></td>
-        <td class="jd-descrcol" width="100%">Allows an application to find out the space used by any package.</td>
-    </tr>
-    
-    
-    <tr class="alt-color api apilevel-1" >
-        <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#GET_TASKS">GET_TASKS</a></td>
-        <td class="jd-descrcol" width="100%">Allows an application to get information about the currently
-         or recently running tasks.</td>
-    </tr>
-    
-    
-    <tr class=" api apilevel-18" >
-        <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#GET_TOP_ACTIVITY_INFO">GET_TOP_ACTIVITY_INFO</a></td>
-        <td class="jd-descrcol" width="100%">Allows an application to retrieve private information about
-         the current top activity, such as any assist context it can provide.</td>
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-4" >
         <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#GLOBAL_SEARCH">GLOBAL_SEARCH</a></td>
-        <td class="jd-descrcol" width="100%">This permission can be used on content providers to allow the global
-         search system to access their data.</td>
+        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#CHANGE_WIFI_MULTICAST_STATE">CHANGE_WIFI_MULTICAST_STATE</a></td>
+        <td class="jd-descrcol" width="100%">
+          Allows applications to enter Wi-Fi Multicast mode 
+
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#HARDWARE_TEST">HARDWARE_TEST</a></td>
-        <td class="jd-descrcol" width="100%">Allows access to hardware peripherals.</td>
+        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#CHANGE_WIFI_STATE">CHANGE_WIFI_STATE</a></td>
+        <td class="jd-descrcol" width="100%">
+          Allows applications to change Wi-Fi connectivity state 
+
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#INJECT_EVENTS">INJECT_EVENTS</a></td>
-        <td class="jd-descrcol" width="100%">Allows an application to inject user events (keys, touch, trackball)
-         into the event stream and deliver them to ANY window.</td>
+        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#CLEAR_APP_CACHE">CLEAR_APP_CACHE</a></td>
+        <td class="jd-descrcol" width="100%">
+          Allows an application to clear the caches of all installed
+         applications on the device.
+          
+    
+
+        </td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#CLEAR_APP_USER_DATA">CLEAR_APP_USER_DATA</a></td>
+        <td class="jd-descrcol" width="100%">
+          Allows an application to clear user data.
+          
+    
+
+        </td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#CONTROL_LOCATION_UPDATES">CONTROL_LOCATION_UPDATES</a></td>
+        <td class="jd-descrcol" width="100%">
+          Allows enabling/disabling location update notifications from
+         the radio.
+          
+    
+
+        </td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#DELETE_CACHE_FILES">DELETE_CACHE_FILES</a></td>
+        <td class="jd-descrcol" width="100%">
+          Allows an application to delete cache files.
+          
+    
+
+        </td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#DELETE_PACKAGES">DELETE_PACKAGES</a></td>
+        <td class="jd-descrcol" width="100%">
+          Allows an application to delete packages.
+          
+    
+
+        </td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#DEVICE_POWER">DEVICE_POWER</a></td>
+        <td class="jd-descrcol" width="100%">
+          Allows low-level access to power management.
+          
+    
+
+        </td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#DIAGNOSTIC">DIAGNOSTIC</a></td>
+        <td class="jd-descrcol" width="100%">
+          Allows applications to RW to diagnostic resources.
+          
+    
+
+        </td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#DISABLE_KEYGUARD">DISABLE_KEYGUARD</a></td>
+        <td class="jd-descrcol" width="100%">
+          Allows applications to disable the keyguard 
+
+          
+    
+
+        </td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#DUMP">DUMP</a></td>
+        <td class="jd-descrcol" width="100%">
+          Allows an application to retrieve state dump information from system services.
+          
+    
+
+        </td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#EXPAND_STATUS_BAR">EXPAND_STATUS_BAR</a></td>
+        <td class="jd-descrcol" width="100%">
+          Allows an application to expand or collapse the status bar.
+          
+    
+
+        </td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#FACTORY_TEST">FACTORY_TEST</a></td>
+        <td class="jd-descrcol" width="100%">
+          Run as a manufacturer test application, running as the root user.
+          
+    
+
+        </td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#FLASHLIGHT">FLASHLIGHT</a></td>
+        <td class="jd-descrcol" width="100%">
+          Allows access to the flashlight 
+
+          
+    
+
+        </td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#FORCE_BACK">FORCE_BACK</a></td>
+        <td class="jd-descrcol" width="100%">
+          Allows an application to force a BACK operation on whatever is the
+         top activity.
+          
+    
+
+        </td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#GET_ACCOUNTS">GET_ACCOUNTS</a></td>
+        <td class="jd-descrcol" width="100%">
+          Allows access to the list of accounts in the Accounts Service 
+
+          
+    
+
+        </td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#GET_PACKAGE_SIZE">GET_PACKAGE_SIZE</a></td>
+        <td class="jd-descrcol" width="100%">
+          Allows an application to find out the space used by any package.
+          
+    
+
+        </td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#GET_TASKS">GET_TASKS</a></td>
+        <td class="jd-descrcol" width="100%">
+          <em>
+      This constant was deprecated
+      in API level 21.
+    No longer enforced. 
+</em>
+          
+    
+
+        </td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-18" >
+        <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#GET_TOP_ACTIVITY_INFO">GET_TOP_ACTIVITY_INFO</a></td>
+        <td class="jd-descrcol" width="100%">
+          Allows an application to retrieve private information about
+         the current top activity, such as any assist context it can provide.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-4" >
         <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#INSTALL_LOCATION_PROVIDER">INSTALL_LOCATION_PROVIDER</a></td>
-        <td class="jd-descrcol" width="100%">Allows an application to install a location provider into the Location Manager.</td>
+        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#GLOBAL_SEARCH">GLOBAL_SEARCH</a></td>
+        <td class="jd-descrcol" width="100%">
+          This permission can be used on content providers to allow the global
+         search system to access their data.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#HARDWARE_TEST">HARDWARE_TEST</a></td>
+        <td class="jd-descrcol" width="100%">
+          Allows access to hardware peripherals.
+          
+    
+
+        </td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#INJECT_EVENTS">INJECT_EVENTS</a></td>
+        <td class="jd-descrcol" width="100%">
+          Allows an application to inject user events (keys, touch, trackball)
+         into the event stream and deliver them to ANY window.
+          
+    
+
+        </td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-4" >
+        <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#INSTALL_LOCATION_PROVIDER">INSTALL_LOCATION_PROVIDER</a></td>
+        <td class="jd-descrcol" width="100%">
+          Allows an application to install a location provider into the Location Manager.
+          
+    
+
+        </td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#INSTALL_PACKAGES">INSTALL_PACKAGES</a></td>
-        <td class="jd-descrcol" width="100%">Allows an application to install packages.</td>
+        <td class="jd-descrcol" width="100%">
+          Allows an application to install packages.
+          
+    
+
+        </td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-19" >
+        <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#INSTALL_SHORTCUT">INSTALL_SHORTCUT</a></td>
+        <td class="jd-descrcol" width="100%">
+          Allows an application to install a shortcut in Launcher 
+
+          
+    
+
+        </td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#INTERNAL_SYSTEM_WINDOW">INTERNAL_SYSTEM_WINDOW</a></td>
+        <td class="jd-descrcol" width="100%">
+          Allows an application to open windows that are for use by parts
+         of the system user interface.
+          
+    
+
+        </td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#INTERNET">INTERNET</a></td>
+        <td class="jd-descrcol" width="100%">
+          Allows applications to open network sockets.
+          
+    
+
+        </td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-8" >
+        <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#KILL_BACKGROUND_PROCESSES">KILL_BACKGROUND_PROCESSES</a></td>
+        <td class="jd-descrcol" width="100%">
+          Allows an application to call
+        <code><a href="../../reference/android/app/ActivityManager.html#killBackgroundProcesses(java.lang.String)">killBackgroundProcesses(String)</a></code>.
+          
+    
+
+        </td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-18" >
+        <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#LOCATION_HARDWARE">LOCATION_HARDWARE</a></td>
+        <td class="jd-descrcol" width="100%">
+          Allows an application to use location features in hardware,
+         such as the geofencing api.
+          
+    
+
+        </td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-5" >
+        <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#MANAGE_ACCOUNTS">MANAGE_ACCOUNTS</a></td>
+        <td class="jd-descrcol" width="100%">
+          Allows an application to manage the list of accounts in the AccountManager 
+
+          
+    
+
+        </td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#MANAGE_APP_TOKENS">MANAGE_APP_TOKENS</a></td>
+        <td class="jd-descrcol" width="100%">
+          Allows an application to manage (create, destroy,
+         Z-order) application tokens in the window manager.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-19" >
         <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#INSTALL_SHORTCUT">INSTALL_SHORTCUT</a></td>
-        <td class="jd-descrcol" width="100%">Allows an application to install a shortcut in Launcher 
-</td>
+        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#MANAGE_DOCUMENTS">MANAGE_DOCUMENTS</a></td>
+        <td class="jd-descrcol" width="100%">
+          Allows an application to manage access to documents, usually as part
+         of a document picker.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
-        <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#INTERNAL_SYSTEM_WINDOW">INTERNAL_SYSTEM_WINDOW</a></td>
-        <td class="jd-descrcol" width="100%">Allows an application to open windows that are for use by parts
-         of the system user interface.</td>
-    </tr>
-    
-    
-    <tr class=" api apilevel-1" >
-        <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#INTERNET">INTERNET</a></td>
-        <td class="jd-descrcol" width="100%">Allows applications to open network sockets.</td>
-    </tr>
-    
-    
-    <tr class="alt-color api apilevel-8" >
-        <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#KILL_BACKGROUND_PROCESSES">KILL_BACKGROUND_PROCESSES</a></td>
-        <td class="jd-descrcol" width="100%">Allows an application to call
-        <code><a href="../../reference/android/app/ActivityManager.html#killBackgroundProcesses(java.lang.String)">killBackgroundProcesses(String)</a></code>.</td>
-    </tr>
-    
-    
-    <tr class=" api apilevel-18" >
-        <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#LOCATION_HARDWARE">LOCATION_HARDWARE</a></td>
-        <td class="jd-descrcol" width="100%">Allows an application to use location features in hardware,
-         such as the geofencing api.</td>
-    </tr>
-    
-    
-    <tr class="alt-color api apilevel-5" >
-        <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#MANAGE_ACCOUNTS">MANAGE_ACCOUNTS</a></td>
-        <td class="jd-descrcol" width="100%">Allows an application to manage the list of accounts in the AccountManager 
-</td>
-    </tr>
-    
-    
-    <tr class=" api apilevel-1" >
-        <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#MANAGE_APP_TOKENS">MANAGE_APP_TOKENS</a></td>
-        <td class="jd-descrcol" width="100%">Allows an application to manage (create, destroy,
-         Z-order) application tokens in the window manager.</td>
-    </tr>
-    
-    
-    <tr class="alt-color api apilevel-19" >
-        <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#MANAGE_DOCUMENTS">MANAGE_DOCUMENTS</a></td>
-        <td class="jd-descrcol" width="100%">Allows an application to manage access to documents, usually as part
-         of a document picker.</td>
-    </tr>
-    
-    
-    <tr class=" api apilevel-1" >
         <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#MASTER_CLEAR">MASTER_CLEAR</a></td>
-        <td class="jd-descrcol" width="100%">Not for use by third-party applications.</td>
+        <td class="jd-descrcol" width="100%">
+          Not for use by third-party applications.
+          
+    
+
+        </td>
     </tr>
     
     
-    <tr class="alt-color api apilevel-19" >
+    <tr class=" api apilevel-19" >
         <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#MEDIA_CONTENT_CONTROL">MEDIA_CONTENT_CONTROL</a></td>
-        <td class="jd-descrcol" width="100%">Allows an application to know what content is playing and control its playback.</td>
+        <td class="jd-descrcol" width="100%">
+          Allows an application to know what content is playing and control its playback.
+          
+    
+
+        </td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#MODIFY_AUDIO_SETTINGS">MODIFY_AUDIO_SETTINGS</a></td>
+        <td class="jd-descrcol" width="100%">
+          Allows an application to modify global audio settings 
+
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#MODIFY_AUDIO_SETTINGS">MODIFY_AUDIO_SETTINGS</a></td>
-        <td class="jd-descrcol" width="100%">Allows an application to modify global audio settings 
-</td>
-    </tr>
-    
-    
-    <tr class="alt-color api apilevel-1" >
-        <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#MODIFY_PHONE_STATE">MODIFY_PHONE_STATE</a></td>
-        <td class="jd-descrcol" width="100%">Allows modification of the telephony state - power on, mmi, etc.</td>
+        <td class="jd-descrcol" width="100%">
+          Allows modification of the telephony state - power on, mmi, etc.
+          
+    
+
+        </td>
     </tr>
     
     
-    <tr class=" api apilevel-3" >
+    <tr class="alt-color api apilevel-3" >
         <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#MOUNT_FORMAT_FILESYSTEMS">MOUNT_FORMAT_FILESYSTEMS</a></td>
-        <td class="jd-descrcol" width="100%">Allows formatting file systems for removable storage.</td>
+        <td class="jd-descrcol" width="100%">
+          Allows formatting file systems for removable storage.
+          
+    
+
+        </td>
     </tr>
     
     
-    <tr class="alt-color api apilevel-1" >
+    <tr class=" api apilevel-1" >
         <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#MOUNT_UNMOUNT_FILESYSTEMS">MOUNT_UNMOUNT_FILESYSTEMS</a></td>
-        <td class="jd-descrcol" width="100%">Allows mounting and unmounting file systems for removable storage.</td>
+        <td class="jd-descrcol" width="100%">
+          Allows mounting and unmounting file systems for removable storage.
+          
+    
+
+        </td>
     </tr>
     
     
-    <tr class=" api apilevel-9" >
+    <tr class="alt-color api apilevel-9" >
         <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#NFC">NFC</a></td>
-        <td class="jd-descrcol" width="100%">Allows applications to perform I/O operations over NFC 
-</td>
+        <td class="jd-descrcol" width="100%">
+          Allows applications to perform I/O operations over NFC 
+
+          
+    
+
+        </td>
     </tr>
     
     
-    <tr class="alt-color api apilevel-1" >
+    <tr class=" api apilevel-1" >
         <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#PERSISTENT_ACTIVITY">PERSISTENT_ACTIVITY</a></td>
-        <td class="jd-descrcol" width="100%"><em>
+        <td class="jd-descrcol" width="100%">
+          <em>
       This constant was deprecated
       in API level 9.
     This functionality will be removed in the future; please do
          not use. Allow an application to make its activities persistent. 
-</em></td>
+</em>
+          
+    
+
+        </td>
     </tr>
     
     
-    <tr class=" api apilevel-1" >
+    <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#PROCESS_OUTGOING_CALLS">PROCESS_OUTGOING_CALLS</a></td>
-        <td class="jd-descrcol" width="100%">Allows an application to see the number being dialed during an outgoing
+        <td class="jd-descrcol" width="100%">
+          Allows an application to see the number being dialed during an outgoing
          call with the option to redirect the call to a different number or
-         abort the call altogether.</td>
+         abort the call altogether.
+          
+    
+
+        </td>
     </tr>
     
     
-    <tr class="alt-color api apilevel-1" >
+    <tr class=" api apilevel-1" >
         <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#READ_CALENDAR">READ_CALENDAR</a></td>
-        <td class="jd-descrcol" width="100%">Allows an application to read the user's calendar data.</td>
-    </tr>
+        <td class="jd-descrcol" width="100%">
+          Allows an application to read the user's calendar data.
+          
     
-    
-    <tr class=" api apilevel-16" >
-        <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#READ_CALL_LOG">READ_CALL_LOG</a></td>
-        <td class="jd-descrcol" width="100%">Allows an application to read the user's call log.</td>
-    </tr>
-    
-    
-    <tr class="alt-color api apilevel-1" >
-        <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#READ_CONTACTS">READ_CONTACTS</a></td>
-        <td class="jd-descrcol" width="100%">Allows an application to read the user's contacts data.</td>
-    </tr>
-    
-    
-    <tr class=" api apilevel-16" >
-        <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#READ_EXTERNAL_STORAGE">READ_EXTERNAL_STORAGE</a></td>
-        <td class="jd-descrcol" width="100%">Allows an application to read from external storage.</td>
-    </tr>
-    
-    
-    <tr class="alt-color api apilevel-1" >
-        <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#READ_FRAME_BUFFER">READ_FRAME_BUFFER</a></td>
-        <td class="jd-descrcol" width="100%">Allows an application to take screen shots and more generally
-         get access to the frame buffer data.</td>
-    </tr>
-    
-    
-    <tr class=" api apilevel-4" >
-        <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#READ_HISTORY_BOOKMARKS">READ_HISTORY_BOOKMARKS</a></td>
-        <td class="jd-descrcol" width="100%">Allows an application to read (but not write) the user's
-        browsing history and bookmarks.</td>
-    </tr>
-    
-    
-    <tr class="alt-color api apilevel-1" >
-        <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#READ_INPUT_STATE">READ_INPUT_STATE</a></td>
-        <td class="jd-descrcol" width="100%"><em>
-      This constant was deprecated
-      in API level 16.
-    The API that used this permission has been removed. 
-</em></td>
-    </tr>
-    
-    
-    <tr class=" api apilevel-1" >
-        <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#READ_LOGS">READ_LOGS</a></td>
-        <td class="jd-descrcol" width="100%">Allows an application to read the low-level system log files.</td>
-    </tr>
-    
-    
-    <tr class="alt-color api apilevel-1" >
-        <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#READ_PHONE_STATE">READ_PHONE_STATE</a></td>
-        <td class="jd-descrcol" width="100%">Allows read only access to phone state.</td>
-    </tr>
-    
-    
-    <tr class=" api apilevel-14" >
-        <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#READ_PROFILE">READ_PROFILE</a></td>
-        <td class="jd-descrcol" width="100%">Allows an application to read the user's personal profile data.</td>
-    </tr>
-    
-    
-    <tr class="alt-color api apilevel-1" >
-        <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#READ_SMS">READ_SMS</a></td>
-        <td class="jd-descrcol" width="100%">Allows an application to read SMS messages.</td>
-    </tr>
-    
-    
-    <tr class=" api apilevel-15" >
-        <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#READ_SOCIAL_STREAM">READ_SOCIAL_STREAM</a></td>
-        <td class="jd-descrcol" width="100%">Allows an application to read from the user's social stream.</td>
-    </tr>
-    
-    
-    <tr class="alt-color api apilevel-1" >
-        <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#READ_SYNC_SETTINGS">READ_SYNC_SETTINGS</a></td>
-        <td class="jd-descrcol" width="100%">Allows applications to read the sync settings 
-</td>
-    </tr>
-    
-    
-    <tr class=" api apilevel-1" >
-        <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#READ_SYNC_STATS">READ_SYNC_STATS</a></td>
-        <td class="jd-descrcol" width="100%">Allows applications to read the sync stats 
-</td>
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-16" >
         <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#READ_CALL_LOG">READ_CALL_LOG</a></td>
+        <td class="jd-descrcol" width="100%">
+          Allows an application to read the user's call log.
+          
+    
+
+        </td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#READ_CONTACTS">READ_CONTACTS</a></td>
+        <td class="jd-descrcol" width="100%">
+          Allows an application to read the user's contacts data.
+          
+    
+
+        </td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-16" >
+        <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#READ_EXTERNAL_STORAGE">READ_EXTERNAL_STORAGE</a></td>
+        <td class="jd-descrcol" width="100%">
+          Allows an application to read from external storage.
+          
+    
+
+        </td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#READ_FRAME_BUFFER">READ_FRAME_BUFFER</a></td>
+        <td class="jd-descrcol" width="100%">
+          Allows an application to take screen shots and more generally
+         get access to the frame buffer data.
+          
+    
+
+        </td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-4" >
+        <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#READ_HISTORY_BOOKMARKS">READ_HISTORY_BOOKMARKS</a></td>
+        <td class="jd-descrcol" width="100%">
+          Allows an application to read (but not write) the user's
+        browsing history and bookmarks.
+          
+    
+
+        </td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#READ_INPUT_STATE">READ_INPUT_STATE</a></td>
+        <td class="jd-descrcol" width="100%">
+          <em>
+      This constant was deprecated
+      in API level 16.
+    The API that used this permission has been removed. 
+</em>
+          
+    
+
+        </td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#READ_LOGS">READ_LOGS</a></td>
+        <td class="jd-descrcol" width="100%">
+          Allows an application to read the low-level system log files.
+          
+    
+
+        </td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#READ_PHONE_STATE">READ_PHONE_STATE</a></td>
+        <td class="jd-descrcol" width="100%">
+          Allows read only access to phone state.
+          
+    
+
+        </td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-14" >
+        <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#READ_PROFILE">READ_PROFILE</a></td>
+        <td class="jd-descrcol" width="100%">
+          Allows an application to read the user's personal profile data.
+          
+    
+
+        </td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#READ_SMS">READ_SMS</a></td>
+        <td class="jd-descrcol" width="100%">
+          Allows an application to read SMS messages.
+          
+    
+
+        </td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-15" >
+        <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#READ_SOCIAL_STREAM">READ_SOCIAL_STREAM</a></td>
+        <td class="jd-descrcol" width="100%">
+          <em>
+      This constant was deprecated
+      in API level 21.
+    This functionality will be unsupported in the future; cursors returned
+       will be empty. Please do not use. 
+</em>
+          
+    
+
+        </td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#READ_SYNC_SETTINGS">READ_SYNC_SETTINGS</a></td>
+        <td class="jd-descrcol" width="100%">
+          Allows applications to read the sync settings 
+
+          
+    
+
+        </td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#READ_SYNC_STATS">READ_SYNC_STATS</a></td>
+        <td class="jd-descrcol" width="100%">
+          Allows applications to read the sync stats 
+
+          
+    
+
+        </td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-16" >
+        <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#READ_USER_DICTIONARY">READ_USER_DICTIONARY</a></td>
-        <td class="jd-descrcol" width="100%">Allows an application to read the user dictionary.</td>
+        <td class="jd-descrcol" width="100%">
+          Allows an application to read the user dictionary.
+          
+    
+
+        </td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-21" >
+        <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#READ_VOICEMAIL">READ_VOICEMAIL</a></td>
+        <td class="jd-descrcol" width="100%">
+          Allows an application to read voicemails in the system.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#REBOOT">REBOOT</a></td>
-        <td class="jd-descrcol" width="100%">Required to be able to reboot the device.</td>
+        <td class="jd-descrcol" width="100%">
+          Required to be able to reboot the device.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#RECEIVE_BOOT_COMPLETED">RECEIVE_BOOT_COMPLETED</a></td>
-        <td class="jd-descrcol" width="100%">Allows an application to receive the
+        <td class="jd-descrcol" width="100%">
+          Allows an application to receive the
          <code><a href="../../reference/android/content/Intent.html#ACTION_BOOT_COMPLETED">ACTION_BOOT_COMPLETED</a></code> that is
-         broadcast after the system finishes booting.</td>
+         broadcast after the system finishes booting.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#RECEIVE_MMS">RECEIVE_MMS</a></td>
-        <td class="jd-descrcol" width="100%">Allows an application to monitor incoming MMS messages, to record
-         or perform processing on them.</td>
+        <td class="jd-descrcol" width="100%">
+          Allows an application to monitor incoming MMS messages, to record
+         or perform processing on them.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#RECEIVE_SMS">RECEIVE_SMS</a></td>
-        <td class="jd-descrcol" width="100%">Allows an application to monitor incoming SMS messages, to record
-         or perform processing on them.</td>
+        <td class="jd-descrcol" width="100%">
+          Allows an application to monitor incoming SMS messages, to record
+         or perform processing on them.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#RECEIVE_WAP_PUSH">RECEIVE_WAP_PUSH</a></td>
-        <td class="jd-descrcol" width="100%">Allows an application to monitor incoming WAP push messages.</td>
+        <td class="jd-descrcol" width="100%">
+          Allows an application to monitor incoming WAP push messages.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#RECORD_AUDIO">RECORD_AUDIO</a></td>
-        <td class="jd-descrcol" width="100%">Allows an application to record audio 
-</td>
+        <td class="jd-descrcol" width="100%">
+          Allows an application to record audio 
+
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#REORDER_TASKS">REORDER_TASKS</a></td>
-        <td class="jd-descrcol" width="100%">Allows an application to change the Z-order of tasks 
-</td>
+        <td class="jd-descrcol" width="100%">
+          Allows an application to change the Z-order of tasks 
+
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#RESTART_PACKAGES">RESTART_PACKAGES</a></td>
-        <td class="jd-descrcol" width="100%"><em>
+        <td class="jd-descrcol" width="100%">
+          <em>
       This constant was deprecated
       in API level 8.
     The <code><a href="../../reference/android/app/ActivityManager.html#restartPackage(java.lang.String)">restartPackage(String)</a></code>
         API is no longer supported. 
-</em></td>
+</em>
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-18" >
         <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#SEND_RESPOND_VIA_MESSAGE">SEND_RESPOND_VIA_MESSAGE</a></td>
-        <td class="jd-descrcol" width="100%">Allows an application (Phone) to send a request to other applications
-         to handle the respond-via-message action during incoming calls.</td>
+        <td class="jd-descrcol" width="100%">
+          Allows an application (Phone) to send a request to other applications
+         to handle the respond-via-message action during incoming calls.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#SEND_SMS">SEND_SMS</a></td>
-        <td class="jd-descrcol" width="100%">Allows an application to send SMS messages.</td>
+        <td class="jd-descrcol" width="100%">
+          Allows an application to send SMS messages.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#SET_ACTIVITY_WATCHER">SET_ACTIVITY_WATCHER</a></td>
-        <td class="jd-descrcol" width="100%">Allows an application to watch and control how activities are
-         started globally in the system.</td>
+        <td class="jd-descrcol" width="100%">
+          Allows an application to watch and control how activities are
+         started globally in the system.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-9" >
         <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#SET_ALARM">SET_ALARM</a></td>
-        <td class="jd-descrcol" width="100%">Allows an application to broadcast an Intent to set an alarm for the
-         user.</td>
+        <td class="jd-descrcol" width="100%">
+          Allows an application to broadcast an Intent to set an alarm for the
+         user.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#SET_ALWAYS_FINISH">SET_ALWAYS_FINISH</a></td>
-        <td class="jd-descrcol" width="100%">Allows an application to control whether activities are immediately
-         finished when put in the background.</td>
+        <td class="jd-descrcol" width="100%">
+          Allows an application to control whether activities are immediately
+         finished when put in the background.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#SET_ANIMATION_SCALE">SET_ANIMATION_SCALE</a></td>
-        <td class="jd-descrcol" width="100%">Modify the global animation scaling factor.</td>
+        <td class="jd-descrcol" width="100%">
+          Modify the global animation scaling factor.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#SET_DEBUG_APP">SET_DEBUG_APP</a></td>
-        <td class="jd-descrcol" width="100%">Configure an application for debugging.</td>
+        <td class="jd-descrcol" width="100%">
+          Configure an application for debugging.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#SET_ORIENTATION">SET_ORIENTATION</a></td>
-        <td class="jd-descrcol" width="100%">Allows low-level access to setting the orientation (actually
-         rotation) of the screen.</td>
+        <td class="jd-descrcol" width="100%">
+          Allows low-level access to setting the orientation (actually
+         rotation) of the screen.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-13" >
         <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#SET_POINTER_SPEED">SET_POINTER_SPEED</a></td>
-        <td class="jd-descrcol" width="100%">Allows low-level access to setting the pointer speed.</td>
+        <td class="jd-descrcol" width="100%">
+          Allows low-level access to setting the pointer speed.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#SET_PREFERRED_APPLICATIONS">SET_PREFERRED_APPLICATIONS</a></td>
-        <td class="jd-descrcol" width="100%"><em>
+        <td class="jd-descrcol" width="100%">
+          <em>
       This constant was deprecated
       in API level 7.
     No longer useful, see
          <code><a href="../../reference/android/content/pm/PackageManager.html#addPackageToPreferred(java.lang.String)">addPackageToPreferred(String)</a></code>
          for details. 
-</em></td>
+</em>
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#SET_PROCESS_LIMIT">SET_PROCESS_LIMIT</a></td>
-        <td class="jd-descrcol" width="100%">Allows an application to set the maximum number of (not needed)
-         application processes that can be running.</td>
+        <td class="jd-descrcol" width="100%">
+          Allows an application to set the maximum number of (not needed)
+         application processes that can be running.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-8" >
         <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#SET_TIME">SET_TIME</a></td>
-        <td class="jd-descrcol" width="100%">Allows applications to set the system time.</td>
+        <td class="jd-descrcol" width="100%">
+          Allows applications to set the system time.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#SET_TIME_ZONE">SET_TIME_ZONE</a></td>
-        <td class="jd-descrcol" width="100%">Allows applications to set the system time zone 
-</td>
+        <td class="jd-descrcol" width="100%">
+          Allows applications to set the system time zone 
+
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#SET_WALLPAPER">SET_WALLPAPER</a></td>
-        <td class="jd-descrcol" width="100%">Allows applications to set the wallpaper 
-</td>
+        <td class="jd-descrcol" width="100%">
+          Allows applications to set the wallpaper 
+
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#SET_WALLPAPER_HINTS">SET_WALLPAPER_HINTS</a></td>
-        <td class="jd-descrcol" width="100%">Allows applications to set the wallpaper hints 
-</td>
+        <td class="jd-descrcol" width="100%">
+          Allows applications to set the wallpaper hints 
+
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#SIGNAL_PERSISTENT_PROCESSES">SIGNAL_PERSISTENT_PROCESSES</a></td>
-        <td class="jd-descrcol" width="100%">Allow an application to request that a signal be sent to all persistent processes.</td>
+        <td class="jd-descrcol" width="100%">
+          Allow an application to request that a signal be sent to all persistent processes.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#STATUS_BAR">STATUS_BAR</a></td>
-        <td class="jd-descrcol" width="100%">Allows an application to open, close, or disable the status bar
-         and its icons.</td>
+        <td class="jd-descrcol" width="100%">
+          Allows an application to open, close, or disable the status bar
+         and its icons.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#SUBSCRIBED_FEEDS_READ">SUBSCRIBED_FEEDS_READ</a></td>
-        <td class="jd-descrcol" width="100%">Allows an application to allow access the subscribed feeds
-         ContentProvider.</td>
+        <td class="jd-descrcol" width="100%">
+          Allows an application to allow access the subscribed feeds
+         ContentProvider.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#SUBSCRIBED_FEEDS_WRITE">SUBSCRIBED_FEEDS_WRITE</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#SYSTEM_ALERT_WINDOW">SYSTEM_ALERT_WINDOW</a></td>
-        <td class="jd-descrcol" width="100%">Allows an application to open windows using the type
+        <td class="jd-descrcol" width="100%">
+          Allows an application to open windows using the type
          <code><a href="../../reference/android/view/WindowManager.LayoutParams.html#TYPE_SYSTEM_ALERT">TYPE_SYSTEM_ALERT</a></code>,
-         shown on top of all other applications.</td>
+         shown on top of all other applications.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-19" >
         <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#TRANSMIT_IR">TRANSMIT_IR</a></td>
-        <td class="jd-descrcol" width="100%">Allows using the device's IR transmitter, if available 
-</td>
+        <td class="jd-descrcol" width="100%">
+          Allows using the device's IR transmitter, if available 
+
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-19" >
         <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#UNINSTALL_SHORTCUT">UNINSTALL_SHORTCUT</a></td>
-        <td class="jd-descrcol" width="100%">Allows an application to uninstall a shortcut in Launcher 
-</td>
+        <td class="jd-descrcol" width="100%">
+          Allows an application to uninstall a shortcut in Launcher 
+
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-3" >
         <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#UPDATE_DEVICE_STATS">UPDATE_DEVICE_STATS</a></td>
-        <td class="jd-descrcol" width="100%">Allows an application to update device statistics.</td>
+        <td class="jd-descrcol" width="100%">
+          Allows an application to update device statistics.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-5" >
         <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#USE_CREDENTIALS">USE_CREDENTIALS</a></td>
-        <td class="jd-descrcol" width="100%">Allows an application to request authtokens from the AccountManager 
-</td>
+        <td class="jd-descrcol" width="100%">
+          Allows an application to request authtokens from the AccountManager 
+
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-9" >
         <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#USE_SIP">USE_SIP</a></td>
-        <td class="jd-descrcol" width="100%">Allows an application to use SIP service 
-</td>
+        <td class="jd-descrcol" width="100%">
+          Allows an application to use SIP service 
+
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#VIBRATE">VIBRATE</a></td>
-        <td class="jd-descrcol" width="100%">Allows access to the vibrator 
-</td>
+        <td class="jd-descrcol" width="100%">
+          Allows access to the vibrator 
+
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#WAKE_LOCK">WAKE_LOCK</a></td>
-        <td class="jd-descrcol" width="100%">Allows using PowerManager WakeLocks to keep processor from sleeping or screen
+        <td class="jd-descrcol" width="100%">
+          Allows using PowerManager WakeLocks to keep processor from sleeping or screen
          from dimming 
-</td>
+
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#WRITE_APN_SETTINGS">WRITE_APN_SETTINGS</a></td>
-        <td class="jd-descrcol" width="100%">Allows applications to write the apn settings.</td>
+        <td class="jd-descrcol" width="100%">
+          Allows applications to write the apn settings.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#WRITE_CALENDAR">WRITE_CALENDAR</a></td>
-        <td class="jd-descrcol" width="100%">Allows an application to write (but not read) the user's
-         calendar data.</td>
+        <td class="jd-descrcol" width="100%">
+          Allows an application to write (but not read) the user's
+         calendar data.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-16" >
         <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#WRITE_CALL_LOG">WRITE_CALL_LOG</a></td>
-        <td class="jd-descrcol" width="100%">Allows an application to write (but not read) the user's
-         contacts data.</td>
+        <td class="jd-descrcol" width="100%">
+          Allows an application to write (but not read) the user's
+         contacts data.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#WRITE_CONTACTS">WRITE_CONTACTS</a></td>
-        <td class="jd-descrcol" width="100%">Allows an application to write (but not read) the user's
-         contacts data.</td>
+        <td class="jd-descrcol" width="100%">
+          Allows an application to write (but not read) the user's
+         contacts data.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-4" >
         <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#WRITE_EXTERNAL_STORAGE">WRITE_EXTERNAL_STORAGE</a></td>
-        <td class="jd-descrcol" width="100%">Allows an application to write to external storage.</td>
+        <td class="jd-descrcol" width="100%">
+          Allows an application to write to external storage.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#WRITE_GSERVICES">WRITE_GSERVICES</a></td>
-        <td class="jd-descrcol" width="100%">Allows an application to modify the Google service map.</td>
+        <td class="jd-descrcol" width="100%">
+          Allows an application to modify the Google service map.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-4" >
         <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#WRITE_HISTORY_BOOKMARKS">WRITE_HISTORY_BOOKMARKS</a></td>
-        <td class="jd-descrcol" width="100%">Allows an application to write (but not read) the user's
-        browsing history and bookmarks.</td>
+        <td class="jd-descrcol" width="100%">
+          Allows an application to write (but not read) the user's
+        browsing history and bookmarks.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-14" >
         <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#WRITE_PROFILE">WRITE_PROFILE</a></td>
-        <td class="jd-descrcol" width="100%">Allows an application to write (but not read) the user's
-         personal profile data.</td>
+        <td class="jd-descrcol" width="100%">
+          Allows an application to write (but not read) the user's
+         personal profile data.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-3" >
         <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#WRITE_SECURE_SETTINGS">WRITE_SECURE_SETTINGS</a></td>
-        <td class="jd-descrcol" width="100%">Allows an application to read or write the secure system settings.</td>
+        <td class="jd-descrcol" width="100%">
+          Allows an application to read or write the secure system settings.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#WRITE_SETTINGS">WRITE_SETTINGS</a></td>
-        <td class="jd-descrcol" width="100%">Allows an application to read or write the system settings.</td>
+        <td class="jd-descrcol" width="100%">
+          Allows an application to read or write the system settings.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#WRITE_SMS">WRITE_SMS</a></td>
-        <td class="jd-descrcol" width="100%">Allows an application to write SMS messages.</td>
+        <td class="jd-descrcol" width="100%">
+          Allows an application to write SMS messages.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-15" >
         <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#WRITE_SOCIAL_STREAM">WRITE_SOCIAL_STREAM</a></td>
-        <td class="jd-descrcol" width="100%">Allows an application to write (but not read) the user's
-         social stream data.</td>
+        <td class="jd-descrcol" width="100%">
+          <em>
+      This constant was deprecated
+      in API level 21.
+    This functionality will be unsupported in the future; cursors returned
+         will be empty. Please do not use. 
+</em>
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#WRITE_SYNC_SETTINGS">WRITE_SYNC_SETTINGS</a></td>
-        <td class="jd-descrcol" width="100%">Allows applications to write the sync settings 
-</td>
+        <td class="jd-descrcol" width="100%">
+          Allows applications to write the sync settings 
+
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-16" >
         <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#WRITE_USER_DICTIONARY">WRITE_USER_DICTIONARY</a></td>
-        <td class="jd-descrcol" width="100%">Allows an application to write to the user dictionary.</td>
+        <td class="jd-descrcol" width="100%">
+          Allows an application to write to the user dictionary.
+          
+    
+
+        </td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-21" >
+        <td class="jd-typecol"><a href="../../reference/java/lang/String.html">String</a></td>
+        <td class="jd-linkcol"><a href="../../reference/android/Manifest.permission.html#WRITE_VOICEMAIL">WRITE_VOICEMAIL</a></td>
+        <td class="jd-descrcol" width="100%">
+          Allows an application to modify and remove existing voicemails in the system 
+
+          
+    
+
+        </td>
     </tr>
     
     
@@ -2352,7 +3190,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../reference/java/lang/Object.html#clone()">clone</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Creates and returns a copy of this <code>Object</code>.</div>
+        <div class="jd-descrdiv">
+          Creates and returns a copy of this <code>Object</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2370,8 +3213,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../reference/java/lang/Object.html#equals(java.lang.Object)">equals</a></span>(<a href="../../reference/java/lang/Object.html">Object</a> o)</nobr>
         
-        <div class="jd-descrdiv">Compares this instance with the specified object and indicates if they
- are equal.</div>
+        <div class="jd-descrdiv">
+          Compares this instance with the specified object and indicates if they
+ are equal.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2389,7 +3237,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../reference/java/lang/Object.html#finalize()">finalize</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Invoked when the garbage collector has detected that this instance is no longer reachable.</div>
+        <div class="jd-descrdiv">
+          Invoked when the garbage collector has detected that this instance is no longer reachable.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2407,8 +3260,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../reference/java/lang/Object.html#getClass()">getClass</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns the unique instance of <code><a href="../../reference/java/lang/Class.html">Class</a></code> that represents this
- object's class.</div>
+        <div class="jd-descrdiv">
+          Returns the unique instance of <code><a href="../../reference/java/lang/Class.html">Class</a></code> that represents this
+ object's class.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2426,7 +3284,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../reference/java/lang/Object.html#hashCode()">hashCode</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns an integer hash code for this object.</div>
+        <div class="jd-descrdiv">
+          Returns an integer hash code for this object.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2444,8 +3307,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../reference/java/lang/Object.html#notify()">notify</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Causes a thread which is waiting on this object's monitor (by means of
- calling one of the <code>wait()</code> methods) to be woken up.</div>
+        <div class="jd-descrdiv">
+          Causes a thread which is waiting on this object's monitor (by means of
+ calling one of the <code>wait()</code> methods) to be woken up.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2463,8 +3331,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../reference/java/lang/Object.html#notifyAll()">notifyAll</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Causes all threads which are waiting on this object's monitor (by means
- of calling one of the <code>wait()</code> methods) to be woken up.</div>
+        <div class="jd-descrdiv">
+          Causes all threads which are waiting on this object's monitor (by means
+ of calling one of the <code>wait()</code> methods) to be woken up.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2482,8 +3355,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../reference/java/lang/Object.html#toString()">toString</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns a string containing a concise, human-readable description of this
- object.</div>
+        <div class="jd-descrdiv">
+          Returns a string containing a concise, human-readable description of this
+ object.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2501,7 +3379,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../reference/java/lang/Object.html#wait()">wait</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object.</div>
+        <div class="jd-descrdiv">
+          Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2519,8 +3402,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../reference/java/lang/Object.html#wait(long, int)">wait</a></span>(long millis, int nanos)</nobr>
         
-        <div class="jd-descrdiv">Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object or until the
- specified timeout expires.</div>
+        <div class="jd-descrdiv">
+          Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object or until the
+ specified timeout expires.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2538,8 +3426,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../reference/java/lang/Object.html#wait(long)">wait</a></span>(long millis)</nobr>
         
-        <div class="jd-descrdiv">Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object or until the
- specified timeout expires.</div>
+        <div class="jd-descrdiv">
+          Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object or until the
+ specified timeout expires.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2600,6 +3493,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Allows read/write access to the "properties" table in the checkin
          database, to change values that get uploaded.
          <p>Not for use by third-party applications. 
@@ -2641,6 +3537,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Allows an app to access approximate location derived from network location
          sources such as cell towers and Wi-Fi. 
 </p></div>
@@ -2680,6 +3579,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Allows an app to access precise location from location sources such
          as GPS, cell towers, and Wi-Fi. 
@@ -2721,6 +3623,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Allows an application to access extra location provider commands 
 </p></div>
 
@@ -2759,6 +3664,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Allows an application to create mock location providers for testing 
 </p></div>
@@ -2799,6 +3707,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Allows applications to access information about networks 
 </p></div>
 
@@ -2837,6 +3748,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Allows an application to use SurfaceFlinger's low level features.
     <p>Not for use by third-party applications. 
@@ -2878,6 +3792,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Allows applications to access information about Wi-Fi networks 
 </p></div>
 
@@ -2916,6 +3833,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Allows applications to call into AccountAuthenticators.
     <p>Not for use by third-party applications. 
@@ -2957,6 +3877,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Allows an application to add voicemails into the system. 
 </p></div>
 
@@ -2995,6 +3918,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Allows an application to act as an AccountAuthenticator for
          the AccountManager 
@@ -3036,6 +3962,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Allows an application to collect battery statistics 
 </p></div>
 
@@ -3074,6 +4003,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Must be required by an <code><a href="../../reference/android/accessibilityservice/AccessibilityService.html">AccessibilityService</a></code>,
          to ensure that only the system can bind to it. 
@@ -3114,6 +4046,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Allows an application to tell the AppWidget service which application
          can access AppWidget's data.  The normal user flow is that a user
@@ -3159,6 +4094,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Must be required by device administration receiver, to ensure that only the
          system can interact with it. 
 </p></div>
@@ -3169,6 +4107,49 @@ From class
         <span>
             
                 "android.permission.BIND_DEVICE_ADMIN"
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="BIND_DREAM_SERVICE"></A>
+
+<div class="jd-details api apilevel-21"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../reference/java/lang/String.html">String</a>
+      </span>
+        BIND_DREAM_SERVICE
+    </h4>
+      <div class="api-level">
+        
+  Added in <a href="../../guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 21</a>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+    
+
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Must be required by an <code><a href="../../reference/android/service/dreams/DreamService.html">DreamService</a></code>,
+         to ensure that only the system can bind to it. 
+</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                "android.permission.BIND_DREAM_SERVICE"
             
         </span>
         </div>
@@ -3198,6 +4179,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Must be required by an <code><a href="../../reference/android/inputmethodservice/InputMethodService.html">InputMethodService</a></code>,
          to ensure that only the system can bind to it. 
@@ -3238,6 +4222,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Must be required by a <code><a href="../../reference/android/nfc/cardemulation/HostApduService.html">HostApduService</a></code>
          or <code><a href="../../reference/android/nfc/cardemulation/OffHostApduService.html">OffHostApduService</a></code> to ensure that only
@@ -3280,6 +4267,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Must be required by an <code><a href="../../reference/android/service/notification/NotificationListenerService.html">NotificationListenerService</a></code>,
          to ensure that only the system can bind to it. 
 </p></div>
@@ -3319,6 +4309,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Must be required by a <code><a href="../../reference/android/printservice/PrintService.html">PrintService</a></code>,
          to ensure that only the system can bind to it. 
@@ -3360,6 +4353,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Must be required by a <code><a href="../../reference/android/widget/RemoteViewsService.html">RemoteViewsService</a></code>,
          to ensure that only the system can bind to it. 
 </p></div>
@@ -3400,6 +4396,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Must be required by a TextService (e.g. SpellCheckerService)
          to ensure that only the system can bind to it. 
 </p></div>
@@ -3421,7 +4420,7 @@ From class
 
 <A NAME="BIND_TV_INPUT"></A>
 
-<div class="jd-details api apilevel-"> 
+<div class="jd-details api apilevel-21"> 
     <h4 class="jd-details-title">
       <span class="normal">
         public 
@@ -3433,11 +4432,15 @@ From class
     </h4>
       <div class="api-level">
         
+  Added in <a href="../../guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 21</a>
         
   
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Must be required by a <code><a href="../../reference/android/media/tv/TvInputService.html">TvInputService</a></code>
          to ensure that only the system can bind to it. 
@@ -3460,7 +4463,7 @@ From class
 
 <A NAME="BIND_VOICE_INTERACTION"></A>
 
-<div class="jd-details api apilevel-"> 
+<div class="jd-details api apilevel-21"> 
     <h4 class="jd-details-title">
       <span class="normal">
         public 
@@ -3472,11 +4475,15 @@ From class
     </h4>
       <div class="api-level">
         
+  Added in <a href="../../guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 21</a>
         
   
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Must be required by a <code><a href="../../reference/android/service/voice/VoiceInteractionService.html">VoiceInteractionService</a></code>,
          to ensure that only the system can bind to it. 
@@ -3518,6 +4525,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Must be required by a <code><a href="../../reference/android/net/VpnService.html">VpnService</a></code>,
          to ensure that only the system can bind to it. 
 </p></div>
@@ -3557,6 +4567,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Must be required by a <code><a href="../../reference/android/service/wallpaper/WallpaperService.html">WallpaperService</a></code>,
          to ensure that only the system can bind to it. 
@@ -3598,6 +4611,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Allows applications to connect to paired bluetooth devices 
 </p></div>
 
@@ -3636,6 +4652,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Allows applications to discover and pair bluetooth devices 
 </p></div>
@@ -3676,7 +4695,11 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Allows applications to pair bluetooth devices without user interaction.
+    
+
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Allows applications to pair bluetooth devices without user interaction, and to
+         allow or disallow phonebook access or message access.
          This is not available to third party applications. 
 </p></div>
 
@@ -3697,7 +4720,7 @@ From class
 
 <A NAME="BODY_SENSORS"></A>
 
-<div class="jd-details api apilevel-"> 
+<div class="jd-details api apilevel-20"> 
     <h4 class="jd-details-title">
       <span class="normal">
         public 
@@ -3709,11 +4732,15 @@ From class
     </h4>
       <div class="api-level">
         
+  Added in <a href="../../guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 20</a>
         
   
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Allows an application to access data from sensors that the user uses to
          measure what is happening inside his/her body, such as heart rate. 
@@ -3755,6 +4782,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Required to be able to disable the device (very dangerous!).
     <p>Not for use by third-party applications.. 
 </p></div>
@@ -3794,6 +4824,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Allows an application to broadcast a notification that an application
          package has been removed.
@@ -3836,6 +4869,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Allows an application to broadcast an SMS receipt notification.
     <p>Not for use by third-party applications. 
 </p></div>
@@ -3875,6 +4911,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Allows an application to broadcast sticky intents.  These are
          broadcasts whose data is held by the system after being finished,
@@ -3918,6 +4957,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Allows an application to broadcast a WAP PUSH receipt notification.
     <p>Not for use by third-party applications. 
 </p></div>
@@ -3957,6 +4999,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Allows an application to initiate a phone call without going through
          the Dialer user interface for the user to confirm the call
@@ -3999,6 +5044,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Allows an application to call any phone number, including emergency
          numbers, without going through the Dialer user interface for the user
          to confirm the call being placed.
@@ -4040,6 +5088,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Required to be able to access the camera device.
          <p>This will automatically enforce the <a
@@ -4085,6 +5136,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Allows an application to capture audio output.
          <p>Not for use by third-party applications.</p> 
 </p></div>
@@ -4124,6 +5178,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Allows an application to capture secure video output.
          <p>Not for use by third-party applications.</p> 
@@ -4165,6 +5222,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Allows an application to capture video output.
          <p>Not for use by third-party applications.</p> 
 </p></div>
@@ -4204,6 +5264,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Allows an application to change whether an application component (other than its own) is
          enabled or not.
@@ -4246,6 +5309,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Allows an application to modify the current configuration, such
          as locale. 
 </p></div>
@@ -4286,6 +5352,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Allows applications to change network connectivity state 
 </p></div>
 
@@ -4324,6 +5393,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Allows applications to enter Wi-Fi Multicast mode 
 </p></div>
@@ -4364,6 +5436,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Allows applications to change Wi-Fi connectivity state 
 </p></div>
 
@@ -4402,6 +5477,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Allows an application to clear the caches of all installed
          applications on the device.  
@@ -4443,6 +5521,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Allows an application to clear user data.
     <p>Not for use by third-party applications. 
 </p></div>
@@ -4482,6 +5563,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Allows enabling/disabling location update notifications from
          the radio.
@@ -4524,6 +5608,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Allows an application to delete cache files.
     <p>Not for use by third-party applications. 
 </p></div>
@@ -4563,6 +5650,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Allows an application to delete packages.
     <p>Not for use by third-party applications. 
@@ -4604,6 +5694,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Allows low-level access to power management.
    <p>Not for use by third-party applications. 
 </p></div>
@@ -4643,6 +5736,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Allows applications to RW to diagnostic resources.
     <p>Not for use by third-party applications. 
@@ -4684,6 +5780,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Allows applications to disable the keyguard 
 </p></div>
 
@@ -4722,6 +5821,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Allows an application to retrieve state dump information from system services.
     <p>Not for use by third-party applications. 
@@ -4763,6 +5865,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Allows an application to expand or collapse the status bar. 
 </p></div>
 
@@ -4801,6 +5906,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Run as a manufacturer test application, running as the root user.
          Only available when the device is running in manufacturer test mode.
@@ -4843,6 +5951,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Allows access to the flashlight 
 </p></div>
 
@@ -4881,6 +5992,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Allows an application to force a BACK operation on whatever is the
          top activity.
@@ -4923,6 +6037,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Allows access to the list of accounts in the Accounts Service 
 </p></div>
 
@@ -4961,6 +6078,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Allows an application to find out the space used by any package. 
 </p></div>
@@ -5001,9 +6121,16 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Allows an application to get information about the currently
-         or recently running tasks. 
-</p></div>
+    
+
+      <p>
+  <p class="caution"><strong>
+      This constant was deprecated
+      in API level 21.</strong><br/>
+    No longer enforced. 
+
+  </p>
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
         <div class="jd-tagdata">
@@ -5040,6 +6167,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Allows an application to retrieve private information about
          the current top activity, such as any assist context it can provide.
@@ -5081,6 +6211,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>This permission can be used on content providers to allow the global
          search system to access their data.  Typically it used when the
@@ -5128,6 +6261,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Allows access to hardware peripherals.  Intended only for hardware testing.
     <p>Not for use by third-party applications. 
 </p></div>
@@ -5167,6 +6303,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Allows an application to inject user events (keys, touch, trackball)
          into the event stream and deliver them to ANY window.  Without this
@@ -5210,6 +6349,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Allows an application to install a location provider into the Location Manager.
     <p>Not for use by third-party applications. 
 </p></div>
@@ -5249,6 +6391,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Allows an application to install packages.
     <p>Not for use by third-party applications. 
@@ -5290,6 +6435,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Allows an application to install a shortcut in Launcher 
 </p></div>
 
@@ -5328,6 +6476,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Allows an application to open windows that are for use by parts
          of the system user interface.
@@ -5370,6 +6521,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Allows applications to open network sockets. 
 </p></div>
 
@@ -5408,6 +6562,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Allows an application to call
         <code><a href="../../reference/android/app/ActivityManager.html#killBackgroundProcesses(java.lang.String)">killBackgroundProcesses(String)</a></code>. 
@@ -5448,6 +6605,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Allows an application to use location features in hardware,
          such as the geofencing api.
@@ -5490,6 +6650,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Allows an application to manage the list of accounts in the AccountManager 
 </p></div>
 
@@ -5528,6 +6691,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Allows an application to manage (create, destroy,
          Z-order) application tokens in the window manager.
@@ -5570,6 +6736,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Allows an application to manage access to documents, usually as part
          of a document picker. 
 </p></div>
@@ -5610,6 +6779,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Not for use by third-party applications. 
 </p></div>
 
@@ -5648,6 +6820,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Allows an application to know what content is playing and control its playback.
          <p>Not for use by third-party applications due to privacy of media consumption</p>  
@@ -5689,6 +6864,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Allows an application to modify global audio settings 
 </p></div>
 
@@ -5727,6 +6905,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Allows modification of the telephony state - power on, mmi, etc.
          Does not include placing calls.
@@ -5769,6 +6950,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Allows formatting file systems for removable storage.
     <p>Not for use by third-party applications. 
 </p></div>
@@ -5808,6 +6992,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Allows mounting and unmounting file systems for removable storage.
     <p>Not for use by third-party applications.
@@ -5849,6 +7036,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Allows applications to perform I/O operations over NFC 
 </p></div>
 
@@ -5887,6 +7077,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       <p>
   <p class="caution"><strong>
       This constant was deprecated
@@ -5933,6 +7126,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Allows an application to see the number being dialed during an outgoing
          call with the option to redirect the call to a different number or
          abort the call altogether. 
@@ -5974,6 +7170,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Allows an application to read the user's calendar data. 
 </p></div>
 
@@ -6012,6 +7211,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Allows an application to read the user's call log.
          <p class="note"><strong>Note:</strong> If your app uses the
@@ -6058,6 +7260,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Allows an application to read the user's contacts data. 
 </p></div>
 
@@ -6096,6 +7301,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Allows an application to read from external storage.
          <p>Any app that declares the <code><a href="../../reference/android/Manifest.permission.html#WRITE_EXTERNAL_STORAGE">WRITE_EXTERNAL_STORAGE</a></code> permission is implicitly
@@ -6152,6 +7360,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Allows an application to take screen shots and more generally
          get access to the frame buffer data.
          <p>Not for use by third-party applications. 
@@ -6193,6 +7404,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Allows an application to read (but not write) the user's
         browsing history and bookmarks. 
 </p></div>
@@ -6232,6 +7446,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       <p>
   <p class="caution"><strong>
       This constant was deprecated
@@ -6279,6 +7496,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Allows an application to read the low-level system log files.
     <p>Not for use by third-party applications, because
     Log entries can contain the user's private information. 
@@ -6319,6 +7539,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Allows read only access to phone state.
          <p class="note"><strong>Note:</strong> If <em>both</em> your <a
@@ -6364,6 +7587,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Allows an application to read the user's personal profile data. 
 </p></div>
 
@@ -6402,6 +7628,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Allows an application to read SMS messages. 
 </p></div>
@@ -6442,8 +7671,17 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Allows an application to read from the user's social stream. 
-</p></div>
+    
+
+      <p>
+  <p class="caution"><strong>
+      This constant was deprecated
+      in API level 21.</strong><br/>
+    This functionality will be unsupported in the future; cursors returned
+       will be empty. Please do not use. 
+
+  </p>
+  <div class="jd-tagdata jd-tagdescr"><p>Allows an application to read from the user's social stream.</p></div>
 
     
         <div class="jd-tagdata">
@@ -6480,6 +7718,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Allows applications to read the sync settings 
 </p></div>
@@ -6520,6 +7761,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Allows applications to read the sync stats 
 </p></div>
 
@@ -6559,6 +7803,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Allows an application to read the user dictionary. This should
          really only be required by an IME, or a dictionary editor like
          the Settings app. 
@@ -6570,6 +7817,48 @@ From class
         <span>
             
                 "android.permission.READ_USER_DICTIONARY"
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="READ_VOICEMAIL"></A>
+
+<div class="jd-details api apilevel-21"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../reference/java/lang/String.html">String</a>
+      </span>
+        READ_VOICEMAIL
+    </h4>
+      <div class="api-level">
+        
+  Added in <a href="../../guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 21</a>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+    
+
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Allows an application to read voicemails in the system. 
+</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                "com.android.voicemail.permission.READ_VOICEMAIL"
             
         </span>
         </div>
@@ -6599,6 +7888,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Required to be able to reboot the device.
     <p>Not for use by third-party applications. 
@@ -6639,6 +7931,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Allows an application to receive the
          <code><a href="../../reference/android/content/Intent.html#ACTION_BOOT_COMPLETED">ACTION_BOOT_COMPLETED</a></code> that is
@@ -6689,6 +7984,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Allows an application to monitor incoming MMS messages, to record
          or perform processing on them. 
 </p></div>
@@ -6728,6 +8026,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Allows an application to monitor incoming SMS messages, to record
          or perform processing on them. 
@@ -6769,6 +8070,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Allows an application to monitor incoming WAP push messages. 
 </p></div>
 
@@ -6807,6 +8111,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Allows an application to record audio 
 </p></div>
@@ -6847,6 +8154,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Allows an application to change the Z-order of tasks 
 </p></div>
 
@@ -6885,6 +8195,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       <p>
   <p class="caution"><strong>
       This constant was deprecated
@@ -6931,6 +8244,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Allows an application (Phone) to send a request to other applications
          to handle the respond-via-message action during incoming calls.
          <p>Not for use by third-party applications. 
@@ -6972,6 +8288,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Allows an application to send SMS messages. 
 </p></div>
 
@@ -7010,6 +8329,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Allows an application to watch and control how activities are
          started globally in the system.  Only for is in debugging
@@ -7053,6 +8375,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Allows an application to broadcast an Intent to set an alarm for the
          user. 
 </p></div>
@@ -7092,6 +8417,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Allows an application to control whether activities are immediately
          finished when put in the background.
@@ -7134,6 +8462,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Modify the global animation scaling factor.
     <p>Not for use by third-party applications. 
 </p></div>
@@ -7174,6 +8505,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Configure an application for debugging.
     <p>Not for use by third-party applications. 
 </p></div>
@@ -7213,6 +8547,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Allows low-level access to setting the orientation (actually
          rotation) of the screen.
@@ -7255,6 +8592,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Allows low-level access to setting the pointer speed.
          <p>Not for use by third-party applications. 
 </p></div>
@@ -7294,6 +8634,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       <p>
   <p class="caution"><strong>
       This constant was deprecated
@@ -7341,6 +8684,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Allows an application to set the maximum number of (not needed)
          application processes that can be running.
          <p>Not for use by third-party applications. 
@@ -7382,6 +8728,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Allows applications to set the system time.
     <p>Not for use by third-party applications. 
 </p></div>
@@ -7422,6 +8771,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Allows applications to set the system time zone 
 </p></div>
 
@@ -7460,6 +8812,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Allows applications to set the wallpaper 
 </p></div>
@@ -7500,6 +8855,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Allows applications to set the wallpaper hints 
 </p></div>
 
@@ -7538,6 +8896,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Allow an application to request that a signal be sent to all persistent processes.
     <p>Not for use by third-party applications. 
@@ -7578,6 +8939,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Allows an application to open, close, or disable the status bar
          and its icons.
@@ -7620,6 +8984,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Allows an application to allow access the subscribed feeds
          ContentProvider. 
 </p></div>
@@ -7660,6 +9027,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
@@ -7697,6 +9067,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Allows an application to open windows using the type
          <code><a href="../../reference/android/view/WindowManager.LayoutParams.html#TYPE_SYSTEM_ALERT">TYPE_SYSTEM_ALERT</a></code>,
@@ -7741,6 +9114,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Allows using the device's IR transmitter, if available 
 </p></div>
 
@@ -7780,6 +9156,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Allows an application to uninstall a shortcut in Launcher 
 </p></div>
 
@@ -7818,6 +9197,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Allows an application to update device statistics.
     <p>Not for use by third-party applications. 
@@ -7859,6 +9241,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Allows an application to request authtokens from the AccountManager 
 </p></div>
 
@@ -7897,6 +9282,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Allows an application to use SIP service 
 </p></div>
@@ -7937,6 +9325,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Allows access to the vibrator 
 </p></div>
 
@@ -7975,6 +9366,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Allows using PowerManager WakeLocks to keep processor from sleeping or screen
          from dimming 
@@ -8016,6 +9410,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Allows applications to write the apn settings.
     <p>Not for use by third-party applications. 
 </p></div>
@@ -8056,6 +9453,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Allows an application to write (but not read) the user's
          calendar data. 
 </p></div>
@@ -8095,6 +9495,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Allows an application to write (but not read) the user's
          contacts data.
@@ -8142,6 +9545,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Allows an application to write (but not read) the user's
          contacts data. 
 </p></div>
@@ -8181,6 +9587,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Allows an application to write to external storage.
          <p class="note"><strong>Note:</strong> If <em>both</em> your <a
@@ -8230,6 +9639,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Allows an application to modify the Google service map.
     <p>Not for use by third-party applications. 
 </p></div>
@@ -8269,6 +9681,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Allows an application to write (but not read) the user's
         browsing history and bookmarks. 
@@ -8310,6 +9725,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Allows an application to write (but not read) the user's
          personal profile data. 
 </p></div>
@@ -8349,6 +9767,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Allows an application to read or write the secure system settings.
     <p>Not for use by third-party applications. 
@@ -8390,6 +9811,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Allows an application to read or write the system settings. 
 </p></div>
 
@@ -8428,6 +9852,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Allows an application to write SMS messages. 
 </p></div>
@@ -8468,9 +9895,18 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      <p>
+  <p class="caution"><strong>
+      This constant was deprecated
+      in API level 21.</strong><br/>
+    This functionality will be unsupported in the future; cursors returned
+         will be empty. Please do not use. 
+
+  </p>
   <div class="jd-tagdata jd-tagdescr"><p>Allows an application to write (but not read) the user's
-         social stream data. 
-</p></div>
+         social stream data.</p></div>
 
     
         <div class="jd-tagdata">
@@ -8507,6 +9943,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Allows applications to write the sync settings 
 </p></div>
@@ -8547,6 +9986,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Allows an application to write to the user dictionary. 
 </p></div>
 
@@ -8556,6 +9998,48 @@ From class
         <span>
             
                 "android.permission.WRITE_USER_DICTIONARY"
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="WRITE_VOICEMAIL"></A>
+
+<div class="jd-details api apilevel-21"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../reference/java/lang/String.html">String</a>
+      </span>
+        WRITE_VOICEMAIL
+    </h4>
+      <div class="api-level">
+        
+  Added in <a href="../../guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 21</a>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+    
+
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Allows an application to modify and remove existing voicemails in the system 
+</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                "com.android.voicemail.permission.WRITE_VOICEMAIL"
             
         </span>
         </div>
@@ -8600,6 +10084,9 @@ From class
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 

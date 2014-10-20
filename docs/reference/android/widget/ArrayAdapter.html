@@ -82,6 +82,19 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 <html>
 <head>
 
@@ -97,7 +110,7 @@
 href="http://fonts.useso.com/css?family=Roboto+Condensed">
 <link rel="stylesheet" href="http://fonts.useso.com/css?family=Roboto:light,regular,medium,thin,italic,mediumitalic,bold"
   title="roboto">
-<link href="../../../assets/css/default.css" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/default.css?v=2" rel="stylesheet" type="text/css">
 
 
 <!-- FULLSCREEN STYLESHEET -->
@@ -106,30 +119,31 @@ type="text/css">
 
 
 <!-- JAVASCRIPT -->
-<script src="http://googleapiscdn.qiniudn.com/www.google.com/jsapi" type="text/javascript"></script>
+<script src="http://www.google.com/jsapi" type="text/javascript"></script>
 <script src="../../../assets/js/android_3p-bundle.js" type="text/javascript"></script>
 <script type="text/javascript">
   var toRoot = "../../../";
   var metaTags = [];
   var devsite = false;
 </script>
-<script src="../../../assets/js/docs.js" type="text/javascript"></script>
+<script src="../../../assets/js/docs.js?v=2" type="text/javascript"></script>
 
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-5831155-1']);
-  _gaq.push(['_trackPageview']);
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
+  ga('create', 'UA-5831155-1', 'android.com');
+  ga('create', 'UA-49880327-2', 'android.com', {'name': 'universal'});  // New tracker);
+  ga('send', 'pageview');
+  ga('universal.send', 'pageview'); // Send page view for new tracker.
 </script>
+
 </head>
 
 <body class="gc-documentation 
-  develop" itemscope itemtype="http://schema.org/Article">
+  develop reference" itemscope itemtype="http://schema.org/Article">
   <div id="doc-api-level" class="1" style="display:none"></div>
   <a name="top"></a>
 
@@ -139,6 +153,10 @@ type="text/css">
   <!-- Header -->
   <div id="header-wrapper">
     <div id="header">
+
+    
+
+
       <div class="wrap" id="header-wrap">
         <div class="col-3 logo">
           <a href="../../../index.html">
@@ -260,11 +278,20 @@ type="text/css">
 
 
         <!-- Expanded quicknav -->
-        <div id="quicknav" class="col-9">
+        <div id="quicknav" class="col-13">
           <ul>
+            <li class="about">
+              <ul>
+                <li><a href="../../../about/index.html">About</a></li>
+                <li><a href="../../../wear/index.html">Wear</a></li>
+                <li><a href="../../../tv/index.html">TV</a></li>
+                <li><a href="../../../auto/index.html">Auto</a></li>
+              </ul>
+            </li>
             <li class="design">
               <ul>
                 <li><a href="../../../design/index.html">Get Started</a></li>
+                <li><a href="../../../design/devices.html">Devices</a></li>
                 <li><a href="../../../design/style/index.html">Style</a></li>
                 <li><a href="../../../design/patterns/index.html">Patterns</a></li>
                 <li><a href="../../../design/building-blocks/index.html">Building Blocks</a></li>
@@ -298,7 +325,7 @@ type="text/css">
                   ja-lang="リファレンス"
                   es-lang="Referencia"
                   >Reference</a></li>
-                <li><a href="../../../tools/index.html"
+                <li><a href="../../../sdk/index.html"
                   zh-tw-lang="相關工具"
                   zh-cn-lang="工具"
                   ru-lang="Инструменты"
@@ -306,7 +333,6 @@ type="text/css">
                   ja-lang="ツール"
                   es-lang="Herramientas"
                   >Tools</a>
-                  <ul><li><a href="../../../sdk/index.html">Get the SDK</a></li></ul>
                 </li>
                 <li><a href="../../../google/index.html">Google Services</a>
                 </li>
@@ -358,7 +384,7 @@ type="text/css">
                   ja-lang="リファレンス"
                   es-lang="Referencia"
                   >Reference</a></li>
-                <li class="tools"><a href="../../../tools/index.html"
+                <li class="tools"><a href="../../../sdk/index.html"
                   zh-tw-lang="相關工具"
                   zh-cn-lang="工具"
                   ru-lang="Инструменты"
@@ -373,7 +399,7 @@ type="text/css">
             </ul>
         </div>
     </div>
-    <!-- /Sendondary x-nav -->
+    <!-- /Sendondary x-nav DEVELOP -->
 
   
 
@@ -414,7 +440,7 @@ type="text/css">
         <div id="api-nav-title">Android APIs</div>
         </div><!-- end nav header -->
       <script>
-        var SINCE_DATA = [ '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19' ];
+        var SINCE_DATA = [ '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21' ];
         buildApiLevelSelector();
       </script>
                   
@@ -441,13 +467,15 @@ type="text/css">
   <a href="../../../reference/android/app/admin/package-summary.html">android.app.admin</a></li>
     <li class="api apilevel-8">
   <a href="../../../reference/android/app/backup/package-summary.html">android.app.backup</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/app/job/package-summary.html">android.app.job</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/app/usage/package-summary.html">android.app.usage</a></li>
     <li class="api apilevel-3">
   <a href="../../../reference/android/appwidget/package-summary.html">android.appwidget</a></li>
     <li class="api apilevel-5">
   <a href="../../../reference/android/bluetooth/package-summary.html">android.bluetooth</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/bluetooth/le/package-summary.html">android.bluetooth.le</a></li>
     <li class="api apilevel-1">
   <a href="../../../reference/android/content/package-summary.html">android.content</a></li>
@@ -473,16 +501,14 @@ type="text/css">
   <a href="../../../reference/android/graphics/pdf/package-summary.html">android.graphics.pdf</a></li>
     <li class="api apilevel-1">
   <a href="../../../reference/android/hardware/package-summary.html">android.hardware</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/hardware/camera2/package-summary.html">android.hardware.camera2</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/hardware/camera2/params/package-summary.html">android.hardware.camera2.params</a></li>
     <li class="api apilevel-17">
   <a href="../../../reference/android/hardware/display/package-summary.html">android.hardware.display</a></li>
     <li class="api apilevel-16">
   <a href="../../../reference/android/hardware/input/package-summary.html">android.hardware.input</a></li>
-    <li class="api apilevel-18">
-  <a href="../../../reference/android/hardware/location/package-summary.html">android.hardware.location</a></li>
     <li class="api apilevel-12">
   <a href="../../../reference/android/hardware/usb/package-summary.html">android.hardware.usb</a></li>
     <li class="api apilevel-3">
@@ -493,11 +519,15 @@ type="text/css">
   <a href="../../../reference/android/media/package-summary.html">android.media</a></li>
     <li class="api apilevel-9">
   <a href="../../../reference/android/media/audiofx/package-summary.html">android.media.audiofx</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/media/browse/package-summary.html">android.media.browse</a></li>
     <li class="api apilevel-14">
   <a href="../../../reference/android/media/effect/package-summary.html">android.media.effect</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/media/projection/package-summary.html">android.media.projection</a></li>
+    <li class="api apilevel-21">
   <a href="../../../reference/android/media/session/package-summary.html">android.media.session</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/media/tv/package-summary.html">android.media.tv</a></li>
     <li class="api apilevel-12">
   <a href="../../../reference/android/mtp/package-summary.html">android.mtp</a></li>
@@ -547,11 +577,15 @@ type="text/css">
   <a href="../../../reference/android/security/package-summary.html">android.security</a></li>
     <li class="api apilevel-17">
   <a href="../../../reference/android/service/dreams/package-summary.html">android.service.dreams</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/service/media/package-summary.html">android.service.media</a></li>
     <li class="api apilevel-18">
   <a href="../../../reference/android/service/notification/package-summary.html">android.service.notification</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/service/restrictions/package-summary.html">android.service.restrictions</a></li>
     <li class="api apilevel-14">
   <a href="../../../reference/android/service/textservice/package-summary.html">android.service.textservice</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/service/voice/package-summary.html">android.service.voice</a></li>
     <li class="api apilevel-7">
   <a href="../../../reference/android/service/wallpaper/package-summary.html">android.service.wallpaper</a></li>
@@ -596,11 +630,15 @@ type="text/css">
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/media/package-summary.html">android.support.v4.media</a></li>
     <li class="api apilevel-">
+  <a href="../../../reference/android/support/v4/media/session/package-summary.html">android.support.v4.media.session</a></li>
+    <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/net/package-summary.html">android.support.v4.net</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/os/package-summary.html">android.support.v4.os</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/print/package-summary.html">android.support.v4.print</a></li>
+    <li class="api apilevel-">
+  <a href="../../../reference/android/support/v4/provider/package-summary.html">android.support.v4.provider</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v4/text/package-summary.html">android.support.v4.text</a></li>
     <li class="api apilevel-">
@@ -616,6 +654,10 @@ type="text/css">
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v7/appcompat/package-summary.html">android.support.v7.appcompat</a></li>
     <li class="api apilevel-">
+  <a href="../../../reference/android/support/v7/cardview/package-summary.html">android.support.v7.cardview</a></li>
+    <li class="api apilevel-">
+  <a href="../../../reference/android/support/v7/graphics/package-summary.html">android.support.v7.graphics</a></li>
+    <li class="api apilevel-">
   <a href="../../../reference/android/support/v7/gridlayout/package-summary.html">android.support.v7.gridlayout</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v7/media/package-summary.html">android.support.v7.media</a></li>
@@ -627,8 +669,10 @@ type="text/css">
   <a href="../../../reference/android/support/v7/widget/package-summary.html">android.support.v7.widget</a></li>
     <li class="api apilevel-">
   <a href="../../../reference/android/support/v8/renderscript/package-summary.html">android.support.v8.renderscript</a></li>
-    <li class="api apilevel-">
+    <li class="api apilevel-21">
   <a href="../../../reference/android/system/package-summary.html">android.system</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../reference/android/telecom/package-summary.html">android.telecom</a></li>
     <li class="api apilevel-1">
   <a href="../../../reference/android/telephony/package-summary.html">android.telephony</a></li>
     <li class="api apilevel-5">
@@ -897,7 +941,7 @@ type="text/css">
           <li class="api apilevel-1"><a href="../../../reference/android/widget/AbsListView.OnScrollListener.html">AbsListView.OnScrollListener</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/widget/AbsListView.RecyclerListener.html">AbsListView.RecyclerListener</a></li>
           <li class="api apilevel-11"><a href="../../../reference/android/widget/AbsListView.SelectionBoundsAdjuster.html">AbsListView.SelectionBoundsAdjuster</a></li>
-          <li class="api apilevel-"><a href="../../../reference/android/widget/ActionMenuView.OnMenuItemClickListener.html">ActionMenuView.OnMenuItemClickListener</a></li>
+          <li class="api apilevel-21"><a href="../../../reference/android/widget/ActionMenuView.OnMenuItemClickListener.html">ActionMenuView.OnMenuItemClickListener</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/widget/Adapter.html">Adapter</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/widget/AdapterView.OnItemClickListener.html">AdapterView.OnItemClickListener</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/widget/AdapterView.OnItemLongClickListener.html">AdapterView.OnItemLongClickListener</a></li>
@@ -949,7 +993,7 @@ type="text/css">
           <li class="api apilevel-1"><a href="../../../reference/android/widget/TabHost.TabContentFactory.html">TabHost.TabContentFactory</a></li>
           <li class="api apilevel-3"><a href="../../../reference/android/widget/TextView.OnEditorActionListener.html">TextView.OnEditorActionListener</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/widget/TimePicker.OnTimeChangedListener.html">TimePicker.OnTimeChangedListener</a></li>
-          <li class="api apilevel-"><a href="../../../reference/android/widget/Toolbar.OnMenuItemClickListener.html">Toolbar.OnMenuItemClickListener</a></li>
+          <li class="api apilevel-21"><a href="../../../reference/android/widget/Toolbar.OnMenuItemClickListener.html">Toolbar.OnMenuItemClickListener</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/widget/ViewSwitcher.ViewFactory.html">ViewSwitcher.ViewFactory</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/widget/WrapperListAdapter.html">WrapperListAdapter</a></li>
           <li class="api apilevel-4"><a href="../../../reference/android/widget/ZoomButtonsController.OnZoomListener.html">ZoomButtonsController.OnZoomListener</a></li>
@@ -964,8 +1008,8 @@ type="text/css">
           <li class="api apilevel-1"><a href="../../../reference/android/widget/AbsoluteLayout.LayoutParams.html">AbsoluteLayout.LayoutParams</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/widget/AbsSeekBar.html">AbsSeekBar</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/widget/AbsSpinner.html">AbsSpinner</a></li>
-          <li class="api apilevel-"><a href="../../../reference/android/widget/ActionMenuView.html">ActionMenuView</a></li>
-          <li class="api apilevel-"><a href="../../../reference/android/widget/ActionMenuView.LayoutParams.html">ActionMenuView.LayoutParams</a></li>
+          <li class="api apilevel-21"><a href="../../../reference/android/widget/ActionMenuView.html">ActionMenuView</a></li>
+          <li class="api apilevel-21"><a href="../../../reference/android/widget/ActionMenuView.LayoutParams.html">ActionMenuView.LayoutParams</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/widget/AdapterView.html">AdapterView</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/widget/AdapterView.AdapterContextMenuInfo.html">AdapterView.AdapterContextMenuInfo</a></li>
           <li class="api apilevel-11"><a href="../../../reference/android/widget/AdapterViewAnimator.html">AdapterViewAnimator</a></li>
@@ -1059,8 +1103,8 @@ type="text/css">
           <li class="api apilevel-1"><a href="../../../reference/android/widget/TimePicker.html">TimePicker</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/widget/Toast.html">Toast</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/widget/ToggleButton.html">ToggleButton</a></li>
-          <li class="api apilevel-"><a href="../../../reference/android/widget/Toolbar.html">Toolbar</a></li>
-          <li class="api apilevel-"><a href="../../../reference/android/widget/Toolbar.LayoutParams.html">Toolbar.LayoutParams</a></li>
+          <li class="api apilevel-21"><a href="../../../reference/android/widget/Toolbar.html">Toolbar</a></li>
+          <li class="api apilevel-21"><a href="../../../reference/android/widget/Toolbar.LayoutParams.html">Toolbar.LayoutParams</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/widget/TwoLineListItem.html">TwoLineListItem</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/widget/VideoView.html">VideoView</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/widget/ViewAnimator.html">ViewAnimator</a></li>
@@ -1254,6 +1298,9 @@ Summary:
   
 
 
+    
+
+
 </div><!-- end header -->
 
 <div id="naMessage"></div>
@@ -1384,15 +1431,25 @@ Summary:
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/widget/Adapter.html#IGNORE_ITEM_VIEW_TYPE">IGNORE_ITEM_VIEW_TYPE</a></td>
-        <td class="jd-descrcol" width="100%">An item view type that causes the <code><a href="../../../reference/android/widget/AdapterView.html">AdapterView</a></code> to ignore the item
- view.</td>
+        <td class="jd-descrcol" width="100%">
+          An item view type that causes the <code><a href="../../../reference/android/widget/AdapterView.html">AdapterView</a></code> to ignore the item
+ view.
+          
+    
+
+        </td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/widget/Adapter.html#NO_SELECTION">NO_SELECTION</a></td>
-        <td class="jd-descrcol" width="100%"></td>
+        <td class="jd-descrcol" width="100%">
+          
+          
+    
+
+        </td>
     </tr>
     
     
@@ -1436,7 +1493,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/widget/ArrayAdapter.html#ArrayAdapter(android.content.Context, int)">ArrayAdapter</a></span>(<a href="../../../reference/android/content/Context.html">Context</a> context, int resource)</nobr>
         
-        <div class="jd-descrdiv">Constructor</div>
+        <div class="jd-descrdiv">
+          Constructor
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1454,7 +1516,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/widget/ArrayAdapter.html#ArrayAdapter(android.content.Context, int, int)">ArrayAdapter</a></span>(<a href="../../../reference/android/content/Context.html">Context</a> context, int resource, int textViewResourceId)</nobr>
         
-        <div class="jd-descrdiv">Constructor</div>
+        <div class="jd-descrdiv">
+          Constructor
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1472,7 +1539,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/widget/ArrayAdapter.html#ArrayAdapter(android.content.Context, int, T[])">ArrayAdapter</a></span>(<a href="../../../reference/android/content/Context.html">Context</a> context, int resource, T[] objects)</nobr>
         
-        <div class="jd-descrdiv">Constructor</div>
+        <div class="jd-descrdiv">
+          Constructor
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1490,7 +1562,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/widget/ArrayAdapter.html#ArrayAdapter(android.content.Context, int, int, T[])">ArrayAdapter</a></span>(<a href="../../../reference/android/content/Context.html">Context</a> context, int resource, int textViewResourceId, T[] objects)</nobr>
         
-        <div class="jd-descrdiv">Constructor</div>
+        <div class="jd-descrdiv">
+          Constructor
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1508,7 +1585,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/widget/ArrayAdapter.html#ArrayAdapter(android.content.Context, int, java.util.List<T>)">ArrayAdapter</a></span>(<a href="../../../reference/android/content/Context.html">Context</a> context, int resource, <a href="../../../reference/java/util/List.html">List</a>&lt;T&gt; objects)</nobr>
         
-        <div class="jd-descrdiv">Constructor</div>
+        <div class="jd-descrdiv">
+          Constructor
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1526,7 +1608,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/widget/ArrayAdapter.html#ArrayAdapter(android.content.Context, int, int, java.util.List<T>)">ArrayAdapter</a></span>(<a href="../../../reference/android/content/Context.html">Context</a> context, int resource, int textViewResourceId, <a href="../../../reference/java/util/List.html">List</a>&lt;T&gt; objects)</nobr>
         
-        <div class="jd-descrdiv">Constructor</div>
+        <div class="jd-descrdiv">
+          Constructor
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1557,7 +1644,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/widget/ArrayAdapter.html#add(T)">add</a></span>(T object)</nobr>
         
-        <div class="jd-descrdiv">Adds the specified object at the end of the array.</div>
+        <div class="jd-descrdiv">
+          Adds the specified object at the end of the array.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1575,7 +1667,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/widget/ArrayAdapter.html#addAll(java.util.Collection<? extends T>)">addAll</a></span>(<a href="../../../reference/java/util/Collection.html">Collection</a>&lt;?&nbsp;extends&nbsp;T&gt; collection)</nobr>
         
-        <div class="jd-descrdiv">Adds the specified Collection at the end of the array.</div>
+        <div class="jd-descrdiv">
+          Adds the specified Collection at the end of the array.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1593,7 +1690,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/widget/ArrayAdapter.html#addAll(T...)">addAll</a></span>(T... items)</nobr>
         
-        <div class="jd-descrdiv">Adds the specified items at the end of the array.</div>
+        <div class="jd-descrdiv">
+          Adds the specified items at the end of the array.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1611,7 +1713,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/widget/ArrayAdapter.html#clear()">clear</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Remove all elements from the list.</div>
+        <div class="jd-descrdiv">
+          Remove all elements from the list.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1629,7 +1736,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/widget/ArrayAdapter.html#createFromResource(android.content.Context, int, int)">createFromResource</a></span>(<a href="../../../reference/android/content/Context.html">Context</a> context, int textArrayResId, int textViewResId)</nobr>
         
-        <div class="jd-descrdiv">Creates a new ArrayAdapter from external resources.</div>
+        <div class="jd-descrdiv">
+          Creates a new ArrayAdapter from external resources.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1647,7 +1759,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/widget/ArrayAdapter.html#getContext()">getContext</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns the context associated with this array adapter.</div>
+        <div class="jd-descrdiv">
+          Returns the context associated with this array adapter.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1666,7 +1783,12 @@ Summary:
         <span class="sympad"><a href="../../../reference/android/widget/ArrayAdapter.html#getCount()">getCount</a></span>()</nobr>
         
         <div class="jd-descrdiv">
-</div>
+          
+
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1684,9 +1806,14 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/widget/ArrayAdapter.html#getDropDownView(int, android.view.View, android.view.ViewGroup)">getDropDownView</a></span>(int position, <a href="../../../reference/android/view/View.html">View</a> convertView, <a href="../../../reference/android/view/ViewGroup.html">ViewGroup</a> parent)</nobr>
         
-        <div class="jd-descrdiv"><p>Get a <code><a href="../../../reference/android/view/View.html">View</a></code> that displays in the drop down popup
+        <div class="jd-descrdiv">
+          <p>Get a <code><a href="../../../reference/android/view/View.html">View</a></code> that displays in the drop down popup
  the data at the specified position in the data set.
-</div>
+
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1704,9 +1831,14 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/widget/ArrayAdapter.html#getFilter()">getFilter</a></span>()</nobr>
         
-        <div class="jd-descrdiv"><p>Returns a filter that can be used to constrain data with a filtering
+        <div class="jd-descrdiv">
+          <p>Returns a filter that can be used to constrain data with a filtering
  pattern.
-</div>
+
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1725,7 +1857,12 @@ Summary:
         <span class="sympad"><a href="../../../reference/android/widget/ArrayAdapter.html#getItem(int)">getItem</a></span>(int position)</nobr>
         
         <div class="jd-descrdiv">
-</div>
+          
+
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1744,7 +1881,12 @@ Summary:
         <span class="sympad"><a href="../../../reference/android/widget/ArrayAdapter.html#getItemId(int)">getItemId</a></span>(int position)</nobr>
         
         <div class="jd-descrdiv">
-</div>
+          
+
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1762,7 +1904,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/widget/ArrayAdapter.html#getPosition(T)">getPosition</a></span>(T item)</nobr>
         
-        <div class="jd-descrdiv">Returns the position of the specified item in the array.</div>
+        <div class="jd-descrdiv">
+          Returns the position of the specified item in the array.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1781,7 +1928,12 @@ Summary:
         <span class="sympad"><a href="../../../reference/android/widget/ArrayAdapter.html#getView(int, android.view.View, android.view.ViewGroup)">getView</a></span>(int position, <a href="../../../reference/android/view/View.html">View</a> convertView, <a href="../../../reference/android/view/ViewGroup.html">ViewGroup</a> parent)</nobr>
         
         <div class="jd-descrdiv">
-</div>
+          
+
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1799,7 +1951,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/widget/ArrayAdapter.html#insert(T, int)">insert</a></span>(T object, int index)</nobr>
         
-        <div class="jd-descrdiv">Inserts the specified object at the specified index in the array.</div>
+        <div class="jd-descrdiv">
+          Inserts the specified object at the specified index in the array.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1817,9 +1974,14 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/widget/ArrayAdapter.html#notifyDataSetChanged()">notifyDataSetChanged</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Notifies the attached observers that the underlying data has been changed
+        <div class="jd-descrdiv">
+          Notifies the attached observers that the underlying data has been changed
  and any View reflecting the data set should refresh itself.
-</div>
+
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1837,7 +1999,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/widget/ArrayAdapter.html#remove(T)">remove</a></span>(T object)</nobr>
         
-        <div class="jd-descrdiv">Removes the specified object from the array.</div>
+        <div class="jd-descrdiv">
+          Removes the specified object from the array.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1855,7 +2022,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/widget/ArrayAdapter.html#setDropDownViewResource(int)">setDropDownViewResource</a></span>(int resource)</nobr>
         
-        <div class="jd-descrdiv"><p>Sets the layout resource to create the drop down views.</div>
+        <div class="jd-descrdiv">
+          <p>Sets the layout resource to create the drop down views.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1873,9 +2045,14 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/widget/ArrayAdapter.html#setNotifyOnChange(boolean)">setNotifyOnChange</a></span>(boolean notifyOnChange)</nobr>
         
-        <div class="jd-descrdiv">Control whether methods that change the list (<code><a href="../../../reference/android/widget/ArrayAdapter.html#add(T)">add(T)</a></code>,
+        <div class="jd-descrdiv">
+          Control whether methods that change the list (<code><a href="../../../reference/android/widget/ArrayAdapter.html#add(T)">add(T)</a></code>,
  <code><a href="../../../reference/android/widget/ArrayAdapter.html#insert(T, int)">insert(T, int)</a></code>, <code><a href="../../../reference/android/widget/ArrayAdapter.html#remove(T)">remove(T)</a></code>, <code><a href="../../../reference/android/widget/ArrayAdapter.html#clear()">clear()</a></code>) automatically call
- <code><a href="../../../reference/android/widget/ArrayAdapter.html#notifyDataSetChanged()">notifyDataSetChanged()</a></code>.</div>
+ <code><a href="../../../reference/android/widget/ArrayAdapter.html#notifyDataSetChanged()">notifyDataSetChanged()</a></code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1893,7 +2070,12 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/widget/ArrayAdapter.html#sort(java.util.Comparator<? super T>)">sort</a></span>(<a href="../../../reference/java/util/Comparator.html">Comparator</a>&lt;?&nbsp;super&nbsp;T&gt; comparator)</nobr>
         
-        <div class="jd-descrdiv">Sorts the content of this adapter using the specified comparator.</div>
+        <div class="jd-descrdiv">
+          Sorts the content of this adapter using the specified comparator.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1945,7 +2127,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/widget/BaseAdapter.html#areAllItemsEnabled()">areAllItemsEnabled</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Indicates whether all the items in this adapter are enabled.</div>
+        <div class="jd-descrdiv">
+          Indicates whether all the items in this adapter are enabled.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1963,8 +2150,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/widget/BaseAdapter.html#getDropDownView(int, android.view.View, android.view.ViewGroup)">getDropDownView</a></span>(int position, <a href="../../../reference/android/view/View.html">View</a> convertView, <a href="../../../reference/android/view/ViewGroup.html">ViewGroup</a> parent)</nobr>
         
-        <div class="jd-descrdiv"><p>Get a <code><a href="../../../reference/android/view/View.html">View</a></code> that displays in the drop down popup
- the data at the specified position in the data set.</div>
+        <div class="jd-descrdiv">
+          <p>Get a <code><a href="../../../reference/android/view/View.html">View</a></code> that displays in the drop down popup
+ the data at the specified position in the data set.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -1982,7 +2174,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/widget/BaseAdapter.html#getItemViewType(int)">getItemViewType</a></span>(int position)</nobr>
         
-        <div class="jd-descrdiv">Get the type of View that will be created by <code><a href="../../../reference/android/widget/Adapter.html#getView(int, android.view.View, android.view.ViewGroup)">getView(int, View, ViewGroup)</a></code> for the specified item.</div>
+        <div class="jd-descrdiv">
+          Get the type of View that will be created by <code><a href="../../../reference/android/widget/Adapter.html#getView(int, android.view.View, android.view.ViewGroup)">getView(int, View, ViewGroup)</a></code> for the specified item.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2000,9 +2197,14 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/widget/BaseAdapter.html#getViewTypeCount()">getViewTypeCount</a></span>()</nobr>
         
-        <div class="jd-descrdiv"><p>
+        <div class="jd-descrdiv">
+          <p>
  Returns the number of types of Views that will be created by
- <code><a href="../../../reference/android/widget/Adapter.html#getView(int, android.view.View, android.view.ViewGroup)">getView(int, View, ViewGroup)</a></code>.</div>
+ <code><a href="../../../reference/android/widget/Adapter.html#getView(int, android.view.View, android.view.ViewGroup)">getView(int, View, ViewGroup)</a></code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2020,8 +2222,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/widget/BaseAdapter.html#hasStableIds()">hasStableIds</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Indicates whether the item ids are stable across changes to the
- underlying data.</div>
+        <div class="jd-descrdiv">
+          Indicates whether the item ids are stable across changes to the
+ underlying data.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2055,7 +2262,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/widget/BaseAdapter.html#isEnabled(int)">isEnabled</a></span>(int position)</nobr>
         
-        <div class="jd-descrdiv">Returns true if the item at the specified position is not a separator.</div>
+        <div class="jd-descrdiv">
+          Returns true if the item at the specified position is not a separator.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2073,8 +2285,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/widget/BaseAdapter.html#notifyDataSetChanged()">notifyDataSetChanged</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Notifies the attached observers that the underlying data has been changed
- and any View reflecting the data set should refresh itself.</div>
+        <div class="jd-descrdiv">
+          Notifies the attached observers that the underlying data has been changed
+ and any View reflecting the data set should refresh itself.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2092,8 +2309,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/widget/BaseAdapter.html#notifyDataSetInvalidated()">notifyDataSetInvalidated</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Notifies the attached observers that the underlying data is no longer valid
- or available.</div>
+        <div class="jd-descrdiv">
+          Notifies the attached observers that the underlying data is no longer valid
+ or available.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2111,7 +2333,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/widget/BaseAdapter.html#registerDataSetObserver(android.database.DataSetObserver)">registerDataSetObserver</a></span>(<a href="../../../reference/android/database/DataSetObserver.html">DataSetObserver</a> observer)</nobr>
         
-        <div class="jd-descrdiv">Register an observer that is called when changes happen to the data used by this adapter.</div>
+        <div class="jd-descrdiv">
+          Register an observer that is called when changes happen to the data used by this adapter.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2129,8 +2356,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/widget/BaseAdapter.html#unregisterDataSetObserver(android.database.DataSetObserver)">unregisterDataSetObserver</a></span>(<a href="../../../reference/android/database/DataSetObserver.html">DataSetObserver</a> observer)</nobr>
         
-        <div class="jd-descrdiv">Unregister an observer that has previously been registered with this
- adapter via <code><a href="../../../reference/android/widget/Adapter.html#registerDataSetObserver(android.database.DataSetObserver)">registerDataSetObserver(DataSetObserver)</a></code>.</div>
+        <div class="jd-descrdiv">
+          Unregister an observer that has previously been registered with this
+ adapter via <code><a href="../../../reference/android/widget/Adapter.html#registerDataSetObserver(android.database.DataSetObserver)">registerDataSetObserver(DataSetObserver)</a></code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2174,7 +2406,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#clone()">clone</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Creates and returns a copy of this <code>Object</code>.</div>
+        <div class="jd-descrdiv">
+          Creates and returns a copy of this <code>Object</code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2192,8 +2429,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#equals(java.lang.Object)">equals</a></span>(<a href="../../../reference/java/lang/Object.html">Object</a> o)</nobr>
         
-        <div class="jd-descrdiv">Compares this instance with the specified object and indicates if they
- are equal.</div>
+        <div class="jd-descrdiv">
+          Compares this instance with the specified object and indicates if they
+ are equal.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2211,7 +2453,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#finalize()">finalize</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Invoked when the garbage collector has detected that this instance is no longer reachable.</div>
+        <div class="jd-descrdiv">
+          Invoked when the garbage collector has detected that this instance is no longer reachable.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2229,8 +2476,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#getClass()">getClass</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns the unique instance of <code><a href="../../../reference/java/lang/Class.html">Class</a></code> that represents this
- object's class.</div>
+        <div class="jd-descrdiv">
+          Returns the unique instance of <code><a href="../../../reference/java/lang/Class.html">Class</a></code> that represents this
+ object's class.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2248,7 +2500,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#hashCode()">hashCode</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns an integer hash code for this object.</div>
+        <div class="jd-descrdiv">
+          Returns an integer hash code for this object.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2266,8 +2523,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#notify()">notify</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Causes a thread which is waiting on this object's monitor (by means of
- calling one of the <code>wait()</code> methods) to be woken up.</div>
+        <div class="jd-descrdiv">
+          Causes a thread which is waiting on this object's monitor (by means of
+ calling one of the <code>wait()</code> methods) to be woken up.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2285,8 +2547,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#notifyAll()">notifyAll</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Causes all threads which are waiting on this object's monitor (by means
- of calling one of the <code>wait()</code> methods) to be woken up.</div>
+        <div class="jd-descrdiv">
+          Causes all threads which are waiting on this object's monitor (by means
+ of calling one of the <code>wait()</code> methods) to be woken up.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2304,8 +2571,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#toString()">toString</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns a string containing a concise, human-readable description of this
- object.</div>
+        <div class="jd-descrdiv">
+          Returns a string containing a concise, human-readable description of this
+ object.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2323,7 +2595,12 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#wait()">wait</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object.</div>
+        <div class="jd-descrdiv">
+          Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2341,8 +2618,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#wait(long, int)">wait</a></span>(long millis, int nanos)</nobr>
         
-        <div class="jd-descrdiv">Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object or until the
- specified timeout expires.</div>
+        <div class="jd-descrdiv">
+          Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object or until the
+ specified timeout expires.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2360,8 +2642,13 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/java/lang/Object.html#wait(long)">wait</a></span>(long millis)</nobr>
         
-        <div class="jd-descrdiv">Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object or until the
- specified timeout expires.</div>
+        <div class="jd-descrdiv">
+          Causes the calling thread to wait until another thread calls the <code>notify()</code> or <code>notifyAll()</code> method of this object or until the
+ specified timeout expires.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2405,7 +2692,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/widget/Adapter.html#getCount()">getCount</a></span>()</nobr>
         
-        <div class="jd-descrdiv">How many items are in the data set represented by this Adapter.</div>
+        <div class="jd-descrdiv">
+          How many items are in the data set represented by this Adapter.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2423,7 +2715,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/widget/Adapter.html#getItem(int)">getItem</a></span>(int position)</nobr>
         
-        <div class="jd-descrdiv">Get the data item associated with the specified position in the data set.</div>
+        <div class="jd-descrdiv">
+          Get the data item associated with the specified position in the data set.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2441,7 +2738,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/widget/Adapter.html#getItemId(int)">getItemId</a></span>(int position)</nobr>
         
-        <div class="jd-descrdiv">Get the row id associated with the specified position in the list.</div>
+        <div class="jd-descrdiv">
+          Get the row id associated with the specified position in the list.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2459,7 +2761,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/widget/Adapter.html#getItemViewType(int)">getItemViewType</a></span>(int position)</nobr>
         
-        <div class="jd-descrdiv">Get the type of View that will be created by <code><a href="../../../reference/android/widget/Adapter.html#getView(int, android.view.View, android.view.ViewGroup)">getView(int, View, ViewGroup)</a></code> for the specified item.</div>
+        <div class="jd-descrdiv">
+          Get the type of View that will be created by <code><a href="../../../reference/android/widget/Adapter.html#getView(int, android.view.View, android.view.ViewGroup)">getView(int, View, ViewGroup)</a></code> for the specified item.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2477,7 +2784,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/widget/Adapter.html#getView(int, android.view.View, android.view.ViewGroup)">getView</a></span>(int position, <a href="../../../reference/android/view/View.html">View</a> convertView, <a href="../../../reference/android/view/ViewGroup.html">ViewGroup</a> parent)</nobr>
         
-        <div class="jd-descrdiv">Get a View that displays the data at the specified position in the data set.</div>
+        <div class="jd-descrdiv">
+          Get a View that displays the data at the specified position in the data set.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2495,9 +2807,14 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/widget/Adapter.html#getViewTypeCount()">getViewTypeCount</a></span>()</nobr>
         
-        <div class="jd-descrdiv"><p>
+        <div class="jd-descrdiv">
+          <p>
  Returns the number of types of Views that will be created by
- <code><a href="../../../reference/android/widget/Adapter.html#getView(int, android.view.View, android.view.ViewGroup)">getView(int, View, ViewGroup)</a></code>.</div>
+ <code><a href="../../../reference/android/widget/Adapter.html#getView(int, android.view.View, android.view.ViewGroup)">getView(int, View, ViewGroup)</a></code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2515,8 +2832,13 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/widget/Adapter.html#hasStableIds()">hasStableIds</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Indicates whether the item ids are stable across changes to the
- underlying data.</div>
+        <div class="jd-descrdiv">
+          Indicates whether the item ids are stable across changes to the
+ underlying data.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2550,7 +2872,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/widget/Adapter.html#registerDataSetObserver(android.database.DataSetObserver)">registerDataSetObserver</a></span>(<a href="../../../reference/android/database/DataSetObserver.html">DataSetObserver</a> observer)</nobr>
         
-        <div class="jd-descrdiv">Register an observer that is called when changes happen to the data used by this adapter.</div>
+        <div class="jd-descrdiv">
+          Register an observer that is called when changes happen to the data used by this adapter.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2568,8 +2895,13 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/widget/Adapter.html#unregisterDataSetObserver(android.database.DataSetObserver)">unregisterDataSetObserver</a></span>(<a href="../../../reference/android/database/DataSetObserver.html">DataSetObserver</a> observer)</nobr>
         
-        <div class="jd-descrdiv">Unregister an observer that has previously been registered with this
- adapter via <code><a href="../../../reference/android/widget/Adapter.html#registerDataSetObserver(android.database.DataSetObserver)">registerDataSetObserver(DataSetObserver)</a></code>.</div>
+        <div class="jd-descrdiv">
+          Unregister an observer that has previously been registered with this
+ adapter via <code><a href="../../../reference/android/widget/Adapter.html#registerDataSetObserver(android.database.DataSetObserver)">registerDataSetObserver(DataSetObserver)</a></code>.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2613,8 +2945,13 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/widget/Filterable.html#getFilter()">getFilter</a></span>()</nobr>
         
-        <div class="jd-descrdiv"><p>Returns a filter that can be used to constrain data with a filtering
- pattern.</div>
+        <div class="jd-descrdiv">
+          <p>Returns a filter that can be used to constrain data with a filtering
+ pattern.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2658,7 +2995,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/widget/ListAdapter.html#areAllItemsEnabled()">areAllItemsEnabled</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Indicates whether all the items in this adapter are enabled.</div>
+        <div class="jd-descrdiv">
+          Indicates whether all the items in this adapter are enabled.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2676,7 +3018,12 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/widget/ListAdapter.html#isEnabled(int)">isEnabled</a></span>(int position)</nobr>
         
-        <div class="jd-descrdiv">Returns true if the item at the specified position is not a separator.</div>
+        <div class="jd-descrdiv">
+          Returns true if the item at the specified position is not a separator.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2720,8 +3067,13 @@ From interface
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../reference/android/widget/SpinnerAdapter.html#getDropDownView(int, android.view.View, android.view.ViewGroup)">getDropDownView</a></span>(int position, <a href="../../../reference/android/view/View.html">View</a> convertView, <a href="../../../reference/android/view/ViewGroup.html">ViewGroup</a> parent)</nobr>
         
-        <div class="jd-descrdiv"><p>Get a <code><a href="../../../reference/android/view/View.html">View</a></code> that displays in the drop down popup
- the data at the specified position in the data set.</div>
+        <div class="jd-descrdiv">
+          <p>Get a <code><a href="../../../reference/android/view/View.html">View</a></code> that displays in the drop down popup
+ the data at the specified position in the data set.
+          
+    
+
+        </div>
   
   </td></tr>
 
@@ -2790,6 +3142,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Constructor</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -2834,6 +3189,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Constructor</p></div>
   <div class="jd-tagdata">
@@ -2884,6 +3242,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Constructor</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -2932,6 +3293,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Constructor</p></div>
   <div class="jd-tagdata">
@@ -2986,6 +3350,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Constructor</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -3034,6 +3401,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Constructor</p></div>
   <div class="jd-tagdata">
@@ -3103,6 +3473,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Adds the specified object at the end of the array.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -3142,6 +3515,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Adds the specified Collection at the end of the array.</p></div>
   <div class="jd-tagdata">
@@ -3183,6 +3559,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Adds the specified items at the end of the array.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -3223,6 +3602,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Remove all elements from the list.
 </p></div>
 
@@ -3253,6 +3635,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Creates a new ArrayAdapter from external resources. The content of the array is
  obtained through <code><a href="../../../reference/android/content/res/Resources.html#getTextArray(int)">getTextArray(int)</a></code>.</p></div>
@@ -3307,6 +3692,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Returns the context associated with this array adapter. The context is used
  to create views from the resource passed to the constructor.</p></div>
   <div class="jd-tagdata">
@@ -3343,6 +3731,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>
 </p></div>
 
@@ -3373,6 +3764,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p><p>Get a <code><a href="../../../reference/android/view/View.html">View</a></code> that displays in the drop down popup
  the data at the specified position in the data set.</p>
@@ -3432,6 +3826,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p><p>Returns a filter that can be used to constrain data with a filtering
  pattern.</p>
 
@@ -3472,6 +3869,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>
 </p></div>
 
@@ -3503,6 +3903,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>
 </p></div>
 
@@ -3533,6 +3936,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Returns the position of the specified item in the array.</p></div>
   <div class="jd-tagdata">
@@ -3578,6 +3984,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>
 </p></div>
 
@@ -3608,6 +4017,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Inserts the specified object at the specified index in the array.</p></div>
   <div class="jd-tagdata">
@@ -3653,6 +4065,9 @@ From interface
       </div>
     <div class="jd-details-descr">
       
+    
+
+      
   <div class="jd-tagdata jd-tagdescr"><p>Notifies the attached observers that the underlying data has been changed
  and any View reflecting the data set should refresh itself.
 
@@ -3685,6 +4100,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Removes the specified object from the array.</p></div>
   <div class="jd-tagdata">
@@ -3725,6 +4143,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p><p>Sets the layout resource to create the drop down views.</p></p></div>
   <div class="jd-tagdata">
@@ -3769,6 +4190,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Control whether methods that change the list (<code><a href="../../../reference/android/widget/ArrayAdapter.html#add(T)">add(T)</a></code>,
  <code><a href="../../../reference/android/widget/ArrayAdapter.html#insert(T, int)">insert(T, int)</a></code>, <code><a href="../../../reference/android/widget/ArrayAdapter.html#remove(T)">remove(T)</a></code>, <code><a href="../../../reference/android/widget/ArrayAdapter.html#clear()">clear()</a></code>) automatically call
@@ -3817,6 +4241,9 @@ From interface
 
       </div>
     <div class="jd-details-descr">
+      
+    
+
       
   <div class="jd-tagdata jd-tagdescr"><p>Sorts the content of this adapter using the specified comparator.</p></div>
   <div class="jd-tagdata">
