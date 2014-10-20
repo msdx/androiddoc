@@ -6,13 +6,13 @@ ANDROID API镜像站
 
 第一行慎用:
 
-```find . -name "*.html" |xargs sed -i "/www.google.com\/jsapi/d"
-```
+    find . -name "*.html" |xargs sed -i "/www.google.com\/jsapi/d"
+
 
 更新字体
 
-```find . -name "*.html" |xargs sed -i "s/fonts.googleapis.com/fonts.useso.com/g"
-```
+    find . -name "*.html" |xargs sed -i "s/fonts.googleapis.com/fonts.useso.com/g"
+
 
 更新+1按钮
 
