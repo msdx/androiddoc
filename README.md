@@ -1,10 +1,12 @@
 ANDROID API镜像站
+=
 
-访问地址：[http://androiddoc.qiniudn.com/](http://androiddoc.qiniudn.com)
+本项目将android doc文档的页面进行处理，以加快打开速度，目前已将其部署在七牛空间，访问地址：[http://androiddoc.qiniudn.com/](http://androiddoc.qiniudn.com)
 
+目前版本：android 5.0。欢迎检出及部署。
+
+---
 关于修改android doc加快打开速度的几行脚本：
-
-第一行慎用:
 
     find . -name "*.html" |xargs sed -i "/www.google.com\/jsapi/d"
 
