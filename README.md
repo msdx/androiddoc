@@ -18,8 +18,6 @@ ANDROID API镜像站
 
     find . -name "*.html" |xargs sed -i "s/\/\/www.google-analytics.com\/ga.js/\/\/googleapiscdn.qiniudn.com\/www.google-analytics.com\/ga.js/g" 
 
-    //find . -name "*.html" |xargs sed -i "s/\/\/www.google.com\/jsapi/\/\/googleapiscdn.qiniudn.com\/www.google.com\/jsapi/g"
-
     find . -name "*.html" | xargs sed -i "s/ga\.src = .*ga\.js';/ga\.src = \'http:\/\/googleapiscdn.qiniudn.com\/www\.google-analytics\.com\/ga\.js\';/"
 
     sed -i 's/\/\/lh4.ggpht.com\/-lfjzgG5Dqrk\/UHMThRtpRwI\/AAAAAAAABpk\/h4d3nsmkgPM\/s400\/mint.png/..\/images\/distribute\/mint.png/' develop/index.html 
