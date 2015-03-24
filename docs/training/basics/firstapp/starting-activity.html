@@ -87,6 +87,9 @@
 
 
 
+
+
+
 <html>
 <head>
 
@@ -94,7 +97,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width" />
 
-<meta name="Description" content="After completing the previous lesson , you have an app that shows an activity (a single screen) with a text field and a button. In this lesson, you?ll add some code to MainActivity that starts a new activity when the user clicks the Send button. To respond…">
+<meta name="Description" content="After completing the previous lesson , you have an app that shows an activity (a single screen) with a text field and a button. In this lesson, you’ll add some code to MyActivity that starts a new activity when the user clicks the Send button. The Intent…">
 <link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico" />
 <title>Starting Another Activity | Android Developers</title>
 
@@ -103,7 +106,7 @@
 href="http://fonts.useso.com/css?family=Roboto+Condensed">
 <link rel="stylesheet" href="http://fonts.useso.com/css?family=Roboto:light,regular,medium,thin,italic,mediumitalic,bold"
   title="roboto">
-<link href="../../../assets/css/default.css?v=2" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/default.css?v=5" rel="stylesheet" type="text/css">
 
 
 
@@ -111,16 +114,23 @@ href="http://fonts.useso.com/css?family=Roboto+Condensed">
 <script src="../../../assets/js/android_3p-bundle.js" type="text/javascript"></script>
 <script type="text/javascript">
   var toRoot = "../../../";
-  var metaTags = [];
+  var metaTags = ["intents"];
   var devsite = false;
 </script>
-<script src="../../../assets/js/docs.js?v=2" type="text/javascript"></script>
+<script src="../../../assets/js/docs.js?v=3" type="text/javascript"></script>
+
+
+<script type="text/javascript" src="https://helpouts.google.com/ps/res/embed.js" defer async
+    data-helpouts-embed data-helpouts-vertical="programming"
+    data-helpouts-tags="intents" data-helpouts-prefix="android"
+    data-helpouts-standalone="true"></script>
+
 
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//googleapiscdn.qiniudn.com/www.google-analytics.com/analytics.js','ga');
+  })(window,document,'script','//../../../../ajax/www.google-analytics.com/analytics.js','ga');
 
   ga('create', 'UA-5831155-1', 'android.com');
   ga('create', 'UA-49880327-2', 'android.com', {'name': 'universal'});  // New tracker);
@@ -135,6 +145,52 @@ href="http://fonts.useso.com/css?family=Roboto+Condensed">
 develop" itemscope itemtype="http://schema.org/Article">
 
 <a name="top"></a>
+
+<!-- dialog to prompt lang pref change when loaded from hardcoded URL 
+<div id="langMessage" style="display:none">
+  <div>
+    <div class="lang en">
+      <p>You requested a page in English, would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang es">
+      <p>You requested a page in Spanish (Español), would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang ja">
+      <p>You requested a page in Japanese (日本語), would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang ko">
+      <p>You requested a page in Korean (한국어), would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang ru">
+      <p>You requested a page in Russian (Русский), would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang zh-cn">
+      <p>You requested a page in Simplified Chinese (简体中文), would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang zh-tw">
+      <p>You requested a page in Traditional Chinese (繁體中文), would you like to proceed with this language setting?</p>
+    </div>
+    <a href="#" class="button yes" onclick="return false;">
+      <span class="lang en">Yes</span>
+      <span class="lang es">Sí</span>
+      <span class="lang ja">Yes</span>
+      <span class="lang ko">Yes</span>
+      <span class="lang ru">Yes</span>
+      <span class="lang zh-cn">是的</span>
+      <span class="lang zh-tw">没有</span>
+    </a>
+    <a href="#" class="button" onclick="$('#langMessage').hide();return false;">
+      <span class="lang en">No</span>
+      <span class="lang es">No</span>
+      <span class="lang ja">No</span>
+      <span class="lang ko">No</span>
+      <span class="lang ru">No</span>
+      <span class="lang zh-cn">没有</span>
+      <span class="lang zh-tw">没有</span>
+    </a>
+  </div>
+</div> -->
+
 
   <!-- Header -->
   <div id="header-wrapper">
@@ -332,6 +388,7 @@ develop" itemscope itemtype="http://schema.org/Article">
                 <li><a href="../../../distribute/users/index.html">Get Users</a></li>
                 <li><a href="../../../distribute/engage/index.html">Engage &amp; Retain</a></li>
                 <li><a href="../../../distribute/monetize/index.html">Monetize</a></li>
+                <li><a href="../../../distribute/analyze/index.html">Analyze</a></li>
                 <li><a href="../../../distribute/tools/index.html">Tools &amp; Reference</a></li>
                 <li><a href="../../../distribute/stories/index.html">Developer Stories</a></li>
               </ul>
@@ -344,7 +401,10 @@ develop" itemscope itemtype="http://schema.org/Article">
   
     <!-- Secondary x-nav -->
     <div id="nav-x">
-        <div class="wrap">
+        <div class="wrap" style="position:relative;z-index:1">
+
+        
+
             <ul class="nav-x col-9 develop" style="width:100%">
                 <li class="training"><a href="../../../training/index.html"
                   zh-tw-lang="訓練課程"
@@ -547,7 +607,7 @@ include the action bar on devices running Android 2.1 or higher."
             Creating a Fragment
           </a>
           </li>
-          <li><a href="../../../training/basics/fragments/fragment-ui.html">
+          <li><a href="../../../training/basics/fragments/fragment-ui.html" zh-cn-lang="构建灵活的界面">
             Building a Flexible UI
           </a>
           </li>
@@ -853,6 +913,35 @@ include the action bar on devices running Android 2.1 or higher."
           </li>
         </ul>
       </li>
+
+      <li class="nav-section">
+        <div class="nav-section-header">
+          <a href="../../../training/transitions/index.html"
+             description=
+             "How to animate state changes in a view hierarchy using transitions."
+            >Animating Views Using Scenes and Transitions</a>
+        </div>
+        <ul>
+          <li><a href="../../../training/transitions/overview.html">
+            The Transitions Framework
+          </a>
+          </li>
+          <li><a href="../../../training/transitions/scenes.html">
+            Creating a Scene
+          </a>
+          </li>
+          <li><a href="../../../training/transitions/transitions.html">
+            Applying a Transition
+          </a>
+          </li>
+          <li><a href="../../../training/transitions/custom-transitions.html">
+            Creating Custom Transitions
+          </a>
+          </li>
+
+        </ul>
+      </li>
+
       <li class="nav-section">
         <div class="nav-section-header"><a href="../../../training/animation/index.html"
              description=
@@ -1110,7 +1199,7 @@ include the action bar on devices running Android 2.1 or higher."
         <ul>
           <li>
             <a href="../../../training/location/retrieve-current.html">
-            Retrieving the Current Location
+            Getting the Last Known Location
             </a>
           </li>
           <li>
@@ -1121,18 +1210,6 @@ include the action bar on devices running Android 2.1 or higher."
           <li>
             <a href="../../../training/location/display-address.html">
             Displaying a Location Address
-          </a>
-          </li>
-          <li><a href="../../../training/location/geofencing.html">
-            Creating and Monitoring Geofences
-          </a>
-          </li>
-          <li><a href="../../../training/location/activity-recognition.html">
-          Recognizing the User's Current Activity
-          </a>
-          </li>
-          <li><a href="../../../training/location/location-testing.html">
-          Testing Using Mock Locations
           </a>
           </li>
         </ul>
@@ -1250,10 +1327,48 @@ include the action bar on devices running Android 2.1 or higher."
           </li>
         </ul>
       </li>
+
+      <li class="nav-section">
+        <div class="nav-section-header">
+          <a href="../../../training/wearables/watch-faces/index.html"
+             description="How to create watch faces for wearables."
+            >Creating Watch Faces</a>
+        </div>
+        <ul>
+          <li>
+            <a href="../../../training/wearables/watch-faces/designing.html">Designing Watch Faces</a>
+          </li>
+          <li>
+            <a href="../../../training/wearables/watch-faces/service.html">Building a Watch Face Service</a>
+          </li>
+          <li>
+            <a href="../../../training/wearables/watch-faces/drawing.html">Drawing Watch Faces</a>
+          </li>
+          <li>
+            <a href="../../../training/wearables/watch-faces/information.html">Showing Information in Watch Faces</a>
+          </li>
+          <li>
+            <a href="../../../training/wearables/watch-faces/configuration.html">Providing Configuration Activities</a>
+          </li>
+          <li>
+            <a href="../../../training/wearables/watch-faces/issues.html">Addressing Common Issues</a>
+          </li>
+          <li>
+            <a href="../../../training/wearables/watch-faces/performance.html">Optimizing Performance and Battery Life</a>
+          </li>
+        </ul>
+      </li>
+
+      <li>
+        <a href="../../../training/articles/wear-location-detection.html"
+           description=
+           "How to detect location data on Android Wear devices."
+          >Detecting Location</a>
+      </li>
     </ul>
   </li>
-
   <!-- End Building for wearables -->
+
 
   <!-- Start: Building for TV -->
   <li class="nav-section">
@@ -1269,25 +1384,30 @@ include the action bar on devices running Android 2.1 or higher."
         <div class="nav-section-header">
 
           <a href="../../../training/tv/start/index.html"
+             ja-lang="TV アプリのビルド"
              description="How to start building TV apps or extend your existing app to run on TV
              devices.">
              Building TV Apps</a>
         </div>
         <ul>
           <li>
-            <a href="../../../training/tv/start/start.html">
+            <a href="../../../training/tv/start/start.html"
+               ja-lang="TV アプリのビルドを開始する">
               Getting Started with TV Apps</a>
           </li>
           <li>
-            <a href="../../../training/tv/start/hardware.html">
+            <a href="../../../training/tv/start/hardware.html"
+               ja-lang="TV ハードウェアを処理する">
               Handling TV Hardware</a>
           </li>
           <li>
-            <a href="../../../training/tv/start/layouts.html">
+            <a href="../../../training/tv/start/layouts.html"
+               ja-lang="TV 向けレイアウトをビルドする">
               Building TV Layouts</a>
           </li>
           <li>
-            <a href="../../../training/tv/start/navigation.html">
+            <a href="../../../training/tv/start/navigation.html"
+               ja-lang="TV 用のナビゲーションを作成する">
               Creating TV Navigation</a>
           </li>
         </ul>
@@ -1296,17 +1416,29 @@ include the action bar on devices running Android 2.1 or higher."
       <li class="nav-section">
         <div class="nav-section-header">
           <a href="../../../training/tv/playback/index.html"
+             ja-lang="TV 再生アプリのビルド"
              description="How to build apps that provide media catalogs and play content.">
              Building TV Playback Apps</a>
         </div>
         <ul>
           <li>
-            <a href="../../../training/tv/playback/browse.html">
+            <a href="../../../training/tv/playback/browse.html"
+               ja-lang="カタログ ブラウザを作成する">
               Creating a Catalog Browser</a>
           </li>
           <li>
-            <a href="../../../training/tv/playback/details.html">
+            <a href="../../../training/tv/playback/card.html">
+              Providing a Card View</a>
+          </li>
+          <li>
+            <a href="../../../training/tv/playback/details.html"
+               ja-lang="詳細ビューをビルドする">
               Building a Details View</a>
+          </li>
+          <li>
+            <a href="../../../training/tv/playback/now-playing.html"
+               ja-lang="再生中カードを表示する">
+              Displaying a Now Playing Card</a>
           </li>
         </ul>
       </li>
@@ -1314,7 +1446,7 @@ include the action bar on devices running Android 2.1 or higher."
       <li class="nav-section">
         <div class="nav-section-header">
           <a href="../../../training/tv/discovery/index.html"
-             description="How to help users discovery content from your app.">
+             description="How to help users discover content from your app.">
              Helping Users Find Content on TV</a>
         </div>
         <ul>
@@ -1322,6 +1454,9 @@ include the action bar on devices running Android 2.1 or higher."
             <a href="../../../training/tv/discovery/recommendations.html">
               Recommending TV Content</a>
           </li>
+          <li>
+            <a href="../../../training/tv/discovery/searchable.html">
+              Making TV Apps Searchable</a>
           <li>
             <a href="../../../training/tv/discovery/in-app-search.html">
               Searching within TV Apps</a>
@@ -1335,9 +1470,50 @@ include the action bar on devices running Android 2.1 or higher."
            Building TV Games</a>
       </li>
 
+      <li>
+        <a href="../../../training/tv/tif/index.html"
+           description="How to build Live TV apps.">
+           Building Live TV Apps</a>
+      </li>
+
+      <li>
+        <a href="../../../training/tv/publishing/checklist.html"
+           description="An itemized list of requirements for TV apps.">
+           TV Apps Checklist</a>
+      </li>
     </ul>
   </li>
   <!-- End: Building for TV -->
+
+
+  <!-- Start: Building for Auto -->
+  <li class="nav-section">
+    <div class="nav-section-header">
+      <a href="../../../training/auto/index.html">
+      <span class="small">Building Apps for</span><br/>
+              Auto
+      </a>
+    </div>
+    <ul>
+      <li>
+        <a href="../../../training/auto/start/index.html"
+             description="How to start building or extending apps that work
+             with Auto devices.">
+             Getting Started with Auto</a>
+      </li>
+      <li>
+        <a href="../../../training/auto/audio/index.html"
+             description="How to extend audio apps to play content on Auto devices.">
+             Playing Audio for Auto</a>
+      </li>
+      <li>
+        <a href="../../../training/auto/messaging/index.html"
+             description="How to extend text messaging apps to work with Auto devices.">
+             Messaging for Auto</a>
+      </li>
+    </ul>
+  </li>
+  <!-- End: Building for Auto -->
 
 
   <li class="nav-section">
@@ -1648,6 +1824,45 @@ results."
           </li>
           <li><a href="../../../training/system-ui/visibility.html">
             Responding to UI Visibility Changes
+          </a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="nav-section">
+        <div class="nav-section-header">
+          <a href="../../../training/material/index.html"
+             description=
+             "How to implement material design on Android."
+            >Creating Apps with Material Design</a>
+        </div>
+        <ul>
+          <li><a href="../../../training/material/get-started.html">
+            Getting Started
+          </a>
+          </li>
+          <li><a href="../../../training/material/theme.html">
+            Using the Material Theme
+          </a>
+          </li>
+          <li><a href="../../../training/material/lists-cards.html">
+            Creating Lists and Cards
+          </a>
+          </li>
+          <li><a href="../../../training/material/shadows-clipping.html">
+            Defining Shadows and Clipping Views
+          </a>
+          </li>
+          <li><a href="../../../training/material/drawables.html">
+            Working with Drawables
+          </a>
+          </li>
+          <li><a href="../../../training/material/animations.html">
+            Defining Custom Animations
+          </a>
+          </li>
+          <li><a href="../../../training/material/compatibility.html">
+            Maintaining Compatibility
           </a>
           </li>
         </ul>
@@ -2013,6 +2228,10 @@ results."
             Enhancing Security with Device Management Policies
           </a>
           </li>
+          <li><a href="../../../training/enterprise/app-compatibility.html">
+            Ensuring Compatibility with Managed Profiles
+          </a>
+          </li>
         </ul>
       </li>
     </ul>
@@ -2145,7 +2364,6 @@ results."
     changeNavLang(getLangPref());
 //-->
 </script>
-
         
 
       </div>
@@ -2215,7 +2433,7 @@ results."
 <ol>
   <li><a href="#RespondToButton">Respond to the Send Button</a></li>
   <li><a href="#BuildIntent">Build an Intent</a></li>
-  <li><a href="#StartActivity">Start the Second Activity</a></li>
+  <!-- <li><a href="#StartActivity">Start the Second Activity</a></li> -->
   <li><a href="#CreateActivity">Create the Second Activity</a></li>
   <li><a href="#ReceiveIntent">Receive the Intent</a></li>
   <li><a href="#DisplayMessage">Display the Message</a></li>
@@ -2236,17 +2454,20 @@ SDK</a></li>
 
 <p>After completing the <a href="building-ui.html">previous lesson</a>, you have an app that
 shows an activity (a single screen) with a text field and a button. In this lesson, you’ll add some
-code to <code>MainActivity</code> that
+code to <code>MyActivity</code> that
 starts a new activity when the user clicks the Send button.</p>
 
 
 <h2 id="RespondToButton">Respond to the Send Button</h2>
 
-<p>To respond to the button's on-click event, open the <code>fragment_main.xml</code>
-layout file and add the <a
+<ol>
+<li>In Android Studio, from the <code>res/layout</code> directory, edit the <code>activity_my.xml</code>
+file.</li>
+<li>To the <code><a href="../../../reference/android/widget/Button.html">&lt;Button></a></code> element, add the <a
 href="../../../reference/android/view/View.html#attr_android:onClick"><code>android:onClick</code></a>
-attribute to the <code><a href="../../../reference/android/widget/Button.html">&lt;Button></a></code> element:</p>
+attribute.
 
+<p class="code-caption">res/layout/activity_my.xml</p>
 <pre>
 &lt;Button
     android:layout_width="wrap_content"
@@ -2258,10 +2479,12 @@ attribute to the <code><a href="../../../reference/android/widget/Button.html">&
 <p>The <a
 href="../../../reference/android/view/View.html#attr_android:onClick"><code>android:onClick</code></a> attribute’s value, <code>"sendMessage"</code>, is the name of a method in your
 activity that the system calls when the user clicks the button.</p>
+</li>
+<li>In the <code>java/com.mycompany.myfirstapp</code> directory, open the <code>MyActivity.java</code> file.</li>
+<li>Within the <code>MyActivity</code> class, add the <code>sendMessage()</code> method stub shown
+below.
 
-<p>Open the <code>MainActivity</code> class (located in the project's
-<code>src/</code> directory) and add the corresponding method:</p>
-
+<p class="code-caption">java/com.mycompany.myfirstapp/MyActivity.java</p>
 <pre>
 /** Called when the user clicks the Send button */
 public void sendMessage(View view) {
@@ -2279,32 +2502,40 @@ the signature must be exactly as shown. Specifically, the method must:</p>
 <li>Have a <code><a href="../../../reference/android/view/View.html">View</a></code> as the only parameter (this will be the <code><a href="../../../reference/android/view/View.html">View</a></code> that was clicked)</li>
 </ul>
 
+</li>
+</ol>
+
 <p>Next, you’ll fill in this method to read the contents of the text field and deliver that text to
 another activity.</p>
 
-
-
 <h2 id="BuildIntent">Build an Intent</h2>
 
+<ol>
+<li>In <code>MyActivity.java</code>, inside the <code>sendMessage()</code> method, create an
+<code><a href="../../../reference/android/content/Intent.html">Intent</a></code> to start an activity called <code>DisplayMessageActivity</code> with the
+following code:
+
+<p class="code-caption">java/com.mycompany.myfirstapp/MyActivity.java</p>
+<pre>
+public void sendMessage(View view) {
+  Intent intent = new Intent(this, DisplayMessageActivity.class);
+}
+</pre>
+
+<div class="sidebox-wrapper">
+<div class="sidebox">
+<h3>Intents</h3>
 <p>An <code><a href="../../../reference/android/content/Intent.html">Intent</a></code> is an object that provides runtime binding between separate
 components (such as two activities). The <code><a href="../../../reference/android/content/Intent.html">Intent</a></code> represents an
 app’s "intent to do something." You can use intents for a wide
-variety of tasks, but most often they’re used to start another activity.</p>
+variety of tasks, but most often they’re used to start another activity. For more information, see
+<a href="../../../guide/components/intents-filters.html ">Intents and Intent Filters</a>.</p>
+</div>
+</div>
 
-<p>Inside the <code>sendMessage()</code> method, create an <code><a href="../../../reference/android/content/Intent.html">Intent</a></code> to start
-an activity called <code>DisplayMessageActivity</code>:</p>
-
-<pre>
-Intent intent = new Intent(this, DisplayMessageActivity.class);
-</pre>
-
-<p>This requires that you import the <code><a href="../../../reference/android/content/Intent.html">Intent</a></code> class:</p>
-<pre>
-import android.content.Intent;
-</pre>
-
-<p class="note"><strong>Tip:</strong> In Eclipse, press Ctrl + Shift + O to import missing classes
-(Cmd + Shift + O on Mac).</p>
+<p class="note"><strong>Note:</strong> The reference to <code>DisplayMessageActivity</code>
+will raise an error if you’re using an IDE such as Android Studio because the class doesn’t exist yet.
+Ignore the error for now; you’ll create the class soon.</p>
 
 <p>The constructor used here takes two parameters:</p>
 <ul>
@@ -2313,6 +2544,19 @@ import android.content.Intent;
 the <code><a href="../../../reference/android/content/Intent.html">Intent</a></code> (in this case, the activity that should be started)
 </ul>
 
+<p>Android Studio indicates that you must import the <code><a href="../../../reference/android/content/Intent.html">Intent</a></code> class.</p>
+
+</li>
+<li>At the top of the file, import the <code><a href="../../../reference/android/content/Intent.html">Intent</a></code> class:
+<p class="code-caption">java/com.mycompany.myfirstapp/MyActivity.java</p>
+<pre>
+import android.content.Intent;
+</pre>
+<p class="note"><strong>Tip:</strong> In Android Studio, press Alt + Enter (option + return on Mac)
+  to import missing classes.</p>
+</li>
+
+<!-- I didn't think this was necessary
 <div class="sidebox-wrapper">
 <div class="sidebox">
   <h3>Sending an intent to other apps</h3>
@@ -2326,57 +2570,69 @@ as long as it satisfies the meta-data specifications for the action that's speci
 href="../../../training/basics/intents/index.html">Interacting with Other Apps</a>.</p>
 </div>
 </div>
+-->
 
-<p class="note"><strong>Note:</strong> The reference to <code>DisplayMessageActivity</code>
-will raise an error if you’re using an IDE such as Eclipse because the class doesn’t exist yet.
-Ignore the error for now; you’ll create the class soon.</p>
-
-<p>An intent not only allows you to start another activity, but it can carry a bundle of data to the
-activity as well. Inside the <code>sendMessage()</code> method,
+<li>Inside the <code>sendMessage()</code> method,
 use <code><a href="../../../reference/android/app/Activity.html#findViewById(int)">findViewById()</a></code> to get the
-<code><a href="../../../reference/android/widget/EditText.html">EditText</a></code> element and add its text value to the intent:</p>
-
+<code><a href="../../../reference/android/widget/EditText.html">EditText</a></code> element.
+<p class="code-caption">java/com.mycompany.myfirstapp/MyActivity.java</p>
 <pre>
-Intent intent = new Intent(this, DisplayMessageActivity.class);
-EditText editText = (EditText) findViewById(R.id.edit_message);
-String message = editText.getText().toString();
-intent.putExtra(EXTRA_MESSAGE, message);
+public void sendMessage(View view) {
+  Intent intent = new Intent(this, DisplayMessageActivity.class);
+  EditText editText = (EditText) findViewById(R.id.edit_message);
+}
+</pre>
+</li>
+
+<li>At the top of the file, import the <code><a href="../../../reference/android/widget/EditText.html">EditText</a></code> class.
+  <p>In Android Studio, press Alt + Enter (option + return on Mac) to import missing classes.</p>
+</li>
+
+<li>Assign the text to a local <code>message</code> variable, and use the
+<code><a href="../../../reference/android/content/Intent.html#putExtra(java.lang.String, android.os.Bundle)">putExtra()</a></code> method to add its text value to the intent.
+<p class="code-caption">java/com.mycompany.myfirstapp/MyActivity.java</p>
+<pre>
+public void sendMessage(View view) {
+  Intent intent = new Intent(this, DisplayMessageActivity.class);
+  EditText editText = (EditText) findViewById(R.id.edit_message);
+  String message = editText.getText().toString();
+  intent.putExtra(EXTRA_MESSAGE, message);
+}
 </pre>
 
-<p class="note"><strong>Note:</strong>
-You now need an import statement for <code>android.widget.EditText</code>.
-You'll define the <code>EXTRA_MESSAGE</code> constant in a moment.</p>
-
-<p>An <code><a href="../../../reference/android/content/Intent.html">Intent</a></code> can carry a collection of various data types as key-value
+<p>An <code><a href="../../../reference/android/content/Intent.html">Intent</a></code> can carry data types as key-value
 pairs called <em>extras</em>. The <code><a href="../../../reference/android/content/Intent.html#putExtra(java.lang.String, android.os.Bundle)">putExtra()</a></code> method takes the
 key name in the first parameter and the value in the second parameter.</p>
 
-<p>In order for the next activity to query the extra data, you should define the key
-for your intent's extra using a
-public constant. So add the <code>EXTRA_MESSAGE</code> definition to the top of the <code>MainActivity</code> class:</p>
-
+</li>
+<li>At the top of the <code>MyActivity</code> class, add the <code>EXTRA_MESSAGE</code> definition as
+follows:
+<p class="code-caption">java/com.mycompany.myfirstapp/MyActivity.java</p>
 <pre>
-public class MainActivity extends ActionBarActivity {
-    public final static String EXTRA_MESSAGE = "com.example.myfirstapp.MESSAGE";
+public class MyActivity extends ActionBarActivity {
+    public final static String EXTRA_MESSAGE = "com.mycompany.myfirstapp.MESSAGE";
     ...
 }
 </pre>
 
-<p>It's generally a good practice to define keys for intent extras using your app's package name
-as a prefix. This ensures they are unique, in case your app interacts with other apps.</p>
+<p>For the next activity to query the extra data, you should define the key
+for your intent's extra using a public constant. It's generally a good practice to define keys for
+intent extras using your app's package name as a prefix. This ensures the keys are unique, in case
+your app interacts with other apps.</p>
 
+</li>
 
+<!-- <h2 id="StartActivity">Start the Second Activity</h2> -->
 
+<li>In the <code>sendMessage()</code> method, to finish the intent, call the
+<code><a href="../../../reference/android/app/Activity.html#startActivity(android.content.Intent)">startActivity()</a></code> method, passing it the
+<code><a href="../../../reference/android/content/Intent.html">Intent</a></code> object created in step 1.
 
-<h2 id="StartActivity">Start the Second Activity</h2>
-
-<p>To start an activity, call <code><a href="../../../reference/android/app/Activity.html#startActivity(android.content.Intent)">startActivity()</a></code> and pass it your <code><a href="../../../reference/android/content/Intent.html">Intent</a></code>. The system receives this call
-and starts an instance of the <code><a href="../../../reference/android/app/Activity.html">Activity</a></code>
-specified by the <code><a href="../../../reference/android/content/Intent.html">Intent</a></code>.</p>
+</ol>
 
 <p>With this new code, the complete <code>sendMessage()</code> method that's invoked by the Send
 button now looks like this:</p>
-
+<p class="code-caption">java/com.mycompany.myfirstapp/MyActivity.java</p>
 <pre>
 /** Called when the user clicks the Send button */
 public void sendMessage(View view) {
@@ -2388,68 +2644,92 @@ public void sendMessage(View view) {
 }
 </pre>
 
-<p>Now you need to create the <code>DisplayMessageActivity</code> class in order for this to
-work.</p>
+<p>The system receives this call and starts an instance of the <code><a href="../../../reference/android/app/Activity.html">Activity</a></code>
+specified by the <code><a href="../../../reference/android/content/Intent.html">Intent</a></code>. Now you need to create the
+<code>DisplayMessageActivity</code> class in order for this to work.</p>
 
+</li>
+</ol>
 
 
 <h2 id="CreateActivity">Create the Second Activity</h2>
 
+<p>All subclasses of <code><a href="../../../reference/android/app/Activity.html">Activity</a></code> must implement the
+<code><a href="../../../reference/android/app/Activity.html#onCreate(android.os.Bundle)">onCreate()</a></code> method. This method is where the activity receives
+the intent with the message, then renders the message. Also, the
+<code><a href="../../../reference/android/app/Activity.html#onCreate(android.os.Bundle)">onCreate()</a></code> method must define the activity
+layout with the <code><a href="../../../reference/android/app/Activity.html#setContentView(android.view.View)">setContentView()</a></code> method. This is where
+the activity performs the initial setup of the activity components.</p>
+
+<h3>Create a new activity using Android Studio</h3>
+
 <div class="figure" style="width:400px">
-<img src="../../../images/training/firstapp/adt-new-activity.png" alt="" />
-<p class="img-caption"><strong>Figure 1.</strong> The new activity wizard in Eclipse.</p>
+<img src="../../../images/training/firstapp/studio-new-activity.png" alt="" />
+<p class="img-caption"><strong>Figure 1.</strong> The new activity wizard in Android Studio.</p>
 </div>
 
-<p>To create a new activity using Eclipse:</p>
+<p>Android Studio includes a stub for the
+<code><a href="../../../reference/android/app/Activity.html#onCreate(android.os.Bundle)">onCreate()</a></code> method when you create a new activity.</p>
 
 <ol>
-  <li>Click <strong>New</strong> <img src="../../../images/tools/eclipse-new.png"
-  style="vertical-align:baseline;margin:0" /> in the toolbar.</li>
-  <li>In the window that appears, open the <strong>Android</strong> folder
-  and select <strong>Android Activity</strong>. Click <strong>Next</strong>.</li>
-  <li>Select <strong>BlankActivity</strong> and click <strong>Next</strong>.</li>
-  <li>Fill in the activity details:
+  <li>In Android Studio, in the <code>java</code> directory, select the package,
+    <strong>com.mycompany.myfirstapp</strong>, right-click, and select
+    <strong>New > Activity > Blank Activity</strong>.</li>
+  <li>In the <strong>Choose options</strong> window, fill in the activity details:
     <ul>
-      <li><strong>Project</strong>: MyFirstApp</li>
       <li><strong>Activity Name</strong>: DisplayMessageActivity</li>
       <li><strong>Layout Name</strong>: activity_display_message</li>
-      <li><strong>Fragment Layout Name</strong>: fragment_display_message</li>
       <li><strong>Title</strong>: My Message</li>
-      <li><strong>Hierarchial Parent</strong>: com.example.myfirstapp.MainActivity</li>
-      <li><strong>Navigation Type</strong>: None</li>
+      <li><strong>Hierarchical Parent</strong>: com.mycompany.myfirstapp.MyActivity</li>
+      <li><strong>Package name</strong>: com.mycompany.myfirstapp</li>
     </ul>
     <p>Click <strong>Finish</strong>.</p>
   </li>
+
+<li>Open the <code>DisplayMessageActivity.java</code> file.
+
+<p>The class already includes an implementation of the required
+<code><a href="../../../reference/android/app/Activity.html#onCreate(android.os.Bundle)">onCreate()</a></code> method. You will update the implementation of this
+method later. It also includes an implementation of
+<code><a href="../../../reference/android/app/Activity.html#onOptionsItemSelected(android.view.MenuItem)">onOptionsItemSelected()</a></code>, which handles the action
+bar's <em>Up</em> behavior. Keep these two methods as they are for now.</p>
+
+<!-- Android Studio does not create a Fragment placeholder
+<p>Also, the file includes a <code>PlaceholderFragment</code> class that extends
+<code><a href="../../../reference/android/app/Fragment.html">Fragment</a></code>. This activity does not implement fragments, but you might use this
+later in the training. Fragments decompose application functionality and UI into reusable modules.
+For more information on fragments, see the
+<a href="../../../guide/components/fragments.html">Fragments API Guide</a> and follow the training,
+<a href="../../../training/basics/fragments/index.html">Building A Dynamic UI with Fragments</a>.
+</p>
+-->
+</li>
+
+<li> Remove the <code><a href="../../../reference/android/app/Activity.html#onCreateOptionsMenu(android.view.Menu)">onCreateOptionsMenu()</a></code> method.
+<p>You won't need it for this app.</p>
+</li>
 </ol>
 
-<p>If you're using a different IDE or the command line tools, create a new file named
-<code>DisplayMessageActivity.java</code> in the project's <code>src/</code> directory, next to
-the original <code>MainActivity.java</code> file.</p>
-
-<p>Open the <code>DisplayMessageActivity.java</code> file. If you used Eclipse to create this
-activity:</p>
-<ul>
-  <li>The class
-already includes an implementation of the required <code><a href="../../../reference/android/app/Activity.html#onCreate(android.os.Bundle)">onCreate()</a></code>
-method. You will update the implementation of this method later.</li>
-  <li>There's also an implementation of the <code><a href="../../../reference/android/app/Activity.html#onCreateOptionsMenu(android.view.Menu)">onCreateOptionsMenu()</a></code> method, but
-you won't need it for this app so you can remove it.</li>
-  <li>There's also an implementation of <code><a href="../../../reference/android/app/Activity.html#onOptionsItemSelected(android.view.MenuItem)">onOptionsItemSelected()</a></code> which handles the behavior for the action bar's <em>Up</em> behavior.
-  Keep this one the way it is.</li>
-  <li>There's also a <code>PlaceholderFragment</code> class that extends
-<code><a href="../../../reference/android/app/Fragment.html">Fragment</a></code>. You will not need this class in the final version of this
-activity.</li>
-</ul>
-
-<p>Fragments decompose application functionality and UI into reusable modules. For more
-information on fragments, see the <a href="../../../guide/components/fragments.html">Fragments
-API Guide</a>. The final version of this activity does not use fragments.</p>
-
+<!-- Not needed for Android Studio
 <p class="note"><strong>Note:</strong> Your activity may look different if you did not use
 the latest version of the ADT plugin. Make sure you install the latest version of the
 <a href="../../../tools/sdk/eclipse-adt.html">ADT plugin</a> to complete this tutorial.</p>
+-->
 
-<p>The <code>DisplayMessageActivity</code> class should now look like this:</p>
+<p>If you're developing with Android Studio, you can run the app now, but not much happens.
+Clicking the Send button starts the second activity, but it uses
+a default "Hello world" layout provided by the template. You'll soon update the
+activity to instead display a custom text view.</p>
+
+
+<h3>Create the activity without Android Studio</h3>
+
+<p>If you're using a different IDE or the command line tools, do the following:</p>
+
+<ol>
+<li>Create a new file named <code>DisplayMessageActivity.java</code> in the project's <code>src/</code>
+directory, next to the original <code>MyActivity.java</code> file.</li>
+<li>Add the following code to the file:
 
 <pre>
 public class DisplayMessageActivity extends ActionBarActivity {
@@ -2495,61 +2775,43 @@ public class DisplayMessageActivity extends ActionBarActivity {
 }
 </pre>
 
-<p>If you used an IDE other than Eclipse, update your <code>DisplayMessageActivity</code>
-class with the above code.</p>
-
-<p>All subclasses of <code><a href="../../../reference/android/app/Activity.html">Activity</a></code> must implement the <code><a href="../../../reference/android/app/Activity.html#onCreate(android.os.Bundle)">onCreate()</a></code> method. The system calls this when creating a new
-instance of the activity. This method is where you must define the activity layout
-with the <code><a href="../../../reference/android/app/Activity.html#setContentView(android.view.View)">setContentView()</a></code> method
-and is where you should
-perform initial setup for the activity components.</p>
-
-<p class="note"><strong>Note:</strong> If you are using an IDE other than Eclipse, your project
+<p class="note"><strong>Note:</strong> If you are using an IDE other than Android Studio, your project
 does not contain the <code>activity_display_message</code> layout that's requested by
 <code><a href="../../../reference/android/app/Activity.html#setContentView(android.view.View)">setContentView()</a></code>. That's OK because
 you will update this method later and won't be using that layout.</p>
 
+</li>
 
-<h3 id="AddTitle">Add the title string</h3>
-
-<p>If you used Eclipse, you can skip to the <a href="#AddToManifest">next section</a>,
-because the template provides
-the title string for the new activity.</p>
-
-<p>If you're using an IDE other than Eclipse,
-add the new activity's title to the <code>strings.xml</code> file:</p>
+<li>To your <code>strings.xml</code> file, add the new activity's title as follows:
 <pre>
 &lt;resources>
     ...
     &lt;string name="title_activity_display_message">My Message&lt;/string>
 &lt;/resources>
 </pre>
+</li>
 
-
-
-<h3 id="AddToManifest">Add it to the manifest</h3>
-
-<p>All activities must be declared in your manifest file, <code>AndroidManifest.xml</code>, using an
-<a
-href="../../../guide/topics/manifest/activity-element.html"><code>&lt;activity></code></a> element.</p>
-
-<p>When you use the Eclipse tools to create the activity, it creates a default entry. If you're
-using a different IDE, you need to add the manifest entry yourself. It should
-look like this:</p>
+<li>In your manifest file, <code>AndroidManifest.xml</code>, within the <code>Application</code>
+element, add the
+<a href="../../../guide/topics/manifest/activity-element.html"><code>&lt;activity></code></a> element
+for your <code>DisplayMessageActivity</code> class, as follows:
 
 <pre>
 &lt;application ... >
     ...
     &lt;activity
-        android:name="com.example.myfirstapp.DisplayMessageActivity"
+        android:name="com.mycompany.myfirstapp.DisplayMessageActivity"
         android:label="@string/title_activity_display_message"
-        android:parentActivityName="com.example.myfirstapp.MainActivity" >
+        android:parentActivityName="com.mycompany.myfirstapp.MyActivity" >
         &lt;meta-data
             android:name="android.support.PARENT_ACTIVITY"
-            android:value="com.example.myfirstapp.MainActivity" />
+            android:value="com.mycompany.myfirstapp.MyActivity" />
     &lt;/activity>
 &lt;/application>
 </pre>
+
+</li>
+</ol>
 
 <p>The <a href="../../../guide/topics/manifest/activity-element.html#parent"><code>android:parentActivityName</code></a> attribute declares the name of this activity's parent activity
 within the app's logical hierarchy. The system uses this value
@@ -2561,20 +2823,16 @@ older versions of Android by using the
 the <a href="../../../guide/topics/manifest/meta-data-element.html"><code>&lt;meta-data></code></a> element as shown here.</p>
 
 <p class="note"><strong>Note:</strong> Your Android SDK should already include
-the latest Android Support Library. It's included with the ADT Bundle but if you're using
-a different IDE, you should have installed it during the
-<a href="../../../sdk/installing/adding-packages.html">Adding Platforms and Packages</a> step.
-When using the templates in Eclipse, the Support Library is automatically added to your app project
+the latest Android Support Library, which you installed during the
+<a href="../../../sdk/installing/adding-packages.html">Adding SDK Packages</a> step.
+When using the templates in Android Studio, the Support Library is automatically added to your app project
 (you can see the library's JAR file listed under <em>Android Dependencies</em>). If you're not using
-Eclipse, you need to manually add the library to your project&mdash;follow the guide for <a
+Android Studio, you need to manually add the library to your project&mdash;follow the guide for <a
 href="../../../tools/support-library/setup.html">setting up the Support Library</a>
 then return here.</p>
 
-<p>If you're developing with Eclipse, you can run the app now, but not much happens.
-Clicking the Send button starts the second activity but it uses
-a default "Hello world" layout provided by the template. You'll soon update the
-activity to instead display a custom text view, so if you're using a different IDE,
-don't worry that the app won't yet compile.</p>
+<p>If you're using a different IDE than Android Studio, don't worry that the app won't yet compile.
+You'll soon update the activity to display a custom text view.</p>
 
 
 <h2 id="ReceiveIntent">Receive the Intent</h2>
@@ -2582,22 +2840,55 @@ don't worry that the app won't yet compile.</p>
 <p>Every <code><a href="../../../reference/android/app/Activity.html">Activity</a></code> is invoked by an <code><a href="../../../reference/android/content/Intent.html">Intent</a></code>, regardless of
 how the user navigated there. You can get the <code><a href="../../../reference/android/content/Intent.html">Intent</a></code> that started your
 activity by calling <code><a href="../../../reference/android/app/Activity.html#getIntent()">getIntent()</a></code> and retrieve the data contained
-within it.</p>
+within the intent.</p>
 
-<p>In the <code>DisplayMessageActivity</code> class’s <code><a href="../../../reference/android/app/Activity.html#onCreate(android.os.Bundle)">onCreate()</a></code>
-method, get the intent and extract the message delivered by <code>MainActivity</code>:</p>
-
+<ol>
+<li>In the <code>java/com.mycompany.myfirstapp</code> directory, edit the
+  <code>DisplayMessageActivity.java</code> file.</li>
+<li>In the <code><a href="../../../reference/android/app/Activity.html#onCreate(android.os.Bundle)">onCreate()</a></code> method, remove the following line:
+<pre>
+  setContentView(R.layout.activity_display_message);
+</pre>
+<li>Get the intent and assign it to a local variable.
 <pre>
 Intent intent = getIntent();
-String message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
 </pre>
-
-
+</li>
+<li>At the top of the file, import the <code><a href="../../../reference/android/content/Intent.html">Intent</a></code> class.
+  <p>In Android Studio, press Alt + Enter (option + return on Mac) to import missing classes.</p>
+</li>
+<li>Extract the message delivered by <code>MyActivity</code> with the
+<code><a href="../../../reference/android/content/Intent.html#getStringExtra(java.lang.String)">getStringExtra()</a></code> method.
+<pre>
+String message = intent.getStringExtra(MyActivity.EXTRA_MESSAGE);
+</pre>
+</li>
+</ol>
 
 <h2 id="DisplayMessage">Display the Message</h2>
 
-<p>To show the message on the screen, create a <code><a href="../../../reference/android/widget/TextView.html">TextView</a></code> widget and set the
-text using <code><a href="../../../reference/android/widget/TextView.html#setText(char[], int, int)">setText()</a></code>. Then add the <code><a href="../../../reference/android/widget/TextView.html">TextView</a></code> as the root view of the activity’s layout by passing it to <code><a href="../../../reference/android/app/Activity.html#setContentView(android.view.View)">setContentView()</a></code>.</p>
+<ol>
+<li>In the <code><a href="../../../reference/android/app/Activity.html#onCreate(android.os.Bundle)">onCreate()</a></code> method, create a <code><a href="../../../reference/android/widget/TextView.html">TextView</a></code> object.
+<pre>
+TextView textView = new TextView(this);
+</pre>
+</li>
+<li>Set the text size and message with <code><a href="../../../reference/android/widget/TextView.html#setText(char[], int, int)">setText()</a></code>.
+<pre>
+textView.setTextSize(40);
+textView.setText(message);
+</pre>
+</li>
+<li>Then add the <code><a href="../../../reference/android/widget/TextView.html">TextView</a></code> as the root view of the activity’s layout by
+passing it to <code><a href="../../../reference/android/app/Activity.html#setContentView(android.view.View)">setContentView()</a></code>.
+<pre>
+setContentView(textView);
+</pre>
+</li>
+<li>At the top of the file, import the <code><a href="../../../reference/android/widget/TextView.html">TextView</a></code> class.
+  <p>In Android Studio, press Alt + Enter (option + return on Mac) to import missing classes.</p>
+</li>
+</ol>
 
 <p>The complete <code><a href="../../../reference/android/app/Activity.html#onCreate(android.os.Bundle)">onCreate()</a></code> method for <code>DisplayMessageActivity</code> now looks like this:</p>
 
@@ -2608,7 +2899,7 @@ public void onCreate(Bundle savedInstanceState) {
 
     // Get the message from the intent
     Intent intent = getIntent();
-    String message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
+    String message = intent.getStringExtra(MyActivity.EXTRA_MESSAGE);
 
     // Create the text view
     TextView textView = new TextView(this);
@@ -2703,10 +2994,10 @@ on Android 4.4.
 
 
   <script src="https://developer.android.com/ytblogger_lists_unified.js" type="text/javascript"></script>
-  <script src="../../../jd_lists_unified.js?v=2" type="text/javascript"></script>
-  <script src="../../../jd_extras.js?v=3" type="text/javascript"></script>
-  <script src="../../../jd_collections.js?v=3" type="text/javascript"></script>
-  <script src="../../../jd_tag_helpers.js?v=2" type="text/javascript"></script>
+  <script src="../../../jd_lists_unified.js?v=8" type="text/javascript"></script>
+  <script src="../../../jd_extras.js?v=9" type="text/javascript"></script>
+  <script src="../../../jd_collections.js?v=9" type="text/javascript"></script>
+  <script src="../../../jd_tag_helpers.js?v=5" type="text/javascript"></script>
 
 </body>
 </html>

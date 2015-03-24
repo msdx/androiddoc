@@ -87,6 +87,9 @@
 
 
 
+
+
+
 <html>
 <head>
 
@@ -94,7 +97,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width" />
 
-<meta name="Description" content="An input method editor (IME) is a user control that enables users to enter text. Android provides an extensible input method framework that allows applications to provide users alternative input methods, such as on-screen keyboards or even speech input…">
+<meta name="Description" content="An input method editor (IME) is a user control that enables users to enter text. Android provides an extensible input-method framework that allows applications to provide users alternative input methods, such as on-screen keyboards or even speech input…">
 <link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico" />
 <title>Creating an Input Method | Android Developers</title>
 
@@ -103,7 +106,7 @@
 href="http://fonts.useso.com/css?family=Roboto+Condensed">
 <link rel="stylesheet" href="http://fonts.useso.com/css?family=Roboto:light,regular,medium,thin,italic,mediumitalic,bold"
   title="roboto">
-<link href="../../../assets/css/default.css?v=2" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/default.css?v=5" rel="stylesheet" type="text/css">
 
 
 
@@ -114,13 +117,15 @@ href="http://fonts.useso.com/css?family=Roboto+Condensed">
   var metaTags = ["ime","keyboard","inputmethodservice"];
   var devsite = false;
 </script>
-<script src="../../../assets/js/docs.js?v=2" type="text/javascript"></script>
+<script src="../../../assets/js/docs.js?v=3" type="text/javascript"></script>
+
+
 
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//googleapiscdn.qiniudn.com/www.google-analytics.com/analytics.js','ga');
+  })(window,document,'script','//../../../../ajax/www.google-analytics.com/analytics.js','ga');
 
   ga('create', 'UA-5831155-1', 'android.com');
   ga('create', 'UA-49880327-2', 'android.com', {'name': 'universal'});  // New tracker);
@@ -135,6 +140,52 @@ href="http://fonts.useso.com/css?family=Roboto+Condensed">
 develop guide" itemscope itemtype="http://schema.org/Article">
 
 <a name="top"></a>
+
+<!-- dialog to prompt lang pref change when loaded from hardcoded URL 
+<div id="langMessage" style="display:none">
+  <div>
+    <div class="lang en">
+      <p>You requested a page in English, would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang es">
+      <p>You requested a page in Spanish (Español), would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang ja">
+      <p>You requested a page in Japanese (日本語), would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang ko">
+      <p>You requested a page in Korean (한국어), would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang ru">
+      <p>You requested a page in Russian (Русский), would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang zh-cn">
+      <p>You requested a page in Simplified Chinese (简体中文), would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang zh-tw">
+      <p>You requested a page in Traditional Chinese (繁體中文), would you like to proceed with this language setting?</p>
+    </div>
+    <a href="#" class="button yes" onclick="return false;">
+      <span class="lang en">Yes</span>
+      <span class="lang es">Sí</span>
+      <span class="lang ja">Yes</span>
+      <span class="lang ko">Yes</span>
+      <span class="lang ru">Yes</span>
+      <span class="lang zh-cn">是的</span>
+      <span class="lang zh-tw">没有</span>
+    </a>
+    <a href="#" class="button" onclick="$('#langMessage').hide();return false;">
+      <span class="lang en">No</span>
+      <span class="lang es">No</span>
+      <span class="lang ja">No</span>
+      <span class="lang ko">No</span>
+      <span class="lang ru">No</span>
+      <span class="lang zh-cn">没有</span>
+      <span class="lang zh-tw">没有</span>
+    </a>
+  </div>
+</div> -->
+
 
   <!-- Header -->
   <div id="header-wrapper">
@@ -332,6 +383,7 @@ develop guide" itemscope itemtype="http://schema.org/Article">
                 <li><a href="../../../distribute/users/index.html">Get Users</a></li>
                 <li><a href="../../../distribute/engage/index.html">Engage &amp; Retain</a></li>
                 <li><a href="../../../distribute/monetize/index.html">Monetize</a></li>
+                <li><a href="../../../distribute/analyze/index.html">Analyze</a></li>
                 <li><a href="../../../distribute/tools/index.html">Tools &amp; Reference</a></li>
                 <li><a href="../../../distribute/stories/index.html">Developer Stories</a></li>
               </ul>
@@ -344,7 +396,10 @@ develop guide" itemscope itemtype="http://schema.org/Article">
   
     <!-- Secondary x-nav -->
     <div id="nav-x">
-        <div class="wrap">
+        <div class="wrap" style="position:relative;z-index:1">
+
+        
+
             <ul class="nav-x col-9 develop" style="width:100%">
                 <li class="training"><a href="../../../training/index.html"
                   zh-tw-lang="訓練課程"
@@ -463,6 +518,9 @@ develop guide" itemscope itemtype="http://schema.org/Article">
             </a></li>
           <li><a href="../../../guide/components/tasks-and-back-stack.html">
               <span class="en">Tasks and Back Stack</span>
+            </a></li>
+          <li><a href="../../../guide/components/recents.html">
+              <span class="en">Overview Screen</span>
             </a></li>
         </ul>
       </li>
@@ -1032,64 +1090,66 @@ develop guide" itemscope itemtype="http://schema.org/Article">
 <div id="qv">
 <h2>In This Document</h2>
 <ol>
-    <li>
-        <a href="#InputMethodLifecycle">The IME Lifecycle</a>
-    </li>
-    <li>
-        <a href="#DefiningIME">Declaring IME Components in the Manifest</a>
-    </li>
-    <li>
-        <a href="#IMEAPI">The Input Method API</a>
-    </li>
-    <li>
-        <a href="#IMEUI">Designing the Input Method UI</a>
-    </li>
-    <li>
-        <a href="#SendText">Sending Text to the Application</a>
-    </li>
-    <li>
-        <a href="#IMESubTypes">Creating an IME Subtype</a>
-    </li>
-    <li>
-        <a href="#GeneralDesign">General IME Considerations</a>
-    </li>
+    <li><a href="#InputMethodLifecycle">The IME Lifecycle</a></li>
+    <li><a href="#DefiningIME">Declaring IME Components in the Manifest</a></li>
+    <li><a href="#IMEAPI">The Input Method API</a></li>
+    <li><a href="#IMEUI">Designing the Input Method UI</a></li>
+    <li><a href="#SendText">Sending Text to the Application</a></li>
+    <li><a href="#IMESubTypes">Creating an IME Subtype</a></li>
+    <li><a href="#Switching">Switching among IME Subtypes</a></li>
+    <li><a href="#GeneralDesign">General IME Considerations</a></li>
 </ol>
 <h2>See also</h2>
 <ol>
     <li>
         <a href="http://android-developers.blogspot.com/2009/04/updating-applications-for-on-screen.html">Onscreen Input Methods</a>
     </li>
-    <li>
-        <a href="../../../resources/samples/SoftKeyboard/index.html">Soft Keyboard sample</a>
+</ol>
+
+<h2>Sample</h2>
+<ol>
+    <li><a href="https://android.googlesource.com/platform/development/+/master/samples/SoftKeyboard/">
+    SoftKeyboard</a>
     </li>
 </ol>
+
 </div>
 </div>
 <p>
     An input method editor (IME) is a user control that enables users to enter text. Android
-    provides an extensible input method framework that allows applications to provide users
-    alternative input methods, such as on-screen keyboards or even speech input. Once installed,
-    users can select which IME they want to use from the system settings and use it across the
-    entire system; only one IME may be enabled at a time.
+    provides an extensible input-method framework that allows applications to provide users
+    alternative input methods, such as on-screen keyboards or even speech input. After installing
+    the desired IMEs, a user can select which one to use from the system settings, and use it
+    across the entire system; only one IME may be enabled at a time.
 </p>
 <p>
     To add an IME to the Android system, you create an Android application
     containing a class that extends <code><a href="../../../reference/android/inputmethodservice/InputMethodService.html">InputMethodService</a></code>. In
-    addition, you usually create a "settings" activity that passes options to the IME
-    service. You can also define a settings UI that's displayed as part of the system settings.
+    addition, you usually create a "settings" activity that passes options to the IME service. You
+    can also define a settings UI that's displayed as part of the system settings.
 </p>
+<p>This guide covers the following:</p>
+<ul>
+    <li>The IME lifecycle</li>
+    <li>Declaring IME components in the application manifest</li>
+    <li>The IME API</li>
+    <li>Designing an IME UI</li>
+    <li>Sending text from an IME to an application</li>
+    <li>Working with IME subtypes</li>
+</ul>
 <p>
     If you haven't worked with IMEs before, you should read the introductory article
-    <a href="http://android-developers.blogspot.com/2009/04/updating-applications-for-on-screen.html">Onscreen Input Methods</a> first.
-    Also, the Soft Keyboard sample app included in the SDK contains sample code that you can modify
-    to start building your own IME.
+    <a href="http://android-developers.blogspot.com/2009/04/updating-applications-for-on-screen.html">Onscreen Input Methods</a>
+    first.
+    Also, the <a href="https://android.googlesource.com/platform/development/+/master/samples/SoftKeyboard/">
+    SoftKeyboard</a> sample app included in the SDK contains sample code that you can modify to
+    start building your own IME.
 </p>
 <h2 id="InputMethodLifecycle">The IME Lifecycle</h2>
 <p>
     The following diagram describes the life cycle of an IME:
 </p>
-<img src="../../../resources/articles/images/inputmethod_lifecycle_image.png" alt="" height="845"
-    id="figure1" />
+<img src="../../../resources/articles/images/inputmethod_lifecycle_image.png" alt="" height="845" id="figure1" />
 <p class="img-caption">
     <strong>Figure 1.</strong> The life cycle of an IME.
 </p>
@@ -1107,8 +1167,9 @@ develop guide" itemscope itemtype="http://schema.org/Article">
     activity that can be launched from System Settings.
 </p>
 <p>
-    The following snippet declares IME service. It requests the permission <code><a href="../../../reference/android/Manifest.permission.html#BIND_INPUT_METHOD">BIND_INPUT_METHOD</a></code> to allow the service to connect the IME to
-    the system, sets up an intent filter that matches the action
+    The following snippet declares an IME service. It requests the permission
+    <code><a href="../../../reference/android/Manifest.permission.html#BIND_INPUT_METHOD">BIND_INPUT_METHOD</a></code> to allow the service to connect the IME
+    to the system, sets up an intent filter that matches the action
     <code>android.view.InputMethod</code>, and defines metadata for the IME:
 </p>
 <pre>
@@ -1119,7 +1180,8 @@ develop guide" itemscope itemtype="http://schema.org/Article">
         &lt;intent-filter&gt;
             &lt;action android:name="android.view.InputMethod" /&gt;
         &lt;/intent-filter&gt;
-        &lt;meta-data android:name="android.view.im" android:resource="&#64;xml/method" /&gt;
+        &lt;meta-data android:name="android.view.im"
+android:resource="&#64;xml/method" /&gt;
     &lt;/service&gt;
 </pre>
 <p>
@@ -1140,8 +1202,9 @@ develop guide" itemscope itemtype="http://schema.org/Article">
 </p>
 <h2 id="IMEAPI">The Input Method API</h2>
 <p>
-    Classes specific to IMEs are found in the <code><a href="../../../reference/android/inputmethodservice/package-summary.html">android.inputmethodservice</a></code> and <code><a href="../../../reference/android/view/inputmethod/package-summary.html">android.view.inputmethod</a></code> packages. The <code><a href="../../../reference/android/view/KeyEvent.html">KeyEvent</a></code> class is important for
-    handling keyboard characters.
+    Classes specific to IMEs are found in the <code><a href="../../../reference/android/inputmethodservice/package-summary.html">android.inputmethodservice</a></code> and
+    <code><a href="../../../reference/android/view/inputmethod/package-summary.html">android.view.inputmethod</a></code> packages. The <code><a href="../../../reference/android/view/KeyEvent.html">KeyEvent</a></code> class is
+    important for handling keyboard characters.
 </p>
 <p>
     The central part of an IME is a service component, a class that extends
@@ -1149,8 +1212,8 @@ develop guide" itemscope itemtype="http://schema.org/Article">
     normal service lifecycle, this class has callbacks for providing your IME's UI, handling user
     input, and delivering text to the field that currently has focus. By default, the
     <code><a href="../../../reference/android/inputmethodservice/InputMethodService.html">InputMethodService</a></code> class provides most of the implementation
-    for managing the state and visibility of the IME and communicating with the current
-    input field.
+    for managing the state and visibility of the IME and communicating with the current input
+    field.
 </p>
 <p>
     The following classes are also important:
@@ -1179,8 +1242,8 @@ develop guide" itemscope itemtype="http://schema.org/Article">
 </p>
 <h3 id="InputView">Input view</h3>
 <p>
-    The input view is the UI where the user inputs text, in the form of keyclicks, handwriting or
-    gestures. When the iIME is displayed for the first time, the system calls the
+    The input view is the UI where the user inputs text in the form of keyclicks, handwriting or
+    gestures. When the IME is displayed for the first time, the system calls the
     <code><a href="../../../reference/android/inputmethodservice/InputMethodService.html#onCreateInputView()">onCreateInputView()</a></code> callback. In your
     implementation of this method, you create the layout you want to display in the IME
     window and return the layout to the system. This snippet is an example of implementing the
@@ -1191,30 +1254,34 @@ develop guide" itemscope itemtype="http://schema.org/Article">
         MyKeyboardView inputView =
             (MyKeyboardView) getLayoutInflater().inflate( R.layout.input, null);
 
-        inputView.setOnKeyboardActionListener(this); inputView.setKeyboard(mLatinKeyboard);
+        inputView.setOnKeyboardActionListener(this);
+inputView.setKeyboard(mLatinKeyboard);
 
         return mInputView;
     }
 </pre>
 <p>
-    In this example, <code>MyKeyboardView</code> is an instance of a custom implementation of
+    In this example, <code>MyKeyboardView</code> is an instance of a custom
+implementation of
     <code><a href="../../../reference/android/inputmethodservice/KeyboardView.html">KeyboardView</a></code> that renders a
-    <code><a href="../../../reference/android/inputmethodservice/Keyboard.html">Keyboard</a></code>. If you’re building a traditional QWERTY keyboard,
-    see the  Soft Keyboard <a href="../../../tools/samples/index.html">sample
-    app</a> for an example of how to extend the <code><a href="../../../reference/android/inputmethodservice/KeyboardView.html">KeyboardView</a></code> class.
+    <code><a href="../../../reference/android/inputmethodservice/Keyboard.html">Keyboard</a></code>. If you’re building a
+traditional QWERTY keyboard,
+    see the <a href="https://android.googlesource.com/platform/development/+/master/samples/SoftKeyboard/>
+    SoftKeyboard</a> sample app for an example of how to extend the <code><a href="../../../reference/android/inputmethodservice/KeyboardView.html">KeyboardView</a></code>
+    class.
 </p>
 <h3 id="CandidateView">Candidates view</h3>
 <p>
     The candidates view is the UI where the IME displays potential word corrections or
     suggestions for the user to select. In the IME lifecycle, the system calls
     <code><a href="../../../reference/android/inputmethodservice/InputMethodService.html#onCreateCandidatesView()">onCreateCandidatesView()</a></code> when it's ready
-    to display the candidate view. In your implementation of this method, return a layout that shows
-    word suggestions, or return null if you don’t want to show anything (a null response is the
-    default behavior, so you don’t have to implement this if you don’t provide suggestions).</p>
+    to display the candidates view. In your implementation of this method, return a layout that
+    shows word suggestions, or return null if you don’t want to show anything. A null response is
+    the default behavior, so you don’t have to implement this if you don’t provide suggestions.</p>
 <p>
     For an example implementation that provides user suggestions, see the
-    Soft Keyboard <a href="../../../tools/samples/index.html">sample
-    app</a>.
+    <a href="https://android.googlesource.com/platform/development/+/master/samples/SoftKeyboard/">
+    SoftKeyboard</a> sample app.
 </p>
 <h3 id="DesignConsiderations">UI design considerations</h3>
 <p>
@@ -1230,28 +1297,27 @@ develop guide" itemscope itemtype="http://schema.org/Article">
 </p>
 <h4>Handling different input types</h4>
 <p>
-    Android text fields allow you to set a specific input type, such as free form text, numbers,
-    URLs, email addresses, and search strings. When you implement a new IME, you need to
-    detect the input type of each field and provide the appropriate interface for it. However, you
-    don't have to set up your IME to check that the user entered text that's valid for the
-    input type; that's the responsibility of the application that owns the text field.
+    Android text fields allow you to set a specific input type, such as free-form text, numbers,
+    URLs, email addresses, and search strings. When you implement a new IME, you need to detect
+    the input type of each field and provide the appropriate interface for it. However, you
+    don't have to set up your IME to check that the user entered text valid for the input type;
+    that's the responsibility of the application that owns the text field.
 </p>
 <p>
     For example, here are screenshots of the interfaces that the Latin IME provided with the
     Android platform provides for text and phone number inputs:
 </p>
-<img src="../../../resources/articles/images/inputmethod_text_type_screenshot.png" alt=""
-    height="142" id="figure2" />
-<img src="../../../resources/articles/images/inputmethod_numeric_type_screenshot.png" alt=""
-    height="120" id="figure2a" />
+<img src="../../../resources/articles/images/inputmethod_text_type_screenshot.png" alt="" height="142" id="figure2" />
+<img src="../../../resources/articles/images/inputmethod_numeric_type_screenshot.png" alt="" height="120" id="figure2a" />
 <p class="img-caption">
     <strong>Figure 2.</strong> Latin IME input types.
 </p>
 <p>
     When an input field receives focus and your IME starts, the system calls
-    <code><a href="../../../reference/android/inputmethodservice/InputMethodService.html#onStartInputView(android.view.inputmethod.EditorInfo, boolean)">onStartInputView()</a></code>, passing in an <code><a href="../../../reference/android/view/inputmethod/EditorInfo.html">EditorInfo</a></code> object that
-    contains details about the input type and other attributes of the text field. In this object,
-    the <code><a href="../../../reference/android/view/inputmethod/EditorInfo.html#inputType">inputType</a></code> field contains the text field's input
+    <code><a href="../../../reference/android/inputmethodservice/InputMethodService.html#onStartInputView(android.view.inputmethod.EditorInfo, boolean)">onStartInputView()</a></code>,
+    passing in an <code><a href="../../../reference/android/view/inputmethod/EditorInfo.html">EditorInfo</a></code> object that contains details about
+    the input type and other attributes of the text field. In this object, the
+    <code><a href="../../../reference/android/view/inputmethod/EditorInfo.html#inputType">inputType</a></code> field contains the text field's input
     type.
 </p>
 <p>
@@ -1318,13 +1384,13 @@ The input type bit pattern can have one of several values, including:
 <p class="caution">
     <strong>Caution:</strong> In your own IME, make sure you handle text correctly when you send it
     to a password field. Hide the password in your UI both in the input view and in the candidates
-    view. Also remember that you shouldn't store passwords on a device. To learn more, see the <a
-        href="../../../guide/practices/security.html">Designing for Security</a> guide.
+    view. Also remember that you shouldn't store passwords on a device. To learn more, see the
+    <a href="../../../guide/practices/security.html">Designing for Security</a> guide.
 </p>
 <h2 id="SendText">Sending Text to the Application</h2>
 <p>
-    As the user inputs text with your IME, you can send text to the application by
-    sending individual key events or by editing the text around the cursor in the application's text
+    As the user inputs text with your IME, you can send text to the application by sending
+    individual key events or by editing the text around the cursor in the application's text
     field. In either case, you use an instance of <code><a href="../../../reference/android/view/inputmethod/InputConnection.html">InputConnection</a></code>
     to deliver the text. To get this instance, call
     <code><a href="../../../reference/android/inputmethodservice/InputMethodService.html#getCurrentInputConnection()">InputMethodService.getCurrentInputConnection()</a></code>.
@@ -1364,8 +1430,8 @@ The input type bit pattern can have one of several values, including:
     </dd>
 </dl>
 <p>
-    For example, the following snippet shows how to replace the text "Fell" to the left of the
-    with the text "Hello!":
+    For example, the following snippet shows how to replace the four characters to the left of the
+    cursor with the text "Hello!":
 </p>
 <pre>
     InputConnection ic = getCurrentInputConnection();
@@ -1381,7 +1447,8 @@ The input type bit pattern can have one of several values, including:
     If your IME does text prediction or requires multiple steps to compose a glyph or
     word, you can show the progress in the text field until the user commits the word, and then you
     can replace the partial composition with the completed text. You may give special treatment to
-    the text by adding a "span" to it when you pass it to InputConnection#setComposingText().
+    the text by adding a "span" to it when you pass it to
+<code><a href="../../../reference/android/view/inputmethod/InputConnection.html#setComposingText(java.lang.CharSequence, int)">setComposingText()</a></code>.
 </p>
 <p>
     The following snippet shows how to show progress in a text field:
@@ -1401,11 +1468,14 @@ The input type bit pattern can have one of several values, including:
 <p>
     The following screenshots show how this appears to the user:
 </p>
-<img src="../../../resources/articles/images/inputmethod_composing_text_1.png" alt="" height="54"
+<img src="../../../resources/articles/images/inputmethod_composing_text_1.png"
+alt="" height="54"
     id="figure3a" />
-<img src="../../../resources/articles/images/inputmethod_composing_text_2.png" alt="" height="53"
+<img src="../../../resources/articles/images/inputmethod_composing_text_2.png"
+alt="" height="53"
     id="figure3b" />
-<img src="../../../resources/articles/images/inputmethod_composing_text_3.png" alt="" height="31"
+<img src="../../../resources/articles/images/inputmethod_composing_text_3.png"
+alt="" height="31"
     id="figure3c" />
 <p class="img-caption">
     <strong>Figure 3.</strong> Composing text before committing.
@@ -1421,8 +1491,9 @@ The input type bit pattern can have one of several values, including:
     To intercept hardware keys, override
     <code><a href="../../../reference/android/inputmethodservice/InputMethodService.html#onKeyDown(int, android.view.KeyEvent)">onKeyDown()</a></code>
     and <code><a href="../../../reference/android/inputmethodservice/InputMethodService.html#onKeyUp(int, android.view.KeyEvent)">onKeyUp()</a></code>.
-    See the Soft Keyboard <a href="../../../tools/samples/index.html">sample
-    app</a> for an example.
+    See the
+    <a href="https://android.googlesource.com/platform/development/+/master/samples/SoftKeyboard/">
+    SoftKeyboard</a> sample app for an example.
 </p>
 <p>
     Remember to call the <code>super()</code> method for keys you don't want to handle yourself.
@@ -1441,9 +1512,10 @@ The input type bit pattern can have one of several values, including:
     </li>
 </ul>
 <p>
-    Basically, the mode can be any text such as "keyboard", "voice", and so forth.
+    Basically, the mode can be any text such as "keyboard", "voice", and so forth. A subtype can
+    also expose a combination of these.
 </p>
-<p>A subtype can also expose a combination of these.</p>
+
 <p>
     Subtype information is used for an IME switcher dialog that's available from the notification
     bar and also for IME settings. The information also allows the framework to bring up a
@@ -1498,8 +1570,8 @@ The input type bit pattern can have one of several values, including:
 &lt;string name="label_subtype_generic"&gt;%s&lt;/string&gt;
 </pre>
 <p>
-    This sets the subtype’s display name to “English (United States)” in any English language
-    locale, or to the appropriate localization in other locales.
+    This setting causes the subtype’s display name to match the locale setting.
+    For example, in any English locale, the display name is “English (United States)”.
 </p>
 <h3 id="SubtypeProcessing">Choosing IME subtypes from the notification bar</h3>
 <p>
@@ -1507,12 +1579,17 @@ The input type bit pattern can have one of several values, including:
     treated as modes of the IME they belong to. In the notification bar, a user can select an
     available subtype for the currently-set IME, as shown in the following screenshot:
 </p>
-<img src="../../../resources/articles/images/inputmethod_subtype_notification.png" alt=""
+<img
+src="../../../resources/articles/images/inputmethod_subtype_notification.png"
+alt=""
     height="85" id="figure4" />
 <p class="img-caption">
-    <strong>Figure 4.</strong> Choosing an IME subtype from the notification bar.
+    <strong>Figure 4.</strong> Choosing an IME subtype from the notification
+bar.
 </p>
-<img src="../../../resources/articles/images/inputmethod_subtype_preferences.png" alt=""
+<img
+src="../../../resources/articles/images/inputmethod_subtype_preferences.png"
+alt=""
     height="165" id="figure5" />
 <p class="img-caption">
     <strong>Figure 5.</strong> Setting subtype preferences in System Settings.
@@ -1520,15 +1597,55 @@ The input type bit pattern can have one of several values, including:
 <h3 id="SubtypeSettings">Choosing IME subtypes from System Settings</h3>
 <p>
     A user can control how subtypes are used in the “Language &amp; input” settings panel in the
-    System Settings area. In the Soft Keyboard sample, the file
-    <code>InputMethodSettingsFragment.java</code> contains an implementation that
-    facilitates a subtype enabler in the IME settings. Please refer to the SoftKeyboard sample in
-    the Android SDK for more information about how to support Input Method Subtypes in your IME.
+    System Settings area. In the
+    <a href="https://android.googlesource.com/platform/development/+/master/samples/SoftKeyboard/">
+    SoftKeyboard</a> sample app, the file <code>InputMethodSettingsFragment.java</code> contains an
+    implementation that facilitates a subtype enabler in the IME settings. Refer to the
+    <a href="https://android.googlesource.com/platform/development/+/master/samples/SoftKeyboard/">
+    SoftKeyboard</a> sample app in the Android SDK for more information about how to support
+    Input Method Subtypes in your IME.
 </p>
-<img src="../../../resources/articles/images/inputmethod_subtype_settings.png" alt=""
+<img src="../../../resources/articles/images/inputmethod_subtype_settings.png"
+alt=""
     height="210" id="figure6" />
 <p class="img-caption">
     <strong>Figure 6.</strong> Choosing a language for the IME.
+</p>
+
+<h2 id="Switching">Switching among IME Subtypes</h2>
+
+<p>You can allow users to switch easily among multiple IME subtypes by providing a switching key,
+such as the globe-shaped language icon, as part of the keyboard. Doing so greatly improves the
+keyboard's usability, and can help avoid user frustration.
+To enable such switching, perform the following steps:</p>
+<p>
+<ol>
+    <li>Declare <code>supportsSwitchingToNextInputMethod = "true"</code> in the input method's XML
+    resource files. Your declaration should look similar to the following snippet:
+    <pre>
+&lt;input-method xmlns:android="http://schemas.android.com/apk/res/android"
+        android:settingsActivity="com.example.softkeyboard.Settings"
+        android:icon="&#64;drawable/ime_icon"
+        android:supportsSwitchingToNextInputMethod="true"&gt;
+</pre></li>
+    <li>Call the <code><a href="../../../reference/android/view/inputmethod/InputMethodManager.html#shouldOfferSwitchingToNextInputMethod(android.os.IBinder)">shouldOfferSwitchingToNextInputMethod()</a></code> method.</li>
+    <li>If the method returns true, display a switching key.</li>
+    <li>When the user taps the switching key, call
+    <code><a href="../../../reference/android/view/inputmethod/InputMethodManager.html#switchToNextInputMethod(android.os.IBinder, boolean)">switchToNextInputMethod()</a></code>,
+    passing false to the second parameter. A value of false tells the system to treat all subtypes
+    equally, regardless of what IME they belong to. Specifying true requires the system to cycle
+    through subtypes in the current IME.</li>
+</ol>
+</p>
+
+<p class="caution">
+    <strong>Caution:</strong> Prior to Android 5.0 (API level 21),
+<code><a href="../../../reference/android/view/inputmethod/InputMethodManager.html#switchToNextInputMethod(android.os.IBinder, boolean)">switchToNextInputMethod()</a></code>
+is not aware of the <code>supportsSwitchingToNextInputMethod</code> attribute. If the user switches
+into an IME without a switching key, he or she may get stuck in that IME, unable to switch out of it easily.</p>
+
+<p>
+
 </p>
 
 <h2 id="GeneralDesign">General IME Considerations</h2>
@@ -1550,8 +1667,8 @@ The input type bit pattern can have one of several values, including:
 </li>
 <li>
     Conversely, you should release large memory allocations soon after the input method window is
-    hidden, so that applications can have sufficient memory to run. Consider using a delayed message
-    to release resources if the IME is in a hidden state for a few seconds.
+    hidden, so that applications can have sufficient memory to run. Consider using a delayed
+    message to release resources if the IME is in a hidden state for a few seconds.
 </li>
 <li>
     Make sure that users can enter as many characters as possible for the language or locale
@@ -1560,7 +1677,6 @@ The input type bit pattern can have one of several values, including:
     password and get access to the device.
 </li>
 </ul>
-
     </div>
 
       <div class="content-footer layout-content-row"
@@ -1611,10 +1727,10 @@ The input type bit pattern can have one of several values, including:
 
 
   <script src="https://developer.android.com/ytblogger_lists_unified.js" type="text/javascript"></script>
-  <script src="../../../jd_lists_unified.js?v=2" type="text/javascript"></script>
-  <script src="../../../jd_extras.js?v=3" type="text/javascript"></script>
-  <script src="../../../jd_collections.js?v=3" type="text/javascript"></script>
-  <script src="../../../jd_tag_helpers.js?v=2" type="text/javascript"></script>
+  <script src="../../../jd_lists_unified.js?v=8" type="text/javascript"></script>
+  <script src="../../../jd_extras.js?v=9" type="text/javascript"></script>
+  <script src="../../../jd_collections.js?v=9" type="text/javascript"></script>
+  <script src="../../../jd_tag_helpers.js?v=5" type="text/javascript"></script>
 
 </body>
 </html>

@@ -1,0 +1,20 @@
+#!/bin/bash
+
+filepath=`find ajax/ -name "$1"`
+
+#echo $filepath
+
+fileList=`find . -name "*.$3" |xargs grep -l "$2"`
+
+i=0;
+for line in $fileList; do 
+#    echo $line ;
+    relatPath=$(realpath --relative-to=$line $filepath |sed "s/\//\\\\\//g")
+#    echo param2: "$2"
+#    echo relativePath: $relatPath
+#    echo sed -i "s/$2/$relatPath/g" $line
+    sed -i "s/$2/$relatPath/g" $line
+    ((i++));
+    echo $i
+done;
+

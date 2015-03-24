@@ -87,6 +87,9 @@
 
 
 
+
+
+
 <html>
 <head>
 
@@ -94,7 +97,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width" />
 
-<meta name="Description" content="Give your apps more features to attract users on a wider range of devices. With Google Play services, your app can take advantage of the latest, Google-powered features such as Maps, Google+, and more, with automatic platform updates distributed as an…">
+<meta name="Description" content="With Google Play services, your app can take advantage of the latest Google-powered features such as Maps, Analytics, and more: platform updates are distributed automatically as an APK through the Google Play Store.">
 <link rel="shortcut icon" type="image/x-icon" href="../../favicon.ico" />
 <title>Google Play Services | Android Developers</title>
 
@@ -103,7 +106,7 @@
 href="http://fonts.useso.com/css?family=Roboto+Condensed">
 <link rel="stylesheet" href="http://fonts.useso.com/css?family=Roboto:light,regular,medium,thin,italic,mediumitalic,bold"
   title="roboto">
-<link href="../../assets/css/default.css?v=2" rel="stylesheet" type="text/css">
+<link href="../../assets/css/default.css?v=5" rel="stylesheet" type="text/css">
 
 
 
@@ -114,13 +117,15 @@ href="http://fonts.useso.com/css?family=Roboto+Condensed">
   var metaTags = [];
   var devsite = false;
 </script>
-<script src="../../assets/js/docs.js?v=2" type="text/javascript"></script>
+<script src="../../assets/js/docs.js?v=3" type="text/javascript"></script>
+
+
 
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//googleapiscdn.qiniudn.com/www.google-analytics.com/analytics.js','ga');
+  })(window,document,'script','//../../../ajax/www.google-analytics.com/analytics.js','ga');
 
   ga('create', 'UA-5831155-1', 'android.com');
   ga('create', 'UA-49880327-2', 'android.com', {'name': 'universal'});  // New tracker);
@@ -135,6 +140,52 @@ href="http://fonts.useso.com/css?family=Roboto+Condensed">
 google" itemscope itemtype="http://schema.org/Article">
 
 <a name="top"></a>
+
+<!-- dialog to prompt lang pref change when loaded from hardcoded URL 
+<div id="langMessage" style="display:none">
+  <div>
+    <div class="lang en">
+      <p>You requested a page in English, would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang es">
+      <p>You requested a page in Spanish (Español), would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang ja">
+      <p>You requested a page in Japanese (日本語), would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang ko">
+      <p>You requested a page in Korean (한국어), would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang ru">
+      <p>You requested a page in Russian (Русский), would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang zh-cn">
+      <p>You requested a page in Simplified Chinese (简体中文), would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang zh-tw">
+      <p>You requested a page in Traditional Chinese (繁體中文), would you like to proceed with this language setting?</p>
+    </div>
+    <a href="#" class="button yes" onclick="return false;">
+      <span class="lang en">Yes</span>
+      <span class="lang es">Sí</span>
+      <span class="lang ja">Yes</span>
+      <span class="lang ko">Yes</span>
+      <span class="lang ru">Yes</span>
+      <span class="lang zh-cn">是的</span>
+      <span class="lang zh-tw">没有</span>
+    </a>
+    <a href="#" class="button" onclick="$('#langMessage').hide();return false;">
+      <span class="lang en">No</span>
+      <span class="lang es">No</span>
+      <span class="lang ja">No</span>
+      <span class="lang ko">No</span>
+      <span class="lang ru">No</span>
+      <span class="lang zh-cn">没有</span>
+      <span class="lang zh-tw">没有</span>
+    </a>
+  </div>
+</div> -->
+
 
   <!-- Header -->
   <div id="header-wrapper">
@@ -332,6 +383,7 @@ google" itemscope itemtype="http://schema.org/Article">
                 <li><a href="../../distribute/users/index.html">Get Users</a></li>
                 <li><a href="../../distribute/engage/index.html">Engage &amp; Retain</a></li>
                 <li><a href="../../distribute/monetize/index.html">Monetize</a></li>
+                <li><a href="../../distribute/analyze/index.html">Analyze</a></li>
                 <li><a href="../../distribute/tools/index.html">Tools &amp; Reference</a></li>
                 <li><a href="../../distribute/stories/index.html">Developer Stories</a></li>
               </ul>
@@ -344,7 +396,10 @@ google" itemscope itemtype="http://schema.org/Article">
   
     <!-- Secondary x-nav -->
     <div id="nav-x">
-        <div class="wrap">
+        <div class="wrap" style="position:relative;z-index:1">
+
+        
+
             <ul class="nav-x col-9 develop" style="width:100%">
                 <li class="training"><a href="../../training/index.html"
                   zh-tw-lang="訓練課程"
@@ -502,14 +557,14 @@ google" itemscope itemtype="http://schema.org/Article">
 
 
   <li class="nav-section">
-    <div class="nav-section-header"><a href="../../google/play/billing/index.html">
+    <div class="nav-section-header"><a href="../../google/play/billing/index.html" zh-cn-lang="应用内结算">
       <span class="en">Google Play In-app Billing</span></a>
     </div>
     <ul>
-      <li><a href="../../google/play/billing/billing_overview.html">
+      <li><a href="../../google/play/billing/billing_overview.html" zh-cn-lang="应用内结算概述">
               <span class="en">Overview</span></a>
       </li>
-      <li class="nav-section"><div class="nav-section-header"><a href="../../google/play/billing/api.html">
+      <li class="nav-section"><div class="nav-section-header"><a href="../../google/play/billing/api.html" zh-cn-lang="应用内结算 API">
               <span class="en">Version 3 API</span></a></div>
               <ul>
               <li><a href="../../google/play/billing/billing_integrate.html">
@@ -532,13 +587,13 @@ google" itemscope itemtype="http://schema.org/Article">
       <li><a href="../../google/play/billing/billing_subscriptions.html">
               <span class="en">Subscriptions</span></a>
       </li>
-      <li><a href="../../google/play/billing/billing_best_practices.html">
+      <li><a href="../../google/play/billing/billing_best_practices.html" zh-cn-lang="安全性和设计">
               <span class="en">Security and Design</span></a>
       </li>
-      <li><a href="../../google/play/billing/billing_testing.html">
+      <li><a href="../../google/play/billing/billing_testing.html" zh-cn-lang="测试应用内结算">
               <span class="en">Testing In-app Billing</span></a>
       </li>
-      <li><a href="../../google/play/billing/billing_admin.html">
+      <li><a href="../../google/play/billing/billing_admin.html" zh-cn-lang="管理应用内结算">
               <span class="en">Administering In-app Billing</span></a>
       </li>
       <li><a href="../../google/play/billing/versions.html">
@@ -572,21 +627,14 @@ google" itemscope itemtype="http://schema.org/Article">
               <span class="en">HTTP</span></a></li>
               </ul>
         </li>
+        <li><a href="../../google/gcm/server-ref.html">
+            <span class="en">Server Reference</span></a>
+        </li>
         <li><a href="../../google/gcm/notifications.html">
               <span class="en">User Notifications</span></a>
         </li>
-        <li><a href="../../google/gcm/adv.html">
-            <span class="en">Advanced Topics</span></a>
-        </li>
         <li><a href="../../google/gcm/c2dm.html">
             <span class="en">Migration</span></a>
-        </li>
-        <li id="gcm-tree-list" class="nav-section">
-          <div class="nav-section-header">
-            <a href="../../reference/gcm-packages.html">
-              <span class="en">Reference</span>
-            </a>
-          <div>
         </li>
       </ul>
   </li>
@@ -748,10 +796,103 @@ about your users' Android version.</p>
 
 <h2 style="margin-top:0" id="newfeatures">New Features</h2>
 
-
 <div class="toggle-content opened">
   <p><a href="#" onclick="return toggleContent(this)">
     <img src="../../assets/images/triangle-opened.png"
+    class="toggle-content-img"
+      alt=""/>Google Play services, Version 6.5</a> <em>(December 2014)</em>
+  </p>
+
+  <div class="toggle-content-toggleme">
+<dl>
+<dt>Highlights in Version 6.5</dt>
+
+<dd>
+<p>For a summary of the feature highlights in Google Play services 6.5, see the
+announcement
+<a href="http://android-developers.blogspot.com/2014/11/google-play-services-65.html"
+class="external-link">blog post</a>.</p>
+<ul>
+  <li><strong>Maps</strong> - The new <em>lite mode</em> lets your app display a
+bitmap image of a map, while still being able to control markers and shapes
+client-side. This is particularly useful when you're showing a number of small
+maps. You can enable or disable a new map toolbar that lets users open
+<a href="https://www.google.com/maps" class="external-link">Google Maps</a> and
+get directions and turn by turn navigation to the selected marker. The
+<code>getMap()</code> method in
+<a href="../../reference/com/google/android/gms/maps/MapView.html"><code>MapView</code></a>
+and
+<a href="../../reference/com/google/android/gms/maps/MapFragment.html"><code>MapFragment</code></a>
+is now deprecated in favor of the new <code>getMapAsync()</code> method. Similarly,
+the new <code>getStreetViewPanoramaAsync()</code> method in
+<a href="../../reference/com/google/android/gms/maps/StreetViewPanoramaView.html"><code>StreetViewPanoramaView</code></a> and
+<a href="../../reference/com/google/android/gms/maps/StreetViewPanoramaFragment.html"><code>StreetViewPanoramaFragment</code></a>
+enables you to get a ready-to-use Street View panorama.
+    <ul>
+      <li><a href="https://developers.google.com/maps/documentation/android/lite.html"
+        class="external-link">Lite mode maps developer guide</a></li>
+      <li><a href="https://developers.google.com/maps/documentation/android/interactivity.html#toolbar"
+        class="external-link">Map toolbar developer guide</a></li>
+    </ul>
+  </li>
+  <li><strong>Drive</strong> - This release introduces support for inserting or
+  updating custom properties. You can now create empty files (for example, a user
+  preference file that is empty until the user defines some application property).
+    <ul>
+      <li><a href="../../reference/com/google/android/gms/drive/metadata/CustomPropertyKey.html"><code>CustomPropertyKey</code> API reference</a></li>
+      <li><a href="https://developers.google.com/drive/android/create-file.html"
+        class="external-link">Creating empty files developer guide</a></li>
+    </ul>
+  </li>
+  <li><strong>Fit</strong> - The Fit API now supports activity segments
+    (<a href="../../reference/com/google/android/gms/fitness/data/DataType.html#TYPE_ACTIVITY_SEGMENT"><code>DataType.TYPE_ACTIVITY_SEGMENT</code></a>), which
+    enable you to represent pauses within a workout session and to annotate time
+    intervals inside a session with different fitness activities.
+  </li>
+  <li><strong>Wallet</strong> - You can now enable donations from your Android
+    app in the same way you enable purchases. To do so, create a
+    <a href="../../reference/com/google/android/gms/wallet/fragment/WalletFragment.html"><code>WalletFragment</code></a> and specify the
+    <a href="../../reference/com/google/android/gms/wallet/fragment/WalletFragmentMode.html#BUY_BUTTON"><code>BUY_BUTTON</code></a>
+    mode, then set the button text to
+    <a href="../../reference/com/google/android/gms/wallet/fragment/BuyButtonText.html#DONATE_WITH_GOOGLE"><code>DONATE_WITH_GOOGLE</code></a>.
+    <p class="note"><strong>Note:</strong> Use of the <em>Donate with Google</em>
+    button is limited to 501(c)(3) organizations. For more information, see the
+    <a href="https://support.google.com/wallet/business/answer/75724?hl=en&rd=1" class="external-link">Content policies</a>.</p>
+      <ul>
+        <li><a href="https://developers.google.com/wallet/instant-buy/android/tutorial.html" class="external-link">Setting button text developer guide</a></li>
+      </ul>
+  </li>
+  <li><strong>Granular dependency management</strong> - If the number of
+    references in your app exceeds the
+    <a href="../../tools/building/multidex.html">65K method reference limit</a>,
+    your app may fail to compile. To avoid this problem, you can include just
+    the specific Google Play services APIs your app uses, instead of all of them,
+    when compiling your app. For more details, see the Android Studio setup
+    instructions in
+    <a href="../../google/play-services/setup.html">Setting Up Google Play Services</a>.
+  </li>
+  <li><strong>Deprecated clients</strong> - The <code>ActivityRecognitionClient</code>,
+    <code>LocationClient</code>, and <code>PlusClient</code> classes are deprecated. If
+    you used those APIs in your app and want to call Google Play services 6.5
+    or higher APIs, you must switch to the new programming model that utilizes
+    <a href="../../reference/com/google/android/gms/common/api/GoogleApiClient.html"><code>GoogleApiClient</code></a>. For more information about using <a href="../../reference/com/google/android/gms/common/api/GoogleApiClient.html"><code>GoogleApiClient</code></a>, see <a href="../../google/auth/api-client.html">Accessing Google APIs</a>.
+    <p>Use these APIs instead of the deprecated APIs:</p>
+    <ul>
+      <li>If you were previously using <code>ActivityRecognitionClient</code>, call
+        <a href="../../reference/com/google/android/gms/location/ActivityRecognition.html"><code>ActivityRecognition</code></a> instead.</li>
+      <li>If you were previously using <code>LocationClient</code>, call the APIs in the
+        <a href="../../reference/com/google/android/gms/location/package-summary.html"><code>com.google.android.gms.location</code> package</a> instead.</li>
+      <li>If you were previously using <code>PlusClient</code>, call the APIs in the
+        <a href="../../reference/com/google/android/gms/plus/package-summary.html"><code>com.google.android.gms.plus</code> package</a> instead.</li>
+    </ul>
+  </li>
+</ul>
+</dd>
+</dl>
+
+<div class="toggle-content closed">
+  <p><a href="#" onclick="return toggleContent(this)">
+    <img src="../../assets/images/triangle-closed.png"
     class="toggle-content-img"
       alt=""/>Google Play services, Version 6.1</a> <em>(October 2014)</em>
   </p>
@@ -774,7 +915,8 @@ class="external-link">blog post</a>.</p>
     <a href="../../reference/com/google/android/gms/drive/OpenFileActivityBuilder.html">
     <code>OpenFileActivityBuilder</code><a/>, and the user interface has been
     updated to use
-      <a href="../../preview/material/index.html">material design</a>. A new
+      <a href="http://www.google.com/design/spec/material-design/introduction.html"
+      class="external-link">material design</a>. A new
     <a href="../../reference/com/google/android/gms/drive/DriveResource.html#setParents(com.google.android.gms.common.api.GoogleApiClient, java.util.Set<com.google.android.gms.drive.DriveId>)">
       DriveResource.setParents()</a> method makes it possible to organize files
     and folders. In addition, the
@@ -1153,10 +1295,10 @@ the various products in the Google Play services platform now!</p>
 
 
   <script src="https://developer.android.com/ytblogger_lists_unified.js" type="text/javascript"></script>
-  <script src="../../jd_lists_unified.js?v=2" type="text/javascript"></script>
-  <script src="../../jd_extras.js?v=3" type="text/javascript"></script>
-  <script src="../../jd_collections.js?v=3" type="text/javascript"></script>
-  <script src="../../jd_tag_helpers.js?v=2" type="text/javascript"></script>
+  <script src="../../jd_lists_unified.js?v=8" type="text/javascript"></script>
+  <script src="../../jd_extras.js?v=9" type="text/javascript"></script>
+  <script src="../../jd_collections.js?v=9" type="text/javascript"></script>
+  <script src="../../jd_tag_helpers.js?v=5" type="text/javascript"></script>
 
 </body>
 </html>

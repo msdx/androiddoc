@@ -6,19 +6,24 @@ ANDROID API镜像站
 目前版本：android 5.0。欢迎检出及部署。
 
 ---
-关于修改android doc加快打开速度的几行脚本：
+关于修改android doc加快打开速度的所用到的几行脚本：
+
+    deb http://cz.archive.ubuntu.com/ubuntu vivid main 
+
+    sudo apt-get update
+
+    sudo apt-get install realpath
 
     find . -name "*.html" |xargs sed -i "/www.google.com\/jsapi/d"
 
     find . -name "*.html" |xargs sed -i "s/fonts.googleapis.com/fonts.useso.com/g"
 
-    find . -name "*.js" |xargs sed -i "s/https:\/\/apis.google.com\/js\/plusone\.js/http:\/\/googleapiscdn.qiniudn.com\/apis.google.com\/js\/plusone.js/g"
+    ./handledocs plusone.js "https:\/\/apis.google.com\/js\/plusone\.js" js
 
-    find . -name "*.html" |xargs sed -i "s/www.google-analytics.com\/analytics.js/googleapiscdn.qiniudn.com\/www.google-analytics.com\/analytics.js/g"
+    ./handledocs analytics.js "www.google-analytics.com\/analytics.js" html
 
-    find . -name "*.html" |xargs sed -i "s/\/\/www.google-analytics.com\/ga.js/\/\/googleapiscdn.qiniudn.com\/www.google-analytics.com\/ga.js/g" 
+    ./handledocs ga.js "\/\/www.google-analytics.com\/ga.js" html
 
-    find . -name "*.html" | xargs sed -i "s/ga\.src = .*ga\.js';/ga\.src = \'http:\/\/googleapiscdn.qiniudn.com\/www\.google-analytics\.com\/ga\.js\';/"
+    ./handledocs ga.js "('https:' == document.location.protocol.*ga\.js';" html
 
     sed -i 's/\/\/lh4.ggpht.com\/-lfjzgG5Dqrk\/UHMThRtpRwI\/AAAAAAAABpk\/h4d3nsmkgPM\/s400\/mint.png/..\/images\/distribute\/mint.png/' develop/index.html 
-

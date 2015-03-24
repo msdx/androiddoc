@@ -87,6 +87,9 @@
 
 
 
+
+
+
 <html>
 <head>
 
@@ -94,7 +97,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width" />
 
-<meta name="Description" content="There are two ways to build your application using the Ant build script: one for testing&#47;debugging your application — debug mode — and one for building your final package for release — release mode . Regardless of which way you build your application…">
+<meta name="Description" content="By default, there are two build types to build your application using the gradle.build settings: one for debugging your application — debug — and one for building your final package for release — release mode . Regardless of which way you build type your…">
 <link rel="shortcut icon" type="image/x-icon" href="../../favicon.ico" />
 <title>Building and Running from the Command Line | Android Developers</title>
 
@@ -103,7 +106,7 @@
 href="http://fonts.useso.com/css?family=Roboto+Condensed">
 <link rel="stylesheet" href="http://fonts.useso.com/css?family=Roboto:light,regular,medium,thin,italic,mediumitalic,bold"
   title="roboto">
-<link href="../../assets/css/default.css?v=2" rel="stylesheet" type="text/css">
+<link href="../../assets/css/default.css?v=5" rel="stylesheet" type="text/css">
 
 
 
@@ -114,13 +117,15 @@ href="http://fonts.useso.com/css?family=Roboto+Condensed">
   var metaTags = [];
   var devsite = false;
 </script>
-<script src="../../assets/js/docs.js?v=2" type="text/javascript"></script>
+<script src="../../assets/js/docs.js?v=3" type="text/javascript"></script>
+
+
 
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//googleapiscdn.qiniudn.com/www.google-analytics.com/analytics.js','ga');
+  })(window,document,'script','//../../../ajax/www.google-analytics.com/analytics.js','ga');
 
   ga('create', 'UA-5831155-1', 'android.com');
   ga('create', 'UA-49880327-2', 'android.com', {'name': 'universal'});  // New tracker);
@@ -135,6 +140,52 @@ href="http://fonts.useso.com/css?family=Roboto+Condensed">
 develop" itemscope itemtype="http://schema.org/Article">
 
 <a name="top"></a>
+
+<!-- dialog to prompt lang pref change when loaded from hardcoded URL 
+<div id="langMessage" style="display:none">
+  <div>
+    <div class="lang en">
+      <p>You requested a page in English, would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang es">
+      <p>You requested a page in Spanish (Español), would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang ja">
+      <p>You requested a page in Japanese (日本語), would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang ko">
+      <p>You requested a page in Korean (한국어), would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang ru">
+      <p>You requested a page in Russian (Русский), would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang zh-cn">
+      <p>You requested a page in Simplified Chinese (简体中文), would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang zh-tw">
+      <p>You requested a page in Traditional Chinese (繁體中文), would you like to proceed with this language setting?</p>
+    </div>
+    <a href="#" class="button yes" onclick="return false;">
+      <span class="lang en">Yes</span>
+      <span class="lang es">Sí</span>
+      <span class="lang ja">Yes</span>
+      <span class="lang ko">Yes</span>
+      <span class="lang ru">Yes</span>
+      <span class="lang zh-cn">是的</span>
+      <span class="lang zh-tw">没有</span>
+    </a>
+    <a href="#" class="button" onclick="$('#langMessage').hide();return false;">
+      <span class="lang en">No</span>
+      <span class="lang es">No</span>
+      <span class="lang ja">No</span>
+      <span class="lang ko">No</span>
+      <span class="lang ru">No</span>
+      <span class="lang zh-cn">没有</span>
+      <span class="lang zh-tw">没有</span>
+    </a>
+  </div>
+</div> -->
+
 
   <!-- Header -->
   <div id="header-wrapper">
@@ -332,6 +383,7 @@ develop" itemscope itemtype="http://schema.org/Article">
                 <li><a href="../../distribute/users/index.html">Get Users</a></li>
                 <li><a href="../../distribute/engage/index.html">Engage &amp; Retain</a></li>
                 <li><a href="../../distribute/monetize/index.html">Monetize</a></li>
+                <li><a href="../../distribute/analyze/index.html">Analyze</a></li>
                 <li><a href="../../distribute/tools/index.html">Tools &amp; Reference</a></li>
                 <li><a href="../../distribute/stories/index.html">Developer Stories</a></li>
               </ul>
@@ -344,7 +396,10 @@ develop" itemscope itemtype="http://schema.org/Article">
   
     <!-- Secondary x-nav -->
     <div id="nav-x">
-        <div class="wrap">
+        <div class="wrap" style="position:relative;z-index:1">
+
+        
+
             <ul class="nav-x col-9 develop" style="width:100%">
                 <li class="training"><a href="../../training/index.html"
                   zh-tw-lang="訓練課程"
@@ -426,27 +481,21 @@ develop" itemscope itemtype="http://schema.org/Article">
   </li>
 
 
-  <li class="nav-section">
+<!-- Android Studio menu-->
+
+ <li class="nav-section">
     <div class="nav-section-header">
-      <a href="../../sdk/installing/studio.html">Android Studio</a>
+      <a href="../../tools/studio/index.html">Android Studio</a>
     </div>
     <ul>
-      <li><a href="../../sdk/installing/migrate.html">
-          Migrating from Eclipse</a></li>
-      <li><a href="../../sdk/installing/create-project.html">
-          Creating a Project</a></li>
       <li><a href="../../sdk/installing/studio-tips.html">
           Tips and Tricks</a></li>
-      <li><a href="../../sdk/installing/studio-androidview.html">
-          Using the Android Project View</a></li>
-      <li><a href="../../sdk/installing/studio-layout.html">
-          Using the Layout Editor</a></li>
-      <li><a href="../../sdk/installing/studio-build.html">
-          Building Your Project with Gradle</a></li>
-      <li><a href="../../sdk/installing/studio-debug.html">
-          Debugging with Android Studio</a></li>
-      </ul>
-  </li>
+    </ul>
+
+ </li><!-- End of Android Studio menu -->
+
+
+<!-- Workflow menu-->
 
   <li class="nav-section">
     <div class="nav-section-header">
@@ -469,9 +518,9 @@ develop" itemscope itemtype="http://schema.org/Article">
         </ul>
       </li>
       <li class="nav-section">
-        <div class="nav-section-header"><a href="../../tools/projects/index.html"><span class="en">Setting Up Projects</span></a></div>
+        <div class="nav-section-header"><a href="../../tools/projects/index.html"><span class="en">Managing Projects</span></a></div>
         <ul>
-          <li><a href="../../tools/projects/projects-eclipse.html"><span class="en">From Eclipse with ADT</span></a></li>
+          <li><a href="../../sdk/installing/create-project.html"><span class="en">From Android Studio</span></a></li>
           <li><a href="../../tools/projects/projects-cmdline.html"><span class="en">From the Command Line</span></a></li>
           <li><a href="../../tools/projects/templates.html"><span class="en">Using Code Templates</span></a></li>
         </ul>
@@ -479,10 +528,15 @@ develop" itemscope itemtype="http://schema.org/Article">
 
 
       <li class="nav-section">
-        <div class="nav-section-header"><a href="../../tools/building/index.html"><span class="en">Building and Running</span></a></div>
+        <div class="nav-section-header">
+          <a href="../../tools/building/index.html">
+          <span class="en">Building and Running</span></a>
+        </div>
         <ul>
-          <li><a href="../../tools/building/building-eclipse.html"><span class="en">From Eclipse with ADT</span></a></li>
-          <li><a href="../../tools/building/building-cmdline.html"><span class="en">From the Command Line</span></a></li>
+          <li><a href="../../tools/building/building-studio.html">
+            <span class="en">From Android Studio</span></a></li>
+          <li><a href="../../tools/building/building-cmdline.html">
+            <span class="en">From the Command Line</span></a></li>
         </ul>
       </li>
 
@@ -536,7 +590,7 @@ develop" itemscope itemtype="http://schema.org/Article">
   <li class="nav-section">
     <div class="nav-section-header"><a href="../../tools/debugging/index.html"><span class="en">Debugging</span></a></div>
     <ul>
-      <li><a href="../../tools/debugging/debugging-projects.html"><span class="en">From Eclipse with ADT</span></a></li>
+      <li><a href="../../tools/debugging/debugging-studio.html"><span class="en">From Android Studio</span></a></li>
       <li><a href="../../tools/debugging/debugging-projects-cmdline.html"><span class="en">From Other IDEs</span></a></li>
       <li><a href="../../tools/debugging/ddms.html"><span class="en">Using DDMS</span></a></li>
       <li><a href="../../tools/debugging/debugging-log.html"><span class="en">Reading and Writing Logs</span></a></li>
@@ -549,9 +603,9 @@ develop" itemscope itemtype="http://schema.org/Article">
     </ul>
   </li>
       <li class="nav-section">
-        <div class="nav-section-header"><a href="../../tools/publishing/publishing_overview.html"><span class="en">Publishing</span></a></div>
+        <div class="nav-section-header"><a href="../../tools/publishing/publishing_overview.html" zh-cn-lang="发布概述"><span class="en">Publishing</span></a></div>
         <ul>
-          <li><a href="../../tools/publishing/preparing.html"><span class="en">Preparing for Release</span></a></li>
+          <li><a href="../../tools/publishing/preparing.html" zh-cn-lang="准备发布"><span class="en">Preparing for Release</span></a></li>
           <li><a href="../../tools/publishing/versioning.html"><span class="en">Versioning Your Apps</span></a></li>
           <li><a href="../../tools/publishing/app-signing.html"><span class="en">Signing Your Apps</span></a></li>
         </ul>
@@ -559,27 +613,12 @@ develop" itemscope itemtype="http://schema.org/Article">
     </ul>
   </li>
 
-  <li class="nav-section">
-    <div class="nav-section-header"><a href="../../tools/support-library/index.html"><span
-class="en">Support Library</span></a></div>
-    <ul>
-      <li><a href="../../tools/support-library/features.html">Features</a></li>
-      <li><a href="../../tools/support-library/setup.html">Setup</a></li>
-    </ul>
-  </li>
 
   <li class="nav-section">
     <div class="nav-section-header"><a href="../../tools/help/index.html"><span
 class="en">Tools Help</span></a></div>
     <ul>
       <li><a href="../../tools/help/adb.html">adb</a></li>
-      <li class="nav-section">
-        <div class="nav-section-header"><a href="../../tools/help/adt.html">ADT</a></div>
-        <ul>
-          <li><a href="../../sdk/installing/installing-adt.html">
-              <span class="en">Installing the Eclipse Plugin</span></a></li>
-        </ul>
-      </li>
       <li><a href="../../tools/help/android.html">android</a></li>
       <li><a href="../../tools/help/avd-manager.html">AVD Manager</a></li>
       <li><a href="../../tools/help/bmgr.html">bmgr</a>
@@ -606,7 +645,7 @@ class="en">MonkeyImage</span></a></li>
 class="en">MonkeyRunner</span></a></li>
         </ul>
       </li>
-       <li><a href="../../tools/help/proguard.html">ProGuard</a></li>
+       <li><a href="../../tools/help/proguard.html" zh-cn-lang="ProGuard">ProGuard</a></li>
        <li><a href="../../tools/help/sdk-manager.html">SDK Manager</a></li>
        <li><a href="../../tools/help/systrace.html">Systrace</a></li>
        <li><a href="../../tools/help/gltracer.html">Tracer for OpenGL ES</a></li>
@@ -630,20 +669,56 @@ class="en">MonkeyRunner</span></a></li>
     </ul>
   </li>
 
+  </li><!-- end of tools help -->
+
+
+<!-- Build System menu-->
+
+  <li class="nav-section">
+    <div class="nav-section-header">
+      <a href="../../sdk/installing/studio-build.html">Build System</a>
+    </div>
+    <ul>
+      <li><a href="../../tools/building/configuring-gradle.html">
+        <span class="en">Configuring Gradle Builds</span></a></li>
+      <li><a href="../../tools/building/plugin-for-gradle.html">
+        <span class="en">Android Plugin for Gradle</span></a></li>
+      <li><a href="../../tools/building/multidex.html">
+        <span class="en">Apps Over 65K Methods</span></a></li>
+      </ul>
+  </li><!-- end of build system -->
+
+
+<!-- Support Library menu-->
+
+  <li class="nav-section">
+    <div class="nav-section-header"><a href="../../tools/support-library/index.html"><span
+class="en">Support Library</span></a></div>
+    <ul>
+      <li><a href="../../tools/support-library/features.html">Features</a></li>
+      <li><a href="../../tools/support-library/setup.html">Setup</a></li>
+    </ul>
+  </li><!-- end of support library -->
+
+
+<!-- Revision menu-->
+
   <li class="nav-section">
     <div class="nav-section-header"><a href="../../tools/revisions/index.html"><span class="en">Revisions</span></a></div>
     <ul>
+      <li><a href="../../tools/revisions/studio.html">
+        <span class="en">Android Studio</span>
+      </a></li>
       <li><a href="../../tools/sdk/tools-notes.html">
         <span class="en">SDK Tools</span>
       </a></li>
-      <li><a href="../../tools/sdk/eclipse-adt.html">
-        <span class="en">ADT Plugin</span>
-      </a></li>
       <li><a href="../../tools/revisions/build-tools.html">
-        <span class="en">Build Tools</span>
+        <span class="en">SDK Build Tools</span>
       </a></li>
-      <li><a href="../../tools/revisions/platforms.html"><span
-class="en">Platforms</span></a></li>
+      <li><a href="../../tools/revisions/platforms.html">
+        <span class="en">SDK Platforms</span></a></li>
+      <li><a href="../../tools/sdk/eclipse-adt.html">
+        <span class="en">ADT Plugin</span></a></li>
     </ul>
   </li>
 
@@ -663,6 +738,28 @@ class="en">Platforms</span></a></li>
       <li><a href="../../tools/adk/adk.html">ADK 2011 Guide</a></li>
     </ul>
   </li>
+
+
+<!-- Eclipse ADT menu-->
+
+  <li class="nav-section">
+    <div class="nav-section-header">
+    <a href="../../tools/help/adt.html">
+      <span class="en">Eclipse with ADT</span></a>
+    </div>
+    <ul>
+    <li><a href="../../sdk/installing/migrate.html">Migrating to Android Studio</a></li>
+    <li><a href="../../sdk/installing/installing-adt.html">
+        <span class="en">Installing the Eclipse Plugin</span></a></li>
+    <li><a href="../../tools/projects/projects-eclipse.html">Managing Projects</a></li>
+    <li><a href="../../tools/building/building-eclipse.html">Building and Running</a></li>
+    <li><a href="../../tools/building/building-cmdline-ant.html">Building with Ant</a></li>
+    <li><a href="../../tools/testing/testing_eclipse.html">Testing</a></li>
+    <li><a href="../../tools/debugging/debugging-projects.html">Debugging</a></li>
+    <li><a href="../../tools/publishing/app-signing-eclipse.html">Signing Your Apps</a></li>
+    </ul>
+  </li><!-- end of Eclipse  -->
+
 
 </ul><!-- nav -->
 
@@ -720,32 +817,37 @@ class="en">Platforms</span></a></li>
         <li><a href="#RunningOnEmulator">Running on the Emulator</a></li>
         <li><a href="#RunningOnDevice">Running on a Device</a></li>
         <li><a href="#Signing">Application Signing</a></li>
-        <li><a href="#AntReference">Ant Command Reference</a></li>
+        <li><a href="#PluginReference">Plugin Language Reference</a></li>
       </ol>
   <h2>See also</h2>
   <ol>
-    <li><a href="../../tools/devices/managing-avds-cmdline.html">Managing AVDs from
-the Command Line</a></li>
-    <li><a href="../../tools/devices/emulator.html">Using the Android
-Emulator</a></li>
-    <li><a href="../../tools/publishing/app-signing.html">Signing Your Applications</a></li>
+    <li><a href="../../sdk/installing/studio-build.html">
+      Build System</a></li>
+    <li><a href="../../tools/devices/managing-avds-cmdline.html">
+      Managing AVDs from the Command Line</a></li>
+    <li><a href="../../tools/devices/emulator.html">
+      Using the Android Emulator</a></li>
+    <li><a href="../../tools/publishing/app-signing.html">
+      Signing Your Applications</a></li>
   </ol>
     </div>
   </div>
 
-  <p>There are two ways to build your application using the Ant build script: one for
-  testing/debugging your application &mdash; <em>debug mode</em> &mdash; and one for building your
-  final package for release &mdash; <em>release mode</em>. Regardless of which way you build your application,
-  it must be signed before it can install on an emulator or device&mdash;with a debug key when building
-  in debug mode and with your own private key when building in release mode.</p>
+  <p>By default, there are two build types to build your application using the gradle.build settings:
+  one for debugging your application &mdash; <em>debug</em> &mdash; and one for building your
+  final package for release &mdash; <em>release mode</em>. Regardless of which way you build type
+  your modules use, the app must be signed before it can install on an emulator or device&mdash;with
+  a debug key when building in debug mode and with your own private key when building in release mode.</p>
 
-  <p>Whether you're building in debug mode or release mode, you need to use the Ant tool to compile
-  and build your project. This will create the .apk file that you can install on an emulator or device.
-  When you build in debug mode, the .apk file is automatically signed by the SDK tools with
-  a debug key, so it's instantly ready for installation onto an emulator or attached
+  <p>Whether you're building with the debug or release build type, you need to run
+  and build your module. This will create the .apk file that you can install on an emulator or device.
+  When you build using the debug build type, the .apk file is automatically signed by the SDK tools
+  with a debug key based on the <code>debuggable true</code> setting in the module's gradle.build file,
+  so it's instantly ready for installation onto an emulator or attached
   development device. You cannot distribute an application that is signed with a debug key.
-  When you build in release mode, the .apk file is <em>unsigned</em>, so you
-  must manually sign it with your own private key, using Keytool and Jarsigner.</p>
+  When you build using the release build type, the .apk file is <em>unsigned</em>, so you
+  must manually sign it with your own private key, using Keytool and Jarsigner settings in the
+  module's gradle.build file.</p>
 
   <p>It's important that you read and understand <a href=
   "../../tools/publishing/app-signing.html">Signing Your Applications</a>, particularly once
@@ -754,7 +856,7 @@ Emulator</a></li>
   getting started, however, you can quickly run your applications on an emulator or your own
   development device by building in debug mode.</p>
 
-  <p>If you don't have Ant, you can obtain it from the <a href="http://ant.apache.org/">Apache Ant
+  <p>If you don't have <a href="http://www.gradle.org/">Gradle</a>, you can obtain it from the <a href="http://gradle.org/">Gradle
   home page</a>. Install it and make sure it is in your executable PATH. Before calling Ant, you
   need to declare the JAVA_HOME environment variable to specify the path to where the JDK is
   installed.</p>
@@ -766,7 +868,7 @@ Emulator</a></li>
 
   <p>The easiest solution, however, is to install JDK in a non-space directory, for example:</p>
 
-  <pre>c:\java\jdk1.6.0_02</pre>
+  <pre>c:\java\jdk1.7</pre>
 
   <h2 id="DebugMode">Building in Debug Mode</h2>
 
@@ -774,28 +876,46 @@ Emulator</a></li>
   and immediately install it on an emulator. In debug mode, the build tools automatically sign your
   application with a debug key and optimize the package with <code>zipalign</code>.</p>
 
-  <p>To build in debug mode:</p>
+  <p>To build in debug mode, open a command-line and navigate to the root of your project directory.
+  Use Gradle to build your project in debug mode, invoke the <code>assembleDebug</code> build task
+  using the Gradle wrapper script (<code>gradlew assembleRelease</code>).
 
-  <ol>
-    <li>Open a command-line and navigate to the root of your project directory.</li>
-    <li>Use Ant to compile your project in debug mode:
-      <pre>
-ant debug
+  <p>This creates your debug <code>.apk</code> file inside the module <code>build/</code>
+  directory, named <code>&lt;your_module_name&gt;-debug.apk</code>. The file is already signed
+  with the debug key and has been aligned with
+  <a href="../../tools/help/zipalign.html"><code>zipalign</code></a>. </p>
+
+  <p>On Windows platforms, type this command:</p>
+
+<pre>
+> gradlew.bat assembleDebug
 </pre>
 
-      <p>This creates your debug <code>.apk</code> file inside the project <code>bin/</code> directory, named
-      <code>&lt;your_project_name&gt;-debug.apk</code>. The file is already signed with
-      the debug key and has been aligned with
-      <a href="../../tools/help/zipalign.html"><code>zipalign</code></a>.
-      </p>
-    </li>
-  </ol>
+<p>On Mac OS and Linux platforms, type these commands:</p>
 
-  <p>Each time you change a source file or resource, you must run Ant again in order to package up
+<pre>
+$ chmod +x gradlew
+$ ./gradlew assembleDebug
+</pre>
+
+  <p>The first command (<code>chmod</code>) adds the execution permission to the Gradle wrapper
+  script and is only necessary the first time you build this project from the command line.</p>
+
+  <p>After you build the project, the output APK for the app module is located in
+  <code>app/build/outputs/apk/</code>, and the output AAR for any lib modules is located in
+  <code>lib/build/outputs/libs/</code>.</p>
+
+  <p>To see a list of all available build tasks for your project, type this command:</p>
+
+<pre>
+$ ./gradlew tasks
+</pre>
+
+  <p>Each time you change a source file or resource, you must run Gradle again in order to package up
   the latest version of the application.</p>
 
-  <p>To install and run your application on an emulator, see the following section about <a href=
-  "#RunningOnEmulator">Running on the Emulator</a>.</p>
+  <p>To install and run your application on an emulator, see the section about <a href=
+  "../../tools/building/building-studio.html">Running on the Emulator</a>.</p>
 
   <h2 id="ReleaseMode">Building in Release Mode</h2>
 
@@ -813,20 +933,24 @@ ant debug
   <p>If you build your application <em>unsigned</em>, then you will need to manually sign and align
   the package.</p>
 
-  <p>To build an <em>unsigned</em> .apk in release mode:</p>
+  <p>To build an <em>unsigned</em> .apk in release mode, open a command-line and navigate to the
+  root of your module directory. Invoke the <code>assembleRelease</code> build task.</li>
 
-  <ol>
-    <li>Open a command-line and navigate to the root of your project directory.</li>
+  <p>On Windows platforms, type this command:</p>
 
-    <li>Use Ant to compile your project in release mode:
-      <pre>
-ant release
+<pre>
+> gradlew.bat assembleRelease
 </pre>
-    </li>
-  </ol>
+
+<p>On Mac OS and Linux platforms, type this command:</p>
+
+<pre>
+$ ./gradlew assembleRelease
+</pre>
+
 
   <p>This creates your Android application .apk file inside the project <code>bin/</code>
-  directory, named <code><em>&lt;your_project_name&gt;</em>-unsigned.apk</code>.</p>
+  directory, named <code><em>&lt;your_module_name&gt;</em>-unsigned.apk</code>.</p>
 
   <p class="note"><strong>Note:</strong> The .apk file is <em>unsigned</em> at this point and can't
   be installed until signed with your private key.</p>
@@ -843,34 +967,47 @@ ant release
 
   <p>If you would like, you can configure the Android build script to automatically sign and align
   your application package. To do so, you must provide the path to your keystore and the name of
-  your key alias in your project's <code>ant.properties</code> file. With this information provided,
-  the build script will prompt you for your keystore and alias password when you build in release
-  mode and produce your final application package, which will be ready for distribution.</p>
+  your key alias in your modules's build.gradle file. With this information provided,
+  the build will prompt you for your keystore and alias password when you build using the release
+  build type and produce your final application package, which will be ready for distribution.</p>
 
-  <p class="caution"><strong>Caution:</strong> Due to the way Ant handles input, the password that
-  you enter during the build process <strong>will be visible</strong>. If you are concerned about
-  your keystore and alias password being visible on screen, then you may prefer to perform the
-  application signing manually, via Jarsigner (or a similar tool). To instead perform the signing
-  procedure manually, <a href="#ManualReleaseMode">build unsigned</a> and then continue with
-  <a href="../../tools/publishing/app-signing.html">Signing Your Applications</a>.</p>
-
-  <p>To specify your keystore and alias, open the project <code>ant.properties</code> file (found in
-  the root of the project directory) and add entries for <code>key.store</code> and <code>key.alias</code>.
+  <p>To specify your keystore and alias, open the module gradle.build file (found in
+  the root of the module directory) and add entries for <code>storeFile</code>, <code>storePassword</code>,
+  <code>keyAlias</code> and <code>keyPassword</code>.
   For example:</p>
   <pre>
-key.store=path/to/my.keystore
-key.alias=mykeystore
+storeFile file("myreleasekey.keystore")
+keyAlias "MyReleaseKey"
 </pre>
 
   <p>Save your changes. Now you can build a <em>signed</em> .apk in release mode:</p>
 
   <ol>
-    <li>Open a command-line and navigate to the root of your project directory.</li>
+    <li>Open a command-line and navigate to the root of your module directory.</li>
 
-    <li>Use Ant to compile your project in release mode:
-      <pre>
-ant release
-</pre>
+    <li>Edit the gradle.build file to build your project in release mode:
+      <p><pre>
+...
+android {
+    ...
+    defaultConfig { ... }
+    signingConfigs {
+        release {
+            storeFile file("myreleasekey.keystore")
+            storePassword "password"
+            keyAlias "MyReleaseKey"
+            keyPassword "password"
+        }
+    }
+    buildTypes {
+        release {
+            ...
+            signingConfig signingConfigs.release
+        }
+    }
+}
+...
+</pre></p>
     </li>
 
     <li>When prompted, enter you keystore and alias passwords.
@@ -880,9 +1017,9 @@ ant release
     </li>
   </ol>
 
-  <p>This creates your Android application .apk file inside the project <code>bin/</code>
-  directory, named <code><em>&lt;your_project_name&gt;</em>-release.apk</code>. This .apk file has
-  been signed with the private key specified in <code>ant.properties</code> and aligned with <code>zipalign</code>. It's ready for installation and distribution.</p>
+  <p>This creates your Android application .apk file inside the module <code>build/</code>
+  directory, named <code><em>&lt;your_module_name&gt;</em>-release.apk</code>. This .apk file has
+  been signed with the private key specified in gradle.build file and aligned with <code>zipalign</code>. It's ready for installation and distribution.</p>
 
   <h3 id="OnceBuilt">Once built and signed in release mode</h3>
 
@@ -922,7 +1059,7 @@ android avd
 adb install <em>&lt;path_to_your_bin&gt;</em>.apk
 </pre>
 
-      <p>Your .apk file (signed with either a release or debug key) is in your project <code>bin/</code>
+      <p>Your .apk file (signed with either a release or debug key) is in your module <code>build/</code>
       directory after you build your application.</p>
 
       <p>If there is more than one emulator running, you must specify the emulator upon which to
@@ -1007,77 +1144,31 @@ adb -d install <em>path/to/your/app</em>.apk
   device) or with a <em>private key</em> (for application distribution).</p>
 
   <p>The Android build tools help you get started by automatically signing your .apk files with a
-  debug key at build time. This means that you can compile your application and install it on the
+  debug key at build time. This means that you can build your application and install it on the
   emulator without having to generate your own private key. However, please note that if you intend
   to publish your application, you <strong>must</strong> sign the application with your own private
   key, rather than the debug key generated by the SDK tools.</p>
 
-  <p>The ADT plugin helps you get started quickly by signing your .apk files with a debug key,
+  <p>Android Studio helps you get started quickly by signing your .apk files with a debug key,
   prior to installing them on an emulator or development device. This means that you can quickly
-  run your application from Eclipse without having to generate your own private key. No specific
-  action on your part is needed, provided ADT has access to Keytool. However, please note that if
-  you intend to publish your application, you <strong>must</strong> sign the application with your
-  own private key, rather than the debug key generated by the SDK tools.</p>
+  run your application from Android Studio without having to generate your own private key. No
+  specific action on your part is needed, provided ADT has access to Keytool. However, please note
+  that if you intend to publish your application, you <strong>must</strong> sign the application
+  with your own private key, rather than the debug key generated by the SDK tools.</p>
 
   <p>Please read <a href="../../tools/publishing/app-signing.html">Signing Your
   Applications</a>, which provides a thorough guide to application signing on Android and what it
-  means to you as an Android application developer. The document also includes a guide to exporting
-  and signing your application with the ADT's Export Wizard.</p>
+  means to you as an Android application developer. The document also includes a guide to publishing
+  and signing your application.</p>
 
-  <h2 id="AntReference">Ant Command Reference</h2>
-  <dt><code>ant clean</code></dt>
-  <dd>Cleans the project. If you include the <code>all</code> target before <code>clean</code>
-(<code>ant all clean</code>), other projects are also cleaned. For instance if you clean a
-test project, the tested project is also cleaned.</dd>
+ <h2 id="PluginReference">Android Plugin for Gradle</h2>
 
-  <dt><code>ant debug</code></dt>
-  <dd>Builds a debug package. Works on application, library, and test projects and compiles
-  dependencies as  needed.</dd>
+ <p>The Android build system uses the Android plugin for Gradle to support the Gradle Domain
+ Specific Language (DSL) and declarative language elements. See the
+ <a href="../../tools/building/plugin-for-gradle.html">Android Plug-in for Gradle</a> section for
+ a description of the plugin and a link to the complete list of the supported Gradle DSL elements.</p>
 
-  <dt id="emma"><code>ant emma debug</code></dt>
-  <dd>Builds a test project while building the tested project with instrumentation turned on.
-  This is used to run tests with code coverage enabled.</dd>
 
-  <dt><code>ant release</code></dt>
-  <dd>Builds a release package.</dd>
-
-  <dt><code>ant instrument</code>
-  </dt>
-  <dd>Builds an instrumented debug package. This is generally called automatically when building a
-  test project with code coverage enabled (with the <code>emma</code>
-  target)</dd>
-
-  <dt><code>ant &lt;build_target&gt; install</code></dt>
-  <dd>Builds and installs a package. Using <code>install</code> by itself fails.</dd>
-
-  <dt><code>ant installd</code></dt>
-  <dd>Installs an already compiled debug package. This fails if the <code>.apk</code> is not
-  already built.</dd>
-
-  <dt><code>ant installr</code></dt>
-  <dd>Installs an already compiled release package. This fails if the <code>.apk</code> is not
-  already built.</dd>
-
-  <dt><code>ant installt</code></dt>
-  <dd>Installs an already compiled test package. Also installs the <code>.apk</code> of the
-  tested application. This fails if the <code>.apk</code> is not already built.</dd>
-
-  <dt><code>ant installi</code></dt>
-  <dd>Installs an already compiled instrumented package. This is generally not used manually as
-  it's called when installing a test package. This fails if the <code>.apk</code> is not already
-  built.</dd>
-
-   <dt><code>ant test</code></dt>
-   <dd>Runs the tests (for test projects). The tested and test <code>.apk</code> files must be
-   previously installed.</dd>
-
-  <dt><code>ant debug installt test</code></dt>
-  <dd>Builds a test project and the tested project, installs both <code>.apk</code> files, and
-  runs the tests.</dd>
-
-  <dt><code>ant emma debug install test</code></dt>
-  <dd>Builds a test project and the tested project, installs both <code>.apk</code> files, and
-  runs the tests with code coverage enabled.</dd>
 
 
     </div>
@@ -1130,10 +1221,10 @@ test project, the tested project is also cleaned.</dd>
 
 
   <script src="https://developer.android.com/ytblogger_lists_unified.js" type="text/javascript"></script>
-  <script src="../../jd_lists_unified.js?v=2" type="text/javascript"></script>
-  <script src="../../jd_extras.js?v=3" type="text/javascript"></script>
-  <script src="../../jd_collections.js?v=3" type="text/javascript"></script>
-  <script src="../../jd_tag_helpers.js?v=2" type="text/javascript"></script>
+  <script src="../../jd_lists_unified.js?v=8" type="text/javascript"></script>
+  <script src="../../jd_extras.js?v=9" type="text/javascript"></script>
+  <script src="../../jd_collections.js?v=9" type="text/javascript"></script>
+  <script src="../../jd_tag_helpers.js?v=5" type="text/javascript"></script>
 
 </body>
 </html>

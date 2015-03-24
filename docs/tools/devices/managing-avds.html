@@ -87,6 +87,9 @@
 
 
 
+
+
+
 <html>
 <head>
 
@@ -94,7 +97,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width" />
 
-<meta name="Description" content="The AVD Manager is an easy to use user interface to manage your AVD (Android Virtual Device) configurations. An AVD is a device configuration for the Android emulator that allows you to model different configurations of Android-powered devices. When you…">
+<meta name="Description" content="The AVD Manager is a tool you can use to create and manage Android virtual devices (AVDs), which define device configurations for the Android Emulator . To launch the AVD Manager: The AVD Manager main screen shows your current virtual devices, as shown…">
 <link rel="shortcut icon" type="image/x-icon" href="../../favicon.ico" />
 <title>Managing AVDs with AVD Manager | Android Developers</title>
 
@@ -103,7 +106,7 @@
 href="http://fonts.useso.com/css?family=Roboto+Condensed">
 <link rel="stylesheet" href="http://fonts.useso.com/css?family=Roboto:light,regular,medium,thin,italic,mediumitalic,bold"
   title="roboto">
-<link href="../../assets/css/default.css?v=2" rel="stylesheet" type="text/css">
+<link href="../../assets/css/default.css?v=5" rel="stylesheet" type="text/css">
 
 
 
@@ -114,13 +117,15 @@ href="http://fonts.useso.com/css?family=Roboto+Condensed">
   var metaTags = [];
   var devsite = false;
 </script>
-<script src="../../assets/js/docs.js?v=2" type="text/javascript"></script>
+<script src="../../assets/js/docs.js?v=3" type="text/javascript"></script>
+
+
 
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//googleapiscdn.qiniudn.com/www.google-analytics.com/analytics.js','ga');
+  })(window,document,'script','//../../../ajax/www.google-analytics.com/analytics.js','ga');
 
   ga('create', 'UA-5831155-1', 'android.com');
   ga('create', 'UA-49880327-2', 'android.com', {'name': 'universal'});  // New tracker);
@@ -135,6 +140,52 @@ href="http://fonts.useso.com/css?family=Roboto+Condensed">
 develop" itemscope itemtype="http://schema.org/Article">
 
 <a name="top"></a>
+
+<!-- dialog to prompt lang pref change when loaded from hardcoded URL 
+<div id="langMessage" style="display:none">
+  <div>
+    <div class="lang en">
+      <p>You requested a page in English, would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang es">
+      <p>You requested a page in Spanish (Español), would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang ja">
+      <p>You requested a page in Japanese (日本語), would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang ko">
+      <p>You requested a page in Korean (한국어), would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang ru">
+      <p>You requested a page in Russian (Русский), would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang zh-cn">
+      <p>You requested a page in Simplified Chinese (简体中文), would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang zh-tw">
+      <p>You requested a page in Traditional Chinese (繁體中文), would you like to proceed with this language setting?</p>
+    </div>
+    <a href="#" class="button yes" onclick="return false;">
+      <span class="lang en">Yes</span>
+      <span class="lang es">Sí</span>
+      <span class="lang ja">Yes</span>
+      <span class="lang ko">Yes</span>
+      <span class="lang ru">Yes</span>
+      <span class="lang zh-cn">是的</span>
+      <span class="lang zh-tw">没有</span>
+    </a>
+    <a href="#" class="button" onclick="$('#langMessage').hide();return false;">
+      <span class="lang en">No</span>
+      <span class="lang es">No</span>
+      <span class="lang ja">No</span>
+      <span class="lang ko">No</span>
+      <span class="lang ru">No</span>
+      <span class="lang zh-cn">没有</span>
+      <span class="lang zh-tw">没有</span>
+    </a>
+  </div>
+</div> -->
+
 
   <!-- Header -->
   <div id="header-wrapper">
@@ -332,6 +383,7 @@ develop" itemscope itemtype="http://schema.org/Article">
                 <li><a href="../../distribute/users/index.html">Get Users</a></li>
                 <li><a href="../../distribute/engage/index.html">Engage &amp; Retain</a></li>
                 <li><a href="../../distribute/monetize/index.html">Monetize</a></li>
+                <li><a href="../../distribute/analyze/index.html">Analyze</a></li>
                 <li><a href="../../distribute/tools/index.html">Tools &amp; Reference</a></li>
                 <li><a href="../../distribute/stories/index.html">Developer Stories</a></li>
               </ul>
@@ -344,7 +396,10 @@ develop" itemscope itemtype="http://schema.org/Article">
   
     <!-- Secondary x-nav -->
     <div id="nav-x">
-        <div class="wrap">
+        <div class="wrap" style="position:relative;z-index:1">
+
+        
+
             <ul class="nav-x col-9 develop" style="width:100%">
                 <li class="training"><a href="../../training/index.html"
                   zh-tw-lang="訓練課程"
@@ -426,27 +481,21 @@ develop" itemscope itemtype="http://schema.org/Article">
   </li>
 
 
-  <li class="nav-section">
+<!-- Android Studio menu-->
+
+ <li class="nav-section">
     <div class="nav-section-header">
-      <a href="../../sdk/installing/studio.html">Android Studio</a>
+      <a href="../../tools/studio/index.html">Android Studio</a>
     </div>
     <ul>
-      <li><a href="../../sdk/installing/migrate.html">
-          Migrating from Eclipse</a></li>
-      <li><a href="../../sdk/installing/create-project.html">
-          Creating a Project</a></li>
       <li><a href="../../sdk/installing/studio-tips.html">
           Tips and Tricks</a></li>
-      <li><a href="../../sdk/installing/studio-androidview.html">
-          Using the Android Project View</a></li>
-      <li><a href="../../sdk/installing/studio-layout.html">
-          Using the Layout Editor</a></li>
-      <li><a href="../../sdk/installing/studio-build.html">
-          Building Your Project with Gradle</a></li>
-      <li><a href="../../sdk/installing/studio-debug.html">
-          Debugging with Android Studio</a></li>
-      </ul>
-  </li>
+    </ul>
+
+ </li><!-- End of Android Studio menu -->
+
+
+<!-- Workflow menu-->
 
   <li class="nav-section">
     <div class="nav-section-header">
@@ -469,9 +518,9 @@ develop" itemscope itemtype="http://schema.org/Article">
         </ul>
       </li>
       <li class="nav-section">
-        <div class="nav-section-header"><a href="../../tools/projects/index.html"><span class="en">Setting Up Projects</span></a></div>
+        <div class="nav-section-header"><a href="../../tools/projects/index.html"><span class="en">Managing Projects</span></a></div>
         <ul>
-          <li><a href="../../tools/projects/projects-eclipse.html"><span class="en">From Eclipse with ADT</span></a></li>
+          <li><a href="../../sdk/installing/create-project.html"><span class="en">From Android Studio</span></a></li>
           <li><a href="../../tools/projects/projects-cmdline.html"><span class="en">From the Command Line</span></a></li>
           <li><a href="../../tools/projects/templates.html"><span class="en">Using Code Templates</span></a></li>
         </ul>
@@ -479,10 +528,15 @@ develop" itemscope itemtype="http://schema.org/Article">
 
 
       <li class="nav-section">
-        <div class="nav-section-header"><a href="../../tools/building/index.html"><span class="en">Building and Running</span></a></div>
+        <div class="nav-section-header">
+          <a href="../../tools/building/index.html">
+          <span class="en">Building and Running</span></a>
+        </div>
         <ul>
-          <li><a href="../../tools/building/building-eclipse.html"><span class="en">From Eclipse with ADT</span></a></li>
-          <li><a href="../../tools/building/building-cmdline.html"><span class="en">From the Command Line</span></a></li>
+          <li><a href="../../tools/building/building-studio.html">
+            <span class="en">From Android Studio</span></a></li>
+          <li><a href="../../tools/building/building-cmdline.html">
+            <span class="en">From the Command Line</span></a></li>
         </ul>
       </li>
 
@@ -536,7 +590,7 @@ develop" itemscope itemtype="http://schema.org/Article">
   <li class="nav-section">
     <div class="nav-section-header"><a href="../../tools/debugging/index.html"><span class="en">Debugging</span></a></div>
     <ul>
-      <li><a href="../../tools/debugging/debugging-projects.html"><span class="en">From Eclipse with ADT</span></a></li>
+      <li><a href="../../tools/debugging/debugging-studio.html"><span class="en">From Android Studio</span></a></li>
       <li><a href="../../tools/debugging/debugging-projects-cmdline.html"><span class="en">From Other IDEs</span></a></li>
       <li><a href="../../tools/debugging/ddms.html"><span class="en">Using DDMS</span></a></li>
       <li><a href="../../tools/debugging/debugging-log.html"><span class="en">Reading and Writing Logs</span></a></li>
@@ -549,9 +603,9 @@ develop" itemscope itemtype="http://schema.org/Article">
     </ul>
   </li>
       <li class="nav-section">
-        <div class="nav-section-header"><a href="../../tools/publishing/publishing_overview.html"><span class="en">Publishing</span></a></div>
+        <div class="nav-section-header"><a href="../../tools/publishing/publishing_overview.html" zh-cn-lang="发布概述"><span class="en">Publishing</span></a></div>
         <ul>
-          <li><a href="../../tools/publishing/preparing.html"><span class="en">Preparing for Release</span></a></li>
+          <li><a href="../../tools/publishing/preparing.html" zh-cn-lang="准备发布"><span class="en">Preparing for Release</span></a></li>
           <li><a href="../../tools/publishing/versioning.html"><span class="en">Versioning Your Apps</span></a></li>
           <li><a href="../../tools/publishing/app-signing.html"><span class="en">Signing Your Apps</span></a></li>
         </ul>
@@ -559,27 +613,12 @@ develop" itemscope itemtype="http://schema.org/Article">
     </ul>
   </li>
 
-  <li class="nav-section">
-    <div class="nav-section-header"><a href="../../tools/support-library/index.html"><span
-class="en">Support Library</span></a></div>
-    <ul>
-      <li><a href="../../tools/support-library/features.html">Features</a></li>
-      <li><a href="../../tools/support-library/setup.html">Setup</a></li>
-    </ul>
-  </li>
 
   <li class="nav-section">
     <div class="nav-section-header"><a href="../../tools/help/index.html"><span
 class="en">Tools Help</span></a></div>
     <ul>
       <li><a href="../../tools/help/adb.html">adb</a></li>
-      <li class="nav-section">
-        <div class="nav-section-header"><a href="../../tools/help/adt.html">ADT</a></div>
-        <ul>
-          <li><a href="../../sdk/installing/installing-adt.html">
-              <span class="en">Installing the Eclipse Plugin</span></a></li>
-        </ul>
-      </li>
       <li><a href="../../tools/help/android.html">android</a></li>
       <li><a href="../../tools/help/avd-manager.html">AVD Manager</a></li>
       <li><a href="../../tools/help/bmgr.html">bmgr</a>
@@ -606,7 +645,7 @@ class="en">MonkeyImage</span></a></li>
 class="en">MonkeyRunner</span></a></li>
         </ul>
       </li>
-       <li><a href="../../tools/help/proguard.html">ProGuard</a></li>
+       <li><a href="../../tools/help/proguard.html" zh-cn-lang="ProGuard">ProGuard</a></li>
        <li><a href="../../tools/help/sdk-manager.html">SDK Manager</a></li>
        <li><a href="../../tools/help/systrace.html">Systrace</a></li>
        <li><a href="../../tools/help/gltracer.html">Tracer for OpenGL ES</a></li>
@@ -630,20 +669,56 @@ class="en">MonkeyRunner</span></a></li>
     </ul>
   </li>
 
+  </li><!-- end of tools help -->
+
+
+<!-- Build System menu-->
+
+  <li class="nav-section">
+    <div class="nav-section-header">
+      <a href="../../sdk/installing/studio-build.html">Build System</a>
+    </div>
+    <ul>
+      <li><a href="../../tools/building/configuring-gradle.html">
+        <span class="en">Configuring Gradle Builds</span></a></li>
+      <li><a href="../../tools/building/plugin-for-gradle.html">
+        <span class="en">Android Plugin for Gradle</span></a></li>
+      <li><a href="../../tools/building/multidex.html">
+        <span class="en">Apps Over 65K Methods</span></a></li>
+      </ul>
+  </li><!-- end of build system -->
+
+
+<!-- Support Library menu-->
+
+  <li class="nav-section">
+    <div class="nav-section-header"><a href="../../tools/support-library/index.html"><span
+class="en">Support Library</span></a></div>
+    <ul>
+      <li><a href="../../tools/support-library/features.html">Features</a></li>
+      <li><a href="../../tools/support-library/setup.html">Setup</a></li>
+    </ul>
+  </li><!-- end of support library -->
+
+
+<!-- Revision menu-->
+
   <li class="nav-section">
     <div class="nav-section-header"><a href="../../tools/revisions/index.html"><span class="en">Revisions</span></a></div>
     <ul>
+      <li><a href="../../tools/revisions/studio.html">
+        <span class="en">Android Studio</span>
+      </a></li>
       <li><a href="../../tools/sdk/tools-notes.html">
         <span class="en">SDK Tools</span>
       </a></li>
-      <li><a href="../../tools/sdk/eclipse-adt.html">
-        <span class="en">ADT Plugin</span>
-      </a></li>
       <li><a href="../../tools/revisions/build-tools.html">
-        <span class="en">Build Tools</span>
+        <span class="en">SDK Build Tools</span>
       </a></li>
-      <li><a href="../../tools/revisions/platforms.html"><span
-class="en">Platforms</span></a></li>
+      <li><a href="../../tools/revisions/platforms.html">
+        <span class="en">SDK Platforms</span></a></li>
+      <li><a href="../../tools/sdk/eclipse-adt.html">
+        <span class="en">ADT Plugin</span></a></li>
     </ul>
   </li>
 
@@ -663,6 +738,28 @@ class="en">Platforms</span></a></li>
       <li><a href="../../tools/adk/adk.html">ADK 2011 Guide</a></li>
     </ul>
   </li>
+
+
+<!-- Eclipse ADT menu-->
+
+  <li class="nav-section">
+    <div class="nav-section-header">
+    <a href="../../tools/help/adt.html">
+      <span class="en">Eclipse with ADT</span></a>
+    </div>
+    <ul>
+    <li><a href="../../sdk/installing/migrate.html">Migrating to Android Studio</a></li>
+    <li><a href="../../sdk/installing/installing-adt.html">
+        <span class="en">Installing the Eclipse Plugin</span></a></li>
+    <li><a href="../../tools/projects/projects-eclipse.html">Managing Projects</a></li>
+    <li><a href="../../tools/building/building-eclipse.html">Building and Running</a></li>
+    <li><a href="../../tools/building/building-cmdline-ant.html">Building with Ant</a></li>
+    <li><a href="../../tools/testing/testing_eclipse.html">Testing</a></li>
+    <li><a href="../../tools/debugging/debugging-projects.html">Debugging</a></li>
+    <li><a href="../../tools/publishing/app-signing-eclipse.html">Signing Your Apps</a></li>
+    </ul>
+  </li><!-- end of Eclipse  -->
+
 
 </ul><!-- nav -->
 
@@ -712,73 +809,110 @@ class="en">Platforms</span></a></li>
       <ol>
         <li><a href="#createavd">Creating an AVD</a>
           <ol>
+            <li><a href="#CreateDefinition">Creating a device definition</a></li>
             <li><a href="#hardwareopts">Hardware options</a></li>
           </ol>
-        </li>        
+        </li>
+        <li><a href="#skins">Creating Emulator Skins</a></li>
       </ol>
     </div>
   </div>
 
-  <p>The AVD Manager is an easy to use user interface to manage your AVD (Android Virtual Device)
-  configurations. An AVD is a device configuration for the Android emulator that allows you to
-  model different configurations of Android-powered devices. When you start the AVD Manager in Eclipse 
-  or navigate to your SDK's <code>tools/</code> directory and execute
-  <code>android avd</code>. You will see the AVD Manager as shown in
-  figure 1.</p>
-  
-  <img src="../../images/avd-manager.png">
-  
-  <p class="img-caption"><strong>Figure 1. </strong>Screenshot of the AVD Manager. </p>
-  
-  <p>From the main screen, you can create, delete, repair and start AVDs as well as see the details
-  of each AVD. </p>
+  <p>The AVD Manager is a tool you can use
+  to create and manage Android virtual devices (AVDs), which define device configurations
+  for the <a href="../../tools/devices/emulator.html"
+  >Android Emulator</a>.</p>
 
-  
+<p>To launch the AVD Manager:</p>
+<ul>
+  <li>In Android Studio, select <strong>Tools &gt; Android &gt; AVD Manager</strong>, or click
+  the AVD Manager icon <img src="../../images/tools/avd-manager-studio.png"
+  style="vertical-align:bottom;margin:0;height:19px"> in the toolbar.</li>
+
+  <li>Or, use the command line to navigate to your SDK's <code>tools/</code> directory and execute:
+  <pre class="no-prettyprint classic">$ android avd</pre>
+  </li>
+</ul>
+
+  <p>The AVD Manager main screen shows your current virtual devices, as shown in figure 1.</p>
+
+
+   <img src="../../images/studio-avdmgr-firstscreen.png" alt="">
+   <p class="img-caption"><strong>Figure 1.</strong> The AVD Manager main screen shows your current
+   virtual devices.</p>
+
+
+<p class="note"><strong>Note:</strong> If you launch the AVD Manager from the command line, the UI
+is different than how it appears in Android Studio, as documented here. Most of the same
+functionality is available, but the command-line version of the AVD Manager
+is currently not documented.</p>
+
+
   <h2 id="createavd">Creating an AVD</h2>
 
-  <p>You can create as many AVDs as you would like to test on. It is recommended that you test your
-  applications on all API levels higher than the target API level for your application.</p>
+  <p>You can create as many AVDs as you would like to use with the Android Emulator.
+  To effectively test your app, you should create an AVD that models each device type for which
+  you have designed your app to support. For instance, you should create an AVD for each
+  API level equal to and higher than the minimum version you've specified in your manifest
+  <a href="../../guide/topics/manifest/uses-sdk-element.html" style="white-space: nowrap;"
+  ><code>&lt;uses-sdk></code></a> tag.</p>
 
-  <p>To create an AVD:</p>
+  <p>To create an AVD based on an existing device definition:</p>
 
   <ol>
-    <li>Start the AVD Manager:
+    <li>From the main screen (figure 1), click <strong>Create Virtual Device</strong>.</li>
 
-      <ul>
-        <li>In Eclipse: select <strong>Window &gt; AVD Manager</strong>, or click
-        the AVD Manager icon in the Eclipse toolbar.</li>
+    <li><p>In the Select Hardware window, select a device configuration, such as Nexus 6,
+    then click <strong>Next</strong>.</p>
 
-        <li>In other IDEs: Navigate to your SDK's <code>tools/</code> directory and execute the
-        <code>android</code> tool with no arguments.</li>
-      </ul>
+      <img src="../../images/studio-avdmgr-selecthdwr.png" alt="">
+      <p class="img-caption"><strong>Figure 2.</strong> The Select Hardware window.</p>
     </li>
-
-    <li><p>In the <em>Virtual Devices</em> panel, you'll see a list of existing AVDs. Click
-    <strong>New</strong> to create a new AVD. The <strong>Create New AVD</strong> dialog appears.</p>
-      
-      <img src="../../images/developing/avd-dialog.png" alt="AVD Dialog">
-      <p class="img-caption"><strong>Figure 2.</strong> Screenshot of the Create AVD window</p>
+    <li>Select the desired system version for the AVD and click <strong>Next</strong>.
     </li>
-
-    <li>Fill in the details for the AVD.
-
-      <p>Give it a name, a platform target, an SD card size, and a skin (HVGA is default). You can
-      also add specific hardware features of the emulated device by clicking the
-      <strong>New...</strong> button and selecting the feature. For a list of hardware features,
-      see <a href="#hardwareopts">Hardware options</a>.</p>
-
-      <p class="note"><strong>Note:</strong> Be sure to define a target for your AVD that satisfies
-      your application's Build Target (the AVD platform target must have an API Level equal to or
-      greater than the API Level that your application compiles against).</p>
+    <li>Verify the configuration settings, then click <strong>Finish</strong>.
+    <p>If necessary, click <strong>Show Advanced Settings</strong> to select a custom skin
+      for the hardware profile and adjust other hardware settings.</p>
     </li>
-
-    <li>Click <strong>Create AVD</strong>.</li>
   </ol>
 
-  <p>Your AVD is now ready and you can either close the AVD Manager, create more AVDs, or
-  launch an emulator with the AVD by selecting a device and clicking <strong>Start</strong>.</p>
+  <p>To launch the AVD in the Android Emulator, click the launch button
+  <img src="../../images/tools/as-avd-start.png"
+  style="vertical-align:bottom;margin:0;height:19px">
+   in the list of AVDs.</p>
+
+
+<h3 id="CreateDefinition">Creating a device definition</h3>
+
+<p>In case the available device definitions do not match the device type you'd like to emulate,
+you can create a custom device definition for your AVD:</p>
+<ol>
+  <li>From the main screen (figure 1), click <strong>Create Virtual Device</strong>.</li>
+  <li>To begin you custom device by using an existing device profile as a template, select
+  a device profile then click <strong>Clone Device</strong>.
+  <p>Or, to start from scratch, click <strong>New Hardware Profile</strong>.</p>
+  </li>
+  <li>
+<p>The following Configure Hardware Profile window (figure 3) allows you to specify various
+configurations such as the screen size, memory options, input type, and sensors.</p>
+
+    <p>When you're done configuring the device, click <strong>Finish</strong>.</p>
+
+      <img src="../../images/studio-avdmgr-confighardwareprof.png" alt="">
+      <p class="img-caption"><strong>Figure 3.</strong> The Configure Hardware window when
+      creating a custom device configuration.</p>
+    </li>
+  <li>Your custom device configuration is now available in the list of device definitions
+  (shown after you click <strong>Create Virtual Device</strong>). To continue preparing an AVD
+  with your custom device configuration, select the new configuration and follow the instructions
+  above to create an AVD with an existing device definition (and select your new definition).</li>
+
+  </ol>
+
+
 
 <h3 id="hardwareopts">Hardware options</h3>
+
 <p>If you are creating a new AVD, you can specify the following hardware options for the AVD
 to emulate:</p>
 
@@ -939,6 +1073,67 @@ to emulate:</p>
   </table>
 
 
+<h2 id="skins">Creating Emulator Skins</h2>
+
+<p>An Android emulator skin is a collection of files that define the visual and control elements of
+an emulator display. If the skin definitions available in the AVD settings don't meet your needs,
+you can create your own custom skin definition, then apply it to your AVD from the
+advanced settings on the Verify Configuration screen.</p>
+
+<p>Each emulator skin contains:</p>
+   <ul>
+      <li>A <code>hardware.ini</code> file</li>
+      <li>Layout files for supported orientations (landscape, portrait) and physical configuration</li>
+      <li>Image files for display elements, such as background, keys and buttons</li>
+    </ul>
+<p>To create and use a custom skin:</p>
+ <ol>
+    <li>Create a new directory where you will save your skin configuration files. </li>
+    <li>Define the visual appearance of the skin in a text file named
+    <code>layout</code>. This file defines many characteristics of the skin, such as the
+    size and image assets for specific buttons. For example:
+<pre class="no-prettyprint">
+parts {
+    device {
+        display {
+            width   320
+            height  480
+            x       0
+            y       0
+        }
+    }
+
+    portrait {
+        background {
+            image background_port.png
+        }
+
+        buttons {
+            power {
+                image  button_vertical.png
+                x 1229
+                y 616
+            }
+        }
+    }
+    ...
+}
+</pre></li>
+
+  <li>Add the bitmap files of the device images in the same directory.</li>
+  <li>Specify additional hardware-specific device configurations an <code>hardware.ini</code>
+  file for the device settings, such as <code>hw.keyboard</code> and
+  <code>hw.lcd.density</code>.</li>
+  <li>Archive the files in the skin folder and select the archive file as a custom skin. </li>
+</ol>
+
+<p>For more detailed information about creating emulator skins, see the
+<a href="https://android.googlesource.com/platform/external/qemu.git/+/master/docs/ANDROID-SKIN-FILES.TXT"
+>Android Emulator Skin File Specification</a> in the tools source code.</p>
+
+
+
+
     </div>
 
       <div class="content-footer layout-content-row"
@@ -989,10 +1184,10 @@ to emulate:</p>
 
 
   <script src="https://developer.android.com/ytblogger_lists_unified.js" type="text/javascript"></script>
-  <script src="../../jd_lists_unified.js?v=2" type="text/javascript"></script>
-  <script src="../../jd_extras.js?v=3" type="text/javascript"></script>
-  <script src="../../jd_collections.js?v=3" type="text/javascript"></script>
-  <script src="../../jd_tag_helpers.js?v=2" type="text/javascript"></script>
+  <script src="../../jd_lists_unified.js?v=8" type="text/javascript"></script>
+  <script src="../../jd_extras.js?v=9" type="text/javascript"></script>
+  <script src="../../jd_collections.js?v=9" type="text/javascript"></script>
+  <script src="../../jd_tag_helpers.js?v=5" type="text/javascript"></script>
 
 </body>
 </html>

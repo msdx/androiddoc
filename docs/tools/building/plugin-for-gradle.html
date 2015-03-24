@@ -1,0 +1,1312 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width" />
+
+<meta name="Description" content="The Android build system consists of an Android plugin for Gradle . Gradle is an advanced build toolkit that manages dependencies and allows you to define custom build logic. Android Studio uses a Gradle wrapper to fully integrate the Android plugin for…">
+<link rel="shortcut icon" type="image/x-icon" href="../../favicon.ico" />
+<title>Android Plug-in for Gradle | Android Developers</title>
+
+<!-- STYLESHEETS -->
+<link rel="stylesheet"
+href="http://fonts.useso.com/css?family=Roboto+Condensed">
+<link rel="stylesheet" href="http://fonts.useso.com/css?family=Roboto:light,regular,medium,thin,italic,mediumitalic,bold"
+  title="roboto">
+<link href="../../assets/css/default.css?v=5" rel="stylesheet" type="text/css">
+
+
+
+<!-- JAVASCRIPT -->
+<script src="../../assets/js/android_3p-bundle.js" type="text/javascript"></script>
+<script type="text/javascript">
+  var toRoot = "../../";
+  var metaTags = [];
+  var devsite = false;
+</script>
+<script src="../../assets/js/docs.js?v=3" type="text/javascript"></script>
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//../../../ajax/www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-5831155-1', 'android.com');
+  ga('create', 'UA-49880327-2', 'android.com', {'name': 'universal'});  // New tracker);
+  ga('send', 'pageview');
+  ga('universal.send', 'pageview'); // Send page view for new tracker.
+</script>
+
+</head>
+
+<body class="gc-documentation
+
+develop" itemscope itemtype="http://schema.org/Article">
+
+<a name="top"></a>
+
+<!-- dialog to prompt lang pref change when loaded from hardcoded URL 
+<div id="langMessage" style="display:none">
+  <div>
+    <div class="lang en">
+      <p>You requested a page in English, would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang es">
+      <p>You requested a page in Spanish (Español), would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang ja">
+      <p>You requested a page in Japanese (日本語), would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang ko">
+      <p>You requested a page in Korean (한국어), would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang ru">
+      <p>You requested a page in Russian (Русский), would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang zh-cn">
+      <p>You requested a page in Simplified Chinese (简体中文), would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang zh-tw">
+      <p>You requested a page in Traditional Chinese (繁體中文), would you like to proceed with this language setting?</p>
+    </div>
+    <a href="#" class="button yes" onclick="return false;">
+      <span class="lang en">Yes</span>
+      <span class="lang es">Sí</span>
+      <span class="lang ja">Yes</span>
+      <span class="lang ko">Yes</span>
+      <span class="lang ru">Yes</span>
+      <span class="lang zh-cn">是的</span>
+      <span class="lang zh-tw">没有</span>
+    </a>
+    <a href="#" class="button" onclick="$('#langMessage').hide();return false;">
+      <span class="lang en">No</span>
+      <span class="lang es">No</span>
+      <span class="lang ja">No</span>
+      <span class="lang ko">No</span>
+      <span class="lang ru">No</span>
+      <span class="lang zh-cn">没有</span>
+      <span class="lang zh-tw">没有</span>
+    </a>
+  </div>
+</div> -->
+
+
+  <!-- Header -->
+  <div id="header-wrapper">
+    <div id="header">
+
+    
+
+
+      <div class="wrap" id="header-wrap">
+        <div class="col-3 logo">
+          <a href="../../index.html">
+            <img src="../../assets/images/dac_logo.png"
+                srcset="../../assets/images/dac_logo@2x.png 2x"
+                width="123" height="25" alt="Android Developers" />
+          </a>
+          <div class="btn-quicknav" id="btn-quicknav">
+            <a href="#" class="arrow-inactive">Quicknav</a>
+            <a href="#" class="arrow-active">Quicknav</a>
+          </div>
+        </div>
+        <ul class="nav-x col-9">
+            <li class="design">
+              <a href="../../design/index.html"
+              zh-tw-lang="設計"
+              zh-cn-lang="设计"
+              ru-lang="Проектирование"
+              ko-lang="디자인"
+              ja-lang="設計"
+              es-lang="Diseñar"
+              >Design</a></li>
+            <li class="develop"><a href="../../develop/index.html"
+              zh-tw-lang="開發"
+              zh-cn-lang="开发"
+              ru-lang="Разработка"
+              ko-lang="개발"
+              ja-lang="開発"
+              es-lang="Desarrollar"
+              >Develop</a></li>
+            <li class="distribute last"><a href="../../distribute/googleplay/index.html"
+              zh-tw-lang="發佈"
+              zh-cn-lang="分发"
+              ru-lang="Распространение"
+              ko-lang="배포"
+              ja-lang="配布"
+              es-lang="Distribuir"
+              >Distribute</a></li>
+        </ul>
+
+
+        
+        
+<div class="menu-container">
+  <div class="moremenu">
+    <div id="more-btn"></div>
+  </div>
+  <div class="morehover" id="moremenu">
+    <div class="top"></div>
+    <div class="mid">
+      <div class="header">Links</div>
+      <ul>
+        <li><a href="https://play.google.com/apps/publish/" target="_googleplay">Google Play Developer Console</a></li>
+        <li><a href="http://android-developers.blogspot.com/">Android Developers Blog</a></li>
+        <li><a href="../../about/index.html">About Android</a></li>
+      </ul>
+      <div class="header">Android Sites</div>
+      <ul>
+        <li><a href="http://www.android.com">Android.com</a></li>
+        <li class="active"><a>Android Developers</a></li>
+        <li><a href="http://source.android.com">Android Open Source Project</a></li>
+      </ul>
+
+      
+      
+      
+      <br class="clearfix" />
+    </div><!-- end 'mid' -->
+    <div class="bottom"></div>
+  </div><!-- end 'moremenu' -->
+
+  <div class="search" id="search-container">
+    <div class="search-inner">
+      <div id="search-btn"></div>
+      <div class="left"></div>
+      <form onsubmit="return submit_search()">
+        <input id="search_autocomplete" type="text" value="" autocomplete="off" name="q"
+          onfocus="search_focus_changed(this, true)" onblur="search_focus_changed(this, false)"
+          onkeydown="return search_changed(event, true, '../../')"
+          onkeyup="return search_changed(event, false, '../../')" />
+      </form>
+      <div class="right"></div>
+      <a class="close hide">close</a>
+      <div class="left"></div>
+      <div class="right"></div>
+    </div><!-- end search-inner -->
+  </div><!-- end search-container -->
+
+  <div class="search_filtered_wrapper reference">
+    <div class="suggest-card reference no-display">
+      <ul class="search_filtered">
+      </ul>
+    </div>
+  </div>
+
+  <div class="search_filtered_wrapper docs">
+    <div class="suggest-card dummy no-display">&nbsp;</div>
+    <div class="suggest-card develop no-display">
+      <ul class="search_filtered">
+      </ul>
+      <div class="child-card guides no-display">
+      </div>
+      <div class="child-card training no-display">
+      </div>
+      <div class="child-card samples no-display">
+      </div>
+    </div>
+    <div class="suggest-card design no-display">
+      <ul class="search_filtered">
+      </ul>
+    </div>
+    <div class="suggest-card distribute no-display">
+      <ul class="search_filtered">
+      </ul>
+    </div>
+  </div>
+</div><!-- end menu-container (search and menu widget) -->
+
+
+
+        <!-- Expanded quicknav -->
+        <div id="quicknav" class="col-13">
+          <ul>
+            <li class="about">
+              <ul>
+                <li><a href="../../about/index.html">About</a></li>
+                <li><a href="../../wear/index.html">Wear</a></li>
+                <li><a href="../../tv/index.html">TV</a></li>
+                <li><a href="../../auto/index.html">Auto</a></li>
+              </ul>
+            </li>
+            <li class="design">
+              <ul>
+                <li><a href="../../design/index.html">Get Started</a></li>
+                <li><a href="../../design/devices.html">Devices</a></li>
+                <li><a href="../../design/style/index.html">Style</a></li>
+                <li><a href="../../design/patterns/index.html">Patterns</a></li>
+                <li><a href="../../design/building-blocks/index.html">Building Blocks</a></li>
+                <li><a href="../../design/downloads/index.html">Downloads</a></li>
+                <li><a href="../../design/videos/index.html">Videos</a></li>
+              </ul>
+            </li>
+            <li class="develop">
+              <ul>
+                <li><a href="../../training/index.html"
+                  zh-tw-lang="訓練課程"
+                  zh-cn-lang="培训"
+                  ru-lang="Курсы"
+                  ko-lang="교육"
+                  ja-lang="トレーニング"
+                  es-lang="Capacitación"
+                  >Training</a></li>
+                <li><a href="../../guide/index.html"
+                  zh-tw-lang="API 指南"
+                  zh-cn-lang="API 指南"
+                  ru-lang="Руководства по API"
+                  ko-lang="API 가이드"
+                  ja-lang="API ガイド"
+                  es-lang="Guías de la API"
+                  >API Guides</a></li>
+                <li><a href="../../reference/packages.html"
+                  zh-tw-lang="參考資源"
+                  zh-cn-lang="参考"
+                  ru-lang="Справочник"
+                  ko-lang="참조문서"
+                  ja-lang="リファレンス"
+                  es-lang="Referencia"
+                  >Reference</a></li>
+                <li><a href="../../sdk/index.html"
+                  zh-tw-lang="相關工具"
+                  zh-cn-lang="工具"
+                  ru-lang="Инструменты"
+                  ko-lang="도구"
+                  ja-lang="ツール"
+                  es-lang="Herramientas"
+                  >Tools</a>
+                </li>
+                <li><a href="../../google/index.html">Google Services</a>
+                </li>
+                
+              </ul>
+            </li>
+            <li class="distribute last">
+              <ul>
+                <li><a href="../../distribute/googleplay/index.html">Google Play</a></li>
+                <li><a href="../../distribute/essentials/index.html">Essentials</a></li>
+                <li><a href="../../distribute/users/index.html">Get Users</a></li>
+                <li><a href="../../distribute/engage/index.html">Engage &amp; Retain</a></li>
+                <li><a href="../../distribute/monetize/index.html">Monetize</a></li>
+                <li><a href="../../distribute/analyze/index.html">Analyze</a></li>
+                <li><a href="../../distribute/tools/index.html">Tools &amp; Reference</a></li>
+                <li><a href="../../distribute/stories/index.html">Developer Stories</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div><!-- /Expanded quicknav -->
+      </div><!-- end header-wrap.wrap -->
+    </div><!-- end header -->
+
+  
+    <!-- Secondary x-nav -->
+    <div id="nav-x">
+        <div class="wrap" style="position:relative;z-index:1">
+
+        
+
+            <ul class="nav-x col-9 develop" style="width:100%">
+                <li class="training"><a href="../../training/index.html"
+                  zh-tw-lang="訓練課程"
+                  zh-cn-lang="培训"
+                  ru-lang="Курсы"
+                  ko-lang="교육"
+                  ja-lang="トレーニング"
+                  es-lang="Capacitación"
+                  >Training</a></li>
+                <li class="guide"><a href="../../guide/index.html"
+                  zh-tw-lang="API 指南"
+                  zh-cn-lang="API 指南"
+                  ru-lang="Руководства по API"
+                  ko-lang="API 가이드"
+                  ja-lang="API ガイド"
+                  es-lang="Guías de la API"
+                  >API Guides</a></li>
+                <li class="reference"><a href="../../reference/packages.html"
+                  zh-tw-lang="參考資源"
+                  zh-cn-lang="参考"
+                  ru-lang="Справочник"
+                  ko-lang="참조문서"
+                  ja-lang="リファレンス"
+                  es-lang="Referencia"
+                  >Reference</a></li>
+                <li class="tools"><a href="../../sdk/index.html"
+                  zh-tw-lang="相關工具"
+                  zh-cn-lang="工具"
+                  ru-lang="Инструменты"
+                  ko-lang="도구"
+                  ja-lang="ツール"
+                  es-lang="Herramientas"
+                  >Tools</a></li>
+                <li class="google"><a href="../../google/index.html"
+                  >Google Services</a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+    <!-- /Sendondary x-nav DEVELOP -->
+
+  
+
+    <div id="searchResults" class="wrap" style="display:none;">
+      <h2 id="searchTitle">Results</h2>
+      <div id="leftSearchControl" class="search-control">Loading...</div>
+    </div>
+  </div> <!--end header-wrapper -->
+
+  <div id="sticky-header">
+    <div>
+      <a class="logo" href="#top"></a>
+      <a class="top" href="#top"></a>
+      <ul class="breadcrumb">
+        
+        <li class="current">Android Plug-in for Gradle</li>
+      </ul>
+    </div>
+  </div>
+
+
+
+
+  <div class="wrap clearfix" id="body-content">
+    <div class="col-3" id="side-nav" itemscope itemtype="http://schema.org/SiteNavigationElement">
+      <div id="devdoc-nav" class="scroll-pane">
+<ul id="nav">
+
+  <li class="nav-section">
+    <div class="nav-section-header"><a href="../../sdk/index.html"><span class="en">Download</span></a></div>
+    <ul>
+      <li><a href="../../sdk/installing/index.html">
+          <span class="en">Installing the SDK</span></a></li>
+
+      <li><a href="../../sdk/installing/adding-packages.html">
+          <span class="en">Adding SDK Packages</span></a></li>
+    </ul>
+  </li>
+
+
+<!-- Android Studio menu-->
+
+ <li class="nav-section">
+    <div class="nav-section-header">
+      <a href="../../tools/studio/index.html">Android Studio</a>
+    </div>
+    <ul>
+      <li><a href="../../sdk/installing/studio-tips.html">
+          Tips and Tricks</a></li>
+    </ul>
+
+ </li><!-- End of Android Studio menu -->
+
+
+<!-- Workflow menu-->
+
+  <li class="nav-section">
+    <div class="nav-section-header">
+        <a href="../../tools/workflow/index.html"><span class="en">Workflow</span></a>
+    </div>
+    <ul>
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../tools/devices/index.html"><span class="en">Setting Up Virtual Devices</span></a></div>
+        <ul>
+          <li><a href="../../tools/devices/managing-avds.html"><span class="en">With AVD Manager</span></a></li>
+          <li><a href="../../tools/devices/managing-avds-cmdline.html"><span class="en">From the Command Line</span></a></li>
+          <li><a href="../../tools/devices/emulator.html"><span class="en">Using the Emulator</span></a></li>
+        </ul>
+      </li>
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../tools/device.html"><span class="en">Using Hardware Devices</span></a></div>
+        <ul>
+          <li><a href="../../tools/extras/oem-usb.html"><span
+            class="en">USB Drivers</span></a></li>
+        </ul>
+      </li>
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../tools/projects/index.html"><span class="en">Managing Projects</span></a></div>
+        <ul>
+          <li><a href="../../sdk/installing/create-project.html"><span class="en">From Android Studio</span></a></li>
+          <li><a href="../../tools/projects/projects-cmdline.html"><span class="en">From the Command Line</span></a></li>
+          <li><a href="../../tools/projects/templates.html"><span class="en">Using Code Templates</span></a></li>
+        </ul>
+      </li>
+
+
+      <li class="nav-section">
+        <div class="nav-section-header">
+          <a href="../../tools/building/index.html">
+          <span class="en">Building and Running</span></a>
+        </div>
+        <ul>
+          <li><a href="../../tools/building/building-studio.html">
+            <span class="en">From Android Studio</span></a></li>
+          <li><a href="../../tools/building/building-cmdline.html">
+            <span class="en">From the Command Line</span></a></li>
+        </ul>
+      </li>
+
+
+  <li class="nav-section">
+        <div class="nav-section-header"><a href="../../tools/testing/index.html">
+            <span class="en">Testing</span>
+          </a></div>
+        <ul>
+          <li>
+            <a href="../../tools/testing/testing_android.html">
+            <span class="en">Fundamentals</span></a>
+          </li>
+          <li><a href="../../tools/testing/testing_eclipse.html">
+            <span class="en">From Eclipse</span></a>
+          </li>
+          <li><a href="../../tools/testing/testing_otheride.html">
+            <span class="en">From Other IDEs</span></a>
+          </li>
+          <li>
+            <a href="../../tools/testing/activity_testing.html">
+            <span class="en">Activity Testing</span></a>
+          </li>
+          <li>
+            <a href="../../tools/testing/service_testing.html">
+            <span class="en">Service Testing</span></a>
+          </li>
+          <li>
+            <a href="../../tools/testing/contentprovider_testing.html">
+            <span class="en">Content Provider Testing</span></a>
+          </li>
+          <li>
+            <a href="../../tools/testing/testing_accessibility.html">
+            <span class="en">Accessibility Testing</span></a>
+          </li>
+           <li>
+            <a href="../../tools/testing/testing_ui.html">
+            <span class="en">UI Testing</span></a>
+          </li>
+          <li>
+            <a href="../../tools/testing/what_to_test.html">
+            <span class="en">What To Test</span></a>
+          </li>
+          <li>
+            <a href="../../tools/testing/activity_test.html">
+            <span class="en">Activity Testing Tutorial</span></a>
+          </li>
+        </ul>
+  </li><!-- end of testing -->
+
+  <li class="nav-section">
+    <div class="nav-section-header"><a href="../../tools/debugging/index.html"><span class="en">Debugging</span></a></div>
+    <ul>
+      <li><a href="../../tools/debugging/debugging-studio.html"><span class="en">From Android Studio</span></a></li>
+      <li><a href="../../tools/debugging/debugging-projects-cmdline.html"><span class="en">From Other IDEs</span></a></li>
+      <li><a href="../../tools/debugging/ddms.html"><span class="en">Using DDMS</span></a></li>
+      <li><a href="../../tools/debugging/debugging-log.html"><span class="en">Reading and Writing Logs</span></a></li>
+      <li><a href="../../tools/debugging/improving-w-lint.html"><span class="en">Improving Your Code with lint</span></a></li>
+      <li><a href="../../tools/debugging/debugging-ui.html"><span class="en">Optimizing your UI</span></a></li>
+      <li><a href="../../tools/debugging/debugging-tracing.html"><span class="en">Profiling with Traceview and dmtracedump</span></a></li>
+      <li><a href="../../tools/debugging/systrace.html"><span class="en">Analyzing Display and Performance</span></a></li>
+      <li><a href="../../tools/debugging/debugging-memory.html">Investigating Your RAM Usage</a></li>
+      <li><a href="../../tools/debugging/debugging-devtools.html"><span class="en">Using the Dev Tools App</span></a></li>
+    </ul>
+  </li>
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../tools/publishing/publishing_overview.html" zh-cn-lang="发布概述"><span class="en">Publishing</span></a></div>
+        <ul>
+          <li><a href="../../tools/publishing/preparing.html" zh-cn-lang="准备发布"><span class="en">Preparing for Release</span></a></li>
+          <li><a href="../../tools/publishing/versioning.html"><span class="en">Versioning Your Apps</span></a></li>
+          <li><a href="../../tools/publishing/app-signing.html"><span class="en">Signing Your Apps</span></a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+
+
+  <li class="nav-section">
+    <div class="nav-section-header"><a href="../../tools/help/index.html"><span
+class="en">Tools Help</span></a></div>
+    <ul>
+      <li><a href="../../tools/help/adb.html">adb</a></li>
+      <li><a href="../../tools/help/android.html">android</a></li>
+      <li><a href="../../tools/help/avd-manager.html">AVD Manager</a></li>
+      <li><a href="../../tools/help/bmgr.html">bmgr</a>
+      <li><a href="../../tools/help/monitor.html">Device Monitor</a></li>
+      <li><a href="../../tools/help/dmtracedump.html">dmtracedump</a></li>
+      <li><a href="../../tools/help/draw9patch.html">Draw 9-Patch</a></li>
+      <li><a href="../../tools/help/emulator.html">Emulator</a></li>
+      <li><a href="../../tools/help/etc1tool.html">etc1tool</a></li>
+      <li><a href="../../tools/help/hierarchy-viewer.html">Hierarchy Viewer</a></li>
+      <li><a href="../../tools/help/hprof-conv.html">hprof-conv</a></li>
+      <li><a href="../../tools/help/jobb.html">jobb</a></li>
+      <li><a href="../../tools/help/lint.html">lint</span></a></li>
+      <li><a href="../../tools/help/logcat.html">logcat</a></li>
+      <li><a href="../../tools/help/mksdcard.html">mksdcard</a></li>
+      <li><a href="../../tools/help/monkey.html">monkey</a></li>
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../tools/help/monkeyrunner_concepts.html"><span class="en">monkeyrunner</span></a></div>
+        <ul>
+          <li><a href="../../tools/help/MonkeyDevice.html"><span
+class="en">MonkeyDevice</span></a></li>
+          <li><a href="../../tools/help/MonkeyImage.html"><span
+class="en">MonkeyImage</span></a></li>
+          <li><a href="../../tools/help/MonkeyRunner.html"><span
+class="en">MonkeyRunner</span></a></li>
+        </ul>
+      </li>
+       <li><a href="../../tools/help/proguard.html" zh-cn-lang="ProGuard">ProGuard</a></li>
+       <li><a href="../../tools/help/sdk-manager.html">SDK Manager</a></li>
+       <li><a href="../../tools/help/systrace.html">Systrace</a></li>
+       <li><a href="../../tools/help/gltracer.html">Tracer for OpenGL ES</a></li>
+       <li><a href="../../tools/help/traceview.html">Traceview</a></li>
+       <li class="nav-section">
+          <div class="nav-section-header"><a href="../../tools/help/uiautomator/index.html"><span class="en">uiautomator</span></a></div>
+          <ul>
+             <li><a href="../../tools/help/uiautomator/Configurator.html"><span class="en">Configurator</span></a></li>
+             <li><a href="../../tools/help/uiautomator/IAutomationSupport.html"><span class="en">IAutomationSupport</span></a></li>
+             <li><a href="../../tools/help/uiautomator/UiAutomatorTestCase.html"><span class="en">UiAutomatorTestCase</span></a></li>
+             <li><a href="../../tools/help/uiautomator/UiCollection.html"><span class="en">UiCollection</span></a></li>
+             <li><a href="../../tools/help/uiautomator/UiDevice.html"><span class="en">UiDevice</span></a></li>
+             <li><a href="../../tools/help/uiautomator/UiObject.html"><span class="en">UiObject</span></a></li>
+             <li><a href="../../tools/help/uiautomator/UiObjectNotFoundException.html"><span class="en">UiObjectNotFoundException</span></a></li>
+             <li><a href="../../tools/help/uiautomator/UiScrollable.html"><span class="en">UiScrollable</span></a></li>
+             <li><a href="../../tools/help/uiautomator/UiSelector.html"><span class="en">UiSelector</span></a></li>
+             <li><a href="../../tools/help/uiautomator/UiWatcher.html"><span class="en">UiWatcher</span></a></li>
+          </ul>
+       </li>
+       <li><a href="../../tools/help/zipalign.html">zipalign</a></li>
+    </ul>
+  </li>
+
+  </li><!-- end of tools help -->
+
+
+<!-- Build System menu-->
+
+  <li class="nav-section">
+    <div class="nav-section-header">
+      <a href="../../sdk/installing/studio-build.html">Build System</a>
+    </div>
+    <ul>
+      <li><a href="../../tools/building/configuring-gradle.html">
+        <span class="en">Configuring Gradle Builds</span></a></li>
+      <li><a href="../../tools/building/plugin-for-gradle.html">
+        <span class="en">Android Plugin for Gradle</span></a></li>
+      <li><a href="../../tools/building/multidex.html">
+        <span class="en">Apps Over 65K Methods</span></a></li>
+      </ul>
+  </li><!-- end of build system -->
+
+
+<!-- Support Library menu-->
+
+  <li class="nav-section">
+    <div class="nav-section-header"><a href="../../tools/support-library/index.html"><span
+class="en">Support Library</span></a></div>
+    <ul>
+      <li><a href="../../tools/support-library/features.html">Features</a></li>
+      <li><a href="../../tools/support-library/setup.html">Setup</a></li>
+    </ul>
+  </li><!-- end of support library -->
+
+
+<!-- Revision menu-->
+
+  <li class="nav-section">
+    <div class="nav-section-header"><a href="../../tools/revisions/index.html"><span class="en">Revisions</span></a></div>
+    <ul>
+      <li><a href="../../tools/revisions/studio.html">
+        <span class="en">Android Studio</span>
+      </a></li>
+      <li><a href="../../tools/sdk/tools-notes.html">
+        <span class="en">SDK Tools</span>
+      </a></li>
+      <li><a href="../../tools/revisions/build-tools.html">
+        <span class="en">SDK Build Tools</span>
+      </a></li>
+      <li><a href="../../tools/revisions/platforms.html">
+        <span class="en">SDK Platforms</span></a></li>
+      <li><a href="../../tools/sdk/eclipse-adt.html">
+        <span class="en">ADT Plugin</span></a></li>
+    </ul>
+  </li>
+
+  <li class="nav-section">
+    <div class="nav-section-header empty">
+      <a href="../../tools/sdk/ndk/index.html">NDK</a>
+    </div>
+  </li>
+
+  <li class="nav-section">
+    <div class="nav-section-header">
+    <a href="../../tools/adk/index.html">
+      <span class="en">ADK</span></a>
+    </div>
+    <ul>
+      <li><a href="../../tools/adk/adk2.html">ADK 2012 Guide</a></li>
+      <li><a href="../../tools/adk/adk.html">ADK 2011 Guide</a></li>
+    </ul>
+  </li>
+
+
+<!-- Eclipse ADT menu-->
+
+  <li class="nav-section">
+    <div class="nav-section-header">
+    <a href="../../tools/help/adt.html">
+      <span class="en">Eclipse with ADT</span></a>
+    </div>
+    <ul>
+    <li><a href="../../sdk/installing/migrate.html">Migrating to Android Studio</a></li>
+    <li><a href="../../sdk/installing/installing-adt.html">
+        <span class="en">Installing the Eclipse Plugin</span></a></li>
+    <li><a href="../../tools/projects/projects-eclipse.html">Managing Projects</a></li>
+    <li><a href="../../tools/building/building-eclipse.html">Building and Running</a></li>
+    <li><a href="../../tools/building/building-cmdline-ant.html">Building with Ant</a></li>
+    <li><a href="../../tools/testing/testing_eclipse.html">Testing</a></li>
+    <li><a href="../../tools/debugging/debugging-projects.html">Debugging</a></li>
+    <li><a href="../../tools/publishing/app-signing-eclipse.html">Signing Your Apps</a></li>
+    </ul>
+  </li><!-- end of Eclipse  -->
+
+
+</ul><!-- nav -->
+
+<script type="text/javascript">
+<!--
+    buildToggleLists();
+    changeNavLang(getLangPref());
+//-->
+</script>
+
+        
+        
+      </div>
+    </div> <!-- end side-nav -->
+    <script>
+      $(document).ready(function() {
+        scrollIntoView("devdoc-nav");
+        });
+    </script>
+
+
+
+
+<div class="col-13" id="doc-col" >
+
+
+  
+
+  
+    
+      
+        <h1 itemprop="name" >Android Plug-in for Gradle</h1>
+      
+    
+  
+
+
+  
+  <div id="jd-content">
+
+
+    <div class="jd-descr" itemprop="articleBody">
+    <div id="qv-wrapper">
+<div id="qv">
+<h2>In this document</h2>
+<ol>
+  <li><a href="#workBuildVariants">Work with build variants</a></li>
+</ol>
+
+
+<h2>See also</h2>
+<ul>
+<li><a href="../../sdk/installing/studio-build.html">
+Build System Overview</a></li>
+<li><a href="../../tools/building/index.html">
+Buidling and Running</a></li>
+<li><a href="../../tools/building/building-studio.html">
+Building and Running from Android Studio</a></li>
+</ul>
+
+<h2>Download</h2>
+<div class="download-box">
+  <a href="../../shareables/sdk-tools/android-gradle-plugin-dsl.zip"
+    class="button">Plugin Language Reference</a>
+  <p class="filename">android-gradle-plugin-dsl.zip</p>
+</div>
+
+</div>
+</div>
+
+<p>The Android build system consists of an Android plugin for <em>Gradle</em>.
+<a href="http://www.gradle.org/">Gradle</a> is an advanced build toolkit that manages
+dependencies and allows you to define custom build logic. Android Studio uses a Gradle wrapper
+to fully integrate the Android plugin for Gradle. The Android plugin for Gradle also runs
+independent of Android Studio. This means that you can build your Android apps from which Android
+Studio and from the command line on your machine or on machines where Android Studio is not installed
+(such as continuous integration servers).</p>
+
+<p>The output of the build is the same whether you are building a project from the command line,
+on a remote machine, or using Android Studio.</p>
+
+<h2 id="buildConf">Build configuration</h2>
+
+<p>The build configuration for your project is defined inside <code>build.gradle</code> files,
+which are plain text files that use the syntax and options from Gradle and the Android plugin
+to configure the following aspects of your build:</p>
+
+<ul>
+    <li><em>Build variants</em>. The build system can generate multiple APKs with different
+        product and build configurations for the same module. This is useful when you want to
+        build different versions of your application without having to create a separate projects
+        or modules for each version.</li>
+    <li><em>Dependencies</em>. The build system manages project dependencies and supports
+        dependencies from your local filesystem and from remote repositories. This prevents you
+        from having to search, download, and copy binary packages for your dependencies into your
+        project directory.</li>
+    <li><em>Manifest entries</em>. The build system enables you to specify values for some
+        elements of the manifest file in the build variant configuration. These build values
+        override the existing values in the manifest file. This is useful if you want to generate
+        multiple APKs for your modules where each of the <code>apk</code> files has a different
+        application name, minimum SDK version, or target SDK version. When multiple manifests are
+        present, manifest settings are merged in priority of buildType and productFlavor,
+        <code>/main</code> manifest, and the library manifests.</li>
+    <li><em>Signing</em>. The build system enables you to specify signing settings in the build
+        configuration, and it can sign your APKs during the build process.</li>
+    <li><em>ProGuard</em>. The build system enables you to specify a different
+        <a href="../../tools/help/proguard.html">ProGuard</a> rules
+        file for each build variant. The build system can run ProGuard to obfuscate your classes
+        during the build process.</li>
+    <li><em>Testing</em>. For most templates, the build system creates a test directory,
+        <em>androidTest</em> and generates a test APK from the test sources in your project, so
+        you do not have to create a separate test project. The build system can also run your tests
+        during the build process.</li>
+</ul>
+
+<p>Gradle build files use Domain Specific Language (DSL) to describe and manipulate the build logic
+through <em>Groovy</em> syntax. <a href="http://groovy.codehaus.org/">Groovy</a> is a dynamic
+language that you can use to define custom build logic and to interact with the Android-specific
+elements provided by the Android plugin for Gradle.</p>
+
+<h2 id="buildConv">Build by convention</h2>
+
+<p>The Android Studio build system assumes <em>sensible defaults</em> for the project structure
+and other build options. If your project adheres to these conventions, your Gradle build files are
+very simple. When some of these conventions do not apply to your project, the flexibility of the
+build system allows you to configure almost every aspect of the build process. For example, if
+you need to replace the default source folders in your module directories, you can configure a new
+directory structure in the module's build file. </p>
+
+<h2 id="projectModules">Projects and modules build settings</h2>
+
+<p>A <em>project</em> in Android Studio represents the top-level Android development structure.
+Android Studio projects contain project files and one or more application modules. A
+<em>module</em> is a component of your app that you can build, test, or debug independently.
+Modules contain the source code and resources for your apps. Android Studio projects can contain
+several kinds of modules:</p>
+
+<ul>
+    <li><em>Android application modules</em> contain application (mobile, TV, Wear, Glass) code and
+         may depend on library modules, although many Android apps consists of only one application
+         module. The build system generates APK packages for application modules. </li>
+    <li><em>Android library modules</em> contain reusable Android-specific code and resources.
+        The build system generates an AAR (Android ARchive) package for library modules.</li>
+    <li><em>App Engine modules</em> contain code and resources for App Engine integration.</li>
+    <li><em>Java library modules</em> contain reusable code. The build system generates a
+        JAR package for Java library modules.</li>
+</ul>
+
+<p>Android Studio projects contain a top-level project Gradle build file that allows you to add the
+configuration options common to all application modules in the project. Each application module
+also has its own build.gradle file for build settings specific to that module.</p>
+
+<h3>Project Build File</h3>
+<p>By default, the project-level Gradle file uses <em>buildscript</em> to define the Gradle
+<em>repositories</em> and <em>dependencies</em>. This allows different projects to use different
+Gradle versions. Supported repositories include JCenter, Maven Central, or Ivy. This example
+declares that the build script uses the JCenter repository and a classpath dependency artifact
+that contains the Android plugin for Gradle version 1.0.1.
+</p>
+<p>
+<pre>
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:1.0.1'
+
+        // NOTE: Do not place your application dependencies here: they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+   repositories {
+       jcenter()
+   }
+}
+</pre>
+
+<p class="note"><strong>Note:</strong> The SDK location for the Android Studio project is defined in
+the <em>local.properties</em> file in the <code>sdk.dir<sdk location></code> setting or through an
+<code>ANDROID_HOME</code> environment variable.</p>
+
+<h3>Module Build File</h3>
+<p>The application module Gradle build file allows you to configure module build settings,
+including overriding the <code>src/main</code> manifest settings and setting custom packaging
+options. </p>
+
+<ul>
+   <li>android settings </li>
+       <ul>
+          <li>compileSdkVersion</li>
+          <li>buildToolsVersion</li>
+       </ul>
+
+   <li>defaultConfig and productFlavors </li>
+       <ul>
+          <li>manifest properties such as applicationId, minSdkVersion, targetSdkVersion, and test
+              information</li>
+       </ul>
+
+   <li>buildTypes</li>
+       <ul>
+          <li>build properties such as debuggable, ProGuard enabling, debug signing, version name
+              suffix and testinformation</li>
+       </ul>
+
+   <li>dependencies</li>
+</ul>
+
+<p>This example applies the Android plugin, uses the default configuration to override several
+manifest properties, creates two build types: release and debug, and declares several dependencies.
+</p>
+
+<pre>
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 20
+    buildToolsVersion "20.0.0"
+
+    defaultConfig {
+        applicationId "com.mycompany.myapplication"
+        minSdkVersion 13
+        targetSdkVersion 20
+        versionCode 1
+        versionName "1.0"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+         debug {
+            debuggable true
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.android.support:appcompat-v7:20.0.0'
+    compile project(path: ':app2, configuration: 'android-endpoints')
+}
+</pre>
+
+
+<p class="note"><strong>Note:</strong> You can inject custom build logic for property values defined
+by a function that gets called by the property, for example:
+<pre>
+def computeVersionName() {
+  ...
+}
+
+android {
+    defaultConfig {
+        versionName computeVersionName()
+        ...
+    }
+}
+</pre>
+</p>
+
+
+
+<h2 id="dependencies">Dependencies</h2>
+
+<p>The Android Studio build system manages project dependencies and supports module dependencies,
+local binary dependencies, and remote binary dependencies.</p>
+
+<dl>
+    <dt><em>Module Dependencies</em></dt>
+    <dd><p>An application module can include in its build file a list of other modules it depends on.
+        When you build this module, the build system assembles and includes the required
+        modules.</p></dd>
+    <dt><em>Local Dependencies</em></dt>
+    <dd><p>If you have binary archives in your local filesystem that a module depends on, such as
+        JAR files, you can declare these dependencies in the build file for that module.</p></dd>
+    <dt><em>Remote Dependencies</em></dt>
+    <dd><p>When some of your dependencies are available in a remote repository, you do not have
+        to download them and copy them into your project. The Android Studio build system supports
+        remote dependencies from repositories, such as <a href="http://maven.apache.org/">Maven</a>,
+        and dependency managers, such as <a href="http://ant.apache.org/ivy/">Ivy</a>. </p>
+        <p>Many popular software libraries and tools are available in public Maven repositories.
+        For these dependencies you only have to specify their Maven coordinates, which uniquely
+        identify each element in a remote repository. The format for Maven coordinates used in the
+        build system is <code>group:name:version</code>. For example, the Maven coordinates for
+        version 16.0.1 of the Google Guava libraries are
+        <code>com.google.guava:guava:16.0.1</code>.</p>
+        <p>The <a href="http://search.maven.org">Maven Central Repository</a> is widely used to
+        distribute many libraries and tools.</p>
+    </dd>
+</dl>
+
+<h2 id="buildTasks">Build tasks</h2>
+
+<p>The Android Studio build system defines a hierarchical set of build tasks: the top-level or
+anchor tasks invoke dependent tasks to produce their collective build outcomes. The top-level build
+tasks are:</p>
+
+<dl>
+   <dt>assemble </dt>
+   <dd><p>Builds the project output. </p></dd>
+   <dt>check </dt>
+   <dd><p>Runs checks and tests.</p></dd>
+   <dt>build </dt>
+   <dd><p>Runs both assemble and check. </p></dd>
+   <dt>clean </dt>
+   <dd><p>Performs the clean.</p></dd>
+</dl>
+
+<p>The Android plugin provides additional tasks for <em>connectedCheck</em> and <em>deviceCheck</em>
+for checks run on connected, emulated, and remote devices. Gradle tasks can be viewed by clicking
+the Gradle tab</a> in the right margin.
+<img src="../../images/tools/studio-gradle-tab.png"></p>
+<p class="img-caption"><strong>Figure 1:</strong> Gradle tab</p>
+
+<p>Running a top-level task, runs all the dependent tasks. For example, the <em>assemble</em> task
+has dependent tasks for <em>assembleDebug</em> and <em>assembleRelease</em> to make the debug and
+release APKs. The <em>assemble</em> task depends on these tasks so calling it builds both APKs.
+These tasks can also be called independently to build the debug or release APK separately. </p>
+
+<p>You can view the list of available tasks and invoke any task from Android Studio and from
+the command line, as described in
+<a href="../../tools/building/building-studio.html">Building and Running from Android Studio</a>
+and <a href="../../tools/building/building-cmdline.html">Build the project from
+the command line</a>.</p>
+
+<h2 id="gradleWrapper">The Gradle wrapper</h2>
+
+<p>Android Studio projects contain the <em>Gradle wrapper</em>, which consists of:</p>
+
+<ul>
+    <li>A JAR file</li>
+    <li>A properties file</li>
+    <li>A shell script for Windows platforms</li>
+    <li>A shell script for Mac and Linux platforms</li>
+</ul>
+
+<p class="note"><strong>Note:</strong> You should submit all of these files to your source
+control system.</p>
+
+<p>Using the Gradle wrapper (instead of the local Gradle installation) ensures that
+you always run the version of Gradle defined in the <em>local.properties</em> file. To configure your
+project to use a newer version of Gradle, edit the properties file and specify the new version there.
+</p>
+
+<p>Android Studio reads the properties file from the Gradle wrapper directory inside your project
+and runs the wrapper from this directory, so you can seamlessly work with multiple projects
+that require different versions of Gradle.</p>
+
+<p class="note"><strong>Note:</strong> Android Studio does not use the shell scripts, so any
+changes you make to them won't work when building from the IDE. You should define your custom
+logic inside Gradle build files instead.</p>
+
+<p>You can run the shell scripts to build your project from the command line on your development
+machine and on other machines where Android Studio is not installed.</p>
+
+<p class="caution"><strong>Caution:</strong> When you create a project, only use the Gradle wrapper
+scripts and JAR from a trusted source, such as those generated by Android Studio. </p>
+
+
+<h2 id="buildVariants"> Build variants</h2>
+
+<p>Each version of your app is represented in the build system by a <em>build variant</em>.
+Build variants are combinations of product flavors and build types. Product flavors represent
+product build versions of an app, such as free and paid. Build types represent the build
+packaging versions generated for each app package, such as debug and release. The build system
+generates APKs for each combination of product flavor and build type.</p>
+
+<p>By default, Android Studio defines default configuration settings, <code>defaultConfig</code> in
+the build.gradle file, and two build types (<em>debug</em> and <em>release</em>). This creates two
+build variants, debug and release, and the build system generates an
+APK for each variant. </p>
+
+<p>Adding two product flavors, <em>demo</em> and <em>full</em> along
+with the default build types <em>debug</em> and <em>release</em> generates four build variants,
+each with its own customized configuration:</p>
+
+<ul>
+    <li>demoDebug</li>
+    <li>demoRelease</li>
+    <li>fullDebug</li>
+    <li>fullRelease</li>
+</ul>
+
+Resources are merged across the multiple Android application sources:
+<ul>
+    <li>Build variants based on the buildType, and productFlavor build settings</li>
+    <li>The main sourceSet, generally located in src/main/res</li>
+    <li>Library Project dependencies, which contribute resources through the res entry in their aar
+    bundle.</li>
+</ul>
+
+<p>The priority of the merge order from lowest to highest is libraries/dependencies -> main src ->
+productFlavor -> buildType.</p>
+
+
+<p>Some projects have complex combinations of features along more than one dimension, but they
+still represent the same app. For example, in addition to having a demo and a full version of the
+app, some games may contain binaries specific to a particular CPU/ABI. The flexibility of
+the build system makes it possible to generate the following build variants for such a project:</p>
+
+<ul>
+    <li>x86-demoDebug</li>
+    <li>x86-demoRelease</li>
+    <li>x86-fullDebug</li>
+    <li>x86-fullRelease</li>
+    <li>arm-demoDebug</li>
+    <li>arm-demoRelease</li>
+    <li>arm-fullDebug</li>
+    <li>arm-fullRelease</li>
+    <li>mips-demoDebug</li>
+    <li>mips-demoRelease</li>
+    <li>mips-fullDebug</li>
+    <li>mips-fullRelease</li>
+</ul>
+
+<p>This project would consist of two build types (<em>debug</em> and <em>release</em>)
+and two <em>dimensions</em> of product flavors, one for app type (demo or full) and one for
+CPU/ABI (x86, ARM, or MIPS). </p>
+
+
+<h3>Source directories</h3>
+
+<p>To build each version of your app, the build system combines source code and
+resources from:</p>
+
+<ul>
+    <li><code>src/main/</code> - the main source directory (the default configuration common to all
+    variants)</li>
+    <li><code>src/&lt;buildType>/</code> - the <buildType> source directory</li>
+    <li><code>src/&lt;productFlavor>/</code> - the <productFlavor> source directory</li>
+</ul>
+
+<p class="note"><strong>Note:</strong> The build type and product flavor source directories are optional,
+as Android Studio does not create these directories for you. You should create these directories
+as you add build types and product flavors to the build configuration files. The build system does not
+use these directories if they are not present.</p>
+
+<p>For projects that do not define any flavors, the build system uses the <em>defaultConfig</em>
+settings, the main app directory and the default build type directories. For example, to generate
+the default <em>debug</em> and <em>release</em> build variants in projects with no product flavors,
+the build system uses:</p>
+<ul>
+  <li><code>src/main/</code> (default configuration)</li>
+  <li><code>src/release/</code> (build type)</li>
+  <li><code>src/debug/</code> (build type)</li>
+</ul>
+
+<p>For projects that define a set of product flavors, the build system merges the build type, product
+flavor and main source directories. For example, to generate the <em>full-debug</em> build variant,
+the build system merges the build type, product flavor and main directories:</p>
+<ul>
+   <li><code>src/main/</code> (default configuration)</li>
+   <li><code>src/debug/</code> (build type)</li>
+   <li><code>src/full/</code> (flavor)</li>
+</ul>
+
+<p>For projects that use flavor dimensions, the build system merges one flavor source directory per
+dimension. For example, to generate the <em>arm-demo-release</em> build variant, the build system
+merges:</p>
+<ul>
+  <li><code>src/main/</code> (default configuration)</li>
+  <li><code>src/release/</code> (build type)</li>
+  <li><code>src/demo/</code> (flavor - app type dimension)</li>
+  <li><code>src/arm/</code> (flavor - ABI dimension)</li>
+</ul>
+
+
+<p>The source code from these directories is used together to generate the output for a build
+variant. You can have classes with the same name in different directories as long as those
+directories are not used together in the same variant. </p>
+
+<p>The build system also merges all the manifests into a single manifest, so each build variant
+can define different components or permissions in the final manifest. The manifest merge priority
+from lowest to highest is libraries/dependencies -> main src -> productFlavor -> buildType. </p>
+
+<p>The build system merges all the resources from the all the source directories. If different
+folders contain resources with the same name for a build variant, the priority order is the
+following: build type resources override those from the product flavor, which override the
+resources in the main source directory, which override those in any libraries.</p>
+
+<p class="note"><strong>Note:</strong> Build variants enable you to reuse common activities,
+application logic, and resources across different versions of your app.</p>
+
+
+
+    </div>
+
+      <div class="content-footer layout-content-row"
+                    itemscope itemtype="http://schema.org/SiteNavigationElement">
+        
+        <div class="paging-links layout-content-col col-10">
+          
+        </div>
+        <div class="layout-content-col plus-container col-2" >
+          
+            <div class="g-plusone" data-size="medium"></div>
+          
+        </div>
+        
+      </div>
+
+  </div> <!-- end jd-content -->
+
+<div id="footer" class="wrap" >
+        
+
+  <div id="copyright">
+    
+  Except as noted, this content is 
+  licensed under <a href="http://creativecommons.org/licenses/by/2.5/">
+  Creative Commons Attribution 2.5</a>. For details and 
+  restrictions, see the <a href="../../license.html">Content 
+  License</a>.
+  </div>
+
+
+  <div id="footerlinks">
+    
+  <p>
+    <a href="../../about/index.html">About Android</a>&nbsp;&nbsp;|&nbsp;
+    <a href="../../legal.html">Legal</a>&nbsp;&nbsp;|&nbsp;
+    <a href="../../support.html">Support</a>
+  </p>
+  </div>
+
+</div> <!-- end footer -->
+</div><!-- end doc-content -->
+
+</div> <!-- end body-content --> 
+
+
+
+
+
+  <script src="https://developer.android.com/ytblogger_lists_unified.js" type="text/javascript"></script>
+  <script src="../../jd_lists_unified.js?v=8" type="text/javascript"></script>
+  <script src="../../jd_extras.js?v=9" type="text/javascript"></script>
+  <script src="../../jd_collections.js?v=9" type="text/javascript"></script>
+  <script src="../../jd_tag_helpers.js?v=5" type="text/javascript"></script>
+
+</body>
+</html>
+
+
+

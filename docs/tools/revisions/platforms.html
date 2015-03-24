@@ -87,6 +87,9 @@
 
 
 
+
+
+
 <html>
 <head>
 
@@ -94,16 +97,16 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width" />
 
-<meta name="Description" content="This document provides information about Android platform releases. In order to compile your application against a particular platform release, you must download and install the SDK Platform for that release. If you want to test your application on an…">
+<meta name="Description" content="This document provides release information about the SDK Platform packages required for app development. If you want details about the features and APIs added in each Android version, instead read the highlights in the About section. In order to compile…">
 <link rel="shortcut icon" type="image/x-icon" href="../../favicon.ico" />
-<title>Platforms | Android Developers</title>
+<title>SDK Platforms Release Notes | Android Developers</title>
 
 <!-- STYLESHEETS -->
 <link rel="stylesheet"
 href="http://fonts.useso.com/css?family=Roboto+Condensed">
 <link rel="stylesheet" href="http://fonts.useso.com/css?family=Roboto:light,regular,medium,thin,italic,mediumitalic,bold"
   title="roboto">
-<link href="../../assets/css/default.css?v=2" rel="stylesheet" type="text/css">
+<link href="../../assets/css/default.css?v=5" rel="stylesheet" type="text/css">
 
 
 
@@ -114,13 +117,15 @@ href="http://fonts.useso.com/css?family=Roboto+Condensed">
   var metaTags = [];
   var devsite = false;
 </script>
-<script src="../../assets/js/docs.js?v=2" type="text/javascript"></script>
+<script src="../../assets/js/docs.js?v=3" type="text/javascript"></script>
+
+
 
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//googleapiscdn.qiniudn.com/www.google-analytics.com/analytics.js','ga');
+  })(window,document,'script','//../../../ajax/www.google-analytics.com/analytics.js','ga');
 
   ga('create', 'UA-5831155-1', 'android.com');
   ga('create', 'UA-49880327-2', 'android.com', {'name': 'universal'});  // New tracker);
@@ -135,6 +140,52 @@ href="http://fonts.useso.com/css?family=Roboto+Condensed">
 develop" itemscope itemtype="http://schema.org/Article">
 
 <a name="top"></a>
+
+<!-- dialog to prompt lang pref change when loaded from hardcoded URL 
+<div id="langMessage" style="display:none">
+  <div>
+    <div class="lang en">
+      <p>You requested a page in English, would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang es">
+      <p>You requested a page in Spanish (Español), would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang ja">
+      <p>You requested a page in Japanese (日本語), would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang ko">
+      <p>You requested a page in Korean (한국어), would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang ru">
+      <p>You requested a page in Russian (Русский), would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang zh-cn">
+      <p>You requested a page in Simplified Chinese (简体中文), would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang zh-tw">
+      <p>You requested a page in Traditional Chinese (繁體中文), would you like to proceed with this language setting?</p>
+    </div>
+    <a href="#" class="button yes" onclick="return false;">
+      <span class="lang en">Yes</span>
+      <span class="lang es">Sí</span>
+      <span class="lang ja">Yes</span>
+      <span class="lang ko">Yes</span>
+      <span class="lang ru">Yes</span>
+      <span class="lang zh-cn">是的</span>
+      <span class="lang zh-tw">没有</span>
+    </a>
+    <a href="#" class="button" onclick="$('#langMessage').hide();return false;">
+      <span class="lang en">No</span>
+      <span class="lang es">No</span>
+      <span class="lang ja">No</span>
+      <span class="lang ko">No</span>
+      <span class="lang ru">No</span>
+      <span class="lang zh-cn">没有</span>
+      <span class="lang zh-tw">没有</span>
+    </a>
+  </div>
+</div> -->
+
 
   <!-- Header -->
   <div id="header-wrapper">
@@ -332,6 +383,7 @@ develop" itemscope itemtype="http://schema.org/Article">
                 <li><a href="../../distribute/users/index.html">Get Users</a></li>
                 <li><a href="../../distribute/engage/index.html">Engage &amp; Retain</a></li>
                 <li><a href="../../distribute/monetize/index.html">Monetize</a></li>
+                <li><a href="../../distribute/analyze/index.html">Analyze</a></li>
                 <li><a href="../../distribute/tools/index.html">Tools &amp; Reference</a></li>
                 <li><a href="../../distribute/stories/index.html">Developer Stories</a></li>
               </ul>
@@ -344,7 +396,10 @@ develop" itemscope itemtype="http://schema.org/Article">
   
     <!-- Secondary x-nav -->
     <div id="nav-x">
-        <div class="wrap">
+        <div class="wrap" style="position:relative;z-index:1">
+
+        
+
             <ul class="nav-x col-9 develop" style="width:100%">
                 <li class="training"><a href="../../training/index.html"
                   zh-tw-lang="訓練課程"
@@ -401,7 +456,7 @@ develop" itemscope itemtype="http://schema.org/Article">
       <a class="top" href="#top"></a>
       <ul class="breadcrumb">
         
-        <li class="current">Platforms</li>
+        <li class="current">SDK Platforms Release Notes</li>
       </ul>
     </div>
   </div>
@@ -426,27 +481,21 @@ develop" itemscope itemtype="http://schema.org/Article">
   </li>
 
 
-  <li class="nav-section">
+<!-- Android Studio menu-->
+
+ <li class="nav-section">
     <div class="nav-section-header">
-      <a href="../../sdk/installing/studio.html">Android Studio</a>
+      <a href="../../tools/studio/index.html">Android Studio</a>
     </div>
     <ul>
-      <li><a href="../../sdk/installing/migrate.html">
-          Migrating from Eclipse</a></li>
-      <li><a href="../../sdk/installing/create-project.html">
-          Creating a Project</a></li>
       <li><a href="../../sdk/installing/studio-tips.html">
           Tips and Tricks</a></li>
-      <li><a href="../../sdk/installing/studio-androidview.html">
-          Using the Android Project View</a></li>
-      <li><a href="../../sdk/installing/studio-layout.html">
-          Using the Layout Editor</a></li>
-      <li><a href="../../sdk/installing/studio-build.html">
-          Building Your Project with Gradle</a></li>
-      <li><a href="../../sdk/installing/studio-debug.html">
-          Debugging with Android Studio</a></li>
-      </ul>
-  </li>
+    </ul>
+
+ </li><!-- End of Android Studio menu -->
+
+
+<!-- Workflow menu-->
 
   <li class="nav-section">
     <div class="nav-section-header">
@@ -469,9 +518,9 @@ develop" itemscope itemtype="http://schema.org/Article">
         </ul>
       </li>
       <li class="nav-section">
-        <div class="nav-section-header"><a href="../../tools/projects/index.html"><span class="en">Setting Up Projects</span></a></div>
+        <div class="nav-section-header"><a href="../../tools/projects/index.html"><span class="en">Managing Projects</span></a></div>
         <ul>
-          <li><a href="../../tools/projects/projects-eclipse.html"><span class="en">From Eclipse with ADT</span></a></li>
+          <li><a href="../../sdk/installing/create-project.html"><span class="en">From Android Studio</span></a></li>
           <li><a href="../../tools/projects/projects-cmdline.html"><span class="en">From the Command Line</span></a></li>
           <li><a href="../../tools/projects/templates.html"><span class="en">Using Code Templates</span></a></li>
         </ul>
@@ -479,10 +528,15 @@ develop" itemscope itemtype="http://schema.org/Article">
 
 
       <li class="nav-section">
-        <div class="nav-section-header"><a href="../../tools/building/index.html"><span class="en">Building and Running</span></a></div>
+        <div class="nav-section-header">
+          <a href="../../tools/building/index.html">
+          <span class="en">Building and Running</span></a>
+        </div>
         <ul>
-          <li><a href="../../tools/building/building-eclipse.html"><span class="en">From Eclipse with ADT</span></a></li>
-          <li><a href="../../tools/building/building-cmdline.html"><span class="en">From the Command Line</span></a></li>
+          <li><a href="../../tools/building/building-studio.html">
+            <span class="en">From Android Studio</span></a></li>
+          <li><a href="../../tools/building/building-cmdline.html">
+            <span class="en">From the Command Line</span></a></li>
         </ul>
       </li>
 
@@ -536,7 +590,7 @@ develop" itemscope itemtype="http://schema.org/Article">
   <li class="nav-section">
     <div class="nav-section-header"><a href="../../tools/debugging/index.html"><span class="en">Debugging</span></a></div>
     <ul>
-      <li><a href="../../tools/debugging/debugging-projects.html"><span class="en">From Eclipse with ADT</span></a></li>
+      <li><a href="../../tools/debugging/debugging-studio.html"><span class="en">From Android Studio</span></a></li>
       <li><a href="../../tools/debugging/debugging-projects-cmdline.html"><span class="en">From Other IDEs</span></a></li>
       <li><a href="../../tools/debugging/ddms.html"><span class="en">Using DDMS</span></a></li>
       <li><a href="../../tools/debugging/debugging-log.html"><span class="en">Reading and Writing Logs</span></a></li>
@@ -549,9 +603,9 @@ develop" itemscope itemtype="http://schema.org/Article">
     </ul>
   </li>
       <li class="nav-section">
-        <div class="nav-section-header"><a href="../../tools/publishing/publishing_overview.html"><span class="en">Publishing</span></a></div>
+        <div class="nav-section-header"><a href="../../tools/publishing/publishing_overview.html" zh-cn-lang="发布概述"><span class="en">Publishing</span></a></div>
         <ul>
-          <li><a href="../../tools/publishing/preparing.html"><span class="en">Preparing for Release</span></a></li>
+          <li><a href="../../tools/publishing/preparing.html" zh-cn-lang="准备发布"><span class="en">Preparing for Release</span></a></li>
           <li><a href="../../tools/publishing/versioning.html"><span class="en">Versioning Your Apps</span></a></li>
           <li><a href="../../tools/publishing/app-signing.html"><span class="en">Signing Your Apps</span></a></li>
         </ul>
@@ -559,27 +613,12 @@ develop" itemscope itemtype="http://schema.org/Article">
     </ul>
   </li>
 
-  <li class="nav-section">
-    <div class="nav-section-header"><a href="../../tools/support-library/index.html"><span
-class="en">Support Library</span></a></div>
-    <ul>
-      <li><a href="../../tools/support-library/features.html">Features</a></li>
-      <li><a href="../../tools/support-library/setup.html">Setup</a></li>
-    </ul>
-  </li>
 
   <li class="nav-section">
     <div class="nav-section-header"><a href="../../tools/help/index.html"><span
 class="en">Tools Help</span></a></div>
     <ul>
       <li><a href="../../tools/help/adb.html">adb</a></li>
-      <li class="nav-section">
-        <div class="nav-section-header"><a href="../../tools/help/adt.html">ADT</a></div>
-        <ul>
-          <li><a href="../../sdk/installing/installing-adt.html">
-              <span class="en">Installing the Eclipse Plugin</span></a></li>
-        </ul>
-      </li>
       <li><a href="../../tools/help/android.html">android</a></li>
       <li><a href="../../tools/help/avd-manager.html">AVD Manager</a></li>
       <li><a href="../../tools/help/bmgr.html">bmgr</a>
@@ -606,7 +645,7 @@ class="en">MonkeyImage</span></a></li>
 class="en">MonkeyRunner</span></a></li>
         </ul>
       </li>
-       <li><a href="../../tools/help/proguard.html">ProGuard</a></li>
+       <li><a href="../../tools/help/proguard.html" zh-cn-lang="ProGuard">ProGuard</a></li>
        <li><a href="../../tools/help/sdk-manager.html">SDK Manager</a></li>
        <li><a href="../../tools/help/systrace.html">Systrace</a></li>
        <li><a href="../../tools/help/gltracer.html">Tracer for OpenGL ES</a></li>
@@ -630,20 +669,56 @@ class="en">MonkeyRunner</span></a></li>
     </ul>
   </li>
 
+  </li><!-- end of tools help -->
+
+
+<!-- Build System menu-->
+
+  <li class="nav-section">
+    <div class="nav-section-header">
+      <a href="../../sdk/installing/studio-build.html">Build System</a>
+    </div>
+    <ul>
+      <li><a href="../../tools/building/configuring-gradle.html">
+        <span class="en">Configuring Gradle Builds</span></a></li>
+      <li><a href="../../tools/building/plugin-for-gradle.html">
+        <span class="en">Android Plugin for Gradle</span></a></li>
+      <li><a href="../../tools/building/multidex.html">
+        <span class="en">Apps Over 65K Methods</span></a></li>
+      </ul>
+  </li><!-- end of build system -->
+
+
+<!-- Support Library menu-->
+
+  <li class="nav-section">
+    <div class="nav-section-header"><a href="../../tools/support-library/index.html"><span
+class="en">Support Library</span></a></div>
+    <ul>
+      <li><a href="../../tools/support-library/features.html">Features</a></li>
+      <li><a href="../../tools/support-library/setup.html">Setup</a></li>
+    </ul>
+  </li><!-- end of support library -->
+
+
+<!-- Revision menu-->
+
   <li class="nav-section">
     <div class="nav-section-header"><a href="../../tools/revisions/index.html"><span class="en">Revisions</span></a></div>
     <ul>
+      <li><a href="../../tools/revisions/studio.html">
+        <span class="en">Android Studio</span>
+      </a></li>
       <li><a href="../../tools/sdk/tools-notes.html">
         <span class="en">SDK Tools</span>
       </a></li>
-      <li><a href="../../tools/sdk/eclipse-adt.html">
-        <span class="en">ADT Plugin</span>
-      </a></li>
       <li><a href="../../tools/revisions/build-tools.html">
-        <span class="en">Build Tools</span>
+        <span class="en">SDK Build Tools</span>
       </a></li>
-      <li><a href="../../tools/revisions/platforms.html"><span
-class="en">Platforms</span></a></li>
+      <li><a href="../../tools/revisions/platforms.html">
+        <span class="en">SDK Platforms</span></a></li>
+      <li><a href="../../tools/sdk/eclipse-adt.html">
+        <span class="en">ADT Plugin</span></a></li>
     </ul>
   </li>
 
@@ -663,6 +738,28 @@ class="en">Platforms</span></a></li>
       <li><a href="../../tools/adk/adk.html">ADK 2011 Guide</a></li>
     </ul>
   </li>
+
+
+<!-- Eclipse ADT menu-->
+
+  <li class="nav-section">
+    <div class="nav-section-header">
+    <a href="../../tools/help/adt.html">
+      <span class="en">Eclipse with ADT</span></a>
+    </div>
+    <ul>
+    <li><a href="../../sdk/installing/migrate.html">Migrating to Android Studio</a></li>
+    <li><a href="../../sdk/installing/installing-adt.html">
+        <span class="en">Installing the Eclipse Plugin</span></a></li>
+    <li><a href="../../tools/projects/projects-eclipse.html">Managing Projects</a></li>
+    <li><a href="../../tools/building/building-eclipse.html">Building and Running</a></li>
+    <li><a href="../../tools/building/building-cmdline-ant.html">Building with Ant</a></li>
+    <li><a href="../../tools/testing/testing_eclipse.html">Testing</a></li>
+    <li><a href="../../tools/debugging/debugging-projects.html">Debugging</a></li>
+    <li><a href="../../tools/publishing/app-signing-eclipse.html">Signing Your Apps</a></li>
+    </ul>
+  </li><!-- end of Eclipse  -->
+
 
 </ul><!-- nav -->
 
@@ -694,7 +791,7 @@ class="en">Platforms</span></a></li>
   
     
       
-        <h1 itemprop="name" >Platforms</h1>
+        <h1 itemprop="name" >SDK Platforms Release Notes</h1>
       
     
   
@@ -724,10 +821,16 @@ Highlights and APIs</a></li>
 
 
 
-<p>This document provides information about Android platform releases. In order to compile your
-application against a particular platform release, you must download and install the SDK Platform
-for that release. If you want to test your application on an emulator, you must also download at
-least one system image for that platform release.</p>
+<p>This document provides release information about the SDK Platform packages required
+for app development. If you want details about the features and APIs added in each Android
+version, instead read the highlights in the <a href="../../about/index.html">About</a>
+section.</p>
+
+<p>In order to compile your application against a particular version of Android, you must use the
+<a href="../../tools/help/sdk-manager.html">SDK Manager</a> to download and install the SDK
+Platform for that release. If you want to test your application on an emulator, you must also
+download at least one System Image for that Android version.</p>
+
 
 <p>Each platform release includes system images that support a specific processor architecture,
 such as ARM EABI, Intel x86 or MIPS. Platform releases also include a system image that contains
@@ -748,14 +851,80 @@ platform system images under each platform version header, for example:</p>
 <p class="caution"><strong>Important:</strong> To download the most recent Android
 system components from the Android SDK Manager, you must first update the SDK Tools to the
 most recent release and restart the SDK Manager. If you do not, the latest Android system
-components will not be available for download.</p>
+packages may not be available for download.</p>
 
 
-<h2 id="4.4">Android 4.4W</h2>
+<h2 id="5.0">Android 5.0</h2>
 
 <div class="toggle-content opened">
   <p><a href="#" onclick="return toggleContent(this)">
     <img src="../../assets/images/triangle-opened.png"
+class="toggle-content-img" alt="" />Revision 2</a> <em>(December 2014)</em>
+  </p>
+
+  <div class="toggle-content-toggleme">
+
+    <p>Updated layouts in the Support Library and fixed various issues.</p>
+    <p>Dependencies:</p>
+    <ul>
+      <li>Android SDK Platform-tools r21 or higher is required.</li>
+      <li>Android SDK Tools 23.0.5 or higher is required.</li>
+    </ul>
+  </div>
+
+<div class="toggle-content closed">
+  <p><a href="#" onclick="return toggleContent(this)">
+    <img src="../../assets/images/triangle-closed.png"
+class="toggle-content-img" alt="" />Revision 1</a> <em>(October 2014)</em>
+  </p>
+
+  <div class="toggle-content-toggleme">
+
+    <p>Initial release for Android 5.0 (API level 21).</p>
+    <p>Also see the
+    <a href="../../about/versions/android-5.0.html">Android 5.0 APIs overview</a>.</p>
+    <p>Dependencies:</p>
+    <ul>
+      <li>Android SDK Platform-tools r21 or higher is required.</li>
+      <li>Android SDK Tools 23.0.5 or higher is required.</li>
+    </ul>
+  </div>
+
+  <h3>Device Definitions</h3>
+
+  <p>The platform includes the following new device definitions for use in creating
+  Android Virtual Devices in the <a href="../../tools/help/avd-manager.html">AVD Manager</a>:</p>
+ 
+  <ul>
+  <li>Nexus 6 (5.96", 1440 x 2560, Normal 560dpi screen) </li>
+  <li>Nexus 9 (8.9", 2048 x 1536, X-Large xhdpi screen) </li>
+  </ul>
+
+</div>
+
+
+<h2 id="4.4">Android 4.4W</h2>
+
+<div class="toggle-content open">
+  <p><a href="#" onclick="return toggleContent(this)">
+    <img src="../../assets/images/triangle-closed.png"
+class="toggle-content-img" alt="" />Revision 2</a> <em>(October 2014)</em>
+  </p>
+
+  <div class="toggle-content-toggleme">
+
+    <p>Updated the rendering library.  </p>
+
+    <p>Dependencies:</p>
+    <ul>
+      <li>Android SDK Platform-tools r20 or higher is required.</li>
+      <li>Android SDK Tools 23.0 or higher is required.</li>
+    </ul>
+  </div>
+
+<div class="toggle-content closed">
+  <p><a href="#" onclick="return toggleContent(this)">
+    <img src="../../assets/images/triangle-closed.png"
 class="toggle-content-img" alt="" />Revision 1</a> <em>(June 2014)</em>
   </p>
 
@@ -782,15 +951,17 @@ class="toggle-content-img" alt="" />Revision 1</a> <em>(June 2014)</em>
 
 <h2 id="4.4">Android 4.4</h2>
 
-<div class="toggle-content opened">
+<div class="toggle-content closed">
   <p><a href="#" onclick="return toggleContent(this)">
-    <img src="../../assets/images/triangle-opened.png"
+    <img src="../../assets/images/triangle-closed.png"
 class="toggle-content-img" alt="" />Revision 2</a> <em>(December 2013)</em>
   </p>
 
   <div class="toggle-content-toggleme">
 
     <p>Maintenance release. The system version is 4.4.2.</p>
+    <p>Also see the
+    <a href="../../about/versions/android-4.4.html">Android 4.4 APIs overview</a>.</p>
     <dl>
       <dt>Dependencies:</dt>
       <dd>Android SDK Platform-tools r19 or higher is required.</dd>
@@ -809,6 +980,8 @@ class="toggle-content-img" alt="" />Revision 1</a> <em>(October 2013)</em>
   <div class="toggle-content-toggleme">
 
     <p>Initial release. The system version is 4.4.</p>
+    <p>Also see the
+    <a href="../../about/versions/android-4.4.html">Android 4.4 APIs overview</a>.</p>
     <dl>
       <dt>Dependencies:</dt>
       <dd>Android SDK Platform-tools r19 or higher is required.</dd>
@@ -822,9 +995,9 @@ class="toggle-content-img" alt="" />Revision 1</a> <em>(October 2013)</em>
 
 <h3 id="gsi-4.4">Google APIs System Image</h3>
 
-<div class="toggle-content opened">
+<div class="toggle-content closed">
   <p><a href="#" onclick="return toggleContent(this)">
-    <img src="../../assets/images/triangle-opened.png"
+    <img src="../../assets/images/triangle-closed.png"
 class="toggle-content-img" alt="" />Revision 4</a> <em>(March 2014)</em>
   </p>
 
@@ -1991,10 +2164,10 @@ emulator skins are:</p>
 
 
   <script src="https://developer.android.com/ytblogger_lists_unified.js" type="text/javascript"></script>
-  <script src="../../jd_lists_unified.js?v=2" type="text/javascript"></script>
-  <script src="../../jd_extras.js?v=3" type="text/javascript"></script>
-  <script src="../../jd_collections.js?v=3" type="text/javascript"></script>
-  <script src="../../jd_tag_helpers.js?v=2" type="text/javascript"></script>
+  <script src="../../jd_lists_unified.js?v=8" type="text/javascript"></script>
+  <script src="../../jd_extras.js?v=9" type="text/javascript"></script>
+  <script src="../../jd_collections.js?v=9" type="text/javascript"></script>
+  <script src="../../jd_tag_helpers.js?v=5" type="text/javascript"></script>
 
 </body>
 </html>

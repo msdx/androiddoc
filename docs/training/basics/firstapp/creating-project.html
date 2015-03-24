@@ -87,6 +87,9 @@
 
 
 
+
+
+
 <html>
 <head>
 
@@ -94,7 +97,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width" />
 
-<meta name="Description" content="An Android project contains all the files that comprise the source code for your Android app. The Android SDK tools make it easy to start a new Android project with a set of default project directories and files. This lesson shows how to create a new …">
+<meta name="Description" content="An Android project contains all the files that comprise the source code for your Android app. This lesson shows how to create a new project either using Android Studio or using the SDK tools from a command line. It will probably be easier to follow these…">
 <link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico" />
 <title>Creating an Android Project | Android Developers</title>
 
@@ -103,7 +106,7 @@
 href="http://fonts.useso.com/css?family=Roboto+Condensed">
 <link rel="stylesheet" href="http://fonts.useso.com/css?family=Roboto:light,regular,medium,thin,italic,mediumitalic,bold"
   title="roboto">
-<link href="../../../assets/css/default.css?v=2" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/default.css?v=5" rel="stylesheet" type="text/css">
 
 
 
@@ -111,16 +114,23 @@ href="http://fonts.useso.com/css?family=Roboto+Condensed">
 <script src="../../../assets/js/android_3p-bundle.js" type="text/javascript"></script>
 <script type="text/javascript">
   var toRoot = "../../../";
-  var metaTags = [];
+  var metaTags = ["projectsetup"];
   var devsite = false;
 </script>
-<script src="../../../assets/js/docs.js?v=2" type="text/javascript"></script>
+<script src="../../../assets/js/docs.js?v=3" type="text/javascript"></script>
+
+
+<script type="text/javascript" src="https://helpouts.google.com/ps/res/embed.js" defer async
+    data-helpouts-embed data-helpouts-vertical="programming"
+    data-helpouts-tags="project setup" data-helpouts-prefix="android"
+    data-helpouts-standalone="true"></script>
+
 
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//googleapiscdn.qiniudn.com/www.google-analytics.com/analytics.js','ga');
+  })(window,document,'script','//../../../../ajax/www.google-analytics.com/analytics.js','ga');
 
   ga('create', 'UA-5831155-1', 'android.com');
   ga('create', 'UA-49880327-2', 'android.com', {'name': 'universal'});  // New tracker);
@@ -135,6 +145,52 @@ href="http://fonts.useso.com/css?family=Roboto+Condensed">
 develop" itemscope itemtype="http://schema.org/Article">
 
 <a name="top"></a>
+
+<!-- dialog to prompt lang pref change when loaded from hardcoded URL 
+<div id="langMessage" style="display:none">
+  <div>
+    <div class="lang en">
+      <p>You requested a page in English, would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang es">
+      <p>You requested a page in Spanish (Español), would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang ja">
+      <p>You requested a page in Japanese (日本語), would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang ko">
+      <p>You requested a page in Korean (한국어), would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang ru">
+      <p>You requested a page in Russian (Русский), would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang zh-cn">
+      <p>You requested a page in Simplified Chinese (简体中文), would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang zh-tw">
+      <p>You requested a page in Traditional Chinese (繁體中文), would you like to proceed with this language setting?</p>
+    </div>
+    <a href="#" class="button yes" onclick="return false;">
+      <span class="lang en">Yes</span>
+      <span class="lang es">Sí</span>
+      <span class="lang ja">Yes</span>
+      <span class="lang ko">Yes</span>
+      <span class="lang ru">Yes</span>
+      <span class="lang zh-cn">是的</span>
+      <span class="lang zh-tw">没有</span>
+    </a>
+    <a href="#" class="button" onclick="$('#langMessage').hide();return false;">
+      <span class="lang en">No</span>
+      <span class="lang es">No</span>
+      <span class="lang ja">No</span>
+      <span class="lang ko">No</span>
+      <span class="lang ru">No</span>
+      <span class="lang zh-cn">没有</span>
+      <span class="lang zh-tw">没有</span>
+    </a>
+  </div>
+</div> -->
+
 
   <!-- Header -->
   <div id="header-wrapper">
@@ -332,6 +388,7 @@ develop" itemscope itemtype="http://schema.org/Article">
                 <li><a href="../../../distribute/users/index.html">Get Users</a></li>
                 <li><a href="../../../distribute/engage/index.html">Engage &amp; Retain</a></li>
                 <li><a href="../../../distribute/monetize/index.html">Monetize</a></li>
+                <li><a href="../../../distribute/analyze/index.html">Analyze</a></li>
                 <li><a href="../../../distribute/tools/index.html">Tools &amp; Reference</a></li>
                 <li><a href="../../../distribute/stories/index.html">Developer Stories</a></li>
               </ul>
@@ -344,7 +401,10 @@ develop" itemscope itemtype="http://schema.org/Article">
   
     <!-- Secondary x-nav -->
     <div id="nav-x">
-        <div class="wrap">
+        <div class="wrap" style="position:relative;z-index:1">
+
+        
+
             <ul class="nav-x col-9 develop" style="width:100%">
                 <li class="training"><a href="../../../training/index.html"
                   zh-tw-lang="訓練課程"
@@ -547,7 +607,7 @@ include the action bar on devices running Android 2.1 or higher."
             Creating a Fragment
           </a>
           </li>
-          <li><a href="../../../training/basics/fragments/fragment-ui.html">
+          <li><a href="../../../training/basics/fragments/fragment-ui.html" zh-cn-lang="构建灵活的界面">
             Building a Flexible UI
           </a>
           </li>
@@ -853,6 +913,35 @@ include the action bar on devices running Android 2.1 or higher."
           </li>
         </ul>
       </li>
+
+      <li class="nav-section">
+        <div class="nav-section-header">
+          <a href="../../../training/transitions/index.html"
+             description=
+             "How to animate state changes in a view hierarchy using transitions."
+            >Animating Views Using Scenes and Transitions</a>
+        </div>
+        <ul>
+          <li><a href="../../../training/transitions/overview.html">
+            The Transitions Framework
+          </a>
+          </li>
+          <li><a href="../../../training/transitions/scenes.html">
+            Creating a Scene
+          </a>
+          </li>
+          <li><a href="../../../training/transitions/transitions.html">
+            Applying a Transition
+          </a>
+          </li>
+          <li><a href="../../../training/transitions/custom-transitions.html">
+            Creating Custom Transitions
+          </a>
+          </li>
+
+        </ul>
+      </li>
+
       <li class="nav-section">
         <div class="nav-section-header"><a href="../../../training/animation/index.html"
              description=
@@ -1110,7 +1199,7 @@ include the action bar on devices running Android 2.1 or higher."
         <ul>
           <li>
             <a href="../../../training/location/retrieve-current.html">
-            Retrieving the Current Location
+            Getting the Last Known Location
             </a>
           </li>
           <li>
@@ -1121,18 +1210,6 @@ include the action bar on devices running Android 2.1 or higher."
           <li>
             <a href="../../../training/location/display-address.html">
             Displaying a Location Address
-          </a>
-          </li>
-          <li><a href="../../../training/location/geofencing.html">
-            Creating and Monitoring Geofences
-          </a>
-          </li>
-          <li><a href="../../../training/location/activity-recognition.html">
-          Recognizing the User's Current Activity
-          </a>
-          </li>
-          <li><a href="../../../training/location/location-testing.html">
-          Testing Using Mock Locations
           </a>
           </li>
         </ul>
@@ -1250,10 +1327,48 @@ include the action bar on devices running Android 2.1 or higher."
           </li>
         </ul>
       </li>
+
+      <li class="nav-section">
+        <div class="nav-section-header">
+          <a href="../../../training/wearables/watch-faces/index.html"
+             description="How to create watch faces for wearables."
+            >Creating Watch Faces</a>
+        </div>
+        <ul>
+          <li>
+            <a href="../../../training/wearables/watch-faces/designing.html">Designing Watch Faces</a>
+          </li>
+          <li>
+            <a href="../../../training/wearables/watch-faces/service.html">Building a Watch Face Service</a>
+          </li>
+          <li>
+            <a href="../../../training/wearables/watch-faces/drawing.html">Drawing Watch Faces</a>
+          </li>
+          <li>
+            <a href="../../../training/wearables/watch-faces/information.html">Showing Information in Watch Faces</a>
+          </li>
+          <li>
+            <a href="../../../training/wearables/watch-faces/configuration.html">Providing Configuration Activities</a>
+          </li>
+          <li>
+            <a href="../../../training/wearables/watch-faces/issues.html">Addressing Common Issues</a>
+          </li>
+          <li>
+            <a href="../../../training/wearables/watch-faces/performance.html">Optimizing Performance and Battery Life</a>
+          </li>
+        </ul>
+      </li>
+
+      <li>
+        <a href="../../../training/articles/wear-location-detection.html"
+           description=
+           "How to detect location data on Android Wear devices."
+          >Detecting Location</a>
+      </li>
     </ul>
   </li>
-
   <!-- End Building for wearables -->
+
 
   <!-- Start: Building for TV -->
   <li class="nav-section">
@@ -1269,25 +1384,30 @@ include the action bar on devices running Android 2.1 or higher."
         <div class="nav-section-header">
 
           <a href="../../../training/tv/start/index.html"
+             ja-lang="TV アプリのビルド"
              description="How to start building TV apps or extend your existing app to run on TV
              devices.">
              Building TV Apps</a>
         </div>
         <ul>
           <li>
-            <a href="../../../training/tv/start/start.html">
+            <a href="../../../training/tv/start/start.html"
+               ja-lang="TV アプリのビルドを開始する">
               Getting Started with TV Apps</a>
           </li>
           <li>
-            <a href="../../../training/tv/start/hardware.html">
+            <a href="../../../training/tv/start/hardware.html"
+               ja-lang="TV ハードウェアを処理する">
               Handling TV Hardware</a>
           </li>
           <li>
-            <a href="../../../training/tv/start/layouts.html">
+            <a href="../../../training/tv/start/layouts.html"
+               ja-lang="TV 向けレイアウトをビルドする">
               Building TV Layouts</a>
           </li>
           <li>
-            <a href="../../../training/tv/start/navigation.html">
+            <a href="../../../training/tv/start/navigation.html"
+               ja-lang="TV 用のナビゲーションを作成する">
               Creating TV Navigation</a>
           </li>
         </ul>
@@ -1296,17 +1416,29 @@ include the action bar on devices running Android 2.1 or higher."
       <li class="nav-section">
         <div class="nav-section-header">
           <a href="../../../training/tv/playback/index.html"
+             ja-lang="TV 再生アプリのビルド"
              description="How to build apps that provide media catalogs and play content.">
              Building TV Playback Apps</a>
         </div>
         <ul>
           <li>
-            <a href="../../../training/tv/playback/browse.html">
+            <a href="../../../training/tv/playback/browse.html"
+               ja-lang="カタログ ブラウザを作成する">
               Creating a Catalog Browser</a>
           </li>
           <li>
-            <a href="../../../training/tv/playback/details.html">
+            <a href="../../../training/tv/playback/card.html">
+              Providing a Card View</a>
+          </li>
+          <li>
+            <a href="../../../training/tv/playback/details.html"
+               ja-lang="詳細ビューをビルドする">
               Building a Details View</a>
+          </li>
+          <li>
+            <a href="../../../training/tv/playback/now-playing.html"
+               ja-lang="再生中カードを表示する">
+              Displaying a Now Playing Card</a>
           </li>
         </ul>
       </li>
@@ -1314,7 +1446,7 @@ include the action bar on devices running Android 2.1 or higher."
       <li class="nav-section">
         <div class="nav-section-header">
           <a href="../../../training/tv/discovery/index.html"
-             description="How to help users discovery content from your app.">
+             description="How to help users discover content from your app.">
              Helping Users Find Content on TV</a>
         </div>
         <ul>
@@ -1322,6 +1454,9 @@ include the action bar on devices running Android 2.1 or higher."
             <a href="../../../training/tv/discovery/recommendations.html">
               Recommending TV Content</a>
           </li>
+          <li>
+            <a href="../../../training/tv/discovery/searchable.html">
+              Making TV Apps Searchable</a>
           <li>
             <a href="../../../training/tv/discovery/in-app-search.html">
               Searching within TV Apps</a>
@@ -1335,9 +1470,50 @@ include the action bar on devices running Android 2.1 or higher."
            Building TV Games</a>
       </li>
 
+      <li>
+        <a href="../../../training/tv/tif/index.html"
+           description="How to build Live TV apps.">
+           Building Live TV Apps</a>
+      </li>
+
+      <li>
+        <a href="../../../training/tv/publishing/checklist.html"
+           description="An itemized list of requirements for TV apps.">
+           TV Apps Checklist</a>
+      </li>
     </ul>
   </li>
   <!-- End: Building for TV -->
+
+
+  <!-- Start: Building for Auto -->
+  <li class="nav-section">
+    <div class="nav-section-header">
+      <a href="../../../training/auto/index.html">
+      <span class="small">Building Apps for</span><br/>
+              Auto
+      </a>
+    </div>
+    <ul>
+      <li>
+        <a href="../../../training/auto/start/index.html"
+             description="How to start building or extending apps that work
+             with Auto devices.">
+             Getting Started with Auto</a>
+      </li>
+      <li>
+        <a href="../../../training/auto/audio/index.html"
+             description="How to extend audio apps to play content on Auto devices.">
+             Playing Audio for Auto</a>
+      </li>
+      <li>
+        <a href="../../../training/auto/messaging/index.html"
+             description="How to extend text messaging apps to work with Auto devices.">
+             Messaging for Auto</a>
+      </li>
+    </ul>
+  </li>
+  <!-- End: Building for Auto -->
 
 
   <li class="nav-section">
@@ -1648,6 +1824,45 @@ results."
           </li>
           <li><a href="../../../training/system-ui/visibility.html">
             Responding to UI Visibility Changes
+          </a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="nav-section">
+        <div class="nav-section-header">
+          <a href="../../../training/material/index.html"
+             description=
+             "How to implement material design on Android."
+            >Creating Apps with Material Design</a>
+        </div>
+        <ul>
+          <li><a href="../../../training/material/get-started.html">
+            Getting Started
+          </a>
+          </li>
+          <li><a href="../../../training/material/theme.html">
+            Using the Material Theme
+          </a>
+          </li>
+          <li><a href="../../../training/material/lists-cards.html">
+            Creating Lists and Cards
+          </a>
+          </li>
+          <li><a href="../../../training/material/shadows-clipping.html">
+            Defining Shadows and Clipping Views
+          </a>
+          </li>
+          <li><a href="../../../training/material/drawables.html">
+            Working with Drawables
+          </a>
+          </li>
+          <li><a href="../../../training/material/animations.html">
+            Defining Custom Animations
+          </a>
+          </li>
+          <li><a href="../../../training/material/compatibility.html">
+            Maintaining Compatibility
           </a>
           </li>
         </ul>
@@ -2013,6 +2228,10 @@ results."
             Enhancing Security with Device Management Policies
           </a>
           </li>
+          <li><a href="../../../training/enterprise/app-compatibility.html">
+            Ensuring Compatibility with Managed Profiles
+          </a>
+          </li>
         </ul>
       </li>
     </ul>
@@ -2145,7 +2364,6 @@ results."
     changeNavLang(getLangPref());
 //-->
 </script>
-
         
 
       </div>
@@ -2213,15 +2431,13 @@ results."
 <h2>This lesson teaches you to</h2>
 
 <ol>
-  <li><a href="#Eclipse">Create a Project with Eclipse</a></li>
+  <li><a href="#Studio">Create a Project with Android Studio</a></li>
   <li><a href="#CommandLine">Create a Project with Command Line Tools</a></li>
 </ol>
 
 <h2>You should also read</h2>
 
 <ul>
-  <li><a href="../../../sdk/installing/index.html">Installing the
-SDK</a></li>
   <li><a href="../../../tools/projects/index.html">Managing Projects</a></li>
 </ul>
 
@@ -2230,101 +2446,148 @@ SDK</a></li>
 </div>
 
 <p>An Android project contains all the files that comprise the source code for your Android
-app. The Android SDK tools make it easy to start a new Android project with a set of
-default project directories and files.</p>
+app.</p>
 
 <p>This lesson
-shows how to create a new project either using Eclipse (with the ADT plugin) or using the
+shows how to create a new project either using Android Studio or using the
 SDK tools from a command line.</p>
 
 <p class="note"><strong>Note:</strong> You should already have the Android SDK installed, and if
-you're using Eclipse, you should also have the <a href="../../../tools/sdk/eclipse-adt.html">ADT
-plugin</a> installed (version 22.6.2 or higher). If you don't have these, follow the guide to <a
+you're using Android Studio, you should also have <a href="../../../sdk/installing/studio.html">
+Android Studio</a> installed. If you don't have these, follow the guide to <a
 href="../../../sdk/installing/index.html">Installing the Android SDK</a> before you start this
 lesson.</p>
 
 
-<h2 id="Eclipse">Create a Project with Eclipse</h2>
+<h2 id="Studio">Create a Project with Android Studio</h2>
 
 <ol>
-  <li>Click <strong>New</strong> <img src="../../../images/tools/eclipse-new.png"
-  style="vertical-align:baseline;margin:0" /> in the toolbar.</li>
-  <li>In the window that appears, open the <strong>Android</strong> folder,
-  select <strong>Android Application Project</strong>, and click <strong>Next</strong>.</li>
-
-<div class="figure" style="width:420px">
-<img src="../../../images/training/firstapp/adt-firstapp-setup.png" alt="" />
-<p class="img-caption"><strong>Figure 1.</strong> The New Android App Project wizard in Eclipse.</p>
-</div>
-
-  <li>Fill in the form that appears:
+  <li>In Android Studio, create a new project:
+    <ul>
+      <li>If you don't have a project opened, in the <strong>Welcome</strong> screen, click <strong>
+        New Project</strong>.</li>
+      <li>If you have a project opened, from the <strong>File</strong> menu, select <strong>New
+        Project</strong>.</li>
+    </ul>
+  </li>
+  <div class="figure" style="width:420px">
+    <img src="../../../images/training/firstapp/studio-setup-1.png" alt="" />
+    <p class="img-caption"><strong>Figure 1.</strong> Configuring a new project in Android Studio.</p>
+  </div>
+  <li>Under <strong>Configure your new project</strong>, fill in the fields as shown in figure 1
+    and click <strong>Next</strong>.
+    <p>It will probably be easier to follow these lessons if you use the same values as shown.</p>
     <ul>
       <li><strong>Application Name</strong> is the app name that appears to users.
-          For this project, use "My First App."</p></li>
-      <li><strong>Project Name</strong> is the name of your project directory and the name visible in Eclipse.</li>
-      <li><strong>Package Name</strong> is the package namespace for your app (following the same
-rules as packages in the Java programming language). Your package name
-must be unique across all packages installed on the Android system. For this reason, it's generally
-best if you use a name that begins with the reverse domain name of your organization or
-publisher entity. For this project, you can use something like "com.example.myfirstapp."
-However, you cannot publish your app on Google Play using the "com.example" namespace.</li>
-      <li><strong>Minimum Required SDK</strong> is the lowest version of Android that your app supports,
-      indicated using the <a href="../../../guide/topics/manifest/uses-sdk-element.html#ApiLevels"
-      >API level</a>.
-        To support as many devices as possible, you should set this to the lowest version available
-        that allows your app to provide its core feature set. If any feature of your app is possible
-        only on newer versions of Android and it's not critical to the app's core feature set, you
-        can enable the feature only when running on the versions that support it (as
-        discussed in <a href="../../../training/basics/supporting-devices/platforms.html"
-        >Supporting Different Platform Versions</a>).
-        Leave this set to the default value for this project.
-      </li>
-      <li><strong>Target SDK</strong> indicates the highest version of Android (also using the
-      <a href="../../../guide/topics/manifest/uses-sdk-element.html#ApiLevels"
-      >API level</a>) with which you
-      have tested with your application.
-        <p>As new versions of Android become available, you should
-      test your app on the new version and update this value to match the latest API level
-      in order to take advantage of new platform features.</p>
-      </li>
-      <li><strong>Compile With</strong> is the platform version against which you will compile your app.
-        By default, this is set to the latest version of Android available in your SDK. (It should
-        be Android 4.1 or greater; if you don't have such a version available, you must install one
-        using the <a href="../../../sdk/installing/adding-packages.html">SDK Manager</a>).
-        You can still build your app to
-support older versions, but setting the build target to the latest version allows you to
-enable new features and optimize your app for a great user experience on the latest
-devices.</li>
-       <li><strong>Theme</strong> specifies the Android UI style to apply for your app. You can leave
-       this alone.</li>
+          For this project, use "My First App."</li>
+      <li><strong>Company domain</strong> provides a qualifier that will be appended to the package
+        name; Android Studio will remember this qualifier for each new project you create.</li>
+      <li><strong>Package name</strong> is the fully qualified name for the project (following the
+        same rules as those for naming packages in the Java programming language). Your package name
+        must be unique across all packages installed on the Android system. You can <strong>
+        Edit</strong> this value independently from the application name or the company
+        domain.</li>
+      <li><strong>Project location</strong> is the directory on your system that holds the project
+        files.</li>
     </ul>
-    <p>Click <strong>Next</strong>.</p>
   </li>
-  <li>On the next screen to configure the project, leave the default selections and click
-  <strong>Next</strong>.</li>
-  <li>The next screen can help you create a launcher icon for your app.
-    <p>You can customize an icon in several ways and the tool generates an icon for all
-    screen densities. Before you publish your app, you should be sure your icon meets
-    the specifications defined in the <a
-    href="../../../design/style/iconography.html">Iconography</a>
-    design guide.</p>
-    <p>Click <strong>Next</strong>.</p>
-  </li>
-  <li>Now you can select an activity template from which to begin building your app.
-    <p>For this project, select <strong>BlankActivity</strong> and click <strong>Next</strong>.</p>
-  </li>
-  <li>Leave all the details for the activity in their default state and click
-    <strong>Finish</strong>.</li>
+  <li>Under <strong>Select the form factors your app will run on</strong>, check the box for <strong>
+    Phone and Tablet</strong>.</li>
+  <li>For <strong>Minimum SDK</strong>, select <strong>API 8: Android 2.2 (Froyo)</strong>.
+    <p>The Minimum Required SDK is the earliest version of Android that your app supports,
+      indicated using the <a href="../../../guide/topics/manifest/uses-sdk-element.html#ApiLevels">
+      API level</a>. To support as many devices as possible, you should set this to the lowest
+      version available that allows your app to provide its core feature set. If any feature of your
+      app is possible only on newer versions of Android and it's not critical to the app's core
+      feature set, you can enable the feature only when running on the versions that support it (as
+      discussed in <a href="../../../training/basics/supporting-devices/platforms.html">
+      Supporting Different Platform Versions</a>).</p></li>
+  <li>Leave all of the other options (TV, Wear, and Glass) unchecked and click <strong>Next.</strong></li>
+  <div class="sidebox-wrapper">
+    <div class="sidebox">
+      <h3>Activities</h3>
+      <p>An activity is one of the distinguishing features of the Android framework. Activities
+        provide the user with access to your app, and there may be many activities. An application
+        will usually have a main activity for when the user launches the application, another
+        activity for when she selects some content to view, for example, and other activities for
+        when she performs other tasks within the app. See <a href="../../../guide/components/activities.html">
+        Activities</a> for more information.</p>
+    </div>
+  </div>
+  <li>Under <strong>Add an activity to your project</strong>, select <strong>Blank Activity</strong>
+    and click <strong>Next</strong>.</li>
+  <li>Under <strong>Describe the new activity for your project</strong>, leave the fields as they
+    are and click <strong>Finish</strong>.</li>
 </ol>
 
-<p>Your Android project is now a basic "Hello World" app that contains some default files.
-To run the app, continue to the <a href="running-app.html">next lesson</a>.</p>
+<p>Your Android project is now a basic "Hello World" app that contains some default files. Take a
+moment to review the most important of these:</p>
 
+<dl>
+  <dt><code>app/src/main/res/layout/activity_my.xml</code></dt>
+  <dd>This is the XML layout file for the activity you added when you created the project with Android
+    Studio. Following the New Project workflow, Android Studio presents this file with both a text
+    view and a preview of the screen UI. The file includes some default settings and a <code>TextView</code>
+    element that displays the message, "Hello world!"</dd>
+  <dt><code>app/src/main/java/com.mycompany.myfirstapp/MyActivity.java</code></dt>
+  <dd>A tab for this file appears in Android Studio when the New Project workflow finishes. When you
+    select the file you see the class definition for the activity you created. When you build and
+    run the app, the <code><a href="../../../reference/android/app/Activity.html">Activity</a></code> class starts the activity and loads the layout file
+    that says "Hello World!"</dd>
+  <dt><code>app/src/res/AndroidManifest.xml</code></dt>
+  <dd>The <a href="../../../guide/topics/manifest/manifest-intro.html">manifest file</a> describes
+    the fundamental characteristics of the app and defines each of its components. You'll revisit
+    this file as you follow these lessons and add more components to your app.</dd>
+  <dt><code>app/build.gradle</code></dt>
+  <dd>Android Studio uses Gradle to compile and build your app. There is a <code>build.gradle</code>
+    file for each module of your project, as well as a <code>build.gradle</code> file for the entire
+    project. Usually, you're only interested in the <code>build.gradle</code> file for the module,
+    in this case the <code>app</code> or application module. This is where your app's build dependencies
+    are set, including the <code>defaultConfig</code> settings:
+    <ul>
+      <li><code>compiledSdkVersion</code> is the platform version against which you will compile
+        your app. By default, this is set to the latest version of Android available in your SDK.
+        (It should be Android 4.1 or greater; if you don't have such a version available, you must
+        install one using the <a href="../../../sdk/installing/adding-packages.html">SDK Manager</a>.)
+        You can still build your app to support older versions, but setting this to the latest
+        version allows you to enable new features and optimize your app for a great user experience
+        on the latest devices.</li>
+      <li><code>applicationId</code> is the fully qualified package name for your application that
+        you specified during the New Project workflow.</li>
+      <li><code>minSdkVersion</code> is the Minimum SDK version you specified during the New Project
+        workflow. This is the earliest version of the Android SDK that your app supports.</li>
+      <li><code>targetSdkVersion</code> indicates the highest version of Android with which you have
+        tested your application. As new versions of Android become available, you should
+        test your app on the new version and update this value to match the latest API level and
+        thereby take advantage of new platform features. For more information, read
+        <a href="../../../training/basics/supporting-devices/platforms.html">Supporting Different
+          Platform Versions</a>.</li>
+    </ul>
+    <p>See <a href="../../../sdk/installing/studio-build.html">Building Your Project with Gradle</a>
+    for more information about Gradle.</p></dd>
+</dl>
 
+<p>Note also the <code>/res</code> subdirectories that contain the
+<a href="../../../guide/topics/resources/overview.html">resources</a> for your application:</p>
+<dl>
+  <dt><code>drawable-hdpi/</code></dt>
+    <dd>Directory for drawable objects (such as bitmaps) that are designed for high-density
+    (hdpi) screens. Other drawable directories contain assets designed for other screen densities.
+    Here you'll find the ic_launcher.png that appears when you run the default app.</dd>
+  <dt><code>layout/</code></dt>
+    <dd>Directory for files that define your app's user interface like activity_my.xml,
+      discussed above, which describes a basic layout for the MyActivity class.</dd>
+  <dt><code>values/</code></dt>
+    <dd>Directory for other XML files that contain a collection of resources, such as
+      string and color definitions. The strings.xml file defines the "Hello world!" string that
+      displays when you run the default app.</dd>
+</dl>
+
+<p>To run the app, continue to the <a href="running-app.html">next lesson</a>.</p>
 
 <h2 id="CommandLine">Create a Project with Command Line Tools</h2>
 
-<p>If you're not using the Eclipse IDE with the ADT plugin, you can instead create your project
+<p>If you're not using the Android Studio IDE, you can instead create your project
 using the SDK tools from a command line:</p>
 
 <ol>
@@ -2332,31 +2595,31 @@ using the SDK tools from a command line:</p>
   <li>Execute:
 <pre class="no-pretty-print">android list targets</pre>
 <p>This prints a list of the available Android platforms that you’ve downloaded for your SDK. Find
-the platform against which you want to compile your app. Make a note of the target id. We
+the platform against which you want to compile your app. Make a note of the target ID. We
 recommend that you select the highest version possible. You can still build your app to
 support older versions, but setting the build target to the latest version allows you to optimize
 your app for the latest devices.</p>
 <p>If you don't see any targets listed, you need to
 install some using the Android SDK
-Manager tool. See <a href="../../../sdk/installing/adding-packages.html">Adding Platforms
-  and Packages</a>.</p></li>
+Manager tool. See <a href="../../../sdk/installing/adding-packages.html">Adding SDK
+  Packages</a>.</p></li>
   <li>Execute:
 <pre class="no-pretty-print">
 android create project --target &lt;target-id> --name MyFirstApp \
---path &lt;path-to-workspace>/MyFirstApp --activity MainActivity \
+--path &lt;path-to-workspace>/MyFirstApp --activity MyActivity \
 --package com.example.myfirstapp
 </pre>
-<p>Replace <code>&lt;target-id></code> with an id from the list of targets (from the previous step)
+<p>Replace <code>&lt;target-id></code> with an ID from the list of targets (from the previous step)
 and replace
 <code>&lt;path-to-workspace></code> with the location in which you want to save your Android
 projects.</p></li>
 </ol>
 
-<p>Your Android project is now a basic "Hello World" app that contains some default files.
-To run the app, continue to the <a href="running-app.html">next lesson</a>.</p>
-
 <p class="note"><strong>Tip:</strong> Add the <code>platform-tools/</code> as well as the
 <code>tools/</code> directory to your <code>PATH</code> environment variable.</p>
+
+<p>Your Android project is now a basic "Hello World" app that contains some default files.
+To run the app, continue to the <a href="running-app.html">next lesson</a>.</p>
 
 
 
@@ -2430,10 +2693,10 @@ To run the app, continue to the <a href="running-app.html">next lesson</a>.</p>
 
 
   <script src="https://developer.android.com/ytblogger_lists_unified.js" type="text/javascript"></script>
-  <script src="../../../jd_lists_unified.js?v=2" type="text/javascript"></script>
-  <script src="../../../jd_extras.js?v=3" type="text/javascript"></script>
-  <script src="../../../jd_collections.js?v=3" type="text/javascript"></script>
-  <script src="../../../jd_tag_helpers.js?v=2" type="text/javascript"></script>
+  <script src="../../../jd_lists_unified.js?v=8" type="text/javascript"></script>
+  <script src="../../../jd_extras.js?v=9" type="text/javascript"></script>
+  <script src="../../../jd_collections.js?v=9" type="text/javascript"></script>
+  <script src="../../../jd_tag_helpers.js?v=5" type="text/javascript"></script>
 
 </body>
 </html>

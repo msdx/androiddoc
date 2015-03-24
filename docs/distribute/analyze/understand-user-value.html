@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width" />
+
+<meta name="Description" content="Understand what makes users come back to your app and improve retention.">
+<link rel="shortcut icon" type="image/x-icon" href="../../favicon.ico" />
+<title>Understand the Value of Your Users | Android Developers</title>
+
+<!-- STYLESHEETS -->
+<link rel="stylesheet"
+href="http://fonts.useso.com/css?family=Roboto+Condensed">
+<link rel="stylesheet" href="http://fonts.useso.com/css?family=Roboto:light,regular,medium,thin,italic,mediumitalic,bold"
+  title="roboto">
+<link href="../../assets/css/default.css?v=5" rel="stylesheet" type="text/css">
+
+
+
+<!-- JAVASCRIPT -->
+<script src="../../assets/js/android_3p-bundle.js" type="text/javascript"></script>
+<script type="text/javascript">
+  var toRoot = "../../";
+  var metaTags = ["analytics","userbehavior"];
+  var devsite = false;
+</script>
+<script src="../../assets/js/docs.js?v=3" type="text/javascript"></script>
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//../../../ajax/www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-5831155-1', 'android.com');
+  ga('create', 'UA-49880327-2', 'android.com', {'name': 'universal'});  // New tracker);
+  ga('send', 'pageview');
+  ga('universal.send', 'pageview'); // Send page view for new tracker.
+</script>
+
+</head>
+
+<body class="gc-documentation
+
+distribute" itemscope itemtype="http://schema.org/Article">
+
+<a name="top"></a>
+
+<!-- dialog to prompt lang pref change when loaded from hardcoded URL 
+<div id="langMessage" style="display:none">
+  <div>
+    <div class="lang en">
+      <p>You requested a page in English, would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang es">
+      <p>You requested a page in Spanish (Español), would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang ja">
+      <p>You requested a page in Japanese (日本語), would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang ko">
+      <p>You requested a page in Korean (한국어), would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang ru">
+      <p>You requested a page in Russian (Русский), would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang zh-cn">
+      <p>You requested a page in Simplified Chinese (简体中文), would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang zh-tw">
+      <p>You requested a page in Traditional Chinese (繁體中文), would you like to proceed with this language setting?</p>
+    </div>
+    <a href="#" class="button yes" onclick="return false;">
+      <span class="lang en">Yes</span>
+      <span class="lang es">Sí</span>
+      <span class="lang ja">Yes</span>
+      <span class="lang ko">Yes</span>
+      <span class="lang ru">Yes</span>
+      <span class="lang zh-cn">是的</span>
+      <span class="lang zh-tw">没有</span>
+    </a>
+    <a href="#" class="button" onclick="$('#langMessage').hide();return false;">
+      <span class="lang en">No</span>
+      <span class="lang es">No</span>
+      <span class="lang ja">No</span>
+      <span class="lang ko">No</span>
+      <span class="lang ru">No</span>
+      <span class="lang zh-cn">没有</span>
+      <span class="lang zh-tw">没有</span>
+    </a>
+  </div>
+</div> -->
+
+
+  <!-- Header -->
+  <div id="header-wrapper">
+    <div id="header">
+
+    
+
+
+      <div class="wrap" id="header-wrap">
+        <div class="col-3 logo">
+          <a href="../../index.html">
+            <img src="../../assets/images/dac_logo.png"
+                srcset="../../assets/images/dac_logo@2x.png 2x"
+                width="123" height="25" alt="Android Developers" />
+          </a>
+          <div class="btn-quicknav" id="btn-quicknav">
+            <a href="#" class="arrow-inactive">Quicknav</a>
+            <a href="#" class="arrow-active">Quicknav</a>
+          </div>
+        </div>
+        <ul class="nav-x col-9">
+            <li class="design">
+              <a href="../../design/index.html"
+              zh-tw-lang="設計"
+              zh-cn-lang="设计"
+              ru-lang="Проектирование"
+              ko-lang="디자인"
+              ja-lang="設計"
+              es-lang="Diseñar"
+              >Design</a></li>
+            <li class="develop"><a href="../../develop/index.html"
+              zh-tw-lang="開發"
+              zh-cn-lang="开发"
+              ru-lang="Разработка"
+              ko-lang="개발"
+              ja-lang="開発"
+              es-lang="Desarrollar"
+              >Develop</a></li>
+            <li class="distribute last"><a href="../../distribute/googleplay/index.html"
+              zh-tw-lang="發佈"
+              zh-cn-lang="分发"
+              ru-lang="Распространение"
+              ko-lang="배포"
+              ja-lang="配布"
+              es-lang="Distribuir"
+              >Distribute</a></li>
+        </ul>
+
+
+        
+        
+<div class="menu-container">
+  <div class="moremenu">
+    <div id="more-btn"></div>
+  </div>
+  <div class="morehover" id="moremenu">
+    <div class="top"></div>
+    <div class="mid">
+      <div class="header">Links</div>
+      <ul>
+        <li><a href="https://play.google.com/apps/publish/" target="_googleplay">Google Play Developer Console</a></li>
+        <li><a href="http://android-developers.blogspot.com/">Android Developers Blog</a></li>
+        <li><a href="../../about/index.html">About Android</a></li>
+      </ul>
+      <div class="header">Android Sites</div>
+      <ul>
+        <li><a href="http://www.android.com">Android.com</a></li>
+        <li class="active"><a>Android Developers</a></li>
+        <li><a href="http://source.android.com">Android Open Source Project</a></li>
+      </ul>
+
+      
+      
+      
+      <br class="clearfix" />
+    </div><!-- end 'mid' -->
+    <div class="bottom"></div>
+  </div><!-- end 'moremenu' -->
+
+  <div class="search" id="search-container">
+    <div class="search-inner">
+      <div id="search-btn"></div>
+      <div class="left"></div>
+      <form onsubmit="return submit_search()">
+        <input id="search_autocomplete" type="text" value="" autocomplete="off" name="q"
+          onfocus="search_focus_changed(this, true)" onblur="search_focus_changed(this, false)"
+          onkeydown="return search_changed(event, true, '../../')"
+          onkeyup="return search_changed(event, false, '../../')" />
+      </form>
+      <div class="right"></div>
+      <a class="close hide">close</a>
+      <div class="left"></div>
+      <div class="right"></div>
+    </div><!-- end search-inner -->
+  </div><!-- end search-container -->
+
+  <div class="search_filtered_wrapper reference">
+    <div class="suggest-card reference no-display">
+      <ul class="search_filtered">
+      </ul>
+    </div>
+  </div>
+
+  <div class="search_filtered_wrapper docs">
+    <div class="suggest-card dummy no-display">&nbsp;</div>
+    <div class="suggest-card develop no-display">
+      <ul class="search_filtered">
+      </ul>
+      <div class="child-card guides no-display">
+      </div>
+      <div class="child-card training no-display">
+      </div>
+      <div class="child-card samples no-display">
+      </div>
+    </div>
+    <div class="suggest-card design no-display">
+      <ul class="search_filtered">
+      </ul>
+    </div>
+    <div class="suggest-card distribute no-display">
+      <ul class="search_filtered">
+      </ul>
+    </div>
+  </div>
+</div><!-- end menu-container (search and menu widget) -->
+
+
+
+        <!-- Expanded quicknav -->
+        <div id="quicknav" class="col-13">
+          <ul>
+            <li class="about">
+              <ul>
+                <li><a href="../../about/index.html">About</a></li>
+                <li><a href="../../wear/index.html">Wear</a></li>
+                <li><a href="../../tv/index.html">TV</a></li>
+                <li><a href="../../auto/index.html">Auto</a></li>
+              </ul>
+            </li>
+            <li class="design">
+              <ul>
+                <li><a href="../../design/index.html">Get Started</a></li>
+                <li><a href="../../design/devices.html">Devices</a></li>
+                <li><a href="../../design/style/index.html">Style</a></li>
+                <li><a href="../../design/patterns/index.html">Patterns</a></li>
+                <li><a href="../../design/building-blocks/index.html">Building Blocks</a></li>
+                <li><a href="../../design/downloads/index.html">Downloads</a></li>
+                <li><a href="../../design/videos/index.html">Videos</a></li>
+              </ul>
+            </li>
+            <li class="develop">
+              <ul>
+                <li><a href="../../training/index.html"
+                  zh-tw-lang="訓練課程"
+                  zh-cn-lang="培训"
+                  ru-lang="Курсы"
+                  ko-lang="교육"
+                  ja-lang="トレーニング"
+                  es-lang="Capacitación"
+                  >Training</a></li>
+                <li><a href="../../guide/index.html"
+                  zh-tw-lang="API 指南"
+                  zh-cn-lang="API 指南"
+                  ru-lang="Руководства по API"
+                  ko-lang="API 가이드"
+                  ja-lang="API ガイド"
+                  es-lang="Guías de la API"
+                  >API Guides</a></li>
+                <li><a href="../../reference/packages.html"
+                  zh-tw-lang="參考資源"
+                  zh-cn-lang="参考"
+                  ru-lang="Справочник"
+                  ko-lang="참조문서"
+                  ja-lang="リファレンス"
+                  es-lang="Referencia"
+                  >Reference</a></li>
+                <li><a href="../../sdk/index.html"
+                  zh-tw-lang="相關工具"
+                  zh-cn-lang="工具"
+                  ru-lang="Инструменты"
+                  ko-lang="도구"
+                  ja-lang="ツール"
+                  es-lang="Herramientas"
+                  >Tools</a>
+                </li>
+                <li><a href="../../google/index.html">Google Services</a>
+                </li>
+                
+              </ul>
+            </li>
+            <li class="distribute last">
+              <ul>
+                <li><a href="../../distribute/googleplay/index.html">Google Play</a></li>
+                <li><a href="../../distribute/essentials/index.html">Essentials</a></li>
+                <li><a href="../../distribute/users/index.html">Get Users</a></li>
+                <li><a href="../../distribute/engage/index.html">Engage &amp; Retain</a></li>
+                <li><a href="../../distribute/monetize/index.html">Monetize</a></li>
+                <li><a href="../../distribute/analyze/index.html">Analyze</a></li>
+                <li><a href="../../distribute/tools/index.html">Tools &amp; Reference</a></li>
+                <li><a href="../../distribute/stories/index.html">Developer Stories</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div><!-- /Expanded quicknav -->
+      </div><!-- end header-wrap.wrap -->
+    </div><!-- end header -->
+
+  
+    <!-- Secondary distribute x-nav -->
+    <div id="nav-x">
+        <div class="wrap">
+            <ul class="nav-x distribute">
+                <li class="googleplay"><a href="../../distribute/googleplay/index.html"
+                  >Google Play</a></li>
+                <li class="essentials"><a href="../../distribute/essentials/index.html"
+                  >Essentials</a></li>
+                <li class="users"><a href="../../distribute/users/index.html"
+                  >Get Users</a></li>
+                <li class="engage"><a href="../../distribute/engage/index.html"
+                  >Engage &amp; Retain</a></li>
+                <li class="monetize"><a href="../../distribute/monetize/index.html"
+                  >Monetize</a>
+                </li>
+                <li class="analyze"><a href="../../distribute/analyze/index.html"
+                  >Analyze</a>
+                </li>
+                <li class="disttools"><a href="../../distribute/tools/index.html"
+                  >Tools</a>
+                </li>
+                <li class="stories"><a href="../../distribute/stories/index.html"
+                  >Stories</a>
+                </li>
+            </ul>
+            <a href="https://play.google.com/apps/publish/" class="developer-console-btn">Developer Console</a>
+        </div> <!-- /Secondary distribute x-nav -->
+    </div>
+    <!-- /Sendondary x-nav DISTRIBUTE -->
+  
+
+    <div id="searchResults" class="wrap" style="display:none;">
+      <h2 id="searchTitle">Results</h2>
+      <div id="leftSearchControl" class="search-control">Loading...</div>
+    </div>
+  </div> <!--end header-wrapper -->
+
+  <div id="sticky-header">
+    <div>
+      <a class="logo" href="#top"></a>
+      <a class="top" href="#top"></a>
+      <ul class="breadcrumb">
+        
+        <li class="current">Understand the Value of Your Users</li>
+      </ul>
+    </div>
+  </div>
+
+
+
+
+  <div class="wrap clearfix" id="body-content">
+    <div class="col-3" id="side-nav" itemscope itemtype="http://schema.org/SiteNavigationElement">
+      <div id="devdoc-nav" class="scroll-pane">
+<ul id="nav">
+  <li class="nav-section">
+    <div class="nav-section-header empty" style="font-weight:normal"><a href="../../distribute/analyze/start.html">
+        <span class="en">Get Started with Analytics</span></a>
+    </div>
+  </li>
+  <li class="nav-section">
+    <div class="nav-section-header empty" style="font-weight:normal"><a href="../../distribute/analyze/measure.html">
+        <span class="en">Measure What Matters</span></a>
+    </div>
+  </li>
+  <li class="nav-section">
+    <div class="nav-section-header empty" style="font-weight:normal"><a href="../../distribute/analyze/understand-user-value.html">
+        <span class="en">Understand User Value</span></a>
+    </div>
+  </li>
+  <li class="nav-section">
+    <div class="nav-section-header empty" style="font-weight:normal"><a href="../../distribute/analyze/improve-roi.html">
+        <span class="en">Improve Marketing ROI</span></a>
+    </div>
+  </li>
+  <li class="nav-section">
+    <div class="nav-section-header empty" style="font-weight:normal"><a href="../../distribute/analyze/build-better-apps.html">
+        <span class="en">Build Better Apps</span></a>
+    </div>
+  </li>
+  <li class="nav-section">
+    <div class="nav-section-header empty" style="font-weight:normal"><a href="../../distribute/analyze/google-services.html">
+        <span class="en">Act Across Google Services</span></a>
+    </div>
+  </li>
+</ul>
+
+<script type="text/javascript">
+<!--
+    buildToggleLists();
+    changeNavLang(getLangPref());
+//-->
+</script>
+
+
+      </div>
+    </div> <!-- end side-nav -->
+    <script>
+      $(document).ready(function() {
+        scrollIntoView("devdoc-nav");
+        });
+    </script>
+
+
+
+
+<div class="col-12" id="doc-col" >
+
+
+  
+
+  
+    
+      
+        <h1 itemprop="name" >Understand the Value of Your Users</h1>
+      
+    
+  
+
+
+  
+  <div id="jd-content">
+
+
+    <div class="jd-descr" itemprop="articleBody">
+    <p>
+  In-App Analytics will help you understand user behavior and ultimately user
+  value over time. Fundamentally, users are people — and no two people are
+  exactly alike. You can explore what makes your different groups of users
+  unique and, in turn, how these groups respond to your app content, features,
+  and monetization strategies. The more you understand about what your users
+  respond to, the better you can tailor your apps to meet their needs.
+</p>
+
+
+<h2 id="cohort">Assign Value to User Goals</h2>
+
+<p>
+  Different types of developers value their users differently &mdash; and
+  different types of users have different values. Google Analytics gives you
+  the power to value your users in the way that makes the most sense to you.
+</p>
+
+<p>
+  By using Google Analytics goals, you can define specific actions in your app
+  that mean the most to your business: perhaps it’s important that your users
+  reach a specific screen in your app or that they spend a designated time
+  playing your game. Perhaps you define a goal based on whether or not a user
+  completed a certain event (like completing a level).
+</p>
+
+<p>
+  Whatever the method used, you can assign a monetary value to a goal in order
+  to put a dollar value on an action. Perhaps it’s worth $3 if a user completes
+  a given level or $.50 if they sign up with an account. By assigning value to
+  given behaviors, you can really dig into the data to understand your most
+  valuable users.
+</p>
+
+<p>
+  Google Analytics also lets you view Revenue per User for transactions in your
+  app (such as in-app purchases). Pair this data with segments to drill down to
+  find your most valuable users.
+</p>
+
+
+<h2 id="audiencereporting">Know your users with Audience Reporting and Demographic and Interest reports</h2>
+
+<p>
+  Google Analytics’ <strong>Audience Reporting</strong> section highlights a
+  wealth of data about your users’ characteristics: what app versions they’re
+  using, what devices they’re on, where they’re from, and what they're
+  interested in. Among these, the Active Users reports highlight how users come
+  back over time.
+</p>
+
+<div>
+<img itemprop="image" src="../../distribute/analyze/images/active_users.png">
+</div>
+
+<p>
+  Google Analytics’ <strong>Demographics & Interest</strong> reports highlight
+  information about your users gathered using Google Analytics’ extensive reach
+  in apps. See the Gender & Age breakdown to discover the demographic
+  characteristics most common among your users, or take a look at the Interest
+  reports to see what interest categories entice your users.
+</p>
+
+<div>
+<img src="../../distribute/analyze/images/demographics.png">
+</div>
+
+<h2 id="cohort">Segment Your Data</h2>
+
+<p>
+  Looking at aggregated data helps you understand overall user behavior trends,
+  such as how their purchase patterns change over time. However, in order to
+  understand why purchase patterns changed you need to segment your data.
+</p>
+
+<p>
+  Segmentation allows you to isolate and analyze subsets of your data, based on
+  specific attributes. For example, you might segment your data by marketing
+  channel so that you can see which channel is responsible for an increase in
+  purchases.
+</p>
+
+<p>
+  Drilling down to look at segments of your data helps you understand what
+  caused a change to your aggregated data. All reports in Google Analytics
+  provide for segmentation of your traffic. For example, each row in your
+  Language report shows how a specific segment performed. This lets you compare
+  different segments and understand which languages are bringing in the highest
+  value traffic.
+</p>
+
+<div>
+<img src="../../distribute/analyze/images/language-report.png">
+</div>
+
+<p>
+  Here are some common segments that you might want to consider when looking at
+  your own data:
+</p>
+
+<ul>
+<li>Date and time, to compare how users who visit your site on certain
+days of the week or certain hours of the day behave</li>
+<li>Device or app version, to compare user performance on different
+operating systems or app updates</li>
+<li>Marketing channel, to compare the difference in performance for
+various marketing activities</li>
+<li>Geography, to determine which countries, regions or cities
+perform the best</li>
+<li>Customer characteristics, such as repeat customers vs. first-time
+customers, to help you understand what drives users to become loyal customers.</li>
+</ul>
+
+<p>
+  To use segments, click <strong>Add Segment</strong> above the report on any
+  data set you’re interested in breaking up. See the 15 System segments that
+  come with any app profile; these are default segments that allow you to do
+  basic analysis on elements like New Users, Android/iOS Traffic, or Tablet
+  traffic. If you need to dig deeper into your data, you can build a custom
+  segment by clicking <strong>+New Segment</strong> in the top right. Using any
+  combination of dimensions and metrics, you can create segments specific to
+  your business. The combinations of criteria are so extensive, hundreds of
+  thousands of permutations are available.
+</p>
+
+<p>
+  For example, for a report across all sessions in a date range you may choose
+  to include only users whose cumulative revenue across all sessions in a date
+  range is greater than $100; or only users who viewed a specific screen, then
+  completed a specific event, but never actually made a transaction.
+</p>
+
+<p>
+  Alternatively, you could include only sessions that were the result of a
+  specific advertising campaign or only sessions that resulted from a specific
+  campaign AND resulted in a goal completion.
+</p>
+
+<p>
+  Another way to generate segments is to import from the gallery. When you
+  click Add Segment, click Import from gallery (next to +New Segment). Using
+  the Gallery you can import segments that other businesses have found useful
+  &mdash; maybe you're interested in importing segments that pertain to
+  engaged traffic or mobile commerce. Choose from hundreds of segment packs
+  to find the ones that make sense for you.
+</p>
+<div>
+<img src="../../distribute/analyze/images/segmentation.png">
+</div>
+
+<p>
+  Segmentation is a powerful way to slice and dice your data in order to unlock
+  insights about users and their behavior. Use this information to improve your
+  app and find more people that resemble your high-value users.
+</p>
+
+<h2 id="cohort">Understand What Makes Your Users Tick with Further Analysis</h2>
+
+<p>
+  Using the power of segmentation, you can perform very sophisticated analysis
+  on the types of users using your app &mdash; are your buyers concentrated in
+  a particular geographic area? Are users who visit a certain screen getting
+  stuck and abandoning your game? Are there certain behaviors that lead to more
+  conversions? What crashes are having the most impact on your revenue?
+</p>
+
+<p>
+  Understanding what properties make up an engaged and monetized user base is
+  important for developing a strategy to find similar users and for building
+  users’ experiences based on their behavior.
+</p>
+
+  <div class="headerLine clearfloat">
+  <h2 id="related-resources">
+    Related Resources
+  </h2>
+</div>
+
+<div class="resource-widget resource-flow-layout col-13" 
+  data-query="collection:distribute/analyzeunderstand"
+  data-sortorder="-timestamp"
+  data-cardsizes="6x3"
+  data-maxresults="6">
+</div>
+
+    </div>
+
+      <div class="content-footer layout-content-row"
+                    itemscope itemtype="http://schema.org/SiteNavigationElement">
+        
+        <div class="paging-links layout-content-col col-10">
+          
+        </div>
+        <div class="layout-content-col plus-container col-2" >
+          
+            <div class="g-plusone" data-size="medium"></div>
+          
+        </div>
+        
+      </div>
+
+  </div> <!-- end jd-content -->
+
+<div id="footer" class="wrap" >
+        
+
+  <div id="copyright">
+    
+  Except as noted, this content is 
+  licensed under <a href="http://creativecommons.org/licenses/by/2.5/">
+  Creative Commons Attribution 2.5</a>. For details and 
+  restrictions, see the <a href="../../license.html">Content 
+  License</a>.
+  </div>
+
+
+  <div id="footerlinks">
+    
+  <p>
+    <a href="../../about/index.html">About Android</a>&nbsp;&nbsp;|&nbsp;
+    <a href="../../legal.html">Legal</a>&nbsp;&nbsp;|&nbsp;
+    <a href="../../support.html">Support</a>
+  </p>
+  </div>
+
+</div> <!-- end footer -->
+</div><!-- end doc-content -->
+
+</div> <!-- end body-content --> 
+
+
+
+
+
+  <script src="https://developer.android.com/ytblogger_lists_unified.js" type="text/javascript"></script>
+  <script src="../../jd_lists_unified.js?v=8" type="text/javascript"></script>
+  <script src="../../jd_extras.js?v=9" type="text/javascript"></script>
+  <script src="../../jd_collections.js?v=9" type="text/javascript"></script>
+  <script src="../../jd_tag_helpers.js?v=5" type="text/javascript"></script>
+
+</body>
+</html>
+
+
+

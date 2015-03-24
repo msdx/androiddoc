@@ -87,6 +87,9 @@
 
 
 
+
+
+
 <html>
 <head>
 
@@ -94,7 +97,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width" />
 
-<meta name="Description" content="If your app does navigation or tracking, you probably want to get the user&#39;s location at regular intervals. While you can do this with LocationClient.getLastLocation() , a more direct approach is to request periodic updates from Location Services.…">
+<meta name="Description" content="If your app can continuously track location, it can deliver more relevant information to the user. For example, if your app helps the user find their way while walking or driving, or if your app tracks the location of assets, it needs to get the location…">
 <link rel="shortcut icon" type="image/x-icon" href="../../favicon.ico" />
 <title>Receiving Location Updates | Android Developers</title>
 
@@ -103,7 +106,7 @@
 href="http://fonts.useso.com/css?family=Roboto+Condensed">
 <link rel="stylesheet" href="http://fonts.useso.com/css?family=Roboto:light,regular,medium,thin,italic,mediumitalic,bold"
   title="roboto">
-<link href="../../assets/css/default.css?v=2" rel="stylesheet" type="text/css">
+<link href="../../assets/css/default.css?v=5" rel="stylesheet" type="text/css">
 
 
 
@@ -114,13 +117,15 @@ href="http://fonts.useso.com/css?family=Roboto+Condensed">
   var metaTags = [];
   var devsite = false;
 </script>
-<script src="../../assets/js/docs.js?v=2" type="text/javascript"></script>
+<script src="../../assets/js/docs.js?v=3" type="text/javascript"></script>
+
+
 
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//googleapiscdn.qiniudn.com/www.google-analytics.com/analytics.js','ga');
+  })(window,document,'script','//../../../ajax/www.google-analytics.com/analytics.js','ga');
 
   ga('create', 'UA-5831155-1', 'android.com');
   ga('create', 'UA-49880327-2', 'android.com', {'name': 'universal'});  // New tracker);
@@ -135,6 +140,52 @@ href="http://fonts.useso.com/css?family=Roboto+Condensed">
 develop" itemscope itemtype="http://schema.org/Article">
 
 <a name="top"></a>
+
+<!-- dialog to prompt lang pref change when loaded from hardcoded URL 
+<div id="langMessage" style="display:none">
+  <div>
+    <div class="lang en">
+      <p>You requested a page in English, would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang es">
+      <p>You requested a page in Spanish (Español), would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang ja">
+      <p>You requested a page in Japanese (日本語), would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang ko">
+      <p>You requested a page in Korean (한국어), would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang ru">
+      <p>You requested a page in Russian (Русский), would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang zh-cn">
+      <p>You requested a page in Simplified Chinese (简体中文), would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang zh-tw">
+      <p>You requested a page in Traditional Chinese (繁體中文), would you like to proceed with this language setting?</p>
+    </div>
+    <a href="#" class="button yes" onclick="return false;">
+      <span class="lang en">Yes</span>
+      <span class="lang es">Sí</span>
+      <span class="lang ja">Yes</span>
+      <span class="lang ko">Yes</span>
+      <span class="lang ru">Yes</span>
+      <span class="lang zh-cn">是的</span>
+      <span class="lang zh-tw">没有</span>
+    </a>
+    <a href="#" class="button" onclick="$('#langMessage').hide();return false;">
+      <span class="lang en">No</span>
+      <span class="lang es">No</span>
+      <span class="lang ja">No</span>
+      <span class="lang ko">No</span>
+      <span class="lang ru">No</span>
+      <span class="lang zh-cn">没有</span>
+      <span class="lang zh-tw">没有</span>
+    </a>
+  </div>
+</div> -->
+
 
   <!-- Header -->
   <div id="header-wrapper">
@@ -332,6 +383,7 @@ develop" itemscope itemtype="http://schema.org/Article">
                 <li><a href="../../distribute/users/index.html">Get Users</a></li>
                 <li><a href="../../distribute/engage/index.html">Engage &amp; Retain</a></li>
                 <li><a href="../../distribute/monetize/index.html">Monetize</a></li>
+                <li><a href="../../distribute/analyze/index.html">Analyze</a></li>
                 <li><a href="../../distribute/tools/index.html">Tools &amp; Reference</a></li>
                 <li><a href="../../distribute/stories/index.html">Developer Stories</a></li>
               </ul>
@@ -344,7 +396,10 @@ develop" itemscope itemtype="http://schema.org/Article">
   
     <!-- Secondary x-nav -->
     <div id="nav-x">
-        <div class="wrap">
+        <div class="wrap" style="position:relative;z-index:1">
+
+        
+
             <ul class="nav-x col-9 develop" style="width:100%">
                 <li class="training"><a href="../../training/index.html"
                   zh-tw-lang="訓練課程"
@@ -547,7 +602,7 @@ include the action bar on devices running Android 2.1 or higher."
             Creating a Fragment
           </a>
           </li>
-          <li><a href="../../training/basics/fragments/fragment-ui.html">
+          <li><a href="../../training/basics/fragments/fragment-ui.html" zh-cn-lang="构建灵活的界面">
             Building a Flexible UI
           </a>
           </li>
@@ -853,6 +908,35 @@ include the action bar on devices running Android 2.1 or higher."
           </li>
         </ul>
       </li>
+
+      <li class="nav-section">
+        <div class="nav-section-header">
+          <a href="../../training/transitions/index.html"
+             description=
+             "How to animate state changes in a view hierarchy using transitions."
+            >Animating Views Using Scenes and Transitions</a>
+        </div>
+        <ul>
+          <li><a href="../../training/transitions/overview.html">
+            The Transitions Framework
+          </a>
+          </li>
+          <li><a href="../../training/transitions/scenes.html">
+            Creating a Scene
+          </a>
+          </li>
+          <li><a href="../../training/transitions/transitions.html">
+            Applying a Transition
+          </a>
+          </li>
+          <li><a href="../../training/transitions/custom-transitions.html">
+            Creating Custom Transitions
+          </a>
+          </li>
+
+        </ul>
+      </li>
+
       <li class="nav-section">
         <div class="nav-section-header"><a href="../../training/animation/index.html"
              description=
@@ -1110,7 +1194,7 @@ include the action bar on devices running Android 2.1 or higher."
         <ul>
           <li>
             <a href="../../training/location/retrieve-current.html">
-            Retrieving the Current Location
+            Getting the Last Known Location
             </a>
           </li>
           <li>
@@ -1121,18 +1205,6 @@ include the action bar on devices running Android 2.1 or higher."
           <li>
             <a href="../../training/location/display-address.html">
             Displaying a Location Address
-          </a>
-          </li>
-          <li><a href="../../training/location/geofencing.html">
-            Creating and Monitoring Geofences
-          </a>
-          </li>
-          <li><a href="../../training/location/activity-recognition.html">
-          Recognizing the User's Current Activity
-          </a>
-          </li>
-          <li><a href="../../training/location/location-testing.html">
-          Testing Using Mock Locations
           </a>
           </li>
         </ul>
@@ -1250,10 +1322,48 @@ include the action bar on devices running Android 2.1 or higher."
           </li>
         </ul>
       </li>
+
+      <li class="nav-section">
+        <div class="nav-section-header">
+          <a href="../../training/wearables/watch-faces/index.html"
+             description="How to create watch faces for wearables."
+            >Creating Watch Faces</a>
+        </div>
+        <ul>
+          <li>
+            <a href="../../training/wearables/watch-faces/designing.html">Designing Watch Faces</a>
+          </li>
+          <li>
+            <a href="../../training/wearables/watch-faces/service.html">Building a Watch Face Service</a>
+          </li>
+          <li>
+            <a href="../../training/wearables/watch-faces/drawing.html">Drawing Watch Faces</a>
+          </li>
+          <li>
+            <a href="../../training/wearables/watch-faces/information.html">Showing Information in Watch Faces</a>
+          </li>
+          <li>
+            <a href="../../training/wearables/watch-faces/configuration.html">Providing Configuration Activities</a>
+          </li>
+          <li>
+            <a href="../../training/wearables/watch-faces/issues.html">Addressing Common Issues</a>
+          </li>
+          <li>
+            <a href="../../training/wearables/watch-faces/performance.html">Optimizing Performance and Battery Life</a>
+          </li>
+        </ul>
+      </li>
+
+      <li>
+        <a href="../../training/articles/wear-location-detection.html"
+           description=
+           "How to detect location data on Android Wear devices."
+          >Detecting Location</a>
+      </li>
     </ul>
   </li>
-
   <!-- End Building for wearables -->
+
 
   <!-- Start: Building for TV -->
   <li class="nav-section">
@@ -1269,25 +1379,30 @@ include the action bar on devices running Android 2.1 or higher."
         <div class="nav-section-header">
 
           <a href="../../training/tv/start/index.html"
+             ja-lang="TV アプリのビルド"
              description="How to start building TV apps or extend your existing app to run on TV
              devices.">
              Building TV Apps</a>
         </div>
         <ul>
           <li>
-            <a href="../../training/tv/start/start.html">
+            <a href="../../training/tv/start/start.html"
+               ja-lang="TV アプリのビルドを開始する">
               Getting Started with TV Apps</a>
           </li>
           <li>
-            <a href="../../training/tv/start/hardware.html">
+            <a href="../../training/tv/start/hardware.html"
+               ja-lang="TV ハードウェアを処理する">
               Handling TV Hardware</a>
           </li>
           <li>
-            <a href="../../training/tv/start/layouts.html">
+            <a href="../../training/tv/start/layouts.html"
+               ja-lang="TV 向けレイアウトをビルドする">
               Building TV Layouts</a>
           </li>
           <li>
-            <a href="../../training/tv/start/navigation.html">
+            <a href="../../training/tv/start/navigation.html"
+               ja-lang="TV 用のナビゲーションを作成する">
               Creating TV Navigation</a>
           </li>
         </ul>
@@ -1296,17 +1411,29 @@ include the action bar on devices running Android 2.1 or higher."
       <li class="nav-section">
         <div class="nav-section-header">
           <a href="../../training/tv/playback/index.html"
+             ja-lang="TV 再生アプリのビルド"
              description="How to build apps that provide media catalogs and play content.">
              Building TV Playback Apps</a>
         </div>
         <ul>
           <li>
-            <a href="../../training/tv/playback/browse.html">
+            <a href="../../training/tv/playback/browse.html"
+               ja-lang="カタログ ブラウザを作成する">
               Creating a Catalog Browser</a>
           </li>
           <li>
-            <a href="../../training/tv/playback/details.html">
+            <a href="../../training/tv/playback/card.html">
+              Providing a Card View</a>
+          </li>
+          <li>
+            <a href="../../training/tv/playback/details.html"
+               ja-lang="詳細ビューをビルドする">
               Building a Details View</a>
+          </li>
+          <li>
+            <a href="../../training/tv/playback/now-playing.html"
+               ja-lang="再生中カードを表示する">
+              Displaying a Now Playing Card</a>
           </li>
         </ul>
       </li>
@@ -1314,7 +1441,7 @@ include the action bar on devices running Android 2.1 or higher."
       <li class="nav-section">
         <div class="nav-section-header">
           <a href="../../training/tv/discovery/index.html"
-             description="How to help users discovery content from your app.">
+             description="How to help users discover content from your app.">
              Helping Users Find Content on TV</a>
         </div>
         <ul>
@@ -1322,6 +1449,9 @@ include the action bar on devices running Android 2.1 or higher."
             <a href="../../training/tv/discovery/recommendations.html">
               Recommending TV Content</a>
           </li>
+          <li>
+            <a href="../../training/tv/discovery/searchable.html">
+              Making TV Apps Searchable</a>
           <li>
             <a href="../../training/tv/discovery/in-app-search.html">
               Searching within TV Apps</a>
@@ -1335,9 +1465,50 @@ include the action bar on devices running Android 2.1 or higher."
            Building TV Games</a>
       </li>
 
+      <li>
+        <a href="../../training/tv/tif/index.html"
+           description="How to build Live TV apps.">
+           Building Live TV Apps</a>
+      </li>
+
+      <li>
+        <a href="../../training/tv/publishing/checklist.html"
+           description="An itemized list of requirements for TV apps.">
+           TV Apps Checklist</a>
+      </li>
     </ul>
   </li>
   <!-- End: Building for TV -->
+
+
+  <!-- Start: Building for Auto -->
+  <li class="nav-section">
+    <div class="nav-section-header">
+      <a href="../../training/auto/index.html">
+      <span class="small">Building Apps for</span><br/>
+              Auto
+      </a>
+    </div>
+    <ul>
+      <li>
+        <a href="../../training/auto/start/index.html"
+             description="How to start building or extending apps that work
+             with Auto devices.">
+             Getting Started with Auto</a>
+      </li>
+      <li>
+        <a href="../../training/auto/audio/index.html"
+             description="How to extend audio apps to play content on Auto devices.">
+             Playing Audio for Auto</a>
+      </li>
+      <li>
+        <a href="../../training/auto/messaging/index.html"
+             description="How to extend text messaging apps to work with Auto devices.">
+             Messaging for Auto</a>
+      </li>
+    </ul>
+  </li>
+  <!-- End: Building for Auto -->
 
 
   <li class="nav-section">
@@ -1648,6 +1819,45 @@ results."
           </li>
           <li><a href="../../training/system-ui/visibility.html">
             Responding to UI Visibility Changes
+          </a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="nav-section">
+        <div class="nav-section-header">
+          <a href="../../training/material/index.html"
+             description=
+             "How to implement material design on Android."
+            >Creating Apps with Material Design</a>
+        </div>
+        <ul>
+          <li><a href="../../training/material/get-started.html">
+            Getting Started
+          </a>
+          </li>
+          <li><a href="../../training/material/theme.html">
+            Using the Material Theme
+          </a>
+          </li>
+          <li><a href="../../training/material/lists-cards.html">
+            Creating Lists and Cards
+          </a>
+          </li>
+          <li><a href="../../training/material/shadows-clipping.html">
+            Defining Shadows and Clipping Views
+          </a>
+          </li>
+          <li><a href="../../training/material/drawables.html">
+            Working with Drawables
+          </a>
+          </li>
+          <li><a href="../../training/material/animations.html">
+            Defining Custom Animations
+          </a>
+          </li>
+          <li><a href="../../training/material/compatibility.html">
+            Maintaining Compatibility
           </a>
           </li>
         </ul>
@@ -2013,6 +2223,10 @@ results."
             Enhancing Security with Device Management Policies
           </a>
           </li>
+          <li><a href="../../training/enterprise/app-compatibility.html">
+            Ensuring Compatibility with Managed Profiles
+          </a>
+          </li>
         </ul>
       </li>
     </ul>
@@ -2145,7 +2359,6 @@ results."
     changeNavLang(getLangPref());
 //-->
 </script>
-
         
 
       </div>
@@ -2207,613 +2420,418 @@ results."
 
     <div class="jd-descr" itemprop="articleBody">
     <div id="tb-wrapper">
-<div id="tb">
+  <div id="tb">
 
-<h2>This lesson teaches you to</h2>
-<ol>
-    <li><a href="#Permissions">Request Location Permission</a></li>
-    <li><a href="#PlayServices">Check for Google Play Services</a></li>
-    <li><a href="#DefineCallbacks">Define Location Services Callbacks</a></li>
-    <li><a href="#UpdateParameters">Specify Update Parameters</a></li>
-    <li><a href="#StartUpdates">Start Location Updates</a></li>
-    <li><a href="#StopUpdates">Stop Location Updates</a></li>
-</ol>
+  <h2>This lesson teaches you how to</h2>
+  <ol>
+    <li><a href="#connect">Connect to Location Services</a></li>
+    <li><a href="#location-request">Set Up a Location Request</a></li>
+    <li><a href="#updates">Request Location Updates</a></li>
+    <li><a href="#callback">Define the Location Update Callback</a></li>
+    <li><a href="#stop-updates">Stop Location Updates</a></li>
+    <li><a href="#save-state">Save the State of the Activity</a></li>
+  </ol>
 
-<h2>You should also read</h2>
-<ul>
+  <h2>You should also read</h2>
+  <ul>
     <li>
-        <a href="../../google/play-services/setup.html">Setup Google Play Services SDK</a>
+      <a href="../../google/play-services/setup.html">Setting up Google Play
+      Services</a>
     </li>
     <li>
-        <a href="retrieve-current.html">Retrieving the Current Location</a>
+      <a href="retrieve-current.html">Getting the Last Known Location</a>
     </li>
- </ul>
+   </ul>
 
-<h2>Try it out</h2>
+  <h2>Try it out</h2>
 
-<div class="download-box">
-  <a href="http://developer.android.com/shareables/training/LocationUpdates.zip" class="button">Download the sample</a>
-  <p class="filename">LocationUpdates.zip</p>
+    <ul>
+      <li>
+        <a href="https://github.com/googlesamples/android-play-location/tree/master/LocationUpdates" class="external-link">LocationUpdates</a>
+      </li>
+    </ul>
+  </div>
 </div>
 
-</div>
-</div>
+<p>If your app can continuously track location, it can deliver more relevant
+  information to the user. For example, if your app helps the user find their
+  way while walking or driving, or if your app tracks the location of assets, it
+  needs to get the location of the device at regular intervals. As well as the
+  geographical location (latitude and longitude), you may want to give the user
+  further information such as the bearing (horizontal direction of travel),
+  altitude, or velocity of the device. This information, and more, is available
+  in the <code><a href="../../reference/android/location/Location.html">Location</a></code> object that your app can retrieve
+  from the
+  <a href="../../reference/com/google/android/gms/location/FusedLocationProviderApi.html">fused
+  location provider</a>.</p>
 
-<p>
-    If your app does navigation or tracking, you probably want to get the user's
-    location at regular intervals. While you can do this with
-<code><a href="../../reference/com/google/android/gms/location/LocationClient.html#getLastLocation()">LocationClient.getLastLocation()</a></code>,
-    a more direct approach is to request periodic updates from Location Services. In
-    response, Location Services automatically updates your app with the best available location,
-    based on the currently-available location providers such as WiFi and GPS.
-</p>
-<p>
-    To get periodic location updates from Location Services, you send a request using a location
-    client. Depending on the form of the request, Location Services either invokes a callback
-    method and passes in a <code><a href="../../reference/android/location/Location.html">Location</a></code> object, or issues an
-    <code><a href="../../reference/android/content/Intent.html">Intent</a></code> that contains the location in its extended data. The accuracy and
-    frequency of the updates are affected by the location permissions you've requested and the
-    parameters you pass to Location Services with the request.
-</p>
-<!-- Request permission -->
-<h2 id="Permissions">Specify App Permissions</h2>
-<p>
-    Apps that use Location Services must request location permissions. Android has two location
-    permissions, <code><a href="../../reference/android/Manifest.permission.html#ACCESS_COARSE_LOCATION">ACCESS_COARSE_LOCATION</a></code>
-    and <code><a href="../../reference/android/Manifest.permission.html#ACCESS_FINE_LOCATION">ACCESS_FINE_LOCATION</a></code>. The
-    permission you choose affects the accuracy of the location updates you receive.
-    For example, If you request only coarse location permission, Location Services obfuscates the
-    updated location to an accuracy that's roughly equivalent to a city block.
-</p>
-<p>
-    Requesting <code><a href="../../reference/android/Manifest.permission.html#ACCESS_FINE_LOCATION">ACCESS_FINE_LOCATION</a></code> implies
-    a request for <code><a href="../../reference/android/Manifest.permission.html#ACCESS_COARSE_LOCATION">ACCESS_COARSE_LOCATION</a></code>.
-</p>
-<p>
-    For example, to add the coarse location permission to your manifest, insert the following as a
-    child element of
-    the
-<code><a href="../../guide/topics/manifest/manifest-element.html">&lt;manifest&gt;</a></code>
-    element:
-</p>
+<p>While you can get a device's location with
+  <a href="../../reference/com/google/android/gms/location/FusedLocationProviderApi.html#getLastLocation(com.google.android.gms.common.api.GoogleApiClient)"><code>getLastLocation()</code></a>,
+  as illustrated in the lesson on
+  <a href="retrieve-current.html">Getting the Last Known Location</a>,
+  a more direct approach is to request periodic updates from the fused location
+  provider. In response, the API updates your app periodically with the best
+  available location, based on the currently-available location providers such
+  as WiFi and GPS (Global Positioning System). The accuracy of the location is
+  determined by the providers, the location permissions you've requested, and
+  the options you set in the location request.</p>
+
+<p>This lesson shows you how to request regular updates about a device's
+  location using the
+  <a href="../../reference/com/google/android/gms/location/FusedLocationProviderApi.html#requestLocationUpdates(com.google.android.gms.common.api.GoogleApiClient, com.google.android.gms.location.LocationRequest, com.google.android.gms.location.LocationListener)"><code>requestLocationUpdates()</code></a>
+  method in the fused location provider.
+
+<h2 id="connect">Connect to Location Services</h2>
+
+<p>Location services for apps are provided through Google Play services and the
+  fused location provider. In order to use these services, you connect your app
+  using the Google API Client and then request location updates. For details on
+  connecting with the
+  <a href="../../reference/com/google/android/gms/common/api/GoogleApiClient.html"><code>GoogleApiClient</code></a>,
+  follow the instructions in
+  <a href="retrieve-current.html">Getting the Last Known Location</a>, including
+  requesting the current location.</p>
+
+<p>The last known location of the device provides a handy base from which to
+  start, ensuring that the app has a known location before starting the
+  periodic location updates. The lesson on
+  <a href="retrieve-current.html">Getting the Last Known Location</a> shows you
+  how to get the last known location by calling
+  <a href="../../reference/com/google/android/gms/location/FusedLocationProviderApi.html#getLastLocation(com.google.android.gms.common.api.GoogleApiClient)"><code>getLastLocation()</code></a>.
+  The snippets in the following sections assume that your app has already
+  retrieved the last known location and stored it as a
+  <code><a href="../../reference/android/location/Location.html">Location</a></code> object in the global variable
+  <code>mCurrentLocation</code>.</p>
+
+<p>Apps that use location services must request location permissions. In this
+  lesson you require fine location detection, so that your app can get as
+  precise a location as possible from the available location providers. Request
+  this permission with the
+  <code>uses-permission</code> element in your app manifest, as shown in the
+  following example:</p>
+
 <pre>
-&lt;uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/&gt;
-</pre>
-<!-- Check for Google Play services -->
-<h2 id="PlayServices">Check for Google Play Services</h2>
-<p>
-    Location Services is part of the Google Play services APK. Since it's hard to anticipate the
-    state of the user's device, you should always check that the APK is installed before you attempt
-    to connect to Location Services. To check that the APK is installed, call
-<code><a href="../../reference/com/google/android/gms/common/GooglePlayServicesUtil.html#isGooglePlayServicesAvailable(android.content.Context)">GooglePlayServicesUtil.isGooglePlayServicesAvailable()</a></code>,
-    which returns one of the
-    integer result codes listed in the API reference documentation. If you encounter an error,
-    call
-<code><a href="../../reference/com/google/android/gms/common/GooglePlayServicesUtil.html#getErrorDialog(int, android.app.Activity, int)">GooglePlayServicesUtil.getErrorDialog()</a></code>
-    to retrieve localized dialog that prompts users to take the correct action, then display
-    the dialog in a <code><a href="../../reference/android/support/v4/app/DialogFragment.html">DialogFragment</a></code>. The dialog may allow the
-    user to correct the problem, in which case Google Play services may send a result back to your
-    activity. To handle this result, override the method
-    <code><a href="../../reference/android/support/v4/app/FragmentActivity.html#onActivityResult(int, int, android.content.Intent)">onActivityResult()</a></code>
+&lt;manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.google.android.gms.location.sample.locationupdates" &gt;
 
-</p>
-<p class="note">
-    <strong>Note:</strong> To make your app compatible with
-    platform version 1.6 and later, the activity that displays the
-    <code><a href="../../reference/android/support/v4/app/DialogFragment.html">DialogFragment</a></code> must subclass
-    <code><a href="../../reference/android/support/v4/app/FragmentActivity.html">FragmentActivity</a></code> instead of <code><a href="../../reference/android/app/Activity.html">Activity</a></code>. Using
-    <code><a href="../../reference/android/support/v4/app/FragmentActivity.html">FragmentActivity</a></code> also allows you to call
-    <code><a href="../../reference/android/support/v4/app/FragmentActivity.html#getSupportFragmentManager()">getSupportFragmentManager()</a></code> to display the <code><a href="../../reference/android/support/v4/app/DialogFragment.html">DialogFragment</a></code>.
-</p>
-<p>
-    Since you usually need to check for Google Play services in more than one place in your code,
-    define a method that encapsulates the check, then call the method before each connection
-    attempt. The following snippet contains all of the code required to check for Google
-    Play services:
-</p>
-<pre>
-public class MainActivity extends FragmentActivity {
-    ...
-    // Global constants
-    /*
-     * Define a request code to send to Google Play services
-     * This code is returned in Activity.onActivityResult
-     */
-    private final static int
-            CONNECTION_FAILURE_RESOLUTION_REQUEST = 9000;
-    ...
-    // Define a DialogFragment that displays the error dialog
-    public static class ErrorDialogFragment extends DialogFragment {
-        // Global field to contain the error dialog
-        private Dialog mDialog;
-        // Default constructor. Sets the dialog field to null
-        public ErrorDialogFragment() {
-            super();
-            mDialog = null;
-        }
-        // Set the dialog to display
-        public void setDialog(Dialog dialog) {
-            mDialog = dialog;
-        }
-        // Return a Dialog to the DialogFragment.
-        &#64;Override
-        public Dialog onCreateDialog(Bundle savedInstanceState) {
-            return mDialog;
-        }
-    }
-    ...
-    /*
-     * Handle results returned to the FragmentActivity
-     * by Google Play services
-     */
-    &#64;Override
-    protected void onActivityResult(
-            int requestCode, int resultCode, Intent data) {
-        // Decide what to do based on the original request code
-        switch (requestCode) {
-            ...
-            case CONNECTION_FAILURE_RESOLUTION_REQUEST :
-            /*
-             * If the result code is Activity.RESULT_OK, try
-             * to connect again
-             */
-                switch (resultCode) {
-                    case Activity.RESULT_OK :
-                    /*
-                     * Try the request again
-                     */
-                    ...
-                    break;
-                }
-            ...
-        }
-        ...
-    }
-    ...
-    private boolean servicesConnected() {
-        // Check that Google Play services is available
-        int resultCode =
-                GooglePlayServicesUtil.
-                        isGooglePlayServicesAvailable(this);
-        // If Google Play services is available
-        if (ConnectionResult.SUCCESS == resultCode) {
-            // In debug mode, log the status
-            Log.d("Location Updates",
-                    "Google Play services is available.");
-            // Continue
-            return true;
-        // Google Play services was not available for some reason
-        } else {
-            // Get the error code
-            int errorCode = connectionResult.getErrorCode();
-            // Get the error dialog from Google Play services
-            Dialog errorDialog = GooglePlayServicesUtil.getErrorDialog(
-                    errorCode,
-                    this,
-                    CONNECTION_FAILURE_RESOLUTION_REQUEST);
-            // If Google Play services can provide an error dialog
-            if (errorDialog != null) {
-                // Create a new DialogFragment for the error dialog
-                ErrorDialogFragment errorFragment =
-                        new ErrorDialogFragment();
-                // Set the dialog in the DialogFragment
-                errorFragment.setDialog(errorDialog);
-                // Show the error dialog in the DialogFragment
-                errorFragment.show(
-                        getSupportFragmentManager(),
-                        "Location Updates");
-            }
-        }
-    }
-    ...
-}
+  &lt;uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/&gt;
+&lt;/manifest&gt;
 </pre>
-<p>
-    Snippets in the following sections call this method to verify that Google Play services is
-    available.
-</p>
-<!--
-    Define Location Services Callbacks
- -->
-<h2 id="DefineCallbacks">Define Location Services Callbacks</h2>
-<p>
-    Before you request location updates, you must first implement the interfaces that Location
-    Services uses to communicate connection status to your app:
-</p>
+
+<h2 id="location-request">Set Up a Location Request</h2>
+
+<p>To store parameters for requests to the fused location provider, create a
+  <a href="../../reference/com/google/android/gms/location/LocationRequest.html"><code>LocationRequest</code></a>.
+  The parameters determine the levels of accuracy requested. For details of all
+  the options available in the location request, see the
+  <a href="../../reference/com/google/android/gms/location/LocationRequest.html"><code>LocationRequest</code></a>
+  class reference. This lesson sets the update interval, fastest update
+  interval, and priority, as described below:</p>
+
 <dl>
-    <dt>
-<code><a href="../../reference/com/google/android/gms/common/GooglePlayServicesClient.ConnectionCallbacks.html">ConnectionCallbacks</a></code>
-    </dt>
-    <dd>
-        Specifies methods that Location Services calls when a location client is connected or
-        disconnected.
-    </dd>
-    <dt>
-<code><a href="../../reference/com/google/android/gms/common/GooglePlayServicesClient.OnConnectionFailedListener.html">OnConnectionFailedListener</a></code>
-    </dt>
-    <dd>
-        Specifies a method that Location Services calls if an error occurs while attempting to
-        connect the location client. This method uses the previously-defined <code>showErrorDialog</code>
-        method to display an error dialog that attempts to fix the problem using Google Play
-        services.
-    </dd>
+  <dt>
+    Update interval
+  </dt>
+  <dd>
+    <a href="../../reference/com/google/android/gms/location/LocationRequest.html#setInterval(long)"><code>setInterval()</code></a>
+    - This method sets the rate in milliseconds at which your app prefers to
+    receive location updates. Note that the location updates may be faster than
+    this rate if another app is receiving updates at a faster rate, or slower
+    than this rate, or there may be no updates at all (if the device has no
+    connectivity, for example).
+  </dd>
+  <dt>
+    Fastest update interval
+  </dt>
+  <dd>
+    <a href="../../reference/com/google/android/gms/location/LocationRequest.html#setFastestInterval(long)"><code>setFastestInterval()</code></a>
+    - This method sets the <strong>fastest</strong> rate in milliseconds at which
+    your app can handle location updates. You need to set this rate because
+    other apps also affect the rate at which updates are sent. The Google Play
+    services location APIs send out updates at the fastest rate that any app
+    has requested with
+    <a href="../../reference/com/google/android/gms/location/LocationRequest.html#setInterval(long)"><code>setInterval()</code></a>.
+    If this rate is faster
+    than your app can handle, you may encounter problems with UI flicker or data
+    overflow. To prevent this, call
+    <a href="../../reference/com/google/android/gms/location/LocationRequest.html#setFastestInterval(long)"><code>setFastestInterval()</code></a>
+    to set an upper limit to the update rate.
+  </dd>
+  <dt>Priority</dt>
+  <dd>
+    <p>
+      <a href="../../reference/com/google/android/gms/location/LocationRequest.html#setPriority(int)"><code>setPriority()</code></a>
+      - This method sets the priority of the request, which gives the Google Play
+      services location services a strong hint about which location sources to use.
+      The following values are supported:</p>
+      <ul>
+        <li>
+          <a href="../../reference/com/google/android/gms/location/LocationRequest.html#PRIORITY_BALANCED_POWER_ACCURACY"><code>PRIORITY_BALANCED_POWER_ACCURACY</code></a>
+          - Use this setting to request location precision to within a city
+          block, which is an accuracy of approximately 100 meters. This is
+          considered a coarse level of accuracy, and is likely to consume less
+          power. With this setting, the location services are likely to use WiFi
+          and cell tower positioning. Note, however, that the choice of location
+          provider depends on many other factors, such as which sources are
+          available.</li>
+        <li>
+          <a href="../../reference/com/google/android/gms/location/LocationRequest.html#PRIORITY_HIGH_ACCURACY"><code>PRIORITY_HIGH_ACCURACY</code></a>
+          - Use this setting to request the most precise location possible. With
+          this setting, the location services are more likely to use GPS
+          (Global Positioning System) to determine the location.</li>
+        <li><a href="../../reference/com/google/android/gms/location/LocationRequest.html#PRIORITY_LOW_POWER"><code>PRIORITY_LOW_POWER</code></a>
+          - Use this setting to request city-level precision, which is
+          an accuracy of approximately 10 kilometers. This is considered a
+          coarse level of accuracy, and is likely to consume less power.</li>
+        <li><a href="../../reference/com/google/android/gms/location/LocationRequest.html#PRIORITY_NO_POWER"><code>PRIORITY_NO_POWER</code></a>
+          - Use this setting if you need negligible impact on power consumption,
+          but want to receive location updates when available. With this
+          setting, your app does not trigger any location updates, but
+          receives locations triggered by other apps.</li>
+      </ul>
+  </dd>
 </dl>
-<p>
-    The following snippet shows how to specify the interfaces and define the methods:
-</p>
+
+<p>Create the location request and set the parameters as shown in this
+  code sample:</p>
+
 <pre>
-public class MainActivity extends FragmentActivity implements
-        GooglePlayServicesClient.ConnectionCallbacks,
-        GooglePlayServicesClient.OnConnectionFailedListener {
-    ...
-    /*
-     * Called by Location Services when the request to connect the
-     * client finishes successfully. At this point, you can
-     * request the current location or start periodic updates
-     */
-    &#64;Override
-    public void onConnected(Bundle dataBundle) {
-        // Display the connection status
-        Toast.makeText(this, "Connected", Toast.LENGTH_SHORT).show();
-    }
-    ...
-    /*
-     * Called by Location Services if the connection to the
-     * location client drops because of an error.
-     */
-    &#64;Override
-    public void onDisconnected() {
-        // Display the connection status
-        Toast.makeText(this, "Disconnected. Please re-connect.",
-                Toast.LENGTH_SHORT).show();
-    }
-    ...
-    /*
-     * Called by Location Services if the attempt to
-     * Location Services fails.
-     */
-    &#64;Override
-    public void onConnectionFailed(ConnectionResult connectionResult) {
-        /*
-         * Google Play services can resolve some errors it detects.
-         * If the error has a resolution, try sending an Intent to
-         * start a Google Play services activity that can resolve
-         * error.
-         */
-        if (connectionResult.hasResolution()) {
-            try {
-                // Start an Activity that tries to resolve the error
-                connectionResult.startResolutionForResult(
-                        this,
-                        CONNECTION_FAILURE_RESOLUTION_REQUEST);
-                /*
-                * Thrown if Google Play services canceled the original
-                * PendingIntent
-                */
-            } catch (IntentSender.SendIntentException e) {
-                // Log the error
-                e.printStackTrace();
-            }
-        } else {
-            /*
-             * If no resolution is available, display a dialog to the
-             * user with the error.
-             */
-            showErrorDialog(connectionResult.getErrorCode());
-        }
-    }
-    ...
+protected void createLocationRequest() {
+    LocationRequest mLocationRequest = new LocationRequest();
+    mLocationRequest.setInterval(10000);
+    mLocationRequest.setFastestInterval(5000);
+    mLocationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
 }
 </pre>
-<h3>Define the location update callback</h3>
-<p>
-    Location Services sends location updates to your app either as an <code><a href="../../reference/android/content/Intent.html">Intent</a></code>
-    or as an argument passed to a callback method you define. This lesson shows you how to get the
-    update using a callback method, because that pattern works best for most use cases. If you want
-    to receive updates in the form of an <code><a href="../../reference/android/content/Intent.html">Intent</a></code>, read the lesson
-    <a href="activity-recognition.html">Recognizing the User's Current Activity</a>, which
-    presents a similar pattern.
-</p>
-<p>
-    The callback method that Location Services invokes to send a location update to your app is
-    specified in the
-<code><a href="../../reference/com/google/android/gms/location/LocationListener.html">LocationListener</a></code>
-    interface, in the method
-<code><a href="../../reference/com/google/android/gms/location/LocationListener.html#onLocationChanged(android.location.Location)">onLocationChanged()</a></code>.
-    The incoming argument is a <code><a href="../../reference/android/location/Location.html">Location</a></code> object containing the location's
-    latitude and longitude. The following snippet shows how to specify the interface and define
-    the method:
-</p>
+
+<p>The priority of
+  <a href="../../reference/com/google/android/gms/location/LocationRequest.html#PRIORITY_HIGH_ACCURACY"><code>PRIORITY_HIGH_ACCURACY</code></a>,
+  combined with the
+  <code><a href="../../reference/android/Manifest.permission.html#ACCESS_FINE_LOCATION">ACCESS_FINE_LOCATION</a></code>
+  permission setting that you've defined in the app manifest, and a fast update
+  interval of 5000 milliseconds (5 seconds), causes the fused location
+  provider to return location updates that are accurate to within a few feet.
+  This approach is appropriate for mapping apps that display the location in
+  real time.</p>
+
+<p class="note"><strong>Performance hint:</strong> If your app accesses the
+  network or does other long-running work after receiving a location update,
+  adjust the fastest interval to a slower value. This adjustment prevents your
+  app from receiving updates it can't use. Once the long-running work is done,
+  set the fastest interval back to a fast value.</p>
+
+<h2 id="updates">Request Location Updates</h2>
+
+<p>Now that you've set up a location request containing your app's requirements
+  for the location updates, you can start the regular updates by calling
+  <a href="../../reference/com/google/android/gms/location/FusedLocationProviderApi.html#requestLocationUpdates(com.google.android.gms.common.api.GoogleApiClient, com.google.android.gms.location.LocationRequest, com.google.android.gms.location.LocationListener)"><code>requestLocationUpdates()</code></a>.
+  Do this in the
+  <a href="../../reference/com/google/android/gms/common/api/GoogleApiClient.ConnectionCallbacks.html#onConnected(android.os.Bundle)"><code>onConnected()</code></a>
+  callback provided by Google API Client, which is called when the client is
+  ready.</p>
+
+<p>Depending on the form of the request, the fused location provider either
+  invokes the
+  <a href="../../reference/com/google/android/gms/location/LocationListener.html"><code>LocationListener.onLocationChanged()</code></a>
+  callback method and passes it a <code><a href="../../reference/android/location/Location.html">Location</a></code> object, or
+  issues a
+  <a href="../../reference/android/app/PendingIntent.html"><code>PendingIntent</code></a>
+  that contains the location in its extended data. The accuracy and frequency of
+  the updates are affected by the location permissions you've requested and the
+  options you set in the location request object.</p>
+
+<p>This lesson shows you how to get the update using the
+  <a href="../../reference/com/google/android/gms/location/LocationListener.html"><code>LocationListener</code></a>
+  callback approach. Call
+  <a href="../../reference/com/google/android/gms/location/FusedLocationProviderApi.html#requestLocationUpdates(com.google.android.gms.common.api.GoogleApiClient, com.google.android.gms.location.LocationRequest, com.google.android.gms.location.LocationListener)"><code>requestLocationUpdates()</code></a>,
+  passing it your instance of the
+  <a href="../../reference/com/google/android/gms/common/api/GoogleApiClient.html"><code>GoogleApiClient</code></a>,
+  the
+  <a href="../../reference/com/google/android/gms/location/LocationRequest.html"><code>LocationRequest</code></a>
+  object,
+  and a <a href="../../reference/com/google/android/gms/location/LocationListener.html"><code>LocationListener</code></a>.
+  Define a <code>startLocationUpdates()</code> method, called from the
+  <a href="../../reference/com/google/android/gms/common/api/GoogleApiClient.ConnectionCallbacks.html#onConnected(android.os.Bundle)"><code>onConnected()</code></a>
+  callback, as shown in the following code sample:</p>
+
 <pre>
-public class MainActivity extends FragmentActivity implements
-        GooglePlayServicesClient.ConnectionCallbacks,
-        GooglePlayServicesClient.OnConnectionFailedListener,
-        LocationListener {
+&#64;Override
+public void onConnected(Bundle connectionHint) {
     ...
-    // Define the callback method that receives location updates
+    if (mRequestingLocationUpdates) {
+        startLocationUpdates();
+    }
+}
+
+protected void startLocationUpdates() {
+    LocationServices.FusedLocationApi.requestLocationUpdates(
+            mGoogleApiClient, mLocationRequest, this);
+}
+</pre>
+
+<p>Notice that the above code snippet refers to a boolean flag,
+  <code>mRequestingLocationUpdates</code>, used to track whether the user has
+  turned location updates on or off. For more about retaining the value of this
+  flag across instances of the activity, see
+  <a href="#save-state">Save the State of the Activity</a>.
+
+<h2 id="callback">Define the Location Update Callback</h2>
+
+<p>The fused location provider invokes the
+  <a href="../../reference/com/google/android/gms/location/LocationListener.html#onLocationChanged(android.location.Location)"><code>LocationListener.onLocationChanged()</code></a>
+  callback method. The incoming argument is a <code><a href="../../reference/android/location/Location.html">Location</a></code>
+  object containing the location's latitude and longitude. The following snippet
+  shows how to implement the
+  <a href="../../reference/com/google/android/gms/location/LocationListener.html"><code>LocationListener</code></a>
+  interface and define the method, then get the timestamp of the location update
+  and display the latitude, longitude and timestamp on your app's user
+  interface:</p>
+
+<pre>
+public class MainActivity extends ActionBarActivity implements
+        ConnectionCallbacks, OnConnectionFailedListener, LocationListener {
+    ...
     &#64;Override
     public void onLocationChanged(Location location) {
-        // Report to the UI that the location was updated
-        String msg = "Updated Location: " +
-                Double.toString(location.getLatitude()) + "," +
-                Double.toString(location.getLongitude());
-        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
+        mCurrentLocation = location;
+        mLastUpdateTime = DateFormat.getTimeInstance().format(new Date());
+        updateUI();
     }
-    ...
-}
-</pre>
-<p>
-    Now that you have the callbacks prepared, you can set up the request for location updates.
-    The first step is to specify the parameters that control the updates.
-</p>
-<!-- Specify update parameters -->
-<h2 id="UpdateParameters">Specify Update Parameters</h2>
-<p>
-    Location Services allows you to control the interval between updates and the location accuracy
-    you want, by setting the values in a
-<code><a href="../../reference/com/google/android/gms/location/LocationRequest.html">LocationRequest</a></code>
-    object and then sending this object as part of your request to start updates.
-</p>
-<p>
-    First, set the following interval parameters:
-</p>
-<dl>
-    <dt>
-        Update interval
-    </dt>
-    <dd>
-        Set by
-<code><a href="../../reference/com/google/android/gms/location/LocationRequest.html#setInterval(long)">LocationRequest.setInterval()</a></code>.
-        This method sets the rate in milliseconds at which your app prefers to receive location
-        updates. If no other apps are receiving updates from Location Services, your app will
-        receive updates at this rate.
-    </dd>
-    <dt>
-        Fastest update interval
-    </dt>
-    <dd>
-        Set by
-<code><a href="../../reference/com/google/android/gms/location/LocationRequest.html#setFastestInterval(long)">LocationRequest.setFastestInterval()</a></code>.
-        This method sets the <b>fastest</b> rate in milliseconds at which your app can handle
-        location updates. You need to set this rate because other apps also affect the rate
-        at which updates are sent. Location Services sends out updates at the fastest rate that any
-        app requested by calling
-<code><a href="../../reference/com/google/android/gms/location/LocationRequest.html#setInterval(long)">LocationRequest.setInterval()</a></code>.
-        If this rate is faster than your app can handle, you may encounter problems with UI flicker
-        or data overflow. To prevent this, call
-<code><a href="../../reference/com/google/android/gms/location/LocationRequest.html#setFastestInterval(long)">LocationRequest.setFastestInterval()</a></code>
-        to set an upper limit to the update rate.
-        <p>
-            Calling
-<code><a href="../../reference/com/google/android/gms/location/LocationRequest.html#setFastestInterval(long)">LocationRequest.setFastestInterval()</a></code>
-            also helps to save power. When you request a preferred update rate by calling
-<code><a href="../../reference/com/google/android/gms/location/LocationRequest.html#setInterval(long)">LocationRequest.setInterval()</a></code>,
-            and a maximum rate by calling
-<code><a href="../../reference/com/google/android/gms/location/LocationRequest.html#setFastestInterval(long)">LocationRequest.setFastestInterval()</a></code>,
-            then your app gets the same update rate as the fastest rate in the system. If other
-            apps have requested a faster rate, you get the benefit of a faster rate. If no other
-            apps have a faster rate request outstanding, your app receives updates at the rate you specified
-        with
-<code><a href="../../reference/com/google/android/gms/location/LocationRequest.html#setInterval(long)">LocationRequest.setInterval()</a></code>.
-        </p>
-    </dd>
-</dl>
-<p>
-    Next, set the accuracy parameter. In a foreground app, you need constant location updates with
-    high accuracy, so use the setting
-<code><a href="../../reference/com/google/android/gms/location/LocationRequest.html#PRIORITY_HIGH_ACCURACY">LocationRequest.PRIORITY_HIGH_ACCURACY</a></code>.
-</p>
-<p>
-    The following snippet shows how to set the update interval and accuracy in
-    <code><a href="../../reference/android/support/v4/app/FragmentActivity.html#onCreate(android.os.Bundle)">onCreate()</a></code>:
-</p>
-<pre>
-public class MainActivity extends FragmentActivity implements
-        GooglePlayServicesClient.ConnectionCallbacks,
-        GooglePlayServicesClient.OnConnectionFailedListener,
-        LocationListener {
-    ...
-    // Global constants
-    ...
-    // Milliseconds per second
-    private static final int MILLISECONDS_PER_SECOND = 1000;
-    // Update frequency in seconds
-    public static final int UPDATE_INTERVAL_IN_SECONDS = 5;
-    // Update frequency in milliseconds
-    private static final long UPDATE_INTERVAL =
-            MILLISECONDS_PER_SECOND * UPDATE_INTERVAL_IN_SECONDS;
-    // The fastest update frequency, in seconds
-    private static final int FASTEST_INTERVAL_IN_SECONDS = 1;
-    // A fast frequency ceiling in milliseconds
-    private static final long FASTEST_INTERVAL =
-            MILLISECONDS_PER_SECOND * FASTEST_INTERVAL_IN_SECONDS;
-    ...
-    // Define an object that holds accuracy and frequency parameters
-    LocationRequest mLocationRequest;
-    ...
-    &#64;Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        // Create the LocationRequest object
-        mLocationRequest = LocationRequest.create();
-        // Use high accuracy
-        mLocationRequest.setPriority(
-                LocationRequest.PRIORITY_HIGH_ACCURACY);
-        // Set the update interval to 5 seconds
-        mLocationRequest.setInterval(UPDATE_INTERVAL);
-        // Set the fastest update interval to 1 second
-        mLocationRequest.setFastestInterval(FASTEST_INTERVAL);
-        ...
-    }
-    ...
-}
-</pre>
-<p class="note">
-   <strong>Note:</strong> If your app accesses the network or does other long-running work after
-   receiving a location update, adjust the fastest interval to a slower value. This prevents your
-   app from receiving updates it can't use. Once the long-running work is done, set the fastest
-   interval back to a fast value.
-</p>
-<!-- Start Location Updates -->
-<h2 id="StartUpdates">Start Location Updates</h2>
-<p>
-    To send the request for location updates, create a location client in
-    <code><a href="../../reference/android/support/v4/app/FragmentActivity.html#onCreate(android.os.Bundle)">onCreate()</a></code>, then connect it and make
-    the request by calling
-<code><a href="../../reference/com/google/android/gms/location/LocationClient.html#requestLocationUpdates(com.google.android.gms.location.LocationRequest, com.google.android.gms.location.LocationListener)">requestLocationUpdates()</a></code>.
-    Since your client must be connected for your app to receive updates, you should
-    connect the client in
-    <code><a href="../../reference/android/support/v4/app/FragmentActivity.html#onStart()">onStart()</a></code>. This ensures that you always
-    have a valid, connected client while your app is visible. Since you need a connection before you
-    can request updates, make the update request in
-<code><a href="../../reference/com/google/android/gms/common/GooglePlayServicesClient.ConnectionCallbacks.html#onConnected(android.os.Bundle)">ConnectionCallbacks.onConnected()</a></code>
-</p>
-<p>
-    Remember that the user may want to turn off location updates for various reasons. You should
-    provide a way for the user to do this, and you should ensure that you don't start updates in
-    <code><a href="../../reference/android/support/v4/app/FragmentActivity.html#onStart()">onStart()</a></code> if updates were previously
-    turned off. To track the user's preference, store it in your app's
-    <code><a href="../../reference/android/content/SharedPreferences.html">SharedPreferences</a></code> in
-    <code><a href="../../reference/android/support/v4/app/FragmentActivity.html#onPause()">onPause()</a></code> and retrieve it in
-    <code><a href="../../reference/android/support/v4/app/FragmentActivity.html#onResume()">onResume()</a></code>.
-</p>
-<p>
-    The following snippet shows how to set up the client in
-    <code><a href="../../reference/android/support/v4/app/FragmentActivity.html#onCreate(android.os.Bundle)">onCreate()</a></code>, and how to connect it
-    and request updates in <code><a href="../../reference/android/support/v4/app/FragmentActivity.html#onStart()">onStart()</a></code>:
-</p>
-<pre>
-public class MainActivity extends FragmentActivity implements
-        GooglePlayServicesClient.ConnectionCallbacks,
-        GooglePlayServicesClient.OnConnectionFailedListener,
-        LocationListener {
-    ...
-    // Global variables
-    ...
-    LocationClient mLocationClient;
-    boolean mUpdatesRequested;
-    ...
-    &#64;Override
-    protected void onCreate(Bundle savedInstanceState) {
-        ...
-        // Open the shared preferences
-        mPrefs = getSharedPreferences("SharedPreferences",
-                Context.MODE_PRIVATE);
-        // Get a SharedPreferences editor
-        mEditor = mPrefs.edit();
-        /*
-         * Create a new location client, using the enclosing class to
-         * handle callbacks.
-         */
-        mLocationClient = new LocationClient(this, this, this);
-        // Start with updates turned off
-        mUpdatesRequested = false;
-        ...
-    }
-    ...
-    &#64;Override
-    protected void onPause() {
-        // Save the current setting for updates
-        mEditor.putBoolean("KEY_UPDATES_ON", mUpdatesRequested);
-        mEditor.commit();
-        super.onPause();
-    }
-    ...
-    &#64;Override
-    protected void onStart() {
-        ...
-        mLocationClient.connect();
-    }
-    ...
-    &#64;Override
-    protected void onResume() {
-        /*
-         * Get any previous setting for location updates
-         * Gets "false" if an error occurs
-         */
-        if (mPrefs.contains("KEY_UPDATES_ON")) {
-            mUpdatesRequested =
-                    mPrefs.getBoolean("KEY_UPDATES_ON", false);
 
-        // Otherwise, turn off location updates
-        } else {
-            mEditor.putBoolean("KEY_UPDATES_ON", false);
-            mEditor.commit();
-        }
+    private void updateUI() {
+        mLatitudeTextView.setText(String.valueOf(mCurrentLocation.getLatitude()));
+        mLongitudeTextView.setText(String.valueOf(mCurrentLocation.getLongitude()));
+        mLastUpdateTimeTextView.setText(mLastUpdateTime);
     }
-    ...
-    /*
-     * Called by Location Services when the request to connect the
-     * client finishes successfully. At this point, you can
-     * request the current location or start periodic updates
-     */
-    &#64;Override
-    public void onConnected(Bundle dataBundle) {
-        // Display the connection status
-        Toast.makeText(this, "Connected", Toast.LENGTH_SHORT).show();
-        // If already requested, start periodic updates
-        if (mUpdatesRequested) {
-            mLocationClient.requestLocationUpdates(mLocationRequest, this);
-        }
-    }
-    ...
 }
 </pre>
-<p>
-    For more information about saving preferences, read
-<a href="../../training/basics/data-storage/shared-preferences.html">Saving Key-Value Sets</a>.
-</p>
-<!--
-    Stop Location Updates
- -->
-<h2 id="StopUpdates">Stop Location Updates</h2>
-<p>
-    To stop location updates, save the state of the update flag in
-    <code><a href="../../reference/android/support/v4/app/FragmentActivity.html#onPause()">onPause()</a></code>, and stop updates in
-    <code><a href="../../reference/android/support/v4/app/FragmentActivity.html#onStop()">onStop()</a></code> by calling
-<code><a href="../../reference/com/google/android/gms/location/LocationClient.html#removeLocationUpdates(com.google.android.gms.location.LocationListener)">removeLocationUpdates(LocationListener)</a></code>.
-    For example:
-</p>
+
+<h2 id="stop-updates">Stop Location Updates</h2>
+
+<p>Consider whether you want to stop the location updates when the activity is
+  no longer in focus, such as when the user switches to another app or to a
+  different activity in the same app. This can be handy to reduce power
+  consumption, provided the app doesn't need to collect information even when
+  it's running in the background. This section shows how you can stop the
+  updates in the activity's
+  <code><a href="../../reference/android/app/Activity.html#onPause()">onPause()</a></code> method.</p>
+
+<p>To stop location updates, call
+  <a href="../../reference/com/google/android/gms/location/FusedLocationProviderApi.html#removeLocationUpdates(com.google.android.gms.common.api.GoogleApiClient, com.google.android.gms.location.LocationListener)"><code>removeLocationUpdates()</code></a>,
+  passing it your instance of the
+  <a href="../../reference/com/google/android/gms/common/api/GoogleApiClient.html"><code>GoogleApiClient</code></a>
+  object and a
+  <a href="../../reference/com/google/android/gms/location/LocationListener.html"><code>LocationListener</code></a>,
+  as shown in the following code sample:</p>
+
 <pre>
-public class MainActivity extends FragmentActivity implements
-        GooglePlayServicesClient.ConnectionCallbacks,
-        GooglePlayServicesClient.OnConnectionFailedListener,
-        LocationListener {
-    ...
-    /*
-     * Called when the Activity is no longer visible at all.
-     * Stop updates and disconnect.
-     */
-    &#64;Override
-    protected void onStop() {
-        // If the client is connected
-        if (mLocationClient.isConnected()) {
-            /*
-             * Remove location updates for a listener.
-             * The current Activity is the listener, so
-             * the argument is "this".
-             */
-            removeLocationUpdates(this);
-        }
-        /*
-         * After disconnect() is called, the client is
-         * considered "dead".
-         */
-        mLocationClient.disconnect();
-        super.onStop();
-    }
-    ...
+&#64;Override
+protected void onPause() {
+    super.onPause();
+    stopLocationUpdates();
+}
+
+protected void stopLocationUpdates() {
+    LocationServices.FusedLocationApi.removeLocationUpdates(
+            mGoogleApiClient, this);
 }
 </pre>
-<p>
-    You now have the basic structure of an app that requests and receives periodic location updates.
-    You can combine the features described in this lesson with the geofencing, activity recognition,
-    or reverse geocoding features described in other lessons in this class.
-</p>
-<p>
-    The next lesson, <a href="display-address.html">Displaying a Location Address</a>, shows you how
-    to use the current location to display the current street address.
-</p>
+
+<p>Use a boolean, <code>mRequestingLocationUpdates</code>, to track
+  whether location updates are currently turned on. In the activity's
+  <code><a href="../../reference/android/app/Activity.html#onResume()">onResume()</a></code> method, check
+  whether location updates are currently active, and activate them if not:</p>
+
+<pre>
+&#64;Override
+public void onResume() {
+    super.onResume();
+    if (mGoogleApiClient.isConnected() && !mRequestingLocationUpdates) {
+        startLocationUpdates();
+    }
+}
+</pre>
+
+<h2 id="save-state">Save the State of the Activity</h2>
+
+<p>A change to the device's configuration, such as a change in screen
+  orientation or language, can cause the current activity to be destroyed. Your
+  app must therefore store any information it needs to recreate the activity.
+  One way to do this is via an instance state stored in a
+  <code><a href="../../reference/android/os/Bundle.html">Bundle</a></code> object.</p>
+
+<p>The following code sample shows how to use the activity's
+  <a href="../../reference/android/app/Activity.html#onSaveInstanceState(android.os.Bundle)"><code>onSaveInstanceState()</code></a>
+  callback to save the instance state:</p>
+
+<pre>
+public void onSaveInstanceState(Bundle savedInstanceState) {
+    savedInstanceState.putBoolean(REQUESTING_LOCATION_UPDATES_KEY,
+            mRequestingLocationUpdates);
+    savedInstanceState.putParcelable(LOCATION_KEY, mCurrentLocation);
+    savedInstanceState.putString(LAST_UPDATED_TIME_STRING_KEY, mLastUpdateTime);
+    super.onSaveInstanceState(savedInstanceState);
+}
+</pre>
+
+<p>Define an <code>updateValuesFromBundle()</code> method to restore
+  the saved values from the previous instance of the activity, if they're
+  available. Call the method from the activity's
+  <code><a href="../../reference/android/app/Activity.html#onCreate(android.os.Bundle)">onCreate()</a></code> method, as shown in the
+  following code sample:</p>
+
+<pre>
+&#64;Override
+public void onCreate(Bundle savedInstanceState) {
+    ...
+    updateValuesFromBundle(savedInstanceState);
+}
+
+private void updateValuesFromBundle(Bundle savedInstanceState) {
+    if (savedInstanceState != null) {
+        // Update the value of mRequestingLocationUpdates from the Bundle, and
+        // make sure that the Start Updates and Stop Updates buttons are
+        // correctly enabled or disabled.
+        if (savedInstanceState.keySet().contains(REQUESTING_LOCATION_UPDATES_KEY)) {
+            mRequestingLocationUpdates = savedInstanceState.getBoolean(
+                    REQUESTING_LOCATION_UPDATES_KEY);
+            setButtonsEnabledState();
+        }
+
+        // Update the value of mCurrentLocation from the Bundle and update the
+        // UI to show the correct latitude and longitude.
+        if (savedInstanceState.keySet().contains(LOCATION_KEY)) {
+            // Since LOCATION_KEY was found in the Bundle, we can be sure that
+            // mCurrentLocationis not null.
+            mCurrentLocation = savedInstanceState.getParcelable(LOCATION_KEY);
+        }
+
+        // Update the value of mLastUpdateTime from the Bundle and update the UI.
+        if (savedInstanceState.keySet().contains(LAST_UPDATED_TIME_STRING_KEY)) {
+            mLastUpdateTime = savedInstanceState.getString(
+                    LAST_UPDATED_TIME_STRING_KEY);
+        }
+        updateUI();
+    }
+}
+</pre>
+
+<p>For more about saving instance state, see the
+  <a href="../../reference/android/app/Activity.html#ConfigurationChanges">Android
+  Activity</a> class reference.</p>
+
+<p class="note"><strong>Note:</strong> For a more persistent storage, you can
+  store the user's preferences in your app's
+  <code><a href="../../reference/android/content/SharedPreferences.html">SharedPreferences</a></code>. Set the shared preference in
+  your activity's <code><a href="../../reference/android/app/Activity.html#onPause()">onPause()</a></code> method, and
+  retrieve the preference in <code><a href="../../reference/android/app/Activity.html#onResume()">onResume()</a></code>.
+  For more information about saving preferences, read
+  <a href="../../training/basics/data-storage/shared-preferences.html">Saving
+  Key-Value Sets</a>.</p>
+
+<p>The next lesson,
+  <a href="display-address.html">Displaying a Location Address</a>, shows
+  you how to display the street address for a given location.</p>
 
     </div>
 
@@ -2883,10 +2901,10 @@ public class MainActivity extends FragmentActivity implements
 
 
   <script src="https://developer.android.com/ytblogger_lists_unified.js" type="text/javascript"></script>
-  <script src="../../jd_lists_unified.js?v=2" type="text/javascript"></script>
-  <script src="../../jd_extras.js?v=3" type="text/javascript"></script>
-  <script src="../../jd_collections.js?v=3" type="text/javascript"></script>
-  <script src="../../jd_tag_helpers.js?v=2" type="text/javascript"></script>
+  <script src="../../jd_lists_unified.js?v=8" type="text/javascript"></script>
+  <script src="../../jd_extras.js?v=9" type="text/javascript"></script>
+  <script src="../../jd_collections.js?v=9" type="text/javascript"></script>
+  <script src="../../jd_tag_helpers.js?v=5" type="text/javascript"></script>
 
 </body>
 </html>

@@ -87,6 +87,9 @@
 
 
 
+
+
+
 <html>
 <head>
 
@@ -94,7 +97,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width" />
 
-<meta name="Description" content="The lessons Retrieving the Current Location and Receiving Location Updates describe how to get the user&#39;s current location in the form of a Location object that contains latitude and longitude coordinates. Although latitude and longitude are useful…">
+<meta name="Description" content="The lessons Getting the Last Known Location and Receiving Location Updates describe how to get the user&#39;s location in the form of a Location object that contains latitude and longitude coordinates. Although latitude and longitude are useful for calculating…">
 <link rel="shortcut icon" type="image/x-icon" href="../../favicon.ico" />
 <title>Displaying a Location Address | Android Developers</title>
 
@@ -103,7 +106,7 @@
 href="http://fonts.useso.com/css?family=Roboto+Condensed">
 <link rel="stylesheet" href="http://fonts.useso.com/css?family=Roboto:light,regular,medium,thin,italic,mediumitalic,bold"
   title="roboto">
-<link href="../../assets/css/default.css?v=2" rel="stylesheet" type="text/css">
+<link href="../../assets/css/default.css?v=5" rel="stylesheet" type="text/css">
 
 
 
@@ -114,13 +117,15 @@ href="http://fonts.useso.com/css?family=Roboto+Condensed">
   var metaTags = [];
   var devsite = false;
 </script>
-<script src="../../assets/js/docs.js?v=2" type="text/javascript"></script>
+<script src="../../assets/js/docs.js?v=3" type="text/javascript"></script>
+
+
 
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//googleapiscdn.qiniudn.com/www.google-analytics.com/analytics.js','ga');
+  })(window,document,'script','//../../../ajax/www.google-analytics.com/analytics.js','ga');
 
   ga('create', 'UA-5831155-1', 'android.com');
   ga('create', 'UA-49880327-2', 'android.com', {'name': 'universal'});  // New tracker);
@@ -135,6 +140,52 @@ href="http://fonts.useso.com/css?family=Roboto+Condensed">
 develop" itemscope itemtype="http://schema.org/Article">
 
 <a name="top"></a>
+
+<!-- dialog to prompt lang pref change when loaded from hardcoded URL 
+<div id="langMessage" style="display:none">
+  <div>
+    <div class="lang en">
+      <p>You requested a page in English, would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang es">
+      <p>You requested a page in Spanish (Español), would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang ja">
+      <p>You requested a page in Japanese (日本語), would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang ko">
+      <p>You requested a page in Korean (한국어), would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang ru">
+      <p>You requested a page in Russian (Русский), would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang zh-cn">
+      <p>You requested a page in Simplified Chinese (简体中文), would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang zh-tw">
+      <p>You requested a page in Traditional Chinese (繁體中文), would you like to proceed with this language setting?</p>
+    </div>
+    <a href="#" class="button yes" onclick="return false;">
+      <span class="lang en">Yes</span>
+      <span class="lang es">Sí</span>
+      <span class="lang ja">Yes</span>
+      <span class="lang ko">Yes</span>
+      <span class="lang ru">Yes</span>
+      <span class="lang zh-cn">是的</span>
+      <span class="lang zh-tw">没有</span>
+    </a>
+    <a href="#" class="button" onclick="$('#langMessage').hide();return false;">
+      <span class="lang en">No</span>
+      <span class="lang es">No</span>
+      <span class="lang ja">No</span>
+      <span class="lang ko">No</span>
+      <span class="lang ru">No</span>
+      <span class="lang zh-cn">没有</span>
+      <span class="lang zh-tw">没有</span>
+    </a>
+  </div>
+</div> -->
+
 
   <!-- Header -->
   <div id="header-wrapper">
@@ -332,6 +383,7 @@ develop" itemscope itemtype="http://schema.org/Article">
                 <li><a href="../../distribute/users/index.html">Get Users</a></li>
                 <li><a href="../../distribute/engage/index.html">Engage &amp; Retain</a></li>
                 <li><a href="../../distribute/monetize/index.html">Monetize</a></li>
+                <li><a href="../../distribute/analyze/index.html">Analyze</a></li>
                 <li><a href="../../distribute/tools/index.html">Tools &amp; Reference</a></li>
                 <li><a href="../../distribute/stories/index.html">Developer Stories</a></li>
               </ul>
@@ -344,7 +396,10 @@ develop" itemscope itemtype="http://schema.org/Article">
   
     <!-- Secondary x-nav -->
     <div id="nav-x">
-        <div class="wrap">
+        <div class="wrap" style="position:relative;z-index:1">
+
+        
+
             <ul class="nav-x col-9 develop" style="width:100%">
                 <li class="training"><a href="../../training/index.html"
                   zh-tw-lang="訓練課程"
@@ -547,7 +602,7 @@ include the action bar on devices running Android 2.1 or higher."
             Creating a Fragment
           </a>
           </li>
-          <li><a href="../../training/basics/fragments/fragment-ui.html">
+          <li><a href="../../training/basics/fragments/fragment-ui.html" zh-cn-lang="构建灵活的界面">
             Building a Flexible UI
           </a>
           </li>
@@ -853,6 +908,35 @@ include the action bar on devices running Android 2.1 or higher."
           </li>
         </ul>
       </li>
+
+      <li class="nav-section">
+        <div class="nav-section-header">
+          <a href="../../training/transitions/index.html"
+             description=
+             "How to animate state changes in a view hierarchy using transitions."
+            >Animating Views Using Scenes and Transitions</a>
+        </div>
+        <ul>
+          <li><a href="../../training/transitions/overview.html">
+            The Transitions Framework
+          </a>
+          </li>
+          <li><a href="../../training/transitions/scenes.html">
+            Creating a Scene
+          </a>
+          </li>
+          <li><a href="../../training/transitions/transitions.html">
+            Applying a Transition
+          </a>
+          </li>
+          <li><a href="../../training/transitions/custom-transitions.html">
+            Creating Custom Transitions
+          </a>
+          </li>
+
+        </ul>
+      </li>
+
       <li class="nav-section">
         <div class="nav-section-header"><a href="../../training/animation/index.html"
              description=
@@ -1110,7 +1194,7 @@ include the action bar on devices running Android 2.1 or higher."
         <ul>
           <li>
             <a href="../../training/location/retrieve-current.html">
-            Retrieving the Current Location
+            Getting the Last Known Location
             </a>
           </li>
           <li>
@@ -1121,18 +1205,6 @@ include the action bar on devices running Android 2.1 or higher."
           <li>
             <a href="../../training/location/display-address.html">
             Displaying a Location Address
-          </a>
-          </li>
-          <li><a href="../../training/location/geofencing.html">
-            Creating and Monitoring Geofences
-          </a>
-          </li>
-          <li><a href="../../training/location/activity-recognition.html">
-          Recognizing the User's Current Activity
-          </a>
-          </li>
-          <li><a href="../../training/location/location-testing.html">
-          Testing Using Mock Locations
           </a>
           </li>
         </ul>
@@ -1250,10 +1322,48 @@ include the action bar on devices running Android 2.1 or higher."
           </li>
         </ul>
       </li>
+
+      <li class="nav-section">
+        <div class="nav-section-header">
+          <a href="../../training/wearables/watch-faces/index.html"
+             description="How to create watch faces for wearables."
+            >Creating Watch Faces</a>
+        </div>
+        <ul>
+          <li>
+            <a href="../../training/wearables/watch-faces/designing.html">Designing Watch Faces</a>
+          </li>
+          <li>
+            <a href="../../training/wearables/watch-faces/service.html">Building a Watch Face Service</a>
+          </li>
+          <li>
+            <a href="../../training/wearables/watch-faces/drawing.html">Drawing Watch Faces</a>
+          </li>
+          <li>
+            <a href="../../training/wearables/watch-faces/information.html">Showing Information in Watch Faces</a>
+          </li>
+          <li>
+            <a href="../../training/wearables/watch-faces/configuration.html">Providing Configuration Activities</a>
+          </li>
+          <li>
+            <a href="../../training/wearables/watch-faces/issues.html">Addressing Common Issues</a>
+          </li>
+          <li>
+            <a href="../../training/wearables/watch-faces/performance.html">Optimizing Performance and Battery Life</a>
+          </li>
+        </ul>
+      </li>
+
+      <li>
+        <a href="../../training/articles/wear-location-detection.html"
+           description=
+           "How to detect location data on Android Wear devices."
+          >Detecting Location</a>
+      </li>
     </ul>
   </li>
-
   <!-- End Building for wearables -->
+
 
   <!-- Start: Building for TV -->
   <li class="nav-section">
@@ -1269,25 +1379,30 @@ include the action bar on devices running Android 2.1 or higher."
         <div class="nav-section-header">
 
           <a href="../../training/tv/start/index.html"
+             ja-lang="TV アプリのビルド"
              description="How to start building TV apps or extend your existing app to run on TV
              devices.">
              Building TV Apps</a>
         </div>
         <ul>
           <li>
-            <a href="../../training/tv/start/start.html">
+            <a href="../../training/tv/start/start.html"
+               ja-lang="TV アプリのビルドを開始する">
               Getting Started with TV Apps</a>
           </li>
           <li>
-            <a href="../../training/tv/start/hardware.html">
+            <a href="../../training/tv/start/hardware.html"
+               ja-lang="TV ハードウェアを処理する">
               Handling TV Hardware</a>
           </li>
           <li>
-            <a href="../../training/tv/start/layouts.html">
+            <a href="../../training/tv/start/layouts.html"
+               ja-lang="TV 向けレイアウトをビルドする">
               Building TV Layouts</a>
           </li>
           <li>
-            <a href="../../training/tv/start/navigation.html">
+            <a href="../../training/tv/start/navigation.html"
+               ja-lang="TV 用のナビゲーションを作成する">
               Creating TV Navigation</a>
           </li>
         </ul>
@@ -1296,17 +1411,29 @@ include the action bar on devices running Android 2.1 or higher."
       <li class="nav-section">
         <div class="nav-section-header">
           <a href="../../training/tv/playback/index.html"
+             ja-lang="TV 再生アプリのビルド"
              description="How to build apps that provide media catalogs and play content.">
              Building TV Playback Apps</a>
         </div>
         <ul>
           <li>
-            <a href="../../training/tv/playback/browse.html">
+            <a href="../../training/tv/playback/browse.html"
+               ja-lang="カタログ ブラウザを作成する">
               Creating a Catalog Browser</a>
           </li>
           <li>
-            <a href="../../training/tv/playback/details.html">
+            <a href="../../training/tv/playback/card.html">
+              Providing a Card View</a>
+          </li>
+          <li>
+            <a href="../../training/tv/playback/details.html"
+               ja-lang="詳細ビューをビルドする">
               Building a Details View</a>
+          </li>
+          <li>
+            <a href="../../training/tv/playback/now-playing.html"
+               ja-lang="再生中カードを表示する">
+              Displaying a Now Playing Card</a>
           </li>
         </ul>
       </li>
@@ -1314,7 +1441,7 @@ include the action bar on devices running Android 2.1 or higher."
       <li class="nav-section">
         <div class="nav-section-header">
           <a href="../../training/tv/discovery/index.html"
-             description="How to help users discovery content from your app.">
+             description="How to help users discover content from your app.">
              Helping Users Find Content on TV</a>
         </div>
         <ul>
@@ -1322,6 +1449,9 @@ include the action bar on devices running Android 2.1 or higher."
             <a href="../../training/tv/discovery/recommendations.html">
               Recommending TV Content</a>
           </li>
+          <li>
+            <a href="../../training/tv/discovery/searchable.html">
+              Making TV Apps Searchable</a>
           <li>
             <a href="../../training/tv/discovery/in-app-search.html">
               Searching within TV Apps</a>
@@ -1335,9 +1465,50 @@ include the action bar on devices running Android 2.1 or higher."
            Building TV Games</a>
       </li>
 
+      <li>
+        <a href="../../training/tv/tif/index.html"
+           description="How to build Live TV apps.">
+           Building Live TV Apps</a>
+      </li>
+
+      <li>
+        <a href="../../training/tv/publishing/checklist.html"
+           description="An itemized list of requirements for TV apps.">
+           TV Apps Checklist</a>
+      </li>
     </ul>
   </li>
   <!-- End: Building for TV -->
+
+
+  <!-- Start: Building for Auto -->
+  <li class="nav-section">
+    <div class="nav-section-header">
+      <a href="../../training/auto/index.html">
+      <span class="small">Building Apps for</span><br/>
+              Auto
+      </a>
+    </div>
+    <ul>
+      <li>
+        <a href="../../training/auto/start/index.html"
+             description="How to start building or extending apps that work
+             with Auto devices.">
+             Getting Started with Auto</a>
+      </li>
+      <li>
+        <a href="../../training/auto/audio/index.html"
+             description="How to extend audio apps to play content on Auto devices.">
+             Playing Audio for Auto</a>
+      </li>
+      <li>
+        <a href="../../training/auto/messaging/index.html"
+             description="How to extend text messaging apps to work with Auto devices.">
+             Messaging for Auto</a>
+      </li>
+    </ul>
+  </li>
+  <!-- End: Building for Auto -->
 
 
   <li class="nav-section">
@@ -1648,6 +1819,45 @@ results."
           </li>
           <li><a href="../../training/system-ui/visibility.html">
             Responding to UI Visibility Changes
+          </a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="nav-section">
+        <div class="nav-section-header">
+          <a href="../../training/material/index.html"
+             description=
+             "How to implement material design on Android."
+            >Creating Apps with Material Design</a>
+        </div>
+        <ul>
+          <li><a href="../../training/material/get-started.html">
+            Getting Started
+          </a>
+          </li>
+          <li><a href="../../training/material/theme.html">
+            Using the Material Theme
+          </a>
+          </li>
+          <li><a href="../../training/material/lists-cards.html">
+            Creating Lists and Cards
+          </a>
+          </li>
+          <li><a href="../../training/material/shadows-clipping.html">
+            Defining Shadows and Clipping Views
+          </a>
+          </li>
+          <li><a href="../../training/material/drawables.html">
+            Working with Drawables
+          </a>
+          </li>
+          <li><a href="../../training/material/animations.html">
+            Defining Custom Animations
+          </a>
+          </li>
+          <li><a href="../../training/material/compatibility.html">
+            Maintaining Compatibility
           </a>
           </li>
         </ul>
@@ -2013,6 +2223,10 @@ results."
             Enhancing Security with Device Management Policies
           </a>
           </li>
+          <li><a href="../../training/enterprise/app-compatibility.html">
+            Ensuring Compatibility with Managed Profiles
+          </a>
+          </li>
         </ul>
       </li>
     </ul>
@@ -2145,7 +2359,6 @@ results."
     changeNavLang(getLangPref());
 //-->
 </script>
-
         
 
       </div>
@@ -2207,276 +2420,468 @@ results."
 
     <div class="jd-descr" itemprop="articleBody">
     <div id="tb-wrapper">
-<div id="tb">
+  <div id="tb">
 
-<h2>This lesson teaches you to</h2>
-<ol>
-  <li><a href="#DefineTask">Define the Address Lookup Task</a></li>
-  <li><a href="#DisplayResults">Define a Method to Display the Results</a></li>
-  <li><a href="#RunTask">Run the Lookup Task</a></li>
-</ol>
+    <h2>This lesson teaches you how to</h2>
+    <ol>
+      <li><a href="#connect">Get a Geographic Location</a></li>
+      <li><a href="#fetch-address">Define an Intent Service to Fetch the
+        Address</a></li>
+      <li><a href="#start-intent">Start the Intent Service</a></li>
+      <li><a href="#result-receiver">Receive the Geocoding Results</a></li>
+    </ol>
 
-<h2>You should also read</h2>
-<ul>
-    <li>
-        <a href="../../google/play-services/setup.html">Setup Google Play Services SDK</a>
-    </li>
-    <li>
-        <a href="retrieve-current.html">Retrieving the Current Location</a>
-    </li>
-    <li>
-        <a href="receive-location-updates.html">Receiving Location Updates</a>
-    </li>
-</ul>
-<h2>Try it out</h2>
+    <h2>You should also read</h2>
+      <ul>
+        <li>
+          <a href="../../google/play-services/setup.html">Setting up Google
+          Play Services</a>
+        </li>
+        <li>
+          <a href="retrieve-current.html">Getting the Last Known Location</a>
+        </li>
+        <li>
+          <a href="receive-location-updates.html">Receiving Location Updates</a>
+        </li>
+      </ul>
+    <h2>Try it out</h2>
 
-<div class="download-box">
-<a href="http://developer.android.com/shareables/training/LocationUpdates.zip" class="button">Download
-  the sample app</a>
-<p class="filename">LocationUpdates.zip</p>
+    <ul>
+      <li>
+        <a href="https://github.com/googlesamples/android-play-location/tree/master/LocationAddress" class="external-link">LocationAddress</a>
+      </li>
+    </ul>
+  </div>
 </div>
 
-</div>
-</div>
+<p>The lessons <a href="retrieve-current.html">Getting the Last Known
+  Location</a> and <a href="receive-location-updates.html">Receiving Location
+  Updates</a> describe how to get the user's location in the form of a
+  <code><a href="../../reference/android/location/Location.html">Location</a></code> object that contains latitude and longitude
+  coordinates. Although latitude and longitude are useful for calculating
+  distance or displaying a map position, in many cases the address of the
+  location is more useful. For example, if you want to let your users know where
+  they are or what is close by, a street address is more meaningful than the
+  geographic coordinates (latitude/longitude) of the location.</p>
 
-<p>
-    The lessons <a href="retrieve-current.html">Retrieving the Current Location</a> and
-    <a href="receive-location-updates.html">Receiving Location Updates</a> describe how to get the
-    user's current location in the form of a <code><a href="../../reference/android/location/Location.html">Location</a></code> object that
-    contains latitude and longitude coordinates. Although latitude and longitude are useful for
-    calculating distance or displaying a map position, in many cases the address of the location is
-    more useful.
-</p>
-<p>
-    The Android platform API provides a feature that returns an estimated street addresses for
-    latitude and longitude values. This lesson shows you how to use this address lookup feature.
-</p>
-<p class="note">
-    <strong>Note:</strong> Address lookup requires a backend service that is not included in the
-    core Android framework. If this backend service is not available,
-    <code><a href="../../reference/android/location/Geocoder.html#getFromLocation(double, double, int)">Geocoder.getFromLocation()</a></code> returns an empty
-    list. The helper method <code><a href="../../reference/android/location/Geocoder.html#isPresent()">isPresent()</a></code>, available
-    in API level 9 and later, checks to see if the backend service is available.
-</p>
-<p>
-    The snippets in the following sections assume that your app has already retrieved the
-    current location and stored it as a <code><a href="../../reference/android/location/Location.html">Location</a></code> object in the global
-    variable <code>mLocation</code>.
-</p>
-<!--
-    Define the address lookup task
--->
-<h2 id="DefineTask">Define the Address Lookup Task</h2>
-<p>
-To get an address for a given latitude and longitude, call
-<code><a href="../../reference/android/location/Geocoder.html#getFromLocation(double, double, int)">Geocoder.getFromLocation()</a></code>, which returns a
-list of addresses. The method is synchronous, and may take a long time to do its work, so you
-should call the method from the <code><a href="../../reference/android/os/AsyncTask.html#doInBackground(Params...)">doInBackground()</a></code> method of an <code><a href="../../reference/android/os/AsyncTask.html">AsyncTask</a></code>.
-</p>
-<p>
-While your app is getting the address, display an indeterminate activity
-indicator to show that your app is working in the background. Set the indicator's initial state
-to <code>android:visibility="gone"</code>, to make it invisible and remove it from the layout
-hierarchy. When you start the address lookup, you set its visibility to "visible".
-</p>
-<p>
-The following snippet shows how to add an indeterminate <code><a href="../../reference/android/widget/ProgressBar.html">ProgressBar</a></code> to
-your layout file:
-</p>
+<p>Using the <code><a href="../../reference/android/location/Geocoder.html">Geocoder</a></code> class in the Android framework
+  location APIs, you can convert an address to the corresponding geographic
+  coordinates. This process is called <em>geocoding</em>. Alternatively, you can
+  convert a geographic location to an address. The address lookup feature is
+  also known as <em>reverse geocoding</em>.</p>
+
+<p>This lesson shows you how to use the
+  <code><a href="../../reference/android/location/Geocoder.html#getFromLocation(double, double, int)">getFromLocation()</a></code> method to
+  convert a geographic location to an address. The method returns an estimated
+  street address corresponding to a given latitude and longitude.</p>
+
+<h2 id="connect">Get a Geographic Location</h2>
+
+<p>The last known location of the device is a useful starting point for the
+  address lookup feature. The lesson on
+  <a href="retrieve-current.html">Getting the Last Known Location</a> shows you
+  how to use the
+  <a href="../../reference/com/google/android/gms/location/FusedLocationProviderApi.html#getLastLocation(com.google.android.gms.common.api.GoogleApiClient)"><code>getLastLocation()</code></a>
+  method provided by the
+  <a href="../../reference/com/google/android/gms/location/FusedLocationProviderApi.html">fused
+  location provider</a> to find the latest location of the device.</p>
+
+<p>To access the fused location provider, you need to create an instance of the
+  Google Play services API client. To learn how to connect your client, see
+  <a href="../../training/location/retrieve-current.html#play-services">Connect
+  to Google Play Services</a>.</p>
+
+<p>In order for the fused location provider to retrieve a precise street
+  address, set the location permission in your app manifest to
+  <code>ACCESS_FINE_LOCATION</code>, as shown in the following example:</p>
+
 <pre>
-&lt;ProgressBar
-android:id="&#64;+id/address_progress"
-android:layout_width="wrap_content"
-android:layout_height="wrap_content"
-android:layout_centerHorizontal="true"
-android:indeterminate="true"
-android:visibility="gone" /&gt;
+&lt;manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.google.android.gms.location.sample.locationupdates" &gt;
+
+  &lt;uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/&gt;
+&lt;/manifest&gt;
 </pre>
-<p>
-To create the background task, define a subclass of <code><a href="../../reference/android/os/AsyncTask.html">AsyncTask</a></code> that calls
-<code><a href="../../reference/android/location/Geocoder.html#getFromLocation(double, double, int)">getFromLocation()</a></code> and returns an address.
-Define a <code><a href="../../reference/android/widget/TextView.html">TextView</a></code> object <code>mAddress</code> to contain the returned
-address, and a <code><a href="../../reference/android/widget/ProgressBar.html">ProgressBar</a></code> object that allows you to control the
-indeterminate activity indicator. For example:
-</p>
+
+<h2 id="fetch-address">Define an Intent Service to Fetch the Address</h2>
+
+<p>The <code><a href="../../reference/android/location/Geocoder.html#getFromLocation(double, double, int)">getFromLocation()</a></code>
+  method provided by the <code><a href="../../reference/android/location/Geocoder.html">Geocoder</a></code> class accepts a
+  latitude and longitude, and returns a list of addresses. The method is
+  synchronous, and may take a long time to do its work, so you should not call
+  it from the main, user interface (UI) thread of your app.</p>
+
+<p>The <code><a href="../../reference/android/app/IntentService.html">IntentService</a></code> class provides a
+  structure for running a task on a background thread. Using this class, you can
+  handle a long-running operation without affecting your UI's responsiveness.
+  Note that the <code><a href="../../reference/android/os/AsyncTask.html">AsyncTask</a></code> class also allows you to
+  perform background operations, but it's designed for short operations. An
+  <code><a href="../../reference/android/os/AsyncTask.html">AsyncTask</a></code> shouldn't keep a reference to the UI if
+  the activity is recreated, for example when the device is rotated. In
+  contrast, an <code><a href="../../reference/android/app/IntentService.html">IntentService</a></code> doesn't need to
+  be cancelled when the activity is rebuilt.</p>
+
+<p>Define a <code>FetchAddressIntentService</code> class that extends
+  <code><a href="../../reference/android/app/IntentService.html">IntentService</a></code>. This class is your address lookup service.
+  The intent service handles an intent asynchronously on a worker thread, and
+  stops itself when it runs out of work. The intent extras provide the data
+  needed by the service, including a <code><a href="../../reference/android/location/Location.html">Location</a></code> object
+  for conversion to an address, and a <code><a href="../../reference/android/os/ResultReceiver.html">ResultReceiver</a></code> object
+  to handle the results of the address lookup. The service uses a <code><a href="../../reference/android/location/Geocoder.html">Geocoder</a></code> to fetch the address for the location, and sends
+  the results to the <code><a href="../../reference/android/os/ResultReceiver.html">ResultReceiver</a></code>.</p>
+
+<h3>Define the Intent Service in your App Manifest</h3>
+
+<p>Add an entry to your app manifest defining the intent service:</p>
+
 <pre>
-public class MainActivity extends FragmentActivity {
+&lt;manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.google.android.gms.location.sample.locationaddress" &gt;
+    &lt;application
+        ...
+        &lt;service
+            android:name=".FetchAddressIntentService"
+            android:exported="false"/&gt;
+    &lt;/application&gt;
     ...
-    private TextView mAddress;
-    private ProgressBar mActivityIndicator;
+&lt;/manifest&gt;
+</pre>
+
+<p class="note"><strong>Note:</strong> The <code>&lt;service&gt;</code> element in
+  the manifest doesn't need to include an intent filter, because your main
+  activity creates an explicit intent by specifying the name of the class to use
+  for the intent.</p>
+
+<h3>Create a Geocoder</h3>
+
+<p>The process of converting a geographic location to an address is called
+  <em>reverse geocoding</em>. To perform the main work of the intent service,
+  that is, your reverse geocoding request, implement
+  <code><a href="../../reference/android/app/IntentService.html#onHandleIntent(android.content.Intent)">onHandleIntent()</a></code> within the
+  <code>FetchAddressIntentService</code> class. Create a
+  <code><a href="../../reference/android/location/Geocoder.html">Geocoder</a></code> object to handle the reverse geocoding.</p>
+
+<p>A locale represents a specific geographical or linguistic region. Locale
+  objects are used to adjust the presentation of information, such as numbers or
+  dates, to suit the conventions in the region represented by the locale. Pass a
+  <a href="../../reference/java/util/Locale.html"><code>Locale</code></a> object
+  to the <code><a href="../../reference/android/location/Geocoder.html">Geocoder</a></code> object, to ensure that the resulting
+  address is localized to the user's geographic region.</p>
+
+<pre>
+&#64;Override
+protected void onHandleIntent(Intent intent) {
+    Geocoder geocoder = new Geocoder(this, Locale.getDefault());
+    ...
+}
+</pre>
+
+<h3 id="retrieve-street-address">Retrieve the street address data</h3>
+
+<p>The next step is to retrieve the street address from the geocoder, handle
+  any errors that may occur, and send the results back to the activity that
+  requested the address. To report the results of the geocoding
+  process, you need two numeric constants that indicate success or failure.
+  Define a <code>Constants</code> class to contain the values, as shown in this code
+  snippet:</p>
+
+<pre>
+public final class Constants {
+    public static final int SUCCESS_RESULT = 0;
+    public static final int FAILURE_RESULT = 1;
+    public static final String PACKAGE_NAME =
+        "com.google.android.gms.location.sample.locationaddress";
+    public static final String RECEIVER = PACKAGE_NAME + ".RECEIVER";
+    public static final String RESULT_DATA_KEY = PACKAGE_NAME +
+        ".RESULT_DATA_KEY";
+    public static final String LOCATION_DATA_EXTRA = PACKAGE_NAME +
+        ".LOCATION_DATA_EXTRA";
+}
+</pre>
+
+<p>To get a street address corresponding to a geographical location, call
+  <code><a href="../../reference/android/location/Geocoder.html#getFromLocation(double, double, int)">getFromLocation()</a></code>,
+  passing it the latitude and longitude from the location object, and the
+  maximum number of addresses you want returned. In this case, you want just one
+  address. The geocoder returns an array of addresses. If no addresses were
+  found to match the given location, it returns an empty list. If there is no
+  backend geocoding service available, the geocoder returns null.</p>
+
+<p>Check for the following errors as shown in the code sample below. If an error
+  occurs, place the corresponding error message in the <code>errorMessage</code>
+  variable, so you can send it back to the requesting activity:</p>
+
+<ul>
+  <li><strong>No location data provided</strong> - The intent extras do not
+    include the <code><a href="../../reference/android/location/Location.html">Location</a></code> object required for reverse
+    geocoding.</li>
+  <li><strong>Invalid latitude or longitude used</strong> - The latitude
+    and/or longitude values provided in the <code><a href="../../reference/android/location/Location.html">Location</a></code>
+    object are invalid.</li>
+  <li><strong>No geocoder available</strong> - The background geocoding service
+    is not available, due to a network error or IO exception.</li>
+  <li><strong>Sorry, no address found</strong> - The geocoder could not find an
+    address for the given latitude/longitude.</li>
+</ul>
+
+<p>To get the individual lines of an address object, use the
+  <code><a href="../../reference/android/location/Address.html#getAddressLine(int)">getAddressLine()</a></code>
+  method provided by the <code><a href="../../reference/android/location/Address.html">Address</a></code> class. Then join the
+  lines into a list of address fragments ready to return to the activity that
+  requested the address.</p>
+
+<p>To send the results back to the requesting activity, call the
+  <code>deliverResultToReceiver()</code> method (defined in
+  <a href="#return-address">Return the address to the requestor</a>). The
+  results consist of the previously-mentioned numeric success/failure code and
+  a string. In the case of a successful reverse geocoding, the string contains
+  the address. In the case of a failure, the string contains the error message,
+  as shown in the code sample below:</p>
+
+<pre>
+&#64;Override
+protected void onHandleIntent(Intent intent) {
+    String errorMessage = "";
+
+    // Get the location passed to this service through an extra.
+    Location location = intent.getParcelableExtra(
+            Constants.LOCATION_DATA_EXTRA);
+
+    ...
+
+    List&lt;Address&gt; addresses = null;
+
+    try {
+        addresses = geocoder.getFromLocation(
+                location.getLatitude(),
+                location.getLongitude(),
+                // In this sample, get just a single address.
+                1);
+    } catch (IOException ioException) {
+        // Catch network or other I/O problems.
+        errorMessage = getString(R.string.service_not_available);
+        Log.e(TAG, errorMessage, ioException);
+    } catch (IllegalArgumentException illegalArgumentException) {
+        // Catch invalid latitude or longitude values.
+        errorMessage = getString(R.string.invalid_lat_long_used);
+        Log.e(TAG, errorMessage + ". " +
+                "Latitude = " + location.getLatitude() +
+                ", Longitude = " +
+                location.getLongitude(), illegalArgumentException);
+    }
+
+    // Handle case where no address was found.
+    if (addresses == null || addresses.size()  == 0) {
+        if (errorMessage.isEmpty()) {
+            errorMessage = getString(R.string.no_address_found);
+            Log.e(TAG, errorMessage);
+        }
+        deliverResultToReceiver(Constants.FAILURE_RESULT, errorMessage);
+    } else {
+        Address address = addresses.get(0);
+        ArrayList&lt;String&gt; addressFragments = new ArrayList&lt;String&gt;();
+
+        // Fetch the address lines using <code>getAddressLine</code>,
+        // join them, and send them to the thread.
+        for(int i = 0; i < address.getMaxAddressLineIndex(); i++) {
+            addressFragments.add(address.getAddressLine(i));
+        }
+        Log.i(TAG, getString(R.string.address_found));
+        deliverResultToReceiver(Constants.SUCCESS_RESULT,
+                TextUtils.join(System.getProperty("line.separator"),
+                        addressFragments));
+    }
+}
+</pre>
+
+<h3 id="return-address">Return the address to the requestor</h3>
+
+<p>The final thing the intent service must do is send the address back to a
+  <code><a href="../../reference/android/os/ResultReceiver.html">ResultReceiver</a></code> in the activity that started the service.
+  The <code><a href="../../reference/android/os/ResultReceiver.html">ResultReceiver</a></code> class allows you to send a
+  numeric result code as well as a message containing the result data. The
+  numeric code is useful for reporting the success or failure of the geocoding
+  request. In the case of a successful reverse geocoding, the message contains
+  the address. In the case of a failure, the message contains some text
+  describing the reason for failure.</p>
+
+<p>You have already retrieved the address from the geocoder, trapped any errors
+  that may occur, and called the <code>deliverResultToReceiver()</code> method. Now
+  you need to define the <code>deliverResultToReceiver()</code> method that sends
+  a result code and message bundle to the result receiver.</p>
+
+<p>For the result code, use the value that you've passed to the
+  <code>deliverResultToReceiver()</code> method in the <code>resultCode</code> parameter.
+  To construct the message bundle, concatenate the <code>RESULT_DATA_KEY</code>
+  constant from your <code>Constants</code> class (defined in
+  <a href="#retrieve-street-address">Retrieve the street address data</a>) and
+  the value in the <code>message</code> parameter passed to the
+  <code>deliverResultToReceiver()</code> method, as shown in the following sample:
+</p>
+
+<pre>
+public class FetchAddressIntentService extends IntentService {
+    protected ResultReceiver mReceiver;
+    ...
+    private void deliverResultToReceiver(int resultCode, String message) {
+        Bundle bundle = new Bundle();
+        bundle.putString(Constants.RESULT_DATA_KEY, message);
+        mReceiver.send(resultCode, bundle);
+    }
+}
+</pre>
+
+<h2 id="start-intent">Start the Intent Service</h2>
+
+<p>The intent service, as defined in the previous section, runs in the
+  background and is responsible for fetching the address corresponding to a
+  given geographic location. When you start the service, the Android framework
+  instantiates and starts the service if it isn't already running, and creates a
+  process if needed. If the service is already running then it remains running.
+  Because the service extends <code><a href="../../reference/android/app/IntentService.html">IntentService</a></code>,
+  it shuts down automatically when all intents have been processed.</p>
+  
+<p>Start the service from your app's main activity,
+  and create an <code><a href="../../reference/android/content/Intent.html">Intent</a></code> to pass data to the service. You
+  need an <em>explicit</em> intent, because you want only your service
+  to respond to the intent. For more information, see
+  <a href="../../guide/components/intents-filters.html#Types">Intent
+  Types</a>.</p>
+
+<p>To create an explicit intent, specify the name of the
+  class to use for the service: <code>FetchAddressIntentService.class</code>.
+  Pass two pieces of information in the intent extras:</p>
+
+<ul>
+  <li>A <code><a href="../../reference/android/os/ResultReceiver.html">ResultReceiver</a></code> to handle the results of the address
+    lookup.</li>
+  <li>A <code><a href="../../reference/android/location/Location.html">Location</a></code> object containing the latitude and
+    longitude that you want to convert to an address.</li>
+</ul>
+
+<p>The following code sample shows you how to start the intent service:</p>
+
+<pre>
+public class MainActivity extends ActionBarActivity implements
+        ConnectionCallbacks, OnConnectionFailedListener {
+
+    protected Location mLastLocation;
+    private AddressResultReceiver mResultReceiver;
+    ...
+
+    protected void startIntentService() {
+        Intent intent = new Intent(this, FetchAddressIntentService.class);
+        intent.putExtra(Constants.RECEIVER, mResultReceiver);
+        intent.putExtra(Constants.LOCATION_DATA_EXTRA, mLastLocation);
+        startService(intent);
+    }
+}
+</pre>
+
+<p>Call the above <code>startIntentService()</code> method when the
+  user takes an action that requires a geocoding address lookup. For example,
+  the user may press a <em>Fetch address</em> button on your app's UI. Before
+  starting the intent service, you need to check that the connection to Google
+  Play services is present. The following code snippet shows the call to the
+  <code>startIntentService()</code> method in the button handler:</p>
+
+<pre>
+public void fetchAddressButtonHandler(View view) {
+    // Only start the service to fetch the address if GoogleApiClient is
+    // connected.
+    if (mGoogleApiClient.isConnected() && mLastLocation != null) {
+        startIntentService();
+    }
+    // If GoogleApiClient isn't connected, process the user's request by
+    // setting mAddressRequested to true. Later, when GoogleApiClient connects,
+    // launch the service to fetch the address. As far as the user is
+    // concerned, pressing the Fetch Address button
+    // immediately kicks off the process of getting the address.
+    mAddressRequested = true;
+    updateUIWidgets();
+}
+</pre>
+
+<p>You must also start the intent service when the connection to Google Play
+  services is established, if the user has already clicked the button on your
+  app's UI. The following code snippet shows the call to the
+  <code>startIntentService()</code> method in the
+  <a href="../../reference/com/google/android/gms/common/api/GoogleApiClient.ConnectionCallbacks.html#onConnected(android.os.Bundle)"><code>onConnected()</code></a>
+  callback provided by the Google API Client:</p>
+
+<pre>
+public class MainActivity extends ActionBarActivity implements
+        ConnectionCallbacks, OnConnectionFailedListener {
     ...
     &#64;Override
-    protected void onCreate(Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
-    ...
-    mAddress = (TextView) findViewById(R.id.address);
-    mActivityIndicator =
-            (ProgressBar) findViewById(R.id.address_progress);
-    }
-    ...
-    /**
-    * A subclass of AsyncTask that calls getFromLocation() in the
-    * background. The class definition has these generic types:
-    * Location - A <code><a href="../../reference/android/location/Location.html">Location</a></code> object containing
-    * the current location.
-    * Void     - indicates that progress units are not used
-    * String   - An address passed to onPostExecute()
-    */
-    private class GetAddressTask extends
-            AsyncTask&lt;Location, Void, String&gt; {
-        Context mContext;
-        public GetAddressTask(Context context) {
-            super();
-            mContext = context;
-        }
-        ...
-        /**
-         * Get a Geocoder instance, get the latitude and longitude
-         * look up the address, and return it
-         *
-         * &#64;params params One or more Location objects
-         * &#64;return A string containing the address of the current
-         * location, or an empty string if no address can be found,
-         * or an error message
-         */
-        &#64;Override
-        protected String doInBackground(Location... params) {
-            Geocoder geocoder =
-                    new Geocoder(mContext, Locale.getDefault());
-            // Get the current location from the input parameter list
-            Location loc = params[0];
-            // Create a list to contain the result address
-            List&lt;Address&gt; addresses = null;
-            try {
-                /*
-                 * Return 1 address.
-                 */
-                addresses = geocoder.getFromLocation(loc.getLatitude(),
-                        loc.getLongitude(), 1);
-            } catch (IOException e1) {
-            Log.e("LocationSampleActivity",
-                    "IO Exception in getFromLocation()");
-            e1.printStackTrace();
-            return ("IO Exception trying to get address");
-            } catch (IllegalArgumentException e2) {
-            // Error message to post in the log
-            String errorString = "Illegal arguments " +
-                    Double.toString(loc.getLatitude()) +
-                    " , " +
-                    Double.toString(loc.getLongitude()) +
-                    " passed to address service";
-            Log.e("LocationSampleActivity", errorString);
-            e2.printStackTrace();
-            return errorString;
+    public void onConnected(Bundle connectionHint) {
+        // Gets the best and most recent location currently available,
+        // which may be null in rare cases when a location is not available.
+        mLastLocation = LocationServices.FusedLocationApi.getLastLocation(
+                mGoogleApiClient);
+
+        if (mLastLocation != null) {
+            // Determine whether a Geocoder is available.
+            if (!Geocoder.isPresent()) {
+                Toast.makeText(this, R.string.no_geocoder_available,
+                        Toast.LENGTH_LONG).show();
+                return;
             }
-            // If the reverse geocode returned an address
-            if (addresses != null &amp;&amp; addresses.size() &gt; 0) {
-                // Get the first address
-                Address address = addresses.get(0);
-                /*
-                 * Format the first line of address (if available),
-                 * city, and country name.
-                 */
-                String addressText = String.format(
-                        "&#037;s, &#037;s, &#037;s",
-                        // If there's a street address, add it
-                        address.getMaxAddressLineIndex() &gt; 0 ?
-                                address.getAddressLine(0) : "",
-                        // Locality is usually a city
-                        address.getLocality(),
-                        // The country of the address
-                        address.getCountryName());
-                // Return the text
-                return addressText;
-            } else {
-                return "No address found";
+
+            if (mAddressRequested) {
+                startIntentService();
             }
         }
-        ...
     }
-    ...
 }
 </pre>
-<p>
-The next section shows you how to display the address in the user interface.
-</p>
-<!-- Define a method to display the address -->
-<h2 id="DisplayResults">Define a Method to Display the Results</h2>
-<p>
-    <code><a href="../../reference/android/os/AsyncTask.html#doInBackground(Params...)">doInBackground()</a></code> returns the result of the address
-    lookup as a <code><a href="../../reference/java/lang/String.html">String</a></code>. This value is passed to
-    <code><a href="../../reference/android/os/AsyncTask.html#onPostExecute(Result)">onPostExecute()</a></code>, where you do further processing
-    on the results. Since <code><a href="../../reference/android/os/AsyncTask.html#onPostExecute(Result)">onPostExecute()</a></code>
-    runs on the UI thread, it can update the user interface; for example, it can turn off the
-    activity indicator and display the results to the user:
-</p>
+
+<h2 id="result-receiver">Receive the Geocoding Results</h2>
+
+<p>The intent service has handled the geocoding request, and uses a
+  <code><a href="../../reference/android/os/ResultReceiver.html">ResultReceiver</a></code> to return the results to the activity that
+  made the request. In the activity that makes the request, define an
+  <code>AddressResultReceiver</code> that extends <code><a href="../../reference/android/os/ResultReceiver.html">ResultReceiver</a></code>
+  to handle the response from <code>FetchAddressIntentService</code>.</p>
+
+<p>The result includes a numeric result code (<code>resultCode</code>) as well
+  as a message containing the result data (<code>resultData</code>). If the
+  reverse geocoding process was successful, the <code>resultData</code> contains
+  the address. In the case of a failure, the <code>resultData</code> contains
+  text describing the reason for failure. For details of the possible errors,
+  see <a href="#return-address">Return the address to the requestor</a>.</p>
+
+<p>Override the
+  <code><a href="../../reference/android/os/ResultReceiver.html#onReceiveResult(int, android.os.Bundle)">onReceiveResult()</a></code> method
+  to handle the results delivered to the result receiver, as shown in the
+  following code sample:</p>
+
 <pre>
-    private class GetAddressTask extends
-            AsyncTask&lt;Location, Void, String&gt; {
-        ...
-        /**
-         * A method that's called once doInBackground() completes. Turn
-         * off the indeterminate activity indicator and set
-         * the text of the UI element that shows the address. If the
-         * lookup failed, display the error message.
-         */
+public class MainActivity extends ActionBarActivity implements
+        ConnectionCallbacks, OnConnectionFailedListener {
+    ...
+    class AddressResultReceiver extends ResultReceiver {
+        public AddressResultReceiver(Handler handler) {
+            super(handler);
+        }
+
         &#64;Override
-        protected void onPostExecute(String address) {
-            // Set activity indicator visibility to "gone"
-            mActivityIndicator.setVisibility(View.GONE);
-            // Display the results of the lookup.
-            mAddress.setText(address);
+        protected void onReceiveResult(int resultCode, Bundle resultData) {
+
+            // Display the address string
+            // or an error message sent from the intent service.
+            mAddressOutput = resultData.getString(Constants.RESULT_DATA_KEY);
+            displayAddressOutput();
+
+            // Show a toast message if an address was found.
+            if (resultCode == Constants.SUCCESS_RESULT) {
+                showToast(getString(R.string.address_found));
+            }
+
         }
-        ...
     }
-</pre>
-<p>
-    The final step is to run the address lookup.
-</p>
-<!-- Get and display the address -->
-<h2 id="RunTask">Run the Lookup Task</h2>
-<p>
-    To get the address, call <code><a href="../../reference/android/os/AsyncTask.html#execute(Params...)">execute()</a></code>. For example, the
-    following snippet starts the address lookup when the user clicks the "Get Address" button:
-</p>
-<pre>
-public class MainActivity extends FragmentActivity {
-    ...
-    /**
-     * The "Get Address" button in the UI is defined with
-     * android:onClick="getAddress". The method is invoked whenever the
-     * user clicks the button.
-     *
-     * &#64;param v The view object associated with this method,
-     * in this case a Button.
-     */
-    public void getAddress(View v) {
-        // Ensure that a Geocoder services is available
-        if (Build.VERSION.SDK_INT &gt;=
-                Build.VERSION_CODES.GINGERBREAD
-                            &amp;&amp;
-                Geocoder.isPresent()) {
-            // Show the activity indicator
-            mActivityIndicator.setVisibility(View.VISIBLE);
-            /*
-             * Reverse geocoding is long-running and synchronous.
-             * Run it on a background thread.
-             * Pass the current location to the background task.
-             * When the task finishes,
-             * onPostExecute() displays the address.
-             */
-            (new GetAddressTask(this)).execute(mLocation);
-        }
-        ...
-    }
-    ...
 }
 </pre>
-<p>
-    The next lesson, <a href="geofencing.html">Creating and Monitoring Geofences</a>, demonstrates
-    how to define locations of interest called <b>geofences</b> and how to use geofence monitoring
-    to detect the user's proximity to a location of interest.
-</p>
 
     </div>
 
@@ -2546,10 +2951,10 @@ public class MainActivity extends FragmentActivity {
 
 
   <script src="https://developer.android.com/ytblogger_lists_unified.js" type="text/javascript"></script>
-  <script src="../../jd_lists_unified.js?v=2" type="text/javascript"></script>
-  <script src="../../jd_extras.js?v=3" type="text/javascript"></script>
-  <script src="../../jd_collections.js?v=3" type="text/javascript"></script>
-  <script src="../../jd_tag_helpers.js?v=2" type="text/javascript"></script>
+  <script src="../../jd_lists_unified.js?v=8" type="text/javascript"></script>
+  <script src="../../jd_extras.js?v=9" type="text/javascript"></script>
+  <script src="../../jd_collections.js?v=9" type="text/javascript"></script>
+  <script src="../../jd_tag_helpers.js?v=5" type="text/javascript"></script>
 
 </body>
 </html>

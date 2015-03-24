@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width" />
+
+<meta name="Description" content="The ADT-1 Developer Kit is a streaming media player and game controller designed for running and testing apps built for Android TV. Supplies of ADT-1 are limited and it is intended for developers who are interested in building new apps or extending their…">
+<link rel="shortcut icon" type="image/x-icon" href="../../favicon.ico" />
+<title>ADT-1 Developer Kit | Android Developers</title>
+
+<!-- STYLESHEETS -->
+<link rel="stylesheet"
+href="http://fonts.useso.com/css?family=Roboto+Condensed">
+<link rel="stylesheet" href="http://fonts.useso.com/css?family=Roboto:light,regular,medium,thin,italic,mediumitalic,bold"
+  title="roboto">
+<link href="../../assets/css/default.css?v=5" rel="stylesheet" type="text/css">
+
+
+
+<!-- JAVASCRIPT -->
+<script src="../../assets/js/android_3p-bundle.js" type="text/javascript"></script>
+<script type="text/javascript">
+  var toRoot = "../../";
+  var metaTags = ["emote","e-mote","adt"];
+  var devsite = false;
+</script>
+<script src="../../assets/js/docs.js?v=3" type="text/javascript"></script>
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//../../../ajax/www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-5831155-1', 'android.com');
+  ga('create', 'UA-49880327-2', 'android.com', {'name': 'universal'});  // New tracker);
+  ga('send', 'pageview');
+  ga('universal.send', 'pageview'); // Send page view for new tracker.
+</script>
+
+</head>
+
+<body class="gc-documentation
+
+about" itemscope itemtype="http://schema.org/Article">
+
+<a name="top"></a>
+
+<!-- dialog to prompt lang pref change when loaded from hardcoded URL 
+<div id="langMessage" style="display:none">
+  <div>
+    <div class="lang en">
+      <p>You requested a page in English, would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang es">
+      <p>You requested a page in Spanish (Español), would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang ja">
+      <p>You requested a page in Japanese (日本語), would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang ko">
+      <p>You requested a page in Korean (한국어), would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang ru">
+      <p>You requested a page in Russian (Русский), would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang zh-cn">
+      <p>You requested a page in Simplified Chinese (简体中文), would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang zh-tw">
+      <p>You requested a page in Traditional Chinese (繁體中文), would you like to proceed with this language setting?</p>
+    </div>
+    <a href="#" class="button yes" onclick="return false;">
+      <span class="lang en">Yes</span>
+      <span class="lang es">Sí</span>
+      <span class="lang ja">Yes</span>
+      <span class="lang ko">Yes</span>
+      <span class="lang ru">Yes</span>
+      <span class="lang zh-cn">是的</span>
+      <span class="lang zh-tw">没有</span>
+    </a>
+    <a href="#" class="button" onclick="$('#langMessage').hide();return false;">
+      <span class="lang en">No</span>
+      <span class="lang es">No</span>
+      <span class="lang ja">No</span>
+      <span class="lang ko">No</span>
+      <span class="lang ru">No</span>
+      <span class="lang zh-cn">没有</span>
+      <span class="lang zh-tw">没有</span>
+    </a>
+  </div>
+</div> -->
+
+
+  <!-- Header -->
+  <div id="header-wrapper">
+    <div id="header">
+
+    
+
+
+      <div class="wrap" id="header-wrap">
+        <div class="col-3 logo">
+          <a href="../../index.html">
+            <img src="../../assets/images/dac_logo.png"
+                srcset="../../assets/images/dac_logo@2x.png 2x"
+                width="123" height="25" alt="Android Developers" />
+          </a>
+          <div class="btn-quicknav" id="btn-quicknav">
+            <a href="#" class="arrow-inactive">Quicknav</a>
+            <a href="#" class="arrow-active">Quicknav</a>
+          </div>
+        </div>
+        <ul class="nav-x col-9">
+            <li class="design">
+              <a href="../../design/index.html"
+              zh-tw-lang="設計"
+              zh-cn-lang="设计"
+              ru-lang="Проектирование"
+              ko-lang="디자인"
+              ja-lang="設計"
+              es-lang="Diseñar"
+              >Design</a></li>
+            <li class="develop"><a href="../../develop/index.html"
+              zh-tw-lang="開發"
+              zh-cn-lang="开发"
+              ru-lang="Разработка"
+              ko-lang="개발"
+              ja-lang="開発"
+              es-lang="Desarrollar"
+              >Develop</a></li>
+            <li class="distribute last"><a href="../../distribute/googleplay/index.html"
+              zh-tw-lang="發佈"
+              zh-cn-lang="分发"
+              ru-lang="Распространение"
+              ko-lang="배포"
+              ja-lang="配布"
+              es-lang="Distribuir"
+              >Distribute</a></li>
+        </ul>
+
+
+        
+        
+<div class="menu-container">
+  <div class="moremenu">
+    <div id="more-btn"></div>
+  </div>
+  <div class="morehover" id="moremenu">
+    <div class="top"></div>
+    <div class="mid">
+      <div class="header">Links</div>
+      <ul>
+        <li><a href="https://play.google.com/apps/publish/" target="_googleplay">Google Play Developer Console</a></li>
+        <li><a href="http://android-developers.blogspot.com/">Android Developers Blog</a></li>
+        <li><a href="../../about/index.html">About Android</a></li>
+      </ul>
+      <div class="header">Android Sites</div>
+      <ul>
+        <li><a href="http://www.android.com">Android.com</a></li>
+        <li class="active"><a>Android Developers</a></li>
+        <li><a href="http://source.android.com">Android Open Source Project</a></li>
+      </ul>
+
+      
+      
+      
+      <br class="clearfix" />
+    </div><!-- end 'mid' -->
+    <div class="bottom"></div>
+  </div><!-- end 'moremenu' -->
+
+  <div class="search" id="search-container">
+    <div class="search-inner">
+      <div id="search-btn"></div>
+      <div class="left"></div>
+      <form onsubmit="return submit_search()">
+        <input id="search_autocomplete" type="text" value="" autocomplete="off" name="q"
+          onfocus="search_focus_changed(this, true)" onblur="search_focus_changed(this, false)"
+          onkeydown="return search_changed(event, true, '../../')"
+          onkeyup="return search_changed(event, false, '../../')" />
+      </form>
+      <div class="right"></div>
+      <a class="close hide">close</a>
+      <div class="left"></div>
+      <div class="right"></div>
+    </div><!-- end search-inner -->
+  </div><!-- end search-container -->
+
+  <div class="search_filtered_wrapper reference">
+    <div class="suggest-card reference no-display">
+      <ul class="search_filtered">
+      </ul>
+    </div>
+  </div>
+
+  <div class="search_filtered_wrapper docs">
+    <div class="suggest-card dummy no-display">&nbsp;</div>
+    <div class="suggest-card develop no-display">
+      <ul class="search_filtered">
+      </ul>
+      <div class="child-card guides no-display">
+      </div>
+      <div class="child-card training no-display">
+      </div>
+      <div class="child-card samples no-display">
+      </div>
+    </div>
+    <div class="suggest-card design no-display">
+      <ul class="search_filtered">
+      </ul>
+    </div>
+    <div class="suggest-card distribute no-display">
+      <ul class="search_filtered">
+      </ul>
+    </div>
+  </div>
+</div><!-- end menu-container (search and menu widget) -->
+
+
+
+        <!-- Expanded quicknav -->
+        <div id="quicknav" class="col-13">
+          <ul>
+            <li class="about">
+              <ul>
+                <li><a href="../../about/index.html">About</a></li>
+                <li><a href="../../wear/index.html">Wear</a></li>
+                <li><a href="../../tv/index.html">TV</a></li>
+                <li><a href="../../auto/index.html">Auto</a></li>
+              </ul>
+            </li>
+            <li class="design">
+              <ul>
+                <li><a href="../../design/index.html">Get Started</a></li>
+                <li><a href="../../design/devices.html">Devices</a></li>
+                <li><a href="../../design/style/index.html">Style</a></li>
+                <li><a href="../../design/patterns/index.html">Patterns</a></li>
+                <li><a href="../../design/building-blocks/index.html">Building Blocks</a></li>
+                <li><a href="../../design/downloads/index.html">Downloads</a></li>
+                <li><a href="../../design/videos/index.html">Videos</a></li>
+              </ul>
+            </li>
+            <li class="develop">
+              <ul>
+                <li><a href="../../training/index.html"
+                  zh-tw-lang="訓練課程"
+                  zh-cn-lang="培训"
+                  ru-lang="Курсы"
+                  ko-lang="교육"
+                  ja-lang="トレーニング"
+                  es-lang="Capacitación"
+                  >Training</a></li>
+                <li><a href="../../guide/index.html"
+                  zh-tw-lang="API 指南"
+                  zh-cn-lang="API 指南"
+                  ru-lang="Руководства по API"
+                  ko-lang="API 가이드"
+                  ja-lang="API ガイド"
+                  es-lang="Guías de la API"
+                  >API Guides</a></li>
+                <li><a href="../../reference/packages.html"
+                  zh-tw-lang="參考資源"
+                  zh-cn-lang="参考"
+                  ru-lang="Справочник"
+                  ko-lang="참조문서"
+                  ja-lang="リファレンス"
+                  es-lang="Referencia"
+                  >Reference</a></li>
+                <li><a href="../../sdk/index.html"
+                  zh-tw-lang="相關工具"
+                  zh-cn-lang="工具"
+                  ru-lang="Инструменты"
+                  ko-lang="도구"
+                  ja-lang="ツール"
+                  es-lang="Herramientas"
+                  >Tools</a>
+                </li>
+                <li><a href="../../google/index.html">Google Services</a>
+                </li>
+                
+              </ul>
+            </li>
+            <li class="distribute last">
+              <ul>
+                <li><a href="../../distribute/googleplay/index.html">Google Play</a></li>
+                <li><a href="../../distribute/essentials/index.html">Essentials</a></li>
+                <li><a href="../../distribute/users/index.html">Get Users</a></li>
+                <li><a href="../../distribute/engage/index.html">Engage &amp; Retain</a></li>
+                <li><a href="../../distribute/monetize/index.html">Monetize</a></li>
+                <li><a href="../../distribute/analyze/index.html">Analyze</a></li>
+                <li><a href="../../distribute/tools/index.html">Tools &amp; Reference</a></li>
+                <li><a href="../../distribute/stories/index.html">Developer Stories</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div><!-- /Expanded quicknav -->
+      </div><!-- end header-wrap.wrap -->
+    </div><!-- end header -->
+
+  
+    <!-- Secondary x-nav -->
+    <div id="nav-x">
+        <div class="wrap">
+            <ul class="nav-x col-9 about" style="width:100%">
+                <li class="about"><a href="../../about/index.html"
+                  >About</a></li>
+                <li class="wear"><a href="../../wear/index.html"
+                  >Wear</a></li>
+                <li class="tv"><a href="../../tv/index.html"
+                  >TV</a></li>
+                <li class="auto"><a href="../../auto/index.html"
+                  >Auto</a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- /Sendondary x-nav ABOUT -->
+
+
+
+  
+
+    <div id="searchResults" class="wrap" style="display:none;">
+      <h2 id="searchTitle">Results</h2>
+      <div id="leftSearchControl" class="search-control">Loading...</div>
+    </div>
+  </div> <!--end header-wrapper -->
+
+  <div id="sticky-header">
+    <div>
+      <a class="logo" href="#top"></a>
+      <a class="top" href="#top"></a>
+      <ul class="breadcrumb">
+        
+        <li class="current">ADT-1 Developer Kit</li>
+      </ul>
+    </div>
+  </div>
+
+
+
+
+  <div id="body-content">
+
+
+
+
+<div class="fullpage" >
+
+
+  
+
+  
+
+
+  
+  <div id="jd-content">
+
+
+    <div class="jd-descr" itemprop="articleBody">
+    <div class="wrap" style="width:940px;">
+
+<h1>ADT-1 Developer Kit</h1>
+
+<div id="qv-wrapper">
+<div id="qv">
+  <h2>In this document</h2>
+  <ol>
+    <li><a href="#faq">Frequently Asked Questions</a>
+      <ol>
+        <li><a href="#setup">Device Setup</a></li>
+        <li><a href="#input">User Input</a></li>
+        <li><a href="#cast">Google Cast</a></li>
+        <li><a href="#trouble">Troubleshooting</a></li>
+      </ol>
+    </li>
+    <li><a href="#emote">Android TV Remote Control App</a></li>
+    <li><a href="#reg-safety">Regulatory Disclosures and Safety</a></li>
+  </ol>
+</div>
+</div>
+
+<p>The ADT-1 Developer Kit is a streaming media player and game controller designed for running
+and testing apps built for Android TV. Supplies of ADT-1 are limited and it is intended for
+developers who are interested in building new apps or extending their existing apps to run on the
+Android TV platform.</p>
+
+<p class="note">
+  <strong>Note:</strong> The ADT-1 kit <em>is not required</em> for building and testing apps
+  for Android TV. You can build apps for TV and test them using an emulator for TV devices. The
+  Android SDK includes all the software needed to build TV apps and an emulator for running
+  and testing them. For more information, see the
+  <a href="../../training/tv/start/index.html">Get Started</a> guide for TV apps.
+</p>
+
+<h2 id="faq">ADT-1 Frequently Asked Questions</h2>
+
+<p>The following information is provided to help set up and use the ADT-1 device.</p>
+
+
+<h3 id="setup">Device Setup</h3>
+
+<p>
+  <strong>How do I turn my device on?</strong>
+</p>
+<p>Plug the included power cable into the back of ADT-1. The device does not have an on/off
+  switch.</p>
+
+<p>
+  <strong>How do I completely turn my device off? </strong>
+</p>
+<p>Unplug the included power cable from the back of ADT-1. The device does not have an on/off
+  switch. However, ADT-1 will begin sleeping (daydream) based on user settings in
+  <strong>Settings &gt; Device &gt; Display &gt; Daydream</strong>.
+  </p>
+
+<p>
+  <strong>How do I connect to the network?</strong>
+</p>
+<p>ADT-1 has both wireless and Ethernet for connecting to your network. To change your wireless
+  network, go to <strong>Settings &gt; Device &gt; Wi-Fi</strong>. To use an Ethernet network
+  connection, simply plug an Ethernet cable (that is connected to your network) into the port on
+  the back of ADT-1.</p>
+
+<p>
+  <strong>How do I use the developer cable?</strong>
+</p>
+<p>The developer cable has three connectors: a small, male power connector that plugs into the
+  power port on the back of ADT-1, a standard male USB-A connector that connects your PC, and a
+  small, female power connector that the included power supply plugs into.</p>
+
+<p class="note">
+  <strong>Note:</strong> Make sure you have enabled USB debugging in <strong>Settings &gt;
+  Preferences &gt; Developer options &gt; Debugging &gt; USB debugging</strong>, so that you can
+  use the Android Debug Bridge (adb) to connect with the ADT-1 device.
+</p>
+
+<p id="adb-tcp">
+  <strong>Can I connect without a developer cable?</strong>
+</p>
+<p>
+  Yes. The ADT-1 device is enabled for Android Debug Bridge (adb) connections over TCP/IP. To
+  connect to the ADT-1 device using this method:
+</p>
+<ol>
+  <li>Make sure that your development computer and the ADT-1 device are on the same network.</li>
+  <li>Determine the IP address of the ADT-1 device by navigating to <strong>Settings &gt;
+    Device &gt; Wi-Fi &gt; your-network-name &gt; Status info</strong>.</li>
+  <li>Connect to the ADT-1 device using the following adb command:
+<pre>
+$ adb connect &lt;ip-address-for-adt-1&gt;:4321
+</pre>
+  </li>
+</ol>
+
+<p class="note">
+  <strong>Note:</strong> Make sure you have enabled USB debugging in <strong>Settings &gt;
+  Preferences &gt; Developer options &gt; Debugging &gt; USB debugging</strong>, so that you can
+  use the Android Debug Bridge (adb) to connect with the ADT-1 device.
+</p>
+
+
+<h3 id="input">User Input</h3>
+
+<p>
+  <strong>How do I put the gamepad that came with my ADT-1 into pairing mode?</strong>
+</p>
+<p>Press and hold the Back and Home buttons together for about three seconds, until all four
+  blue LEDs flash together. When the LEDs are flashing, the gamepad is in pairing mode.</p>
+
+<p>
+  <strong>How do I use the gamepad with the on-screen keyboard?</strong>
+</p>
+<p>Use the D-pad or left joystick to move the cursor, and press A to select. Press X to delete a
+  character, and press Y to insert a space. Also, you can press the right joystick to toggle caps
+  lock, and press the left joystick to show additional symbols.</p>
+
+<p>
+  <strong>Can I control ADT-1 with my phone or tablet?</strong>
+</p>
+<p>Yes. In order to control the ADT-1 with Android phones or tablets, you can download a remote
+  control app from the Google Play store. For more information, see <a href="#emote">Android TV
+  Remote Control App</a>.
+  </p>
+
+<p>
+  <strong>Can I connect a USB keyboard or mouse to ADT-1?</strong>
+</p>
+<p>Yes, you can connect a USB keyboard or mouse to the USB port on the back of ADT-1.
+
+<p class="note">
+  <strong>Note:</strong> The ADT-1 device is not compatible with all manufacturers and models of
+  these devices. If a particular keyboard or mouse does not work, try a different model.
+</p>
+
+<p>
+  <strong>How do I connect a Bluetooth device without an input device already attached?</strong>
+</p>
+<p>You can put ADT-1 into Bluetooth pairing mode using a hardware button. Press the small, round
+  button on the back of ADT-1 to make it search for Bluetooth devices in pairing mode. If multiple
+  accessories are found, press the small, round button to select the device you want to pair.
+  Pairing will happen automatically after a few seconds.
+</p>
+
+<p>
+  <strong>How do I connect additional Bluetooth accessories?</strong>
+<p>
+<p>To pair Bluetooth devices to ADT-1 from the user interface, go to <strong>Settings &gt;
+  Remote &amp; Accessories &gt; Add accessory</strong>
+
+
+<h3 id="cast">Google Cast</h3>
+
+<p>
+  <strong>Can I cast to an ADT-1 device?</strong>
+<p>
+<p>Yes. The ADT-1 includes Google Cast receiver functionality, similar to Chromecast. Since the
+  ADT-1 is a developer device running a development software release, the Google Cast receiver is
+  open only to a limited number of apps.</p>
+
+<p>
+  <strong>Which Cast apps are supported on ADT-1?</strong>
+<p>
+<p>As a developer device, the ADT-1 supports casting from only the following apps/websites:</p>
+
+<ul>
+  <li>YouTube</li>
+  <li>Netflix</li>
+  <li>Google+ Photos</li>
+  <li>Google Play Movies and TV (Android and iOS only)</li>
+  <li>Google Play Music</li>
+  <li>Mirror your Android device screen to ADT-1</li>
+</ul>
+
+<p>Coming soon:</p>
+
+<ul>
+  <li>Google Play Movies and TV (Chrome)</li>
+</ul>
+
+<p class="note">
+  <strong>Note:</strong> When casting from a Chrome browser, you must use Chrome V.36 or higher.
+  Chrome V.36 is available in beta-channel and is planned to be released soon.
+</p>
+
+<p>
+  <strong>How do I cast to ADT-1?</strong>
+<p>
+<p>You cast to an ADT-1 device the same way you do with a Chromecast device. Open the supported
+  Cast apps or webpages, press the <strong>Cast</strong> button and you should see the ADT-1 as a
+  Cast target. For more information about on how to cast, see
+  <a href="http://www.google.com/intl/en/chrome/devices/chromecast/learn.html">Learn How to
+  Cast</a>.
+  </p>
+
+<p>
+  <strong>Will my Google Cast sender apps work on ADT-1 just like Chromecast?</strong>
+<p>
+<p>Yes. Your Cast app works on ADT-1 and Android TV products without additional work.<p>
+
+<p class="note">
+  <strong>Note:</strong> Your iOS sender app requires the Google Cast iOS API version 2.2.1
+  or later to work with the ADT-1 device.
+</p>
+
+<p>
+  <strong>How do I register my ADT-1 in order to run my apps?</strong>
+</p>
+<ol>
+  <li>Go to <strong>Settings &gt; Device &gt; Google Cast</strong> and turn on developer support,
+    allowing the ADT-1 device to send its serial number to Google.</li>
+  <li>Register your ADT-1 device in the Google Cast Developer Console, using the 12 character
+    serial number engraved on the back of the ADT-1.</li>
+</ol>
+
+<p>For more Google Cast developer information, see the
+  <a href="https://developers.google.com/cast/">Cast developer site</a>. Please use the Google Cast
+  SDK <a href="https://code.google.com/p/google-cast-sdk/issues/list">issue tracker</a> for filing
+  issues related to Cast. Make sure you mention the ADT-1 device when filing an issue.
+</p>
+
+<p>
+  <strong>How do I debug my Cast app on ADT-1?</strong>
+</p>
+<p>Connect your development platform using the power/USB cable, and using a Chrome browser,
+  navigate to <code>chrome://inspect/#devices</code> to debug the webview.</p>
+
+
+<h3 id="trouble">Troubleshooting</h3>
+
+<p>
+  <strong>Why doesn't the on-screen keyboard come up?</strong>
+</p>
+<p>Enable the keyboard in the device Settings. Go to <strong>Settings &gt; Preferences &gt;
+  Keyboard &gt; Current keyboard</strong> and choose <strong>Leanback keyboard</strong>.
+
+<p>
+  <strong>How do I perform a hardware reboot?</strong>
+</p>
+<p>Locked it up, huh? No worries. We've done that a few times ourselves. Unplug and replug the
+  included power cable from the back of ADT-1 to reboot it.
+</p>
+
+<p>
+  <strong>How do I perform a factory reset?</strong>
+</p>
+<p class="warning">
+  <strong>Warning:</strong> This procedure removes all data from the device, including system
+  data, downloaded apps, app data, and account settings.
+</p>
+
+<p>From the home screen, go to <strong>Settings &gt; Device &gt; Storage &amp; Reset</strong>, and
+  select <strong>Factory data reset</strong>.
+</p>
+
+<p>
+  <strong>How do I perform a hardware reset?</strong>
+</p>
+<p class="warning">
+  <strong>Warning:</strong> This procedure performs a factory data reset, removing all data from
+  the device, including system data, downloaded apps, app data, and account settings.
+</p>
+
+<p>Unplug the power cable from the back of ADT-1. Press and hold the small, round button on the
+  back of ADT-1 as you re-insert the power cable, and continue to hold the small round button. The
+  LED will begin flashing red for a few seconds, then change to multi-color cycle. When the LED
+  starts the multi-color cycle, release the small, round button, and ADT-1 boots up. If you release
+  the button while the LED is flashing red, the device will be in Fastboot mode.</p>
+
+<p>
+  <strong>There is a hardware problem with my ADT-1. How do I return it?</strong>
+</p>
+<p>You can request a return of the device using the
+  <a href="https://support.google.com/googleplay/android-developer/contact/adt_rma">return
+  merchandise authorization form</a>.
+</p>
+
+
+<h2 id="emote">Android TV Remote Control App</h2>
+
+<div class="figure" style="width:250px;margin-top:0">
+<img src="../../tv/images/android-tv-remote.png" alt="Android TV Remote Screenshots">
+</div>
+
+<p>A remote control app is available for Android phones and tablets that allows you to interact
+  with the ADT-1 device. This app allows you to switch between D-pad input mode or touchpad mode
+  to navigate content and play games on a Android TV device. You can also tap the mic button to
+  start a voice search, or use the keyboard to input text using this app.</p>
+
+<p>You download the remote control app from the Google Play store using
+  <a href="https://play.google.com/store/apps/details?id=com.google.android.tv.remote">this
+  link</a>.
+</p>
+
+<p class="note">
+  <strong>Note:</strong> your Android ​phone or tablet must be connected to the same local network
+  as ADT-1.
+</p>
+
+
+<h2 id="reg-safety">Regulatory Disclosures and Safety Information</h2>
+
+<p>The ADT-1 device comes with important regulatory disclosures and safety information. Please
+read this information before using the device:</p>
+
+<ul>
+  <li><a href="regulatory.html">Regulatory Disclosures</a></li>
+  <li><a href="safety.html">Important Safety Information</a></li>
+</ul>
+
+</div> <!-- end.class.wrap -->
+
+<div class="layout-content-col col-16" style="padding-top:1px">
+  <!-- layout div, so auto-gen footer sits correctly; do not remove -->
+</div>
+
+    </div>
+
+      <div class="content-footer wrap"
+                    itemscope itemtype="http://schema.org/SiteNavigationElement">
+        
+        <div class="paging-links layout-content-col col-10">
+          
+        </div>
+        <div class="layout-content-col plus-container col-2" >
+          <style>#___plusone_0 {float:right !important;}</style>
+            <div class="g-plusone" data-size="medium"></div>
+          
+        </div>
+        
+      </div>
+
+  </div> <!-- end jd-content -->
+
+<div id="footer" class="wrap" style="width:940px">
+        
+
+  <div id="copyright">
+    
+  Except as noted, this content is 
+  licensed under <a href="http://creativecommons.org/licenses/by/2.5/">
+  Creative Commons Attribution 2.5</a>. For details and 
+  restrictions, see the <a href="../../license.html">Content 
+  License</a>.
+  </div>
+
+
+  <div id="footerlinks">
+    
+  <p>
+    <a href="../../about/index.html">About Android</a>&nbsp;&nbsp;|&nbsp;
+    <a href="../../legal.html">Legal</a>&nbsp;&nbsp;|&nbsp;
+    <a href="../../support.html">Support</a>
+  </p>
+  </div>
+
+</div> <!-- end footer -->
+</div><!-- end doc-content -->
+
+</div> <!-- end body-content --> 
+
+
+
+
+
+  <script src="https://developer.android.com/ytblogger_lists_unified.js" type="text/javascript"></script>
+  <script src="../../jd_lists_unified.js?v=8" type="text/javascript"></script>
+  <script src="../../jd_extras.js?v=9" type="text/javascript"></script>
+  <script src="../../jd_collections.js?v=9" type="text/javascript"></script>
+  <script src="../../jd_tag_helpers.js?v=5" type="text/javascript"></script>
+
+</body>
+</html>
+
+
+

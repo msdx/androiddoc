@@ -87,6 +87,9 @@
 
 
 
+
+
+
 <html>
 <head>
 
@@ -94,7 +97,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width" />
 
-<meta name="Description" content="If you followed the previous lesson to create an Android project, it includes a default set of &quot;Hello World&quot; source files that allow you to immediately run the app. How you run your app depends on two things: whether you have a real Android-powered…">
+<meta name="Description" content="If you followed the previous lesson to create an Android project, it includes a default set of &quot;Hello World&quot; source files that allow you to immediately run the app. How you run your app depends on two things: whether you have a real device running…">
 <link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico" />
 <title>Running Your App | Android Developers</title>
 
@@ -103,7 +106,7 @@
 href="http://fonts.useso.com/css?family=Roboto+Condensed">
 <link rel="stylesheet" href="http://fonts.useso.com/css?family=Roboto:light,regular,medium,thin,italic,mediumitalic,bold"
   title="roboto">
-<link href="../../../assets/css/default.css?v=2" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/default.css?v=5" rel="stylesheet" type="text/css">
 
 
 
@@ -111,16 +114,23 @@ href="http://fonts.useso.com/css?family=Roboto+Condensed">
 <script src="../../../assets/js/android_3p-bundle.js" type="text/javascript"></script>
 <script type="text/javascript">
   var toRoot = "../../../";
-  var metaTags = [];
+  var metaTags = ["emulator"];
   var devsite = false;
 </script>
-<script src="../../../assets/js/docs.js?v=2" type="text/javascript"></script>
+<script src="../../../assets/js/docs.js?v=3" type="text/javascript"></script>
+
+
+<script type="text/javascript" src="https://helpouts.google.com/ps/res/embed.js" defer async
+    data-helpouts-embed data-helpouts-vertical="programming"
+    data-helpouts-tags="emulator" data-helpouts-prefix="android"
+    data-helpouts-standalone="true"></script>
+
 
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//googleapiscdn.qiniudn.com/www.google-analytics.com/analytics.js','ga');
+  })(window,document,'script','//../../../../ajax/www.google-analytics.com/analytics.js','ga');
 
   ga('create', 'UA-5831155-1', 'android.com');
   ga('create', 'UA-49880327-2', 'android.com', {'name': 'universal'});  // New tracker);
@@ -135,6 +145,52 @@ href="http://fonts.useso.com/css?family=Roboto+Condensed">
 develop" itemscope itemtype="http://schema.org/Article">
 
 <a name="top"></a>
+
+<!-- dialog to prompt lang pref change when loaded from hardcoded URL 
+<div id="langMessage" style="display:none">
+  <div>
+    <div class="lang en">
+      <p>You requested a page in English, would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang es">
+      <p>You requested a page in Spanish (Español), would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang ja">
+      <p>You requested a page in Japanese (日本語), would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang ko">
+      <p>You requested a page in Korean (한국어), would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang ru">
+      <p>You requested a page in Russian (Русский), would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang zh-cn">
+      <p>You requested a page in Simplified Chinese (简体中文), would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang zh-tw">
+      <p>You requested a page in Traditional Chinese (繁體中文), would you like to proceed with this language setting?</p>
+    </div>
+    <a href="#" class="button yes" onclick="return false;">
+      <span class="lang en">Yes</span>
+      <span class="lang es">Sí</span>
+      <span class="lang ja">Yes</span>
+      <span class="lang ko">Yes</span>
+      <span class="lang ru">Yes</span>
+      <span class="lang zh-cn">是的</span>
+      <span class="lang zh-tw">没有</span>
+    </a>
+    <a href="#" class="button" onclick="$('#langMessage').hide();return false;">
+      <span class="lang en">No</span>
+      <span class="lang es">No</span>
+      <span class="lang ja">No</span>
+      <span class="lang ko">No</span>
+      <span class="lang ru">No</span>
+      <span class="lang zh-cn">没有</span>
+      <span class="lang zh-tw">没有</span>
+    </a>
+  </div>
+</div> -->
+
 
   <!-- Header -->
   <div id="header-wrapper">
@@ -332,6 +388,7 @@ develop" itemscope itemtype="http://schema.org/Article">
                 <li><a href="../../../distribute/users/index.html">Get Users</a></li>
                 <li><a href="../../../distribute/engage/index.html">Engage &amp; Retain</a></li>
                 <li><a href="../../../distribute/monetize/index.html">Monetize</a></li>
+                <li><a href="../../../distribute/analyze/index.html">Analyze</a></li>
                 <li><a href="../../../distribute/tools/index.html">Tools &amp; Reference</a></li>
                 <li><a href="../../../distribute/stories/index.html">Developer Stories</a></li>
               </ul>
@@ -344,7 +401,10 @@ develop" itemscope itemtype="http://schema.org/Article">
   
     <!-- Secondary x-nav -->
     <div id="nav-x">
-        <div class="wrap">
+        <div class="wrap" style="position:relative;z-index:1">
+
+        
+
             <ul class="nav-x col-9 develop" style="width:100%">
                 <li class="training"><a href="../../../training/index.html"
                   zh-tw-lang="訓練課程"
@@ -547,7 +607,7 @@ include the action bar on devices running Android 2.1 or higher."
             Creating a Fragment
           </a>
           </li>
-          <li><a href="../../../training/basics/fragments/fragment-ui.html">
+          <li><a href="../../../training/basics/fragments/fragment-ui.html" zh-cn-lang="构建灵活的界面">
             Building a Flexible UI
           </a>
           </li>
@@ -853,6 +913,35 @@ include the action bar on devices running Android 2.1 or higher."
           </li>
         </ul>
       </li>
+
+      <li class="nav-section">
+        <div class="nav-section-header">
+          <a href="../../../training/transitions/index.html"
+             description=
+             "How to animate state changes in a view hierarchy using transitions."
+            >Animating Views Using Scenes and Transitions</a>
+        </div>
+        <ul>
+          <li><a href="../../../training/transitions/overview.html">
+            The Transitions Framework
+          </a>
+          </li>
+          <li><a href="../../../training/transitions/scenes.html">
+            Creating a Scene
+          </a>
+          </li>
+          <li><a href="../../../training/transitions/transitions.html">
+            Applying a Transition
+          </a>
+          </li>
+          <li><a href="../../../training/transitions/custom-transitions.html">
+            Creating Custom Transitions
+          </a>
+          </li>
+
+        </ul>
+      </li>
+
       <li class="nav-section">
         <div class="nav-section-header"><a href="../../../training/animation/index.html"
              description=
@@ -1110,7 +1199,7 @@ include the action bar on devices running Android 2.1 or higher."
         <ul>
           <li>
             <a href="../../../training/location/retrieve-current.html">
-            Retrieving the Current Location
+            Getting the Last Known Location
             </a>
           </li>
           <li>
@@ -1121,18 +1210,6 @@ include the action bar on devices running Android 2.1 or higher."
           <li>
             <a href="../../../training/location/display-address.html">
             Displaying a Location Address
-          </a>
-          </li>
-          <li><a href="../../../training/location/geofencing.html">
-            Creating and Monitoring Geofences
-          </a>
-          </li>
-          <li><a href="../../../training/location/activity-recognition.html">
-          Recognizing the User's Current Activity
-          </a>
-          </li>
-          <li><a href="../../../training/location/location-testing.html">
-          Testing Using Mock Locations
           </a>
           </li>
         </ul>
@@ -1250,10 +1327,48 @@ include the action bar on devices running Android 2.1 or higher."
           </li>
         </ul>
       </li>
+
+      <li class="nav-section">
+        <div class="nav-section-header">
+          <a href="../../../training/wearables/watch-faces/index.html"
+             description="How to create watch faces for wearables."
+            >Creating Watch Faces</a>
+        </div>
+        <ul>
+          <li>
+            <a href="../../../training/wearables/watch-faces/designing.html">Designing Watch Faces</a>
+          </li>
+          <li>
+            <a href="../../../training/wearables/watch-faces/service.html">Building a Watch Face Service</a>
+          </li>
+          <li>
+            <a href="../../../training/wearables/watch-faces/drawing.html">Drawing Watch Faces</a>
+          </li>
+          <li>
+            <a href="../../../training/wearables/watch-faces/information.html">Showing Information in Watch Faces</a>
+          </li>
+          <li>
+            <a href="../../../training/wearables/watch-faces/configuration.html">Providing Configuration Activities</a>
+          </li>
+          <li>
+            <a href="../../../training/wearables/watch-faces/issues.html">Addressing Common Issues</a>
+          </li>
+          <li>
+            <a href="../../../training/wearables/watch-faces/performance.html">Optimizing Performance and Battery Life</a>
+          </li>
+        </ul>
+      </li>
+
+      <li>
+        <a href="../../../training/articles/wear-location-detection.html"
+           description=
+           "How to detect location data on Android Wear devices."
+          >Detecting Location</a>
+      </li>
     </ul>
   </li>
-
   <!-- End Building for wearables -->
+
 
   <!-- Start: Building for TV -->
   <li class="nav-section">
@@ -1269,25 +1384,30 @@ include the action bar on devices running Android 2.1 or higher."
         <div class="nav-section-header">
 
           <a href="../../../training/tv/start/index.html"
+             ja-lang="TV アプリのビルド"
              description="How to start building TV apps or extend your existing app to run on TV
              devices.">
              Building TV Apps</a>
         </div>
         <ul>
           <li>
-            <a href="../../../training/tv/start/start.html">
+            <a href="../../../training/tv/start/start.html"
+               ja-lang="TV アプリのビルドを開始する">
               Getting Started with TV Apps</a>
           </li>
           <li>
-            <a href="../../../training/tv/start/hardware.html">
+            <a href="../../../training/tv/start/hardware.html"
+               ja-lang="TV ハードウェアを処理する">
               Handling TV Hardware</a>
           </li>
           <li>
-            <a href="../../../training/tv/start/layouts.html">
+            <a href="../../../training/tv/start/layouts.html"
+               ja-lang="TV 向けレイアウトをビルドする">
               Building TV Layouts</a>
           </li>
           <li>
-            <a href="../../../training/tv/start/navigation.html">
+            <a href="../../../training/tv/start/navigation.html"
+               ja-lang="TV 用のナビゲーションを作成する">
               Creating TV Navigation</a>
           </li>
         </ul>
@@ -1296,17 +1416,29 @@ include the action bar on devices running Android 2.1 or higher."
       <li class="nav-section">
         <div class="nav-section-header">
           <a href="../../../training/tv/playback/index.html"
+             ja-lang="TV 再生アプリのビルド"
              description="How to build apps that provide media catalogs and play content.">
              Building TV Playback Apps</a>
         </div>
         <ul>
           <li>
-            <a href="../../../training/tv/playback/browse.html">
+            <a href="../../../training/tv/playback/browse.html"
+               ja-lang="カタログ ブラウザを作成する">
               Creating a Catalog Browser</a>
           </li>
           <li>
-            <a href="../../../training/tv/playback/details.html">
+            <a href="../../../training/tv/playback/card.html">
+              Providing a Card View</a>
+          </li>
+          <li>
+            <a href="../../../training/tv/playback/details.html"
+               ja-lang="詳細ビューをビルドする">
               Building a Details View</a>
+          </li>
+          <li>
+            <a href="../../../training/tv/playback/now-playing.html"
+               ja-lang="再生中カードを表示する">
+              Displaying a Now Playing Card</a>
           </li>
         </ul>
       </li>
@@ -1314,7 +1446,7 @@ include the action bar on devices running Android 2.1 or higher."
       <li class="nav-section">
         <div class="nav-section-header">
           <a href="../../../training/tv/discovery/index.html"
-             description="How to help users discovery content from your app.">
+             description="How to help users discover content from your app.">
              Helping Users Find Content on TV</a>
         </div>
         <ul>
@@ -1322,6 +1454,9 @@ include the action bar on devices running Android 2.1 or higher."
             <a href="../../../training/tv/discovery/recommendations.html">
               Recommending TV Content</a>
           </li>
+          <li>
+            <a href="../../../training/tv/discovery/searchable.html">
+              Making TV Apps Searchable</a>
           <li>
             <a href="../../../training/tv/discovery/in-app-search.html">
               Searching within TV Apps</a>
@@ -1335,9 +1470,50 @@ include the action bar on devices running Android 2.1 or higher."
            Building TV Games</a>
       </li>
 
+      <li>
+        <a href="../../../training/tv/tif/index.html"
+           description="How to build Live TV apps.">
+           Building Live TV Apps</a>
+      </li>
+
+      <li>
+        <a href="../../../training/tv/publishing/checklist.html"
+           description="An itemized list of requirements for TV apps.">
+           TV Apps Checklist</a>
+      </li>
     </ul>
   </li>
   <!-- End: Building for TV -->
+
+
+  <!-- Start: Building for Auto -->
+  <li class="nav-section">
+    <div class="nav-section-header">
+      <a href="../../../training/auto/index.html">
+      <span class="small">Building Apps for</span><br/>
+              Auto
+      </a>
+    </div>
+    <ul>
+      <li>
+        <a href="../../../training/auto/start/index.html"
+             description="How to start building or extending apps that work
+             with Auto devices.">
+             Getting Started with Auto</a>
+      </li>
+      <li>
+        <a href="../../../training/auto/audio/index.html"
+             description="How to extend audio apps to play content on Auto devices.">
+             Playing Audio for Auto</a>
+      </li>
+      <li>
+        <a href="../../../training/auto/messaging/index.html"
+             description="How to extend text messaging apps to work with Auto devices.">
+             Messaging for Auto</a>
+      </li>
+    </ul>
+  </li>
+  <!-- End: Building for Auto -->
 
 
   <li class="nav-section">
@@ -1648,6 +1824,45 @@ results."
           </li>
           <li><a href="../../../training/system-ui/visibility.html">
             Responding to UI Visibility Changes
+          </a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="nav-section">
+        <div class="nav-section-header">
+          <a href="../../../training/material/index.html"
+             description=
+             "How to implement material design on Android."
+            >Creating Apps with Material Design</a>
+        </div>
+        <ul>
+          <li><a href="../../../training/material/get-started.html">
+            Getting Started
+          </a>
+          </li>
+          <li><a href="../../../training/material/theme.html">
+            Using the Material Theme
+          </a>
+          </li>
+          <li><a href="../../../training/material/lists-cards.html">
+            Creating Lists and Cards
+          </a>
+          </li>
+          <li><a href="../../../training/material/shadows-clipping.html">
+            Defining Shadows and Clipping Views
+          </a>
+          </li>
+          <li><a href="../../../training/material/drawables.html">
+            Working with Drawables
+          </a>
+          </li>
+          <li><a href="../../../training/material/animations.html">
+            Defining Custom Animations
+          </a>
+          </li>
+          <li><a href="../../../training/material/compatibility.html">
+            Maintaining Compatibility
           </a>
           </li>
         </ul>
@@ -2013,6 +2228,10 @@ results."
             Enhancing Security with Device Management Policies
           </a>
           </li>
+          <li><a href="../../../training/enterprise/app-compatibility.html">
+            Ensuring Compatibility with Managed Profiles
+          </a>
+          </li>
         </ul>
       </li>
     </ul>
@@ -2145,7 +2364,6 @@ results."
     changeNavLang(getLangPref());
 //-->
 </script>
-
         
 
       </div>
@@ -2207,9 +2425,9 @@ results."
 
     <div class="jd-descr" itemprop="articleBody">
     <!-- This is the training bar -->
-<div id="tb-wrapper"> 
-<div id="tb"> 
- 
+<div id="tb-wrapper">
+<div id="tb">
+
 <h2>This lesson teaches you to</h2>
 
 <ol>
@@ -2221,87 +2439,35 @@ results."
 
 <ul>
   <li><a href="../../../tools/device.html">Using Hardware Devices</a></li>
-  <li><a href="../../../tools/devices/index.html">Managing Virtual Devices</a></li>
+  <li><a href="../../../tools/devices/managing-avds.html">Managing AVDs with AVD Manager</a></li>
   <li><a href="../../../tools/projects/index.html">Managing Projects</a></li>
 </ul>
- 
- 
-</div> 
-</div> 
+
+
+</div>
+</div>
 
 
 <p>If you followed the <a href="creating-project.html">previous lesson</a> to create an
 Android project, it includes a default set of "Hello World" source files that allow you to
 immediately run the app.</p>
 
-<p>How you run your app depends on two things: whether you have a real Android-powered device and
-whether you're using Eclipse. This lesson shows you how to install and run your app on a
-real device and on the Android emulator, and in both cases with either Eclipse or the command line
-tools.</p>
-
-<p>Before you run your app, you should be aware of a few directories and files in the Android
-project:</p>
-
-<dl>
-  <dt><code>AndroidManifest.xml</code></dt>
-  <dd>The <a href="../../../guide/topics/manifest/manifest-intro.html">manifest file</a> describes
-the fundamental characteristics of the app and defines each of
-its components. You'll learn about various declarations in this file as you read more training
-classes.
-  <p>One of the most important elements your manifest should include is the <a
-href="../../../guide/topics/manifest/uses-sdk-element.html"><code>&lt;uses-sdk></code></a>
-element. This declares your app's compatibility with different Android versions using the <a
-href="../../../guide/topics/manifest/uses-sdk-element.html#min"><code>android:minSdkVersion</code></a>
-and <a
-href="../../../guide/topics/manifest/uses-sdk-element.html#target"><code>android:targetSdkVersion</code></a>
-attributes. For your first app, it should look like this:</p>
-<pre>
-&lt;manifest xmlns:android="http://schemas.android.com/apk/res/android" ... >
-    &lt;uses-sdk android:minSdkVersion="8" android:targetSdkVersion="19" />
-    ...
-&lt;/manifest>
-</pre>
-<p>You should always set the <a
-href="../../../guide/topics/manifest/uses-sdk-element.html#target"><code>android:targetSdkVersion</code></a>
-as high as possible and test your app on the corresponding platform version. For more information,
-read <a href="../../../training/basics/supporting-devices/platforms.html">Supporting Different
-Platform Versions</a>.</p>
-
-  </dd>
-  <dt><code>src/</code></dt>
-  <dd>Directory for your app's main source files. By default, it includes an <code><a href="../../../reference/android/app/Activity.html">Activity</a></code> class that runs when your app is launched using the app icon.</dd>
-  <dt><code>res/</code></dt>
-  <dd>Contains several sub-directories for <a
-href="../../../guide/topics/resources/overview.html">app resources</a>. Here are just a few:
-    <dl style="margin-top:1em">
-      <dt><code>drawable-hdpi/</code></dt>
-        <dd>Directory for drawable objects (such as bitmaps) that are designed for high-density
-(hdpi) screens. Other drawable directories contain assets designed for other screen densities.</dd>
-      <dt><code>layout/</code></dt>
-        <dd>Directory for files that define your app's user interface.</dd>
-      <dt><code>values/</code></dt>
-        <dd>Directory for other various XML files that contain a collection of resources, such as
-string and color definitions.</dd>
-    </dl>  
-  </dd>
-</dl>
-
-<p>When you build and run the default Android app, the default <code><a href="../../../reference/android/app/Activity.html">Activity</a></code>
-class starts and loads a layout file
-that says "Hello World." The result is nothing exciting, but it's
-important that you understand how to run your app before you start developing.</p>
-
-
+<p>How you run your app depends on two things: whether you have a real device running Android and
+whether you're using Android Studio. This lesson shows you how to install and run your app on a
+real device and on the Android emulator, and in both cases with either Android Studio or the command
+line tools.</p>
 
 <h2 id="RealDevice">Run on a Real Device</h2>
 
-<p>If you have a real Android-powered device, here's how you can install and run your app:</p>
+<p>If you have a device running Android, here's how to install and run your app.</p>
+
+<h3>Set up your device</h3>
 
 <ol>
   <li>Plug in your device to your development machine with a USB cable.
-If you're developing on Windows, you might need to install the appropriate USB driver for your
-device. For help installing drivers, see the <a href="../../../tools/extras/oem-usb.html">OEM USB
-Drivers</a> document.</li>  
+    If you're developing on Windows, you might need to install the appropriate USB driver for your
+    device. For help installing drivers, see the <a href="../../../tools/extras/oem-usb.html">OEM
+    USB Drivers</a> document.</li>
   <li>Enable <strong>USB debugging</strong> on your device.
     <ul>
       <li>On most devices running Android 3.2 or older, you can find the option under
@@ -2316,19 +2482,20 @@ Drivers</a> document.</li>
   </li>
 </ol>
 
-<p>To run the app from Eclipse:</p>
+<h3>Run the app from Android Studio</h3>
 <ol>
-  <li>Open one of your project's files and click
+  <li>Select one of your project's files and click
 <strong>Run</strong> <img
-src="../../../images/tools/eclipse-run.png" style="vertical-align:baseline;margin:0" />
+src="../../../images/tools/as-run.png" style="vertical-align:baseline;margin:0; max-height:1em" />
 from the toolbar.</li>
-  <li>In the <strong>Run as</strong> window that appears, select
-  <strong>Android Application</strong> and click <strong>OK</strong>.</li>
+  <li>In the <strong>Choose Device</strong> window that appears, select the
+  <strong>Choose a running device</strong> radio button, select your device, and click <strong>OK
+  </strong>.</li>
 </ol>
-<p>Eclipse installs the app on your connected device and starts it.</p>
+<p>Android Studio installs the app on your connected device and starts it.</p>
 
 
-<p>Or to run your app from a command line:</p>
+<h3>Run the app from a command line</h3>
 
 <ol>
   <li>Change directories to the root of your Android project and execute:
@@ -2336,7 +2503,7 @@ from the toolbar.</li>
   <li>Make sure the Android SDK <code>platform-tools/</code> directory is included in your
 <code>PATH</code> environment variable, then execute:
 <pre class="no-pretty-print">adb install bin/MyFirstApp-debug.apk</pre></li>
-  <li>On your device, locate <em>MyFirstActivity</em> and open it.</li>
+  <li>On your device, locate <em>MyFirstApp</em> and open it.</li>
 </ol>
 
 <p>That's how you build and run your Android app on a device!
@@ -2347,64 +2514,73 @@ lesson</a>.</p>
 
 <h2 id="Emulator">Run on the Emulator</h2>
 
-<p>Whether you're using Eclipse or the command line, to run your app on the emulator you need to
-first create an <a href="../../../tools/devices/index.html">Android Virtual Device</a> (AVD). An
-AVD is a device configuration for the Android emulator that allows you to model different
-devices.</p>
+<p>Whether you're using Android Studio or the command line, to run your app on the emulator you need
+to first create an <a href="../../../tools/devices/index.html">Android Virtual Device</a> (AVD). An
+AVD is a device configuration for the Android emulator that allows you to model a specific
+device.</p>
 
-<div class="figure" style="width:457px">
-  <img src="../../../images/screens_support/avds-config.png" alt="" />
-  <p class="img-caption"><strong>Figure 1.</strong> The AVD Manager showing a few virtual
-devices.</p>
-</div>
 
-<p>To create an AVD:</p>
+<h3>Create an AVD</h3>
 <ol>
   <li>Launch the Android Virtual Device Manager:
-    <ol type="a">
-      <li>In Eclipse, click Android Virtual Device Manager 
-        <img src="../../../images/tools/avd_manager.png"
-style="vertical-align:baseline;margin:0" /> from the toolbar.</li> 
-      <li>From the command line, change
-directories to <code>&lt;sdk>/tools/</code> and execute:
-<pre class="no-pretty-print">android avd</pre></li>
-    </ol>
+    <ul>
+      <li>In Android Studio, select <strong>Tools &gt; Android &gt; AVD Manager</strong>, or click
+  the AVD Manager icon <img src="../../../images/tools/avd-manager-studio.png" style="vertical-align:bottom;margin:0;height:19px"> in the toolbar.</li>
+      <li>Or, from the command line, change directories to
+      <code>&lt;sdk>/tools/</code> and execute:
+        <pre class="no-pretty-print">android avd</pre>
+        <p class="note"><strong>Note:</strong> The AVD Manager that appears
+        when launched from the command line is different from the version in
+        Android Studio, so the following instructions may not apply.</p>
+        </li>
+    </ul>
+
+  <img src="../../../images/studio-avdmgr-firstscreen.png" alt=""
+  style="margin-top:1em">
+  <p class="img-caption"><strong>Figure 1.</strong> The AVD Manager main screen shows your current virtual devices.</p>
+
   </li>
-  <li>In the <em>Android Virtual Device Manager</em> panel, click <strong>New</strong>.</li>
-  <li>Fill in the details for the AVD.
-Give it a name, a platform target, an SD card size, and a skin (HVGA is default).</li>
-  <li>Click <strong>Create AVD</strong>.</li>
-  <li>Select the new AVD from the <em>Android Virtual Device Manager</em> and click
-<strong>Start</strong>.</li>
-  <li>After the emulator boots up, unlock the emulator screen.</li>
+  <li>On the AVD Manager main screen (figure 1), click <strong>Create Virtual Device</strong>.</li>
+
+  <li>In the Select Hardware window, select a device configuration, such as Nexus 6,
+  then click <strong>Next</strong>.
+  </li>
+  <li>Select the desired system version for the AVD and click <strong>Next</strong>.
+  </li>
+  <li>Verify the configuration settings, then click <strong>Finish</strong>.
+  </li>
 </ol>
 
-<p>To run the app from Eclipse:</p>
+<p>For more information about using AVDs, see
+<a href="../../../tools/devices/managing-avds.html">Managing AVDs with AVD Manager</a>.</p>
+
+<h3>Run the app from Android Studio</h3>
 <ol>
-  <li>Open one of your project's files and click
-<strong>Run</strong> <img
-src="../../../images/tools/eclipse-run.png" style="vertical-align:baseline;margin:0" />
-from the toolbar.</li>
-  <li>In the <strong>Run as</strong> window that appears, select
-  <strong>Android Application</strong> and click <strong>OK</strong>.</li>
+  <li>In <strong>Android Studio</strong>, select your project and click <strong>Run</strong>
+    <img src="../../../images/tools/as-run.png" style="vertical-align:baseline;margin:0; max-height:1em" />
+    from the toolbar.</li>
+  <li>In the <strong>Choose Device</strong> window, click the <strong>Launch emulator</strong> radio
+    button.</li>
+  <li>From the <strong>Android virtual device</strong> pull-down menu, select the emulator
+    you created, and click <strong>OK</strong>.</li>
 </ol>
-<p>Eclipse installs the app on your AVD and starts it.</p>
+<p>It can take a few minutes for the emulator to load itself. You may have to unlock the screen.
+  When you do, My First App appears on the emulator screen.</p>
 
 
-<p>Or to run your app from the command line:</p>
+<h3>Run your app from the command line</h3>
 
 <ol>
   <li>Change directories to the root of your Android project and execute:
-<pre class="no-pretty-print">ant debug</pre></li>
+    <pre class="no-pretty-print">ant debug</pre></li>
   <li>Make sure the Android SDK <code>platform-tools/</code> directory is included in your
-<code>PATH</code> environment
-variable, then execute:
-<pre class="no-pretty-print">adb install bin/MyFirstApp-debug.apk</pre></li>
-  <li>On the emulator, locate <em>MyFirstActivity</em> and open it.</li>
+    <code>PATH</code> environment variable, then execute:
+    <pre class="no-pretty-print">adb install bin/MyFirstApp-debug.apk</pre></li>
+  <li>On the emulator, locate <em>MyFirstApp</em> and open it.</li>
 </ol>
 
 
-<p>That's how you build and run your Android app on the emulator! 
+<p>That's how you build and run your Android app on the emulator!
   To start developing, continue to the <a href="building-ui.html">next
 lesson</a>.</p>
 
@@ -2487,10 +2663,10 @@ lesson</a>.</p>
 
 
   <script src="https://developer.android.com/ytblogger_lists_unified.js" type="text/javascript"></script>
-  <script src="../../../jd_lists_unified.js?v=2" type="text/javascript"></script>
-  <script src="../../../jd_extras.js?v=3" type="text/javascript"></script>
-  <script src="../../../jd_collections.js?v=3" type="text/javascript"></script>
-  <script src="../../../jd_tag_helpers.js?v=2" type="text/javascript"></script>
+  <script src="../../../jd_lists_unified.js?v=8" type="text/javascript"></script>
+  <script src="../../../jd_extras.js?v=9" type="text/javascript"></script>
+  <script src="../../../jd_collections.js?v=9" type="text/javascript"></script>
+  <script src="../../../jd_tag_helpers.js?v=5" type="text/javascript"></script>
 
 </body>
 </html>

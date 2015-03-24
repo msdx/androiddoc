@@ -87,6 +87,9 @@
 
 
 
+
+
+
 <html>
 <head>
 
@@ -103,7 +106,7 @@
 href="http://fonts.useso.com/css?family=Roboto+Condensed">
 <link rel="stylesheet" href="http://fonts.useso.com/css?family=Roboto:light,regular,medium,thin,italic,mediumitalic,bold"
   title="roboto">
-<link href="../../../assets/css/default.css?v=2" rel="stylesheet" type="text/css">
+<link href="../../../assets/css/default.css?v=5" rel="stylesheet" type="text/css">
 
 
 
@@ -114,13 +117,15 @@ href="http://fonts.useso.com/css?family=Roboto+Condensed">
   var metaTags = ["filtering","features","googleplayfilters","permissions"];
   var devsite = false;
 </script>
-<script src="../../../assets/js/docs.js?v=2" type="text/javascript"></script>
+<script src="../../../assets/js/docs.js?v=3" type="text/javascript"></script>
+
+
 
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//googleapiscdn.qiniudn.com/www.google-analytics.com/analytics.js','ga');
+  })(window,document,'script','//../../../../ajax/www.google-analytics.com/analytics.js','ga');
 
   ga('create', 'UA-5831155-1', 'android.com');
   ga('create', 'UA-49880327-2', 'android.com', {'name': 'universal'});  // New tracker);
@@ -135,6 +140,52 @@ href="http://fonts.useso.com/css?family=Roboto+Condensed">
 develop guide" itemscope itemtype="http://schema.org/Article">
 
 <a name="top"></a>
+
+<!-- dialog to prompt lang pref change when loaded from hardcoded URL 
+<div id="langMessage" style="display:none">
+  <div>
+    <div class="lang en">
+      <p>You requested a page in English, would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang es">
+      <p>You requested a page in Spanish (Español), would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang ja">
+      <p>You requested a page in Japanese (日本語), would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang ko">
+      <p>You requested a page in Korean (한국어), would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang ru">
+      <p>You requested a page in Russian (Русский), would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang zh-cn">
+      <p>You requested a page in Simplified Chinese (简体中文), would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang zh-tw">
+      <p>You requested a page in Traditional Chinese (繁體中文), would you like to proceed with this language setting?</p>
+    </div>
+    <a href="#" class="button yes" onclick="return false;">
+      <span class="lang en">Yes</span>
+      <span class="lang es">Sí</span>
+      <span class="lang ja">Yes</span>
+      <span class="lang ko">Yes</span>
+      <span class="lang ru">Yes</span>
+      <span class="lang zh-cn">是的</span>
+      <span class="lang zh-tw">没有</span>
+    </a>
+    <a href="#" class="button" onclick="$('#langMessage').hide();return false;">
+      <span class="lang en">No</span>
+      <span class="lang es">No</span>
+      <span class="lang ja">No</span>
+      <span class="lang ko">No</span>
+      <span class="lang ru">No</span>
+      <span class="lang zh-cn">没有</span>
+      <span class="lang zh-tw">没有</span>
+    </a>
+  </div>
+</div> -->
+
 
   <!-- Header -->
   <div id="header-wrapper">
@@ -332,6 +383,7 @@ develop guide" itemscope itemtype="http://schema.org/Article">
                 <li><a href="../../../distribute/users/index.html">Get Users</a></li>
                 <li><a href="../../../distribute/engage/index.html">Engage &amp; Retain</a></li>
                 <li><a href="../../../distribute/monetize/index.html">Monetize</a></li>
+                <li><a href="../../../distribute/analyze/index.html">Analyze</a></li>
                 <li><a href="../../../distribute/tools/index.html">Tools &amp; Reference</a></li>
                 <li><a href="../../../distribute/stories/index.html">Developer Stories</a></li>
               </ul>
@@ -344,7 +396,10 @@ develop guide" itemscope itemtype="http://schema.org/Article">
   
     <!-- Secondary x-nav -->
     <div id="nav-x">
-        <div class="wrap">
+        <div class="wrap" style="position:relative;z-index:1">
+
+        
+
             <ul class="nav-x col-9 develop" style="width:100%">
                 <li class="training"><a href="../../../training/index.html"
                   zh-tw-lang="訓練課程"
@@ -463,6 +518,9 @@ develop guide" itemscope itemtype="http://schema.org/Article">
             </a></li>
           <li><a href="../../../guide/components/tasks-and-back-stack.html">
               <span class="en">Tasks and Back Stack</span>
+            </a></li>
+          <li><a href="../../../guide/components/recents.html">
+              <span class="en">Overview Screen</span>
             </a></li>
         </ul>
       </li>
@@ -1053,12 +1111,12 @@ develop guide" itemscope itemtype="http://schema.org/Article">
 </div>
 </div>
 
- <div class="sidebox-wrapper"> 
+ <div class="sidebox-wrapper">
  <div class="sidebox">
-    <img src="../../../assets/images/icon_play.png" style="float:left;margin:0;padding:0;"> 
-    <p style="color:#669999;padding-top:1em;">Google Play Filtering</p> 
+    <img src="../../../assets/images/icon_play.png" style="float:left;margin:0;padding:0;">
+    <p style="color:#669999;padding-top:1em;">Google Play Filtering</p>
     <p style="padding-top:1em;">Google Play uses the <code>&lt;uses-feature&gt;</code>
-    elements declared in your app manifest to filter your app from devices 
+    elements declared in your app manifest to filter your app from devices
     that do not meet it's hardware and software feature requirements. </p>
 
 <p style="margin-top:1em;">By specifying the features that your application requires,
@@ -1123,7 +1181,7 @@ application requires.</p>
 <p>Declared <code>&lt;uses-feature></code> elements are informational only, meaning
 that the Android system itself does not check for matching feature support on
 the device before installing an application. However, other services
-(such as Google Play) or applications may check your application's 
+(such as Google Play) or applications may check your application's
 <code>&lt;uses-feature></code> declarations as part of handling or interacting
 with your application. For this reason, it's very important that you declare all of
 the features (from the list below) that your application uses. </p>
@@ -1149,7 +1207,7 @@ permission grants your application access to the appropriate hardware and
 software, while declaring the features used by your application ensures proper
 device compatibility.</p>
 
-</dd> 
+</dd>
 
 
 <dt>attributes:</dt>
@@ -1376,7 +1434,7 @@ not offer a camera.</p>
 
 <p>If you don't want Google Play to filter based on a specific implied
 feature, you can disable that behavior. To do so, declare the feature explicitly
-in a <code>&lt;uses-feature&gt;</code> element and include an 
+in a <code>&lt;uses-feature&gt;</code> element and include an
 <code>android:required="false"</code> attribute. For example, to disable
 filtering derived from the <code>CAMERA</code> permission, you would declare
 the feature as shown below.</p>
@@ -1584,7 +1642,7 @@ is sensitive to delays or lag in sound input or output.</td>
        <td></td>
     </tr>
     <tr>
-       <td rowspan="5">Camera</td>
+       <td rowspan="6">Camera</td>
        <td><code>android.hardware.camera</code></td>
        <td>The application uses the device's camera. If the device supports
            multiple cameras, the application uses the camera that facing
@@ -1616,6 +1674,22 @@ external camera device if one is connected. Use this in preference to
 <tr>
   <td><code>android.hardware.camera.external</code></td>
   <td>The application uses an external camera device if one is connected.</td>
+</tr>
+<tr>
+  <td><code>android.hardware.camera.level.full</code></td>
+  <td>The application uses a camera device with <code>FULL</code>-level support.</td>
+</tr>
+<tr>
+  <td><code>android.hardware.camera.capability.manual_sensor</code></td>
+  <td>The application uses a a camera device with the <code>MANUAL_SENSOR</code> capability.</td>
+</tr>
+<tr>
+  <td><code>android.hardware.camera.capability.manual_post_processing</code></td>
+  <td>The application uses a a camera device with the <code>MANUAL_POST_PROCESSING</code> capability.</td>
+</tr>
+<tr>
+  <td><code>android.hardware.camera.capability.raw</code></td>
+  <td>The application uses a a camera device with the <code>RAW</code> capability.</td>
 </tr>
 
 <tr>
@@ -1762,9 +1836,9 @@ device.</td>
   <td>Television</td>
   <td><code>android.hardware.type.television</code></td>
   <td>The application is designed for a television user experience.</td>
-  <td>This feature defines "television" to be a typical living room television experience: 
-  displayed on a big screen, where the user is sitting far away and the dominant form of 
-  input is something like a d-pad, and generally not through touch or a 
+  <td>This feature defines "television" to be a typical living room television experience:
+  displayed on a big screen, where the user is sitting far away and the dominant form of
+  input is something like a d-pad, and generally not through touch or a
   mouse/pointer-device.</td>
 </tr>
 
@@ -1898,9 +1972,9 @@ in a separate <code>&lt;uses-feature&gt;</code> element. </p>
 
 
   <table>
-<tr> 
+<tr>
   <th>Feature</th>
-  <th>Attribute Value</th> 
+  <th>Attribute Value</th>
   <th>Description</th>
 </tr>
 <tr>
@@ -1983,7 +2057,7 @@ filtering based on the <code>CAMERA</code> permission, you would add this
 <pre>&lt;uses-feature android:name="android.hardware.camera" android:required="false" /&gt;</pre>
 
 <table id="permissions-features" >
-  <tr> 
+  <tr>
     <th>Category</th>
     <th>This Permission...</th>
     <th>Implies This Feature Requirement</th>
@@ -2174,10 +2248,10 @@ filtering based on the <code>CAMERA</code> permission, you would add this
 
 
   <script src="https://developer.android.com/ytblogger_lists_unified.js" type="text/javascript"></script>
-  <script src="../../../jd_lists_unified.js?v=2" type="text/javascript"></script>
-  <script src="../../../jd_extras.js?v=3" type="text/javascript"></script>
-  <script src="../../../jd_collections.js?v=3" type="text/javascript"></script>
-  <script src="../../../jd_tag_helpers.js?v=2" type="text/javascript"></script>
+  <script src="../../../jd_lists_unified.js?v=8" type="text/javascript"></script>
+  <script src="../../../jd_extras.js?v=9" type="text/javascript"></script>
+  <script src="../../../jd_collections.js?v=9" type="text/javascript"></script>
+  <script src="../../../jd_tag_helpers.js?v=5" type="text/javascript"></script>
 
 </body>
 </html>
