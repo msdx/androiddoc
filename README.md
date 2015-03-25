@@ -40,3 +40,4 @@ ANDROID API镜像站
 
     ./handledocs beautifulapps_4.png "\/\/1.bp.blogspot.com\/-k8DZYu0daT4\/UdRt1AzstvI\/AAAAAAAAAFM\/CvEkb2yh-i0\/s965\/beautifulapps_4.png" html
 
+    sed -i "s/\/\/3.bp.blogspot.com\/-k33rf398Lqw\/UlRUMQQRUNI\/AAAAAAAAClM\/pSwz2YgQpmY\/s1600\/gps-play_games_logo.png/..\/images\/google\/gps-play_games_logo.png/g" develop/index.html
