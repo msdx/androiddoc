@@ -27,3 +27,9 @@ ANDROID API镜像站
     ./handledocs ga.js "('https:' == document.location.protocol.*ga\.js';" html
 
     sed -i 's/\/\/lh4.ggpht.com\/-lfjzgG5Dqrk\/UHMThRtpRwI\/AAAAAAAABpk\/h4d3nsmkgPM\/s400\/mint.png/..\/images\/distribute\/mint.png/' develop/index.html 
+
+    ./handledocs swfobject.js "\/\/swfobject.googlecode.com\/svn\/trunk\/swfobject\/swfobject.js" html swfobject.googlecode.com
+
+    ./handledocs swfobject.js "\/\/ajax.googleapis.com\/ajax\/libs\/swfobject\/2.2\/swfobject.js" html ajax.googleapis.com
+
+    ./handledocs ytblogger_lists_unified.js "https:\/\/developer.android.com\/ytblogger_lists_unified.js" html
