@@ -33,3 +33,10 @@ ANDROID API镜像站
     ./handledocs swfobject.js "\/\/ajax.googleapis.com\/ajax\/libs\/swfobject\/2.2\/swfobject.js" html ajax.googleapis.com
 
     ./handledocs ytblogger_lists_unified.js "https:\/\/developer.android.com\/ytblogger_lists_unified.js" html
+
+    ./handledocs gp-referral-ga.png "\/\/3.bp.blogspot.com\/-_8WvpdTVGsE\/UkxxxrVoNNI\/AAAAAAAACj8\/FrQyA-BO11c\/s1600\/gp-referral-ga.png" html
+
+    ./handledocs icons.png "\/\/2.bp.blogspot.com\/-HfoO6KNFBKA\/UeiyRoELb7I\/AAAAAAAAAFs\/bHR-5viktU4\/s1000\/icons.png" html 2.bp.blogspot.com
+
+    ./handledocs beautifulapps_4.png "\/\/1.bp.blogspot.com\/-k8DZYu0daT4\/UdRt1AzstvI\/AAAAAAAAAFM\/CvEkb2yh-i0\/s965\/beautifulapps_4.png" html
+
