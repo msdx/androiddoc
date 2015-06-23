@@ -8,7 +8,7 @@ ANDROID API镜像站
 ---
 关于修改android doc加快打开速度的所用到的几行脚本（进入docs目录下执行）：
 
-    deb http://cz.archive.ubuntu.com/ubuntu vivid main 
+在`/etc/apt/sources.list`中加入`deb http://cz.archive.ubuntu.com/ubuntu vivid main`
 
     sudo apt-get update
 
