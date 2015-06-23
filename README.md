@@ -6,7 +6,7 @@ ANDROID API镜像站
 目前版本：android 5.1。欢迎检出及部署。
 
 ---
-关于修改android doc加快打开速度的所用到的几行脚本：
+关于修改android doc加快打开速度的所用到的几行脚本（进入docs目录下执行）：
 
     deb http://cz.archive.ubuntu.com/ubuntu vivid main 
 
