@@ -3,20 +3,21 @@
 #$2 表示要用来在sed中替换的字符串
 #$3 表示要处理的文件的后缀
 #$4 表示ajax的子目录
-filepath=`find ajax/$4 -name "$1"`
+#$5 其他字符，如'
+filepath=`find docs/ajax/$4 -name "$1"`
 
 #echo $filepath
 
-fileList=`find . -name "*.$3" |xargs grep -l "$2"`
+fileList=`find docs -name "*.$3" |xargs grep -l "$2"`
 
 i=0;
 for line in $fileList; do 
 #    echo $line ;
-    relatPath=$(realpath --relative-to=$line $filepath |sed "s/\//\\\\\//g")
+    relatPath=$(./pathtool -relative $line $filepath )
 #    echo param2: "$2"
 #    echo relativePath: $relatPath
 #    echo sed -i "s/$2/$relatPath/g" $line
-    sed -i "s/$2/$relatPath/g" $line
+    sed -i "s@$2@$5$relatPath$5@g" $line
     ((i++));
     echo $i
 done;
