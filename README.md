@@ -3,6 +3,12 @@ ANDROID API镜像站
 
 本项目将android doc文档的页面进行处理，以加快打开速度，目前已将其部署在七牛空间，访问地址：[http://androiddoc.qiniudn.com/](http://androiddoc.qiniudn.com)
 
+备用地址：
+
+[http://msdx.github.io/androiddoc/docs/](http://msdx.github.io/androiddoc/docs/)
+
+[http://7ktv9b.com1.z0.glb.clouddn.com](http://7ktv9b.com1.z0.glb.clouddn.com)
+
 目前版本：android 5.1。欢迎检出及部署。
 
 ---
