@@ -1,0 +1,1190 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
+
+<meta name="Description" content="You can use the toolchains provided with the Android NDK independently, or as plug-ins with an existing IDE, such as Eclipse. This flexibility can be useful if you already have your own build system, and only need the ability to invoke the cross-compiler…">
+<link rel="shortcut icon" type="image/x-icon" href="../../favicon.ico" />
+<title>Standalone Toolchain | Android Developers</title>
+
+<!-- STYLESHEETS -->
+<link rel="stylesheet"
+href="http://fonts.useso.com/css?family=Roboto+Condensed">
+<link rel="stylesheet" href="http://fonts.useso.com/css?family=Roboto:light,regular,medium,thin,italic,mediumitalic,bold"
+  title="roboto">
+<link rel="stylesheet" href="http://fonts.useso.com/css?family=Roboto+Mono:400,500,700" title="roboto-mono" type="text/css">
+<link href="../../assets/css/default.css?v=7" rel="stylesheet" type="text/css">
+
+
+
+<!-- JAVASCRIPT -->
+<script src="../../assets/js/android_3p-bundle.js" type="text/javascript"></script>
+<script type="text/javascript">
+  var toRoot = "../../";
+  var metaTags = [];
+  var devsite = false;
+</script>
+<script src="../../assets/js/docs.js?v=6" type="text/javascript"></script>
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-5831155-1', 'android.com');
+  ga('create', 'UA-49880327-2', 'android.com', {'name': 'universal'});  // New tracker);
+  ga('send', 'pageview');
+  ga('universal.send', 'pageview'); // Send page view for new tracker.
+</script>
+
+</head>
+
+<body class="gc-documentation
+
+
+ndk guide" itemscope itemtype="http://schema.org/Article">
+<a name="top"></a>
+
+<!-- dialog to prompt lang pref change when loaded from hardcoded URL
+<div id="langMessage" style="display:none">
+  <div>
+    <div class="lang en">
+      <p>You requested a page in English, would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang es">
+      <p>You requested a page in Spanish (Español), would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang ja">
+      <p>You requested a page in Japanese (日本語), would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang ko">
+      <p>You requested a page in Korean (한국어), would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang ru">
+      <p>You requested a page in Russian (Русский), would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang zh-cn">
+      <p>You requested a page in Simplified Chinese (简体中文), would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang zh-tw">
+      <p>You requested a page in Traditional Chinese (繁體中文), would you like to proceed with this language setting?</p>
+    </div>
+    <a href="#" class="button yes" onclick="return false;">
+      <span class="lang en">Yes</span>
+      <span class="lang es">Sí</span>
+      <span class="lang ja">Yes</span>
+      <span class="lang ko">Yes</span>
+      <span class="lang ru">Yes</span>
+      <span class="lang zh-cn">是的</span>
+      <span class="lang zh-tw">没有</span>
+    </a>
+    <a href="#" class="button" onclick="$('#langMessage').hide();return false;">
+      <span class="lang en">No</span>
+      <span class="lang es">No</span>
+      <span class="lang ja">No</span>
+      <span class="lang ko">No</span>
+      <span class="lang ru">No</span>
+      <span class="lang zh-cn">没有</span>
+      <span class="lang zh-tw">没有</span>
+    </a>
+  </div>
+</div> -->
+
+
+  <!-- Header -->
+  <div id="header-wrapper">
+    <div class="dac-header" id="header">
+
+
+
+
+      <div class="dac-header-inner">
+        <a class="dac-nav-toggle" data-dac-toggle-nav href="javascript:;" title="Open navigation">
+          <span class="dac-nav-hamburger">
+            <span class="dac-nav-hamburger-top"></span>
+            <span class="dac-nav-hamburger-mid"></span>
+            <span class="dac-nav-hamburger-bot"></span>
+          </span>
+        </a>
+        <a class="dac-header-logo" href="../../ndk/index.html">
+          <img class="dac-header-logo-image" src="../../assets/images/android_logo_ndk.png"
+              srcset="../../assets/images/android_logo_ndk@2x.png 2x"
+              width="32" height="36" alt="Android" /> NDK
+          </a>
+
+        <ul class="dac-header-crumbs">
+          
+          <li class="dac-header-crumbs-item"><span class="dac-header-crumbs-link current ndk">Standalone Toolchain</a></li>
+        </ul>
+
+        
+        
+
+        <a class="dac-header-console-btn" href="http://developer.android.com">
+          <span class="dac-visible-desktop-inline">Back to Android Developers</span>
+        </a>
+
+      </div><!-- end header-wrap.wrap -->
+    </div><!-- end header -->
+
+    <div id="searchResults" class="wrap" style="display:none;">
+      <h2 id="searchTitle">Results</h2>
+      <div id="leftSearchControl" class="search-control">Loading...</div>
+    </div>
+  </div> <!--end header-wrapper -->
+
+  
+  <!-- NDK Navigation-->
+  <nav class="dac-nav">
+    <div class="dac-nav-dimmer" data-dac-toggle-nav></div>
+
+    <ul class="dac-nav-list" data-dac-nav>
+      <li class="dac-nav-item dac-nav-head">
+        <a class="dac-nav-link dac-nav-logo" data-dac-toggle-nav href="javascript:;" title="Close navigation">
+          <img class="dac-logo-image" src="../../assets/images/android_logo_ndk.png"
+               srcset="../../assets/images/android_logo_ndk@2x.png 2x"
+               width="32" height="36" alt="Android" /> NDK
+        </a>
+      </li>
+      <li class="dac-nav-item guides">
+        <a class="dac-nav-link" href="../../ndk/guides/index.html"
+           zh-tw-lang="API 指南"
+           zh-cn-lang="API 指南"
+           ru-lang="Руководства по API"
+           ko-lang="API 가이드"
+           ja-lang="API ガイド"
+           es-lang="Guías de la API">Guides</a>
+      </li>
+      <li class="dac-nav-item reference">
+        <a class="dac-nav-link" href="../../ndk/reference/index.html"
+           zh-tw-lang="參考資源"
+           zh-cn-lang="参考"
+           ru-lang="Справочник"
+           ko-lang="참조문서"
+           ja-lang="リファレンス"
+           es-lang="Referencia">Reference</a>
+      </li>
+      <li class="dac-nav-item samples">
+        <a class="dac-nav-link" href="../../ndk/samples/index.html"
+           >Samples</a>
+      </li>
+      <li class="dac-nav-item downloads">
+        <a class="dac-nav-link" href="../../ndk/downloads/index.html"
+           >Downloads</a>
+      </li>
+    </ul>
+  </nav>
+  <!-- end NDK navigation-->
+  
+
+
+
+
+  <div class="wrap clearfix" id="body-content"><div class="cols">
+    <div class="col-3 dac-toggle dac-mobile" id="side-nav" itemscope itemtype="http://schema.org/SiteNavigationElement">
+      
+  <div class="dac-visible-mobile-block" data-toggle="section">
+    <span class="dac-toggle-expand dac-devdoc-toggle"><i class="dac-sprite dac-expand-more-black"></i> Show navigation</span>
+    <span class="dac-toggle-collapse dac-devdoc-toggle" data-toggle-section><i class="dac-sprite dac-expand-less-black"></i> Hide navigation</span>
+  </div>
+
+      <div class="dac-toggle-content" id="devdoc-nav">
+        <div class="scroll-pane">
+
+
+<ul id="nav">
+   <li class="nav-section">
+      <div class="nav-section-header"><a href="../../ndk/guides/index.html">
+      <span class="en">Getting Started</span></a></div>
+      <ul>
+         <li><a href="../../ndk/guides/setup.html">Setup</a></li>
+         <li><a href="../../ndk/guides/concepts.html">Concepts</a></li>
+      </ul>
+   </li>
+
+   <li class="nav-section">
+      <div class="nav-section-header"><a href="../../ndk/guides/build.html">
+      <span class="en">
+      Building</span></a></div>
+      <ul>
+         <li><a href="../../ndk/guides/android_mk.html">Android.mk</a></li>
+         <li><a href="../../ndk/guides/application_mk.html">Application.mk</a></li>
+         <li><a href="../../ndk/guides/ndk-build.html">ndk-build</a></li>
+         <li><a href="../../ndk/guides/standalone_toolchain.html">Standalone Toolchain
+         </a></li>
+      </ul>
+   </li>
+
+   <li class="nav-section">
+      <div class="nav-section-header"><a href="../../ndk/guides/arch.html">
+      <span class="en">Architectures and CPUs</span></a></div>
+      <ul>
+         <li><a href="../../ndk/guides/abis.html">ABI Management</a></li>
+         <li><a href="../../ndk/guides/cpu-arm-neon.html">NEON</a></li>
+         <li><a href="../../ndk/guides/x86.html">x86</a></li>
+         <li><a href="../../ndk/guides/x86-64.html">x86-64</a></li>
+         <li><a href="../../ndk/guides/mips.html">MIPS</a></li>
+         <li><a href="../../ndk/guides/cpu-features.html">The cpufeatures Library</a>
+         </li>
+      </ul>
+   </li>
+
+   <li class="nav-section">
+      <div class="nav-section-header"><a href="../../ndk/guides/debug.html">
+      <span class="en">Debugging</span></a></div>
+      <ul>
+         <li><a href="../../ndk/guides/ndk-gdb.html">ndk-gdb</a></li>
+         <li><a href="../../ndk/guides/ndk-stack.html">ndk-stack</a></li>
+      </ul>
+   </li>
+
+   <li class="nav-section">
+      <div class="nav-section-header"><a href="../../ndk/guides/libs.html">
+      <span class="en">Libraries</span></a></div>
+      <ul>
+      <li><a href="../../ndk/guides/prebuilts.html">Prebuilt Libraries</a></li>
+      <li><a href="../../ndk/guides/cpp-support.html">C++ Support</a></li>
+      <li><a href="../../ndk/guides/stable_apis.html">Stable APIs</a></li>
+
+      </ul>
+   </li>
+
+</ul>
+
+
+<script type="text/javascript">
+<!--
+    buildToggleLists();
+    changeNavLang(getLangPref());
+//-->
+</script>
+
+
+        </div>
+      </div>
+    </div> <!-- end side-nav -->
+    <script>
+      $(document).ready(function() {
+        scrollIntoView("devdoc-nav");
+        });
+    </script>
+
+
+
+
+<div class="col-12" id="doc-col" >
+
+
+  
+
+  
+    
+      
+        <h1 itemprop="name" >Standalone Toolchain</h1>
+      
+    
+  
+
+
+  
+  <div id="jd-content">
+
+
+    <div class="jd-descr" itemprop="articleBody">
+    <div id="qv-wrapper">
+    <div id="qv">
+      <h2>On this page</h2>
+
+      <ol>
+        <li><a href="#syt">Selecting Your Toolchain</a></li>
+        <li><a href="#sys">Selecting Your Sysroot</a></li>
+        <li><a href="#itc">Invoking the Compiler</a></li>
+        <li><a href="#wwc">Working with Clang</a></li>
+        <li><a href="#abi">ABI Compatibility</a></li>
+        <li><a href="#war">Warnings and Limitations</a></li>
+      </ol>
+    </div>
+  </div>
+
+<p>You can use the toolchains provided with the Android NDK independently, or as plug-ins
+with an existing IDE, such as Eclipse. This flexibility
+can be useful if you already have your own build system, and only need the ability to invoke the
+cross-compiler in order to add support to Android for it.</p>
+
+<p>A typical use case is invoking the configure script of an open-source library that expects a
+cross-compiler in the <code>CC</code> environment variable.</p>
+
+<p class="note"><strong>Note:</strong> This page assumes significant understanding of
+compiling, linking, and low-level architecture. In addition, the techniques it describes are
+unnecessary for most use cases. In most cases, we recommend that you forego using a standalone
+toolchain, and instead stick to the NDK build system.</p>
+
+<h2 id="syt">Selecting Your Toolchain</h2>
+<p>Before anything else, you need to decide which processing architecture your standalone toolchain
+is going to target. Each architecture corresponds to a different toolchain name, as Table 1
+shows.</p>
+
+<p class="table-caption" id="table1">
+  <strong>Table 1.</strong> <code>APP_ABI</code> settings for different instruction sets.</p>
+<table>
+  <tr>
+    <th scope="col">Architecture</th>
+    <th scope="col">Toolchain name</th>
+  </tr>
+  <tr>
+    <td>ARM-based</td>
+    <td><code>arm-linux-androideabi-&lt;gcc-version&gt;</code></td>
+  </tr>
+  <tr>
+    <td>x86-based</td>
+    <td><code>x86-&lt;gcc-version&gt;</code></td>
+  </tr>
+  <tr>
+    <td>MIPS-based</td>
+    <td><code>mipsel-linux-android-&lt;gcc-version&gt;</code></td>
+  </tr>
+  <tr>
+    <td>ARM64-based</td>
+    <td><code>aarch64-linux-android-&lt;gcc-version&gt;</code></td>
+  </tr>
+  <tr>
+    <td>X86-64-based</td>
+    <td><code>x86_64-&lt;gcc-version&gt;</code></td>
+  </tr>
+  <tr>
+    <td>MIPS64-based</td>
+    <td><code>mips64el-linux-android--&lt;gcc-version&gt;</code></td>
+  </tr>
+</table>
+
+
+
+<h2 id="sys">Selecting Your Sysroot</h2>
+<p>The next thing you need to do is define your <i>sysroot</i> (A sysroot is a directory containing
+the system headers and libraries for your target). To define the sysroot, you must must know the
+Android API level you want to target for native support; available native APIs vary by Android API
+level.</p>
+
+<p>Native APIs for the respective <a href="../../guide/topics/manifest/uses-sdk-element.html">
+Android API levels</a> reside under <code>$NDK/platforms/</code>; each API-level
+directory, in turn, contains subdirectories for the various CPUs and architectures. The
+following example shows how to define a <em>sysroot</em> for a build targeting Android 5.0
+(API level 21), for ARM architecture:</p>
+
+<pre class="no-pretty-print">
+SYSROOT=$NDK/platforms/android-21/arch-arm
+</pre>
+
+For more detail about the Android API levels and the respective native APIs they support, see
+<a href=../../ndk/guides/stable_apis.html>Android NDK Native APIs</a>.
+
+<h2 id="itc">Invoking the Compiler</h2>
+
+<p>There are two ways to invoke the compiler. One method is simple, and leaves most of the lifting
+to the build system. The other is more advanced, but provides more flexibility.</p>
+
+<h3 id="sm">Simple method</h3>
+<p>The simplest way to build is by invoking the appropriate compiler directly from the command
+line, using the <code>--sysroot</code> option to indicate the location of the system files for the
+platform you're targeting. For example:</p>
+
+<pre class="no-pretty-print">
+export CC="$NDK/toolchains/arm-linux-androideabi-4.8/prebuilt/ \
+linux-x86/bin/arm-linux-androideabi-gcc-4.8 --sysroot=$SYSROOT"
+$CC -o foo.o -c foo.c
+</pre>
+
+<p>While this method is simple, it lacks in flexibility: It does not allow you to use any C++ STL
+(STLport, libc++, or the GNU libstdc++) with it. It also does not support exceptions or RTTI.</p>
+
+<p>For Clang, you need to perform an additional two steps:</p>
+<ul>
+<ol type="1">
+<li>Add the appropriate <code>-target</code> for the target architecture, as Table 2 shows.</li>
+
+<p class="table-caption" id="table2">
+  <strong>Table 2.</strong> Architectures and corresponding values for <code>-target</code>.</p>
+   <table>
+  <tr>
+    <th scope="col">Architecture</th>
+    <th scope="col">Value</th>
+  </tr>
+  <tr>
+    <td>armeabi</td>
+    <td><code>-target armv5te-none-linux-androideabi</code></td>
+  </tr>
+  <tr>
+    <td>armeabi-v7a</td>
+    <td><code>-target armv7-none-linux-androideabi</code></td>
+  </tr>
+  <tr>
+     <td>arm64-v8a</td>
+     <td><code>-target aarch64-none-linux-android</code></td>
+  </tr>
+  <tr>
+    <td>x86</td>
+    <td><code>-target i686-none-linux-android</code></td>
+  </tr>
+  <tr>
+    <td>x86_64</td>
+    <td><code>-target x86_64-none-linux-android</code></td>
+  </tr>
+  <tr>
+    <td>mips</td>
+    <td><code>-target mipsel-none-linux-android</code></td>
+  </tr>
+</table>
+
+<li>Add assembler and linker support by adding the <code>-gcc-toolchain</code> option, as in the
+following example:</li>
+<pre class="no-pretty-print">
+-gcc-toolchain $NDK/toolchains/arm-linux-androideabi-4.8/prebuilt/linux-x86_64
+</pre>
+</ol>
+
+Ultimately, a command to compile using Clang might look like this:
+
+<pre class="no-pretty-print">
+export CC="$NDK/toolchains/arm-linux-androideabi-4.8/prebuilt/ \
+linux-x86/bin/arm-linux-androideabi-gcc-4.8 --sysroot=$SYSROOT" -target \
+armv7-none-linux-androideabi \
+-gcc-toolchain $NDK/toolchains/arm-linux-androideabi-4.8/prebuilt/linux-x86_64"
+$CC -o foo.o -c foo.c
+</pre>
+</ul>
+
+<h3>Advanced method</h3>
+<p>The NDK provides the <code>make-standalone-toolchain.sh</code> shell script to allow you to perform a
+customized toolchain installation from the command line. This approach affords you more flexibility
+than the procedure described in <a href="#sm">Simple method</a>.</p>
+
+<p>The script is located in the <code>$NDK/build/tools/</code> directory, where <code>$NDK</code> is the
+installation root for the NDK. An example of the use of this script appears below:</p>
+
+<pre class="no-pretty-print">
+$NDK/build/tools/make-standalone-toolchain.sh \
+--arch=arm --platform=android-21 --install-dir=/tmp/my-android-toolchain
+</pre>
+
+<p>This command creates a directory named <code>/tmp/my-android-toolchain/</code>, containing a copy of
+the <code>android-21/arch-arm</code> sysroot, and of the toolchain binaries for a 32-bit ARM
+architecture.</p>
+
+<p>Note that the toolchain binaries do not depend on or contain host-specific paths, in other words,
+you can install them in any location, or even move them if you need to.</p>
+
+<p>By default, the build system uses the 32-bit, ARM-based GCC 4.8 toolchain. You can specify a
+different value, however, by specifying <code>--arch=&lt;toolchain&gt;</code> as an option.
+Table 3 shows the values to use for other toolchains:
+
+<p class="table-caption" id="table3">
+  <strong>Table 3.</strong> Toolchains and corresponding values, using <code>--arch</code>.</p>
+   <table>
+  <tr>
+    <th scope="col">Toolchain</th>
+    <th scope="col">Value</th>
+  </tr>
+  <tr>
+    <td>mips64 compiler</td>
+    <td><code>--arch=mips64</code></td>
+  </tr>
+  <tr>
+    <td>mips GCC 4.8 compiler</td>
+    <td><code>--arch=mips</code></td>
+  </tr>
+  <tr>
+    <td>x86 GCC 4.8 compiler</td>
+    <td><code>--arch=x86</code></td>
+  </tr>
+  <tr>
+    <td>x86_64 GCC 4.8 compiler</td>
+    <td><code>--arch=x86_64</code></td>
+  </tr>
+  <tr>
+    <td>mips GCC 4.8 compiler</td>
+    <td><code>--arch=mips</code></td>
+  </tr>
+</table>
+
+<p>Alternatively, you can use the <code>--toolchain=&lt;toolchain&gt;</code> option. Table 4 shows the
+values you can specify for <code>&lt;toolchain&gt;</code>:</p>
+
+<p class="table-caption" id="table4">
+  <strong>Table 4.</strong> Toolchains and corresponding values, using <code>--toolchain</code>.</p>
+   <table>
+  <tr>
+    <th scope="col">Toolchain</th>
+    <th scope="col">Value</th>
+  </tr>
+
+  <tr>
+    <td>arm</td>
+    <td>
+       <li><code>--toolchain=arm-linux-androideabi-4.8</code></li>
+       <li><code>--toolchain=arm-linux-androideabi-4.9</code></li>
+       <li><code>--toolchain=arm-linux-android-clang3.5</code></li>
+       <li><code>--toolchain=arm-linux-android-clang3.6</code></li>
+    </td>
+  </tr>
+  <tr>
+    <td>x86</td>
+    <td>
+       <li><code>--toolchain=x86-linux-android-4.8</code></li>
+       <li><code>--toolchain=x86-linux-android-4.9</code></li>
+       <li><code>--toolchain=x86-linux-android-clang3.5</code></li>
+       <li><code>--toolchain=x86-linux-android-clang3.6</code></li>
+    </td>
+  </tr>
+  <tr>
+    <td>mips</td>
+    <td>
+       <li><code>--toolchain=mips-linux-android-4.8</code></li>
+       <li><code>--toolchain=mips-linux-android-4.9</code></li>
+       <li><code>--toolchain=mips-linux-android-clang3.5</code></li>
+       <li><code>--toolchain=mips-linux-android-clang3.6</code></li>
+    </td>
+  </tr>
+
+  <tr>
+    <td>arm64</td>
+    <td>
+       <li><code>--toolchain=aarch64-linux-android-4.9</code></li>
+       <li><code>--toolchain=aarch64-linux-android-clang3.5</code></li>
+       <li><code>--toolchain=aarch64-linux-android-clang3.6</code></li>
+    </td>
+  </tr>
+  <tr>
+    <td>x86_64</td>
+    <td>
+       <li><code>--toolchain=x86_64-linux-android-4.9</code></li>
+       <li><code>--toolchain=x86_64-linux-android-clang3.5</code></li>
+       <li><code>--toolchain=x86_64-linux-android-clang3.6</code></li>
+    </td>
+  </tr>
+  <tr>
+    <td>mips64</td>
+    <td>
+       <li><code>--toolchain=mips64el-linux-android-4.9</code></li>
+       <li><code>--toolchain=mips64el-linux-android-clang3.5</code></li>
+       <li><code>--toolchain=mips64el-linux-android-clang3.6</code></li>
+    </td>
+  </tr>
+</table>
+
+<p class="note"><strong>Note: </strong> Table 4 is not an exhaustive list. Other combinations may
+also be valid, but are unverified.</p>
+
+<p>You can also copy Clang/LLVM 3.6, using one of two methods: You can append <code>-clang3.6</code> to
+the <code>--toolchain</code> option, so that the <code>--toolchain</code> option looks like the following
+example:
+
+<pre class="no-pretty-print">
+--toolchain=arm-linux-androideabi-clang3.6
+</pre>
+
+<p>You can also add <code>-llvm-version=3.6</code> as a separate option on the command
+line.</p>
+
+<p class="note"><strong>Note: </strong>Instead of specifying a specific version, you can also
+use <code>&lt;version&gt;</code>, which defaults
+to the highest available version of Clang.</p>
+
+<p>By default, the build system builds for a 32-bit host toolchain. You can specify a 64-bit
+host toolchain instead. Table 5 shows the value to use with <code>-system</code> for different
+platforms.</p>
+
+<p class="table-caption" id="table5">
+  <strong>Table 5.</strong> Host toolchains and corresponding values, using <code>-system</code>.</p>
+   <table>
+  <tr>
+    <th scope="col">Host toolchain</th>
+    <th scope="col">Value</th>
+  </tr>
+  <tr>
+    <td>64-bit Linux</td>
+    <td><code>-system=linux-x86_64</code></td>
+  </tr>
+  <tr>
+    <td>64-bit MacOSX</td>
+    <td><code>-system=darwin-x86_64</code></td>
+  </tr>
+  <tr>
+    <td>64-bit Windows</td>
+    <td><code>-system=windows-x86_64</code></td>
+  </tr>
+</table>
+
+For more information on specifying a 64- or 32-bit instruction host toolchain, see
+<a href="../../ndk/guides/ndk-build.html#6432">64-Bit and 32-Bit Toolchains</a>.
+
+<p>You may specify <code>--stl=stlport</code> to copy <code>libstlport</code> instead of the default
+<code>libgnustl</code>. If you do so, and you wish to link against the shared library, you must
+explicitly use <code>-lstlport_shared</code>. This requirement is similar to having to use
+<code>-lgnustl_shared</code> for GNU <code>libstdc++</code>.</p>
+
+<p>Similarly, you can specify <code>--stl=libc++</code> to copy the LLVM libc++ headers and libraries.
+To link against the shared library, you must explicitly use -lc++_shared.</p>
+
+<p>You can make these settings directly, as in the following example:</p>
+
+<pre class="no-pretty-print">
+export PATH=/tmp/my-android-toolchain/bin:$PATH
+export CC=arm-linux-androideabi-gcc   # or export CC=clang
+export CXX=arm-linux-androideabi-g++  # or export CXX=clang++
+</pre>
+
+<p>Note that if you omit the <code>-install-dir</code> option, the <code>make-standalone-toolchain.sh</code>
+shell script creates a tarball in <code>tmp/ndk/&lt;toolchain-name&gt;.tar.bz2</code>. This tarball makes
+it easy to archive, as well as to redistribute the binaries.</p>
+
+<p>This standalone toolchain provides an additional benefit, as well, in that it contains a working
+copy of a C++ STL library, with working exceptions and RTTI support.</p>
+
+<p>For more options and details, use <code>--help</code>.</p>
+
+<h2 id="wwc">Working with Clang</h2>
+<p>You can install Clang binaries in the standalone installation by using the
+<code>--llvm-version=&lt;version&gt;</code> option. <code>&lt;version&gt;</code> is a LLVM/Clang version
+number, such as <code>3.5</code> or <code>3.6</code>. For example:
+
+<pre class="no-pretty-print">
+build/tools/make-standalone-toolchain.sh \
+--install-dir=/tmp/mydir \
+--toolchain=arm-linux-androideabi-4.8 \
+--llvm-version=3.6
+</pre>
+
+<p>Note that Clang binaries are copied along with the GCC ones, because they rely on the same
+assembler, linker, headers, libraries, and C++ STL implementation.</p>
+
+<p>This operation also installs two scripts, named <code>clang</code> and <code>clang++</code>, under
+<code>&lt;install-dir&gt;/bin/@</code>. These scripts invoke the real <code>clang</code> binary with default
+target architecture flags. In other words, they should work without any modification, and you should
+be able to use them in your own builds by just setting the <code>CC</code> and <code>CXX</code> environment
+variables to point to them.</p>
+
+<h4>Invoking Clang</h4>
+<p>In an ARM standalone installation built with <code>llvm-version=3.6</code>, invoking
+<a href="http://clang.llvm.org/">Clang</a> on a Unix system takes the form of a single line. For
+instance:</p>
+
+<pre class="no-pretty-print">
+`dirname $0`/clang36 -target armv5te-none-linux-androideabi "$@"
+</pre>
+
+<p><code>clang++</code> invokes <code>clang++31</code> in the same way.</p>
+
+<h4>Clang targets with ARM</h4>
+
+<p>When building for ARM, Clang changes the target based on the presence of the
+<code>-march=armv7-a</code> and/or <code>-mthumb</code> options:</p>
+
+<p class="table-caption" id="table5">
+  <strong>Table 5.</strong> Specifiable <code>-march</code> values and their resulting targets.</p>
+   <table>
+  <tr>
+    <th scope="col"><code>-march</code> value</th>
+    <th scope="col">Resulting target</th>
+  </tr>
+  <tr>
+    <td><code>-march=armv7-a</code></td>
+    <td><code>armv7-none-linux-androideabi</code></td>
+  </tr>
+  <tr>
+    <td><code>-mthumb</code></td>
+    <td><code>thumb-none-linux-androideabi</code></td>
+  </tr>
+  <tr>
+    <td>Both <code>-march=armv7-a</code> and <code>-mthumb</code></td>
+    <td><code>thumbv7-none-linux-androideabi</code></td>
+  </tr>
+</table>
+
+<p>You may also override with your own <code>-target</code> if you wish.</p>
+
+<p>The <code>-gcc-toolchain</code> option is unnecessary because, in a standalone package,
+Clang locates <code>as</code> and <code>ld</code> in a predefined relative location. <p>
+
+<p><code>clang</code> and <code>clang++</code> should be easy drop-in replacements for <code>gcc</code> and
+<code>g++</code> in a makefile. When in doubt, add the following options to verify that they are
+working properly:</p>
+
+<ul>
+<li><code>-v</code> to dump commands associated with compiler driver issues</li>
+<li><code>-###</code> to dump command line options, including implicitly predefined ones.</li>
+<li><code>-x c < /dev/null -dM -E</code> to dump predefined preprocessor definitions</li>
+<li><code>-save-temps</code> to compare <code>*.i</code> or <code>*.ii</code> preprocessed files.</li>
+</ul>
+
+<p>For more information about Clang, see
+<a href="http://clang.llvm.org/">http://clang.llvm.org/</a>, especially the GCC compatibility
+section.</p>
+
+
+<h2 id="abi">ABI Compatibility</h2>
+<p>The machine code that the ARM toolchain generates should be compatible with the official Android
+<code>armeabi</code> <a href="../../ndk/guides/abis.html">ABI</a> by default.</p>
+
+<p>We recommend use of the <code>-mthumb</code> compiler flag to force the generation of 16-bit Thumb-1
+instructions (the default being 32-bit ARM instructions).</p>
+
+<p>If you want to target the armeabi-v7a ABI, you must set the following flags: </p>
+
+<pre class="no-pretty-print">
+CFLAGS= -march=armv7-a -mfloat-abi=softfp -mfpu=vfpv3-d16
+</pre>
+
+<p>The first flag enables Thumb-2 instructions. The second flag enables hardware-FPU instructions
+while ensuring that the system passes floating-point parameters in core registers, which is critical
+for ABI compatibility.</p>
+
+<p class="note"><strong>Note: </strong>In versions of the NDK prior to r9b, do not use these flags
+separately. You must set all or none of them. Otherwise, unpredictable behavior and crashes may
+result.</p>
+
+<p>To use NEON instructions, you must change the <code>-mfpu</code> compiler flag:</p>
+
+<pre class="no-pretty-print">
+CFLAGS= -march=armv7-a -mfloat-abi=softfp -mfpu=neon
+</pre>
+
+<p>Note that this setting forces the use of <code>VFPv3-D32</code>, per the ARM specification.</p>
+
+<p>Also, make sure to provide the following two flags to the linker:</p>
+
+<pre class="no-pretty-print">
+LDFLAGS= -march=armv7-a -Wl,--fix-cortex-a8
+</pre>
+
+<p>The first flag instructs the linker to pick <code>libgcc.a</code>, <code>libgcov.a</code>, and
+<code>crt*.o</code>, which are tailored for armv7-a. The 2nd flag is required as a workaround for a CPU
+bug in some Cortex-A8 implementations.</p>
+
+<p>Since NDK version r9b, all Android native APIs taking or returning double or float values have
+<code>attribute((pcs("aapcs")))</code> for ARM. This makes it possible to compile user code in
+<code>-mhard-float</code> (which implies <code>-mfloat-abi=hard</code>), and still link with the Android
+native APIs that comply with the softfp ABI. For more information on this, see the comments in
+<code>$NDK/tests/device/hard-float/jni/Android.mk</code>.</p>
+
+<p>If you want to use NEON intrinsics on x86, the build system can translate them to the native x86
+SSE intrinsics using a special C/C++ language header with the same name, <code>arm_neon.h</code>, as the
+standard ARM NEON intrinsics header.</p>
+
+<p>By default, the x86 ABI supports SIMD up to SSSE3, and the header covers ~93% of (1869 of 2009)
+NEON functions.</p>
+
+<p>You don't have to use any specific compiler flag when targeting the MIPS ABI.</p>
+
+<p>To learn more about ABI support, see <a href="../../ndk/guides/x86.html">x86 Support</a>.</p>
+
+<h2 id="war">Warnings and Limitations</h2>
+<h3>Windows support</h3>
+<p>The Windows binaries do not depend on Cygwin. This lack of dependency makes them faster. The
+cost, however, is that they do not understand Cygwin path specifications like
+<code>cygdrive/c/foo/bar</code>, as opposed to <code>C:/foo/bar</code>.</p>
+
+<p>The NDK build system ensures that all paths passed to the compiler from Cygwin are automatically
+translated, and manages other complexities, as well. If you have a custom build system,
+you may need to resolve these complexities yourself.</p>
+
+<p>For information on contributing to support for Cygwin/MSys, visit the android-ndk
+<a href="https://groups.google.com/forum/#!forum/android-ndk">forum</a>.</p>
+
+<h3>wchar_t support</h3>
+
+<p>The Android platform did not really support <code>wchar_t</code> until Android 2.3 (API level 9). This
+fact has several ramifications:</p>
+<ul>
+<li>If you target platform Android 2.3 or higher, the size of <code>wchar_t</code> is 4 bytes, and most
+<code>wide-char</code> functions are available in the C library (with the exception of multi-byte
+encoding/decoding functions and <code>wsprintf</code>/<code>wsscanf</code>).</li>
+
+<li>If you target any lower API level, the size of <code>wchar_t</code> is 1 byte, and none of the
+wide-char functions works.</li>
+</ul>
+
+<p>We recommend that you get rid of any dependencies on the <code>wchar_t</code> type, and switch to
+better representations. The support provided in Android is only there to help you migrate existing
+code.</p>
+
+<h3>Exceptions, RTTI, and STL</h3>
+<p>The toolchain binaries support C++ exceptions and RTTI by default. To disable C++ exceptions
+and RTTI when building sources (to generate lighter-weight machine code, for example), use
+<code>-fno-exceptions</code> and <code>-fno-rtti</code>.</p>
+
+<p>To use these features in conjunction with GNU libstdc++, you must explicitly link with libsupc++.
+To do so, use <code>-lsupc++</code> when linking binaries. For example:</p>
+
+<pre class="no-pretty-print">
+arm-linux-androideabi-g++ .... -lsupc++
+</pre>
+
+<p>You do not need to do this when using the STLport or libc++ library.</p>
+
+<h3>C++ STL support</h3>
+<p>The standalone toolchain includes a copy of a C++ Standard Template Library implementation. This
+implementation is either for GNU libstdc++, STLport, or libc++, depending on what you specify for the
+<code>--stl=&lt;name&gt;</code> option described previously. To use this implementation of STL, you need
+to link your project with the proper library:</p>
+
+<ul>
+<li>
+Use <code>-lstdc++</code> to link against the static library version of any implementation. Doing so
+ensures that all required C++ STL code is included into your final binary. This method is ideal if
+you are only generating a single shared library or executable.</p>
+
+<p>This is the method that we recommend.</p>
+</li>
+
+<li>Alternatively, use <code>-lgnustl_shared</code> to link against the shared library version of GNU
+<code>libstdc++</code>. If you use this option, you must also make sure to copy
+<code>libgnustl_shared.so</code> to your device in order for your code to load properly. Table 6 shows
+where this file is for each toolchain type.
+</li>
+
+<p class="note"><strong>Note: </strong>GNU libstdc++ is licensed under the GPLv3 license, with a
+linking exception. If you cannot comply with its requirements, you cannot redistribute the
+shared library in your project.</p>
+
+
+<li>Use <code>-lstlport_shared</code> to link against the shared library version of STLport. When you do
+so, you need to make sure that you also copy <code>libstlport_shared.so</code> to your device in order
+for your code to load properly. Table 6 shows where this file is for each toolchain:</li>
+
+<p class="table-caption" id="table6">
+  <strong>Table 6.</strong> Specifiable <code>-march</code> values and their resulting targets.</p>
+   <table>
+  <tr>
+    <th scope="col">Toolchain</th>
+    <th scope="col">Location</th>
+  </tr>
+  <tr>
+    <td>arm</td>
+    <td><code>$TOOLCHAIN/arm-linux-androideabi/lib/</code></td>
+  </tr>
+  <tr>
+    <td>arm64</td>
+    <td><code>$TOOLCHAIN/aarch64-linux-android/lib/</code></td>
+  </tr>
+  <tr>
+    <td>x86</td>
+    <td><code>$TOOLCHAIN/i686-linux-android/lib/</code></td>
+  </tr>
+  <tr>
+    <td>x86_64</td>
+    <td><code>$TOOLCHAIN/x86_64-linux-android/lib/</code></td>
+  </tr>
+  <tr>
+    <td>mips</td>
+    <td><code>$TOOLCHAIN/mipsel-linux-android/lib/</code></td>
+  </tr>
+  <tr>
+    <td>mips64</td>
+    <td><code>$TOOLCHAIN/mips64el-linux-android/lib/</code></td>
+  </tr>
+</table>
+
+<p class="note"><strong>Note: </strong>If your project contains multiple shared libraries or
+executables, you must link against a shared-library STL implementation. Otherwise, the build
+system does not define certain global uniquely, which can result in unpredictable runtime behavior.
+This behavior may include crashes and failure to properly catch exceptions.</p>
+
+<p>The reason the shared version of the libraries is not simply called <code>libstdc++.so</code> is that
+this name would conflict at runtime with the system's own minimal C++ runtime. For this reason,
+the build system enforces a new name for the GNU ELF library. The static library does not have
+this problem.</p>
+
+    </div>
+
+    
+
+  </div> <!-- end jd-content -->
+
+<div class="wrap">
+  <div class="dac-footer">
+    <div class="cols dac-footer-main">
+      <div class="col-1of2">
+        <a class="dac-footer-getnews" data-modal-toggle="newsletter" href="javascript:;">Get news &amp; tips <span
+          class="dac-fab dac-primary"><i class="dac-sprite dac-mail"></i></span></a>
+      </div>
+      <div class="col-1of2 dac-footer-reachout">
+        <div class="dac-footer-contact">
+          <a class="dac-footer-contact-link" href="http://android-developers.blogspot.com/">Blog</a>
+          <a class="dac-footer-contact-link" href="/support.html">Support</a>
+        </div>
+        <div class="dac-footer-social">
+          <a class="dac-fab dac-footer-social-link" href="https://www.youtube.com/user/androiddevelopers"><i class="dac-sprite dac-youtube"></i></a>
+          <a class="dac-fab dac-footer-social-link" href="https://plus.google.com/+AndroidDevelopers"><i class="dac-sprite dac-gplus"></i></a>
+          <a class="dac-fab dac-footer-social-link" href="https://twitter.com/AndroidDev"><i class="dac-sprite dac-twitter"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <hr class="dac-footer-separator"/>
+
+    
+      <p class="dac-footer-copyright">
+        
+  Except as noted, this content is
+  licensed under <a href="http://creativecommons.org/licenses/by/2.5/">
+  Creative Commons Attribution 2.5</a>. For details and
+  restrictions, see the <a href="../../license.html">Content
+  License</a>.
+      </p>
+    
+
+    <p class="dac-footer-links">
+      <a href="/about/index.html">About Android</a>
+      <a href="/auto/index.html">Auto</a>
+      <a href="/tv/index.html">TV</a>
+      <a href="/wear/index.html">Wear</a>
+      <a href="/legal.html">Legal</a>
+
+      <span id="language" class="locales">
+        <select name="language" onchange="changeLangPref(this.value, true)">
+          <option value="en" selected="selected">English</option>
+          <option value="es">Español</option>
+          <option value="ja">日本語</option>
+          <option value="ko">한국어</option>
+          <option value="pt-br">Português Brasileiro</option>
+          <option value="ru">Русский</option>
+          <option value="zh-cn">中文（简体)</option>
+          <option value="zh-tw">中文（繁體)</option>
+        </select>
+      </span>
+    </p>
+  </div>
+</div> <!-- end footer -->
+
+<div data-modal="newsletter" data-newsletter data-swap class="dac-modal newsletter">
+  <div class="dac-modal-container">
+    <div class="dac-modal-window">
+      <header class="dac-modal-header">
+        <button class="dac-modal-header-close" data-modal-toggle><i class="dac-sprite dac-close"></i></button>
+        <div class="dac-swap" data-swap-container>
+          <section class="dac-swap-section dac-active dac-down">
+            <h2 class="norule dac-modal-header-title">Get the latest Android developer news and tips that will help you find success on Google Play.</h2>
+            <p class="dac-modal-header-subtitle">&#42; Required Fields</p>
+          </section>
+          <section class="dac-swap-section dac-up">
+            <h2 class="norule dac-modal-header-title">Hooray!</h2>
+          </section>
+        </div>
+      </header>
+      <div class="dac-swap" data-swap-container>
+        <section class="dac-swap-section dac-active dac-left">
+          <form action="https://docs.google.com/forms/d/1QgnkzbEJIDu9lMEea0mxqWrXUJu0oBCLD7ar23V0Yys/formResponse" class="dac-form" method="post" target="dac-newsletter-iframe">
+            <section class="dac-modal-content">
+              <fieldset class="dac-form-fieldset">
+                <div class="cols">
+                  <div class="col-1of2 newsletter-leftCol">
+                    <div class="dac-form-input-group">
+                      <label for="newsletter-full-name" class="dac-form-floatlabel">Full name</label>
+                      <input type="text" class="dac-form-input" name="entry.1357890476" id="newsletter-full-name" required>
+                      <span class="dac-form-required">*</span>
+                    </div>
+                    <div class="dac-form-input-group">
+                      <label for="newsletter-email" class="dac-form-floatlabel">Email address</label>
+                      <input type="email" class="dac-form-input" name="entry.472100832" id="newsletter-email" required>
+                      <span class="dac-form-required">*</span>
+                    </div>
+                  </div>
+                  <div class="col-1of2 newsletter-rightCol">
+                    <div class="dac-form-input-group">
+                      <label for="newsletter-company" class="dac-form-floatlabel">Company / developer name</label>
+                      <input type="text" class="dac-form-input" name="entry.1664780309" id="newsletter-company">
+                    </div>
+                    <div class="dac-form-input-group">
+                      <label for="newsletter-play-store" class="dac-form-floatlabel">One of your Play Store app URLs</label>
+                      <input type="url" class="dac-form-input" name="entry.47013838" id="newsletter-play-store" required>
+                      <span class="dac-form-required">*</span>
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+              <fieldset class="dac-form-fieldset">
+                <div class="cols">
+                  <div class="col-1of2 newsletter-leftCol">
+                    <legend class="dac-form-legend">Which best describes your business:<span class="dac-form-required">*</span>
+                    </legend>
+                    <div class="dac-form-radio-group">
+                      <input type="radio" value="Apps" class="dac-form-radio" name="entry.1796324055" id="newsletter-business-type-app" required>
+                      <label for="newsletter-business-type-app" class="dac-form-radio-button"></label>
+                      <label for="newsletter-business-type-app" class="dac-form-label">Apps</label>
+                    </div>
+                    <div class="dac-form-radio-group">
+                      <input type="radio" value="Games" class="dac-form-radio" name="entry.1796324055" id="newsletter-business-type-games" required>
+                      <label for="newsletter-business-type-games" class="dac-form-radio-button"></label>
+                      <label for="newsletter-business-type-games" class="dac-form-label">Games</label>
+                    </div>
+                    <div class="dac-form-radio-group">
+                      <input type="radio" value="Apps and Games" class="dac-form-radio" name="entry.1796324055" id="newsletter-business-type-appsgames" required>
+                      <label for="newsletter-business-type-appsgames" class="dac-form-radio-button"></label>
+                      <label for="newsletter-business-type-appsgames" class="dac-form-label">Apps &amp; Games</label>
+                    </div>
+                  </div>
+                  <div class="col-1of2 newsletter-rightCol newsletter-checkboxes">
+                    <div class="dac-form-radio-group">
+                      <div class="dac-media">
+                        <div class="dac-media-figure">
+                          <input type="checkbox" class="dac-form-checkbox" name="entry.732309842" id="newsletter-add" required value="Add me to the mailing list for the monthly newsletter and occasional emails about development and Google Play opportunities.">
+                          <label for="newsletter-add" class="dac-form-checkbox-button"></label>
+                        </div>
+                        <div class="dac-media-body">
+                          <label for="newsletter-add" class="dac-form-label dac-form-aside">Add me to the mailing list for the monthly newsletter and occasional emails about development and Google Play opportunities.<span class="dac-form-required">*</span></label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="dac-form-radio-group">
+                      <div class="dac-media">
+                        <div class="dac-media-figure">
+                          <input type="checkbox" class="dac-form-checkbox" name="entry.2045036090" id="newsletter-terms" required value="I acknowledge that the information provided in this form will be subject to Google's privacy policy (https://www.google.com/policies/privacy/).">
+                          <label for="newsletter-terms" class="dac-form-checkbox-button"></label>
+                        </div>
+                        <div class="dac-media-body">
+                          <label for="newsletter-terms" class="dac-form-label dac-form-aside">I acknowledge that the information provided in this form will be subject to <a href="https://www.google.com/policies/privacy/">Google's privacy policy</a>.<span class="dac-form-required">*</span></label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+            </section>
+            <footer class="dac-modal-footer">
+              <div class="cols">
+                <div class="col-2of5">
+                </div>
+              </div>
+              <button type="submit" value="Submit" class="dac-fab dac-primary dac-large dac-modal-action"><i class="dac-sprite dac-arrow-right"></i></button>
+            </footer>
+          </form>
+        </section>
+        <section class="dac-swap-section dac-right">
+          <div class="dac-modal-content">
+            <p class="newsletter-success-message">
+              You have successfully signed up for the latest Android developer news and tips.
+            </p>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</div> <!-- end footer -->
+
+</div><!-- end doc-content -->
+
+</div> <!-- end .cols --> 
+</div> <!-- end body-content --> 
+
+
+
+
+
+  <script src="../../ajax/developer.android.com/ytblogger_lists_unified.js" type="text/javascript"></script>
+  <script src="../../jd_lists_unified.js?v=15" type="text/javascript"></script>
+  <script src="../../jd_extras.js?v=15" type="text/javascript"></script>
+  <script src="../../jd_collections.js?v=15" type="text/javascript"></script>
+  <script src="../../jd_tag_helpers.js?v=15" type="text/javascript"></script>
+
+</body>
+</html>

@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
+
+<meta name="Description" content="The NDK includes support for the x86 ABI, which allows native code to run on Android-based devices running on CPUs supporting the IA-32 instruction set. To generate x86 machine code, add x86 to the APP_ABI definition in your mk file. For example: The …">
+<link rel="shortcut icon" type="image/x-icon" href="../../favicon.ico" />
+<title>x86 Support | Android Developers</title>
+
+<!-- STYLESHEETS -->
+<link rel="stylesheet"
+href="http://fonts.useso.com/css?family=Roboto+Condensed">
+<link rel="stylesheet" href="http://fonts.useso.com/css?family=Roboto:light,regular,medium,thin,italic,mediumitalic,bold"
+  title="roboto">
+<link rel="stylesheet" href="http://fonts.useso.com/css?family=Roboto+Mono:400,500,700" title="roboto-mono" type="text/css">
+<link href="../../assets/css/default.css?v=7" rel="stylesheet" type="text/css">
+
+
+
+<!-- JAVASCRIPT -->
+<script src="../../assets/js/android_3p-bundle.js" type="text/javascript"></script>
+<script type="text/javascript">
+  var toRoot = "../../";
+  var metaTags = [];
+  var devsite = false;
+</script>
+<script src="../../assets/js/docs.js?v=6" type="text/javascript"></script>
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-5831155-1', 'android.com');
+  ga('create', 'UA-49880327-2', 'android.com', {'name': 'universal'});  // New tracker);
+  ga('send', 'pageview');
+  ga('universal.send', 'pageview'); // Send page view for new tracker.
+</script>
+
+</head>
+
+<body class="gc-documentation
+
+
+ndk guide" itemscope itemtype="http://schema.org/Article">
+<a name="top"></a>
+
+<!-- dialog to prompt lang pref change when loaded from hardcoded URL
+<div id="langMessage" style="display:none">
+  <div>
+    <div class="lang en">
+      <p>You requested a page in English, would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang es">
+      <p>You requested a page in Spanish (Español), would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang ja">
+      <p>You requested a page in Japanese (日本語), would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang ko">
+      <p>You requested a page in Korean (한국어), would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang ru">
+      <p>You requested a page in Russian (Русский), would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang zh-cn">
+      <p>You requested a page in Simplified Chinese (简体中文), would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang zh-tw">
+      <p>You requested a page in Traditional Chinese (繁體中文), would you like to proceed with this language setting?</p>
+    </div>
+    <a href="#" class="button yes" onclick="return false;">
+      <span class="lang en">Yes</span>
+      <span class="lang es">Sí</span>
+      <span class="lang ja">Yes</span>
+      <span class="lang ko">Yes</span>
+      <span class="lang ru">Yes</span>
+      <span class="lang zh-cn">是的</span>
+      <span class="lang zh-tw">没有</span>
+    </a>
+    <a href="#" class="button" onclick="$('#langMessage').hide();return false;">
+      <span class="lang en">No</span>
+      <span class="lang es">No</span>
+      <span class="lang ja">No</span>
+      <span class="lang ko">No</span>
+      <span class="lang ru">No</span>
+      <span class="lang zh-cn">没有</span>
+      <span class="lang zh-tw">没有</span>
+    </a>
+  </div>
+</div> -->
+
+
+  <!-- Header -->
+  <div id="header-wrapper">
+    <div class="dac-header" id="header">
+
+
+
+
+      <div class="dac-header-inner">
+        <a class="dac-nav-toggle" data-dac-toggle-nav href="javascript:;" title="Open navigation">
+          <span class="dac-nav-hamburger">
+            <span class="dac-nav-hamburger-top"></span>
+            <span class="dac-nav-hamburger-mid"></span>
+            <span class="dac-nav-hamburger-bot"></span>
+          </span>
+        </a>
+        <a class="dac-header-logo" href="../../ndk/index.html">
+          <img class="dac-header-logo-image" src="../../assets/images/android_logo_ndk.png"
+              srcset="../../assets/images/android_logo_ndk@2x.png 2x"
+              width="32" height="36" alt="Android" /> NDK
+          </a>
+
+        <ul class="dac-header-crumbs">
+          
+          <li class="dac-header-crumbs-item"><span class="dac-header-crumbs-link current ndk">x86 Support</a></li>
+        </ul>
+
+        
+        
+
+        <a class="dac-header-console-btn" href="http://developer.android.com">
+          <span class="dac-visible-desktop-inline">Back to Android Developers</span>
+        </a>
+
+      </div><!-- end header-wrap.wrap -->
+    </div><!-- end header -->
+
+    <div id="searchResults" class="wrap" style="display:none;">
+      <h2 id="searchTitle">Results</h2>
+      <div id="leftSearchControl" class="search-control">Loading...</div>
+    </div>
+  </div> <!--end header-wrapper -->
+
+  
+  <!-- NDK Navigation-->
+  <nav class="dac-nav">
+    <div class="dac-nav-dimmer" data-dac-toggle-nav></div>
+
+    <ul class="dac-nav-list" data-dac-nav>
+      <li class="dac-nav-item dac-nav-head">
+        <a class="dac-nav-link dac-nav-logo" data-dac-toggle-nav href="javascript:;" title="Close navigation">
+          <img class="dac-logo-image" src="../../assets/images/android_logo_ndk.png"
+               srcset="../../assets/images/android_logo_ndk@2x.png 2x"
+               width="32" height="36" alt="Android" /> NDK
+        </a>
+      </li>
+      <li class="dac-nav-item guides">
+        <a class="dac-nav-link" href="../../ndk/guides/index.html"
+           zh-tw-lang="API 指南"
+           zh-cn-lang="API 指南"
+           ru-lang="Руководства по API"
+           ko-lang="API 가이드"
+           ja-lang="API ガイド"
+           es-lang="Guías de la API">Guides</a>
+      </li>
+      <li class="dac-nav-item reference">
+        <a class="dac-nav-link" href="../../ndk/reference/index.html"
+           zh-tw-lang="參考資源"
+           zh-cn-lang="参考"
+           ru-lang="Справочник"
+           ko-lang="참조문서"
+           ja-lang="リファレンス"
+           es-lang="Referencia">Reference</a>
+      </li>
+      <li class="dac-nav-item samples">
+        <a class="dac-nav-link" href="../../ndk/samples/index.html"
+           >Samples</a>
+      </li>
+      <li class="dac-nav-item downloads">
+        <a class="dac-nav-link" href="../../ndk/downloads/index.html"
+           >Downloads</a>
+      </li>
+    </ul>
+  </nav>
+  <!-- end NDK navigation-->
+  
+
+
+
+
+  <div class="wrap clearfix" id="body-content"><div class="cols">
+    <div class="col-3 dac-toggle dac-mobile" id="side-nav" itemscope itemtype="http://schema.org/SiteNavigationElement">
+      
+  <div class="dac-visible-mobile-block" data-toggle="section">
+    <span class="dac-toggle-expand dac-devdoc-toggle"><i class="dac-sprite dac-expand-more-black"></i> Show navigation</span>
+    <span class="dac-toggle-collapse dac-devdoc-toggle" data-toggle-section><i class="dac-sprite dac-expand-less-black"></i> Hide navigation</span>
+  </div>
+
+      <div class="dac-toggle-content" id="devdoc-nav">
+        <div class="scroll-pane">
+
+
+<ul id="nav">
+   <li class="nav-section">
+      <div class="nav-section-header"><a href="../../ndk/guides/index.html">
+      <span class="en">Getting Started</span></a></div>
+      <ul>
+         <li><a href="../../ndk/guides/setup.html">Setup</a></li>
+         <li><a href="../../ndk/guides/concepts.html">Concepts</a></li>
+      </ul>
+   </li>
+
+   <li class="nav-section">
+      <div class="nav-section-header"><a href="../../ndk/guides/build.html">
+      <span class="en">
+      Building</span></a></div>
+      <ul>
+         <li><a href="../../ndk/guides/android_mk.html">Android.mk</a></li>
+         <li><a href="../../ndk/guides/application_mk.html">Application.mk</a></li>
+         <li><a href="../../ndk/guides/ndk-build.html">ndk-build</a></li>
+         <li><a href="../../ndk/guides/standalone_toolchain.html">Standalone Toolchain
+         </a></li>
+      </ul>
+   </li>
+
+   <li class="nav-section">
+      <div class="nav-section-header"><a href="../../ndk/guides/arch.html">
+      <span class="en">Architectures and CPUs</span></a></div>
+      <ul>
+         <li><a href="../../ndk/guides/abis.html">ABI Management</a></li>
+         <li><a href="../../ndk/guides/cpu-arm-neon.html">NEON</a></li>
+         <li><a href="../../ndk/guides/x86.html">x86</a></li>
+         <li><a href="../../ndk/guides/x86-64.html">x86-64</a></li>
+         <li><a href="../../ndk/guides/mips.html">MIPS</a></li>
+         <li><a href="../../ndk/guides/cpu-features.html">The cpufeatures Library</a>
+         </li>
+      </ul>
+   </li>
+
+   <li class="nav-section">
+      <div class="nav-section-header"><a href="../../ndk/guides/debug.html">
+      <span class="en">Debugging</span></a></div>
+      <ul>
+         <li><a href="../../ndk/guides/ndk-gdb.html">ndk-gdb</a></li>
+         <li><a href="../../ndk/guides/ndk-stack.html">ndk-stack</a></li>
+      </ul>
+   </li>
+
+   <li class="nav-section">
+      <div class="nav-section-header"><a href="../../ndk/guides/libs.html">
+      <span class="en">Libraries</span></a></div>
+      <ul>
+      <li><a href="../../ndk/guides/prebuilts.html">Prebuilt Libraries</a></li>
+      <li><a href="../../ndk/guides/cpp-support.html">C++ Support</a></li>
+      <li><a href="../../ndk/guides/stable_apis.html">Stable APIs</a></li>
+
+      </ul>
+   </li>
+
+</ul>
+
+
+<script type="text/javascript">
+<!--
+    buildToggleLists();
+    changeNavLang(getLangPref());
+//-->
+</script>
+
+
+        </div>
+      </div>
+    </div> <!-- end side-nav -->
+    <script>
+      $(document).ready(function() {
+        scrollIntoView("devdoc-nav");
+        });
+    </script>
+
+
+
+
+<div class="col-12" id="doc-col" >
+
+
+  
+
+  
+    
+      
+        <h1 itemprop="name" >x86 Support</h1>
+      
+    
+  
+
+
+  
+  <div id="jd-content">
+
+
+    <div class="jd-descr" itemprop="articleBody">
+    <div id="qv-wrapper">
+    <div id="qv">
+      <h2>On this page</h2>
+
+      <ol>
+        <li><a href="#over">Overview</a></li>
+         <li><a href="#an">ARM NEON Intrinsics Support</a></li>
+         <li><a href="#st">Standalone Toolchain</a></li>
+         <li><a href="#comp">Compatibility</a></li>
+      </ol>
+        </li>
+      </ol>
+    </div>
+  </div>
+
+<p>The NDK includes support for the <code>x86</code> ABI, which allows native code to run on
+Android-based devices running on CPUs supporting the IA-32 instruction set.</p>
+
+<h2 id="over">Overview</h2>
+<p>To generate x86 machine code, add <code>x86</code> to the <code>APP_ABI</code> definition in your
+<a href="../../ndk/guides/application_mk.html"><code>Application.mk</code></a> file. For example:</p>
+
+<pre class="no-pretty-print">
+APP_ABI := armeabi armeabi-v7a x86
+</pre
+
+<p>For more information about defining the <code>APP_ABI</code> variable, see
+<a href="../../ndk/guides/application_mk.html"><code>Application.mk</code></a>.</p>
+
+<p>The build system places generated libraries into <code>$PROJECT/libs/x86/</code>, where
+<code>$PROJECT</code> represents your project's root directory, and embeds them in your APK under
+<code>/lib/mips/</code>.</p>
+
+<p>The Android package extracts these libraries when installing your APK on a compatible x86-based
+device, placing them under your app's private data directory.</p>
+
+<p>In the Google Play store, the server filters applications so that a consumer sees only the native
+libraries that run on the CPU powering his or her device.</p>
+
+<h2 id="an">x86 Support for ARM NEON Intrinsics</h2>
+<p>Support for ARM NEON intrinsics is provided in the form of C/C++ language headers with the same
+name as the standard ARM NEON intrinsics header, <code>arm_neon.h</code>. These headers are available for
+all NDK x86 toolchains. They translate NEON intrinsics to native x86 SSE ones.</p>
+
+<p>Characteristics of this solution include the following:</p>
+<ul>
+<li>Default use of SSE through SSSE3 for porting ARM NEON to Intel SSE, covering ~93%
+(1869 of total 2009) of all NEON functions.</li>
+<li>Redefinition of ARM NEON 128 bit vectors into the equivalent x86 SIMD data.</li>
+<li>Redefinition of some functions from ARM NEON to Intel SSE if a 1:1 correspondence exists.</li>
+<li>Implementation of some ARM NEON functions using Intel SIMD if it will yield a performant result.
+</li>
+<li>Implementation of some of the remaining NEON functions using the serial solution, and issuing
+the corresponding "low performance" compiler warning.</li>
+</ul>
+
+
+<h3>Performance</h3>
+<p>In most cases, you should be able to attain performance similar to what you would get from ARM
+NEON code. Recommendations for best results include:</p>
+
+<ul>
+<li>Use 16-byte data alignment for faster load and store.</li>
+<li>Avoid using constants with NEON functions. Using constants results in a performance penalty due
+to having to load constants. If you must use constants, try to initialize them outside of hotspot
+loops. If possible, replace them with logical and compare operations.</li>
+<li>Try to avoid functions marked as "serially implemented" because they need to store data from
+registers to memory. Instead, process them serially and reload them. You may be able to change the
+data type or algorithm used to vectorize the whole port instead of leaving it as a serial one.</li>
+</ul>
+
+<p>For more information on this topic, see
+<a href="http://software.intel.com/en-us/blogs/2012/12/12/from-arm-neon-to-intel-mmxsse-automatic-porting-solution-tips-and-tricks">
+From ARM NEON to Intel SSE&ndash; the automatic porting solution, tips and tricks</a>.</p>
+
+<h3>Known differences from ARM version</h3>
+<p>In the great majority of cases, x86 implementations produce the same results as ARM
+implementations for NEON. x86 implementations pass
+<a href="https://gitorious.org/arm-neon-tests/arm-neon-tests">NEON tests</a> nearly 100% of the
+time. Still, there are several corner cases in which an x86 implementation produces results
+different from its ARM counterpart. Known incompatibilities are as follows:</p>
+
+<ul>
+<li><code>VRECPS/VRECPSQ</code><br/>
+  If one of the operands is +/- infinity and the second is +/- 0.0:
+  <ul>
+    <li>On ARM CPUs, these instructions
+    <a href="http://infocenter.arm.com/help/index.jsp?topic=/com.arm.doc.dui0489h/CIHDIACI.html">
+    return a result element equal to 2.0</a>.</li>
+
+    <li>x86 CPUs return <code>QNaN Indefinite</code>. For more information about the QNaN floating-point
+    indefinite, see "4.2.2 Floating-Point Data Types" and "4.8.3.7 QNaN Floating-Point Indefinite,"
+    in the
+    <a href="http://www.intel.com/content/dam/www/public/us/en/documents/manuals/64-ia-32-architectures-software-developer-manual-325462.pdf">Intel® 64 and IA-32 Architectures Software Developer’s Manual</a>.
+    </li>
+
+  </ul>
+</li>
+<li><code>VRSQRTS/VRSQRTSQ</code><br/>
+  If one of the operands is +/- infinity and the second is +/- 0.0:
+  <ul>
+    <li>On ARM CPUs, these instructions
+    <a href="http://infocenter.arm.com/help/index.jsp?topic=/com.arm.doc.dui0489h/CIHDIACI.html">
+    return a result element equal to 1.5</a>.</li>
+
+    <li>x86 CPUs return <code>QNaN Indefinite</code>. For more information about the QNaN floating-point
+    indefinite, see "4.2.2 Floating-Point Data Types" and "4.8.3.7 QNaN Floating-Point Indefinite,"
+    in the
+    <a href="http://www.intel.com/content/dam/www/public/us/en/documents/manuals/64-ia-32-architectures-software-developer-manual-325462.pdf">Intel® 64 and IA-32 Architectures Software Developer’s Manual</a>.
+    </li>
+  </ul>
+</li>
+
+<li><code>VMAX/VMAXQ</code><br/>
+  If one of the operands is NaN, or both operands are +/- 0.0:
+  <ul>
+    <li>On ARM CPUs, floating-point maximum works as follows:
+      <ul>
+        <li>max(+0.0, -0.0) = +0.0.</li>
+        <li>If any input is a NaN, the corresponding result element is the default NaN.</li>
+      </ul>
+      To learn more about this condition and result, see the
+      <a href="http://infocenter.arm.com/help/index.jsp?topic=/com.arm.doc.dui0489h/CIHDEEBE.html">
+      ARM Compiler toolchain Assembler Reference</a>, ignoring the "Superseded" watermark.
+    </li>
+
+    <li>On x86 CPUs, floating-point maximum works as follows:
+      <ul>
+        <li>If one of the source operands is NaN, then return the second source operand.</li>
+        <li>If both source operands are equal to 0, then return the second source operand.</li>
+      </ul>
+      For more information about these conditions and results, see Volume 1 Appendix E chapter
+      E.4.2.3 and Volume 2, p 3-488, of the
+      <a href="http://www.intel.com/content/dam/www/public/us/en/documents/manuals/64-ia-32-architectures-software-developer-manual-325462.pdf">Intel® 64 and IA-32 Architectures Software Developer’s
+      Manual</a>.
+    </li>
+  </ul>
+</li>
+
+<li><code>VMIN/VMINQ</code><br/>
+  If one of the operands is NaN or both are +/- 0.0:
+  <ul>
+    <li>On ARM CPUs floating-point minimum works as follows:
+      <ul>
+        <li>min(+0.0, -0.0) = -0.0.</li>
+        <li>If any input is a NaN, the corresponding result element is the default NaN.</li>
+      </ul>
+      To learn more about this condition and result, see the
+      <a href="http://infocenter.arm.com/help/index.jsp?topic=/com.arm.doc.dui0489h/CIHDEEBE.html">
+      ARM Compiler toolchain Assembler Reference</a>, ignoring the "Superseded" watermark.
+    </li>
+    <li>On x86 CPUs floating-point minimum works as follows:
+      <ul>
+        <li>If one of the source operands is NaN, than return the second source operand.</li>
+        <li>If both source operands are equal to 0, than return the second source operand.</li>
+      </ul>
+      For more information about these conditions and results, see Volume 1 Appendix E chapter
+      E.4.2.3 and Volume 2, p 3-497, of the
+      <a href="http://www.intel.com/content/dam/www/public/us/en/documents/manuals/64-ia-32-architectures-software-developer-manual-325462.pdf">Intel® 64 and IA-32 Architectures Software Developer’s
+      Manual</a>.
+    </li>
+  </ul>
+</li>
+
+<li><code>VRECPE/VRECPEQ</code><br/>
+  These instructions provide different levels of accuracy on ARM and x86 CPUs. For more information
+  about these differences, see
+  <a href="http://infocenter.arm.com/help/index.jsp?topic=/com.arm.doc.faqs/ka14282.html">
+  How do I use VRECPE/VRECPEQ for reciprocal estimate?</a> on the ARM website, and Volume 2, p.
+  4-281 of the
+  <a href="http://www.intel.com/content/dam/www/public/us/en/documents/manuals/64-ia-32-architectures-software-developer-manual-325462.pdf">Intel® 64 and IA-32 Architectures Software Developer’s Manual</a>.
+</li>
+
+<li><code>VRSQRTE/VRSQRTEQ</code><br/>
+  <ul>
+    <li>These instructions provide different levels of accuracy on ARM and x86 CPUs. For more
+    information about these differences, see the
+    <a href="http://infocenter.arm.com/help/index.jsp?topic=/com.arm.doc.dui0204h/CIHCHECJ.html">
+    RealView Compilation Tools Assembler Guide</a>, and Volume 2, p. 4-325 of the
+    <a href="http://www.intel.com/content/dam/www/public/us/en/documents/manuals/64-ia-32-architectures-software-developer-manual-325462.pdf">Intel® 64 and IA-32 Architectures Software Developer’s Manual</a>.
+    </li>
+
+    <li>If one of the operands is negative or -infinity then
+      <ul>
+        <li>On ARM CPUs, these instructions by default return a (positive) NaN. For more information
+        about this result, see the
+        <a href="http://infocenter.arm.com/help/index.jsp?topic=/com.arm.doc.dui0489i/CIHIICBB.html">
+        ARM Compiler toolchain Assembler Reference</a>.</li>
+        <li>On x86 CPUs, these instructions return a (negative) QNaN floating-point Indefinite. For
+        more information about this result, see Volume 1, Appendix E, E.4.2.3, of the
+      <a href="http://www.intel.com/content/dam/www/public/us/en/documents/manuals/64-ia-32-architectures-software-developer-manual-325462.pdf">Intel® 64 and IA-32 Architectures Software Developer’s
+      Manual</a>.</li>
+      </ul>
+    </li>
+  </ul>
+</li>
+</ul>
+
+<h3>Sample code</h3>
+<p>In your project make sure to include the <code>arm_neon.h</code> header, and define include
+<code>x86</code> in your definition of <code>APP_ABI</code>. The build system then ports your code to x86.</p>
+
+<p>For an example of how porting ARM NEON to x86 SSE works, see the hello-neon sample.</p>
+
+<h2 id="st">Standalone Toolchain</h2>
+<p>You can incorporate the <code>x86</code> ABI into your own toolchain. For more information, see
+<a href="../../ndk/guides/standalone_toolchain.html">Standalone Toolchain</a>.</p>
+
+<h2 id="comp">Compatibility</h2>
+<p>x86 support requires, at minimum, Android 2.3 (Android API level 9). If your project files
+target an older API level, but include x86 as a targeted platform, the NDK build script
+automatically selects the right set of native platform headers/libraries for you.</p>
+    </div>
+
+    
+
+  </div> <!-- end jd-content -->
+
+<div class="wrap">
+  <div class="dac-footer">
+    <div class="cols dac-footer-main">
+      <div class="col-1of2">
+        <a class="dac-footer-getnews" data-modal-toggle="newsletter" href="javascript:;">Get news &amp; tips <span
+          class="dac-fab dac-primary"><i class="dac-sprite dac-mail"></i></span></a>
+      </div>
+      <div class="col-1of2 dac-footer-reachout">
+        <div class="dac-footer-contact">
+          <a class="dac-footer-contact-link" href="http://android-developers.blogspot.com/">Blog</a>
+          <a class="dac-footer-contact-link" href="/support.html">Support</a>
+        </div>
+        <div class="dac-footer-social">
+          <a class="dac-fab dac-footer-social-link" href="https://www.youtube.com/user/androiddevelopers"><i class="dac-sprite dac-youtube"></i></a>
+          <a class="dac-fab dac-footer-social-link" href="https://plus.google.com/+AndroidDevelopers"><i class="dac-sprite dac-gplus"></i></a>
+          <a class="dac-fab dac-footer-social-link" href="https://twitter.com/AndroidDev"><i class="dac-sprite dac-twitter"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <hr class="dac-footer-separator"/>
+
+    
+      <p class="dac-footer-copyright">
+        
+  Except as noted, this content is
+  licensed under <a href="http://creativecommons.org/licenses/by/2.5/">
+  Creative Commons Attribution 2.5</a>. For details and
+  restrictions, see the <a href="../../license.html">Content
+  License</a>.
+      </p>
+    
+
+    <p class="dac-footer-links">
+      <a href="/about/index.html">About Android</a>
+      <a href="/auto/index.html">Auto</a>
+      <a href="/tv/index.html">TV</a>
+      <a href="/wear/index.html">Wear</a>
+      <a href="/legal.html">Legal</a>
+
+      <span id="language" class="locales">
+        <select name="language" onchange="changeLangPref(this.value, true)">
+          <option value="en" selected="selected">English</option>
+          <option value="es">Español</option>
+          <option value="ja">日本語</option>
+          <option value="ko">한국어</option>
+          <option value="pt-br">Português Brasileiro</option>
+          <option value="ru">Русский</option>
+          <option value="zh-cn">中文（简体)</option>
+          <option value="zh-tw">中文（繁體)</option>
+        </select>
+      </span>
+    </p>
+  </div>
+</div> <!-- end footer -->
+
+<div data-modal="newsletter" data-newsletter data-swap class="dac-modal newsletter">
+  <div class="dac-modal-container">
+    <div class="dac-modal-window">
+      <header class="dac-modal-header">
+        <button class="dac-modal-header-close" data-modal-toggle><i class="dac-sprite dac-close"></i></button>
+        <div class="dac-swap" data-swap-container>
+          <section class="dac-swap-section dac-active dac-down">
+            <h2 class="norule dac-modal-header-title">Get the latest Android developer news and tips that will help you find success on Google Play.</h2>
+            <p class="dac-modal-header-subtitle">&#42; Required Fields</p>
+          </section>
+          <section class="dac-swap-section dac-up">
+            <h2 class="norule dac-modal-header-title">Hooray!</h2>
+          </section>
+        </div>
+      </header>
+      <div class="dac-swap" data-swap-container>
+        <section class="dac-swap-section dac-active dac-left">
+          <form action="https://docs.google.com/forms/d/1QgnkzbEJIDu9lMEea0mxqWrXUJu0oBCLD7ar23V0Yys/formResponse" class="dac-form" method="post" target="dac-newsletter-iframe">
+            <section class="dac-modal-content">
+              <fieldset class="dac-form-fieldset">
+                <div class="cols">
+                  <div class="col-1of2 newsletter-leftCol">
+                    <div class="dac-form-input-group">
+                      <label for="newsletter-full-name" class="dac-form-floatlabel">Full name</label>
+                      <input type="text" class="dac-form-input" name="entry.1357890476" id="newsletter-full-name" required>
+                      <span class="dac-form-required">*</span>
+                    </div>
+                    <div class="dac-form-input-group">
+                      <label for="newsletter-email" class="dac-form-floatlabel">Email address</label>
+                      <input type="email" class="dac-form-input" name="entry.472100832" id="newsletter-email" required>
+                      <span class="dac-form-required">*</span>
+                    </div>
+                  </div>
+                  <div class="col-1of2 newsletter-rightCol">
+                    <div class="dac-form-input-group">
+                      <label for="newsletter-company" class="dac-form-floatlabel">Company / developer name</label>
+                      <input type="text" class="dac-form-input" name="entry.1664780309" id="newsletter-company">
+                    </div>
+                    <div class="dac-form-input-group">
+                      <label for="newsletter-play-store" class="dac-form-floatlabel">One of your Play Store app URLs</label>
+                      <input type="url" class="dac-form-input" name="entry.47013838" id="newsletter-play-store" required>
+                      <span class="dac-form-required">*</span>
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+              <fieldset class="dac-form-fieldset">
+                <div class="cols">
+                  <div class="col-1of2 newsletter-leftCol">
+                    <legend class="dac-form-legend">Which best describes your business:<span class="dac-form-required">*</span>
+                    </legend>
+                    <div class="dac-form-radio-group">
+                      <input type="radio" value="Apps" class="dac-form-radio" name="entry.1796324055" id="newsletter-business-type-app" required>
+                      <label for="newsletter-business-type-app" class="dac-form-radio-button"></label>
+                      <label for="newsletter-business-type-app" class="dac-form-label">Apps</label>
+                    </div>
+                    <div class="dac-form-radio-group">
+                      <input type="radio" value="Games" class="dac-form-radio" name="entry.1796324055" id="newsletter-business-type-games" required>
+                      <label for="newsletter-business-type-games" class="dac-form-radio-button"></label>
+                      <label for="newsletter-business-type-games" class="dac-form-label">Games</label>
+                    </div>
+                    <div class="dac-form-radio-group">
+                      <input type="radio" value="Apps and Games" class="dac-form-radio" name="entry.1796324055" id="newsletter-business-type-appsgames" required>
+                      <label for="newsletter-business-type-appsgames" class="dac-form-radio-button"></label>
+                      <label for="newsletter-business-type-appsgames" class="dac-form-label">Apps &amp; Games</label>
+                    </div>
+                  </div>
+                  <div class="col-1of2 newsletter-rightCol newsletter-checkboxes">
+                    <div class="dac-form-radio-group">
+                      <div class="dac-media">
+                        <div class="dac-media-figure">
+                          <input type="checkbox" class="dac-form-checkbox" name="entry.732309842" id="newsletter-add" required value="Add me to the mailing list for the monthly newsletter and occasional emails about development and Google Play opportunities.">
+                          <label for="newsletter-add" class="dac-form-checkbox-button"></label>
+                        </div>
+                        <div class="dac-media-body">
+                          <label for="newsletter-add" class="dac-form-label dac-form-aside">Add me to the mailing list for the monthly newsletter and occasional emails about development and Google Play opportunities.<span class="dac-form-required">*</span></label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="dac-form-radio-group">
+                      <div class="dac-media">
+                        <div class="dac-media-figure">
+                          <input type="checkbox" class="dac-form-checkbox" name="entry.2045036090" id="newsletter-terms" required value="I acknowledge that the information provided in this form will be subject to Google's privacy policy (https://www.google.com/policies/privacy/).">
+                          <label for="newsletter-terms" class="dac-form-checkbox-button"></label>
+                        </div>
+                        <div class="dac-media-body">
+                          <label for="newsletter-terms" class="dac-form-label dac-form-aside">I acknowledge that the information provided in this form will be subject to <a href="https://www.google.com/policies/privacy/">Google's privacy policy</a>.<span class="dac-form-required">*</span></label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+            </section>
+            <footer class="dac-modal-footer">
+              <div class="cols">
+                <div class="col-2of5">
+                </div>
+              </div>
+              <button type="submit" value="Submit" class="dac-fab dac-primary dac-large dac-modal-action"><i class="dac-sprite dac-arrow-right"></i></button>
+            </footer>
+          </form>
+        </section>
+        <section class="dac-swap-section dac-right">
+          <div class="dac-modal-content">
+            <p class="newsletter-success-message">
+              You have successfully signed up for the latest Android developer news and tips.
+            </p>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</div> <!-- end footer -->
+
+</div><!-- end doc-content -->
+
+</div> <!-- end .cols --> 
+</div> <!-- end body-content --> 
+
+
+
+
+
+  <script src="../../ajax/developer.android.com/ytblogger_lists_unified.js" type="text/javascript"></script>
+  <script src="../../jd_lists_unified.js?v=15" type="text/javascript"></script>
+  <script src="../../jd_extras.js?v=15" type="text/javascript"></script>
+  <script src="../../jd_collections.js?v=15" type="text/javascript"></script>
+  <script src="../../jd_tag_helpers.js?v=15" type="text/javascript"></script>
+
+</body>
+</html>

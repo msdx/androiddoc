@@ -1,0 +1,2697 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
+
+<meta name="Description" content="This document explains how to use the Data Binding Library to write declarative layouts and minimize the glue code necessary to bind your application logic and layouts. The Data Binding Library offers both flexibility and broad comnpatibility — it&#39…">
+<link rel="shortcut icon" type="image/x-icon" href="../../favicon.ico" />
+<title>Data Binding Guide | Android Developers</title>
+
+<!-- STYLESHEETS -->
+<link rel="stylesheet"
+href="http://fonts.useso.com/css?family=Roboto+Condensed">
+<link rel="stylesheet" href="http://fonts.useso.com/css?family=Roboto:light,regular,medium,thin,italic,mediumitalic,bold"
+  title="roboto">
+
+<link href="../../assets/css/default.css?v=7" rel="stylesheet" type="text/css">
+
+
+
+<!-- JAVASCRIPT -->
+<script src="../../assets/js/android_3p-bundle.js" type="text/javascript"></script>
+<script type="text/javascript">
+  var toRoot = "../../";
+  var metaTags = ["databinding","layouts"];
+  var devsite = false;
+</script>
+<script src="../../assets/js/docs.js?v=6" type="text/javascript"></script>
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-5831155-1', 'android.com');
+  ga('create', 'UA-49880327-2', 'android.com', {'name': 'universal'});  // New tracker);
+  ga('send', 'pageview');
+  ga('universal.send', 'pageview'); // Send page view for new tracker.
+</script>
+
+</head>
+
+<body class="gc-documentation
+
+
+develop" itemscope itemtype="http://schema.org/Article">
+<a name="top"></a>
+
+<!-- dialog to prompt lang pref change when loaded from hardcoded URL
+<div id="langMessage" style="display:none">
+  <div>
+    <div class="lang en">
+      <p>You requested a page in English, would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang es">
+      <p>You requested a page in Spanish (Español), would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang ja">
+      <p>You requested a page in Japanese (日本語), would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang ko">
+      <p>You requested a page in Korean (한국어), would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang ru">
+      <p>You requested a page in Russian (Русский), would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang zh-cn">
+      <p>You requested a page in Simplified Chinese (简体中文), would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang zh-tw">
+      <p>You requested a page in Traditional Chinese (繁體中文), would you like to proceed with this language setting?</p>
+    </div>
+    <a href="#" class="button yes" onclick="return false;">
+      <span class="lang en">Yes</span>
+      <span class="lang es">Sí</span>
+      <span class="lang ja">Yes</span>
+      <span class="lang ko">Yes</span>
+      <span class="lang ru">Yes</span>
+      <span class="lang zh-cn">是的</span>
+      <span class="lang zh-tw">没有</span>
+    </a>
+    <a href="#" class="button" onclick="$('#langMessage').hide();return false;">
+      <span class="lang en">No</span>
+      <span class="lang es">No</span>
+      <span class="lang ja">No</span>
+      <span class="lang ko">No</span>
+      <span class="lang ru">No</span>
+      <span class="lang zh-cn">没有</span>
+      <span class="lang zh-tw">没有</span>
+    </a>
+  </div>
+</div> -->
+
+
+  <!-- Header -->
+  <div id="header-wrapper">
+    <div class="dac-header" id="header">
+
+
+
+
+      <div class="dac-header-inner">
+        <a class="dac-nav-toggle" data-dac-toggle-nav href="javascript:;" title="Open navigation">
+          <span class="dac-nav-hamburger">
+            <span class="dac-nav-hamburger-top"></span>
+            <span class="dac-nav-hamburger-mid"></span>
+            <span class="dac-nav-hamburger-bot"></span>
+          </span>
+        </a>
+        <a class="dac-header-logo" href="../../index.html">
+          <img class="dac-header-logo-image" src="../../assets/images/android_logo.png"
+              srcset="../../assets/images/android_logo@2x.png 2x"
+              width="32" height="36" alt="Android" /> Developers
+          </a>
+
+        <ul class="dac-header-crumbs">
+          
+          <li class="dac-header-crumbs-item"><span class="dac-header-crumbs-link current ">Data Binding Guide</a></li>
+        </ul>
+
+        
+        
+        
+  <div class="dac-header-search" id="search-container">
+    <div class="dac-header-search-inner">
+      <div class="dac-sprite dac-search dac-header-search-btn" id="search-btn"></div>
+      <form class="dac-header-search-form" onsubmit="return submit_search()">
+        <input id="search_autocomplete" type="text" value="" autocomplete="off" name="q"
+          onfocus="search_focus_changed(this, true)" onblur="search_focus_changed(this, false)"
+          onkeydown="return search_changed(event, true, '../../')"
+          onkeyup="return search_changed(event, false, '../../')"
+          class="dac-header-search-input" placeholder="Search" />
+          <a class="dac-header-search-close hide" id="search-close">close</a>
+      </form>
+    </div><!-- end dac-header-search-inner -->
+  </div><!-- end dac-header-search -->
+
+  <div class="search_filtered_wrapper">
+    <div class="suggest-card reference no-display">
+      <ul class="search_filtered">
+      </ul>
+    </div>
+    <div class="suggest-card develop no-display">
+      <ul class="search_filtered">
+      </ul>
+      <div class="child-card guides no-display">
+      </div>
+      <div class="child-card training no-display">
+      </div>
+      <div class="child-card samples no-display">
+      </div>
+    </div>
+    <div class="suggest-card design no-display">
+      <ul class="search_filtered">
+      </ul>
+    </div>
+    <div class="suggest-card distribute no-display">
+      <ul class="search_filtered">
+      </ul>
+    </div>
+  </div>
+
+        
+
+        <a class="dac-header-console-btn" href="https://play.google.com/apps/publish/">
+          <span class="dac-sprite dac-google-play"></span>
+          <span class="dac-visible-desktop-inline">Developer</span>
+          Console
+        </a>
+
+      </div><!-- end header-wrap.wrap -->
+    </div><!-- end header -->
+
+    <div id="searchResults" class="wrap" style="display:none;">
+      <h2 id="searchTitle">Results</h2>
+      <div id="leftSearchControl" class="search-control">Loading...</div>
+    </div>
+  </div> <!--end header-wrapper -->
+
+  
+  <!-- Navigation-->
+  <nav class="dac-nav">
+    <div class="dac-nav-dimmer" data-dac-toggle-nav></div>
+
+    <ul class="dac-nav-list" data-dac-nav>
+      <li class="dac-nav-item dac-nav-head">
+        <a class="dac-nav-link dac-nav-logo" data-dac-toggle-nav href="javascript:;" title="Close navigation">
+          <img class="dac-logo-image" src="../../assets/images/android_logo.png"
+               srcset="../../assets/images/android_logo@2x.png 2x"
+               width="32" height="36" alt="Android" /> Developers
+        </a>
+      </li>
+      <li class="dac-nav-item home">
+        <a class="dac-nav-link dac-visible-mobile-block" href="../../index.html">Home</a>
+        <ul class="dac-nav-secondary about">
+          <li class="dac-nav-item about">
+            <a class="dac-nav-link" href="../../about/index.html">Android</a>
+          </li>
+          <li class="dac-nav-item wear">
+            <a class="dac-nav-link" href="../../wear/index.html">Wear</a>
+          </li>
+          <li class="dac-nav-item tv">
+            <a class="dac-nav-link" href="../../tv/index.html">TV</a>
+          </li>
+          <li class="dac-nav-item auto">
+            <a class="dac-nav-link" href="../../auto/index.html">Auto</a>
+          </li>
+        </ul>
+      </li>
+      <li class="dac-nav-item design">
+        <a class="dac-nav-link" href="../../design/index.html"
+           zh-tw-lang="設計"
+           zh-cn-lang="设计"
+           ru-lang="Проектирование"
+           ko-lang="디자인"
+           ja-lang="設計"
+           es-lang="Diseñar">Design</a>
+      </li>
+      <li class="dac-nav-item develop">
+        <a class="dac-nav-link" href="../../develop/index.html"
+           zh-tw-lang="開發"
+           zh-cn-lang="开发"
+           ru-lang="Разработка"
+           ko-lang="개발"
+           ja-lang="開発"
+           es-lang="Desarrollar">Develop</a>
+        <ul class="dac-nav-secondary develop">
+          <li class="dac-nav-item training">
+            <a class="dac-nav-link" href="../../training/index.html"
+               zh-tw-lang="訓練課程"
+               zh-cn-lang="培训"
+               ru-lang="Курсы"
+               ko-lang="교육"
+               ja-lang="トレーニング"
+               es-lang="Capacitación">Training</a>
+          </li>
+          <li class="dac-nav-item guide">
+            <a class="dac-nav-link" href="../../guide/index.html"
+               zh-tw-lang="API 指南"
+               zh-cn-lang="API 指南"
+               ru-lang="Руководства по API"
+               ko-lang="API 가이드"
+               ja-lang="API ガイド"
+               es-lang="Guías de la API">API Guides</a>
+          </li>
+          <li class="dac-nav-item reference">
+            <a class="dac-nav-link" href="../../reference/packages.html"
+               zh-tw-lang="參考資源"
+               zh-cn-lang="参考"
+               ru-lang="Справочник"
+               ko-lang="참조문서"
+               ja-lang="リファレンス"
+               es-lang="Referencia">Reference</a>
+          </li>
+          <li class="dac-nav-item tools">
+            <a class="dac-nav-link" href="../../sdk/index.html"
+               zh-tw-lang="相關工具"
+               zh-cn-lang="工具"
+               ru-lang="Инструменты"
+               ko-lang="도구"
+               ja-lang="ツール"
+               es-lang="Herramientas">Tools</a></li>
+          <li class="dac-nav-item google">
+            <a class="dac-nav-link" href="../../google/index.html">Google Services</a>
+          </li>
+          
+          <li class="dac-nav-item preview">
+            <a class="dac-nav-link" href="../../preview/index.html">Preview</a>
+          </li>
+        </ul>
+      </li>
+      <li class="dac-nav-item distribute">
+        <a class="dac-nav-link" href="../../distribute/googleplay/index.html"
+           zh-tw-lang="發佈"
+           zh-cn-lang="分发"
+           ru-lang="Распространение"
+           ko-lang="배포"
+           ja-lang="配布"
+           es-lang="Distribuir">Distribute</a>
+        <ul class="dac-nav-secondary distribute">
+          <li class="dac-nav-item googleplay">
+            <a class="dac-nav-link" href="../../distribute/googleplay/index.html">Google Play</a></li>
+          <li class="dac-nav-item essentials">
+            <a class="dac-nav-link" href="../../distribute/essentials/index.html">Essentials</a></li>
+          <li class="dac-nav-item users">
+            <a class="dac-nav-link" href="../../distribute/users/index.html">Get Users</a></li>
+          <li class="dac-nav-item engage">
+            <a class="dac-nav-link" href="../../distribute/engage/index.html">Engage &amp; Retain</a></li>
+          <li class="dac-nav-item monetize">
+            <a class="dac-nav-link" href="../../distribute/monetize/index.html">Earn</a>
+          </li>
+          <li class="dac-nav-item analyze">
+            <a class="dac-nav-link" href="../../distribute/analyze/index.html">Analyze</a>
+          </li>
+          <li class="dac-nav-item stories">
+            <a class="dac-nav-link" href="../../distribute/stories/index.html">Stories</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+  <!-- end navigation-->
+  
+
+
+
+
+  <div class="wrap clearfix" id="body-content"><div class="cols">
+    <div class="col-3 dac-toggle dac-mobile" id="side-nav" itemscope itemtype="http://schema.org/SiteNavigationElement">
+      
+  <div class="dac-visible-mobile-block" data-toggle="section">
+    <span class="dac-toggle-expand dac-devdoc-toggle"><i class="dac-sprite dac-expand-more-black"></i> Show navigation</span>
+    <span class="dac-toggle-collapse dac-devdoc-toggle" data-toggle-section><i class="dac-sprite dac-expand-less-black"></i> Hide navigation</span>
+  </div>
+
+      <div class="dac-toggle-content" id="devdoc-nav">
+        <div class="scroll-pane">
+<ul id="nav">
+
+  <li class="nav-section">
+    <div class="nav-section-header"><a href="../../sdk/index.html"><span class="en">Download</span></a></div>
+    <ul>
+      <li><a href="../../sdk/installing/index.html">
+          <span class="en">Installing the SDK</span></a></li>
+
+      <li><a href="../../sdk/installing/adding-packages.html">
+          <span class="en">Adding SDK Packages</span></a></li>
+    </ul>
+  </li>
+
+
+<!-- Android Studio menu-->
+
+ <li class="nav-section">
+    <div class="nav-section-header">
+      <a href="../../tools/studio/index.html">Android Studio</a>
+    </div>
+    <ul>
+      <li><a href="../../tools/studio/studio-config.html">
+          Configuration</a></li>
+      <li><a href="../../tools/studio/studio-features.html">
+          Features</a></li>
+      <li><a href="../../sdk/installing/studio-tips.html">
+          Tips and Tricks</a></li>
+    </ul>
+
+ </li><!-- End of Android Studio menu -->
+
+
+<!-- Workflow menu-->
+
+  <li class="nav-section">
+    <div class="nav-section-header">
+        <a href="../../tools/workflow/index.html"><span class="en">Workflow</span></a>
+    </div>
+    <ul>
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../tools/devices/index.html"><span class="en">Setting Up Virtual Devices</span></a></div>
+        <ul>
+          <li><a href="../../tools/devices/managing-avds.html"><span class="en">With AVD Manager</span></a></li>
+          <li><a href="../../tools/devices/managing-avds-cmdline.html"><span class="en">From the Command Line</span></a></li>
+          <li><a href="../../tools/devices/emulator.html"><span class="en">Using the Emulator</span></a></li>
+        </ul>
+      </li>
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../tools/device.html"><span class="en">Using Hardware Devices</span></a></div>
+        <ul>
+          <li><a href="../../tools/extras/oem-usb.html"><span
+            class="en">USB Drivers</span></a></li>
+        </ul>
+      </li>
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../tools/projects/index.html"><span class="en">Managing Projects</span></a></div>
+        <ul>
+          <li><a href="../../sdk/installing/create-project.html"><span class="en">From Android Studio</span></a></li>
+          <li><a href="../../tools/projects/projects-cmdline.html"><span class="en">From the Command Line</span></a></li>
+          <li><a href="../../tools/projects/templates.html"><span class="en">Using Code Templates</span></a></li>
+        </ul>
+      </li>
+
+
+      <li class="nav-section">
+        <div class="nav-section-header">
+          <a href="../../tools/building/index.html">
+          <span class="en">Building and Running</span></a>
+        </div>
+        <ul>
+          <li><a href="../../tools/building/building-studio.html">
+            <span class="en">From Android Studio</span></a></li>
+          <li><a href="../../tools/building/building-cmdline.html">
+            <span class="en">From the Command Line</span></a></li>
+        </ul>
+      </li>
+
+
+  <li class="nav-section">
+        <div class="nav-section-header"><a href="../../tools/testing/index.html">
+            <span class="en">Testing</span>
+          </a></div>
+        <ul>
+          <li>
+            <a href="../../tools/testing/testing_android.html">
+            <span class="en">Fundamentals</span></a>
+          </li>
+          <li><a href="../../tools/testing/testing_eclipse.html">
+            <span class="en">From Eclipse</span></a>
+          </li>
+          <li><a href="../../tools/testing/testing_otheride.html">
+            <span class="en">From Other IDEs</span></a>
+          </li>
+          <li>
+            <a href="../../tools/testing/activity_testing.html">
+            <span class="en">Activity Testing</span></a>
+          </li>
+          <li>
+            <a href="../../tools/testing/service_testing.html">
+            <span class="en">Service Testing</span></a>
+          </li>
+          <li>
+            <a href="../../tools/testing/contentprovider_testing.html">
+            <span class="en">Content Provider Testing</span></a>
+          </li>
+          <li>
+            <a href="../../tools/testing/testing_accessibility.html">
+            <span class="en">Accessibility Testing</span></a>
+          </li>
+           <li>
+            <a href="../../tools/testing/testing_ui.html">
+            <span class="en">UI Testing</span></a>
+          </li>
+          <li>
+            <a href="../../tools/testing/what_to_test.html">
+            <span class="en">What To Test</span></a>
+          </li>
+          <li>
+            <a href="../../tools/testing/activity_test.html">
+            <span class="en">Activity Testing Tutorial</span></a>
+          </li>
+        </ul>
+  </li><!-- end of testing -->
+
+  <li class="nav-section">
+    <div class="nav-section-header"><a href="../../tools/debugging/index.html"><span class="en">Debugging</span></a></div>
+    <ul>
+      <li><a href="../../tools/debugging/debugging-studio.html"><span class="en">From Android Studio</span></a></li>
+      <li><a href="../../tools/debugging/debugging-projects-cmdline.html"><span class="en">From Other IDEs</span></a></li>
+      <li><a href="../../tools/debugging/ddms.html"><span class="en">Using DDMS</span></a></li>
+      <li><a href="../../tools/debugging/debugging-log.html"><span class="en">Reading and Writing Logs</span></a></li>
+      <li><a href="../../tools/debugging/improving-w-lint.html"><span class="en">Improving Your Code with lint</span></a></li>
+      <li><a href="../../tools/debugging/debugging-ui.html"><span class="en">Optimizing your UI</span></a></li>
+      <li><a href="../../tools/debugging/debugging-tracing.html"><span class="en">Profiling with Traceview and dmtracedump</span></a></li>
+      <li><a href="../../tools/debugging/annotations.html"><span class="en">Improving Code Inspection with Annotations</span></a></li>
+      <li><a href="../../tools/debugging/systrace.html"><span class="en">Analyzing UI Performance</span></a></li>
+      <li><a href="../../tools/debugging/debugging-memory.html">Investigating Your RAM Usage</a></li>
+      <li><a href="../../tools/debugging/debugging-devtools.html"><span class="en">Using the Dev Tools App</span></a></li>
+    </ul>
+  </li>
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../tools/publishing/publishing_overview.html" zh-cn-lang="发布概述"><span class="en">Publishing</span></a></div>
+        <ul>
+          <li><a href="../../tools/publishing/preparing.html" zh-cn-lang="准备发布"><span class="en">Preparing for Release</span></a></li>
+          <li><a href="../../tools/publishing/versioning.html"><span class="en">Versioning Your Apps</span></a></li>
+          <li><a href="../../tools/publishing/app-signing.html"><span class="en">Signing Your Apps</span></a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+
+
+  <li class="nav-section">
+    <div class="nav-section-header"><a href="../../tools/help/index.html"><span
+class="en">Tools Help</span></a></div>
+    <ul>
+      <li><a href="../../tools/help/adb.html">adb</a></li>
+      <li><a href="../../tools/help/android.html">android</a></li>
+      <li><a href="../../tools/help/avd-manager.html">AVD Manager</a></li>
+      <li><a href="../../tools/help/bmgr.html">bmgr</a>
+      <li><a href="../../tools/help/monitor.html">Device Monitor</a></li>
+      <li><a href="../../tools/help/dmtracedump.html">dmtracedump</a></li>
+      <li><a href="../../tools/help/draw9patch.html">Draw 9-Patch</a></li>
+      <li><a href="../../tools/help/emulator.html">Emulator</a></li>
+      <li><a href="../../tools/help/etc1tool.html">etc1tool</a></li>
+      <li><a href="../../tools/help/hierarchy-viewer.html">Hierarchy Viewer</a></li>
+      <li><a href="../../tools/help/hprof-conv.html">hprof-conv</a></li>
+      <li><a href="../../tools/help/jobb.html">jobb</a></li>
+      <li><a href="../../tools/help/lint.html">lint</span></a></li>
+      <li><a href="../../tools/help/logcat.html">logcat</a></li>
+      <li><a href="../../tools/help/mksdcard.html">mksdcard</a></li>
+       <li><a href="../../tools/help/proguard.html" zh-cn-lang="ProGuard">ProGuard</a></li>
+       <li><a href="../../tools/help/sdk-manager.html">SDK Manager</a></li>
+       <li><a href="../../tools/help/systrace.html">Systrace</a></li>
+       <li><a href="../../tools/help/gltracer.html">Tracer for OpenGL ES</a></li>
+       <li><a href="../../tools/help/traceview.html">Traceview</a></li>
+       <li><a href="../../tools/help/zipalign.html">zipalign</a></li>
+    </ul>
+  </li>
+
+  </li><!-- end of tools help -->
+
+
+<!-- Build System menu-->
+
+  <li class="nav-section">
+    <div class="nav-section-header">
+      <a href="../../sdk/installing/studio-build.html">Build System</a>
+    </div>
+    <ul>
+      <li><a href="../../tools/building/configuring-gradle.html">
+        <span class="en">Configuring Gradle Builds</span></a></li>
+      <li><a href="../../tools/building/plugin-for-gradle.html">
+        <span class="en">Android Plugin for Gradle</span></a></li>
+      <li><a href="../../tools/building/manifest-merge.html">
+        <span class="en">Manifest Merging</span></a></li>
+      <li><a href="../../tools/building/multidex.html">
+        <span class="en">Apps Over 65K Methods</span></a></li>
+      </ul>
+  </li><!-- end of build system -->
+
+
+<!-- Performance Tools menu-->
+  <li class="nav-section">
+    <div class="nav-section-header">
+      <a href="../../tools/performance/index.html">Peformance Tools</a>
+    </div>
+    <ul>
+      <li><a href="../../tools/performance/debug-gpu-overdraw/index.html">
+        Overdraw Debugger</a>
+      </li>
+      <li><a href="../../tools/performance/profile-gpu-rendering/index.html">
+        Rendering Profiler</a>
+      </li>
+      <li class="nav-section">
+        <div class="nav-section-header">
+          <a href="../../tools/performance/hierarchy-viewer/index.html">
+          Hierarchy Viewer</a></div>
+        <ul>
+          <li><a href="../../tools/performance/hierarchy-viewer/setup.html"><span
+            class="en">Setup</span></a>
+          </li>
+          <li><a href="../../tools/performance/hierarchy-viewer/profiling.html"><span
+            class="en">Profiling</span></a>
+          </li>
+        </ul>
+      </li>
+      <li class="nav-section">
+        <div class="nav-section-header">
+          <a href="../../tools/performance/comparison.html">
+          Memory Profilers</a></div>
+        <ul>
+          <li><a href="../../tools/performance/memory-monitor/index.html"><span
+            class="en">Memory Monitor</span></a>
+          </li>
+          <li><a href="../../tools/performance/heap-viewer/index.html"><span
+            class="en">Heap Viewer</span></a>
+          </li>
+          <li><a href="../../tools/performance/allocation-tracker/index.html"><span
+            class="en">Allocation Tracker</span></a>
+          </li>
+        </ul>
+      </li>
+      <li><a href="../../tools/performance/traceview/index.html">
+        Traceview</a>
+      </li>
+      <li><a href="../../tools/performance/systrace/index.html">
+        Systrace</a>
+      </li>
+      <li class="nav-section">
+        <div class="nav-section-header">
+          <a href="../../tools/performance/batterystats-battery-historian/index.html">
+          Battery Profilers</a></div>
+        <ul>
+          <li><a href="../../tools/performance/batterystats-battery-historian/charts.html"><span
+            class="en">Historian Charts</span></a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li><!-- End Performance Tools menu-->
+
+
+  <!-- Testing Tools menu-->
+
+  <li class="nav-section">
+    <div class="nav-section-header"><a href="../../tools/testing/testing-tools.html"><span class="en">Testing Tools</span></a></div>
+    <ul>
+      <li class="nav-section">
+         <div class="nav-section-header"><a href="../../tools/testing-support-library/index.html"><span
+class="en">Testing Support Library</span></a></div>
+         <ul>
+            <li><a href="../../reference/android/support/test/package-summary.html">API Reference</a></li>
+         </ul>
+      </li>
+      <li><a href="../../tools/help/monkey.html">monkey</a></li>
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../tools/help/monkeyrunner_concepts.html"><span class="en">monkeyrunner</span></a></div>
+        <ul>
+          <li><a href="../../tools/help/MonkeyDevice.html"><span
+class="en">MonkeyDevice</span></a></li>
+          <li><a href="../../tools/help/MonkeyImage.html"><span
+class="en">MonkeyImage</span></a></li>
+          <li><a href="../../tools/help/MonkeyRunner.html"><span
+class="en">MonkeyRunner</span></a></li>
+        </ul>
+      </li>
+    </ul>
+  </li><!-- end of testing support library -->
+
+
+<!-- Support Library menu-->
+
+  <li class="nav-section">
+    <div class="nav-section-header"><a href="../../tools/support-library/index.html"><span
+class="en">Support Library</span></a></div>
+    <ul>
+      <li><a href="../../tools/support-library/features.html">Features</a></li>
+      <li><a href="../../tools/support-library/setup.html">Setup</a></li>
+    </ul>
+  </li><!-- end of support library -->
+
+  <li class="nav-section">
+    <div class="nav-section-header empty"><a href="../../tools/data-binding/guide.html"><span
+class="en">Data Binding Library</span></a></div>
+  </li><!-- end of support library -->
+
+
+<!-- Revision menu-->
+
+  <li class="nav-section">
+    <div class="nav-section-header"><a href="../../tools/revisions/index.html"><span class="en">Revisions</span></a></div>
+    <ul>
+      <li><a href="../../tools/revisions/studio.html">
+        <span class="en">Android Studio</span>
+      </a></li>
+      <li><a href="../../tools/sdk/tools-notes.html">
+        <span class="en">SDK Tools</span>
+      </a></li>
+      <li><a href="../../tools/revisions/build-tools.html">
+        <span class="en">SDK Build Tools</span>
+      </a></li>
+      <li><a href="../../tools/revisions/gradle-plugin.html">
+        <span class="en">Android Plugin for Gradle</span>
+      </a></li>
+      <li><a href="../../tools/revisions/platforms.html">
+        <span class="en">SDK Platforms</span></a></li>
+      <li><a href="../../tools/sdk/eclipse-adt.html">
+        <span class="en">ADT Plugin</span></a></li>
+    </ul>
+  </li>
+
+  <li class="nav-section">
+    <div class="nav-section-header empty">
+      <a href="../../tools/sdk/ndk/index.html">NDK</a>
+    </div>
+  </li>
+
+<!--  <li class="nav-section">
+    <div class="nav-section-header">
+    <a href="../../tools/adk/index.html">
+      <span class="en">ADK</span></a>
+    </div>
+    <ul>
+      <li><a href="../../tools/adk/adk2.html">ADK 2012 Guide</a></li>
+      <li><a href="../../tools/adk/adk.html">ADK 2011 Guide</a></li>
+    </ul>
+  </li> -->
+
+
+<!-- Eclipse ADT menu-->
+
+  <li class="nav-section">
+    <div class="nav-section-header">
+    <a href="../../tools/help/adt.html">
+      <span class="en">Eclipse with ADT</span></a>
+    </div>
+    <ul>
+        <li class="nav-section">
+        <div class="nav-section-header"><a href="../../sdk/installing/migrate.html">
+          <span class="en">Migrating to Android Studio</span></a></div>
+         <ul>
+            <li><a href="../../tools/studio/eclipse-transition-guide.html">
+            Transition Guide</span></a> </li>
+         </ul>
+        </li>
+
+    <li><a href="../../sdk/installing/installing-adt.html">
+        <span class="en">Installing the Eclipse Plugin</span></a></li>
+    <li><a href="../../tools/projects/projects-eclipse.html">Managing Projects</a></li>
+    <li><a href="../../tools/building/building-eclipse.html">Building and Running</a></li>
+    <li><a href="../../tools/building/building-cmdline-ant.html">Building with Ant</a></li>
+    <li><a href="../../tools/testing/testing_eclipse.html">Testing</a></li>
+    <li><a href="../../tools/debugging/debugging-projects.html">Debugging</a></li>
+    <li><a href="../../tools/publishing/app-signing-eclipse.html">Signing Your Apps</a></li>
+    </ul>
+  </li><!-- end of Eclipse  -->
+
+
+</ul><!-- nav -->
+
+<script type="text/javascript">
+<!--
+    buildToggleLists();
+    changeNavLang(getLangPref());
+//-->
+</script>
+
+        </div>
+      </div>
+    </div> <!-- end side-nav -->
+    <script>
+      $(document).ready(function() {
+        scrollIntoView("devdoc-nav");
+        });
+    </script>
+
+
+
+
+<div class="col-13" id="doc-col" >
+
+
+  
+
+  
+    
+      
+        <h1 itemprop="name" >Data Binding Guide</h1>
+      
+    
+  
+
+
+  
+  <div id="jd-content">
+
+
+    <div class="jd-descr" itemprop="articleBody">
+    <div id="qv-wrapper">
+  <div id="qv">
+    <h2>
+      In this document:
+    </h2>
+
+    <ol>
+      <li>
+        <a href="#build_environment">Build Environment</a>
+      </li>
+
+      <li>
+        <a href="#data_binding_layout_files">Data Binding Layout Files</a>
+        <ol>
+          <li>
+            <a href="#writing_expressions">Writing your first data binding
+            expressions</a>
+          </li>
+
+          <li>
+            <a href="#data_object">Data Object</a>
+          </li>
+
+          <li>
+            <a href="#binding_data">Binding Data</a>
+          </li>
+
+          <li>
+            <a href="#binding_events">Binding Events</a>
+          </li>
+        </ol>
+      </li>
+
+      <li>
+        <a href="#layout_details">Layout Details</a>
+        <ol>
+          <li>
+            <a href="#imports">Imports</a>
+          </li>
+
+          <li>
+            <a href="#variables">Variables</a>
+          </li>
+
+          <li>
+            <a href="#custom_binding_class_names">Custom Binding Class Names</a>
+          </li>
+
+          <li>
+            <a href="#includes">Includes</a>
+          </li>
+
+          <li>
+            <a href="#expression_language">Expression Language</a>
+          </li>
+        </ol>
+      </li>
+
+      <li>
+        <a href="#data_objects">Data Objects</a>
+        <ol>
+          <li>
+            <a href="#observable_objects">Observable Objects</a>
+          </li>
+
+          <li>
+            <a href="#observablefields">ObservableFields</a>
+          </li>
+
+          <li>
+            <a href="#observable_collections">Observable Collections</a>
+          </li>
+        </ol>
+      </li>
+
+      <li>
+        <a href="#generated_binding">Generated Binding</a>
+        <ol>
+          <li>
+            <a href="#creating">Creating</a>
+          </li>
+
+          <li>
+            <a href="#views_with_ids">Views With IDs</a>
+          </li>
+
+          <li>
+            <a href="#variables">Variables</a>
+          </li>
+
+          <li>
+            <a href="#viewstubs">ViewStubs</a>
+          </li>
+
+          <li>
+            <a href="#advanced_binding">Advanced Binding</a>
+          </li>
+        </ol>
+      </li>
+
+      <li>
+        <a href="#attribute_setters">Attribute Setters</a>
+        <ol>
+          <li>
+            <a href="#automatic_setters">Automatic Setters</a>
+          </li>
+
+          <li>
+            <a href="#renamed_setters">Renamed Setters</a>
+          </li>
+
+          <li>
+            <a href="#custom_setters">Custom Setters</a>
+          </li>
+        </ol>
+      </li>
+
+      <li>
+        <a href="#converters">Converters</a>
+        <ol>
+          <li>
+            <a href="#object_conversions">Object Conversions</a>
+          </li>
+
+          <li>
+            <a href="#custom_conversions">Custom Conversions</a>
+          </li>
+        </ol>
+      </li>
+    </ol>
+  </div><!-- qv -->
+</div><!-- qv-wrapper -->
+
+<p>
+  This document explains how to use the Data Binding Library to write
+  declarative layouts and minimize the glue code necessary to bind your
+  application logic and layouts.
+</p>
+
+<p>The Data Binding Library offers both flexibility and broad comnpatibility
+&mdash; it's a support library, so you can use it with all Android platform
+versions back to <strong>Android 2.1</strong> (API level 7+).</p>
+
+<p>To use data binding, Android Plugin for Gradle <strong>1.3.0-beta4</strong>
+or higher is required.</p>
+
+<h4>Beta release</h4>
+
+<div class="caution">
+  <p>Please note that the Data Binding library is a <strong>beta release</strong>.
+  While Data Binding is in beta, developers should be aware of the following
+  caveats:</p>
+  <ul>
+    <li>
+    This is a beta release of the feature intended to generate developer
+    feedback. It might contain bugs, and it might not work for your use case,
+    so use it at your own risk. That said, we do want your feedback! Please
+    let us know what is or isn’t working for you using the <a
+    href="https://code.google.com/p/android-developer-preview/">issue
+    tracker</a>.
+    </li>
+    <li>
+    The Data Binding library beta release is subject to significant changes,
+    including those which are not source code compatible with your app. That is,
+    significant rework may be required to take updates to the library in the future.
+    </li>
+    <li>
+    Developers should feel free to publish apps built with the Data Binding
+    library beta release, with the caveats that the standard Android SDK and
+    Google Play terms of service apply, and it’s always a great idea to test your
+    app thoroughly when adopting new libraries or tools.
+    </li>
+    <li>
+    We’re just getting started with Android Studio support at this time.
+    Further Android Studio support will come in the future.
+    </li>
+    <li>
+    By using the Data Binding library beta release, you acknowledge these
+    caveats.</li>
+  </ul>
+</div>
+
+<h2 id="build_environment">
+  Build Environment
+</h2>
+
+<p>To get started with Data Binding, download the library from the Support
+repository in the Android SDK manager. </p>
+
+<p>The Data Binding plugin requires Android Plugin for Gradle <strong>1.3.0-beta4
+or higher</strong>, so update your build dependencies (in the top-level
+<code>build.gradle</code> file) as needed.</p>
+
+<p>Also, make sure you are using a compatible version of Android Studio.
+<strong>Android Studio 1.3</strong> adds the code-completion and layout-preview
+support for data binding.</p>
+
+<p>
+  <strong>Setting Up Work Environment:</strong>
+</p>
+
+<p>
+  To set up your application to use data binding, add data binding to the class
+  path of your top-level <code>build.gradle</code> file, right below "android".
+</p>
+
+<pre>
+   dependencies {
+       classpath <strong>"com.android.tools.build:gradle:1.3.0-beta4"</strong>
+       classpath <strong>"com.android.databinding:dataBinder:1.0-rc1"</strong>
+   }
+</pre>
+<p>
+  Then make sure jcenter is in the repositories list for your projects in the top-level
+  <code>build.gradle</code> file.
+</p>
+
+<pre>
+allprojects {
+   repositories {
+       jcenter()
+   }
+}
+</pre>
+<p>
+  In each module you want to use data binding, apply the plugin right after
+  android plugin
+</p>
+
+<pre>
+apply plugin: &apos;com.android.application&apos;
+apply plugin: &apos;com.android.databinding&apos;
+</pre>
+<p>
+  The data binding plugin is going to add necessary <strong>provided</strong>
+  and <strong>compile configuration</strong> dependencies to your project.
+</p>
+
+<h2 id="data_binding_layout_files">
+  Data Binding Layout Files
+</h2>
+
+<h3 id="writing_expressions">
+  Writing your first data binding expressions
+</h3>
+
+<p>
+  Data-binding layout files are slightly different and start with a root tag of
+  <strong>layout</strong> followed by a <strong>data</strong> element and a
+  <strong>view</strong> root element. This view element is what your root would
+  be in a non-binding layout file. A sample file looks like this:
+</p>
+
+<pre>
+&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;layout xmlns:android="http://schemas.android.com/apk/res/android"&gt;
+   &lt;data&gt;
+       &lt;variable name="user" type="com.example.User"/&gt;
+   &lt;/data&gt;
+   &lt;LinearLayout
+       android:orientation="vertical"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"&gt;
+       &lt;TextView android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="&commat;{user.firstName}"/&gt;
+       &lt;TextView android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="&commat;{user.lastName}"/&gt;
+   &lt;/LinearLayout&gt;
+&lt;/layout&gt;
+</pre>
+<p>
+  The user <strong>variable</strong> within <strong>data</strong> describes a
+  property that may be used within this layout.
+</p>
+
+<pre>
+&lt;<strong>variable name="user" type="com.example.User"</strong>/&gt;
+</pre>
+<p>
+  Expressions within the layout are written in the attribute properties using
+  the “<code>&commat;{}</code>” syntax. Here, the TextView’s text is set to the
+  firstName property of user:
+</p>
+
+<pre>
+&lt;TextView android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="&commat;{user.firstName}"/&gt;
+</pre>
+<h3 id="data_object">
+  Data Object
+</h3>
+
+<p>
+  Let’s assume for now that you have a plain-old Java object (POJO) for User:
+</p>
+
+<pre>
+public class User {
+   public final String firstName;
+   public final String lastName;
+   public User(String firstName, String lastName) {
+       this.firstName = firstName;
+       this.lastName = lastName;
+   }
+}
+</pre>
+<p>
+  This type of object has data that never changes. It is common in applications
+  to have data that is read once and never changes thereafter. It is also
+  possible to use a JavaBeans objects:
+</p>
+
+<pre>
+public class User {
+   private final String firstName;
+   private final String lastName;
+   public User(String firstName, String lastName) {
+       this.firstName = firstName;
+       this.lastName = lastName;
+   }
+   public String getFirstName() {
+       return this.firstName;
+   }
+   public String getLastName() {
+       return this.lastName;
+   }
+}
+</pre>
+<p>
+  From the perspective of data binding, these two classes are equivalent. The
+  expression <strong><code>&commat;{user.firstName}</code></strong> used for
+  the TextView’s <strong><code>android:text</code></strong> attribute will
+  access the <strong><code>firstName</code></strong> field in the former class
+  and the <code>getFirstName()</code> method in the latter class. Alternatively, it
+  will also be resolved to <code>firstName()</code> if that method exists.
+</p>
+
+<h3 id="binding_data">
+  Binding Data
+</h3>
+
+<p>
+  By default, a Binding class will be generated based on the name of the layout
+  file, converting it to Pascal case and suffixing “Binding” to it. The above
+  layout file was <code>main_activity.xml</code> so the generate class was
+  <code>MainActivityBinding</code>. This class holds all the bindings from the
+  layout properties (e.g. the <code>user</code> variable) to the layout’s Views
+  and knows how to assign values for the binding expressions.The easiest means
+  for creating the bindings is to do it while inflating:
+</p>
+
+<pre>
+&commat;Override
+protected void onCreate(Bundle savedInstanceState) {
+   super.onCreate(savedInstanceState);
+   MainActivityBinding binding = DataBindingUtil.setContentView(this, R.layout.main_activity);
+   User user = new User("Test", "User");
+   binding.setUser(user);
+}
+</pre>
+<p>
+  You’re done! Run the application and you’ll see Test User in the UI.
+  Alternatively, you can get the view via:
+</p>
+
+<pre>
+MainActivityBinding binding = MainActivityBinding.<em>inflate</em>(getLayoutInflater());
+</pre>
+<p>
+  If you are using data binding items inside a ListView or RecyclerView
+  adapter, you may prefer to use:
+</p>
+
+<pre>
+ListItemBinding binding = ListItemBinding.inflate(layoutInflater, viewGroup, false);
+//or
+ListItemBinding binding = DataBindingUtil.<em>inflate</em>(layoutInflater, R.layout.<em><strong>list_item</strong></em>, viewGroup, <strong>false</strong>);
+</pre>
+
+<h3 id="binding_events">
+  Binding Events
+</h3>
+<p>
+  Events may be bound to handler methods directly, similar to the way
+  <strong><code>android:onClick</code></strong> can be assigned to a method in the Activity.
+  Event attribute names are governed by the name of the listener method with a few exceptions.
+  For example, <code><a href="../../reference/android/view/View.OnLongClickListener.html">View.OnLongClickListener</a></code> has a method <code><a href="../../reference/android/view/View.OnLongClickListener.html#onLongClick(android.view.View)">onLongClick()</a></code>,
+  so the attribute for this event is <code>android:onLongClick</code>.
+</p>
+<p>
+  To assign an event to its handler, use a normal binding expression, with the value
+  being the method name to call. For example, if your data object has two methods:
+</p>
+<pre>public class MyHandlers {
+    public void onClickFriend(View view) { ... }
+    public void onClickEnemy(View view) { ... }
+}
+</pre>
+<p>
+  The binding expression can assign the click listener for a View:
+</p>
+<pre>
+&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;layout xmlns:android="http://schemas.android.com/apk/res/android"&gt;
+   &lt;data&gt;
+       &lt;variable name="handlers" type="com.example.Handlers"/&gt;
+       &lt;variable name="user" type="com.example.User"/&gt;
+   &lt;/data&gt;
+   &lt;LinearLayout
+       android:orientation="vertical"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"&gt;
+       &lt;TextView android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="&commat;{user.firstName}"
+           android:onClick="&commat;{user.isFriend ? handlers.onClickFriend : handlers.onClickEnemy}"/&gt;
+       &lt;TextView android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="&commat;{user.lastName}"
+           android:onClick="&commat;{user.isFriend ? handlers.onClickFriend : handlers.onClickEnemy}"/&gt;
+   &lt;/LinearLayout&gt;
+&lt;/layout&gt;
+</pre>
+<h2 id="layout_details">
+  Layout Details
+</h2>
+
+<h3 id="imports">
+  Imports
+</h3>
+
+<p>
+  Zero or more <strong><code>import</code></strong> elements may be used inside
+  the <strong><code>data</code></strong> element. These allow easy reference to
+  classes inside your layout file, just like in Java.
+</p>
+
+<pre>
+&lt;data&gt;
+    &lt;import type="android.view.View"/&gt;
+&lt;/data&gt;
+</pre>
+<p>
+  Now, View may be used within your binding expression:
+</p>
+
+<pre>
+&lt;TextView
+   android:text="&commat;{user.lastName}"
+   android:layout_width="wrap_content"
+   android:layout_height="wrap_content"
+   android:visibility="&commat;{user.isAdult ? View.VISIBLE : View.GONE}"/&gt;
+</pre>
+<p>
+  When there are class name conflicts, one of the classes may be renamed to an
+  “alias:”
+</p>
+
+<pre>
+&lt;import type="android.view.View"/&gt;
+&lt;import type="com.example.real.estate.View"
+        alias="Vista"/&gt;
+</pre>
+<p>
+  Now, <strong><code>Vista</code></strong> may be used to reference the
+  <code>com.example.real.estate.View</code> and
+  <strong><code>View</code></strong> may be used to reference
+  <code>android.view.View</code> within the layout file. Imported types may be
+  used as type references in variables and expressions:
+</p>
+
+<pre>
+&lt;data&gt;
+    &lt;import type="com.example.User"/&gt;
+    &lt;import type="java.util.List"/&gt;
+    &lt;variable name="user" type="User"/&gt;
+    &lt;variable name="userList" type="List&amp;lt;User&gt;"/&gt;
+&lt;/data&gt;
+</pre>
+<p class="caution">
+  <strong>Note</strong>: Android Studio does not yet handle imports so the
+  autocomplete for imported variables may not work in your IDE. Your
+  application will still compile fine and you can work around the IDE issue by
+  using fully qualified names in your variable definitions.
+</p>
+
+<pre>
+&lt;TextView
+   android:text="&commat;{((User)(user.connection)).lastName}"
+   android:layout_width="wrap_content"
+   android:layout_height="wrap_content"/&gt;
+</pre>
+<p>
+  Imported types may also be used when referencing static fields and methods in
+  expressions:
+</p>
+
+<pre>
+&lt;data&gt;
+    &lt;import type="com.example.MyStringUtils"/&gt;
+    &lt;variable name="user" type="com.example.User"/&gt;
+&lt;/data&gt;
+…
+&lt;TextView
+   android:text="&commat;{MyStringUtils.capitalize(user.lastName)}"
+   android:layout_width="wrap_content"
+   android:layout_height="wrap_content"/&gt;
+</pre>
+<p>
+  Just as in Java, <code>java.lang.*</code> is imported automatically.
+</p>
+
+<h3 id="variables">
+  Variables
+</h3>
+
+<p>
+  Any number of <strong><code>variable</code></strong> elements may be used
+  inside the <strong><code>data</code></strong> element. Each
+  <strong><code>variable</code></strong> element describes a property that may
+  be set on the layout to be used in binding expressions within the layout
+  file.
+</p>
+
+<pre>
+&lt;data&gt;
+    &lt;import type="android.graphics.drawable.Drawable"/&gt;
+    &lt;variable name="user"  type="com.example.User"/&gt;
+    &lt;variable name="image" type="Drawable"/&gt;
+    &lt;variable name="note"  type="String"/&gt;
+&lt;/data&gt;
+</pre>
+<p>
+  The variable types are inspected at compile time, so if a variable implements
+  <code><a href="../../reference/android/databinding/Observable.html">Observable</a></code> or is an <a href=
+  "#observable_collections">observable collection</a>, that should be reflected
+  in the type. If the variable is a base class or interface that does not
+  implement the Observable* interface, the variables will <strong>not
+  be</strong> observed!
+</p>
+
+<p>
+  When there are different layout files for various configurations (e.g.
+  landscape or portrait), the variables will be combined. There must not be
+  conflicting variable definitions between these layout files.
+</p>
+
+<p>
+  The generated binding class will have a setter and getter for each of the
+  described variables. The variables will take the default Java values until
+  the setter is called &mdash; <code>null</code> for reference types,
+  <code>0</code> for <code>int</code>, <code>false</code> for
+  <code>boolean</code>, etc.
+</p>
+
+<h3 id="custom_binding_class_names">
+  Custom Binding Class Names
+</h3>
+
+<p>
+  By default, a Binding class is generated based on the name of the layout
+  file, starting it with upper-case, removing underscores ( _ ) and
+  capitalizing the following letter and then suffixing “Binding”. This class
+  will be placed in a databinding package under the module package. For
+  example, the layout file <code>contact_item.xml</code> will generate
+  <code>ContactItemBinding</code>. If the module package is
+  <code>com.example.my.app</code>, then it will be placed in
+  <code>com.example.my.app.databinding</code>.
+</p>
+
+<p>
+  Binding classes may be renamed or placed in different packages by adjusting
+  the <strong><code>class</code></strong> attribute of the
+  <strong><code>data</code></strong> element. For example:
+</p>
+
+<pre>
+&lt;data class="ContactItem"&gt;
+    ...
+&lt;/data&gt;
+</pre>
+<p>
+  This generates the binding class as <code>ContactItem</code> in the
+  databinding package in the module package. If the class should be generated
+  in a different package within the module package, it may be prefixed with
+  “.”:
+</p>
+
+<pre>
+&lt;data class=".ContactItem"&gt;
+    ...
+&lt;/data&gt;
+</pre>
+<p>
+  In this case, <code>ContactItem</code> is generated in the module package
+  directly. Any package may be used if the full package is provided:
+</p>
+
+<pre>
+&lt;data class="com.example.ContactItem"&gt;
+    ...
+&lt;/data&gt;
+</pre>
+<h3 id="includes">
+  Includes
+</h3>
+
+<p>
+  Variables may be passed into an included layout&apos;s binding from the
+  containing layout by using the application namespace and the variable name in
+  an attribute:
+</p>
+
+<pre>
+&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:bind="http://schemas.android.com/apk/res-auto"&gt;
+   &lt;data&gt;
+       &lt;variable name="user" type="com.example.User"/&gt;
+   &lt;/data&gt;
+   &lt;LinearLayout
+       android:orientation="vertical"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"&gt;
+       &lt;include layout="&commat;layout/name"
+           bind:user="&commat;{user}"/&gt;
+       &lt;include layout="&commat;layout/contact"
+           bind:user="&commat;{user}"/&gt;
+   &lt;/LinearLayout&gt;
+&lt;/layout&gt;
+</pre>
+<p>
+  Here, there must be a <code>user</code> variable in both the
+  <code>name.xml</code> and <code>contact.xml</code> layout files.
+</p>
+<p>
+  Data binding does not support include as a direct child of a merge element. For example,
+  <strong>the following layout is not supported:</strong>
+</p>
+<pre>
+&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:bind="http://schemas.android.com/apk/res-auto"&gt;
+   &lt;data&gt;
+       &lt;variable name="user" type="com.example.User"/&gt;
+   &lt;/data&gt;
+   &lt;merge&gt;
+       &lt;include layout="&commat;layout/name"
+           bind:user="&commat;{user}"/&gt;
+       &lt;include layout="&commat;layout/contact"
+           bind:user="&commat;{user}"/&gt;
+   &lt;/merge&gt;
+&lt;/layout&gt;
+</pre>
+<h3 id="expression_language">
+  Expression Language
+</h3>
+
+<h4 id="common_features">
+  Common Features
+</h4>
+
+<p>
+  The expression language looks a lot like a Java expression. These are the
+  same:
+</p>
+
+<ul>
+  <li>Mathematical <strong><code>+ - / * %</code></strong>
+  </li>
+
+  <li>String concatenation <strong><code>+</code></strong>
+  </li>
+
+  <li>
+    Logical <strong><code>&& ||</code></strong>
+  </li>
+
+  <li>Binary <strong><code>& | ^</code></strong>
+  </li>
+
+  <li>Unary <strong><code>+ - ! ~</code></strong>
+  </li>
+
+  <li>Shift <strong><code>&gt;&gt; &gt;&gt;&gt; &lt;&lt;</code></strong>
+  </li>
+
+  <li>Comparison <strong><code>== &gt; &lt; &gt;= &lt;=</code></strong>
+  </li>
+
+  <li>
+    <strong><code>instanceof</code></strong>
+  </li>
+
+  <li>Grouping <strong><code>()</code></strong>
+  </li>
+
+  <li>Literals - character, String, numeric, <strong><code>null</code></strong>
+  </li>
+
+  <li>Cast
+  </li>
+
+  <li>Method calls
+  </li>
+
+  <li>Field access
+  </li>
+
+  <li>Array access <strong><code>[]</code></strong>
+  </li>
+
+  <li>Ternary operator <strong><code>?:</code></strong>
+  </li>
+</ul>
+
+<p>
+  Examples:
+</p>
+
+<pre>
+android:text="&commat;{String.valueOf(index + 1)}"
+android:visibility="&commat;{age &amp;lt; 13 ? View.GONE : View.VISIBLE}"
+android:transitionName=&apos;&commat;{"image_" + id}&apos;
+</pre>
+<h4 id="missing_operations">
+  Missing Operations
+</h4>
+
+<p>
+  A few operations are missing from the expression syntax that you can use in
+  Java.
+</p>
+
+<ul>
+  <li>
+    <strong><code>this</code></strong>
+  </li>
+
+  <li>
+    <strong><code>super</code></strong>
+  </li>
+
+  <li>
+    <strong><code>new</code></strong>
+  </li>
+
+  <li>Explicit generic invocation
+  </li>
+</ul>
+
+<h4 id="null_coalescing_operator">
+  Null Coalescing Operator
+</h4>
+
+<p>
+  The null coalescing operator (<strong><code>??</code></strong>) chooses the
+  left operand if it is not null or the right if it is null.
+</p>
+
+<pre>
+<strong>android:text="&commat;{user.displayName ?? user.lastName}"</strong>
+</pre>
+<p>
+  This is functionally equivalent to:
+</p>
+
+<pre>
+<strong>android:text="&commat;{user.displayName != null ? user.displayName : user.lastName}"</strong>
+</pre>
+<h4 id="property_reference">
+  Property Reference
+</h4>
+
+<p>
+  The first was already discussed in the <a href=
+  "#writing_your_first_data_binding_expressions">Writing your first data
+  binding expressions</a> above: short form JavaBean references. When an
+  expression references a property on a class, it uses the same format for
+  fields, getters, and ObservableFields.
+</p>
+
+<pre>
+<strong>android:text="&commat;{user.lastName}"</strong>
+</pre>
+<h4>
+  Avoiding NullPointerException
+</h4>
+
+<p>
+  Generated data binding code automatically checks for nulls and avoid null
+  pointer exceptions. For example, in the expression
+  <code>&commat;{user.name}</code>, if <code>user</code> is null,
+  <code>user.name</code> will be assigned its default value (null). If you were
+  referencing <code>user.age</code>, where age is an <code>int</code>, then it
+  would default to 0.
+</p>
+
+<h4 id="collections">
+  Collections
+</h4>
+
+<p>
+  Common collections: arrays, lists, sparse lists, and maps, may be accessed
+  using the <code>[]</code> operator for convenience.
+</p>
+
+<pre>
+&lt;data&gt;
+    &lt;import type="android.util.SparseArray"/&gt;
+    &lt;import type="java.util.Map"/&gt;
+    &lt;import type="java.util.List"/&gt;
+    &lt;variable name="list" type="List&amp;lt;String&gt;"/&gt;
+    &lt;variable name="sparse" type="SparseArray&amp;lt;String&gt;"/&gt;
+    &lt;variable name="map" type="Map&amp;lt;String, String&gt;"/&gt;
+    &lt;variable name="index" type="int"/&gt;
+    &lt;variable name="key" type="String"/&gt;
+&lt;/data&gt;
+…
+android:text="&commat;{list[index]}"
+…
+android:text="&commat;{sparse[index]}"
+…
+android:text="&commat;{map[key]}"
+
+</pre>
+<h4 id="string_literals">
+  String Literals
+</h4>
+
+<p>
+  When using single quotes around the attribute value, it is easy to use double
+  quotes in the expression:
+</p>
+
+<pre>
+android:text=&apos;&commat;{map["firstName"]}&apos;
+</pre>
+<p>
+  It is also possible to use double quotes to surround the attribute value.
+  When doing so, String literals should either use the &amp;quot; or back quote
+  (`).
+</p>
+
+<pre>
+android:text="&commat;{map[`firstName`}"
+android:text="&commat;{map[&amp;quot;firstName&amp;quot;]}"
+</pre>
+<h4 id="resources">
+  Resources
+</h4>
+
+<p>
+  It is possible to access resources as part of expressions using the normal
+  syntax:
+</p>
+
+<pre>
+android:padding="&commat;{large? &commat;dimen/largePadding : &commat;dimen/smallPadding}"
+</pre>
+<p>
+  Format strings and plurals may be evaluated by providing parameters:
+</p>
+
+<pre>
+android:text="&commat;{&commat;string/nameFormat(firstName, lastName)}"
+android:text="&commat;{&commat;plurals/banana(bananaCount)}"
+</pre>
+<p>
+  When a plural takes multiple parameters, all parameters should be passed:
+</p>
+
+<pre>
+
+  Have an orange
+  Have %d oranges
+
+android:text="&commat;{&commat;plurals/orange(orangeCount, orangeCount)}"
+</pre>
+<p>
+  Some resources require explicit type evaluation.
+</p>
+
+<table>
+  <tr>
+    <th>
+      Type
+    </th>
+    <th>
+      Normal Reference
+    </th>
+    <th>
+      Expression Reference
+    </th>
+  </tr>
+
+  <tr>
+    <td>
+      String[]
+    </td>
+    <td>
+      &commat;array
+    </td>
+    <td>
+      &commat;stringArray
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      int[]
+    </td>
+    <td>
+      &commat;array
+    </td>
+    <td>
+      &commat;intArray
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      TypedArray
+    </td>
+    <td>
+      &commat;array
+    </td>
+    <td>
+      &commat;typedArray
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      Animator
+    </td>
+    <td>
+      &commat;animator
+    </td>
+    <td>
+      &commat;animator
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      StateListAnimator
+    </td>
+    <td>
+      &commat;animator
+    </td>
+    <td>
+      &commat;stateListAnimator
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      color <code>int</code>
+    </td>
+    <td>
+      &commat;color
+    </td>
+    <td>
+      &commat;color
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      ColorStateList
+    </td>
+    <td>
+      &commat;color
+    </td>
+    <td>
+      &commat;colorStateList
+    </td>
+  </tr>
+</table>
+
+<h2 id="data_objects">
+  Data Objects
+</h2>
+
+<p>
+  Any plain old Java object (POJO) may be used for data binding, but modifying
+  a POJO will not cause the UI to update. The real power of data binding can be
+  used by giving your data objects the ability to notify when data changes.
+  There are three different data change notification mechanisms,
+  <a href="#observable_objects">Observable objects</a>,
+  <a href="#observablefields">observable fields</a>, and
+  <a href="#observable_collections">observable collection</a>s.
+</p>
+
+<p>
+  When one of these observable data object is bound to the UI and a property of
+  the data object changes, the UI will be updated automatically.
+</p>
+
+<h3 id="observable_objects">
+  Observable Objects
+</h3>
+
+<p>
+  A class implementing the <code><a href="../../reference/android/databinding/Observable.html">Observable</a></code> interface
+  will allow the binding to attach a single listener to a bound object to
+  listen for changes of all properties on that object.
+</p>
+
+<p>
+  The <code><a href="../../reference/android/databinding/Observable.html">Observable</a></code> interface has a mechanism to add and remove
+  listeners, but notifying is up to the developer. To make development easier,
+  a base class, <code><a href="../../reference/android/databinding/BaseObservable.html">BaseObservable</a></code>, was created to implement the
+  listener registration mechanism. The data class implementer is still
+  responsible for notifying when the properties change. This is done by
+  assigning a <code><a href="../../reference/android/databinding/Bindable.html">Bindable</a></code> annotation to the getter and notifying in
+  the setter.
+</p>
+
+<pre>
+private static class User extends BaseObservable {
+   private String firstName;
+   private String lastName;
+   &commat;Bindable
+   public String getFirstName() {
+       return this.firstName;
+   }
+   &commat;Bindable
+   public String getLastName() {
+       return this.lastName;
+   }
+   public void setFirstName(String firstName) {
+       this.firstName = firstName;
+       notifyPropertyChanged(BR.firstName);
+   }
+   public void setLastName(String lastName) {
+       this.lastName = lastName;
+       notifyPropertyChanged(BR.lastName);
+   }
+}
+</pre>
+<p>
+  The <code><a href="../../reference/android/databinding/Bindable.html">Bindable</a></code> annotation generates an entry in the BR class file
+  during compilation. The BR class file will be generated in the module
+  package. If the base class for data classes cannot be changed, the
+  <code><a href="../../reference/android/databinding/Observable.html">Observable</a></code> interface may be implemented using the convenient
+  <code><a href="../../reference/android/databinding/PropertyChangeRegistry.html">PropertyChangeRegistry</a></code> to store and notify listeners
+  efficiently.
+</p>
+
+<h3 id="observablefields">
+  ObservableFields
+</h3>
+
+<p>
+  A little work is involved in creating <code><a href="../../reference/android/databinding/Observable.html">Observable</a></code> classes, so
+  developers who want to save time or have few properties may use
+  <code><a href="../../reference/android/databinding/ObservableField.html">ObservableField</a></code> and its siblings
+  <code><a href="../../reference/android/databinding/ObservableBoolean.html">ObservableBoolean</a></code>,
+  <code><a href="../../reference/android/databinding/ObservableByte.html">ObservableByte</a></code>,
+  <code><a href="../../reference/android/databinding/ObservableChar.html">ObservableChar</a></code>,
+  <code><a href="../../reference/android/databinding/ObservableShort.html">ObservableShort</a></code>,
+  <code><a href="../../reference/android/databinding/ObservableInt.html">ObservableInt</a></code>,
+  <code><a href="../../reference/android/databinding/ObservableLong.html">ObservableLong</a></code>,
+  <code><a href="../../reference/android/databinding/ObservableFloat.html">ObservableFloat</a></code>,
+  <code><a href="../../reference/android/databinding/ObservableDouble.html">ObservableDouble</a></code>, and
+  <code><a href="../../reference/android/databinding/ObservableParcelable.html">ObservableParcelable</a></code>.
+  <code>ObservableFields</code> are self-contained observable objects that have a single
+  field. The primitive versions avoid boxing and unboxing during access operations.
+  To use, create a public final field in the data class:
+</p>
+
+<pre>
+private static class User {
+   public final ObservableField&lt;String&gt; firstName =
+       new ObservableField&lt;&gt;();
+   public final ObservableField&lt;String&gt; lastName =
+       new ObservableField&lt;&gt;();
+   public final ObservableInt age = new ObservableInt();
+}
+</pre>
+<p>
+  That&apos;s it! To access the value, use the set and get accessor methods:
+</p>
+
+<pre>
+user.firstName.set("Google");
+int age = user.age.get();
+</pre>
+<h3 id="observable_collections">
+  Observable Collections
+</h3>
+
+<p>
+  Some applications use more dynamic structures to hold data. Observable
+  collections allow keyed access to these data objects.
+  <code><a href="../../reference/android/databinding/ObservableArrayMap.html">ObservableArrayMap</a></code> is
+  useful when the key is a reference type, such as String.
+</p>
+
+<pre>
+ObservableArrayMap&lt;String, Object&gt; user = new ObservableArrayMap&lt;&gt;();
+user.put("firstName", "Google");
+user.put("lastName", "Inc.");
+user.put("age", 17);
+</pre>
+<p>
+  In the layout, the map may be accessed through the String keys:
+</p>
+
+<pre>
+&lt;data&gt;
+    &lt;import type="android.databinding.ObservableMap"/&gt;
+    &lt;variable name="user" type="ObservableMap&amp;lt;String, Object&gt;"/&gt;
+&lt;/data&gt;
+…
+&lt;TextView
+   android:text=&apos;&commat;{user["lastName"]}&apos;
+   android:layout_width="wrap_content"
+   android:layout_height="wrap_content"/&gt;
+&lt;TextView
+   android:text=&apos;&commat;{String.valueOf(1 + (Integer)user["age"])}&apos;
+   android:layout_width="wrap_content"
+   android:layout_height="wrap_content"/&gt;
+</pre>
+<p>
+  <code><a href="../../reference/android/databinding/ObservableArrayList.html">ObservableArrayList</a></code> is useful when the key is an integer:
+</p>
+
+<pre>
+ObservableArrayList&lt;Object&gt; user = new ObservableArrayList&lt;&gt;();
+user.add("Google");
+user.add("Inc.");
+user.add(17);
+</pre>
+<p>
+  In the layout, the list may be accessed through the indices:
+</p>
+
+<pre>
+&lt;data&gt;
+    &lt;import type="android.databinding.ObservableList"/&gt;
+    &lt;import type="com.example.my.app.Fields"/&gt;
+    &lt;variable name="user" type="ObservableList&amp;lt;Object&gt;"/&gt;
+&lt;/data&gt;
+…
+&lt;TextView
+   android:text=&apos;&commat;{user[Fields.LAST_NAME]}&apos;
+   android:layout_width="wrap_content"
+   android:layout_height="wrap_content"/&gt;
+&lt;TextView
+   android:text=&apos;&commat;{String.valueOf(1 + (Integer)user[Fields.AGE])}&apos;
+   android:layout_width="wrap_content"
+   android:layout_height="wrap_content"/&gt;
+</pre>
+<h2 id="generated_binding">
+  Generated Binding
+</h2>
+
+<p>
+  The generated binding class links the layout variables with the Views within
+  the layout. As discussed earlier, the name and package of the Binding may be
+  <a href="#custom_binding_class_names">customized</a>. The Generated binding
+  classes all extend <code><a href="../../reference/android/databinding/ViewDataBinding.html">ViewDataBinding</a></code>.
+</p>
+
+<h3 id="creating">
+  Creating
+</h3>
+
+<p>
+  The binding should be created soon after inflation to ensure that the View
+  hierarchy is not disturbed prior to binding to the Views with expressions
+  within the layout. There are a few ways to bind to a layout. The most common
+  is to use the static methods on the Binding class.The inflate method inflates
+  the View hierarchy and binds to it all it one step. There is a simpler
+  version that only takes a <code><a href="../../reference/android/view/LayoutInflater.html">LayoutInflater</a></code> and one that takes a
+  <code><a href="../../reference/android/view/ViewGroup.html">ViewGroup</a></code> as well:
+</p>
+
+<pre>
+MyLayoutBinding binding = MyLayoutBinding.inflate(layoutInflater);
+MyLayoutBinding binding = MyLayoutBinding.inflate(layoutInflater, viewGroup, false);
+</pre>
+<p>
+  If the layout was inflated using a different mechanism, it may be bound
+  separately:
+</p>
+
+<pre>
+MyLayoutBinding binding = MyLayoutBinding.bind(viewRoot);
+</pre>
+<p>
+  Sometimes the binding cannot be known in advance. In such cases, the binding
+  can be created using the <code><a href="../../reference/android/databinding/DataBindingUtil.html">DataBindingUtil</a></code> class:
+</p>
+
+<pre>
+ViewDataBinding binding = DataBindingUtil.inflate(LayoutInflater, layoutId,
+    parent, attachToParent);
+ViewDataBinding binding = DataBindingUtil.bindTo(viewRoot, layoutId);
+</pre>
+<h3 id="views_with_ids">
+  Views With IDs
+</h3>
+
+<p>
+  A public final field will be generated for each View with an ID in the
+  layout. The binding does a single pass on the View hierarchy, extracting the
+  Views with IDs. This mechanism can be faster than calling findViewById for
+  several Views. For example:
+</p>
+
+<pre>
+&lt;layout xmlns:android="http://schemas.android.com/apk/res/android"&gt;
+   &lt;data&gt;
+       &lt;variable name="user" type="com.example.User"/&gt;
+   &lt;/data&gt;
+   &lt;LinearLayout
+       android:orientation="vertical"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"&gt;
+       &lt;TextView android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="&commat;{user.firstName}"
+   android:id="&commat;+id/firstName"/&gt;
+       &lt;TextView android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="&commat;{user.lastName}"
+  android:id="&commat;+id/lastName"/&gt;
+   &lt;/LinearLayout&gt;
+&lt;/layout&gt;
+</pre>
+<p>
+  Will generate a binding class with:
+</p>
+
+<pre>
+public final TextView firstName;
+public final TextView lastName;
+</pre>
+<p>
+  IDs are not nearly as necessary as without data binding, but there are still
+  some instances where access to Views are still necessary from code.
+</p>
+
+<h3 id="variables2">
+  Variables
+</h3>
+
+<p>
+  Each variable will be given accessor methods.
+</p>
+
+<pre>
+&lt;data&gt;
+    &lt;import type="android.graphics.drawable.Drawable"/&gt;
+    &lt;variable name="user"  type="com.example.User"/&gt;
+    &lt;variable name="image" type="Drawable"/&gt;
+    &lt;variable name="note"  type="String"/&gt;
+&lt;/data&gt;
+</pre>
+<p>
+  will generate setters and getters in the binding:
+</p>
+
+<pre>
+public abstract com.example.User getUser();
+public abstract void setUser(com.example.User user);
+public abstract Drawable getImage();
+public abstract void setImage(Drawable image);
+public abstract String getNote();
+public abstract void setNote(String note);
+</pre>
+<h3 id="viewstubs">
+  ViewStubs
+</h3>
+
+<p>
+  <code><a href="../../reference/android/view/ViewStub.html">ViewStub</a></code>s are a little different from normal Views. They start off invisible
+  and when they either are made visible or are explicitly told to inflate, they
+  replace themselves in the layout by inflating another layout.
+</p>
+
+<p>
+  Because the <code>ViewStub</code> essentially disappears from the View hierarchy, the View
+  in the binding object must also disappear to allow collection. Because the
+  Views are final, a <code><a href="../../reference/android/databinding/ViewStubProxy.html">ViewStubProxy</a></code> object takes the place of the
+  <code>ViewStub</code>, giving the developer access to the ViewStub when it exists and also
+  access to the inflated View hierarchy when the <code>ViewStub</code> has been inflated.
+</p>
+
+<p>
+  When inflating another layout, a binding must be established for the new
+  layout. Therefore, the <code>ViewStubProxy</code> must listen to the <code>ViewStub</code>&apos;s
+  <code><a href="../../reference/android/view/ViewStub.OnInflateListener.html">ViewStub.OnInflateListener</a></code> and establish the binding at that time. Since
+  only one can exist, the <code>ViewStubProxy</code> allows the developer to set an
+  <code>OnInflateListener</code> on it that it will call after establishing the binding.
+</p>
+
+<h3 id="advanced_binding">
+  Advanced Binding
+</h3>
+
+<h4 id="dynamic_variables">
+  Dynamic Variables
+</h4>
+
+<p>
+  At times, the specific binding class won&apos;t be known. For example, a
+  <code><a href="../../reference/android/support/v7/widget/RecyclerView.Adapter.html">RecyclerView.Adapter</a></code> operating against arbitrary layouts
+  won&apos;t know the specific binding class. It still must assign the binding value during the
+  <code><a href="../../reference/android/support/v7/widget/RecyclerView.Adapter.html#onBindViewHolder(VH, int)">onBindViewHolder(VH, int)</a></code>.
+</p>
+
+<p>
+  In this example, all layouts that the RecyclerView binds to have an "item"
+  variable. The <code>BindingHolder</code> has a <code>getBinding</code> method returning the
+  <code><a href="../../reference/android/databinding/ViewDataBinding.html">ViewDataBinding</a></code> base.
+</p>
+
+<pre>
+public void onBindViewHolder(BindingHolder holder, int position) {
+   final T item = mItems.get(position);
+   holder.getBinding().setVariable(BR.item, item);
+   holder.getBinding().executePendingBindings();
+}
+</pre>
+<h4 id="immediate_binding">
+  Immediate Binding
+</h4>
+
+<p>
+  When a variable or observable changes, the binding will be scheduled to
+  change before the next frame. There are times, however, when binding must be
+  executed immediately. To force execution, use the
+  <code><a href="../../reference/android/databinding/ViewDataBinding.html#executePendingBindings()">executePendingBindings()</a></code> method.
+</p>
+
+<h4>
+  Background Thread
+</h4>
+
+<p>
+  You can change your data model in a background thread as long as it is not a
+  collection. Data binding will localize each variable / field while evaluating
+  to avoid any concurrency issues.
+</p>
+
+<h2 id="attribute_setters">
+  Attribute Setters
+</h2>
+
+<p>
+  Whenever a bound value changes, the generated binding class must call a
+  setter method on the View with the binding expression. The data binding
+  framework has ways to customize which method to call to set the value.
+</p>
+
+<h3 id="automatic_setters">
+  Automatic Setters
+</h3>
+For an attribute, data binding tries to find the method setAttribute. The
+namespace for the attribute does not matter, only the attribute name itself.
+<p>
+  For example, an expression associated with TextView&apos;s attribute
+  <strong><code>android:text</code></strong> will look for a setText(String).
+  If the expression returns an int, data binding will search for a setText(int)
+  method. Be careful to have the expression return the correct type, casting if
+  necessary. Note that data binding will work even if no attribute exists with
+  the given name. You can then easily "create" attributes for any setter by
+  using data binding. For example, support DrawerLayout doesn&apos;t have any
+  attributes, but plenty of setters. You can use the automatic setters to use
+  one of these.
+</p>
+
+<pre>
+&lt;android.support.v4.widget.<strong>DrawerLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:scrimColor="&commat;{&commat;color/scrim}"
+    app:drawerListener="&commat;{fragment.drawerListener}"/&gt;</strong>
+</pre>
+<h3 id="renamed_setters">
+  Renamed Setters
+</h3>
+
+<p>
+  Some attributes have setters that don&apos;t match by name. For these
+  methods, an attribute may be associated with the setter through
+  <code><a href="../../reference/android/databinding/BindingMethods.html">BindingMethods</a></code> annotation. This must be associated with
+  a class and contains <code><a href="../../reference/android/databinding/BindingMethod.html">BindingMethod</a></code> annotations, one for
+  each renamed method. For example, the <strong><code>android:tint</code></strong> attribute
+  is really associated with <code><a href="../../reference/android/widget/ImageView.html#setImageTintList(android.content.res.ColorStateList)">setImageTintList(ColorStateList)</a></code>, not
+  <code>setTint</code>.
+</p>
+
+<pre>
+&commat;BindingMethods({
+       &commat;BindingMethod(type = "android.widget.ImageView",
+                      attribute = "android:tint",
+                      method = "setImageTintList"),
+})
+</pre>
+<p>
+  It is unlikely that developers will need to rename setters; the android
+  framework attributes have already been implemented.
+</p>
+
+<h3 id="custom_setters">
+  Custom Setters
+</h3>
+
+<p>
+  Some attributes need custom binding logic. For example, there is no
+  associated setter for the <strong><code>android:paddingLeft</code></strong>
+  attribute. Instead, <code>setPadding(left, top, right, bottom)</code> exists.
+  A static binding adapter method with the <code><a href="../../reference/android/databinding/BindingAdapter.html">BindingAdapter</a></code>
+  annotation allows the developer to customize how a setter for an attribute is
+  called.
+</p>
+
+<p>
+  The android attributes have already had <code>BindingAdapter</code>s created.
+  For example, here is the one for <code>paddingLeft</code>:
+</p>
+
+<pre>
+&commat;BindingAdapter("android:paddingLeft")
+public static void setPaddingLeft(View view, int padding) {
+   view.setPadding(padding,
+                   view.getPaddingTop(),
+                   view.getPaddingRight(),
+                   view.getPaddingBottom());
+}
+</pre>
+<p>
+  Binding adapters are useful for other types of customization. For example, a
+  custom loader can be called off-thread to load an image.
+</p>
+
+<p>
+  Developer-created binding adapters will override the data binding default
+  adapters when there is a conflict.
+</p>
+
+<p>
+  You can also have adapters that receive multiple parameters.
+</p>
+
+<pre>
+&commat;BindingAdapter({"bind:imageUrl", "bind:error"})
+public static void loadImage(ImageView view, String url, Drawable error) {
+   Picasso.with(view.getContext()).load(url).error(error).into(view);
+}
+</pre>
+<pre>
+&lt;ImageView app:imageUrl=“&commat;{venue.imageUrl}”
+app:error=“&commat;{&commat;drawable/venueError}”/&gt;
+</pre>
+
+<p>
+  This adapter will be called if both <strong>imageUrl</strong> and
+  <strong>error</strong> are used for an ImageView and <em>imageUrl</em> is a
+  string and <em>error</em> is a drawable.
+</p>
+
+<ul>
+  <li>Custom namespaces are ignored during matching.
+  </li>
+
+  <li>You can also write adapters for android namespace.
+  </li>
+</ul>
+
+<p>
+  Binding adapter methods may optionally take the old values in their handlers. A method
+  taking old and new values should have all old values for the attributes come first, followed
+  by the new values:
+</p>
+<pre>
+&commat;BindingAdapter("android:paddingLeft")
+public static void setPaddingLeft(View view, int oldPadding, int newPadding) {
+   if (oldPadding != newPadding) {
+       view.setPadding(newPadding,
+                       view.getPaddingTop(),
+                       view.getPaddingRight(),
+                       view.getPaddingBottom());
+   }
+}
+</pre>
+<p>
+  Event handlers may only be used with interfaces or abstract classes with one abstract method.
+  For example:
+</p>
+<pre>
+&commat;BindingAdapter("android:onLayoutChange")
+public static void setOnLayoutChangeListener(View view, View.OnLayoutChangeListener oldValue,
+       View.OnLayoutChangeListener newValue) {
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+        if (oldValue != null) {
+            view.removeOnLayoutChangeListener(oldValue);
+        }
+        if (newValue != null) {
+            view.addOnLayoutChangeListener(newValue);
+        }
+    }
+}
+</pre>
+<p>
+  When a listener has multiple methods, it must be split into multiple listeners. For example,
+  <code><a href="../../reference/android/view/View.OnAttachStateChangeListener.html">View.OnAttachStateChangeListener</a></code> has two methods:
+  <code><a href="../../reference/android/view/View.OnAttachStateChangeListener.html#onViewAttachedToWindow(android.view.View)">onViewAttachedToWindow()</a></code> and
+  <code><a href="../../reference/android/view/View.OnAttachStateChangeListener.html#onViewDetachedFromWindow(android.view.View)">onViewDetachedFromWindow()</a></code>.
+  We must then create two interfaces to differentiate the attributes and handlers for them.
+</p>
+
+<pre>
+&commat;TargetApi(VERSION_CODES.HONEYCOMB_MR1)
+public interface OnViewDetachedFromWindow {
+    void onViewDetachedFromWindow(View v);
+}
+
+&commat;TargetApi(VERSION_CODES.HONEYCOMB_MR1)
+public interface OnViewAttachedToWindow {
+    void onViewAttachedToWindow(View v);
+}
+</pre>
+<p>
+  Because changing one listener will also affect the other, we must have three different
+  binding adapters, one for each attribute and one for both, should they both be set.
+</p>
+<pre>
+&commat;BindingAdapter("android:onViewAttachedToWindow")
+public static void setListener(View view, OnViewAttachedToWindow attached) {
+    setListener(view, null, attached);
+}
+
+&commat;BindingAdapter("android:onViewDetachedFromWindow")
+public static void setListener(View view, OnViewDetachedFromWindow detached) {
+    setListener(view, detached, null);
+}
+
+&commat;BindingAdapter({"android:onViewDetachedFromWindow", "android:onViewAttachedToWindow"})
+public static void setListener(View view, final OnViewDetachedFromWindow detach,
+        final OnViewAttachedToWindow attach) {
+    if (VERSION.SDK_INT >= VERSION_CODES.HONEYCOMB_MR1) {
+        final OnAttachStateChangeListener newListener;
+        if (detach == null && attach == null) {
+            newListener = null;
+        } else {
+            newListener = new OnAttachStateChangeListener() {
+                &commat;Override
+                public void onViewAttachedToWindow(View v) {
+                    if (attach != null) {
+                        attach.onViewAttachedToWindow(v);
+                    }
+                }
+
+                &commat;Override
+                public void onViewDetachedFromWindow(View v) {
+                    if (detach != null) {
+                        detach.onViewDetachedFromWindow(v);
+                    }
+                }
+            };
+        }
+        final OnAttachStateChangeListener oldListener = ListenerUtil.trackListener(view,
+                newListener, R.id.onAttachStateChangeListener);
+        if (oldListener != null) {
+            view.removeOnAttachStateChangeListener(oldListener);
+        }
+        if (newListener != null) {
+            view.addOnAttachStateChangeListener(newListener);
+        }
+    }
+}
+</pre>
+<p>
+  The above example is slightly more complicated than normal because View uses add and remove
+  for the listener instead of a set method for <code><a href="../../reference/android/view/View.OnAttachStateChangeListener.html">View.OnAttachStateChangeListener</a></code>.
+  The <code>android.databinding.adapters.ListenerUtil</code> class helps keep track of the previous
+  listeners so that they may be removed in the Binding Adaper.
+</p>
+<p>
+  By annotating the interfaces <code>OnViewDetachedFromWindow</code> and
+  <code>OnViewAttachedToWindow</code> with
+  <code>&commat;TargetApi(VERSION_CODES.HONEYCOMB_MR1)</code>, the data binding code
+  generator knows that the listener should only be generated when running on Honeycomb MR1
+  and new devices, the same version supported by
+  <code><a href="../../reference/android/view/View.html#addOnAttachStateChangeListener(android.view.View.OnAttachStateChangeListener)">addOnAttachStateChangeListener(View.OnAttachStateChangeListener)</a></code>.
+</p>
+<h2 id="converters">
+  Converters
+</h2>
+
+<h3 id="object_conversions">
+  Object Conversions
+</h3>
+
+<p>
+  When an Object is returned from a binding expression, a setter will be chosen
+  from the automatic, renamed, and custom setters. The Object will be cast to a
+  parameter type of the chosen setter.
+</p>
+
+<p>
+  This is a convenience for those using ObservableMaps to hold data. for
+  example:
+</p>
+
+<pre>
+&lt;TextView
+   android:text=&apos;&commat;{userMap["lastName"]}&apos;
+   android:layout_width="wrap_content"
+   android:layout_height="wrap_content"/&gt;
+</pre>
+
+<p>
+The <code>userMap</code> returns an Object and that Object will be automatically cast to
+  parameter type found in the setter <code>setText(CharSequence)</code>. When there
+  may be confusion about the parameter type, the developer will need
+  to cast in the expression.
+</p>
+
+<h3 id="custom_conversions">Custom Conversions</h3>
+
+<p>
+  Sometimes conversions should be automatic between specific types. For
+  example, when setting the background:
+</p>
+
+<pre>
+&lt;View
+   android:background="&commat;{isError ? &commat;color/red : &commat;color/white}"
+   android:layout_width="wrap_content"
+   android:layout_height="wrap_content"/&gt;
+</pre>
+<p>
+  Here, the background takes a <code>Drawable</code>, but the color is an
+  integer. Whenever a <code>Drawable</code> is expected and an integer is
+  returned, the <code>int</code> should be converted to a
+  <code>ColorDrawable</code>. This conversion is done using a static method
+  with a BindingConversion annotation:
+</p>
+
+<pre>
+&commat;BindingConversion
+public static ColorDrawable convertColorToDrawable(int color) {
+   return new ColorDrawable(color);
+}
+</pre>
+<p>
+  Note that conversions only happen at the setter level, so it is <strong>not
+  allowed</strong> to mix types like this:
+</p>
+
+<pre>
+&lt;View
+   android:background="&commat;{isError ? &commat;drawable/error : &commat;color/white}"
+   android:layout_width="wrap_content"
+   android:layout_height="wrap_content"/&gt;
+</pre>
+
+    </div>
+
+    
+
+  </div> <!-- end jd-content -->
+
+<div class="wrap">
+  <div class="dac-footer">
+    <div class="cols dac-footer-main">
+      <div class="col-1of2">
+        <a class="dac-footer-getnews" data-modal-toggle="newsletter" href="javascript:;">Get news &amp; tips <span
+          class="dac-fab dac-primary"><i class="dac-sprite dac-mail"></i></span></a>
+      </div>
+      <div class="col-1of2 dac-footer-reachout">
+        <div class="dac-footer-contact">
+          <a class="dac-footer-contact-link" href="http://android-developers.blogspot.com/">Blog</a>
+          <a class="dac-footer-contact-link" href="/support.html">Support</a>
+        </div>
+        <div class="dac-footer-social">
+          <a class="dac-fab dac-footer-social-link" href="https://www.youtube.com/user/androiddevelopers"><i class="dac-sprite dac-youtube"></i></a>
+          <a class="dac-fab dac-footer-social-link" href="https://plus.google.com/+AndroidDevelopers"><i class="dac-sprite dac-gplus"></i></a>
+          <a class="dac-fab dac-footer-social-link" href="https://twitter.com/AndroidDev"><i class="dac-sprite dac-twitter"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <hr class="dac-footer-separator"/>
+
+    
+      <p class="dac-footer-copyright">
+        
+  Except as noted, this content is
+  licensed under <a href="http://creativecommons.org/licenses/by/2.5/">
+  Creative Commons Attribution 2.5</a>. For details and
+  restrictions, see the <a href="../../license.html">Content
+  License</a>.
+      </p>
+    
+
+    <p class="dac-footer-links">
+      <a href="/about/index.html">About Android</a>
+      <a href="/auto/index.html">Auto</a>
+      <a href="/tv/index.html">TV</a>
+      <a href="/wear/index.html">Wear</a>
+      <a href="/legal.html">Legal</a>
+
+      <span id="language" class="locales">
+        <select name="language" onchange="changeLangPref(this.value, true)">
+          <option value="en" selected="selected">English</option>
+          <option value="es">Español</option>
+          <option value="ja">日本語</option>
+          <option value="ko">한국어</option>
+          <option value="pt-br">Português Brasileiro</option>
+          <option value="ru">Русский</option>
+          <option value="zh-cn">中文（简体)</option>
+          <option value="zh-tw">中文（繁體)</option>
+        </select>
+      </span>
+    </p>
+  </div>
+</div> <!-- end footer -->
+
+<div data-modal="newsletter" data-newsletter data-swap class="dac-modal newsletter">
+  <div class="dac-modal-container">
+    <div class="dac-modal-window">
+      <header class="dac-modal-header">
+        <button class="dac-modal-header-close" data-modal-toggle><i class="dac-sprite dac-close"></i></button>
+        <div class="dac-swap" data-swap-container>
+          <section class="dac-swap-section dac-active dac-down">
+            <h2 class="norule dac-modal-header-title">Get the latest Android developer news and tips that will help you find success on Google Play.</h2>
+            <p class="dac-modal-header-subtitle">&#42; Required Fields</p>
+          </section>
+          <section class="dac-swap-section dac-up">
+            <h2 class="norule dac-modal-header-title">Hooray!</h2>
+          </section>
+        </div>
+      </header>
+      <div class="dac-swap" data-swap-container>
+        <section class="dac-swap-section dac-active dac-left">
+          <form action="https://docs.google.com/forms/d/1QgnkzbEJIDu9lMEea0mxqWrXUJu0oBCLD7ar23V0Yys/formResponse" class="dac-form" method="post" target="dac-newsletter-iframe">
+            <section class="dac-modal-content">
+              <fieldset class="dac-form-fieldset">
+                <div class="cols">
+                  <div class="col-1of2 newsletter-leftCol">
+                    <div class="dac-form-input-group">
+                      <label for="newsletter-full-name" class="dac-form-floatlabel">Full name</label>
+                      <input type="text" class="dac-form-input" name="entry.1357890476" id="newsletter-full-name" required>
+                      <span class="dac-form-required">*</span>
+                    </div>
+                    <div class="dac-form-input-group">
+                      <label for="newsletter-email" class="dac-form-floatlabel">Email address</label>
+                      <input type="email" class="dac-form-input" name="entry.472100832" id="newsletter-email" required>
+                      <span class="dac-form-required">*</span>
+                    </div>
+                  </div>
+                  <div class="col-1of2 newsletter-rightCol">
+                    <div class="dac-form-input-group">
+                      <label for="newsletter-company" class="dac-form-floatlabel">Company / developer name</label>
+                      <input type="text" class="dac-form-input" name="entry.1664780309" id="newsletter-company">
+                    </div>
+                    <div class="dac-form-input-group">
+                      <label for="newsletter-play-store" class="dac-form-floatlabel">One of your Play Store app URLs</label>
+                      <input type="url" class="dac-form-input" name="entry.47013838" id="newsletter-play-store" required>
+                      <span class="dac-form-required">*</span>
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+              <fieldset class="dac-form-fieldset">
+                <div class="cols">
+                  <div class="col-1of2 newsletter-leftCol">
+                    <legend class="dac-form-legend">Which best describes your business:<span class="dac-form-required">*</span>
+                    </legend>
+                    <div class="dac-form-radio-group">
+                      <input type="radio" value="Apps" class="dac-form-radio" name="entry.1796324055" id="newsletter-business-type-app" required>
+                      <label for="newsletter-business-type-app" class="dac-form-radio-button"></label>
+                      <label for="newsletter-business-type-app" class="dac-form-label">Apps</label>
+                    </div>
+                    <div class="dac-form-radio-group">
+                      <input type="radio" value="Games" class="dac-form-radio" name="entry.1796324055" id="newsletter-business-type-games" required>
+                      <label for="newsletter-business-type-games" class="dac-form-radio-button"></label>
+                      <label for="newsletter-business-type-games" class="dac-form-label">Games</label>
+                    </div>
+                    <div class="dac-form-radio-group">
+                      <input type="radio" value="Apps and Games" class="dac-form-radio" name="entry.1796324055" id="newsletter-business-type-appsgames" required>
+                      <label for="newsletter-business-type-appsgames" class="dac-form-radio-button"></label>
+                      <label for="newsletter-business-type-appsgames" class="dac-form-label">Apps &amp; Games</label>
+                    </div>
+                  </div>
+                  <div class="col-1of2 newsletter-rightCol newsletter-checkboxes">
+                    <div class="dac-form-radio-group">
+                      <div class="dac-media">
+                        <div class="dac-media-figure">
+                          <input type="checkbox" class="dac-form-checkbox" name="entry.732309842" id="newsletter-add" required value="Add me to the mailing list for the monthly newsletter and occasional emails about development and Google Play opportunities.">
+                          <label for="newsletter-add" class="dac-form-checkbox-button"></label>
+                        </div>
+                        <div class="dac-media-body">
+                          <label for="newsletter-add" class="dac-form-label dac-form-aside">Add me to the mailing list for the monthly newsletter and occasional emails about development and Google Play opportunities.<span class="dac-form-required">*</span></label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="dac-form-radio-group">
+                      <div class="dac-media">
+                        <div class="dac-media-figure">
+                          <input type="checkbox" class="dac-form-checkbox" name="entry.2045036090" id="newsletter-terms" required value="I acknowledge that the information provided in this form will be subject to Google's privacy policy (https://www.google.com/policies/privacy/).">
+                          <label for="newsletter-terms" class="dac-form-checkbox-button"></label>
+                        </div>
+                        <div class="dac-media-body">
+                          <label for="newsletter-terms" class="dac-form-label dac-form-aside">I acknowledge that the information provided in this form will be subject to <a href="https://www.google.com/policies/privacy/">Google's privacy policy</a>.<span class="dac-form-required">*</span></label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+            </section>
+            <footer class="dac-modal-footer">
+              <div class="cols">
+                <div class="col-2of5">
+                </div>
+              </div>
+              <button type="submit" value="Submit" class="dac-fab dac-primary dac-large dac-modal-action"><i class="dac-sprite dac-arrow-right"></i></button>
+            </footer>
+          </form>
+        </section>
+        <section class="dac-swap-section dac-right">
+          <div class="dac-modal-content">
+            <p class="newsletter-success-message">
+              You have successfully signed up for the latest Android developer news and tips.
+            </p>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</div> <!-- end footer -->
+
+</div><!-- end doc-content -->
+
+</div> <!-- end .cols --> 
+</div> <!-- end body-content --> 
+
+
+
+
+
+  <script src="../../ajax/developer.android.com/ytblogger_lists_unified.js" type="text/javascript"></script>
+  <script src="../../jd_lists_unified.js?v=15" type="text/javascript"></script>
+  <script src="../../jd_extras.js?v=15" type="text/javascript"></script>
+  <script src="../../jd_collections.js?v=15" type="text/javascript"></script>
+  <script src="../../jd_tag_helpers.js?v=15" type="text/javascript"></script>
+
+</body>
+</html>

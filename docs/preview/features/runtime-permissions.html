@@ -1,0 +1,1717 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
+
+<meta name="Description" content="Google I&#47;O 2015—Android M Permissions: Best Practices for Developers The M Developer Preview introduces a new app permissions model which streamlines the process for users to install and upgrade apps. If an app running on the M Preview supports the…">
+<link rel="shortcut icon" type="image/x-icon" href="../../favicon.ico" />
+<title>Permissions | Android Developers</title>
+
+<!-- STYLESHEETS -->
+<link rel="stylesheet"
+href="http://fonts.useso.com/css?family=Roboto+Condensed">
+<link rel="stylesheet" href="http://fonts.useso.com/css?family=Roboto:light,regular,medium,thin,italic,mediumitalic,bold"
+  title="roboto">
+
+<link href="../../assets/css/default.css?v=7" rel="stylesheet" type="text/css">
+
+
+
+<!-- JAVASCRIPT -->
+<script src="../../assets/js/android_3p-bundle.js" type="text/javascript"></script>
+<script type="text/javascript">
+  var toRoot = "../../";
+  var metaTags = ["previewresources","androidm"];
+  var devsite = false;
+</script>
+<script src="../../assets/js/docs.js?v=6" type="text/javascript"></script>
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-5831155-1', 'android.com');
+  ga('create', 'UA-49880327-2', 'android.com', {'name': 'universal'});  // New tracker);
+  ga('send', 'pageview');
+  ga('universal.send', 'pageview'); // Send page view for new tracker.
+</script>
+
+</head>
+
+<body class="gc-documentation
+
+
+develop preview" itemscope itemtype="http://schema.org/Article">
+<a name="top"></a>
+
+<!-- dialog to prompt lang pref change when loaded from hardcoded URL
+<div id="langMessage" style="display:none">
+  <div>
+    <div class="lang en">
+      <p>You requested a page in English, would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang es">
+      <p>You requested a page in Spanish (Español), would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang ja">
+      <p>You requested a page in Japanese (日本語), would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang ko">
+      <p>You requested a page in Korean (한국어), would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang ru">
+      <p>You requested a page in Russian (Русский), would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang zh-cn">
+      <p>You requested a page in Simplified Chinese (简体中文), would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang zh-tw">
+      <p>You requested a page in Traditional Chinese (繁體中文), would you like to proceed with this language setting?</p>
+    </div>
+    <a href="#" class="button yes" onclick="return false;">
+      <span class="lang en">Yes</span>
+      <span class="lang es">Sí</span>
+      <span class="lang ja">Yes</span>
+      <span class="lang ko">Yes</span>
+      <span class="lang ru">Yes</span>
+      <span class="lang zh-cn">是的</span>
+      <span class="lang zh-tw">没有</span>
+    </a>
+    <a href="#" class="button" onclick="$('#langMessage').hide();return false;">
+      <span class="lang en">No</span>
+      <span class="lang es">No</span>
+      <span class="lang ja">No</span>
+      <span class="lang ko">No</span>
+      <span class="lang ru">No</span>
+      <span class="lang zh-cn">没有</span>
+      <span class="lang zh-tw">没有</span>
+    </a>
+  </div>
+</div> -->
+
+
+  <!-- Header -->
+  <div id="header-wrapper">
+    <div class="dac-header" id="header">
+
+
+
+
+      <div class="dac-header-inner">
+        <a class="dac-nav-toggle" data-dac-toggle-nav href="javascript:;" title="Open navigation">
+          <span class="dac-nav-hamburger">
+            <span class="dac-nav-hamburger-top"></span>
+            <span class="dac-nav-hamburger-mid"></span>
+            <span class="dac-nav-hamburger-bot"></span>
+          </span>
+        </a>
+        <a class="dac-header-logo" href="../../index.html">
+          <img class="dac-header-logo-image" src="../../assets/images/android_logo.png"
+              srcset="../../assets/images/android_logo@2x.png 2x"
+              width="32" height="36" alt="Android" /> Developers
+          </a>
+
+        <ul class="dac-header-crumbs">
+          
+          <li class="dac-header-crumbs-item"><span class="dac-header-crumbs-link current ">Permissions</a></li>
+        </ul>
+
+        
+        
+        
+  <div class="dac-header-search" id="search-container">
+    <div class="dac-header-search-inner">
+      <div class="dac-sprite dac-search dac-header-search-btn" id="search-btn"></div>
+      <form class="dac-header-search-form" onsubmit="return submit_search()">
+        <input id="search_autocomplete" type="text" value="" autocomplete="off" name="q"
+          onfocus="search_focus_changed(this, true)" onblur="search_focus_changed(this, false)"
+          onkeydown="return search_changed(event, true, '../../')"
+          onkeyup="return search_changed(event, false, '../../')"
+          class="dac-header-search-input" placeholder="Search" />
+          <a class="dac-header-search-close hide" id="search-close">close</a>
+      </form>
+    </div><!-- end dac-header-search-inner -->
+  </div><!-- end dac-header-search -->
+
+  <div class="search_filtered_wrapper">
+    <div class="suggest-card reference no-display">
+      <ul class="search_filtered">
+      </ul>
+    </div>
+    <div class="suggest-card develop no-display">
+      <ul class="search_filtered">
+      </ul>
+      <div class="child-card guides no-display">
+      </div>
+      <div class="child-card training no-display">
+      </div>
+      <div class="child-card samples no-display">
+      </div>
+    </div>
+    <div class="suggest-card design no-display">
+      <ul class="search_filtered">
+      </ul>
+    </div>
+    <div class="suggest-card distribute no-display">
+      <ul class="search_filtered">
+      </ul>
+    </div>
+  </div>
+
+        
+
+        <a class="dac-header-console-btn" href="https://play.google.com/apps/publish/">
+          <span class="dac-sprite dac-google-play"></span>
+          <span class="dac-visible-desktop-inline">Developer</span>
+          Console
+        </a>
+
+      </div><!-- end header-wrap.wrap -->
+    </div><!-- end header -->
+
+    <div id="searchResults" class="wrap" style="display:none;">
+      <h2 id="searchTitle">Results</h2>
+      <div id="leftSearchControl" class="search-control">Loading...</div>
+    </div>
+  </div> <!--end header-wrapper -->
+
+  
+  <!-- Navigation-->
+  <nav class="dac-nav">
+    <div class="dac-nav-dimmer" data-dac-toggle-nav></div>
+
+    <ul class="dac-nav-list" data-dac-nav>
+      <li class="dac-nav-item dac-nav-head">
+        <a class="dac-nav-link dac-nav-logo" data-dac-toggle-nav href="javascript:;" title="Close navigation">
+          <img class="dac-logo-image" src="../../assets/images/android_logo.png"
+               srcset="../../assets/images/android_logo@2x.png 2x"
+               width="32" height="36" alt="Android" /> Developers
+        </a>
+      </li>
+      <li class="dac-nav-item home">
+        <a class="dac-nav-link dac-visible-mobile-block" href="../../index.html">Home</a>
+        <ul class="dac-nav-secondary about">
+          <li class="dac-nav-item about">
+            <a class="dac-nav-link" href="../../about/index.html">Android</a>
+          </li>
+          <li class="dac-nav-item wear">
+            <a class="dac-nav-link" href="../../wear/index.html">Wear</a>
+          </li>
+          <li class="dac-nav-item tv">
+            <a class="dac-nav-link" href="../../tv/index.html">TV</a>
+          </li>
+          <li class="dac-nav-item auto">
+            <a class="dac-nav-link" href="../../auto/index.html">Auto</a>
+          </li>
+        </ul>
+      </li>
+      <li class="dac-nav-item design">
+        <a class="dac-nav-link" href="../../design/index.html"
+           zh-tw-lang="設計"
+           zh-cn-lang="设计"
+           ru-lang="Проектирование"
+           ko-lang="디자인"
+           ja-lang="設計"
+           es-lang="Diseñar">Design</a>
+      </li>
+      <li class="dac-nav-item develop">
+        <a class="dac-nav-link" href="../../develop/index.html"
+           zh-tw-lang="開發"
+           zh-cn-lang="开发"
+           ru-lang="Разработка"
+           ko-lang="개발"
+           ja-lang="開発"
+           es-lang="Desarrollar">Develop</a>
+        <ul class="dac-nav-secondary develop">
+          <li class="dac-nav-item training">
+            <a class="dac-nav-link" href="../../training/index.html"
+               zh-tw-lang="訓練課程"
+               zh-cn-lang="培训"
+               ru-lang="Курсы"
+               ko-lang="교육"
+               ja-lang="トレーニング"
+               es-lang="Capacitación">Training</a>
+          </li>
+          <li class="dac-nav-item guide">
+            <a class="dac-nav-link" href="../../guide/index.html"
+               zh-tw-lang="API 指南"
+               zh-cn-lang="API 指南"
+               ru-lang="Руководства по API"
+               ko-lang="API 가이드"
+               ja-lang="API ガイド"
+               es-lang="Guías de la API">API Guides</a>
+          </li>
+          <li class="dac-nav-item reference">
+            <a class="dac-nav-link" href="../../reference/packages.html"
+               zh-tw-lang="參考資源"
+               zh-cn-lang="参考"
+               ru-lang="Справочник"
+               ko-lang="참조문서"
+               ja-lang="リファレンス"
+               es-lang="Referencia">Reference</a>
+          </li>
+          <li class="dac-nav-item tools">
+            <a class="dac-nav-link" href="../../sdk/index.html"
+               zh-tw-lang="相關工具"
+               zh-cn-lang="工具"
+               ru-lang="Инструменты"
+               ko-lang="도구"
+               ja-lang="ツール"
+               es-lang="Herramientas">Tools</a></li>
+          <li class="dac-nav-item google">
+            <a class="dac-nav-link" href="../../google/index.html">Google Services</a>
+          </li>
+          
+          <li class="dac-nav-item preview">
+            <a class="dac-nav-link" href="../../preview/index.html">Preview</a>
+          </li>
+        </ul>
+      </li>
+      <li class="dac-nav-item distribute">
+        <a class="dac-nav-link" href="../../distribute/googleplay/index.html"
+           zh-tw-lang="發佈"
+           zh-cn-lang="分发"
+           ru-lang="Распространение"
+           ko-lang="배포"
+           ja-lang="配布"
+           es-lang="Distribuir">Distribute</a>
+        <ul class="dac-nav-secondary distribute">
+          <li class="dac-nav-item googleplay">
+            <a class="dac-nav-link" href="../../distribute/googleplay/index.html">Google Play</a></li>
+          <li class="dac-nav-item essentials">
+            <a class="dac-nav-link" href="../../distribute/essentials/index.html">Essentials</a></li>
+          <li class="dac-nav-item users">
+            <a class="dac-nav-link" href="../../distribute/users/index.html">Get Users</a></li>
+          <li class="dac-nav-item engage">
+            <a class="dac-nav-link" href="../../distribute/engage/index.html">Engage &amp; Retain</a></li>
+          <li class="dac-nav-item monetize">
+            <a class="dac-nav-link" href="../../distribute/monetize/index.html">Earn</a>
+          </li>
+          <li class="dac-nav-item analyze">
+            <a class="dac-nav-link" href="../../distribute/analyze/index.html">Analyze</a>
+          </li>
+          <li class="dac-nav-item stories">
+            <a class="dac-nav-link" href="../../distribute/stories/index.html">Stories</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+  <!-- end navigation-->
+  
+
+
+
+
+  <div class="wrap clearfix" id="body-content"><div class="cols">
+    <div class="col-4 dac-toggle dac-mobile" id="side-nav" itemscope itemtype="http://schema.org/SiteNavigationElement">
+      
+  <div class="dac-visible-mobile-block" data-toggle="section">
+    <span class="dac-toggle-expand dac-devdoc-toggle"><i class="dac-sprite dac-expand-more-black"></i> Show navigation</span>
+    <span class="dac-toggle-collapse dac-devdoc-toggle" data-toggle-section><i class="dac-sprite dac-expand-less-black"></i> Hide navigation</span>
+  </div>
+
+      <div class="dac-toggle-content" id="devdoc-nav">
+        <div class="scroll-pane">
+<ul id="nav">
+
+  <li class="nav-section">
+    <div class="nav-section-header empty"><a href="../../preview/overview.html"
+   es-lang="Información general del programa"
+   ja-lang="プログラム概要"
+   ko-lang="프로그램 개요"
+   pt-br-lang="Visão geral do programa"
+   ru-lang="Обзор программы"
+   zh-cn-lang="计划概览"
+   zh-tw-lang="程式總覽">
+   Program Overview</a></div>
+  </li>
+
+
+  <li class="nav-section">
+    <div class="nav-section-header empty"><a href="../../preview/download.html"
+      es-lang="Descargas"
+      ja-lang="ダウンロード"
+      ko-lang="다운로드"
+      pt-br-lang="Downloads"
+      ru-lang="Загрузки"
+      zh-cn-lang="下载"
+      zh-tw-lang="下載">
+      Downloads</a></div>
+  </li>
+
+  <li class="nav-section">
+    <div class="nav-section-header empty"><a href="../../preview/setup-sdk.html"
+      es-lang="Configurar el SDK de la versión preliminar"
+      ja-lang="Preview SDK のセットアップ"
+      ko-lang="미리 보기 SDK 설정하기"
+      pt-br-lang="Configuração do Preview SDK"
+      ru-lang="Настройка пакета SDK Preview"
+      zh-cn-lang="设置预览版 SDK"
+      zh-tw-lang="設定預覽版 SDK">
+      Set up the SDK</a></div>
+  </li>
+
+  <li class="nav-section">
+    <div class="nav-section-header"><a href="../../preview/testing/guide.html"
+      es-lang="Guía de prueba"
+      ja-lang="テストガイド"
+      ko-lang="테스트 가이드"
+      pt-br-lang="Guia de teste"
+      ru-lang="Руководство по тестированию"
+      zh-cn-lang="测试指南"
+      zh-tw-lang="測試指南">
+      Testing Guide</a></div>
+      <ul>
+        <li><a href="../../preview/testing/performance.html"
+      es-lang="Prueba de rendimiento de video"
+      ja-lang="表示パフォーマンスのテスト"
+      ko-lang="표시 성능 테스트"
+      pt-br-lang="Teste de desempenho de exibição"
+      ru-lang="Тестирование скорости отображения"
+      zh-cn-lang="测试显示性能"
+      zh-tw-lang="測試顯示效能">
+      Performance Testing</a></li>
+      </ul>
+  </li>
+
+  <li class="nav-section">
+    <div class="nav-section-header"><a href="../../preview/api-overview.html"
+      es-lang="Información general de la API"
+      ja-lang="API の概要"
+      ko-lang="API 개요"
+      pt-br-lang="Visão geral da API"
+      ru-lang="Обзор API-интерфейсов"
+      zh-cn-lang="API 概览"
+      zh-tw-lang="API 總覽">API Overview
+      </a></div>
+      <ul>
+        <li><a href="../../preview/features/runtime-permissions.html"
+      es-lang="Permisos"
+      ja-lang="パーミッション"
+      ko-lang="권한"
+      pt-br-lang="Permissões"
+      ru-lang="Разрешения"
+      zh-cn-lang="权限"
+      zh-tw-lang="權限">Permissions
+          </a></li>
+        <li><a href="../../preview/features/app-linking.html"
+      es-lang="Vínculos de la aplicación"
+      ja-lang="App Links"
+      ko-lang="앱 링크"
+      pt-br-lang="Links de aplicativos"
+      ru-lang="Связи приложений"
+      zh-cn-lang="应用链接"
+      zh-tw-lang="應用程式連結">
+      App Links</a></li>
+        <li><a href="../../preview/backup/index.html"
+      es-lang="Copia de seguridad automática para aplicaciones"
+      ja-lang="アプリの自動バックアップ"
+      ko-lang="앱용 자동 백업"
+      pt-br-lang="Backup automático para aplicativos"
+      ru-lang="Автоматическое резервное копирование для приложений"
+      zh-cn-lang="自动备份应用"
+      zh-tw-lang="針對應用程式進行自動備份">
+          Auto Backup for Apps</a></li>
+      </ul>
+  </li>
+
+  <li class="nav-section">
+    <div class="nav-section-header empty"><a href="../../preview/behavior-changes.html"
+      es-lang="Cambios en los comportamientos"
+      ja-lang="動作の変更点"
+      ko-lang="동작 변경"
+      pt-br-lang="Mudanças de comportamento"
+      ru-lang="Изменения в работе"
+      zh-cn-lang="行为变更"
+      zh-tw-lang="行為變更">Behavior Changes
+       </a></div>
+  </li>
+  <li class="nav-section">
+    <div class="nav-section-header empty"><a href="../../preview/samples.html"
+      es-lang="Ejemplos"
+      ja-lang="サンプル"
+      ko-lang="샘플"
+      pt-br-lang="Exemplos"
+      ru-lang="Примеры"
+      zh-cn-lang="示例"
+      zh-tw-lang="範例">
+      Samples</a></div>
+  </li>
+
+  <li class="nav-section">
+    <div class="nav-section-header empty"><a href="../../preview/support.html">
+      Support & Release Notes</a></div>
+  </li>
+
+  <li class="nav-section">
+    <div class="nav-section-header empty"><a href="../../preview/license.html"
+      es-lang="Contrato de licencia"
+      ja-lang="使用許諾契約"
+      ko-lang="라이선스 계약"
+      pt-br-lang="Contrato de licença"
+      ru-lang="Лицензионное соглашение"
+      zh-cn-lang="许可协议"
+      zh-tw-lang="授權協議">
+      License Agreement</a></div>
+  </li>
+
+</ul>
+
+        </div>
+      </div>
+    </div> <!-- end side-nav -->
+    <script>
+      $(document).ready(function() {
+        scrollIntoView("devdoc-nav");
+        });
+    </script>
+
+
+
+
+<div class="col-12" id="doc-col" >
+
+
+  
+
+  
+    
+      
+        <h1 itemprop="name" >Permissions</h1>
+      
+    
+  
+
+
+  
+  <div id="jd-content">
+
+
+    <div class="jd-descr" itemprop="articleBody">
+    <div id="qv-wrapper">
+  <div id="qv">
+    <h2>Quickview</h2>
+    <ul>
+      <li>If your app targets the M Preview SDK, it prompts users to grant
+        permissions at runtime, instead of install time.</li>
+      <li>Users can revoke permissions at any time from the app Settings
+        screen.</li>
+      <li>Your app needs to check that it has the permissions it needs every
+        time it runs.</li>
+    </ul>
+
+    <h2>In this document</h2>
+    <ol>
+      <li><a href="#overview">Overview</a></li>
+      <li><a href="#coding">Coding for Runtime Permissions</a></li>
+      <li><a href="#testing">Testing Runtime Permissions</a></li>
+      <li><a href="#best-practices">Best Practices and Usage Notes</a></li>
+    </ol>
+
+<!--
+  <h2>Related Samples</h2>
+  <ol>
+    <li></li>
+  </ol>
+-->
+
+<!--
+  <h2>See also</h2>
+  <ol>
+    <li>
+    </li>
+  </ol>
+-->
+
+  </div> <!-- qv -->
+</div> <!-- qv-wrapper -->
+
+<!-- video box -->
+<a class="notice-developers-video"
+    href="https://www.youtube.com/watch?v=f17qe9vZ8RM">
+<div>
+    <h3>Video</h3>
+    <p>Google I/O 2015—Android M Permissions: Best Practices for
+      Developers</p>
+</div>
+</a>
+
+<p>
+  The M Developer Preview introduces a new app permissions model which
+  streamlines the process for users to install and upgrade apps. If an app
+  running on the M Preview supports the new permissions model, the user does not have to
+  grant any permissions when they install or upgrade the app. Instead, the app
+  requests permissions as it needs them, and the system shows a dialog to the
+  user asking for the permission.
+</p>
+
+<p>
+  If an app supports the new permissions model, it can still be installed and
+  run on devices running older versions of Android, using the old permissions
+  model on those devices.
+</p>
+
+<h2 id="overview">
+  Overview
+</h2>
+
+<p>
+  With the M Developer Preview, the platform introduces a new app permissions
+  model. Here's a summary of the key components of this new model:
+</p>
+
+<ul>
+  <li>
+    <strong>Declaring Permissions:</strong> The app declares all the
+    permissions it needs in the manifest, as in earlier Android platforms.
+  </li>
+
+  <li>
+    <strong>Permission Groups:</strong> Permissions are divided into
+    <em>permission groups</em>, based on their functionality. For example, the
+    <code>CONTACTS</code> permission group contains permissions to read and
+    write the user's contacts and profile information.
+  </li>
+
+  <li>
+    <p><strong>Limited Permissions Granted at Install Time:</strong> When the
+    user installs or updates the app, the system grants the app all
+    permissions listed in the manifest that fall under <code><a href="../../reference/android/content/pm/PermissionInfo.html#PROTECTION_NORMAL">PROTECTION_NORMAL</a></code>.
+    For example, alarm clock and internet permissions fall under <code><a href="../../reference/android/content/pm/PermissionInfo.html#PROTECTION_NORMAL">PROTECTION_NORMAL</a></code>, so
+    they are automatically granted at install time. For more information about
+    how normal permissions are handled, see <a href="#normal">Normal
+    Permissions</a>.
+    </p>
+
+    <p>The system may also grant the app signature permissions, as
+    described in <a href="#system-apps">System components and signature
+    permissions</a>. The user is <em>not</em> prompted to grant any permissions
+    at install time.</p>
+  </li>
+
+  <li>
+    <strong>User Grants Permissions at Run-Time:</strong> When the app requests
+    a permission, the system shows a dialog to the user, then calls the app's
+    callback function to notify it whether the user granted the permission.
+  </li>
+
+</ul>
+
+<p>
+  This permission model changes the way your app behaves for features that
+  require permissions. Here's a summary of the development practices you should
+  follow to adjust to this model:
+</p>
+
+<ul>
+
+  <li>
+    <strong>Always Check for Permissions:</strong> When the app needs to
+    perform any action that requires a permission, it should first check
+    whether it has that permission already. If it does not, it requests to be
+    granted that permission. You do not need to check for permissions that
+    fall under <code><a href="../../reference/android/content/pm/PermissionInfo.html#PROTECTION_NORMAL">PROTECTION_NORMAL</a></code>.
+  </li>
+
+  <li>
+    <strong>Handle Lack of Permissions Gracefully:</strong> If the app is not
+    granted an appropriate permission, it should handle the failure cleanly.
+    For example, if the permission is just needed for an added feature, the app
+    can disable that feature. If the permission is essential for the app to
+    function, the app might disable all its functionality and inform the user
+    that they need to grant that permission.
+  </li>
+
+  <div class="figure" style="width:220px" id="fig-perms-screen">
+    <img src="images/app-permissions-screen_2x.png"
+    srcset="images/app-permissions-screen.png 1x, images/app-permissions-screen_2x.png 2x"
+    alt="" width="220">
+    <p class="img-caption">
+      <strong>Figure 1.</strong> Permission screen in the app's Settings.
+    </p>
+  </div>
+
+  <li>
+    <strong>Permissions are Revocable:</strong> Users can revoke an app's
+    permissions at any time. If a user turns off an app's permissions, the app
+    is <em>not</em> notified. Once again, your app should verify that it has
+    needed permissions before performing any restricted actions.
+  </li>
+</ul>
+
+<p class="note">
+  <strong>Note:</strong> If an app targets the M Developer Preview, it
+  <em>must</em> use the new permissions model.
+</p>
+
+<p>
+  As of the launch of the M Developer Preview, not all Google apps fully
+  implement the new permissions model. Google is updating these apps over
+  the course of the M Developer Preview to properly respect Permissions toggle
+  settings.
+</p>
+
+<p class="note">
+  <strong>Note:</strong> If your app has its own API surface, do not proxy
+  permissions without first ensuring the caller has the requisite permissions
+  to access that data.
+</p>
+
+<h3 id="perm-groups">Permission groups</h3>
+
+<p>
+  Related permissions are divided into <em>permission groups</em> to
+  allow users to grant related permissions to an app in a single action.
+  The user only has to grant permission once per app for each permission group.
+  If the app subsequently requests a permission from the same permission
+  group, the system automatically grants the permission without any action from
+  the user. The system calls your app's <code>onRequestPermissionsResult()</code>
+  method just as if the user had granted permission through the dialog box.
+</p>
+
+<p>
+  For example, suppose an app lists in its manifest that it needs the
+  <code>SEND_SMS</code> and <code>RECEIVE_SMS</code> permissions, which both
+  belong to <code>android.permission-group.SMS</code>. When the app needs to
+  send a message, it requests the <code>SEND_SMS</code> permission. The system
+  shows the user a dialog box asking if the app can have access to SMS. If the
+  user agrees, the system grants the app the <code>SEND_SMS</code> permission it
+  requested. Later, the app requests <code>RECEIVE_SMS</code>. The
+  system automatically grants this permission, since the user had already
+  approved a permission in the same permission group.
+</p>
+
+<h3 id="system-apps">
+  System components and signature permissions
+</h3>
+
+<p>
+  Ordinarily, when the user installs an app, the system only grants the app the
+  permissions listed in the manifest that fall under
+  <code><a href="../../reference/android/content/pm/PermissionInfo.html#PROTECTION_NORMAL">PROTECTION_NORMAL</a></code>. However, under some circumstances the system grants the
+  app more permissions:
+</p>
+
+<ul>
+  <li>System components automatically receive all
+  the permissions listed in their manifests.
+  </li>
+
+  <li>If the app requests permissions in the manifest that fall under <code><a href="../../reference/android/content/pm/PermissionInfo.html#PROTECTION_SIGNATURE">PROTECTION_SIGNATURE</a></code>,
+  and the app is signed with the same certificate as the app that declared
+  those permissions, the system grants the requesting app those permissions on
+  installation. Apps cannot request signature permissions at runtime.</li>
+</ul>
+
+<h3 id="compatibility">
+  Forwards and backwards compatibility
+</h3>
+
+<p>
+  If an app does not target the M Developer Preview, the app continues to use
+  the old permissions model even on M Preview devices. When the user installs
+  the app, the system asks the user to grant all permissions listed in the
+  app's manifest.
+</p>
+
+<p class="note">
+  <strong>Note:</strong> On devices running the M Developer Preview, a user can
+  turn off permissions for any app (including legacy apps) from the app's
+  Settings screen. If a user turns off permissions for a legacy app, the system
+  silently disables the appropriate functionality. When the app attempts to
+  perform an operation that requires that permission, the operation will not
+  necessarily cause an exception. Instead, it might return an empty data set,
+  signal an error, or otherwise exhibit unexpected behavior. For example, if you
+  query a calendar without permission, the method returns an empty data set.
+</p>
+
+<p>
+  If you install an app using the new permissions model on a device that is not
+  running the M Preview,
+  the system treats it the same as any other app: the system asks
+  the user to grant all declared permissions at install time.
+</p>
+
+<p class="note">
+  <strong>Note:</strong> For the preview release, you must set the minimum SDK
+  version to the M Preview SDK to compile with the preview SDK. This means you
+  will not be able to test such apps on older platforms during the developer
+  preview.
+</p>
+
+<h3 id="perms-vs-intents">Permissions versus intents</h3>
+
+<p>
+  In many cases, you can choose between two ways for your app to perform a
+  task. You can have your app ask for permission to perform the operation
+  itself. Alternatively, you can have the app use an intent to have another app
+  perform the task.
+</p>
+
+<p>
+  For example, suppose your app needs to be able to take pictures with the
+  device camera. Your app can request the
+  <code>android.permission.CAMERA</code> permission, which allows your app to
+  access the camera directly. Your app would then use the camera APIs
+  to control the camera and take a picture. This approach gives your app full
+  control over the photography process, and lets you incorporate the camera UI
+  into your app.
+</p>
+
+<p>
+  However, if you don't need such control, you can just use an <code><a href="../../reference/android/provider/MediaStore.html#ACTION_IMAGE_CAPTURE">ACTION_IMAGE_CAPTURE</a></code> intent
+  to request an image. When you start the intent, the user is prompted to
+  choose a camera app (if there isn't already a default camera app), and that
+  app takes the picture. The camera app returns the picture to your app's <code><a href="../../reference/android/app/Activity.html#onActivityResult(int, int, android.content.Intent)">onActivityResult()</a></code> method.
+</p>
+
+<p>
+  Similarly, if you need to make a phone call, access the user's contacts, and
+  so on, you can do that by creating an appropriate intent, or you can request
+  the permission and access the appropriate objects directly. There are
+  advantages and disadvantages to each approach.
+</p>
+
+<p>
+  If you use permissions:
+</p>
+
+<ul>
+  <li>Your app has full control over the user experience when you perform the
+  operation. However, such broad control adds to the complexity of your task,
+  since you need to design an appropriate UI.
+  </li>
+
+  <li>The user is prompted to give permission once, the first time you perform
+  the operation. After that, your app can perform the operation without
+  requiring additional interaction from the user. However, if the user doesn't
+  grant the permission (or revokes it later on), your app becomes unable to
+  perform the operation at all.
+  </li>
+</ul>
+
+<p>
+  If you use an intent:
+</p>
+
+<ul>
+  <li>You do not have to design the UI for the operation. The app that handles
+  the intent provides the UI. However, this means you have
+  no control over the user experience. The user could be interacting with an
+  app you've never seen.
+  </li>
+
+  <li>If the user does not have a default app for the operation, the system
+  prompts the user to choose an app. If the user does not designate a default
+  handler, they may have to go
+  through an extra dialog every time they perform the operation.
+  </li>
+</ul>
+
+<h2 id="coding">Coding for Runtime Permissions</h2>
+
+<p>
+  If your app targets the new M Developer Preview, you must use the new
+  permissions model. This means that in addition to declaring your needed
+  permissions in the manifest, you must also check to see if you have the
+  permissions at run time, and request the permissions if you do not already
+  have them.
+</p>
+
+<h3 id="enabling">
+  Enabling the new permissions model
+</h3>
+
+<p>
+  To enable the new M Developer Preview permissions model, set the app's
+  <code>targetSdkVersion</code> attribute to <code>"MNC"</code>, and
+  <code>compileSdkVersion</code> to <code>"android-MNC"</code>. Doing so
+  enables all the new permissions features.
+</p>
+
+<p>
+  For the preview release, you must set <code>minSdkVersion</code> to
+  <code>"MNC"</code> to compile with the preview SDK.
+</p>
+
+<h3 id="m-only-perm">
+  Designating a permission for the M Preview only
+</h3>
+
+<p>
+  You can use the new <code>&lt;uses-permission-sdk-m&gt;</code> element in the app manifest
+  to indicate that a permission is only needed on the M Developer Preview. If
+  you declare a permission this way, then whenever the app is installed on an
+  older device, the system does not prompt the user or grant the
+  permission to the app. By using the <code>&lt;uses-permission-sdk-m&gt;</code>
+  element, you can add new permissions
+  to updated versions of your app without forcing users to grant permissions
+  when they install the update.
+</p>
+
+<p>
+  If the app is running on a device with the M Developer Preview,
+  <code>&lt;uses-permission-sdk-m&gt;</code> behaves the same as
+  <code><a href="../../guide/topics/manifest/uses-permission-element.html">&lt;uses-permission&gt;</a></code>.
+  The system does not prompt the user to grant any permissions when they install
+  the app, and the app requests permissions as they are needed.
+</p>
+
+<h3 id="prompting">
+  Prompting for permissions
+</h3>
+
+<p>
+  If your app uses the new M Developer Preview permissions model, the user is
+  not asked to grant all permissions when the app is first launched on a device
+  running the M Preview. Instead, your app requests permissions as they are
+  needed. When your app requests a permission, the system shows a dialog to the
+  user.
+</p>
+
+<p>
+  If your app runs on a device that has SDK 22 or lower, the app uses the old
+  permissions model. When the user installs the app, they are prompted to grant
+  all the permissions your app requests in its manifest, except for those
+  permissions which are labeled with <code>&lt;uses-permission-sdk-m&gt;</code>.
+</p>
+
+<h4 id="check-platform">Check what platform the app is running on</h4>
+
+<p>
+  This permissions model is only supported on devices running the M Developer
+  Preview. Before calling any of these methods, the app should verify
+  what platform it's running on
+  by checking the value of <code><a href="../../reference/android/os/Build.VERSION.html#CODENAME">Build.VERSION.CODENAME</a></code>. If the device is running the M Developer Preview,
+  <code><a href="../../reference/android/os/Build.VERSION.html#CODENAME">CODENAME</a></code> is <code>"MNC"</code>.
+</p>
+
+<h4 id="check-for-permission">Check if the app has the needed permission</h4>
+
+<p>When the user tries to do something that requires a permission, the app
+  checks to see if it currently has permission to perform this operation. To do
+  this, the app calls
+  <code>Context.checkSelfPermission(<i>permission_name</i>)</code>. The app
+  should perform this check even if it knows the user has already granted that
+  permission,
+  since the user can revoke an app's permissions at any time. For example, if a
+  user wants to use an app to take a picture, the app calls
+  <code>Context.checkSelfPermission(Manifest.permission.CAMERA)</code>.</p>
+
+<p class="table-caption" id="permission-groups">
+  <strong>Table 1.</strong> Permissions and permission groups.</p>
+<table>
+  <tr>
+    <th scope="col">Permission Group</th>
+    <th scope="col">Permissions</th>
+  </tr>
+
+  <tr>
+    <td><code>android.permission-group.CALENDAR</code></td>
+    <td>
+      <ul>
+        <li>
+          <code>android.permission.READ_CALENDAR</code>
+        </li>
+      </ul>
+      <ul>
+        <li>
+          <code>android.permission.WRITE_CALENDAR</code>
+        </li>
+      </ul>
+    </td>
+  </tr>
+
+  <tr>
+    <td><code>android.permission-group.CAMERA</code></td>
+    <td>
+      <ul>
+        <li>
+          <code>android.permission.CAMERA</code>
+        </li>
+      </ul>
+    </td>
+  </tr>
+
+  <tr>
+    <td><code>android.permission-group.CONTACTS</code></td>
+    <td>
+      <ul>
+        <li>
+          <code>android.permission.READ_CONTACTS</code>
+        </li>
+        <li>
+          <code>android.permission.WRITE_CONTACTS</code>
+        </li>
+        <li>
+          <code>android.permission.READ_PROFILE</code>
+        </li>
+        <li>
+          <code>android.permission.WRITE_PROFILE</code>
+        </li>
+      </ul>
+    </td>
+  </tr>
+
+  <tr>
+    <td><code>android.permission-group.LOCATION</code></td>
+    <td>
+      <ul>
+        <li>
+          <code>android.permission.ACCESS_FINE_LOCATION</code>
+        </li>
+        <li>
+          <code>android.permission.ACCESS_COARSE_LOCATION</code>
+        </li>
+      </ul>
+    </td>
+  </tr>
+
+  <tr>
+    <td><code>android.permission-group.MICROPHONE</code></td>
+    <td>
+      <ul>
+        <li>
+          <code>android.permission.RECORD_AUDIO</code>
+        </li>
+      </ul>
+    </td>
+  </tr>
+
+  <tr>
+    <td><code>android.permission-group.PHONE</code></td>
+    <td>
+      <ul>
+        <li>
+          <code>android.permission.READ_PHONE_STATE</code>
+        </li>
+        <li>
+          <code>android.permission.CALL_PHONE</code>
+        </li>
+        <li>
+          <code>android.permission.READ_CALL_LOG</code>
+        </li>
+        <li>
+          <code>android.permission.WRITE_CALL_LOG</code>
+        </li>
+        <li>
+          <code>com.android.voicemail.permission.ADD_VOICEMAIL</code>
+        </li>
+        <li>
+          <code>android.permission.USE_SIP</code>
+        </li>
+        <li>
+          <code>android.permission.PROCESS_OUTGOING_CALLS</code>
+        </li>
+      </ul>
+    </td>
+  </tr>
+
+  <tr>
+    <td><code>android.permission-group.SENSORS</code></td>
+    <td>
+      <ul>
+        <li>
+          <code>android.permission.BODY_SENSORS</code>
+        </li>
+      </ul>
+      <ul>
+        <li>
+          <code>android.permission.USE_FINGERPRINT</code>
+        </li>
+      </ul>
+    </td>
+  </tr>
+
+  <tr>
+    <td><code>android.permission-group.SMS</code></td>
+    <td>
+      <ul>
+        <li>
+          <code>android.permission.SEND_SMS</code>
+        </li>
+        <li>
+          <code>android.permission.RECEIVE_SMS</code>
+        </li>
+        <li>
+          <code>android.permission.READ_SMS</code>
+        </li>
+        <li>
+          <code>android.permission.RECEIVE_WAP_PUSH</code>
+        </li>
+        <li>
+          <code>android.permission.RECEIVE_MMS</code>
+        </li>
+        <li>
+          <code>android.permission.READ_CELL_BROADCASTS</code>
+        </li>
+      </ul>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <code>android.permission-group.STORAGE</code>
+    </td>
+    <td>
+      <ul>
+        <li>
+          <code>android.permission.READ_EXTERNAL_STORAGE</code>
+        </li>
+        <li>
+          <code>android.permission.WRITE_EXTERNAL_STORAGE</code>
+        </li>
+      </ul>
+    </td>
+  </tr>
+
+</table>
+
+<h4 id="explain-need">Explain why the app needs permissions</h4>
+
+<p>
+  In some circumstances, you might want to help the user understand why your
+  app needs a permission. For example, if a user launches a photography app,
+  the user probably won't be surprised that the app asks for permission to use
+  the camera. But if the user turns down that permission request, then launches
+  the photography app again, that might indicate that the user needs some help
+  understanding why the permission is needed.
+</p>
+
+<p>
+  To help find the situations where you need to provide extra explanation, the
+  system provides the
+  <code>Activity.shouldShowRequestPermissionRationale(String)</code>
+  method. This
+  method returns <code>true</code> if the app has requested this permission
+  previously and the user denied the request.
+  That indicates that you should probably explain to the
+  user why you need the permission.
+</p>
+
+<p>
+  If the user turned down the permission request in the
+  past and chose the <em>Don't ask again</em> option in the permission request system
+  dialog, this method returns <code>false</code>. The method also returns
+  <code>false</code> if the device policy prohibits the app from having that
+  permission.
+</p>
+
+<h4 id="request-permissions">Request permissions if necessary</h4>
+
+<p>If the app doesn't already have the permission it needs, the app calls the
+  <code>Activity.requestPermissions(String[], int)</code> method to
+  request the appropriate permission or permissions. The app passes the
+  permission or permissions it wants, and also an integer "request code".
+  This method functions asynchronously: it returns right away, and after
+  the user responds to the dialog box, the system calls the app's callback
+  method with the results, passing the same "request code" that the app passed
+  to <code>requestPermissions()</code>.</p>
+
+  <p>The following code code checks if the app has permission to read the
+    user's contacts, and requests the permission if necessary:</p>
+
+<pre>
+if (checkSelfPermission(Manifest.permission.READ_CONTACTS)
+        != PackageManager.PERMISSION_GRANTED) {
+
+    // Should we show an explanation?
+    if (shouldShowRequestPermissionRationale(
+            Manifest.permission.READ_CONTACTS)) {
+        // Explain to the user why we need to read the contacts
+    }
+
+    requestPermissions(new String[]{Manifest.permission.READ_CONTACTS},
+            MY_PERMISSIONS_REQUEST_READ_CONTACTS);
+
+    // MY_PERMISSIONS_REQUEST_READ_CONTACTS is an
+    // app-defined int constant
+
+    return;
+}
+</pre>
+
+<h4 id="handle-response">Handle the permissions request response</h4>
+
+<p>
+  When an app requests permissions, the system presents a dialog box to the
+  user. When the user responds, the system invokes your app's
+  <code>Activity.onRequestPermissionsResult(int, String[], int[])</code>
+  passing it the user response. Your app needs to override that method. The
+  callback is passed the same request code you passed to
+  <code>requestPermissions()</code>. For example, if an app requests
+  <code>READ_CONTACTS</code> access it might have the following callback
+  method:
+</p>
+
+<pre>
+&#64;Override
+public void onRequestPermissionsResult(int requestCode,
+        String permissions[], int[] grantResults) {
+    switch (requestCode) {
+        case MY_PERMISSIONS_REQUEST_READ_CONTACTS: {
+            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+
+                // permission was granted, yay! do the
+                // calendar task you need to do.
+
+            } else {
+
+                // permission denied, boo! Disable the
+                // functionality that depends on this permission.
+            }
+            return;
+        }
+
+        // other 'switch' lines to check for other
+        // permissions this app might request
+    }
+}
+</pre>
+
+<p>
+  If the user denies a permission request, your app should take appropriate
+  action. For example, your app might show a dialog explaining why it could not
+  perform the user's original request.
+</p>
+
+<p>
+  When the system asks the user to grant a permission, the user has the option
+  of telling the system not to ask for that permission again. In that case,
+  when an app uses <code>requestPermissions()</code> to ask for that permission,
+  the system immediately denies the request. In this case, the system calls
+  your <code>onRequestPermissionsResult()</code> the same way it would if the
+  user had explicitly rejected your request again. For this reason, your app
+  cannot assume that any direct interaction with the user has taken place.
+</p>
+
+<h2 id="testing">Testing Runtime Permissions</h2>
+
+<p>
+  If your app targets the M Developer Preview, you must test that it
+  handles permissions properly. You cannot assume that your app has any
+  particular permissions when it runs. When the app is first launched, it is
+  likely to have no permissions, and the user can revoke or restore permissions
+  at any time.
+</p>
+
+<p>
+  You should test your app to make sure it behaves properly under all
+  permission situations. With the M Preview SDK, we have provided new
+  <a href="../../tools/help/adb.html">Android
+  Debug Bridge (adb)</a> commands to enable you to test your app with whatever
+  permissions settings you need to try.
+</p>
+
+<h3>
+  New adb commands and options
+</h3>
+
+<p>
+  The M Preview SDK Platform-tools provides several new commands to let you test
+  how your app handles permissions.
+</p>
+
+<h4>
+  Install with permissions
+</h4>
+
+<p>
+  You can use the <a href="../../tools/help/adb.html#move"><code>adb
+  install</code></a> command's new <code>-g</code> option, which installs the
+  app and grants all permissions listed in its manifest:
+</p>
+
+<pre class="no-pretty-print">
+$ adb install -g &lt;path_to_apk&gt;
+</pre>
+
+<h4>
+  Grant and revoke permissions
+</h4>
+
+<p>
+  You can use new ADB <a href="../../tools/help/adb.html#pm">package manager
+  (pm)</a> commands to grant and revoke permissions to an installed app.
+  This functionality can be useful for automated testing.
+</p>
+
+<p>
+  To grant a permission, use the package manager's <code>grant</code> command:
+</p>
+
+<pre class="no-pretty-print">
+$ adb pm grant &lt;package_name&gt; &lt;permission_name&gt;
+</pre>
+
+<p>
+  For example, to grant the com.example.myapp package permission to record
+  audio, use this command:
+</p>
+
+<pre class="no-pretty-print">
+$ adb pm grant com.example.myapp android.permission.RECORD_AUDIO
+</pre>
+
+<p>
+  To revoke a permission, use the package manager's <code>revoke</code> command:
+</p>
+
+<pre class="no-pretty-print">
+$ adb pm revoke &lt;package_name&gt; &lt;permission_name&gt;
+</pre>
+
+<h2 id="best-practices">Best Practices and Usage Notes</h2>
+
+<p>
+  The new permissions model gives users a smoother experience, and makes it
+  easier for them to install apps and feel comfortable with what the apps are
+  doing. We recommend the following best practices to take full advantage of
+  the new model.
+</p>
+
+
+<h3 id="bp-what-you-need">Only ask for permissions you need</h3>
+
+<p>
+  Every time you ask for a permission, you force the user to make a decision.
+  If the user turns down the request, that reduces your app's functionality.
+  You should minimize the number of times you make these requests.
+</p>
+
+<p>
+  For example, quite often your app can get needed functionality by using an
+  <a href="../../guide/components/intents-filters.html">intent</a> instead
+  of asking for permissions. If your app needs to take pictures with the
+  phone's camera, your app can use a <code><a href="../../reference/android/provider/MediaStore.html#ACTION_IMAGE_CAPTURE">MediaStore.ACTION_IMAGE_CAPTURE</a></code> intent. When your app executes the intent, the
+  system prompts the user to choose an already-installed camera app to take the
+  picture.
+</p>
+
+<h3 id="bp-dont-overwhelm">
+  Don't overwhelm the user
+</h3>
+
+<p>
+  If you confront the user with a lot of requests for permissions at once, you may
+  overwhelm the user and cause them to quit your app. Instead, you should ask
+  for permissions as you need them.
+</p>
+
+<p>
+  In some cases, one or more permissions might be absolutely essential to your
+  app. In that case, it might make sense to ask for all the permissions as soon
+  as the app launches. For example, if you make a photography app, the app
+  would need access to the device camera. When the user launches the app for
+  the first time, they won't be surprised to be asked for permission to use
+  the camera. But if the same app also had a feature to share photos with the
+  user's contacts, you probably should <em>not</em> ask for that permission at
+  first launch. Instead, wait until the user tries to use the "sharing" feature
+  and ask for the permission then.
+</p>
+
+<p>
+  If your app provides a tutorial, it may make sense to request the app's essential
+  permissions at the end of the tutorial sequence.
+</p>
+
+<h3 id="bp-explain">
+  Explain why you need permissions
+</h3>
+
+<p>
+  The permissions dialog shown by the system when you call
+  <code>requestPermissions()</code> says what permission your app wants, but
+  doesn't say why. In some cases, the user may find that puzzling.
+  It's a good idea to explain to the user why your app wants the permissions
+  before calling <code>requestPermissions()</code>.
+</p>
+
+<p>
+  For example, a photography app might want to use location services, so it can
+  geotag the photos. A typical user might not understand that a photo can
+  contain location information, and would be puzzled why their photography app
+  wanted to know the location. So in this case, it's a good idea for the app to
+  tell the user about this feature <em>before</em> calling
+  <code>requestPermissions()</code>.
+</p>
+
+<p>
+  One way to do this is to incorporate these requests into an app tutorial. The
+  tutorial can show each of the app's features in turn, and as it does this, it
+  can explain what permissions are needed. For example, the photography app's
+  tutorial can demonstrate its "share photos with your contacts" feature, then
+  tell the user that they need to give permission for the app to see the user's
+  contacts. The app can then call <code>requestPermissions()</code> to ask the
+  user for that access. Of course, not every user is going to follow the
+  tutorial, so you still need to check for and request permissions during the
+  app's normal operation.
+</p>
+
+<h3 id="normal">Normal Permissions</h3>
+
+<p>
+  Many permissions are designated as <code><a href="../../reference/android/content/pm/PermissionInfo.html#PROTECTION_NORMAL">PROTECTION_NORMAL</a></code>,
+  which indicates that
+  there's no great risk to the user's privacy or security in letting apps have
+  those permissions. For example, users would reasonably want to know whether
+  an app can read their contact information, so users have to grant this
+  permission explicitly. By contrast, there's no great risk in allowing an app
+  to vibrate the device, so that permission is designated as <em>normal.</em>
+</p>
+
+<p>
+  If an app declares in its
+  manifest that it needs a normal permission, the system automatically grants
+  the app
+  that permission at install time. The system does not prompt the user
+  to grant normal
+  permissions, and users cannot revoke these permissions.
+</p>
+
+<p>
+  If your app declares that it needs normal permissions, the app does not need to
+  call <code>Activity.checkSelfPermission()</code> or
+  <code>Activity.requestPermissions()</code> for
+  those permissions. Since you declared the permissions in the manifest, you
+  can be sure your app was granted those permissions at install time.
+</p>
+
+<p>Currently, the following permissions are classified as <code><a href="../../reference/android/content/pm/PermissionInfo.html#PROTECTION_NORMAL">PROTECTION_NORMAL</a></code>:</p>
+
+<ul>
+  <li><code>android.permission.ACCESS_LOCATION_EXTRA_COMMANDS</code></li>
+  <li><code>android.permission.ACCESS_NETWORK_STATE</code></li>
+  <li><code>android.permission.ACCESS_WIFI_STATE</code></li>
+  <li><code>android.permission.ACCESS_WIMAX_STATE</code></li>
+  <li><code>android.permission.BLUETOOTH</code></li>
+  <li><code>android.permission.BLUETOOTH_ADMIN</code></li>
+  <li><code>android.permission.BROADCAST_STICKY</code></li>
+  <li><code>android.permission.CHANGE_NETWORK_STATE</code></li>
+  <li><code>android.permission.CHANGE_WIFI_MULTICAST_STATE</code></li>
+  <li><code>android.permission.CHANGE_WIFI_STATE</code></li>
+  <li><code>android.permission.DISABLE_KEYGUARD</code></li>
+  <li><code>android.permission.EXPAND_STATUS_BAR</code></li>
+  <li><code>android.permission.FLASHLIGHT</code></li>
+  <li><code>android.permission.GET_ACCOUNTS</code></li>
+  <li><code>android.permission.GET_PACKAGE_SIZE</code></li>
+  <li><code>android.permission.INTERNET</code></li>
+  <li><code>android.permission.KILL_BACKGROUND_PROCESSES</code></li>
+  <li><code>android.permission.MODIFY_AUDIO_SETTINGS</code></li>
+  <li><code>android.permission.NFC</code></li>
+  <li><code>android.permission.PERSISTENT_ACTIVITY</code></li>
+  <li><code>android.permission.READ_SYNC_SETTINGS</code></li>
+  <li><code>android.permission.READ_SYNC_STATS</code></li>
+  <li><code>android.permission.READ_USER_DICTIONARY</code></li>
+  <li><code>android.permission.RECEIVE_BOOT_COMPLETED</code></li>
+  <li><code>android.permission.REORDER_TASKS</code></li>
+  <li><code>android.permission.SET_TIME_ZONE</code></li>
+  <li><code>android.permission.SET_WALLPAPER</code></li>
+  <li><code>android.permission.SET_WALLPAPER_HINTS</code></li>
+  <li><code>android.permission.SUBSCRIBED_FEEDS_READ</code></li>
+  <li><code>android.permission.TRANSMIT_IR</code></li>
+  <li><code>android.permission.VIBRATE</code></li>
+  <li><code>android.permission.WAKE_LOCK</code></li>
+  <li><code>android.permission.WRITE_SETTINGS</code></li>
+  <li><code>android.permission.WRITE_SYNC_SETTINGS</code></li>
+  <li><code>android.permission.WRITE_USER_DICTIONARY</code></li>
+  <li><code>com.android.alarm.permission.SET_ALARM</code></li>
+  <li><code>com.android.launcher.permission.INSTALL_SHORTCUT</code></li>
+</ul>
+
+    </div>
+
+    
+
+  </div> <!-- end jd-content -->
+
+<div class="wrap">
+  <div class="dac-footer">
+    <div class="cols dac-footer-main">
+      <div class="col-1of2">
+        <a class="dac-footer-getnews" data-modal-toggle="newsletter" href="javascript:;">Get news &amp; tips <span
+          class="dac-fab dac-primary"><i class="dac-sprite dac-mail"></i></span></a>
+      </div>
+      <div class="col-1of2 dac-footer-reachout">
+        <div class="dac-footer-contact">
+          <a class="dac-footer-contact-link" href="http://android-developers.blogspot.com/">Blog</a>
+          <a class="dac-footer-contact-link" href="/support.html">Support</a>
+        </div>
+        <div class="dac-footer-social">
+          <a class="dac-fab dac-footer-social-link" href="https://www.youtube.com/user/androiddevelopers"><i class="dac-sprite dac-youtube"></i></a>
+          <a class="dac-fab dac-footer-social-link" href="https://plus.google.com/+AndroidDevelopers"><i class="dac-sprite dac-gplus"></i></a>
+          <a class="dac-fab dac-footer-social-link" href="https://twitter.com/AndroidDev"><i class="dac-sprite dac-twitter"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <hr class="dac-footer-separator"/>
+
+    
+      <p class="dac-footer-copyright">
+        
+  Except as noted, this content is
+  licensed under <a href="http://creativecommons.org/licenses/by/2.5/">
+  Creative Commons Attribution 2.5</a>. For details and
+  restrictions, see the <a href="../../license.html">Content
+  License</a>.
+      </p>
+    
+
+    <p class="dac-footer-links">
+      <a href="/about/index.html">About Android</a>
+      <a href="/auto/index.html">Auto</a>
+      <a href="/tv/index.html">TV</a>
+      <a href="/wear/index.html">Wear</a>
+      <a href="/legal.html">Legal</a>
+
+      <span id="language" class="locales">
+        <select name="language" onchange="changeLangPref(this.value, true)">
+          <option value="en" selected="selected">English</option>
+          <option value="es">Español</option>
+          <option value="ja">日本語</option>
+          <option value="ko">한국어</option>
+          <option value="pt-br">Português Brasileiro</option>
+          <option value="ru">Русский</option>
+          <option value="zh-cn">中文（简体)</option>
+          <option value="zh-tw">中文（繁體)</option>
+        </select>
+      </span>
+    </p>
+  </div>
+</div> <!-- end footer -->
+
+<div data-modal="newsletter" data-newsletter data-swap class="dac-modal newsletter">
+  <div class="dac-modal-container">
+    <div class="dac-modal-window">
+      <header class="dac-modal-header">
+        <button class="dac-modal-header-close" data-modal-toggle><i class="dac-sprite dac-close"></i></button>
+        <div class="dac-swap" data-swap-container>
+          <section class="dac-swap-section dac-active dac-down">
+            <h2 class="norule dac-modal-header-title">Get the latest Android developer news and tips that will help you find success on Google Play.</h2>
+            <p class="dac-modal-header-subtitle">&#42; Required Fields</p>
+          </section>
+          <section class="dac-swap-section dac-up">
+            <h2 class="norule dac-modal-header-title">Hooray!</h2>
+          </section>
+        </div>
+      </header>
+      <div class="dac-swap" data-swap-container>
+        <section class="dac-swap-section dac-active dac-left">
+          <form action="https://docs.google.com/forms/d/1QgnkzbEJIDu9lMEea0mxqWrXUJu0oBCLD7ar23V0Yys/formResponse" class="dac-form" method="post" target="dac-newsletter-iframe">
+            <section class="dac-modal-content">
+              <fieldset class="dac-form-fieldset">
+                <div class="cols">
+                  <div class="col-1of2 newsletter-leftCol">
+                    <div class="dac-form-input-group">
+                      <label for="newsletter-full-name" class="dac-form-floatlabel">Full name</label>
+                      <input type="text" class="dac-form-input" name="entry.1357890476" id="newsletter-full-name" required>
+                      <span class="dac-form-required">*</span>
+                    </div>
+                    <div class="dac-form-input-group">
+                      <label for="newsletter-email" class="dac-form-floatlabel">Email address</label>
+                      <input type="email" class="dac-form-input" name="entry.472100832" id="newsletter-email" required>
+                      <span class="dac-form-required">*</span>
+                    </div>
+                  </div>
+                  <div class="col-1of2 newsletter-rightCol">
+                    <div class="dac-form-input-group">
+                      <label for="newsletter-company" class="dac-form-floatlabel">Company / developer name</label>
+                      <input type="text" class="dac-form-input" name="entry.1664780309" id="newsletter-company">
+                    </div>
+                    <div class="dac-form-input-group">
+                      <label for="newsletter-play-store" class="dac-form-floatlabel">One of your Play Store app URLs</label>
+                      <input type="url" class="dac-form-input" name="entry.47013838" id="newsletter-play-store" required>
+                      <span class="dac-form-required">*</span>
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+              <fieldset class="dac-form-fieldset">
+                <div class="cols">
+                  <div class="col-1of2 newsletter-leftCol">
+                    <legend class="dac-form-legend">Which best describes your business:<span class="dac-form-required">*</span>
+                    </legend>
+                    <div class="dac-form-radio-group">
+                      <input type="radio" value="Apps" class="dac-form-radio" name="entry.1796324055" id="newsletter-business-type-app" required>
+                      <label for="newsletter-business-type-app" class="dac-form-radio-button"></label>
+                      <label for="newsletter-business-type-app" class="dac-form-label">Apps</label>
+                    </div>
+                    <div class="dac-form-radio-group">
+                      <input type="radio" value="Games" class="dac-form-radio" name="entry.1796324055" id="newsletter-business-type-games" required>
+                      <label for="newsletter-business-type-games" class="dac-form-radio-button"></label>
+                      <label for="newsletter-business-type-games" class="dac-form-label">Games</label>
+                    </div>
+                    <div class="dac-form-radio-group">
+                      <input type="radio" value="Apps and Games" class="dac-form-radio" name="entry.1796324055" id="newsletter-business-type-appsgames" required>
+                      <label for="newsletter-business-type-appsgames" class="dac-form-radio-button"></label>
+                      <label for="newsletter-business-type-appsgames" class="dac-form-label">Apps &amp; Games</label>
+                    </div>
+                  </div>
+                  <div class="col-1of2 newsletter-rightCol newsletter-checkboxes">
+                    <div class="dac-form-radio-group">
+                      <div class="dac-media">
+                        <div class="dac-media-figure">
+                          <input type="checkbox" class="dac-form-checkbox" name="entry.732309842" id="newsletter-add" required value="Add me to the mailing list for the monthly newsletter and occasional emails about development and Google Play opportunities.">
+                          <label for="newsletter-add" class="dac-form-checkbox-button"></label>
+                        </div>
+                        <div class="dac-media-body">
+                          <label for="newsletter-add" class="dac-form-label dac-form-aside">Add me to the mailing list for the monthly newsletter and occasional emails about development and Google Play opportunities.<span class="dac-form-required">*</span></label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="dac-form-radio-group">
+                      <div class="dac-media">
+                        <div class="dac-media-figure">
+                          <input type="checkbox" class="dac-form-checkbox" name="entry.2045036090" id="newsletter-terms" required value="I acknowledge that the information provided in this form will be subject to Google's privacy policy (https://www.google.com/policies/privacy/).">
+                          <label for="newsletter-terms" class="dac-form-checkbox-button"></label>
+                        </div>
+                        <div class="dac-media-body">
+                          <label for="newsletter-terms" class="dac-form-label dac-form-aside">I acknowledge that the information provided in this form will be subject to <a href="https://www.google.com/policies/privacy/">Google's privacy policy</a>.<span class="dac-form-required">*</span></label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+            </section>
+            <footer class="dac-modal-footer">
+              <div class="cols">
+                <div class="col-2of5">
+                </div>
+              </div>
+              <button type="submit" value="Submit" class="dac-fab dac-primary dac-large dac-modal-action"><i class="dac-sprite dac-arrow-right"></i></button>
+            </footer>
+          </form>
+        </section>
+        <section class="dac-swap-section dac-right">
+          <div class="dac-modal-content">
+            <p class="newsletter-success-message">
+              You have successfully signed up for the latest Android developer news and tips.
+            </p>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</div> <!-- end footer -->
+
+</div><!-- end doc-content -->
+
+</div> <!-- end .cols --> 
+</div> <!-- end body-content --> 
+
+
+
+
+
+  <script src="../../ajax/developer.android.com/ytblogger_lists_unified.js" type="text/javascript"></script>
+  <script src="../../jd_lists_unified.js?v=15" type="text/javascript"></script>
+  <script src="../../jd_extras.js?v=15" type="text/javascript"></script>
+  <script src="../../jd_collections.js?v=15" type="text/javascript"></script>
+  <script src="../../jd_tag_helpers.js?v=15" type="text/javascript"></script>
+
+</body>
+</html>

@@ -1,0 +1,1919 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
+
+<meta name="Description" content="The Android Debug Bridge (adb) provides a Unix shell that you can use to run a variety of commands on an emulator or connected device. The command binaries are stored in the file system of the emulator or device, at &#47;system&#47;bin&#47;... You can…">
+<link rel="shortcut icon" type="image/x-icon" href="../../favicon.ico" />
+<title>ADB Shell Commands | Android Developers</title>
+
+<!-- STYLESHEETS -->
+<link rel="stylesheet"
+href="http://fonts.useso.com/css?family=Roboto+Condensed">
+<link rel="stylesheet" href="http://fonts.useso.com/css?family=Roboto:light,regular,medium,thin,italic,mediumitalic,bold"
+  title="roboto">
+
+<link href="../../assets/css/default.css?v=7" rel="stylesheet" type="text/css">
+
+
+
+<!-- JAVASCRIPT -->
+<script src="../../assets/js/android_3p-bundle.js" type="text/javascript"></script>
+<script type="text/javascript">
+  var toRoot = "../../";
+  var metaTags = ["shell","adb","am","pm","screenrecord","screencap"];
+  var devsite = false;
+</script>
+<script src="../../assets/js/docs.js?v=6" type="text/javascript"></script>
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-5831155-1', 'android.com');
+  ga('create', 'UA-49880327-2', 'android.com', {'name': 'universal'});  // New tracker);
+  ga('send', 'pageview');
+  ga('universal.send', 'pageview'); // Send page view for new tracker.
+</script>
+
+</head>
+
+<body class="gc-documentation
+
+
+develop" itemscope itemtype="http://schema.org/Article">
+<a name="top"></a>
+
+<!-- dialog to prompt lang pref change when loaded from hardcoded URL
+<div id="langMessage" style="display:none">
+  <div>
+    <div class="lang en">
+      <p>You requested a page in English, would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang es">
+      <p>You requested a page in Spanish (Español), would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang ja">
+      <p>You requested a page in Japanese (日本語), would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang ko">
+      <p>You requested a page in Korean (한국어), would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang ru">
+      <p>You requested a page in Russian (Русский), would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang zh-cn">
+      <p>You requested a page in Simplified Chinese (简体中文), would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang zh-tw">
+      <p>You requested a page in Traditional Chinese (繁體中文), would you like to proceed with this language setting?</p>
+    </div>
+    <a href="#" class="button yes" onclick="return false;">
+      <span class="lang en">Yes</span>
+      <span class="lang es">Sí</span>
+      <span class="lang ja">Yes</span>
+      <span class="lang ko">Yes</span>
+      <span class="lang ru">Yes</span>
+      <span class="lang zh-cn">是的</span>
+      <span class="lang zh-tw">没有</span>
+    </a>
+    <a href="#" class="button" onclick="$('#langMessage').hide();return false;">
+      <span class="lang en">No</span>
+      <span class="lang es">No</span>
+      <span class="lang ja">No</span>
+      <span class="lang ko">No</span>
+      <span class="lang ru">No</span>
+      <span class="lang zh-cn">没有</span>
+      <span class="lang zh-tw">没有</span>
+    </a>
+  </div>
+</div> -->
+
+
+  <!-- Header -->
+  <div id="header-wrapper">
+    <div class="dac-header" id="header">
+
+
+
+
+      <div class="dac-header-inner">
+        <a class="dac-nav-toggle" data-dac-toggle-nav href="javascript:;" title="Open navigation">
+          <span class="dac-nav-hamburger">
+            <span class="dac-nav-hamburger-top"></span>
+            <span class="dac-nav-hamburger-mid"></span>
+            <span class="dac-nav-hamburger-bot"></span>
+          </span>
+        </a>
+        <a class="dac-header-logo" href="../../index.html">
+          <img class="dac-header-logo-image" src="../../assets/images/android_logo.png"
+              srcset="../../assets/images/android_logo@2x.png 2x"
+              width="32" height="36" alt="Android" /> Developers
+          </a>
+
+        <ul class="dac-header-crumbs">
+          
+          <li class="dac-header-crumbs-item"><span class="dac-header-crumbs-link current ">ADB Shell Commands</a></li>
+        </ul>
+
+        
+        
+        
+  <div class="dac-header-search" id="search-container">
+    <div class="dac-header-search-inner">
+      <div class="dac-sprite dac-search dac-header-search-btn" id="search-btn"></div>
+      <form class="dac-header-search-form" onsubmit="return submit_search()">
+        <input id="search_autocomplete" type="text" value="" autocomplete="off" name="q"
+          onfocus="search_focus_changed(this, true)" onblur="search_focus_changed(this, false)"
+          onkeydown="return search_changed(event, true, '../../')"
+          onkeyup="return search_changed(event, false, '../../')"
+          class="dac-header-search-input" placeholder="Search" />
+          <a class="dac-header-search-close hide" id="search-close">close</a>
+      </form>
+    </div><!-- end dac-header-search-inner -->
+  </div><!-- end dac-header-search -->
+
+  <div class="search_filtered_wrapper">
+    <div class="suggest-card reference no-display">
+      <ul class="search_filtered">
+      </ul>
+    </div>
+    <div class="suggest-card develop no-display">
+      <ul class="search_filtered">
+      </ul>
+      <div class="child-card guides no-display">
+      </div>
+      <div class="child-card training no-display">
+      </div>
+      <div class="child-card samples no-display">
+      </div>
+    </div>
+    <div class="suggest-card design no-display">
+      <ul class="search_filtered">
+      </ul>
+    </div>
+    <div class="suggest-card distribute no-display">
+      <ul class="search_filtered">
+      </ul>
+    </div>
+  </div>
+
+        
+
+        <a class="dac-header-console-btn" href="https://play.google.com/apps/publish/">
+          <span class="dac-sprite dac-google-play"></span>
+          <span class="dac-visible-desktop-inline">Developer</span>
+          Console
+        </a>
+
+      </div><!-- end header-wrap.wrap -->
+    </div><!-- end header -->
+
+    <div id="searchResults" class="wrap" style="display:none;">
+      <h2 id="searchTitle">Results</h2>
+      <div id="leftSearchControl" class="search-control">Loading...</div>
+    </div>
+  </div> <!--end header-wrapper -->
+
+  
+  <!-- Navigation-->
+  <nav class="dac-nav">
+    <div class="dac-nav-dimmer" data-dac-toggle-nav></div>
+
+    <ul class="dac-nav-list" data-dac-nav>
+      <li class="dac-nav-item dac-nav-head">
+        <a class="dac-nav-link dac-nav-logo" data-dac-toggle-nav href="javascript:;" title="Close navigation">
+          <img class="dac-logo-image" src="../../assets/images/android_logo.png"
+               srcset="../../assets/images/android_logo@2x.png 2x"
+               width="32" height="36" alt="Android" /> Developers
+        </a>
+      </li>
+      <li class="dac-nav-item home">
+        <a class="dac-nav-link dac-visible-mobile-block" href="../../index.html">Home</a>
+        <ul class="dac-nav-secondary about">
+          <li class="dac-nav-item about">
+            <a class="dac-nav-link" href="../../about/index.html">Android</a>
+          </li>
+          <li class="dac-nav-item wear">
+            <a class="dac-nav-link" href="../../wear/index.html">Wear</a>
+          </li>
+          <li class="dac-nav-item tv">
+            <a class="dac-nav-link" href="../../tv/index.html">TV</a>
+          </li>
+          <li class="dac-nav-item auto">
+            <a class="dac-nav-link" href="../../auto/index.html">Auto</a>
+          </li>
+        </ul>
+      </li>
+      <li class="dac-nav-item design">
+        <a class="dac-nav-link" href="../../design/index.html"
+           zh-tw-lang="設計"
+           zh-cn-lang="设计"
+           ru-lang="Проектирование"
+           ko-lang="디자인"
+           ja-lang="設計"
+           es-lang="Diseñar">Design</a>
+      </li>
+      <li class="dac-nav-item develop">
+        <a class="dac-nav-link" href="../../develop/index.html"
+           zh-tw-lang="開發"
+           zh-cn-lang="开发"
+           ru-lang="Разработка"
+           ko-lang="개발"
+           ja-lang="開発"
+           es-lang="Desarrollar">Develop</a>
+        <ul class="dac-nav-secondary develop">
+          <li class="dac-nav-item training">
+            <a class="dac-nav-link" href="../../training/index.html"
+               zh-tw-lang="訓練課程"
+               zh-cn-lang="培训"
+               ru-lang="Курсы"
+               ko-lang="교육"
+               ja-lang="トレーニング"
+               es-lang="Capacitación">Training</a>
+          </li>
+          <li class="dac-nav-item guide">
+            <a class="dac-nav-link" href="../../guide/index.html"
+               zh-tw-lang="API 指南"
+               zh-cn-lang="API 指南"
+               ru-lang="Руководства по API"
+               ko-lang="API 가이드"
+               ja-lang="API ガイド"
+               es-lang="Guías de la API">API Guides</a>
+          </li>
+          <li class="dac-nav-item reference">
+            <a class="dac-nav-link" href="../../reference/packages.html"
+               zh-tw-lang="參考資源"
+               zh-cn-lang="参考"
+               ru-lang="Справочник"
+               ko-lang="참조문서"
+               ja-lang="リファレンス"
+               es-lang="Referencia">Reference</a>
+          </li>
+          <li class="dac-nav-item tools">
+            <a class="dac-nav-link" href="../../sdk/index.html"
+               zh-tw-lang="相關工具"
+               zh-cn-lang="工具"
+               ru-lang="Инструменты"
+               ko-lang="도구"
+               ja-lang="ツール"
+               es-lang="Herramientas">Tools</a></li>
+          <li class="dac-nav-item google">
+            <a class="dac-nav-link" href="../../google/index.html">Google Services</a>
+          </li>
+          
+          <li class="dac-nav-item preview">
+            <a class="dac-nav-link" href="../../preview/index.html">Preview</a>
+          </li>
+        </ul>
+      </li>
+      <li class="dac-nav-item distribute">
+        <a class="dac-nav-link" href="../../distribute/googleplay/index.html"
+           zh-tw-lang="發佈"
+           zh-cn-lang="分发"
+           ru-lang="Распространение"
+           ko-lang="배포"
+           ja-lang="配布"
+           es-lang="Distribuir">Distribute</a>
+        <ul class="dac-nav-secondary distribute">
+          <li class="dac-nav-item googleplay">
+            <a class="dac-nav-link" href="../../distribute/googleplay/index.html">Google Play</a></li>
+          <li class="dac-nav-item essentials">
+            <a class="dac-nav-link" href="../../distribute/essentials/index.html">Essentials</a></li>
+          <li class="dac-nav-item users">
+            <a class="dac-nav-link" href="../../distribute/users/index.html">Get Users</a></li>
+          <li class="dac-nav-item engage">
+            <a class="dac-nav-link" href="../../distribute/engage/index.html">Engage &amp; Retain</a></li>
+          <li class="dac-nav-item monetize">
+            <a class="dac-nav-link" href="../../distribute/monetize/index.html">Earn</a>
+          </li>
+          <li class="dac-nav-item analyze">
+            <a class="dac-nav-link" href="../../distribute/analyze/index.html">Analyze</a>
+          </li>
+          <li class="dac-nav-item stories">
+            <a class="dac-nav-link" href="../../distribute/stories/index.html">Stories</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+  <!-- end navigation-->
+  
+
+
+
+
+  <div class="wrap clearfix" id="body-content"><div class="cols">
+    <div class="col-3 dac-toggle dac-mobile" id="side-nav" itemscope itemtype="http://schema.org/SiteNavigationElement">
+      
+  <div class="dac-visible-mobile-block" data-toggle="section">
+    <span class="dac-toggle-expand dac-devdoc-toggle"><i class="dac-sprite dac-expand-more-black"></i> Show navigation</span>
+    <span class="dac-toggle-collapse dac-devdoc-toggle" data-toggle-section><i class="dac-sprite dac-expand-less-black"></i> Hide navigation</span>
+  </div>
+
+      <div class="dac-toggle-content" id="devdoc-nav">
+        <div class="scroll-pane">
+<ul id="nav">
+
+  <li class="nav-section">
+    <div class="nav-section-header"><a href="../../sdk/index.html"><span class="en">Download</span></a></div>
+    <ul>
+      <li><a href="../../sdk/installing/index.html">
+          <span class="en">Installing the SDK</span></a></li>
+
+      <li><a href="../../sdk/installing/adding-packages.html">
+          <span class="en">Adding SDK Packages</span></a></li>
+    </ul>
+  </li>
+
+
+<!-- Android Studio menu-->
+
+ <li class="nav-section">
+    <div class="nav-section-header">
+      <a href="../../tools/studio/index.html">Android Studio</a>
+    </div>
+    <ul>
+      <li><a href="../../tools/studio/studio-config.html">
+          Configuration</a></li>
+      <li><a href="../../tools/studio/studio-features.html">
+          Features</a></li>
+      <li><a href="../../sdk/installing/studio-tips.html">
+          Tips and Tricks</a></li>
+    </ul>
+
+ </li><!-- End of Android Studio menu -->
+
+
+<!-- Workflow menu-->
+
+  <li class="nav-section">
+    <div class="nav-section-header">
+        <a href="../../tools/workflow/index.html"><span class="en">Workflow</span></a>
+    </div>
+    <ul>
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../tools/devices/index.html"><span class="en">Setting Up Virtual Devices</span></a></div>
+        <ul>
+          <li><a href="../../tools/devices/managing-avds.html"><span class="en">With AVD Manager</span></a></li>
+          <li><a href="../../tools/devices/managing-avds-cmdline.html"><span class="en">From the Command Line</span></a></li>
+          <li><a href="../../tools/devices/emulator.html"><span class="en">Using the Emulator</span></a></li>
+        </ul>
+      </li>
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../tools/device.html"><span class="en">Using Hardware Devices</span></a></div>
+        <ul>
+          <li><a href="../../tools/extras/oem-usb.html"><span
+            class="en">USB Drivers</span></a></li>
+        </ul>
+      </li>
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../tools/projects/index.html"><span class="en">Managing Projects</span></a></div>
+        <ul>
+          <li><a href="../../sdk/installing/create-project.html"><span class="en">From Android Studio</span></a></li>
+          <li><a href="../../tools/projects/projects-cmdline.html"><span class="en">From the Command Line</span></a></li>
+          <li><a href="../../tools/projects/templates.html"><span class="en">Using Code Templates</span></a></li>
+        </ul>
+      </li>
+
+
+      <li class="nav-section">
+        <div class="nav-section-header">
+          <a href="../../tools/building/index.html">
+          <span class="en">Building and Running</span></a>
+        </div>
+        <ul>
+          <li><a href="../../tools/building/building-studio.html">
+            <span class="en">From Android Studio</span></a></li>
+          <li><a href="../../tools/building/building-cmdline.html">
+            <span class="en">From the Command Line</span></a></li>
+        </ul>
+      </li>
+
+
+  <li class="nav-section">
+        <div class="nav-section-header"><a href="../../tools/testing/index.html">
+            <span class="en">Testing</span>
+          </a></div>
+        <ul>
+          <li>
+            <a href="../../tools/testing/testing_android.html">
+            <span class="en">Fundamentals</span></a>
+          </li>
+          <li><a href="../../tools/testing/testing_eclipse.html">
+            <span class="en">From Eclipse</span></a>
+          </li>
+          <li><a href="../../tools/testing/testing_otheride.html">
+            <span class="en">From Other IDEs</span></a>
+          </li>
+          <li>
+            <a href="../../tools/testing/activity_testing.html">
+            <span class="en">Activity Testing</span></a>
+          </li>
+          <li>
+            <a href="../../tools/testing/service_testing.html">
+            <span class="en">Service Testing</span></a>
+          </li>
+          <li>
+            <a href="../../tools/testing/contentprovider_testing.html">
+            <span class="en">Content Provider Testing</span></a>
+          </li>
+          <li>
+            <a href="../../tools/testing/testing_accessibility.html">
+            <span class="en">Accessibility Testing</span></a>
+          </li>
+           <li>
+            <a href="../../tools/testing/testing_ui.html">
+            <span class="en">UI Testing</span></a>
+          </li>
+          <li>
+            <a href="../../tools/testing/what_to_test.html">
+            <span class="en">What To Test</span></a>
+          </li>
+          <li>
+            <a href="../../tools/testing/activity_test.html">
+            <span class="en">Activity Testing Tutorial</span></a>
+          </li>
+        </ul>
+  </li><!-- end of testing -->
+
+  <li class="nav-section">
+    <div class="nav-section-header"><a href="../../tools/debugging/index.html"><span class="en">Debugging</span></a></div>
+    <ul>
+      <li><a href="../../tools/debugging/debugging-studio.html"><span class="en">From Android Studio</span></a></li>
+      <li><a href="../../tools/debugging/debugging-projects-cmdline.html"><span class="en">From Other IDEs</span></a></li>
+      <li><a href="../../tools/debugging/ddms.html"><span class="en">Using DDMS</span></a></li>
+      <li><a href="../../tools/debugging/debugging-log.html"><span class="en">Reading and Writing Logs</span></a></li>
+      <li><a href="../../tools/debugging/improving-w-lint.html"><span class="en">Improving Your Code with lint</span></a></li>
+      <li><a href="../../tools/debugging/debugging-ui.html"><span class="en">Optimizing your UI</span></a></li>
+      <li><a href="../../tools/debugging/debugging-tracing.html"><span class="en">Profiling with Traceview and dmtracedump</span></a></li>
+      <li><a href="../../tools/debugging/annotations.html"><span class="en">Improving Code Inspection with Annotations</span></a></li>
+      <li><a href="../../tools/debugging/systrace.html"><span class="en">Analyzing UI Performance</span></a></li>
+      <li><a href="../../tools/debugging/debugging-memory.html">Investigating Your RAM Usage</a></li>
+      <li><a href="../../tools/debugging/debugging-devtools.html"><span class="en">Using the Dev Tools App</span></a></li>
+    </ul>
+  </li>
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../tools/publishing/publishing_overview.html" zh-cn-lang="发布概述"><span class="en">Publishing</span></a></div>
+        <ul>
+          <li><a href="../../tools/publishing/preparing.html" zh-cn-lang="准备发布"><span class="en">Preparing for Release</span></a></li>
+          <li><a href="../../tools/publishing/versioning.html"><span class="en">Versioning Your Apps</span></a></li>
+          <li><a href="../../tools/publishing/app-signing.html"><span class="en">Signing Your Apps</span></a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+
+
+  <li class="nav-section">
+    <div class="nav-section-header"><a href="../../tools/help/index.html"><span
+class="en">Tools Help</span></a></div>
+    <ul>
+      <li><a href="../../tools/help/adb.html">adb</a></li>
+      <li><a href="../../tools/help/android.html">android</a></li>
+      <li><a href="../../tools/help/avd-manager.html">AVD Manager</a></li>
+      <li><a href="../../tools/help/bmgr.html">bmgr</a>
+      <li><a href="../../tools/help/monitor.html">Device Monitor</a></li>
+      <li><a href="../../tools/help/dmtracedump.html">dmtracedump</a></li>
+      <li><a href="../../tools/help/draw9patch.html">Draw 9-Patch</a></li>
+      <li><a href="../../tools/help/emulator.html">Emulator</a></li>
+      <li><a href="../../tools/help/etc1tool.html">etc1tool</a></li>
+      <li><a href="../../tools/help/hierarchy-viewer.html">Hierarchy Viewer</a></li>
+      <li><a href="../../tools/help/hprof-conv.html">hprof-conv</a></li>
+      <li><a href="../../tools/help/jobb.html">jobb</a></li>
+      <li><a href="../../tools/help/lint.html">lint</span></a></li>
+      <li><a href="../../tools/help/logcat.html">logcat</a></li>
+      <li><a href="../../tools/help/mksdcard.html">mksdcard</a></li>
+       <li><a href="../../tools/help/proguard.html" zh-cn-lang="ProGuard">ProGuard</a></li>
+       <li><a href="../../tools/help/sdk-manager.html">SDK Manager</a></li>
+       <li><a href="../../tools/help/systrace.html">Systrace</a></li>
+       <li><a href="../../tools/help/gltracer.html">Tracer for OpenGL ES</a></li>
+       <li><a href="../../tools/help/traceview.html">Traceview</a></li>
+       <li><a href="../../tools/help/zipalign.html">zipalign</a></li>
+    </ul>
+  </li>
+
+  </li><!-- end of tools help -->
+
+
+<!-- Build System menu-->
+
+  <li class="nav-section">
+    <div class="nav-section-header">
+      <a href="../../sdk/installing/studio-build.html">Build System</a>
+    </div>
+    <ul>
+      <li><a href="../../tools/building/configuring-gradle.html">
+        <span class="en">Configuring Gradle Builds</span></a></li>
+      <li><a href="../../tools/building/plugin-for-gradle.html">
+        <span class="en">Android Plugin for Gradle</span></a></li>
+      <li><a href="../../tools/building/manifest-merge.html">
+        <span class="en">Manifest Merging</span></a></li>
+      <li><a href="../../tools/building/multidex.html">
+        <span class="en">Apps Over 65K Methods</span></a></li>
+      </ul>
+  </li><!-- end of build system -->
+
+
+<!-- Performance Tools menu-->
+  <li class="nav-section">
+    <div class="nav-section-header">
+      <a href="../../tools/performance/index.html">Peformance Tools</a>
+    </div>
+    <ul>
+      <li><a href="../../tools/performance/debug-gpu-overdraw/index.html">
+        Overdraw Debugger</a>
+      </li>
+      <li><a href="../../tools/performance/profile-gpu-rendering/index.html">
+        Rendering Profiler</a>
+      </li>
+      <li class="nav-section">
+        <div class="nav-section-header">
+          <a href="../../tools/performance/hierarchy-viewer/index.html">
+          Hierarchy Viewer</a></div>
+        <ul>
+          <li><a href="../../tools/performance/hierarchy-viewer/setup.html"><span
+            class="en">Setup</span></a>
+          </li>
+          <li><a href="../../tools/performance/hierarchy-viewer/profiling.html"><span
+            class="en">Profiling</span></a>
+          </li>
+        </ul>
+      </li>
+      <li class="nav-section">
+        <div class="nav-section-header">
+          <a href="../../tools/performance/comparison.html">
+          Memory Profilers</a></div>
+        <ul>
+          <li><a href="../../tools/performance/memory-monitor/index.html"><span
+            class="en">Memory Monitor</span></a>
+          </li>
+          <li><a href="../../tools/performance/heap-viewer/index.html"><span
+            class="en">Heap Viewer</span></a>
+          </li>
+          <li><a href="../../tools/performance/allocation-tracker/index.html"><span
+            class="en">Allocation Tracker</span></a>
+          </li>
+        </ul>
+      </li>
+      <li><a href="../../tools/performance/traceview/index.html">
+        Traceview</a>
+      </li>
+      <li><a href="../../tools/performance/systrace/index.html">
+        Systrace</a>
+      </li>
+      <li class="nav-section">
+        <div class="nav-section-header">
+          <a href="../../tools/performance/batterystats-battery-historian/index.html">
+          Battery Profilers</a></div>
+        <ul>
+          <li><a href="../../tools/performance/batterystats-battery-historian/charts.html"><span
+            class="en">Historian Charts</span></a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li><!-- End Performance Tools menu-->
+
+
+  <!-- Testing Tools menu-->
+
+  <li class="nav-section">
+    <div class="nav-section-header"><a href="../../tools/testing/testing-tools.html"><span class="en">Testing Tools</span></a></div>
+    <ul>
+      <li class="nav-section">
+         <div class="nav-section-header"><a href="../../tools/testing-support-library/index.html"><span
+class="en">Testing Support Library</span></a></div>
+         <ul>
+            <li><a href="../../reference/android/support/test/package-summary.html">API Reference</a></li>
+         </ul>
+      </li>
+      <li><a href="../../tools/help/monkey.html">monkey</a></li>
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../tools/help/monkeyrunner_concepts.html"><span class="en">monkeyrunner</span></a></div>
+        <ul>
+          <li><a href="../../tools/help/MonkeyDevice.html"><span
+class="en">MonkeyDevice</span></a></li>
+          <li><a href="../../tools/help/MonkeyImage.html"><span
+class="en">MonkeyImage</span></a></li>
+          <li><a href="../../tools/help/MonkeyRunner.html"><span
+class="en">MonkeyRunner</span></a></li>
+        </ul>
+      </li>
+    </ul>
+  </li><!-- end of testing support library -->
+
+
+<!-- Support Library menu-->
+
+  <li class="nav-section">
+    <div class="nav-section-header"><a href="../../tools/support-library/index.html"><span
+class="en">Support Library</span></a></div>
+    <ul>
+      <li><a href="../../tools/support-library/features.html">Features</a></li>
+      <li><a href="../../tools/support-library/setup.html">Setup</a></li>
+    </ul>
+  </li><!-- end of support library -->
+
+  <li class="nav-section">
+    <div class="nav-section-header empty"><a href="../../tools/data-binding/guide.html"><span
+class="en">Data Binding Library</span></a></div>
+  </li><!-- end of support library -->
+
+
+<!-- Revision menu-->
+
+  <li class="nav-section">
+    <div class="nav-section-header"><a href="../../tools/revisions/index.html"><span class="en">Revisions</span></a></div>
+    <ul>
+      <li><a href="../../tools/revisions/studio.html">
+        <span class="en">Android Studio</span>
+      </a></li>
+      <li><a href="../../tools/sdk/tools-notes.html">
+        <span class="en">SDK Tools</span>
+      </a></li>
+      <li><a href="../../tools/revisions/build-tools.html">
+        <span class="en">SDK Build Tools</span>
+      </a></li>
+      <li><a href="../../tools/revisions/gradle-plugin.html">
+        <span class="en">Android Plugin for Gradle</span>
+      </a></li>
+      <li><a href="../../tools/revisions/platforms.html">
+        <span class="en">SDK Platforms</span></a></li>
+      <li><a href="../../tools/sdk/eclipse-adt.html">
+        <span class="en">ADT Plugin</span></a></li>
+    </ul>
+  </li>
+
+  <li class="nav-section">
+    <div class="nav-section-header empty">
+      <a href="../../tools/sdk/ndk/index.html">NDK</a>
+    </div>
+  </li>
+
+<!--  <li class="nav-section">
+    <div class="nav-section-header">
+    <a href="../../tools/adk/index.html">
+      <span class="en">ADK</span></a>
+    </div>
+    <ul>
+      <li><a href="../../tools/adk/adk2.html">ADK 2012 Guide</a></li>
+      <li><a href="../../tools/adk/adk.html">ADK 2011 Guide</a></li>
+    </ul>
+  </li> -->
+
+
+<!-- Eclipse ADT menu-->
+
+  <li class="nav-section">
+    <div class="nav-section-header">
+    <a href="../../tools/help/adt.html">
+      <span class="en">Eclipse with ADT</span></a>
+    </div>
+    <ul>
+        <li class="nav-section">
+        <div class="nav-section-header"><a href="../../sdk/installing/migrate.html">
+          <span class="en">Migrating to Android Studio</span></a></div>
+         <ul>
+            <li><a href="../../tools/studio/eclipse-transition-guide.html">
+            Transition Guide</span></a> </li>
+         </ul>
+        </li>
+
+    <li><a href="../../sdk/installing/installing-adt.html">
+        <span class="en">Installing the Eclipse Plugin</span></a></li>
+    <li><a href="../../tools/projects/projects-eclipse.html">Managing Projects</a></li>
+    <li><a href="../../tools/building/building-eclipse.html">Building and Running</a></li>
+    <li><a href="../../tools/building/building-cmdline-ant.html">Building with Ant</a></li>
+    <li><a href="../../tools/testing/testing_eclipse.html">Testing</a></li>
+    <li><a href="../../tools/debugging/debugging-projects.html">Debugging</a></li>
+    <li><a href="../../tools/publishing/app-signing-eclipse.html">Signing Your Apps</a></li>
+    </ul>
+  </li><!-- end of Eclipse  -->
+
+
+</ul><!-- nav -->
+
+<script type="text/javascript">
+<!--
+    buildToggleLists();
+    changeNavLang(getLangPref());
+//-->
+</script>
+
+        </div>
+      </div>
+    </div> <!-- end side-nav -->
+    <script>
+      $(document).ready(function() {
+        scrollIntoView("devdoc-nav");
+        });
+    </script>
+
+
+
+
+<div class="col-13" id="doc-col" >
+
+
+  
+
+  
+    
+      
+        <h1 itemprop="name" >ADB Shell Commands</h1>
+      
+    
+  
+
+
+  
+  <div id="jd-content">
+
+
+    <div class="jd-descr" itemprop="articleBody">
+    <div id="qv-wrapper">
+<div id="qv">
+  <h2>In this document</h2>
+<ol>
+  <li><a href="#shellcommands">Issuing Shell Commands</a>
+  <li><a href="#am">Using activity manager (am)</a></li>
+  <li><a href="#pm">Using package manager (pm)</a></li>
+  <li><a href="#screencap">Taking a device screenshot</a></li>
+  <li><a href="#screenrecord">Recording a device screen</a></li>
+  <li><a href="#othershellcommands">Other shell commands</a></li>
+  </li>
+</ol>
+
+</div>
+</div>
+
+<p>The <a href="../../tools/help/adb.html">Android Debug Bridge</a> (adb) provides a Unix shell
+that you can use to run a variety of commands on an emulator or connected device. The command
+binaries are stored in the file system of the emulator or device, at <code>/system/bin/...</code>
+</p>
+
+<h2 id="shellcommands">Issuing Shell Commands</h2>
+
+<p>You can use the <code>shell</code> command to issue commands, with or without entering
+the adb remote shell on the emulator/device. To issue a single command without entering a
+remote shell, use the <code>shell</code> command like this: </p>
+
+  <pre class="no-pretty-print">adb [-d|-e|-s &lt;serialNumber&gt;] shell &lt;shell_command&gt;</pre>
+
+<p>Or enter a remote shell on an emulator/device like this:</p>
+
+  <pre class="no-pretty-print">adb [-d|-e|-s &lt;serialNumber&gt;] shell</pre>
+
+<p>When you are ready to exit the remote shell, press CTRL+D or type
+<code>exit</code>. </p>
+
+
+
+
+
+<h2 id="am">Using activity manager (am)</h2>
+
+<p>Within an adb shell, you can issue commands with the activity manager (<code>am</code>) tool to
+perform various system actions, such as start an activity, force-stop a process,
+broadcast an intent, modify the device screen properties, and more. While in a shell,
+the syntax is:</p>
+<pre class="no-pretty-print">
+am &lt;command>
+</pre>
+
+<p>You can also issue an activity manager command directly from adb
+without entering a remote shell. For example:</p>
+<pre class="no-pretty-print">
+adb shell am start -a android.intent.action.VIEW
+</pre>
+
+
+<p class="table-caption"><strong>Table 2.</strong> Available activity manager commands</p>
+<table>
+<tr>
+  <th>Command</th>
+  <th>Description</th>
+</tr>
+
+<tr>
+<td><code>
+start [options] &lt;INTENT>
+</code></td>
+<td>Start an <code><a href="../../reference/android/app/Activity.html">Activity</a></code> specified by <code>&lt;INTENT></code>. <p>See the
+<a href="#IntentSpec">Specification for &lt;INTENT> arguments</a>.
+<p>Options are:
+<ul>
+    <li><code>-D</code>: Enable debugging.
+    <li><code>-W</code>: Wait for launch to complete.
+    <li><code>--start-profiler &lt;FILE></code>: Start profiler and send results to <code>&lt;FILE></code>.
+    <li><code>-P &lt;FILE></code>: Like <code>--start-profiler</code>,
+        but profiling stops when the app goes idle.
+    <li><code>-R</code>: Repeat the activity launch <code>&lt;COUNT></code> times.  Prior to each repeat,
+        the top activity will be finished.
+    <li><code>-S</code>: Force stop the target app before starting the activity.
+    <li><code>--opengl-trace</code>: Enable tracing of OpenGL functions.
+    <li><code>--user &lt;USER_ID> | current</code>: Specify which user to run as; if not
+        specified, then run as the current user.
+</ul>
+</td>
+</tr>
+
+<tr>
+<td><code>
+startservice [options] &lt;INTENT>
+</code></td>
+<td>Start the <code><a href="../../reference/android/app/Service.html">Service</a></code> specified by <code>&lt;INTENT></code>. <p>See the
+<a href="#IntentSpec">Specification for &lt;INTENT> arguments</a>.
+<p>Options are:
+<ul>
+    <li><code>--user &lt;USER_ID> | current</code>: Specify which user to run as; if not
+        specified, then run as the current user.
+</ul>
+</td>
+</tr>
+
+<tr>
+<td><code>
+force-stop &lt;PACKAGE>
+</code></td>
+<td>Force stop everything associated with <code>&lt;PACKAGE></code> (the app's package name).
+</td>
+</tr>
+
+<tr>
+<td><code>
+kill  [options] &lt;PACKAGE>
+</code></td>
+<td> Kill all processes associated with <code>&lt;PACKAGE></code>
+  (the app's package name).  This command kills only
+  processes that are safe to kill and that will not impact the user
+  experience.
+  <p>Options are:
+  <ul>
+      <li><code>--user &lt;USER_ID> | all | current</code>: Specify user whose processes to kill;
+        all users if not specified.
+  </ul>
+</td>
+</tr>
+
+<tr>
+<td><code>
+kill-all
+</code></td>
+<td>Kill all background processes.
+</td>
+</tr>
+
+<tr>
+<td><code>
+broadcast [options] &lt;INTENT>
+</code></td>
+<td>Issue a broadcast intent. <p>See the
+<a href="#IntentSpec">Specification for &lt;INTENT> arguments</a>.
+<p>Options are:
+<ul>
+    <li><code>[--user &lt;USER_ID> | all | current]</code>: Specify which user to send to; if not
+        specified then send to all users.
+</ul>
+</td>
+</tr>
+
+<tr>
+<td><code>
+instrument [options] &lt;COMPONENT>
+</code></td>
+<td>Start monitoring with an <code><a href="../../reference/android/app/Instrumentation.html">Instrumentation</a></code> instance.
+  Typically the target <code>&lt;COMPONENT></code>
+  is the form <code>&lt;TEST_PACKAGE>/&lt;RUNNER_CLASS></code>.  <p>Options are:
+<ul>
+    <li><code>-r</code>: Print raw results (otherwise decode
+        <code>&lt;REPORT_KEY_STREAMRESULT></code>).  Use with
+        <code>[-e perf true]</code> to generate raw output for performance measurements.
+
+    <li><code>-e &lt;NAME> &lt;VALUE></code>: Set argument <code>&lt;NAME></code> to <code>&lt;VALUE></code>.
+        For test runners a common form is <code>-e &lt;testrunner_flag> &lt;value>[,&lt;value>...]</code>.
+
+    <li><code>-p &lt;FILE></code>: Write profiling data to <code>&lt;FILE></code>.
+
+    <li><code>-w</code>: Wait for instrumentation to finish before returning.  Required for
+        test runners.
+
+    <li><code>--no-window-animation</code>: Turn off window animations while running.
+    <li><code>--user &lt;USER_ID> | current</code>: Specify which user instrumentation runs in;
+        current user if not specified.
+</ul>
+
+</td>
+</tr>
+
+<tr>
+<td><code>
+profile start &lt;PROCESS> &lt;FILE>
+</code></td>
+<td>Start profiler on <code>&lt;PROCESS></code>, write results to <code>&lt;FILE></code>.
+</td>
+</tr>
+
+<tr>
+<td><code>
+profile stop &lt;PROCESS>
+</code></td>
+<td>Stop profiler on <code>&lt;PROCESS></code>.
+</td>
+</tr>
+
+<tr>
+<td style="white-space:nowrap"><code>
+dumpheap [options] &lt;PROCESS> &lt;FILE>
+</code></td>
+<td>Dump the heap of <code>&lt;PROCESS></code>, write to <code>&lt;FILE></code>. <p>Options are:
+<ul>
+    <li><code>--user [&lt;USER_ID>|current]</code>: When supplying a process name,
+        specify user of process to dump; uses current user if not specified.
+    <li><code>-n</code>: Dump native heap instead of managed heap.
+</ul>
+</td>
+</tr>
+
+<tr>
+<td><code>
+set-debug-app [options] &lt;PACKAGE>
+</code></td>
+<td>Set application <code>&lt;PACKAGE></code> to debug.  <p>Options are:
+<ul>
+    <li><code>-w</code>: Wait for debugger when application starts.
+    <li><code>--persistent</code>: Retain this value.
+</ul>
+</td>
+</tr>
+
+<tr>
+<td><code>
+clear-debug-app
+</code></td>
+<td>Clear the package previous set for debugging with <code>set-debug-app</code>.
+</td>
+</tr>
+
+<tr>
+<td><code>
+monitor [options]
+</code></td>
+<td>Start monitoring for crashes or ANRs.  <p>Options are:
+<ul>
+    <li><code>--gdb</code>: Start gdbserv on the given port at crash/ANR.
+</ul>
+</td>
+</tr>
+
+<tr>
+<td><code>
+screen-compat [on|off] &lt;PACKAGE>
+</code></td>
+<td>Control <a href="../../guide/practices/screen-compat-mode.html">screen
+compatibility</a> mode of <code>&lt;PACKAGE></code>.</p>
+</td>
+</tr>
+
+<tr>
+<td><code>
+display-size [reset|&lt;WxH>]
+</code></td>
+<td>Override emulator/device display size.
+This command is helpful for testing your app across different screen sizes by mimicking a small
+screen resolution using a device with a large screen, and vice versa.
+<p>Example:<br><code>am display-size 1280x800</code>
+</td>
+</tr>
+
+<tr>
+<td><code>
+display-density &lt;dpi>
+</code></td>
+<td>Override emulator/device display density.
+This command is helpful for testing your app across different screen densities on high-density
+screen environment using a low density screen, and vice versa.
+<p>Example:<br><code>am display-density 480</code>
+</td>
+</tr>
+
+<tr>
+<td><code>
+to-uri &lt;INTENT>
+</code></td>
+<td>Print the given intent specification as a URI. <p>See the
+<a href="#IntentSpec">Specification for &lt;INTENT> arguments</a>.
+</td>
+</tr>
+
+<tr>
+<td><code>
+to-intent-uri &lt;INTENT>
+</code></td>
+<td>Print the given intent specification as an <code>intent:</code> URI. <p>See the
+<a href="#IntentSpec">Specification for &lt;INTENT> arguments</a>.
+</td>
+</tr>
+</table>
+
+
+
+
+
+<h3 id="IntentSpec">
+  <a href="" class="expandable" onclick="toggleExpandable(this,'.intents');
+return false">Specification for &lt;INTENT> arguments</a></h3>
+
+<div class="intents" style="display:none">
+
+<p>For activity manager commands that take a <code>&lt;INTENT></code> argument, you can
+specify the intent with the following options:</p>
+
+<dl>
+  <dt><code>-a &lt;ACTION></code></dt>
+      <dd>Specify the intent action, such as "android.intent.action.VIEW".
+      You can declare this only once.
+
+  <dt><code>-d &lt;DATA_URI></code></dt>
+      <dd>Specify the intent data URI, such as "content://contacts/people/1".
+      You can declare this only once.
+
+  <dt><code>-t &lt;MIME_TYPE></code></dt>
+      <dd>Specify the intent MIME type, such as "image/png".
+      You can declare this only once.
+
+  <dt><code>-c &lt;CATEGORY></code></dt>
+      <dd>Specify an intent category, such as "android.intent.category.APP_CONTACTS".
+
+  <dt><code>-n &lt;COMPONENT></code></dt>
+      <dd>Specify the component name with package name prefix to create an explicit intent, such
+      as "com.example.app/.ExampleActivity".
+
+  <dt><code>-f &lt;FLAGS></code></dt>
+      <dd>Add flags to the intent, as supported by <code><a href="../../reference/android/content/Intent.html#setFlags(int)">setFlags()</a></code>.
+
+  <dt><code>--esn &lt;EXTRA_KEY></code></dt>
+      <dd>Add a null extra. This option is not supported for URI intents.
+
+  <dt><code>-e|--es &lt;EXTRA_KEY> &lt;EXTRA_STRING_VALUE></code></dt>
+      <dd>Add string data as a key-value pair.
+
+  <dt><code>--ez &lt;EXTRA_KEY> &lt;EXTRA_BOOLEAN_VALUE></code></dt>
+      <dd>Add boolean data as a key-value pair.
+
+  <dt><code>--ei &lt;EXTRA_KEY> &lt;EXTRA_INT_VALUE></code></dt>
+      <dd>Add integer data as a key-value pair.
+
+  <dt><code>--el &lt;EXTRA_KEY> &lt;EXTRA_LONG_VALUE></code></dt>
+      <dd>Add long data as a key-value pair.
+
+  <dt><code>--ef &lt;EXTRA_KEY> &lt;EXTRA_FLOAT_VALUE></code></dt>
+      <dd>Add float data as a key-value pair.
+
+  <dt><code>--eu &lt;EXTRA_KEY> &lt;EXTRA_URI_VALUE></code></dt>
+      <dd>Add URI data as a key-value pair.
+
+  <dt><code>--ecn &lt;EXTRA_KEY> &lt;EXTRA_COMPONENT_NAME_VALUE></code></dt>
+      <dd>Add a component name, which is converted and passed as
+      a <code><a href="../../reference/android/content/ComponentName.html">ComponentName</a></code> object.
+
+  <dt><code>--eia &lt;EXTRA_KEY> &lt;EXTRA_INT_VALUE>[,&lt;EXTRA_INT_VALUE...]</code></dt>
+      <dd>Add an array of integers.
+
+  <dt><code>--ela &lt;EXTRA_KEY> &lt;EXTRA_LONG_VALUE>[,&lt;EXTRA_LONG_VALUE...]</code></dt>
+      <dd>Add an array of longs.
+
+  <dt><code>--efa &lt;EXTRA_KEY> &lt;EXTRA_FLOAT_VALUE>[,&lt;EXTRA_FLOAT_VALUE...]</code></dt>
+      <dd>Add an array of floats.
+
+  <dt><code>--grant-read-uri-permission</code></dt>
+      <dd>Include the flag <code><a href="../../reference/android/content/Intent.html#FLAG_GRANT_READ_URI_PERMISSION">FLAG_GRANT_READ_URI_PERMISSION</a></code>.
+
+  <dt><code>--grant-write-uri-permission</code></dt>
+      <dd>Include the flag <code><a href="../../reference/android/content/Intent.html#FLAG_GRANT_WRITE_URI_PERMISSION">FLAG_GRANT_WRITE_URI_PERMISSION</a></code>.
+
+  <dt><code>--debug-log-resolution</code></dt>
+      <dd>Include the flag <code><a href="../../reference/android/content/Intent.html#FLAG_DEBUG_LOG_RESOLUTION">FLAG_DEBUG_LOG_RESOLUTION</a></code>.
+
+  <dt><code>--exclude-stopped-packages</code></dt>
+      <dd>Include the flag <code><a href="../../reference/android/content/Intent.html#FLAG_EXCLUDE_STOPPED_PACKAGES">FLAG_EXCLUDE_STOPPED_PACKAGES</a></code>.
+
+  <dt><code>--include-stopped-packages</code></dt>
+      <dd>Include the flag <code><a href="../../reference/android/content/Intent.html#FLAG_INCLUDE_STOPPED_PACKAGES">FLAG_INCLUDE_STOPPED_PACKAGES</a></code>.
+
+  <dt><code>--activity-brought-to-front</code></dt>
+      <dd>Include the flag <code><a href="../../reference/android/content/Intent.html#FLAG_ACTIVITY_BROUGHT_TO_FRONT">FLAG_ACTIVITY_BROUGHT_TO_FRONT</a></code>.
+
+  <dt><code>--activity-clear-top</code></dt>
+      <dd>Include the flag <code><a href="../../reference/android/content/Intent.html#FLAG_ACTIVITY_CLEAR_TOP">FLAG_ACTIVITY_CLEAR_TOP</a></code>.
+
+  <dt><code>--activity-clear-when-task-reset</code></dt>
+      <dd>Include the flag <code><a href="../../reference/android/content/Intent.html#FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET">FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET</a></code>.
+
+  <dt><code>--activity-exclude-from-recents</code></dt>
+      <dd>Include the flag <code><a href="../../reference/android/content/Intent.html#FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS">FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS</a></code>.
+
+  <dt><code>--activity-launched-from-history</code></dt>
+      <dd>Include the flag <code><a href="../../reference/android/content/Intent.html#FLAG_ACTIVITY_LAUNCHED_FROM_HISTORY">FLAG_ACTIVITY_LAUNCHED_FROM_HISTORY</a></code>.
+
+  <dt><code>--activity-multiple-task</code></dt>
+      <dd>Include the flag <code><a href="../../reference/android/content/Intent.html#FLAG_ACTIVITY_MULTIPLE_TASK">FLAG_ACTIVITY_MULTIPLE_TASK</a></code>.
+
+  <dt><code>--activity-no-animation</code></dt>
+      <dd>Include the flag <code><a href="../../reference/android/content/Intent.html#FLAG_ACTIVITY_NO_ANIMATION">FLAG_ACTIVITY_NO_ANIMATION</a></code>.
+
+  <dt><code>--activity-no-history</code></dt>
+      <dd>Include the flag <code><a href="../../reference/android/content/Intent.html#FLAG_ACTIVITY_NO_HISTORY">FLAG_ACTIVITY_NO_HISTORY</a></code>.
+
+  <dt><code>--activity-no-user-action</code></dt>
+      <dd>Include the flag <code><a href="../../reference/android/content/Intent.html#FLAG_ACTIVITY_NO_USER_ACTION">FLAG_ACTIVITY_NO_USER_ACTION</a></code>.
+
+  <dt><code>--activity-previous-is-top</code></dt>
+      <dd>Include the flag <code><a href="../../reference/android/content/Intent.html#FLAG_ACTIVITY_PREVIOUS_IS_TOP">FLAG_ACTIVITY_PREVIOUS_IS_TOP</a></code>.
+
+  <dt><code>--activity-reorder-to-front</code></dt>
+      <dd>Include the flag <code><a href="../../reference/android/content/Intent.html#FLAG_ACTIVITY_REORDER_TO_FRONT">FLAG_ACTIVITY_REORDER_TO_FRONT</a></code>.
+
+  <dt><code>--activity-reset-task-if-needed</code></dt>
+      <dd>Include the flag <code><a href="../../reference/android/content/Intent.html#FLAG_ACTIVITY_RESET_TASK_IF_NEEDED">FLAG_ACTIVITY_RESET_TASK_IF_NEEDED</a></code>.
+
+  <dt><code>--activity-single-top</code></dt>
+      <dd>Include the flag <code><a href="../../reference/android/content/Intent.html#FLAG_ACTIVITY_SINGLE_TOP">FLAG_ACTIVITY_SINGLE_TOP</a></code>.
+
+  <dt><code>--activity-clear-task</code></dt>
+      <dd>Include the flag <code><a href="../../reference/android/content/Intent.html#FLAG_ACTIVITY_CLEAR_TASK">FLAG_ACTIVITY_CLEAR_TASK</a></code>.
+
+  <dt><code>--activity-task-on-home</code></dt>
+      <dd>Include the flag <code><a href="../../reference/android/content/Intent.html#FLAG_ACTIVITY_TASK_ON_HOME">FLAG_ACTIVITY_TASK_ON_HOME</a></code>.
+
+  <dt><code>--receiver-registered-only</code></dt>
+      <dd>Include the flag <code><a href="../../reference/android/content/Intent.html#FLAG_RECEIVER_REGISTERED_ONLY">FLAG_RECEIVER_REGISTERED_ONLY</a></code>.
+
+  <dt><code>--receiver-replace-pending</code></dt>
+      <dd>Include the flag <code><a href="../../reference/android/content/Intent.html#FLAG_RECEIVER_REPLACE_PENDING">FLAG_RECEIVER_REPLACE_PENDING</a></code>.
+
+  <dt><code>--selector</code></dt>
+      <dd>Requires the use of <code>-d</code> and <code>-t</code> options to set the intent data and type.
+
+  <dt><code>&lt;URI> &lt;COMPONENT> &lt;PACKAGE></code></dt>
+      <dd>You can directly specify a URI, package name, and component name when not qualified
+      by one of the above options. When an argument is unqualified, the tool assumes the argument
+      is a URI if it contains a ":" (colon); it assumes the argument is a component name if it
+      contains a "/" (forward-slash); otherwise it assumes the argument is a package name.
+
+</dl>
+</div><!-- end 'intents' -->
+<script>
+  $(window).hashchange( function(){
+    if ((location.hash == "#IntentSpec") && !($("#IntentSpec a").hasClass("expanded"))) {
+      $("#IntentSpec a").click();
+    }
+  });
+</script>
+
+
+
+<h2 id="pm">Using package manager (pm)</h2>
+
+<p>Within an adb shell, you can issue commands with the package manager (<code>pm</code>) tool to
+perform actions and queries on application packages installed on the device. While in a shell,
+the syntax is:</p>
+<pre class="no-pretty-print">
+pm &lt;command>
+</pre>
+
+<p>You can also issue a package manager command directly from adb
+without entering a remote shell. For example:</p>
+<pre class="no-pretty-print">
+adb shell pm uninstall com.example.MyApp
+</pre>
+
+<p class="table-caption"><strong>Table 3.</strong> Available package manager commands.</p>
+<table>
+<tr>
+  <th>Command</th>
+  <th>Description</th>
+</tr>
+
+<tr>
+<td><code>
+list packages [options] &lt;FILTER>
+</code></td>
+<td>Prints all packages, optionally only
+  those whose package name contains the text in <code>&lt;FILTER></code>.  <p>Options:
+<ul>
+    <li><code>-f</code>: See their associated file.
+    <li><code>-d</code>: Filter to only show disabled packages.
+    <li><code>-e</code>: Filter to only show enabled packages.
+    <li><code>-s</code>: Filter to only show system packages.
+    <li><code>-3</code>: Filter to only show third party packages.
+    <li><code>-i</code>: See the installer for the packages.
+    <li><code>-u</code>: Also include uninstalled packages.
+    <li><code>--user &lt;USER_ID></code>: The user space to query.
+</ul>
+</td>
+</tr>
+
+<tr>
+<td><code>
+list permission-groups
+</code></td>
+<td>Prints all known permission groups.
+</td>
+</tr>
+
+<tr>
+<td><code>
+list permissions [options] &lt;GROUP>
+</code></td>
+<td>Prints all known permissions, optionally only
+  those in <code>&lt;GROUP></code>.  <p>Options:
+<ul>
+    <li><code>-g</code>: Organize by group.
+    <li><code>-f</code>: Print all information.
+    <li><code>-s</code>: Short summary.
+    <li><code>-d</code>: Only list dangerous permissions.
+    <li><code>-u</code>: List only the permissions users will see.
+</ul>
+</td>
+</tr>
+
+<tr>
+<td><code>
+list instrumentation
+</code></td>
+<td>List all test packages.  <p>Options:
+  <ul>
+    <li><code>-f</code>: List the APK file for the test package.
+    <li><code>&lt;TARGET_PACKAGE></code>: List test packages for only this app.
+  </ul>
+</td>
+</tr>
+
+<tr>
+<td><code>
+list features
+</code></td>
+<td>Prints all features of the system.
+</td>
+</tr>
+
+<tr>
+<td><code>
+list libraries
+</code></td>
+<td>Prints all the libraries supported by the current device.
+</td>
+</tr>
+
+<tr>
+<td><code>
+list users
+</code></td>
+<td>Prints all users on the system.
+</td>
+</tr>
+
+<tr>
+<td><code>
+path &lt;PACKAGE>
+</code></td>
+<td>Print the path to the APK of the given <code>&lt;PACKAGE></code>.
+</td>
+</tr>
+
+<tr>
+<td><code>
+install [options]  &lt;PATH>
+</code></td>
+<td>Installs a package (specified by <code>&lt;PATH></code>) to the system.  <p>Options:
+  <ul>
+    <li><code>-l</code>: Install the package with forward lock.
+    <li><code>-r</code>: Reinstall an exisiting app, keeping its data.
+    <li><code>-t</code>: Allow test APKs to be installed.
+    <li><code>-i &lt;INSTALLER_PACKAGE_NAME></code>: Specify the installer package name.
+    <li><code>-s</code>: Install package on the shared mass storage (such as sdcard).
+    <li><code>-f</code>: Install package on the internal system memory.
+    <li><code>-d</code>: Allow version code downgrade.
+  </ul>
+</td>
+</tr>
+
+<tr>
+<td><code>
+uninstall [options] &lt;PACKAGE>
+</code></td>
+<td>Removes a package from the system. <p>Options:
+  <ul>
+    <li><code>-k</code>: Keep the data and cache directories around after package removal.
+  </ul>
+</td>
+</tr>
+
+<tr>
+<td><code>
+clear &lt;PACKAGE>
+</code></td>
+<td>Deletes all data associated with a package.
+</td>
+</tr>
+
+<tr>
+<td><code>
+enable &lt;PACKAGE_OR_COMPONENT>
+</code></td>
+<td>Enable the given package or component (written as "package/class").
+</td>
+</tr>
+
+<tr>
+<td><code>
+disable &lt;PACKAGE_OR_COMPONENT>
+</code></td>
+<td>Disable the given package or component (written as "package/class").
+</td>
+</tr>
+
+<tr>
+<td style="white-space:nowrap"><code>
+disable-user [options] &lt;PACKAGE_OR_COMPONENT>
+</code></td>
+<td><p>Options:
+  <ul>
+    <li><code>--user &lt;USER_ID></code>: The user to disable.
+  </ul>
+</td>
+</tr>
+
+<tr>
+<td><code>
+grant &lt;PACKAGE_PERMISSION>
+</code></td>
+<td>Grant permissions
+  to applications.  Only optional permissions the application has
+  declared can be granted.
+</td>
+</tr>
+
+<tr>
+<td><code>
+revoke &lt;PACKAGE_PERMISSION>
+</code></td>
+<td>Revoke permissions
+  to applications.  Only optional permissions the application has
+  declared can be revoked.
+</td>
+</tr>
+
+<tr>
+<td><code>
+set-install-location &lt;LOCATION>
+</code></td>
+<td>Changes the default install location. Location values:
+<ul>
+    <li><code>0</code>: Auto&mdash;Let system decide the best location.
+    <li><code>1</code>: Internal&mdash;install on internal device storage.
+    <li><code>2</code>: External&mdash;install on external media.
+</ul>
+<p class="note"><strong>Note:</strong> This is only intended for debugging; using this can cause
+  applications to break and other undesireable behavior.</p>
+</td>
+</tr>
+
+<tr>
+<td><code>
+get-install-location
+</code></td>
+<td>Returns the current install location. Return values:
+<ul>
+  <li><code>0 [auto]</code>: Lets system decide the best location
+  <li><code>1 [internal]</code>: Installs on internal device storage
+  <li><code>2 [external]</code>: Installs on external media
+</ul>
+</td>
+</tr>
+
+<tr>
+<td><code>
+set-permission-enforced &lt;PERMISSION> [true|false]
+</code></td>
+<td>Specifies whether the given permission should be enforced.
+</td>
+</tr>
+
+<tr>
+<td><code>
+trim-caches &lt;DESIRED_FREE_SPACE>
+</code></td>
+<td>Trim cache files to reach the given free space.
+</td>
+</tr>
+
+<tr>
+<td><code>
+create-user &lt;USER_NAME>
+</code></td>
+<td>Create a new user with the given <code>&lt;USER_NAME></code>,
+  printing the new user identifier of the user.
+</td>
+</tr>
+
+<tr>
+<td><code>
+remove-user &lt;USER_ID>
+</code></td>
+<td>Remove the user with the given <code>&lt;USER_IDENTIFIER></code>,
+  deleting all data associated with that user
+</td>
+</tr>
+
+<tr>
+<td><code>
+get-max-users
+</code></td>
+<td>Prints the maximum number of users supported by the device.
+</td>
+</tr>
+
+</table>
+
+
+<h2 id="screencap">Taking a device screenshot</h2>
+
+<p>The <code>screencap</code> command is a shell utility for taking a screenshot of a device display.
+While in a shell, the syntax is:
+</p>
+
+<pre class="no-pretty-print">
+screencap &lt;filename>
+</pre>
+
+
+<p>To use the <code>screencap</code> from the command line, type the following:
+
+<pre>
+$ adb shell screencap /sdcard/screen.png
+</pre>
+
+<p>Here's an example screenshot session, using the adb shell to capture the screenshot and the
+<code>pull</code> command to download the file from the device:<p>
+
+<pre>
+$ adb shell
+shell@ $ screencap /sdcard/screen.png
+shell@ $ exit
+$ adb pull /sdcard/screen.png
+</pre>
+
+
+<h2 id="screenrecord">Recording a device screen</h2>
+
+<p>The <code>screenrecord</code> command is a shell utility for recording the display of devices
+  running Android 4.4 (API level 19) and higher. The utility records screen activity to an MPEG-4
+  file.</p>
+
+<p class="note"><strong>Note:</strong> Audio is not recorded with the video file.</p>
+
+<p>A developer can use this file to create promotional or training videos. While in a shell, the syntax is:</p>
+
+<pre class="no-pretty-print">
+screenrecord [options] &lt;filename>
+</pre>
+
+<p>To use <code>screenrecord</code> from the command line, type the following:
+
+<pre>
+$ adb shell screenrecord /sdcard/demo.mp4
+</pre>
+
+<p>Stop the screen recording by pressing Ctrl-C, otherwise the recording stops automatically
+at three minutes or the time limit set by <code>--time-limit</code>.</p>
+
+<p>To begin recording your device screen, run the <code>screenrecord</code> command to record
+the video. Then, run the <code>pull</code> command to download the video from the device to the host
+computer. Here's an example recording session:<p>
+
+<pre>
+$ adb shell
+shell@ $ screenrecord --verbose /sdcard/demo.mp4
+(press Ctrl-C to stop)
+shell@ $ exit
+$ adb pull /sdcard/demo.mp4
+</pre>
+
+<p>The <code>screenrecord</code> utility can record at any supported resolution and bit rate you
+  request, while retaining the aspect ratio of the device display. The utility records at the native
+  display resolution and orientation by default, with a maximum length of three minutes.</p>
+
+<p>There are some known limitations of the <code>screenrecord</code> utility that you should be aware
+  of when using it:</p>
+
+<ul>
+  <li>Some devices may not be able to record at their native display resolution.
+    If you encounter problems with screen recording, try using a lower screen resolution.</li>
+  <li>Rotation of the screen during recording is not supported. If the screen does rotate during
+    recording, some of the screen is cut off in the recording.</li>
+</ul>
+
+
+<p class="table-caption"><strong>Table 4.</strong> <code>screenrecord</code> options</p>
+
+<table>
+  <tr>
+    <th>Options</th>
+    <th>Description</th>
+  </tr>
+
+  <tr>
+    <td><code>--help</code>
+    </td>
+    <td>Displays command syntax and options</td>
+  </tr>
+
+  <tr>
+    <td style="white-space:nowrap">
+      <code>--size &lt;WIDTHxHEIGHT&gt;</code>
+    </td>
+    <td>Sets the video size: <code>1280x720</code>. The default value is the device's native
+      display resolution (if supported), 1280x720 if not. For best results, use a size supported
+      by your device's Advanced Video Coding (AVC) encoder.</td>
+  </tr>
+
+  <tr>
+    <td><code>--bit-rate &lt;RATE&gt;</code></td>
+    <td>Sets the video bit rate for the video, in megabits per second. The default value is 4Mbps.
+      You can increase the bit rate to improve video quality, but doing so results in larger movie
+      files. The following example sets the recording bit rate to 6Mbps:
+      <pre>screenrecord --bit-rate 6000000 &#47;sdcard&#47;demo.mp4</pre>
+      </td>
+  </tr>
+
+  <tr>
+    <td><code>--time-limit &lt;TIME&gt;</code></td>
+    <td>Sets the maximum recording time, in seconds. The default and maximum value is 180
+      (3 minutes).</td>
+  </tr>
+
+  <tr>
+    <td><code>--rotate</code></td>
+    <td>Rotates the output 90 degrees. This feature is experimental.</td>
+  </tr>
+
+  <tr>
+    <td><code>--verbose</code></td>
+    <td>Displays log information on the command-line screen. If you do not set this option,
+      the utility does not display any information while running.</td>
+  </tr>
+
+</table>
+
+
+<h2 id="othershellcommands">Other shell commands</h2>
+
+<p>For a list of all the available shell programs, use the following command:</p>
+
+<pre class="no-pretty-print">adb shell ls /system/bin</pre>
+
+<p>Help is available for most of the commands. </p>
+
+<p>Table 5 lists some of the more common adb shell commands.</p>
+
+<p class="table-caption"><strong>Table 5.</strong> Some other adb shell commands</p>
+<table>
+<tr>
+  <th>Shell Command</th>
+  <th>Description</th>
+  <th>Comments</th>
+</tr>
+
+<tr>
+<td><code>dumpsys</code></td>
+<td>Dumps system data to the screen.</td>
+<td rowspan=4">The <a href="../../tools/debugging/ddms.html">Dalvik Debug Monitor Server</a>
+(DDMS) tool offers integrated debug environment that you may find easier to use.</td>
+</tr>
+
+<tr>
+<td><code>dumpstate</code></td>
+<td>Dumps state to a file.</td>
+</tr>
+
+<tr>
+<td><code>logcat&nbsp;[option]...&nbsp;[filter-spec]...</code></td>
+<td>Enables system and app logging and prints output to the screen. </td>
+</tr>
+
+<tr>
+<td><code>dmesg</code></td>
+<td>Prints kernel debugging messages to the screen. </td>
+</tr>
+
+<tr>
+<td><code>start</code></td>
+<td>Starts (restarts) an emulator/device instance.</td>
+<td>&nbsp;</td>
+</tr>
+
+<tr>
+<td><code>stop</code></td>
+<td>Stops execution of an emulator/device instance.</td>
+<td>&nbsp;</td>
+</tr>
+
+</table>
+    </div>
+
+    
+
+  </div> <!-- end jd-content -->
+
+<div class="wrap">
+  <div class="dac-footer">
+    <div class="cols dac-footer-main">
+      <div class="col-1of2">
+        <a class="dac-footer-getnews" data-modal-toggle="newsletter" href="javascript:;">Get news &amp; tips <span
+          class="dac-fab dac-primary"><i class="dac-sprite dac-mail"></i></span></a>
+      </div>
+      <div class="col-1of2 dac-footer-reachout">
+        <div class="dac-footer-contact">
+          <a class="dac-footer-contact-link" href="http://android-developers.blogspot.com/">Blog</a>
+          <a class="dac-footer-contact-link" href="/support.html">Support</a>
+        </div>
+        <div class="dac-footer-social">
+          <a class="dac-fab dac-footer-social-link" href="https://www.youtube.com/user/androiddevelopers"><i class="dac-sprite dac-youtube"></i></a>
+          <a class="dac-fab dac-footer-social-link" href="https://plus.google.com/+AndroidDevelopers"><i class="dac-sprite dac-gplus"></i></a>
+          <a class="dac-fab dac-footer-social-link" href="https://twitter.com/AndroidDev"><i class="dac-sprite dac-twitter"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <hr class="dac-footer-separator"/>
+
+    
+      <p class="dac-footer-copyright">
+        
+  Except as noted, this content is
+  licensed under <a href="http://creativecommons.org/licenses/by/2.5/">
+  Creative Commons Attribution 2.5</a>. For details and
+  restrictions, see the <a href="../../license.html">Content
+  License</a>.
+      </p>
+    
+
+    <p class="dac-footer-links">
+      <a href="/about/index.html">About Android</a>
+      <a href="/auto/index.html">Auto</a>
+      <a href="/tv/index.html">TV</a>
+      <a href="/wear/index.html">Wear</a>
+      <a href="/legal.html">Legal</a>
+
+      <span id="language" class="locales">
+        <select name="language" onchange="changeLangPref(this.value, true)">
+          <option value="en" selected="selected">English</option>
+          <option value="es">Español</option>
+          <option value="ja">日本語</option>
+          <option value="ko">한국어</option>
+          <option value="pt-br">Português Brasileiro</option>
+          <option value="ru">Русский</option>
+          <option value="zh-cn">中文（简体)</option>
+          <option value="zh-tw">中文（繁體)</option>
+        </select>
+      </span>
+    </p>
+  </div>
+</div> <!-- end footer -->
+
+<div data-modal="newsletter" data-newsletter data-swap class="dac-modal newsletter">
+  <div class="dac-modal-container">
+    <div class="dac-modal-window">
+      <header class="dac-modal-header">
+        <button class="dac-modal-header-close" data-modal-toggle><i class="dac-sprite dac-close"></i></button>
+        <div class="dac-swap" data-swap-container>
+          <section class="dac-swap-section dac-active dac-down">
+            <h2 class="norule dac-modal-header-title">Get the latest Android developer news and tips that will help you find success on Google Play.</h2>
+            <p class="dac-modal-header-subtitle">&#42; Required Fields</p>
+          </section>
+          <section class="dac-swap-section dac-up">
+            <h2 class="norule dac-modal-header-title">Hooray!</h2>
+          </section>
+        </div>
+      </header>
+      <div class="dac-swap" data-swap-container>
+        <section class="dac-swap-section dac-active dac-left">
+          <form action="https://docs.google.com/forms/d/1QgnkzbEJIDu9lMEea0mxqWrXUJu0oBCLD7ar23V0Yys/formResponse" class="dac-form" method="post" target="dac-newsletter-iframe">
+            <section class="dac-modal-content">
+              <fieldset class="dac-form-fieldset">
+                <div class="cols">
+                  <div class="col-1of2 newsletter-leftCol">
+                    <div class="dac-form-input-group">
+                      <label for="newsletter-full-name" class="dac-form-floatlabel">Full name</label>
+                      <input type="text" class="dac-form-input" name="entry.1357890476" id="newsletter-full-name" required>
+                      <span class="dac-form-required">*</span>
+                    </div>
+                    <div class="dac-form-input-group">
+                      <label for="newsletter-email" class="dac-form-floatlabel">Email address</label>
+                      <input type="email" class="dac-form-input" name="entry.472100832" id="newsletter-email" required>
+                      <span class="dac-form-required">*</span>
+                    </div>
+                  </div>
+                  <div class="col-1of2 newsletter-rightCol">
+                    <div class="dac-form-input-group">
+                      <label for="newsletter-company" class="dac-form-floatlabel">Company / developer name</label>
+                      <input type="text" class="dac-form-input" name="entry.1664780309" id="newsletter-company">
+                    </div>
+                    <div class="dac-form-input-group">
+                      <label for="newsletter-play-store" class="dac-form-floatlabel">One of your Play Store app URLs</label>
+                      <input type="url" class="dac-form-input" name="entry.47013838" id="newsletter-play-store" required>
+                      <span class="dac-form-required">*</span>
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+              <fieldset class="dac-form-fieldset">
+                <div class="cols">
+                  <div class="col-1of2 newsletter-leftCol">
+                    <legend class="dac-form-legend">Which best describes your business:<span class="dac-form-required">*</span>
+                    </legend>
+                    <div class="dac-form-radio-group">
+                      <input type="radio" value="Apps" class="dac-form-radio" name="entry.1796324055" id="newsletter-business-type-app" required>
+                      <label for="newsletter-business-type-app" class="dac-form-radio-button"></label>
+                      <label for="newsletter-business-type-app" class="dac-form-label">Apps</label>
+                    </div>
+                    <div class="dac-form-radio-group">
+                      <input type="radio" value="Games" class="dac-form-radio" name="entry.1796324055" id="newsletter-business-type-games" required>
+                      <label for="newsletter-business-type-games" class="dac-form-radio-button"></label>
+                      <label for="newsletter-business-type-games" class="dac-form-label">Games</label>
+                    </div>
+                    <div class="dac-form-radio-group">
+                      <input type="radio" value="Apps and Games" class="dac-form-radio" name="entry.1796324055" id="newsletter-business-type-appsgames" required>
+                      <label for="newsletter-business-type-appsgames" class="dac-form-radio-button"></label>
+                      <label for="newsletter-business-type-appsgames" class="dac-form-label">Apps &amp; Games</label>
+                    </div>
+                  </div>
+                  <div class="col-1of2 newsletter-rightCol newsletter-checkboxes">
+                    <div class="dac-form-radio-group">
+                      <div class="dac-media">
+                        <div class="dac-media-figure">
+                          <input type="checkbox" class="dac-form-checkbox" name="entry.732309842" id="newsletter-add" required value="Add me to the mailing list for the monthly newsletter and occasional emails about development and Google Play opportunities.">
+                          <label for="newsletter-add" class="dac-form-checkbox-button"></label>
+                        </div>
+                        <div class="dac-media-body">
+                          <label for="newsletter-add" class="dac-form-label dac-form-aside">Add me to the mailing list for the monthly newsletter and occasional emails about development and Google Play opportunities.<span class="dac-form-required">*</span></label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="dac-form-radio-group">
+                      <div class="dac-media">
+                        <div class="dac-media-figure">
+                          <input type="checkbox" class="dac-form-checkbox" name="entry.2045036090" id="newsletter-terms" required value="I acknowledge that the information provided in this form will be subject to Google's privacy policy (https://www.google.com/policies/privacy/).">
+                          <label for="newsletter-terms" class="dac-form-checkbox-button"></label>
+                        </div>
+                        <div class="dac-media-body">
+                          <label for="newsletter-terms" class="dac-form-label dac-form-aside">I acknowledge that the information provided in this form will be subject to <a href="https://www.google.com/policies/privacy/">Google's privacy policy</a>.<span class="dac-form-required">*</span></label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+            </section>
+            <footer class="dac-modal-footer">
+              <div class="cols">
+                <div class="col-2of5">
+                </div>
+              </div>
+              <button type="submit" value="Submit" class="dac-fab dac-primary dac-large dac-modal-action"><i class="dac-sprite dac-arrow-right"></i></button>
+            </footer>
+          </form>
+        </section>
+        <section class="dac-swap-section dac-right">
+          <div class="dac-modal-content">
+            <p class="newsletter-success-message">
+              You have successfully signed up for the latest Android developer news and tips.
+            </p>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</div> <!-- end footer -->
+
+</div><!-- end doc-content -->
+
+</div> <!-- end .cols --> 
+</div> <!-- end body-content --> 
+
+
+
+
+
+  <script src="../../ajax/developer.android.com/ytblogger_lists_unified.js" type="text/javascript"></script>
+  <script src="../../jd_lists_unified.js?v=15" type="text/javascript"></script>
+  <script src="../../jd_extras.js?v=15" type="text/javascript"></script>
+  <script src="../../jd_collections.js?v=15" type="text/javascript"></script>
+  <script src="../../jd_tag_helpers.js?v=15" type="text/javascript"></script>
+
+</body>
+</html>

@@ -7872,4 +7872,826 @@ var YOUTUBE_BY_TAG = {"ratingsreviews": [111], "global": [104, 123], "tablets": 
 
 
 
-                         var BLOGGER_BY_TAG = {"sdktools": [123, 134], "rtl": [131], "distribute": [16, 39, 41, 42, 54, 62, 78, 82, 85, 86, 89], "actions": [222], "googleclientapi": [88], "gdc": [87], "tablets": [95, 99, 109, 127, 128, 141, 145], "stencils": [158], "touch": [231], "jni": [174, 187], "userdata": [225], "ime": [168, 236], "ads": [9], "tv": [41], "googlecast": [5, 11, 74, 89], "animationandgraphics": [102, 203], "animation": [175, 194], "android22": [229, 233], "location": [7, 122, 191, 223], "googleplayforwork": [10], "listing": [178], "telaviv": [336], "contentprovider": [134], "renderscript": [103, 104, 135, 164, 204, 207], "androiddeveloperchallenge": [251, 252, 254, 259, 263, 268, 269, 270, 273, 317, 322, 323, 324, 325, 326, 327, 330, 335, 338], "global": [96, 138], "googleplay": [1, 2, 3, 9, 11, 12, 15, 16, 18, 27, 31, 36, 39, 40, 42, 50, 54, 57, 62, 68, 73, 78, 81, 82, 85, 86, 92, 95, 96, 99, 101, 109, 111, 113, 115, 116, 121, 125, 127, 128, 129, 130, 138, 139, 143, 144, 146, 149, 150, 154, 178, 186, 192], "viewpager": [183], "demographics": [78], "sdkupdates": [155, 177, 188, 193, 206, 208, 211, 217, 229, 233, 243, 250, 256, 266, 280, 288, 300, 311, 319, 332, 333, 340, 344], "munich": [336], "gestures": [260], "appresources": [165, 181, 185, 190], "googlemaps": [0, 82], "performance": [102, 215, 219, 228], "androidsdk": [6, 49, 71, 142], "knox": [63], "googlecloudplatform": [11, 20, 75, 86, 114, 117], "daydream": [137], "codeday": [334, 336, 337, 339], "android16": [250, 257, 258, 260, 261, 262, 264, 265, 266, 267], "android15": [271, 275, 276, 277, 278, 279, 280, 281, 282, 283, 284, 285, 286, 287, 288], "developmenttools": [24, 90], "courses": [60, 65], "admob": [2, 7, 8, 11, 18], "testing": [176, 215], "traceview": [219], "appid": [199], "london": [336, 339], "security": [93, 107, 133, 134], "licensing": [221, 224, 226, 227], "survey": [112], "signing": [192], "google": [91, 122, 132], "io2010": [233, 234], "people": [161], "io2013": [118, 121, 122, 123, 124, 126], "inappbilling": [139], "io2014": [59, 61, 69, 70, 71, 72, 73, 74], "analytics": [78, 195, 214], "growth": [96], "design": [41, 44, 45, 47, 52, 57, 59, 60, 77, 158, 181], "mountainview": [337], "gmail": [152], "classloading": [184], "bestpractices": [39, 116, 145, 162, 171, 178, 181, 192, 199, 218], "contacts": [161], "quality": [116, 127, 141, 171], "appquality": [99, 105, 109, 111, 127], "localization": [96, 131, 138], "googleplayservices": [0, 7, 23, 26, 35, 43, 54, 71, 72, 73, 82, 85, 88, 89, 91, 98, 106, 118, 122, 124, 132, 136, 140, 146], "androidstudio": [20, 28, 69, 75, 114, 118, 123, 124], "shareactionprovider": [160], "xmlpullparser": [166], "androidtv": [4, 8, 23, 29, 32, 41, 74], "certificates": [156], "fragments": [148, 209], "dialogfragment": [148], "dashboard": [247], "actionbar": [108, 197], "profiling": [215, 219], "appcompat": [47], "googleplaygameservices": [11, 21, 34, 50, 66, 68, 72, 78, 84, 86, 91, 94, 100, 109, 122], "memorymanagement": [90, 201], "supportlibrary": [47, 64, 103, 108], "gridlayout": [173], "layout": [173, 185, 190], "sensors": [223], "googledrive": [54, 85, 91], "lollipop": [6], "appindexing": [7, 68], "androidextensionpack": [19], "ndk": [37, 94, 172, 211, 213, 217, 233, 235, 261, 271], "dalvik": [184], "apkexpansionfiles": [157], "androiddeveloperphone": [280, 289], "inputmethods": [284, 285], "android23": [217], "games": [11, 19, 29, 32, 40, 50, 66, 68, 72, 78, 82, 84, 85, 86, 94, 100, 102, 105, 167, 171, 230], "quicksearchbox": [265], "developerlabs": [239, 240, 255], "webview": [14, 134], "textandinput": [168, 231, 236], "texttospeech": [264], "efficientapps": [90], "developerconsole": [1, 3, 18, 62, 96, 99, 101, 116, 118, 121, 124, 125, 127, 130, 144, 147, 153], "googlefit": [7, 54], "androidcgameslinuxopensourcereleaseosxserializationwindows": [76], "googlewallet": [82, 120], "materialdesign": [23, 44, 45, 46, 47], "datastorage": [216], "apk": [19], "featured": [49, 54, 62], "googleio": [56, 59, 108, 274, 279, 289, 320], "developerprofiles": [299, 305, 306, 307], "appcomponents": [148, 192, 205, 228], "administration": [156], "tools": [24, 142, 158, 187, 201, 219], "publishing": [192], "privacy": [225], "ddms": [201], "engagement": [78, 83, 86, 101, 132], "apps": [299, 305, 306, 307, 312, 313, 314, 316, 317, 318, 321, 328, 329, 330, 331, 341, 342, 343], "mediaandcamera": [105, 167, 171, 232], "memory": [201], "widgets": [277, 286], "userinterface": [108, 137, 151, 158, 162, 163, 165, 173, 180, 181, 183, 193, 197, 203, 238, 249, 257, 258, 272, 275, 276, 282, 285, 287, 290, 291, 292, 293, 294, 302, 304], "opensource": [32, 61, 310], "sharing": [160], "googleapiclient": [7], "fundamentals": [65], "android21": [236, 243], "androidmarket": [159, 169, 170, 182, 189, 196, 198, 200, 202, 210, 233, 247, 267, 295, 297, 308, 318], "c": [21, 32], "visibility": [99], "android233": [208], "holo": [165], "notifications": [5, 15, 16], "androidforwork": [10], "guidelines": [272, 277], "graphics": [175, 194], "googleservices": [139], "crossplatform": [66], "commerce": [81], "coolstuff": [238], "ux": [60], "places": [0, 7], "android20": [245, 250, 256], "strictmode": [215], "samplecode": [5, 23, 61, 246], "optimization": [203, 249, 290, 291, 292, 293, 294, 296, 298, 301, 302], "ui": [158, 165, 173, 180, 181, 183], "deviceid": [199], "voice": [222], "android51": [6], "android50": [5, 23, 44, 45, 46, 47, 48, 49], "debugging": [187], "intents": [30, 212, 253, 303], "boston": [334, 336], "promographics": [138], "accessibility": [151], "telephony": [119], "androidauto": [1, 5, 23, 33], "orderedbroadcast": [212], "googlenow": [42], "education": [95, 115], "androidone": [55], "imageprocessing": [104], "googlemobileads": [7, 82, 86, 91], "develop": [41, 44, 45, 47, 49], "threading": [228], "developerpreview": [69], "activityrecognition": [82], "gcm": [56, 122], "locationandsensors": [191], "android40": [177], "maps": [132, 140], "authentication": [43, 136, 146], "android43": [110], "android44": [90, 93, 97], "speechinput": [236], "pure": [111, 163], "photosphere": [140], "announcements": [66, 83, 155, 177, 206, 208, 211, 217, 229, 233, 235, 237, 239, 240, 241, 242, 243, 244, 246, 247, 248, 255, 256, 261, 263, 266, 270, 271, 273, 280, 288, 295, 297, 300, 307, 308, 309, 310, 311, 317, 318], "android": [5, 41, 53, 54, 55, 60, 63, 65, 68, 82, 85, 107, 124], "resources": [246], "googleanalytics": [11, 18, 54, 85, 86, 101, 195, 214], "googleplaygames": [7, 8, 11, 21, 34, 38, 66], "http": [179], "users": [96, 125, 178], "keys": [192], "howto": [185, 203, 245, 253, 257, 258, 260, 262, 264, 265, 275, 276, 278, 282, 283, 284, 286, 287, 290, 292, 293, 296, 303], "android32": [185, 188, 190], "android42": [131, 133, 134, 135], "connectivity": [179], "liquidfun": [84, 86, 94], "androidwear": [5, 13, 15, 16, 17, 22, 23, 25, 51, 52, 53, 64, 67, 68, 77, 79, 80, 83], "gpfe": [95], "compatibility": [220], "network": [179], "webdriver": [176], "usersupport": [125], "mobilesearch": [42], "space": [173], "youtube": [2], "googlecloudmessaging": [58, 114, 117], "android30": [203, 206, 211], "enterprise": [63], "opengles": [281, 315], "androiddesign": [36, 52, 57, 59, 77, 92, 111, 113, 141], "audio": [105, 171], "physics": [94], "developerdays": [320]};
+                         var BLOGGER_BY_TAG = {"sdktools": [123, 134], "rtl": [131], "distribute": [16, 39, 41, 42, 54, 62, 78, 82, 85, 86, 89], "actions": [222], "googleclientapi": [88], "gdc": [87], "tablets": [95, 99, 109, 127, 128, 141, 145], "stencils": [158], "touch": [231], "jni": [174, 187], "userdata": [225], "ime": [168, 236], "ads": [9], "tv": [41], "googlecast": [5, 11, 74, 89], "animationandgraphics": [102, 203], "animation": [175, 194], "android22": [229, 233], "location": [7, 122, 191, 223], "googleplayforwork": [10], "listing": [178], "telaviv": [336], "contentprovider": [134], "renderscript": [103, 104, 135, 164, 204, 207], "androiddeveloperchallenge": [251, 252, 254, 259, 263, 268, 269, 270, 273, 317, 322, 323, 324, 325, 326, 327, 330, 335, 338], "global": [96, 138], "googleplay": [1, 2, 3, 9, 11, 12, 15, 16, 18, 27, 31, 36, 39, 40, 42, 50, 54, 57, 62, 68, 73, 78, 81, 82, 85, 86, 92, 95, 96, 99, 101, 109, 111, 113, 115, 116, 121, 125, 127, 128, 129, 130, 138, 139, 143, 144, 146, 149, 150, 154, 178, 186, 192], "viewpager": [183], "demographics": [78], "sdkupdates": [155, 177, 188, 193, 206, 208, 211, 217, 229, 233, 243, 250, 256, 266, 280, 288, 300, 311, 319, 332, 333, 340, 344], "munich": [336], "gestures": [260], "appresources": [165, 181, 185, 190], "googlemaps": [0, 82], "performance": [102, 215, 219, 228], "androidsdk": [6, 49, 71, 142], "knox": [63], "googlecloudplatform": [11, 20, 75, 86, 114, 117], "daydream": [137], "codeday": [334, 336, 337, 339], "android16": [250, 257, 258, 260, 261, 262, 264, 265, 266, 267], "android15": [271, 275, 276, 277, 278, 279, 280, 281, 282, 283, 284, 285, 286, 287, 288], "developmenttools": [24, 90], "courses": [60, 65], "admob": [2, 7, 8, 11, 18], "testing": [176, 215], "traceview": [219], "appid": [199], "london": [336, 339], "security": [93, 107, 133, 134], "licensing": [221, 224, 226, 227], "survey": [112], "signing": [192], "google": [91, 122, 132], "io2010": [233, 234], "people": [161], "io2013": [118, 121, 122, 123, 124, 126], "inappbilling": [139], "io2014": [59, 61, 69, 70, 71, 72, 73, 74], "analytics": [78, 195, 214], "growth": [96], "design": [41, 44, 45, 47, 52, 57, 59, 60, 77, 158, 181], "mountainview": [337], "gmail": [152], "classloading": [184], "bestpractices": [39, 116, 145, 162, 171, 178, 181, 192, 199, 218], "contacts": [161], "quality": [116, 127, 141, 171], "appquality": [99, 105, 109, 111, 127], "localization": [96, 131, 138], "googleplayservices": [0, 7, 23, 26, 35, 43, 54, 71, 72, 73, 82, 85, 88, 89, 91, 98, 106, 118, 122, 124, 132, 136, 140, 146], "androidstudio": [20, 28, 69, 75, 114, 118, 123, 124], "shareactionprovider": [160], "xmlpullparser": [166], "androidtv": [4, 8, 23, 29, 32, 41, 74], "certificates": [156], "fragments": [148, 209], "dialogfragment": [148], "dashboard": [247], "actionbar": [108, 197], "profiling": [215, 219], "appcompat": [47], "googleplaygameservices": [11, 21, 34, 50, 66, 68, 72, 78, 84, 86, 91, 94, 100, 109, 122], "memorymanagement": [90, 201], "supportlibrary": [47, 64, 103, 108], "gridlayout": [173], "layout": [173, 185, 190], "sensors": [223], "googledrive": [54, 85, 91], "lollipop": [6], "appindexing": [7, 68], "androidextensionpack": [19], "ndk": [37, 94, 172, 211, 213, 217, 233, 235, 261, 271], "dalvik": [184], "apkexpansionfiles": [157], "androiddeveloperphone": [280, 289], "inputmethods": [284, 285], "android23": [217], "games": [11, 19, 29, 32, 40, 50, 66, 68, 72, 78, 82, 84, 85, 86, 94, 100, 102, 105, 167, 171, 230], "quicksearchbox": [265], "developerlabs": [239, 240, 255], "webview": [14, 134], "textandinput": [168, 231, 236], "texttospeech": [264], "efficientapps": [90], "developerconsole": [1, 3, 18, 62, 96, 99, 101, 116, 118, 121, 124, 125, 127, 130, 144, 147, 153], "googlefit": [7, 54], "androidcgameslinuxopensourcereleaseosxserializationwindows": [76], "googlewallet": [82, 120], "materialdesign": [23, 44, 45, 46, 47], "datastorage": [216], "apk": [19], "featured": [49, 54, 62], "googleio": [56, 59, 108, 274, 279, 289, 320], "developerprofiles": [299, 305, 306, 307], "appcomponents": [148, 192, 205, 228], "administration": [156], "tools": [24, 142, 158, 187, 201, 219], "publishing": [192], "privacy": [225], "ddms": [201], "engagement": [78, 83, 86, 101, 132], "apps": [299, 305, 306, 307, 312, 313, 314, 316, 317, 318, 321, 328, 329, 330, 331, 341, 342, 343], "mediaandcamera": [105, 167, 171, 232], "memory": [201], "widgets": [277, 286], "userinterface": [108, 137, 151, 158, 162, 163, 165, 173, 180, 181, 183, 193, 197, 203, 238, 249, 257, 258, 272, 275, 276, 282, 285, 287, 290, 291, 292, 293, 294, 302, 304], "opensource": [32, 61, 310], "sharing": [160], "googleapiclient": [7], "fundamentals": [65], "android21": [236, 243], "androidmarket": [159, 169, 170, 182, 189, 196, 198, 200, 202, 210, 233, 247, 267, 295, 297, 308, 318], "c": [21, 32], "visibility": [99], "android233": [208], "holo": [165], "notifications": [5, 15, 16], "androidforwork": [10], "guidelines": [272, 277], "graphics": [175, 194], "googleservices": [139], "crossplatform": [66], "commerce": [81], "coolstuff": [238], "ux": [60], "places": [0, 7], "android20": [245, 250, 256], "strictmode": [215], "samplecode": [5, 23, 61, 246], "optimization": [203, 249, 290, 291, 292, 293, 294, 296, 298, 301, 302], "ui": [158, 165, 173, 180, 181, 183], "deviceid": [199], "voice": [222], "android51": [6], "android50": [5, 23, 44, 45, 46, 47, 48, 49], "debugging": [187], "intents": [30, 212, 253, 303], "boston": [334, 336], "promographics": [138], "accessibility": [151], "telephony": [119], "androidauto": [1, 5, 23, 33], "orderedbroadcast": [212], "googlenow": [42], "education": [95, 115], "androidone": [55], "imageprocessing": [104], "googlemobileads": [7, 82, 86, 91], "develop": [41, 44, 45, 47, 49], "threading": [228], "developerpreview": [69], "activityrecognition": [82], "gcm": [56, 122], "locationandsensors": [191], "android40": [177], "maps": [132, 140], "authentication": [43, 136, 146], "android43": [110], "android44": [90, 93, 97], "speechinput": [236], "pure": [111, 163], "photosphere": [140], "announcements": [66, 83, 155, 177, 206, 208, 211, 217, 229, 233, 235, 237, 239, 240, 241, 242, 243, 244, 246, 247, 248, 255, 256, 261, 263, 266, 270, 271, 273, 280, 288, 295, 297, 300, 307, 308, 309, 310, 311, 317, 318], "android": [5, 41, 53, 54, 55, 60, 63, 65, 68, 82, 85, 107, 124], "resources": [246], "googleanalytics": [11, 18, 54, 85, 86, 101, 195, 214], "googleplaygames": [7, 8, 11, 21, 34, 38, 66], "http": [179], "users": [96, 125, 178], "keys": [192], "howto": [185, 203, 245, 253, 257, 258, 260, 262, 264, 265, 275, 276, 278, 282, 283, 284, 286, 287, 290, 292, 293, 296, 303], "android32": [185, 188, 190], "android42": [131, 133, 134, 135], "connectivity": [179], "liquidfun": [84, 86, 94], "androidwear": [5, 13, 15, 16, 17, 22, 23, 25, 51, 52, 53, 64, 67, 68, 77, 79, 80, 83], "gpfe": [95], "compatibility": [220], "network": [179], "webdriver": [176], "usersupport": [125], "mobilesearch": [42], "space": [173], "youtube": [2], "googlecloudmessaging": [58, 114, 117], "android30": [203, 206, 211], "enterprise": [63], "opengles": [281, 315], "androiddesign": [36, 52, 57, 59, 77, 92, 111, 113, 141], "audio": [105, 171], "physics": [94], "developerdays": [320]};t code. I  also mentioned the <merge /> and it's now time to learn how to use it.The <merge /> was created\u2026", 
+    "keywords": [], 
+    "type": "blog", 
+    "titleFriendly": ""
+  }, 
+  {
+    "lang": "en", 
+    "group": "", 
+    "tags": [
+      "userinterface", 
+      "optimization", 
+      "howto"
+    ], 
+    "url": "http://android-developers.blogspot.com/2009/02/android-layout-tricks-2-reusing-layouts.html", 
+    "timestamp": 1235629860000, 
+    "image": "", 
+    "title": "Android Layout Tricks #2: Reusing layouts", 
+    "summary": "Android comes with a wide variety of widgets , small visual construction blocks you can glue together to present the users with complex and useful interfaces. However applications often need higher level visual components . A component can be seen\u2026", 
+    "keywords": [], 
+    "type": "blog", 
+    "titleFriendly": ""
+  }, 
+  {
+    "lang": "en", 
+    "group": "", 
+    "tags": [
+      "userinterface", 
+      "optimization"
+    ], 
+    "url": "http://android-developers.blogspot.com/2009/02/android-layout-tricks-1.html", 
+    "timestamp": 1235512800000, 
+    "image": "http://progx.org/users/Gfx/android/relativelayout_1.png", 
+    "title": "Android Layout Tricks #1", 
+    "summary": "The Android UI toolkit offers several layout managers that are rather easy to use and, most of the time, you only need the basic features of these layout managers to implement a user interface. Sticking to the basic features is unfortunately not the\u2026", 
+    "keywords": [], 
+    "type": "blog", 
+    "titleFriendly": ""
+  }, 
+  {
+    "lang": "en", 
+    "group": "", 
+    "tags": [
+      "announcements", 
+      "androidmarket"
+    ], 
+    "url": "http://android-developers.blogspot.com/2009/02/android-market-update-priced.html", 
+    "timestamp": 1235152800000, 
+    "image": "http://2.bp.blogspot.com/_-e06f1q-QQE/SLbWqTbAiQI/AAAAAAAAAF0/aB9HYIRqFLA/s320/ic_launder_market_128x128.png", 
+    "title": "Android Market update: priced applications for US users", 
+    "summary": "Last Friday, we enabled developers to upload priced apps and saw a flurry of activity in the days that followed.  Today, it is my pleasure to let you know that we have begun the phased rollout of priced applications to T-Mobile G1 users in the US. \u2026", 
+    "keywords": [], 
+    "type": "blog", 
+    "titleFriendly": ""
+  }, 
+  {
+    "lang": "en", 
+    "group": "", 
+    "tags": [
+      "optimization", 
+      "howto"
+    ], 
+    "url": "http://android-developers.blogspot.com/2009/02/faster-screen-orientation-change.html", 
+    "timestamp": 1235062800000, 
+    "image": "http://1.bp.blogspot.com/_9l0GmPwgCzk/SZoGyJyg6-I/AAAAAAAAACU/ItuVwhegPb8/s320/photostream_landscape.png", 
+    "title": "Faster screen orientation change", 
+    "summary": "Android is a mobile operating system meant to be run on a wide array of devices, with very different hardware configurations. Some devices, like the T-Mobile G1, can change their hardware configuration at runtime. For instance, when you open the\u2026", 
+    "keywords": [], 
+    "type": "blog", 
+    "titleFriendly": ""
+  }, 
+  {
+    "lang": "en", 
+    "group": "", 
+    "tags": [
+      "announcements", 
+      "androidmarket"
+    ], 
+    "url": "http://android-developers.blogspot.com/2009/02/android-market-update-support-for.html", 
+    "timestamp": 1234548000000, 
+    "image": "http://2.bp.blogspot.com/_-e06f1q-QQE/SLbWqTbAiQI/AAAAAAAAAF0/aB9HYIRqFLA/s320/ic_launder_market_128x128.png", 
+    "title": "Android Market update: support for priced applications", 
+    "summary": "I'm pleased to announce that Android Market is now accepting priced applications from US and UK developers.  Developers from these countries can go to the publisher website at http://market.android.com/publish to upload their application(s) along\u2026", 
+    "keywords": [], 
+    "type": "blog", 
+    "titleFriendly": ""
+  }, 
+  {
+    "lang": "en", 
+    "group": "", 
+    "tags": [
+      "optimization"
+    ], 
+    "url": "http://android-developers.blogspot.com/2009/02/track-memory-allocations.html", 
+    "timestamp": 1234461600000, 
+    "image": "http://2.bp.blogspot.com/_9l0GmPwgCzk/SY-EGKmIm4I/AAAAAAAAACE/6YjUq_Rnne0/s320/ddms_allocation_tracker.png", 
+    "title": "Track memory allocations", 
+    "summary": "Despite the impressive hardware of the first Android phones (T-Mobile G1 and ADP1) writing efficient mobile applications is not always straightforward. Android applications rely on automatic memory management handled by Dalvik's garbage collector\u2026", 
+    "keywords": [], 
+    "type": "blog", 
+    "titleFriendly": ""
+  }, 
+  {
+    "lang": "en", 
+    "group": "", 
+    "tags": [
+      "apps", 
+      "developerprofiles"
+    ], 
+    "url": "http://android-developers.blogspot.com/2009/02/apps-that-work-together.html", 
+    "timestamp": 1234385100000, 
+    "image": "", 
+    "title": "Apps that work together", 
+    "summary": "Android applications can easily be linked together using intents . One example of this involves Shazam, MySpace, and the Amazon MP3 Store.  Once Shazam has identified a song, you can also search for the artist's official MySpace profile page or buy\u2026", 
+    "keywords": [], 
+    "type": "blog", 
+    "titleFriendly": ""
+  }, 
+  {
+    "lang": "en", 
+    "group": "", 
+    "tags": [
+      "announcements", 
+      "sdkupdates"
+    ], 
+    "url": "http://android-developers.blogspot.com/2009/02/android-11-sdk-release-1-now-available.html", 
+    "timestamp": 1234207500000, 
+    "image": "", 
+    "title": "Android 1.1 SDK, release 1 Now Available", 
+    "summary": "Hello, developers!  As you may have heard by now, users around the world have started to receive updates to their Android devices that provide new features and functionality. You may also have noticed that the new update reports as \"Android 1.1\". \u2026", 
+    "keywords": [], 
+    "type": "blog", 
+    "titleFriendly": ""
+  }, 
+  {
+    "lang": "en", 
+    "group": "", 
+    "tags": [
+      "optimization"
+    ], 
+    "url": "http://android-developers.blogspot.com/2009/01/avoiding-memory-leaks.html", 
+    "timestamp": 1232431740000, 
+    "image": "", 
+    "title": "Avoiding memory leaks", 
+    "summary": "Android applications are, at least on the T-Mobile G1, limited to 16 MB of heap. It's both a lot of memory for a phone and yet very little for what some developers want to achieve. Even if you do not plan on using all of this memory, you should use\u2026", 
+    "keywords": [], 
+    "type": "blog", 
+    "titleFriendly": ""
+  }, 
+  {
+    "lang": "en", 
+    "group": "", 
+    "tags": [
+      "userinterface", 
+      "optimization"
+    ], 
+    "url": "http://android-developers.blogspot.com/2009/01/why-is-my-list-black-android.html", 
+    "timestamp": 1231874400000, 
+    "image": "http://1.bp.blogspot.com/_9l0GmPwgCzk/SWOpjeZO-JI/AAAAAAAAABE/z50fFz3khZY/s400/list_fade_1.png", 
+    "title": "Why is my list black? An Android optimization", 
+    "summary": "ListView is one of Android's most widely used widgets. It is rather easy to use, very flexible and incredibly powerful. ListView can also be difficult to understand at times.The fade effect is implemented using a combination of\u2026", 
+    "keywords": [], 
+    "type": "blog", 
+    "titleFriendly": ""
+  }, 
+  {
+    "lang": "en", 
+    "group": "", 
+    "tags": [
+      "intents", 
+      "howto"
+    ], 
+    "url": "http://android-developers.blogspot.com/2009/01/can-i-use-this-intent.html", 
+    "timestamp": 1231164000000, 
+    "image": "", 
+    "title": "Can I use this Intent?", 
+    "summary": "Android offers a very powerful and yet easy to use tool called intents . An intent can be use to turn applications into high-level libraries and make code re-use something even better than before. The Android Home screen and AnyCut use intents\u2026", 
+    "keywords": [], 
+    "type": "blog", 
+    "titleFriendly": ""
+  }, 
+  {
+    "lang": "en", 
+    "group": "", 
+    "tags": [
+      "userinterface"
+    ], 
+    "url": "http://android-developers.blogspot.com/2008/12/touch-mode.html", 
+    "timestamp": 1228166100000, 
+    "image": "http://2.bp.blogspot.com/_9l0GmPwgCzk/SSyVEWhud-I/AAAAAAAAAAc/nBJtkfR5GtI/s400/list02.png", 
+    "title": "Touch Mode", 
+    "summary": "Designing and developing user interfaces for Android is very different from doing so in a regular desktop environment. Because Android runs applications on mobile devices, application designers and developers must deal with numerous constraints that\u2026", 
+    "keywords": [], 
+    "type": "blog", 
+    "titleFriendly": ""
+  }, 
+  {
+    "lang": "en", 
+    "group": "", 
+    "tags": [
+      "apps", 
+      "developerprofiles"
+    ], 
+    "url": "http://android-developers.blogspot.com/2008/12/behind-apps-amazed.html", 
+    "timestamp": 1228161300000, 
+    "image": "", 
+    "title": "Behind the apps: Amazed", 
+    "summary": "This week's developer video features Jason Tomlinson of Hands-On Mobile . He wrote Amazed, an application open sourced in the apps-for-android project. Things Jason mentions in the videos include: Amazed was built primarily to get familiar with the\u2026", 
+    "keywords": [], 
+    "type": "blog", 
+    "titleFriendly": ""
+  }, 
+  {
+    "lang": "en", 
+    "group": "", 
+    "tags": [
+      "apps", 
+      "developerprofiles"
+    ], 
+    "url": "http://android-developers.blogspot.com/2008/11/behind-apps-amazon-and-imeem.html", 
+    "timestamp": 1226084100000, 
+    "image": "", 
+    "title": "Behind the apps: Amazon and imeem", 
+    "summary": "Last week we introduced a couple Android developers who shared how they built their Android apps and gave their insight into Android app development. This week, we have videos of two developers who've built music-related apps.The first is of Allan\u2026", 
+    "keywords": [], 
+    "type": "blog", 
+    "titleFriendly": ""
+  }, 
+  {
+    "lang": "en", 
+    "group": "", 
+    "tags": [
+      "announcements", 
+      "apps", 
+      "developerprofiles"
+    ], 
+    "url": "http://android-developers.blogspot.com/2008/10/stories-behind-apps.html", 
+    "timestamp": 1225230960000, 
+    "image": "", 
+    "title": "The stories behind the apps", 
+    "summary": "As we mentioned yesterday , the Android Market is now open for developers to upload their applications.  I'm pretty excited because Market, along with the availability of the first Android-powered phone and the Android 1.0 SDK , puts the basic\u2026", 
+    "keywords": [], 
+    "type": "blog", 
+    "titleFriendly": ""
+  }, 
+  {
+    "lang": "en", 
+    "group": "", 
+    "tags": [
+      "announcements", 
+      "androidmarket"
+    ], 
+    "url": "http://android-developers.blogspot.com/2008/10/android-market-now-available-for-users.html", 
+    "timestamp": 1224691200000, 
+    "image": "http://2.bp.blogspot.com/_-e06f1q-QQE/SLbWqTbAiQI/AAAAAAAAAF0/aB9HYIRqFLA/s320/ic_launder_market_128x128.png", 
+    "title": "Android Market: Now available for users", 
+    "summary": "Last month I outlined some details around Android Market. Today, Android Market launched for users to download applications along with the first Android-powered phone\u2014the T-Mobile G1 .With Android Market, users can easily download apps to their\u2026", 
+    "keywords": [], 
+    "type": "blog", 
+    "titleFriendly": ""
+  }, 
+  {
+    "lang": "en", 
+    "group": "", 
+    "tags": [
+      "announcements"
+    ], 
+    "url": "http://android-developers.blogspot.com/2008/10/new-android-maps-api-terms-of-service.html", 
+    "timestamp": 1224639600000, 
+    "image": "", 
+    "title": "New Android Maps API Terms of Service and Key Enforcement", 
+    "summary": "When we released the 0.9_r1 beta SDK, we mentioned that the Maps API included with Android would soon require an API key to function correctly and load map tiles. Part of the reason for this was that the Terms of Service (ToS) for the Maps API had\u2026", 
+    "keywords": [], 
+    "type": "blog", 
+    "titleFriendly": ""
+  }, 
+  {
+    "lang": "en", 
+    "group": "", 
+    "tags": [
+      "announcements", 
+      "opensource"
+    ], 
+    "url": "http://android-developers.blogspot.com/2008/10/android-is-now-open-source.html", 
+    "timestamp": 1224601080000, 
+    "image": "http://4.bp.blogspot.com/_vOWVJj4LO0w/SP3vebnHxnI/AAAAAAAAAB8/PHPbPebKPfA/s400/os-bot-launch2.png", 
+    "title": "Android is now Open Source", 
+    "summary": "Over the past year, we announced Android , released several SDKs (eventually resulting in the 1.0 SDK ), gave out the first half of the $10,000,000 prize money for the Android Developer Challenge , and prepared the first Android-powered device for\u2026", 
+    "keywords": [], 
+    "type": "blog", 
+    "titleFriendly": ""
+  }, 
+  {
+    "lang": "en", 
+    "group": "", 
+    "tags": [
+      "announcements", 
+      "sdkupdates"
+    ], 
+    "url": "http://android-developers.blogspot.com/2008/09/announcing-android-10-sdk-release-1.html", 
+    "timestamp": 1222192500000, 
+    "image": "", 
+    "title": "Announcing the Android 1.0 SDK, release 1", 
+    "summary": "About this time last year, my colleagues and I were preparing for the first of the \"early look\" SDK releases. I remember being a little freaked out\u2014 November 12 was starting to sound awfully close! But I think I can safely speak for the entire\u2026", 
+    "keywords": [], 
+    "type": "blog", 
+    "titleFriendly": ""
+  }, 
+  {
+    "lang": "en", 
+    "group": "", 
+    "tags": [
+      "apps"
+    ], 
+    "url": "http://android-developers.blogspot.com/2008/09/panoramio.html", 
+    "timestamp": 1222130400000, 
+    "image": "http://docs.google.com/a/google.com/File?id=afjrhvfd92_43dp8zkmhg_b", 
+    "title": "Panoramio", 
+    "summary": "The Panoramio web site has a great collection of photos from all over the world, and they also have a very convenient web API . I thought it would be a lot of fun to use Android to access this content while you are out walking around \u2013 and\u2026", 
+    "keywords": [], 
+    "type": "blog", 
+    "titleFriendly": ""
+  }, 
+  {
+    "lang": "en", 
+    "group": "", 
+    "tags": [
+      "apps"
+    ], 
+    "url": "http://android-developers.blogspot.com/2008/09/using-webviews.html", 
+    "timestamp": 1221866880000, 
+    "image": "http://docs.google.com/a/google.com/File?id=afjrhvfd92_40fxzzdxd4_b", 
+    "title": "Using WebViews", 
+    "summary": "I've written a small application called WebViewDemo that shows how you can add web content to your application. You can find it in the apps-for-android project. This application demonstrates how you can embed a WebView into an activity and also how\u2026", 
+    "keywords": [], 
+    "type": "blog", 
+    "titleFriendly": ""
+  }, 
+  {
+    "lang": "en", 
+    "group": "", 
+    "tags": [
+      "apps"
+    ], 
+    "url": "http://android-developers.blogspot.com/2008/09/divide-and-conquer.html", 
+    "timestamp": 1221520980000, 
+    "image": "http://docs.google.com/a/google.com/File?id=afrsd9gvw4_25fzsbftcg_b", 
+    "title": "Divide and Conquer", 
+    "summary": "Years ago I was addicted to a simple game that I played on my then state-of-the-art Pentium-75.  In this game, balls would bounce around, and I would try to partition them into small enough spaces so that I could go to the next level where more and\u2026", 
+    "keywords": [], 
+    "type": "blog", 
+    "titleFriendly": ""
+  }, 
+  {
+    "lang": "en", 
+    "group": "", 
+    "tags": [
+      "opengles"
+    ], 
+    "url": "http://android-developers.blogspot.com/2008/09/three-new-samples-triangle-spritetext.html", 
+    "timestamp": 1221149400000, 
+    "image": "http://docs.google.com/a/google.com/File?id=cfnx2f69_6649k2hvft_b", 
+    "title": "Three new Samples: Triangle, SpriteText and Downloader", 
+    "summary": "I've posted three new open source samples to the apps-for-android project: Triangle, SpriteText and Downloader.The first two samples, Triangle and SpriteText , show techniques that would be useful to anyone using the OpenGL ES 3D graphics APIs to\u2026", 
+    "keywords": [], 
+    "type": "blog", 
+    "titleFriendly": ""
+  }, 
+  {
+    "lang": "en", 
+    "group": "", 
+    "tags": [
+      "apps"
+    ], 
+    "url": "http://android-developers.blogspot.com/2008/09/android-photostream.html", 
+    "timestamp": 1220544900000, 
+    "image": "http://docs.google.com/a/google.com/File?id=cf49fh6b_7g2sb4rc9_b", 
+    "title": "Android Photostream", 
+    "summary": "I'm pleased to announce that a new open source sample application\u2014called Photostream \u2014has been added to the apps-for-android project. Photostream is a simple photos browser and viewer for Flickr . All you need to use it is a Flickr screen name or\u2026", 
+    "keywords": [], 
+    "type": "blog", 
+    "titleFriendly": ""
+  }, 
+  {
+    "lang": "en", 
+    "group": "", 
+    "tags": [
+      "androiddeveloperchallenge", 
+      "apps", 
+      "announcements"
+    ], 
+    "url": "http://android-developers.blogspot.com/2008/08/presenting-winners-of-android-developer.html", 
+    "timestamp": 1219962600000, 
+    "image": "http://2.bp.blogspot.com/_-e06f1q-QQE/SLcdjvXWN2I/AAAAAAAAAGc/kkSvcvrRWok/s320/android_adc.gif", 
+    "title": "Presenting the Winners of the Android Developer Challenge I", 
+    "summary": "Since we started the first Android Developer Challenge late last year, we all have been eager to see who the winners of $275,000 and $100,000 would be. All 50 applications that emerged from Round 1 of ADC I showed great promise, and these teams have\u2026", 
+    "keywords": [], 
+    "type": "blog", 
+    "titleFriendly": ""
+  }, 
+  {
+    "lang": "en", 
+    "group": "", 
+    "tags": [
+      "announcements", 
+      "androidmarket", 
+      "apps"
+    ], 
+    "url": "http://android-developers.blogspot.com/2008/08/android-market-user-driven-content.html", 
+    "timestamp": 1219943700000, 
+    "image": "http://2.bp.blogspot.com/_-e06f1q-QQE/SLbWqTbAiQI/AAAAAAAAAF0/aB9HYIRqFLA/s320/ic_launder_market_128x128.png", 
+    "title": "Android Market: a user-driven content distribution system", 
+    "summary": "When we talk to developers, a common topic is the challenge of getting applications in the hands of users.  That's why today I'm happy to share early details of Android Market\u2014an open content distribution system that will help end users find,\u2026", 
+    "keywords": [], 
+    "type": "blog", 
+    "titleFriendly": ""
+  }, 
+  {
+    "lang": "en", 
+    "group": "", 
+    "tags": [
+      "sdkupdates"
+    ], 
+    "url": "http://android-developers.blogspot.com/2008/08/announcing-beta-release-of-android-sdk.html", 
+    "timestamp": 1219085820000, 
+    "image": "", 
+    "title": "Announcing a beta release of the Android SDK", 
+    "summary": "I'm pretty happy today, for two reasons.  First, I'm happy because I get to let everyone know that we're releasing a beta SDK.  You can read about the new Android 0.9 SDK beta at the Android Developers' Site , or if you want to get straight to the\u2026", 
+    "keywords": [], 
+    "type": "blog", 
+    "titleFriendly": ""
+  }, 
+  {
+    "lang": "en", 
+    "group": "", 
+    "tags": [
+      "googleio", 
+      "developerdays"
+    ], 
+    "url": "http://android-developers.blogspot.com/2008/06/android-at-google-io-and-developer-days.html", 
+    "timestamp": 1213918020000, 
+    "image": "", 
+    "title": "Android at Google I/O and Developer Days", 
+    "summary": "It was great to connect with everyone at the Google I/O event in San Francisco and at our recent Developer Days across the globe. We enjoyed meeting all of the Android developers and answering your questions - both at our booth and at the fireside\u2026", 
+    "keywords": [], 
+    "type": "blog", 
+    "titleFriendly": ""
+  }, 
+  {
+    "lang": "en", 
+    "group": "", 
+    "tags": [
+      "apps"
+    ], 
+    "url": "http://android-developers.blogspot.com/2008/05/androidglobaltime.html", 
+    "timestamp": 1211234880000, 
+    "image": "https://docs.google.com/a/google.com/File?id=dfvqptwc_18hd3kptc2_b", 
+    "title": "AndroidGlobalTime", 
+    "summary": "We are pleased to announce that a new open source sample application\u2014called AndroidGlobalTime \u2014 has been added to the apps-for-android project.It's a 3D world clock developed by an engineer at Google and may serve as an illustrative example of how\u2026", 
+    "keywords": [], 
+    "type": "blog", 
+    "titleFriendly": ""
+  }, 
+  {
+    "lang": "en", 
+    "group": "", 
+    "tags": [
+      "androiddeveloperchallenge"
+    ], 
+    "url": "http://android-developers.blogspot.com/2008/05/android-developer-challenge-judges-and.html", 
+    "timestamp": 1210805280000, 
+    "image": "", 
+    "title": "Android Developer Challenge Judges and Top 50 Details", 
+    "summary": "It's been a busy few weeks here as we've wrapped up the first round of the Android Developer Challenge. We'd like to share a couple pieces of information with you:The prize recipients' entries were just the tip of the iceberg in terms of great\u2026", 
+    "keywords": [], 
+    "type": "blog", 
+    "titleFriendly": ""
+  }, 
+  {
+    "lang": "en", 
+    "group": "", 
+    "tags": [
+      "androiddeveloperchallenge"
+    ], 
+    "url": "http://android-developers.blogspot.com/2008/05/challenge-in-more-than-one-way.html", 
+    "timestamp": 1210702920000, 
+    "image": "", 
+    "title": "A Challenge in More than One Way", 
+    "summary": "Well, the submission deadline for the first Android Developer Challenge has come and gone, the apps are in, the judges are finished, and the waiting is over.  We got a lot of great submissions, and I can tell you personally that the competition was\u2026", 
+    "keywords": [], 
+    "type": "blog", 
+    "titleFriendly": ""
+  }, 
+  {
+    "lang": "en", 
+    "group": "", 
+    "tags": [
+      "androiddeveloperchallenge"
+    ], 
+    "url": "http://android-developers.blogspot.com/2008/05/top-50-applications.html", 
+    "timestamp": 1210654260000, 
+    "image": "", 
+    "title": "The Top 50 Applications", 
+    "summary": "As you may have heard, the results from Android Developer Challenge Part 1, Round 1 were announced to all the participants late last week.  We're still working on pulling together a more extensive listing for each application that made it into the\u2026", 
+    "keywords": [], 
+    "type": "blog", 
+    "titleFriendly": ""
+  }, 
+  {
+    "lang": "en", 
+    "group": "", 
+    "tags": [
+      "androiddeveloperchallenge"
+    ], 
+    "url": "http://android-developers.blogspot.com/2008/05/android-developer-challenge-round-i.html", 
+    "timestamp": 1210373820000, 
+    "image": "", 
+    "title": "Android Developer Challenge: Round I Results are In", 
+    "summary": "The last few weeks were both extremely intense and rewarding. Based on feedback from the judges, it was apparent that large number of applications were compelling, innovative and well implemented.  The quality of these entries clearly reflects the\u2026", 
+    "keywords": [], 
+    "type": "blog", 
+    "titleFriendly": ""
+  }, 
+  {
+    "lang": "en", 
+    "group": "", 
+    "tags": [
+      "androiddeveloperchallenge"
+    ], 
+    "url": "http://android-developers.blogspot.com/2008/04/android-developers-have-risen-to.html", 
+    "timestamp": 1208494020000, 
+    "image": "", 
+    "title": "Android Developers Have Risen to the Challenge", 
+    "summary": "I'm thrilled to share the news that developers from over 70 countries submitted 1,788 entries to the Android Developer Challenge!Here are a few facts that I thought were interesting. When we announced the Android Developer Challenge back in January,\u2026", 
+    "keywords": [], 
+    "type": "blog", 
+    "titleFriendly": ""
+  }, 
+  {
+    "lang": "en", 
+    "group": "", 
+    "tags": [
+      "androiddeveloperchallenge"
+    ], 
+    "url": "http://android-developers.blogspot.com/2008/04/android-developer-challenge-judges.html", 
+    "timestamp": 1207602840000, 
+    "image": "", 
+    "title": "Android Developer Challenge Judges", 
+    "summary": "We have received a few inquiries regarding the judges who will be evaluating entries to the Android Developer Challenge (ADC).  All Entries will be judged by a panel of experts in the fields of mobile devices, cellular telecommunications, software\u2026", 
+    "keywords": [], 
+    "type": "blog", 
+    "titleFriendly": ""
+  }, 
+  {
+    "lang": "en", 
+    "group": "", 
+    "tags": [
+      "apps"
+    ], 
+    "url": "http://android-developers.blogspot.com/2008/03/wikinotes-for-android-routing-intents.html", 
+    "timestamp": 1205961120000, 
+    "image": "", 
+    "title": "WikiNotes for Android: Routing Intents", 
+    "summary": "In the last article , we talked about using Linkify to turn wiki words (those that match a regular expression we defined) into a content: URI and defining a path to data that matched a note belonging to that wiki word. As an example, a matching word\u2026", 
+    "keywords": [], 
+    "type": "blog", 
+    "titleFriendly": ""
+  }, 
+  {
+    "lang": "en", 
+    "group": "", 
+    "tags": [
+      "apps"
+    ], 
+    "url": "http://android-developers.blogspot.com/2008/03/linkify-your-text.html", 
+    "timestamp": 1205444520000, 
+    "image": "http://bp0.blogger.com/_eTH0Jfo94Ww/R9g-aqOYGdI/AAAAAAAAAB8/WKG7QdGUeXA/s320/WikiNotes.png", 
+    "title": "Linkify your Text!", 
+    "summary": "This is the first in a series of technical articles about WikiNotes for Android , part of the Apps for Android project.This article covers the use of Linkify to turn ordinary text views into richer link-oriented content that causes Android intents\u2026", 
+    "keywords": [], 
+    "type": "blog", 
+    "titleFriendly": ""
+  }, 
+  {
+    "lang": "en", 
+    "group": "", 
+    "tags": [
+      "androiddeveloperchallenge", 
+      "apps"
+    ], 
+    "url": "http://android-developers.blogspot.com/2008/03/android-developer-challenge-deadline.html", 
+    "timestamp": 1205270520000, 
+    "image": "", 
+    "title": "Android Developer Challenge Deadline Approaching Quickly", 
+    "summary": "The Android Developer Challenge is proceeding nicely. We're excited about the interest people have shown so far and have enjoyed talking to everyone working on new Android Apps.As a quick reminder, the first phase of the challenge will be ending on\u2026", 
+    "keywords": [], 
+    "type": "blog", 
+    "titleFriendly": ""
+  }, 
+  {
+    "lang": "en", 
+    "group": "", 
+    "tags": [
+      "apps"
+    ], 
+    "url": "http://android-developers.blogspot.com/2008/03/announcing-apps-for-android.html", 
+    "timestamp": 1204657260000, 
+    "image": "http://bp1.blogger.com/_eTH0Jfo94Ww/R8iSJlMBUiI/AAAAAAAAAB0/LSsL25R2Vzk/s320/Picture+1.png", 
+    "title": "Announcing: Apps for Android", 
+    "summary": "We are pleased to announce that a new open source project has been created on Google code hosting called apps-for-android . Our goal is to share some sample applications that demonstrate different aspects of the Android platform.The first\u2026", 
+    "keywords": [], 
+    "type": "blog", 
+    "titleFriendly": ""
+  }, 
+  {
+    "lang": "en", 
+    "group": "", 
+    "tags": [
+      "sdkupdates"
+    ], 
+    "url": "http://android-developers.blogspot.com/2008/03/android-sdk-update-m5-rc15-released.html", 
+    "timestamp": 1204596060000, 
+    "image": "", 
+    "title": "Android SDK update: m5-rc15 released", 
+    "summary": "Earlier today we released an update to the Android SDK \u2013 we're calling it m5-rc15. With this update, the SDK now includes all of the incremental changes we've been making to the online documentation since m5-rc14 was released in mid-February.  In\u2026", 
+    "keywords": [], 
+    "type": "blog", 
+    "titleFriendly": ""
+  }, 
+  {
+    "lang": "en", 
+    "group": "", 
+    "tags": [
+      "sdkupdates"
+    ], 
+    "url": "http://android-developers.blogspot.com/2008/02/android-sdk-m5-rc14-now-available.html", 
+    "timestamp": 1202918880000, 
+    "image": "", 
+    "title": "Android SDK m5-rc14 now available", 
+    "summary": "On behalf of the entire Android team, I'm happy to let you know that an updated version of the Android SDK \u2013 we're calling it m5-rc14 \u2013 is now available . Today, we're continuing the early look at the Android SDK that we started back in November by\u2026", 
+    "keywords": [], 
+    "type": "blog", 
+    "titleFriendly": ""
+  }, 
+  {
+    "lang": "en", 
+    "group": "", 
+    "tags": [
+      "codeday", 
+      "boston"
+    ], 
+    "url": "http://android-developers.blogspot.com/2008/02/android-in-harvard-square.html", 
+    "timestamp": 1202753040000, 
+    "image": "", 
+    "title": "Android in Harvard Square", 
+    "summary": "As promised , there's another Android event coming up \u2013 though a little closer to home this time. Our Android Advocates are heading to Boston for a Code Day that will be taking place on February 23. Registration is now open , but space is limited so\u2026", 
+    "keywords": [], 
+    "type": "blog", 
+    "titleFriendly": ""
+  }, 
+  {
+    "lang": "en", 
+    "group": "", 
+    "tags": [
+      "androiddeveloperchallenge"
+    ], 
+    "url": "http://android-developers.blogspot.com/2008/01/deadline-extension-for-android.html", 
+    "timestamp": 1201561140000, 
+    "image": "", 
+    "title": "Deadline Extension for the Android Developer Challenge", 
+    "summary": "We'd like to let you know that we are extending the submission deadline for the first Android Developers Challenge to 14 April 2008 . Based on the great feedback you've given us, we've made significant updates to the SDK that we'll be releasing in\u2026", 
+    "keywords": [], 
+    "type": "blog", 
+    "titleFriendly": ""
+  }, 
+  {
+    "lang": "en", 
+    "group": "", 
+    "tags": [
+      "codeday", 
+      "boston", 
+      "telaviv", 
+      "london", 
+      "munich"
+    ], 
+    "url": "http://android-developers.blogspot.com/2008/01/posted-by-dan-morrill-developer.html", 
+    "timestamp": 1201038540000, 
+    "image": "", 
+    "title": "Intercontinental Androids", 
+    "summary": "When I recently blogged about our upcoming Android Campfire, I hinted at some international events we've been working on.  We've now finalized plans on those, and registration is open.We've got Android Code Days lined up for these locations:In\u2026", 
+    "keywords": [], 
+    "type": "blog", 
+    "titleFriendly": ""
+  }, 
+  {
+    "lang": "en", 
+    "group": "", 
+    "tags": [
+      "codeday", 
+      "mountainview"
+    ], 
+    "url": "http://android-developers.blogspot.com/2008/01/who-wants-cocoa-smores.html", 
+    "timestamp": 1200363960000, 
+    "image": "", 
+    "title": "Who wants cocoa &amp; s'mores?", 
+    "summary": "It's been a busy few months.  First we announced Android , then we released an early look of the Android SDK , and just last week we started accepting submissions for the Android Developer Challenge . Now that we've got things moving along, it's\u2026", 
+    "keywords": [], 
+    "type": "blog", 
+    "titleFriendly": ""
+  }, 
+  {
+    "lang": "en", 
+    "group": "", 
+    "tags": [
+      "androiddeveloperchallenge"
+    ], 
+    "url": "http://android-developers.blogspot.com/2008/01/rising-to-challenge.html", 
+    "timestamp": 1199407080000, 
+    "image": "", 
+    "title": "Rising to the Challenge", 
+    "summary": "I think I have a really cool job, because I get to do a little bit of all those other cool jobs that you wish you could have.  Today, I get to be like the Chairman from Iron Chef .If you've never seen the show, the premise is that a slightly\u2026", 
+    "keywords": [], 
+    "type": "blog", 
+    "titleFriendly": ""
+  }, 
+  {
+    "lang": "en", 
+    "group": "", 
+    "tags": [
+      "codeday", 
+      "london"
+    ], 
+    "url": "http://android-developers.blogspot.com/2007/12/on-road-with-android.html", 
+    "timestamp": 1198081320000, 
+    "image": "", 
+    "title": "On the Road with Android", 
+    "summary": "This week finds me at the Google offices in jolly old London after a quick dash out to Belgium last week . I have had the chance to meet the Mobile developers based here in London and give them an introduction to Android, as well as do the same for\u2026", 
+    "keywords": [], 
+    "type": "blog", 
+    "titleFriendly": ""
+  }, 
+  {
+    "lang": "en", 
+    "group": "", 
+    "tags": [
+      "sdkupdates"
+    ], 
+    "url": "http://android-developers.blogspot.com/2007/12/life-can-be-tough-here-are-few-sdk.html", 
+    "timestamp": 1197673980000, 
+    "image": "", 
+    "title": "Life can be tough; here are a few SDK improvements to make it a little easier", 
+    "summary": "It's been just over a month since we gave developers the first early peek at the Android SDK. We've been hard at work since then on some nifty new stuff we think you'll really like. We hope to show that to you soon, but in the meantime, we wanted to\u2026", 
+    "keywords": [], 
+    "type": "blog", 
+    "titleFriendly": ""
+  }, 
+  {
+    "lang": "en", 
+    "group": "", 
+    "tags": [
+      "apps"
+    ], 
+    "url": "http://android-developers.blogspot.com/2007/11/maze-of-twisty-little-passages.html", 
+    "timestamp": 1196351340000, 
+    "image": "http://bp1.blogger.com/_eTH0Jfo94Ww/R07f6ULYxBI/AAAAAAAAAAU/FkaAuXLw7V8/s320/twisty-screenshot.png", 
+    "title": "A Maze of Twisty Little Passages", 
+    "summary": "The end of last week was Thanksgiving in the US, the tradition is to be with family, eat too much food and watch football (not necessarily in that order).Apparently some folks took the chance to work on Android projects too. We are highlighting a\u2026", 
+    "keywords": [], 
+    "type": "blog", 
+    "titleFriendly": ""
+  }, 
+  {
+    "lang": "en", 
+    "group": "", 
+    "tags": [
+      "apps"
+    ], 
+    "url": "http://android-developers.blogspot.com/2007/11/stitch-in-time.html", 
+    "timestamp": 1195605720000, 
+    "image": "http://bp3.blogger.com/_eTH0Jfo94Ww/R0OJBkLYxAI/AAAAAAAAAAM/IRtvWckNk5Y/s320/JFlubber.png", 
+    "title": "A Stitch in Time", 
+    "summary": "Background : While developing my first useful (though small) application for Android, which was a port of an existing utility I use when podcasting, I needed a way of updating a clock displayed on the UI at regular intervals, but in a lightweight\u2026", 
+    "keywords": [], 
+    "type": "blog", 
+    "titleFriendly": ""
+  }, 
+  {
+    "lang": "en", 
+    "group": "", 
+    "tags": [
+      "apps"
+    ], 
+    "url": "http://android-developers.blogspot.com/2007/11/just-show-me-code.html", 
+    "timestamp": 1194974220000, 
+    "image": "", 
+    "title": "Just show me the code", 
+    "summary": "OK, you've downloaded the SDK and are now ready to build the next killer app for mobile (and maybe win some $$$ in the process ;)Activities? Intents? SimpleCursorAdapter? Huh? Hmm...how do I proceed?Well, that depends on your style. Some will want\u2026", 
+    "keywords": [], 
+    "type": "blog", 
+    "titleFriendly": ""
+  }, 
+  {
+    "lang": "en", 
+    "group": "", 
+    "tags": [
+      "sdkupdates"
+    ], 
+    "url": "http://android-developers.blogspot.com/2007/11/posted-by-jason-chen-android-advocate.html", 
+    "timestamp": 1194884220000, 
+    "image": "", 
+    "title": "This is the droid you're looking for", 
+    "summary": "Following last week's announcement of the Open Handset Alliance , today we're happy to offer an early look at the Android SDK . We're eager to get feedback from lots of developers in our discussion group . We're also providing developer\u2026", 
+    "keywords": [], 
+    "type": "blog", 
+    "titleFriendly": ""
+  }
+];                         
+
+var YOUTUBE_BY_TAG = {"ratingsreviews": [123], "global": [116, 135], "tablets": [108, 118, 124, 143], "differentiation": [117], "whatsnew": [84], "developer": [54, 80, 88, 92, 126], "essentials": [126], "highlights": [84], "mwc": [163], "location": [68], "bizdevbytes": [116, 117, 118, 119, 120, 121, 122, 123, 124], "ranking": [61], "googleplay": [7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 37, 38, 52, 54, 61, 63, 80, 88, 92, 103, 105, 108, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 126, 135, 164], "mediarouter": [46], "game": [88], "googledev100": [0, 1, 2, 3], "gameon": [58], "common": [41], "fitness": [24, 34], "screenrecorder": [56], "achievements": [64, 65, 66, 67], "inapp": [118, 126], "responsive": [75, 143], "growth": [20, 38, 52, 135], "design": [39, 78, 79], "pricing": [63], "playgames": [47, 48, 49, 50, 51, 58, 64, 65, 66, 67], "developersupport": [61, 62, 63], "iterating": [164], "androiddev": [6, 24, 25], "chromium": [70, 71], "appquality": [121, 123, 143], "sms": [74], "googleplayservices": [26, 31, 45], "monetizing": [52, 103, 115, 118, 135], "actionbar": [72], "gamecontrollers": [97, 126], "subscriptions": [118], "marketing": [119], "wear": [27, 28, 32, 35, 36], "sensors": [24, 34], "ja": [103], "googleforedu": [22, 23], "io12": [149, 152], "developerstor": [23], "games": [31, 33, 52, 80, 92, 97, 103, 126, 164], "webview": [70, 71], "perfmatters": [3, 4, 5], "wearables": [32, 35, 36], "efficientapps": [93], "developerconsole": [61, 63, 123], "singleapk": [164], "featured": [7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21], "quality": [53], "engagement": [119, 120, 122, 135], "googleapiclient": [45], "brand": [117], "visibility": [61], "notifications": [27, 28], "15": [150, 151, 153, 154, 155, 156, 157, 158, 159, 160, 161, 162], "ux": [53], "multiplescreens": [69], "wallet": [62], "strategies": [54, 116, 119, 120, 121, 122, 123, 124], "actionbarcompat": [72], "justforus": [43, 44], "developerstory": [7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 37, 38, 52, 103, 115, 117, 118, 120, 121, 122, 123, 124, 135, 164], "uxd": [39, 40, 42, 53, 57, 76, 77, 78], "googleplayapps": [105], "education": [108], "googlesignin": [126], "media": [46], "travel": [115], "activityrecognition": [26], "1": [148], "maps": [26, 68], "unity": [58], "animation": [96], "pure": [117, 122, 124], "android": [7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 26, 27, 28, 32, 35, 36, 37, 38, 59, 60, 68], "simlaunch": [135], "googleplaygames": [54, 58, 64, 65, 66, 67, 80, 88, 92], "designbytes": [69], "users": [121, 123], "ios": [47, 48, 49, 50, 51, 64, 65, 66, 67], "adia": [41, 55, 73, 79, 85, 87, 89, 90, 95, 99, 101, 104, 105, 109, 112, 114, 125, 127, 128, 129, 130, 132, 133, 134, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147], "liquidfun": [33], "backstage": [110], "kitkat": [59, 70, 74, 83, 84, 85], "animations": [86, 91, 94, 98, 100, 102, 106, 107, 110, 111, 113], "gpfe": [108], "buildbetterapps": [6], "playbytes": [54, 61, 62, 63], "drive": [31], "devbytes": [24, 25, 26, 27, 28, 29, 30, 31, 34, 35, 36, 43, 44, 45, 46, 47, 48, 49, 50, 51, 54, 56, 59, 60, 64, 65, 66, 67, 68, 69, 70, 71, 72, 74, 75, 81, 82, 83, 84, 86, 91, 93, 94, 96, 98, 100, 102, 106, 107, 110, 111, 113, 131], "tagmanager": [31], "androiddesign": [53, 55, 79, 85, 87, 89, 90, 95, 99, 101, 104, 105, 109, 112, 114, 125, 127, 128, 129, 130, 132, 133, 134, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147], "physics": [33]};
+
+
+
+
+                         var BLOGGER_BY_TAG = {"activityrecognition": [128], "sdktools": [169, 180], "rtl": [177], "distribute": [13, 16, 22, 26, 39, 40, 43, 49, 55, 62, 85, 87, 88, 108, 124, 128, 131, 132, 135], "actions": [268], "googleclientapi": [134], "privacy": [271], "androidm": [27], "gdc": [133], "tablets": [141, 145, 155, 173, 174, 187, 191], "stencils": [204], "touch": [277], "jni": [220, 233], "appresources": [211, 227, 231, 236], "androidc": [7], "userdata": [271], "ime": [214, 282], "facedetection": [2], "tv": [87], "googlecast": [16, 25, 51, 57, 120, 135], "androidstudio": [7, 15, 27, 35, 41, 66, 74, 115, 121, 160, 164, 169, 170], "efficientapps": [136], "android43": [156], "android22": [275, 279], "location": [17, 34, 53, 168, 237, 269], "samples": [35, 51], "listing": [224], "googleplayforwork": [56], "contentprovider": [180], "renderscript": [149, 150, 181, 210, 250, 253], "androiddeveloperchallenge": [297, 298, 300, 305, 309, 314, 315, 316, 319, 363, 368, 369, 370, 371, 372, 373, 376, 381, 384], "global": [142, 184], "googleplay": [4, 8, 9, 16, 26, 30, 32, 33, 38, 40, 43, 47, 48, 49, 55, 57, 58, 61, 62, 64, 73, 77, 82, 85, 86, 88, 96, 100, 103, 108, 114, 119, 124, 127, 128, 131, 132, 138, 141, 142, 145, 147, 155, 157, 159, 161, 162, 167, 171, 173, 174, 175, 176, 184, 185, 189, 190, 192, 195, 196, 200, 224, 232, 238], "viewpager": [229], "demographics": [124], "sdkupdates": [201, 223, 234, 239, 252, 254, 257, 263, 275, 279, 289, 296, 302, 312, 326, 334, 346, 357, 365, 378, 379, 386, 390], "contacts": [207], "munich": [382], "gestures": [306], "certificates": [202], "googlemaps": [46, 128], "announcements": [112, 129, 201, 223, 252, 254, 257, 263, 275, 279, 281, 283, 285, 286, 287, 288, 289, 290, 292, 293, 294, 301, 302, 307, 309, 312, 316, 317, 319, 326, 334, 341, 343, 346, 353, 354, 355, 356, 357, 363, 364], "androidsdk": [52, 95, 117, 188], "knox": [109], "permissions": [27], "nfc": [35], "googlecloudplatform": [33, 57, 66, 121, 132, 160, 163], "daydream": [183], "codeday": [380, 382, 383, 385], "android16": [296, 303, 304, 306, 307, 308, 310, 311, 312, 313], "android15": [317, 321, 322, 323, 324, 325, 326, 327, 328, 329, 330, 331, 332, 333, 334], "androidpay": [27], "developmenttools": [70, 136], "googleplayforfamilies": [26], "admob": [9, 13, 48, 53, 54, 57, 64], "android23": [263], "traceview": [265], "appid": [245], "london": [382, 385], "security": [139, 153, 179, 180], "licensing": [267, 270, 272, 273], "glsl": [36, 44], "signing": [238], "google": [137, 168, 178], "io2010": [279, 280], "people": [207], "io2013": [164, 167, 168, 169, 170, 172], "testing": [8, 222, 261], "googleservices": [25, 31, 33, 34, 39, 42, 43, 45, 46, 53, 54, 64, 66, 67, 72, 80, 100, 185], "analytics": [43, 124, 241, 260], "growth": [142], "design": [5, 19, 21, 22, 23, 24, 32, 87, 90, 91, 93, 98, 103, 105, 106, 123, 204, 227], "mountainview": [383], "telaviv": [382], "gmail": [198], "classloading": [230], "bestpractices": [85, 162, 191, 208, 217, 224, 227, 238, 245, 264], "courses": [106, 111], "opengles": [28, 36, 44, 327, 361], "appquality": [145, 151, 155, 157, 173], "googleplaygameservices": [20, 31, 57, 67, 80, 96, 112, 114, 118, 124, 130, 132, 137, 140, 146, 155, 168], "googleplayservices": [1, 2, 3, 4, 25, 27, 34, 46, 53, 69, 72, 81, 89, 100, 117, 118, 119, 128, 131, 134, 135, 137, 144, 152, 164, 168, 170, 178, 182, 186, 192], "udacity": [22], "shareactionprovider": [206], "xmlpullparser": [212], "androidtv": [18, 50, 54, 69, 75, 78, 87, 120], "ble": [17], "fragments": [194, 255], "dialogfragment": [194], "dashboard": [293], "actionbar": [154, 243], "profiling": [261, 265], "appcompat": [37, 93], "localization": [38, 142, 177, 184], "memorymanagement": [136, 247], "barcode": [1], "supportlibrary": [19, 23, 27, 37, 93, 110, 149, 154], "beacon": [10], "wear": [29, 59, 98], "gridlayout": [219], "layout": [219, 231, 236], "sensors": [269], "googledrive": [100, 131, 137], "lollipop": [52], "appindexing": [27, 39, 53, 114], "ads": [13, 26, 55], "ndk": [7, 14, 28, 36, 44, 65, 67, 78, 83, 96, 122, 140, 218, 257, 259, 263, 279, 281, 307, 317], "dalvik": [230], "apkexpansionfiles": [203], "liquidfun": [130, 132, 140], "inputmethods": [330, 331], "games": [4, 14, 28, 30, 36, 43, 44, 57, 65, 75, 78, 86, 96, 112, 114, 118, 124, 128, 130, 131, 132, 140, 146, 148, 151, 213, 217, 276], "quicksearchbox": [311], "developerlabs": [285, 286, 301], "webview": [60, 180], "screencapture": [35], "nearby": [3, 11], "textandinput": [214, 277, 282], "texttospeech": [31, 310], "space": [219], "beacons": [10, 11], "developerconsole": [4, 26, 33, 40, 43, 47, 49, 64, 108, 142, 145, 147, 162, 164, 167, 170, 171, 173, 176, 190, 193, 199], "googlefit": [17, 31, 34, 53, 100], "androidcgameslinuxopensourcereleaseosxserializationwindows": [122], "googlewallet": [128, 166], "materialdesign": [16, 19, 21, 23, 24, 32, 69, 90, 91, 92, 93], "datastorage": [262], "apk": [65], "featured": [0, 1, 2, 3, 5, 7, 12, 13, 14, 15, 17, 18, 19, 20, 22, 23, 24, 25, 26, 27, 31, 33, 34, 35, 37, 39, 42, 43, 45, 46, 49, 51, 53, 54, 55, 59, 64, 66, 72, 93, 95, 98, 100, 108], "googleio": [102, 105, 154, 320, 325, 335, 366], "developerprofiles": [345, 351, 352, 353], "appcomponents": [194, 238, 251, 274], "administration": [202], "tools": [7, 15, 27, 37, 70, 188, 204, 233, 247, 265], "publishing": [238], "quality": [162, 173, 187, 217], "opengl": [28, 36], "ddms": [247], "engagement": [124, 129, 132, 147, 178], "apps": [345, 351, 352, 353, 358, 359, 360, 362, 363, 364, 367, 374, 375, 376, 377, 387, 388, 389], "mapsapi": [17, 25], "mediaandcamera": [31, 151, 213, 217, 278], "androiddeveloperphone": [326, 335], "android32": [231, 234, 236], "memory": [247], "widgets": [323, 332], "android60": [0], "androidextensionpack": [65], "opensource": [78, 107, 356], "inappbilling": [185], "googleapiclient": [53], "fundamentals": [111], "android21": [282, 289], "androidmarket": [205, 215, 216, 228, 235, 242, 244, 246, 248, 256, 279, 293, 313, 341, 343, 354, 364], "c": [7, 20, 67, 78], "visibility": [145], "authentication": [89, 182, 192], "holo": [211], "notifications": [51, 61, 62], "androidforwork": [35, 56], "guidelines": [318, 323], "graphics": [6, 36, 44, 221, 240], "io2014": [105, 107, 115, 116, 117, 118, 119, 120], "crossplatform": [112], "commerce": [127], "coolstuff": [284], "userinterface": [154, 183, 197, 204, 208, 209, 211, 219, 226, 227, 229, 239, 243, 249, 284, 295, 303, 304, 318, 321, 322, 328, 331, 333, 336, 337, 338, 339, 340, 348, 350], "ux": [106], "places": [46, 53], "leanback": [37], "android20": [291, 296, 302], "strictmode": [261], "mobilevisionapis": [1, 2], "samplecode": [35, 69, 107, 292], "optimization": [249, 295, 336, 337, 338, 339, 340, 342, 344, 347, 348], "ui": [204, 211, 219, 226, 227, 229], "deviceid": [245], "voice": [268], "android51": [52], "android50": [51, 69, 90, 91, 92, 93, 94, 95], "debugging": [233], "intents": [76, 258, 299, 349], "developerstory": [30, 32], "animationandgraphics": [148, 249], "boston": [380, 382], "promographics": [184], "survey": [158], "accessibility": [197], "telephony": [165], "sharing": [206], "androidauto": [16, 42, 45, 47, 51, 69, 79], "orderedbroadcast": [258], "googlenow": [27, 88], "education": [141, 161], "androidone": [101], "imageprocessing": [150], "googleanalytics": [38, 57, 64, 100, 131, 132, 147, 241, 260], "develop": [0, 1, 2, 3, 4, 7, 10, 12, 14, 15, 16, 17, 18, 19, 20, 22, 23, 24, 25, 27, 29, 31, 35, 37, 42, 45, 46, 51, 54, 59, 66, 72, 87, 90, 91, 93, 95, 98], "threading": [274], "developerpreview": [0, 10, 11, 12, 115], "londoneng": [56, 60], "gcm": [102, 168], "locationandsensors": [237], "android40": [223], "maps": [178, 186], "unity": [20], "animation": [44, 221, 240], "android44": [136, 139, 143], "speechinput": [282], "pure": [157, 209], "photosphere": [186], "performance": [27, 28, 36, 41, 44, 148, 261, 265, 274], "android": [6, 7, 9, 22, 30, 51, 87, 99, 100, 101, 106, 109, 111, 114, 128, 131, 153, 170], "resources": [292], "googlemobileads": [53, 128, 132, 137], "googleplaygames": [30, 43, 44, 53, 54, 57, 67, 80, 84, 112], "http": [225], "users": [39, 142, 171, 224], "keys": [238], "howto": [231, 249, 291, 299, 303, 304, 306, 308, 310, 311, 321, 322, 324, 328, 329, 330, 332, 333, 336, 338, 339, 342, 349], "ebook": [9], "ios": [20], "android42": [177, 179, 180, 181], "connectivity": [225], "beta": [8], "androidwear": [16, 17, 25, 29, 31, 34, 35, 51, 59, 61, 62, 63, 68, 69, 71, 97, 98, 99, 110, 113, 114, 123, 125, 126, 129], "ubicomp": [29, 59, 98], "io15": [22, 23, 24, 25, 26, 27], "gpfe": [141], "vulkan": [6], "compatibility": [37, 266], "network": [225], "webdriver": [222], "wifi": [29], "mobilesearch": [88], "watchfaces": [29], "youtube": [48], "usersupport": [171], "googlecloudmessaging": [3, 25, 104, 160, 163], "android30": [249, 252, 257], "enterprise": [109], "android233": [254], "androiddesign": [5, 82, 98, 103, 105, 123, 138, 157, 159, 187], "audio": [31, 151, 217], "physics": [140], "androiddeveloper": [6, 9], "developerdays": [366]};

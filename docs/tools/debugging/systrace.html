@@ -90,23 +90,27 @@
 
 
 
+
+
 <html>
 <head>
 
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="viewport" content="width=device-width" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
 
-<meta name="Description" content="After building features, eliminating bugs, and cleaning up your code, you should spend some time looking at the performance of your application. The speed and smoothness with which your application draws pixels and performs operations has an significant…">
+<meta name="Description" content="While developing your application, you should check that user interactions are buttery smooth, running at a consistent 60 frames per second. If something goes wrong, and a frame gets dropped, the first step in fixing the problem is understanding what …">
 <link rel="shortcut icon" type="image/x-icon" href="../../favicon.ico" />
-<title>Analyzing Display and Performance | Android Developers</title>
+<title>Analyzing UI Performance with Systrace | Android Developers</title>
 
 <!-- STYLESHEETS -->
 <link rel="stylesheet"
 href="http://fonts.useso.com/css?family=Roboto+Condensed">
 <link rel="stylesheet" href="http://fonts.useso.com/css?family=Roboto:light,regular,medium,thin,italic,mediumitalic,bold"
   title="roboto">
-<link href="../../assets/css/default.css?v=5" rel="stylesheet" type="text/css">
+
+<link href="../../assets/css/default.css?v=7" rel="stylesheet" type="text/css">
 
 
 
@@ -117,7 +121,7 @@ href="http://fonts.useso.com/css?family=Roboto+Condensed">
   var metaTags = ["systrace","speed"];
   var devsite = false;
 </script>
-<script src="../../assets/js/docs.js?v=3" type="text/javascript"></script>
+<script src="../../assets/js/docs.js?v=6" type="text/javascript"></script>
 
 
 
@@ -125,7 +129,7 @@ href="http://fonts.useso.com/css?family=Roboto+Condensed">
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//../../ajax/www.google-analytics.com/analytics.js','ga');
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
   ga('create', 'UA-5831155-1', 'android.com');
   ga('create', 'UA-49880327-2', 'android.com', {'name': 'universal'});  // New tracker);
@@ -137,11 +141,11 @@ href="http://fonts.useso.com/css?family=Roboto+Condensed">
 
 <body class="gc-documentation
 
-develop" itemscope itemtype="http://schema.org/Article">
 
+develop" itemscope itemtype="http://schema.org/Article">
 <a name="top"></a>
 
-<!-- dialog to prompt lang pref change when loaded from hardcoded URL 
+<!-- dialog to prompt lang pref change when loaded from hardcoded URL
 <div id="langMessage" style="display:none">
   <div>
     <div class="lang en">
@@ -189,108 +193,52 @@ develop" itemscope itemtype="http://schema.org/Article">
 
   <!-- Header -->
   <div id="header-wrapper">
-    <div id="header">
-
-    
+    <div class="dac-header" id="header">
 
 
-      <div class="wrap" id="header-wrap">
-        <div class="col-3 logo">
-          <a href="../../index.html">
-            <img src="../../assets/images/dac_logo.png"
-                srcset="../../assets/images/dac_logo@2x.png 2x"
-                width="123" height="25" alt="Android Developers" />
+
+
+      <div class="dac-header-inner">
+        <a class="dac-nav-toggle" data-dac-toggle-nav href="javascript:;" title="Open navigation">
+          <span class="dac-nav-hamburger">
+            <span class="dac-nav-hamburger-top"></span>
+            <span class="dac-nav-hamburger-mid"></span>
+            <span class="dac-nav-hamburger-bot"></span>
+          </span>
+        </a>
+        <a class="dac-header-logo" href="../../index.html">
+          <img class="dac-header-logo-image" src="../../assets/images/android_logo.png"
+              srcset="../../assets/images/android_logo@2x.png 2x"
+              width="32" height="36" alt="Android" /> Developers
           </a>
-          <div class="btn-quicknav" id="btn-quicknav">
-            <a href="#" class="arrow-inactive">Quicknav</a>
-            <a href="#" class="arrow-active">Quicknav</a>
-          </div>
-        </div>
-        <ul class="nav-x col-9">
-            <li class="design">
-              <a href="../../design/index.html"
-              zh-tw-lang="設計"
-              zh-cn-lang="设计"
-              ru-lang="Проектирование"
-              ko-lang="디자인"
-              ja-lang="設計"
-              es-lang="Diseñar"
-              >Design</a></li>
-            <li class="develop"><a href="../../develop/index.html"
-              zh-tw-lang="開發"
-              zh-cn-lang="开发"
-              ru-lang="Разработка"
-              ko-lang="개발"
-              ja-lang="開発"
-              es-lang="Desarrollar"
-              >Develop</a></li>
-            <li class="distribute last"><a href="../../distribute/googleplay/index.html"
-              zh-tw-lang="發佈"
-              zh-cn-lang="分发"
-              ru-lang="Распространение"
-              ko-lang="배포"
-              ja-lang="配布"
-              es-lang="Distribuir"
-              >Distribute</a></li>
+
+        <ul class="dac-header-crumbs">
+          
+          <li class="dac-header-crumbs-item"><span class="dac-header-crumbs-link current ">Analyzing UI Performance with Systrace</a></li>
         </ul>
 
-
         
         
-<div class="menu-container">
-  <div class="moremenu">
-    <div id="more-btn"></div>
-  </div>
-  <div class="morehover" id="moremenu">
-    <div class="top"></div>
-    <div class="mid">
-      <div class="header">Links</div>
-      <ul>
-        <li><a href="https://play.google.com/apps/publish/" target="_googleplay">Google Play Developer Console</a></li>
-        <li><a href="http://android-developers.blogspot.com/">Android Developers Blog</a></li>
-        <li><a href="../../about/index.html">About Android</a></li>
-      </ul>
-      <div class="header">Android Sites</div>
-      <ul>
-        <li><a href="http://www.android.com">Android.com</a></li>
-        <li class="active"><a>Android Developers</a></li>
-        <li><a href="http://source.android.com">Android Open Source Project</a></li>
-      </ul>
-
-      
-      
-      
-      <br class="clearfix" />
-    </div><!-- end 'mid' -->
-    <div class="bottom"></div>
-  </div><!-- end 'moremenu' -->
-
-  <div class="search" id="search-container">
-    <div class="search-inner">
-      <div id="search-btn"></div>
-      <div class="left"></div>
-      <form onsubmit="return submit_search()">
+        
+  <div class="dac-header-search" id="search-container">
+    <div class="dac-header-search-inner">
+      <div class="dac-sprite dac-search dac-header-search-btn" id="search-btn"></div>
+      <form class="dac-header-search-form" onsubmit="return submit_search()">
         <input id="search_autocomplete" type="text" value="" autocomplete="off" name="q"
           onfocus="search_focus_changed(this, true)" onblur="search_focus_changed(this, false)"
           onkeydown="return search_changed(event, true, '../../')"
-          onkeyup="return search_changed(event, false, '../../')" />
+          onkeyup="return search_changed(event, false, '../../')"
+          class="dac-header-search-input" placeholder="Search" />
+          <a class="dac-header-search-close hide" id="search-close">close</a>
       </form>
-      <div class="right"></div>
-      <a class="close hide">close</a>
-      <div class="left"></div>
-      <div class="right"></div>
-    </div><!-- end search-inner -->
-  </div><!-- end search-container -->
+    </div><!-- end dac-header-search-inner -->
+  </div><!-- end dac-header-search -->
 
-  <div class="search_filtered_wrapper reference">
+  <div class="search_filtered_wrapper">
     <div class="suggest-card reference no-display">
       <ul class="search_filtered">
       </ul>
     </div>
-  </div>
-
-  <div class="search_filtered_wrapper docs">
-    <div class="suggest-card dummy no-display">&nbsp;</div>
     <div class="suggest-card develop no-display">
       <ul class="search_filtered">
       </ul>
@@ -310,139 +258,17 @@ develop" itemscope itemtype="http://schema.org/Article">
       </ul>
     </div>
   </div>
-</div><!-- end menu-container (search and menu widget) -->
-
-
-
-        <!-- Expanded quicknav -->
-        <div id="quicknav" class="col-13">
-          <ul>
-            <li class="about">
-              <ul>
-                <li><a href="../../about/index.html">About</a></li>
-                <li><a href="../../wear/index.html">Wear</a></li>
-                <li><a href="../../tv/index.html">TV</a></li>
-                <li><a href="../../auto/index.html">Auto</a></li>
-              </ul>
-            </li>
-            <li class="design">
-              <ul>
-                <li><a href="../../design/index.html">Get Started</a></li>
-                <li><a href="../../design/devices.html">Devices</a></li>
-                <li><a href="../../design/style/index.html">Style</a></li>
-                <li><a href="../../design/patterns/index.html">Patterns</a></li>
-                <li><a href="../../design/building-blocks/index.html">Building Blocks</a></li>
-                <li><a href="../../design/downloads/index.html">Downloads</a></li>
-                <li><a href="../../design/videos/index.html">Videos</a></li>
-              </ul>
-            </li>
-            <li class="develop">
-              <ul>
-                <li><a href="../../training/index.html"
-                  zh-tw-lang="訓練課程"
-                  zh-cn-lang="培训"
-                  ru-lang="Курсы"
-                  ko-lang="교육"
-                  ja-lang="トレーニング"
-                  es-lang="Capacitación"
-                  >Training</a></li>
-                <li><a href="../../guide/index.html"
-                  zh-tw-lang="API 指南"
-                  zh-cn-lang="API 指南"
-                  ru-lang="Руководства по API"
-                  ko-lang="API 가이드"
-                  ja-lang="API ガイド"
-                  es-lang="Guías de la API"
-                  >API Guides</a></li>
-                <li><a href="../../reference/packages.html"
-                  zh-tw-lang="參考資源"
-                  zh-cn-lang="参考"
-                  ru-lang="Справочник"
-                  ko-lang="참조문서"
-                  ja-lang="リファレンス"
-                  es-lang="Referencia"
-                  >Reference</a></li>
-                <li><a href="../../sdk/index.html"
-                  zh-tw-lang="相關工具"
-                  zh-cn-lang="工具"
-                  ru-lang="Инструменты"
-                  ko-lang="도구"
-                  ja-lang="ツール"
-                  es-lang="Herramientas"
-                  >Tools</a>
-                </li>
-                <li><a href="../../google/index.html">Google Services</a>
-                </li>
-                
-              </ul>
-            </li>
-            <li class="distribute last">
-              <ul>
-                <li><a href="../../distribute/googleplay/index.html">Google Play</a></li>
-                <li><a href="../../distribute/essentials/index.html">Essentials</a></li>
-                <li><a href="../../distribute/users/index.html">Get Users</a></li>
-                <li><a href="../../distribute/engage/index.html">Engage &amp; Retain</a></li>
-                <li><a href="../../distribute/monetize/index.html">Monetize</a></li>
-                <li><a href="../../distribute/analyze/index.html">Analyze</a></li>
-                <li><a href="../../distribute/tools/index.html">Tools &amp; Reference</a></li>
-                <li><a href="../../distribute/stories/index.html">Developer Stories</a></li>
-              </ul>
-            </li>
-          </ul>
-        </div><!-- /Expanded quicknav -->
-      </div><!-- end header-wrap.wrap -->
-    </div><!-- end header -->
-
-  
-    <!-- Secondary x-nav -->
-    <div id="nav-x">
-        <div class="wrap" style="position:relative;z-index:1">
 
         
 
-            <ul class="nav-x col-9 develop" style="width:100%">
-                <li class="training"><a href="../../training/index.html"
-                  zh-tw-lang="訓練課程"
-                  zh-cn-lang="培训"
-                  ru-lang="Курсы"
-                  ko-lang="교육"
-                  ja-lang="トレーニング"
-                  es-lang="Capacitación"
-                  >Training</a></li>
-                <li class="guide"><a href="../../guide/index.html"
-                  zh-tw-lang="API 指南"
-                  zh-cn-lang="API 指南"
-                  ru-lang="Руководства по API"
-                  ko-lang="API 가이드"
-                  ja-lang="API ガイド"
-                  es-lang="Guías de la API"
-                  >API Guides</a></li>
-                <li class="reference"><a href="../../reference/packages.html"
-                  zh-tw-lang="參考資源"
-                  zh-cn-lang="参考"
-                  ru-lang="Справочник"
-                  ko-lang="참조문서"
-                  ja-lang="リファレンス"
-                  es-lang="Referencia"
-                  >Reference</a></li>
-                <li class="tools"><a href="../../sdk/index.html"
-                  zh-tw-lang="相關工具"
-                  zh-cn-lang="工具"
-                  ru-lang="Инструменты"
-                  ko-lang="도구"
-                  ja-lang="ツール"
-                  es-lang="Herramientas"
-                  >Tools</a></li>
-                <li class="google"><a href="../../google/index.html"
-                  >Google Services</a>
-                </li>
-                
-            </ul>
-        </div>
-    </div>
-    <!-- /Sendondary x-nav DEVELOP -->
+        <a class="dac-header-console-btn" href="https://play.google.com/apps/publish/">
+          <span class="dac-sprite dac-google-play"></span>
+          <span class="dac-visible-desktop-inline">Developer</span>
+          Console
+        </a>
 
-  
+      </div><!-- end header-wrap.wrap -->
+    </div><!-- end header -->
 
     <div id="searchResults" class="wrap" style="display:none;">
       <h2 id="searchTitle">Results</h2>
@@ -450,23 +276,144 @@ develop" itemscope itemtype="http://schema.org/Article">
     </div>
   </div> <!--end header-wrapper -->
 
-  <div id="sticky-header">
-    <div>
-      <a class="logo" href="#top"></a>
-      <a class="top" href="#top"></a>
-      <ul class="breadcrumb">
-        
-        <li class="current">Analyzing Display and Performance</li>
-      </ul>
-    </div>
+  
+  <!-- Navigation-->
+  <nav class="dac-nav">
+    <div class="dac-nav-dimmer" data-dac-toggle-nav></div>
+
+    <ul class="dac-nav-list" data-dac-nav>
+      <li class="dac-nav-item dac-nav-head">
+        <a class="dac-nav-link dac-nav-logo" data-dac-toggle-nav href="javascript:;" title="Close navigation">
+          <img class="dac-logo-image" src="../../assets/images/android_logo.png"
+               srcset="../../assets/images/android_logo@2x.png 2x"
+               width="32" height="36" alt="Android" /> Developers
+        </a>
+      </li>
+      <li class="dac-nav-item home">
+        <a class="dac-nav-link dac-visible-mobile-block" href="../../index.html">Home</a>
+        <ul class="dac-nav-secondary about">
+          <li class="dac-nav-item about">
+            <a class="dac-nav-link" href="../../about/index.html">Android</a>
+          </li>
+          <li class="dac-nav-item wear">
+            <a class="dac-nav-link" href="../../wear/index.html">Wear</a>
+          </li>
+          <li class="dac-nav-item tv">
+            <a class="dac-nav-link" href="../../tv/index.html">TV</a>
+          </li>
+          <li class="dac-nav-item auto">
+            <a class="dac-nav-link" href="../../auto/index.html">Auto</a>
+          </li>
+        </ul>
+      </li>
+      <li class="dac-nav-item design">
+        <a class="dac-nav-link" href="../../design/index.html"
+           zh-tw-lang="設計"
+           zh-cn-lang="设计"
+           ru-lang="Проектирование"
+           ko-lang="디자인"
+           ja-lang="設計"
+           es-lang="Diseñar">Design</a>
+      </li>
+      <li class="dac-nav-item develop">
+        <a class="dac-nav-link" href="../../develop/index.html"
+           zh-tw-lang="開發"
+           zh-cn-lang="开发"
+           ru-lang="Разработка"
+           ko-lang="개발"
+           ja-lang="開発"
+           es-lang="Desarrollar">Develop</a>
+        <ul class="dac-nav-secondary develop">
+          <li class="dac-nav-item training">
+            <a class="dac-nav-link" href="../../training/index.html"
+               zh-tw-lang="訓練課程"
+               zh-cn-lang="培训"
+               ru-lang="Курсы"
+               ko-lang="교육"
+               ja-lang="トレーニング"
+               es-lang="Capacitación">Training</a>
+          </li>
+          <li class="dac-nav-item guide">
+            <a class="dac-nav-link" href="../../guide/index.html"
+               zh-tw-lang="API 指南"
+               zh-cn-lang="API 指南"
+               ru-lang="Руководства по API"
+               ko-lang="API 가이드"
+               ja-lang="API ガイド"
+               es-lang="Guías de la API">API Guides</a>
+          </li>
+          <li class="dac-nav-item reference">
+            <a class="dac-nav-link" href="../../reference/packages.html"
+               zh-tw-lang="參考資源"
+               zh-cn-lang="参考"
+               ru-lang="Справочник"
+               ko-lang="참조문서"
+               ja-lang="リファレンス"
+               es-lang="Referencia">Reference</a>
+          </li>
+          <li class="dac-nav-item tools">
+            <a class="dac-nav-link" href="../../sdk/index.html"
+               zh-tw-lang="相關工具"
+               zh-cn-lang="工具"
+               ru-lang="Инструменты"
+               ko-lang="도구"
+               ja-lang="ツール"
+               es-lang="Herramientas">Tools</a></li>
+          <li class="dac-nav-item google">
+            <a class="dac-nav-link" href="../../google/index.html">Google Services</a>
+          </li>
+          
+          <li class="dac-nav-item preview">
+            <a class="dac-nav-link" href="../../preview/index.html">Preview</a>
+          </li>
+        </ul>
+      </li>
+      <li class="dac-nav-item distribute">
+        <a class="dac-nav-link" href="../../distribute/googleplay/index.html"
+           zh-tw-lang="發佈"
+           zh-cn-lang="分发"
+           ru-lang="Распространение"
+           ko-lang="배포"
+           ja-lang="配布"
+           es-lang="Distribuir">Distribute</a>
+        <ul class="dac-nav-secondary distribute">
+          <li class="dac-nav-item googleplay">
+            <a class="dac-nav-link" href="../../distribute/googleplay/index.html">Google Play</a></li>
+          <li class="dac-nav-item essentials">
+            <a class="dac-nav-link" href="../../distribute/essentials/index.html">Essentials</a></li>
+          <li class="dac-nav-item users">
+            <a class="dac-nav-link" href="../../distribute/users/index.html">Get Users</a></li>
+          <li class="dac-nav-item engage">
+            <a class="dac-nav-link" href="../../distribute/engage/index.html">Engage &amp; Retain</a></li>
+          <li class="dac-nav-item monetize">
+            <a class="dac-nav-link" href="../../distribute/monetize/index.html">Earn</a>
+          </li>
+          <li class="dac-nav-item analyze">
+            <a class="dac-nav-link" href="../../distribute/analyze/index.html">Analyze</a>
+          </li>
+          <li class="dac-nav-item stories">
+            <a class="dac-nav-link" href="../../distribute/stories/index.html">Stories</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+  <!-- end navigation-->
+  
+
+
+
+
+  <div class="wrap clearfix" id="body-content"><div class="cols">
+    <div class="col-3 dac-toggle dac-mobile" id="side-nav" itemscope itemtype="http://schema.org/SiteNavigationElement">
+      
+  <div class="dac-visible-mobile-block" data-toggle="section">
+    <span class="dac-toggle-expand dac-devdoc-toggle"><i class="dac-sprite dac-expand-more-black"></i> Show navigation</span>
+    <span class="dac-toggle-collapse dac-devdoc-toggle" data-toggle-section><i class="dac-sprite dac-expand-less-black"></i> Hide navigation</span>
   </div>
 
-
-
-
-  <div class="wrap clearfix" id="body-content">
-    <div class="col-3" id="side-nav" itemscope itemtype="http://schema.org/SiteNavigationElement">
-      <div id="devdoc-nav" class="scroll-pane">
+      <div class="dac-toggle-content" id="devdoc-nav">
+        <div class="scroll-pane">
 <ul id="nav">
 
   <li class="nav-section">
@@ -488,6 +435,10 @@ develop" itemscope itemtype="http://schema.org/Article">
       <a href="../../tools/studio/index.html">Android Studio</a>
     </div>
     <ul>
+      <li><a href="../../tools/studio/studio-config.html">
+          Configuration</a></li>
+      <li><a href="../../tools/studio/studio-features.html">
+          Features</a></li>
       <li><a href="../../sdk/installing/studio-tips.html">
           Tips and Tricks</a></li>
     </ul>
@@ -597,7 +548,8 @@ develop" itemscope itemtype="http://schema.org/Article">
       <li><a href="../../tools/debugging/improving-w-lint.html"><span class="en">Improving Your Code with lint</span></a></li>
       <li><a href="../../tools/debugging/debugging-ui.html"><span class="en">Optimizing your UI</span></a></li>
       <li><a href="../../tools/debugging/debugging-tracing.html"><span class="en">Profiling with Traceview and dmtracedump</span></a></li>
-      <li><a href="../../tools/debugging/systrace.html"><span class="en">Analyzing Display and Performance</span></a></li>
+      <li><a href="../../tools/debugging/annotations.html"><span class="en">Improving Code Inspection with Annotations</span></a></li>
+      <li><a href="../../tools/debugging/systrace.html"><span class="en">Analyzing UI Performance</span></a></li>
       <li><a href="../../tools/debugging/debugging-memory.html">Investigating Your RAM Usage</a></li>
       <li><a href="../../tools/debugging/debugging-devtools.html"><span class="en">Using the Dev Tools App</span></a></li>
     </ul>
@@ -633,38 +585,11 @@ class="en">Tools Help</span></a></div>
       <li><a href="../../tools/help/lint.html">lint</span></a></li>
       <li><a href="../../tools/help/logcat.html">logcat</a></li>
       <li><a href="../../tools/help/mksdcard.html">mksdcard</a></li>
-      <li><a href="../../tools/help/monkey.html">monkey</a></li>
-      <li class="nav-section">
-        <div class="nav-section-header"><a href="../../tools/help/monkeyrunner_concepts.html"><span class="en">monkeyrunner</span></a></div>
-        <ul>
-          <li><a href="../../tools/help/MonkeyDevice.html"><span
-class="en">MonkeyDevice</span></a></li>
-          <li><a href="../../tools/help/MonkeyImage.html"><span
-class="en">MonkeyImage</span></a></li>
-          <li><a href="../../tools/help/MonkeyRunner.html"><span
-class="en">MonkeyRunner</span></a></li>
-        </ul>
-      </li>
        <li><a href="../../tools/help/proguard.html" zh-cn-lang="ProGuard">ProGuard</a></li>
        <li><a href="../../tools/help/sdk-manager.html">SDK Manager</a></li>
        <li><a href="../../tools/help/systrace.html">Systrace</a></li>
        <li><a href="../../tools/help/gltracer.html">Tracer for OpenGL ES</a></li>
        <li><a href="../../tools/help/traceview.html">Traceview</a></li>
-       <li class="nav-section">
-          <div class="nav-section-header"><a href="../../tools/help/uiautomator/index.html"><span class="en">uiautomator</span></a></div>
-          <ul>
-             <li><a href="../../tools/help/uiautomator/Configurator.html"><span class="en">Configurator</span></a></li>
-             <li><a href="../../tools/help/uiautomator/IAutomationSupport.html"><span class="en">IAutomationSupport</span></a></li>
-             <li><a href="../../tools/help/uiautomator/UiAutomatorTestCase.html"><span class="en">UiAutomatorTestCase</span></a></li>
-             <li><a href="../../tools/help/uiautomator/UiCollection.html"><span class="en">UiCollection</span></a></li>
-             <li><a href="../../tools/help/uiautomator/UiDevice.html"><span class="en">UiDevice</span></a></li>
-             <li><a href="../../tools/help/uiautomator/UiObject.html"><span class="en">UiObject</span></a></li>
-             <li><a href="../../tools/help/uiautomator/UiObjectNotFoundException.html"><span class="en">UiObjectNotFoundException</span></a></li>
-             <li><a href="../../tools/help/uiautomator/UiScrollable.html"><span class="en">UiScrollable</span></a></li>
-             <li><a href="../../tools/help/uiautomator/UiSelector.html"><span class="en">UiSelector</span></a></li>
-             <li><a href="../../tools/help/uiautomator/UiWatcher.html"><span class="en">UiWatcher</span></a></li>
-          </ul>
-       </li>
        <li><a href="../../tools/help/zipalign.html">zipalign</a></li>
     </ul>
   </li>
@@ -683,10 +608,101 @@ class="en">MonkeyRunner</span></a></li>
         <span class="en">Configuring Gradle Builds</span></a></li>
       <li><a href="../../tools/building/plugin-for-gradle.html">
         <span class="en">Android Plugin for Gradle</span></a></li>
+      <li><a href="../../tools/building/manifest-merge.html">
+        <span class="en">Manifest Merging</span></a></li>
       <li><a href="../../tools/building/multidex.html">
         <span class="en">Apps Over 65K Methods</span></a></li>
       </ul>
   </li><!-- end of build system -->
+
+
+<!-- Performance Tools menu-->
+  <li class="nav-section">
+    <div class="nav-section-header">
+      <a href="../../tools/performance/index.html">Peformance Tools</a>
+    </div>
+    <ul>
+      <li><a href="../../tools/performance/debug-gpu-overdraw/index.html">
+        Overdraw Debugger</a>
+      </li>
+      <li><a href="../../tools/performance/profile-gpu-rendering/index.html">
+        Rendering Profiler</a>
+      </li>
+      <li class="nav-section">
+        <div class="nav-section-header">
+          <a href="../../tools/performance/hierarchy-viewer/index.html">
+          Hierarchy Viewer</a></div>
+        <ul>
+          <li><a href="../../tools/performance/hierarchy-viewer/setup.html"><span
+            class="en">Setup</span></a>
+          </li>
+          <li><a href="../../tools/performance/hierarchy-viewer/profiling.html"><span
+            class="en">Profiling</span></a>
+          </li>
+        </ul>
+      </li>
+      <li class="nav-section">
+        <div class="nav-section-header">
+          <a href="../../tools/performance/comparison.html">
+          Memory Profilers</a></div>
+        <ul>
+          <li><a href="../../tools/performance/memory-monitor/index.html"><span
+            class="en">Memory Monitor</span></a>
+          </li>
+          <li><a href="../../tools/performance/heap-viewer/index.html"><span
+            class="en">Heap Viewer</span></a>
+          </li>
+          <li><a href="../../tools/performance/allocation-tracker/index.html"><span
+            class="en">Allocation Tracker</span></a>
+          </li>
+        </ul>
+      </li>
+      <li><a href="../../tools/performance/traceview/index.html">
+        Traceview</a>
+      </li>
+      <li><a href="../../tools/performance/systrace/index.html">
+        Systrace</a>
+      </li>
+      <li class="nav-section">
+        <div class="nav-section-header">
+          <a href="../../tools/performance/batterystats-battery-historian/index.html">
+          Battery Profilers</a></div>
+        <ul>
+          <li><a href="../../tools/performance/batterystats-battery-historian/charts.html"><span
+            class="en">Historian Charts</span></a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li><!-- End Performance Tools menu-->
+
+
+  <!-- Testing Tools menu-->
+
+  <li class="nav-section">
+    <div class="nav-section-header"><a href="../../tools/testing/testing-tools.html"><span class="en">Testing Tools</span></a></div>
+    <ul>
+      <li class="nav-section">
+         <div class="nav-section-header"><a href="../../tools/testing-support-library/index.html"><span
+class="en">Testing Support Library</span></a></div>
+         <ul>
+            <li><a href="../../reference/android/support/test/package-summary.html">API Reference</a></li>
+         </ul>
+      </li>
+      <li><a href="../../tools/help/monkey.html">monkey</a></li>
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../tools/help/monkeyrunner_concepts.html"><span class="en">monkeyrunner</span></a></div>
+        <ul>
+          <li><a href="../../tools/help/MonkeyDevice.html"><span
+class="en">MonkeyDevice</span></a></li>
+          <li><a href="../../tools/help/MonkeyImage.html"><span
+class="en">MonkeyImage</span></a></li>
+          <li><a href="../../tools/help/MonkeyRunner.html"><span
+class="en">MonkeyRunner</span></a></li>
+        </ul>
+      </li>
+    </ul>
+  </li><!-- end of testing support library -->
 
 
 <!-- Support Library menu-->
@@ -698,6 +714,11 @@ class="en">Support Library</span></a></div>
       <li><a href="../../tools/support-library/features.html">Features</a></li>
       <li><a href="../../tools/support-library/setup.html">Setup</a></li>
     </ul>
+  </li><!-- end of support library -->
+
+  <li class="nav-section">
+    <div class="nav-section-header empty"><a href="../../tools/data-binding/guide.html"><span
+class="en">Data Binding Library</span></a></div>
   </li><!-- end of support library -->
 
 
@@ -715,6 +736,9 @@ class="en">Support Library</span></a></div>
       <li><a href="../../tools/revisions/build-tools.html">
         <span class="en">SDK Build Tools</span>
       </a></li>
+      <li><a href="../../tools/revisions/gradle-plugin.html">
+        <span class="en">Android Plugin for Gradle</span>
+      </a></li>
       <li><a href="../../tools/revisions/platforms.html">
         <span class="en">SDK Platforms</span></a></li>
       <li><a href="../../tools/sdk/eclipse-adt.html">
@@ -728,7 +752,7 @@ class="en">Support Library</span></a></div>
     </div>
   </li>
 
-  <li class="nav-section">
+<!--  <li class="nav-section">
     <div class="nav-section-header">
     <a href="../../tools/adk/index.html">
       <span class="en">ADK</span></a>
@@ -737,7 +761,7 @@ class="en">Support Library</span></a></div>
       <li><a href="../../tools/adk/adk2.html">ADK 2012 Guide</a></li>
       <li><a href="../../tools/adk/adk.html">ADK 2011 Guide</a></li>
     </ul>
-  </li>
+  </li> -->
 
 
 <!-- Eclipse ADT menu-->
@@ -748,7 +772,15 @@ class="en">Support Library</span></a></div>
       <span class="en">Eclipse with ADT</span></a>
     </div>
     <ul>
-    <li><a href="../../sdk/installing/migrate.html">Migrating to Android Studio</a></li>
+        <li class="nav-section">
+        <div class="nav-section-header"><a href="../../sdk/installing/migrate.html">
+          <span class="en">Migrating to Android Studio</span></a></div>
+         <ul>
+            <li><a href="../../tools/studio/eclipse-transition-guide.html">
+            Transition Guide</span></a> </li>
+         </ul>
+        </li>
+
     <li><a href="../../sdk/installing/installing-adt.html">
         <span class="en">Installing the Eclipse Plugin</span></a></li>
     <li><a href="../../tools/projects/projects-eclipse.html">Managing Projects</a></li>
@@ -770,8 +802,7 @@ class="en">Support Library</span></a></div>
 //-->
 </script>
 
-        
-        
+        </div>
       </div>
     </div> <!-- end side-nav -->
     <script>
@@ -791,7 +822,7 @@ class="en">Support Library</span></a></div>
   
     
       
-        <h1 itemprop="name" >Analyzing Display and Performance</h1>
+        <h1 itemprop="name" >Analyzing UI Performance with Systrace</h1>
       
     
   
@@ -806,22 +837,15 @@ class="en">Support Library</span></a></div>
   <div id="qv">
     <h2>In this document</h2>
     <ol>
-      <li><a href="#overview">Overview</a>
-      </li>
-      <li><a href="#generate">Generating Traces</a>
+      <li><a href="#overview">Overview</a></li>
+      <li><a href="#generate">Generating a Trace</a></li>
+      <li><a href="#analysis">Analyzing a Trace</a>
         <ol>
-          <li><a href="#limit-trace">Limiting trace data</a></li>
-          <li><a href="#running-4.3">Tracing on Android 4.3 and higher</a>
-          <li><a href="#running-4.2">Tracing on Android 4.2 and lower</a></li>
+          <li><a href="#frames">Inspecting Frames</a></li>
+          <li><a href="#alerts">Investigating Alerts</a></li>
         </ol>
       </li>
       <li><a href="#app-trace">Tracing Application Code</a></li>
-      <li><a href="#analysis">Analyzing Traces</a>
-        <ol>
-          <li><a href="#long-processes">Long running processes</a></li>
-          <li><a href="#display-interupts">Interruptions in display execution</a></li>
-        </ol>
-      </li>
     </ol>
     <h2>See also</h2>
     <ol>
@@ -830,72 +854,55 @@ class="en">Support Library</span></a></div>
   </div>
 </div>
 
-<p>After building features, eliminating bugs, and cleaning up your code, you should spend some
-  time looking at the performance of your application. The speed and smoothness with which your
-  application draws pixels and performs operations has an significant impact on your users'
-  experience.</p>
+<p>While developing your application, you should check that user interactions are buttery smooth,
+running at a consistent 60 frames per second. If something goes wrong, and a frame gets dropped, the
+first step in fixing the problem is understanding what the system is doing.</p>
 
-<p>Android applications operate within a shared resource environment, and the performance of
-  your application can be impacted by how efficiently it interacts with those resources in
-  the larger system. Applications also operate in a multithreaded environment, competing with other
-  threaded processes for resources, which can cause performance problems that are hard to diagnose.
-</p>
-
-<p>The Systrace tool allows you to collect and review code execution data for your
-  application and the Android system. You can use this data to diagnose execution problems and
-  improve the performance of your application.</p>
-
+<p>The Systrace tool allows you to collect and inspect timing information across an entire Android
+device, which is called a <em>trace</em>. It shows where time and CPU cycles are being spent,
+displaying what each thread and process is doing at any given time. It also inpects the captured
+tracing information to highlight problems that it observes, from list item recycling to rendering
+content, and provide recommendations about how to fix them. This document explains how to navigate
+the trace files produced by the tool, and use them to analyze the performance of an application's
+user interface (UI).</p>
 
 <h2 id="overview">Overview</h2>
 
-<p>Systrace helps you analyze how the execution of your application fits into the larger
-  Android environment, letting you see system and applications process execution on a common
-  timeline. The tool allows you to generate highly detailed, interactive reports from devices
-  running Android 4.1 and higher, such as the report in figure 1.</p>
+<p>Systrace helps you analyze how the execution of your application fits into the many running
+systems on an Android device. It puts together system and application thread execution on a common
+timeline. In order to analyze your app with Systrace, you first collect a trace log of your app, and
+the system activity. The generated trace allows you to view highly detailed, interactive reports
+showing everything happening the system for the traced duration.</p>
 
-<img src="../../images/systrace/report.png" alt="Systrace example report" id="figure1" />
+<img src="../../images/systrace/overview.png" alt="Systrace example overview" id="figure1" />
 <p class="img-caption">
-  <strong>Figure 1.</strong> An example Systrace report on 5 seconds of process execution
-  for a running application and related Android system processes.
+  <strong>Figure 1.</strong> An example Systrace, showing 5 seconds of scrolling an app when it
+  is not performing well.
 </p>
 
+<p>Figure 1. shows a trace captured while scrolling an app that is not rendering smoothly. By
+default, a zoomed out view of the traced duration is shown. The horizontal axis is time, and trace
+events are grouped by process, and then by thread on the vertical axis.</p>
 
-<h2 id="generate">Generating Traces</h2>
+<p>The groupings are in the order Kernel, SurfaceFlinger (the android compositor process), followed
+by apps, each labeled by package name. Each app process contains all of the tracing signals from
+each thread it contains, including a hierarchy of high level tracing events based on the enabled
+tracing categories.</p>
+
+
+<h2 id="generate">Generating a Trace</h2>
 
 <p>In order to create a trace of your application, you must perform a few setup steps. First, you
-  must have a device running Android 4.1 or higher. Set up the device for
-  <a href="../../tools/device.html#setting-up">debugging</a>, connect it to your development
-  system, and install your application. Some types of trace information, specifically disk activity
-  and kernel work queues, require that you have root access to the device. However, most Systrace
-  log data only requires that the device be enabled for developer debugging.</p>
+must have a device running Android 4.1 (API 16) or higher. Set up the device
+for <a href="../../tools/device.html#setting-up">debugging</a>, connect it to your development
+system, and install your application. Some types of trace information, specifically disk activity
+and kernel work queues, require that you have root access to the device. However, most Systrace log
+data only requires that the device be enabled for developer debugging.</p>
 
-<p>Systrace traces can be run either from a
-  <a href="../../tools/help/systrace.html#options">command line</a> or from a
-  <a href="../../tools/help/systrace.html#gui">graphical user interface</a>. This guide
-  focuses on using the command line options.</p>
-
-
-<h3 id="limit-trace">Limiting trace data</h3>
-
-<p>The Systrace tool can generate a potentially huge amount of data from applications
-  and system sources. To limit the amount of data the tool collects and make the data more relevant
-  to your analysis, use the following options:</p>
-
-<ul>
-  <li>Limit the amount of time covered by the trace with the <code>-t, --time</code> option. The default
-    length of a trace is 5 seconds.</li>
-  <li>Limit the size of the data collected by the trace with the <code>-b, --buf-size</code> option.</li>
-  <li>Specify what types of processes are traced. The types of processes that can be traced depends
-    on the version of Android you are running:
-    <ul>
-      <li>Android 4.2 and lower devices: Use the <code>--set-tags</code> option and the <code>--disk</code>,
-        <code>--cpu-freq</code>, <code>--cpu-idle</code>, <code>--cpu-load</code> options.</li>
-      <li>Android 4.3 and higher devices: Use the <code>--list-categories</code> option to see what
-        categories are available on your test device.</li>
-    </ul>
-   </li>
-</ul>
-
+<p>Systrace traces can be run either from
+a <a href="../../tools/help/systrace.html#options">command line</a> or from a
+<a href="../../tools/help/systrace.html#gui">graphical user interface</a>. This guide focuses on
+using the command line options.</p>
 
 <h3 id="running-4.3">Tracing on Android 4.3 and higher</h3>
 
@@ -914,7 +921,7 @@ $ python systrace.py --time=10 -o mynewtrace.html sched gfx view wm
 </ol>
 
 <p>For more information on the available options for running Systrace, see the
-<a href="../../tools/help/systrace.html#options-4.3">Systrace</a> help page.</p>
+<a href="#options-4.3">Systrace</a> help page.</p>
 
 
 <h3 id="running-4.2">Tracing on Android 4.2 and lower</h3>
@@ -925,9 +932,9 @@ $ python systrace.py --time=10 -o mynewtrace.html sched gfx view wm
 
 <ul>
   <li>General system processes such as graphics, audio and input processes (selected using trace
-    <a href="../../tools/help/systrace.html#tags">category tags</a>).</li>
+    <a href="#tags">category tags</a>).</li>
   <li>Low level system information such as CPU, kernel and disk activity (selected using
-    <a href="../../tools/help/systrace.html#options">options</a>).</li>
+    <a href="#options">options</a>).</li>
 </ul>
 
 <p>To set trace tags for Systrace using the command-line:</p>
@@ -976,14 +983,85 @@ $ python systrace.py --cpu-freq --cpu-load --time=10 -o mytracefile.html
 </ol>
 
 <p>For more information on the available options for running Systrace, see the
-<a href="../../tools/help/systrace.html#options-pre-4.3">Systrace</a> help page.</p>
+<a href="#options-pre-4.3">Systrace</a> help page.</p>
+
+
+<h2 id="analysis">Analyzing a Trace</h2>
+
+<p>After you have generated a trace, open the output html file using a web browser. This section
+explains how to analyze and interpret the information that the tool produces to find and fix UI
+performance problems.</p>
+
+<h3 id="frames">Inspecting Frames</h3>
+
+<p>Each app that is rendering frames shows a row of frame circles, which are typically colored
+green. Circles that are colored yellow or red, exceeding the 16.6 millisecond run time limit
+required to maintain a stable 60 frames per second. Zoom in using the 'w' key to see the frames of
+your application, and look for long-running frames getting in the way of smoothness.</p>
+
+<p class="note">
+  <strong>Note:</strong> Hit the '?' key, or the button in the top right for help navigating the
+  trace.
+</p>
+
+<img src="../../images/systrace/frame-unselected.png" alt="Zoomed in view of a frame" id="figure2" />
+<p class="img-caption">
+  <strong>Figure 2.</strong> Systrace display after zooming in on a long-running frame.
+</p>
+
+<p>Clicking on one such frame highlights it, focusing only on the work done by the system for that
+frame. On devices running Android 5.0 (API level 21) or higher, this work is split between the UI
+Thread and RenderThread. On prior versions, all work in creating a frame is done on the UI
+Thread.</p>
+
+<p>Click on individual components of the frame to see how long they took to run. Some events, such
+as <em>performTraversals</em>, describe what the system is doing in that method when you select
+it. Selecting a frame displays any alerts present in that frame.</p>
+
+<h3 id="alerts">Investigating Alerts</h3>
+
+<p>Systrace does automatic analysis of the events in the trace, and highlights many performance
+problems as alerts, suggesting what to do next.</p>
+
+<img src="../../images/systrace/frame-selected.png" alt="Problematic frame selected" id="figure3" />
+<p class="img-caption">
+  <strong>Figure 3.</strong> Selecting the problematic frame, an alert is shown identifying a problem.
+</p>
+
+<p>After you select a slow frame such as the one shown in Figure 3, an alert may be displayed. In
+the case above, it calls out that the primary problem with the frame is too much work being done
+inside <code><a href="../../reference/android/widget/ListView.html">ListView</a></code> recycling and rebinding.  There are links to the relevant
+events in the trace, which can be followed to explain more about what the system is doing during
+this time.</p>
+
+<p>If you see too much work being done on the UI thread, as in this case with this
+<code><a href="../../reference/android/widget/ListView.html">ListView</a></code> work, you can
+use <a href="../../tools/debugging/debugging-tracing.html">Traceview</a>, the app code profiling
+tool, to investigate exactly what is taking so much time.</p>
+
+<p>Note that you can also find about every alert in the trace by clicking the <em>Alerts</em> tab to
+the far right of the window. Doing so expands the Alerts panel, where you can see every alert that
+the tool discovered in your trace, along with an occurrence count.</p>
+
+<img src="../../images/systrace/frame-selected-alert-tab.png" alt="Alert tab shown" id="figure4" />
+<p class="img-caption">
+  <strong>Figure 4.</strong> Clicking the Alert button to the right reveals the alert tab.
+</p>
+
+<p>The Alerts panel helps you see which problems occur in the trace, and how often they contribute
+to jank. Think of the alerts panel as a list of bugs to be fixed, often a tiny change or improvement
+in one area can eliminate an entire class of alerts from your application!</p>
 
 
 <h2 id="app-trace">Tracing Application Code</h2>
 
-<p>The Systrace tool can trace the execution of code within your application. In Android
-4.3 (API level 18) and higher, you can use the methods of the <code><a href="../../reference/android/os/Trace.html">Trace</a></code> class to
-add instrumentation to your application code and see the results in a Systrace report.</p>
+<p>The tracing signals defined by the framework do not have visibility into everything your
+application is doing, so you may want to add your own. In Android 4.3 (API level 18) and higher, you
+can use the methods of the <code><a href="../../reference/android/os/Trace.html">Trace</a></code> class to add signals to your code. This
+technique can help you see what work your application's threads are doing at any given time. Tracing
+begin and end events do add overhead while a trace is being captured, a few microseconds each, but
+sprinkling in a few per frame, or per worker thread task can go a long way to adding context to a
+trace of your app.</p>
 
 <p>The following code example shows how to use the <code><a href="../../reference/android/os/Trace.html">Trace</a></code> class to track
 execution of an application method, including two nested code blocks within that method.</p>
@@ -1010,6 +1088,8 @@ public void ProcessPeople() {
     }
 }
 </pre>
+
+<!-- todo: move these two Notes to the android.os.Trace class -->
 <p class="note">
   <strong>Note:</strong> When you nest trace calls within each other, the
   <code><a href="../../reference/android/os/Trace.html#endSection()">endSection()</a></code> method ends the most recently called
@@ -1027,145 +1107,194 @@ public void ProcessPeople() {
 <p>When using application-level tracing with Systrace, you must specify the package name of your
 application in the user interface or specify the <code>-a</code> or <code>--app=</code> options on the
 command line. For more information, see the
-<a href="../../tools/help/systrace.html">Systrace</a> help page.</p>
+<a href="../../tools/help/systrace.html">Systrace usage guide</a>.</p>
 
-<!-- todo: add ndk coverage -->
-
-
-<h2 id="analysis">Analyzing Traces</h2>
-
-<p>After you have generated a trace using Systrace, it lists the location of the output
-  file and you can open the report using a web browser.
-  How you use the trace data depends on the performance issues you are investigating. However,
-  this section provides some general instructions on how to analyze a trace.</p>
-
-<p>The reports generated by Systrace are interactive, allowing you to zoom into and out of
-  the process execution details. Use the <em>W</em> key to zoom in, the <em>S</em>
-  key to zoom out, the <em>A</em> key to pan left and the <em>D</em> key to pan
-  right. Select a task in timeline using your mouse to get more information about the task.
-  For more information about the using the keyboard navigation shortcuts and navigation, see the
-  <a href="../../tools/help/systrace.html#viewing-options">Systrace</a> reference
-  documentation.</p>
-
-<h3 id="long-processes">Long running processes</h3>
-
-<p>A well-behaved application executes many small operations quickly and with a regular rhythm,
-  with individual operations completing within few milliseconds, depending on the device
-  and the processes being performed, as shown in figure 2:</p>
-
-<img src="../../images/systrace/process-rhythm.png" alt="Systrace exerpt of app processing"
-id="figure2" />
-<p class="img-caption">
-  <strong>Figure 2.</strong> Excerpt from a trace of a smoothly running application with a regular
-  execution rhythm.
-</p>
-
-<p>The trace excerpt in figure 2 shows a well-behaved application with
-  a regular process rhythm (1). The lower section of figure 2 shows a magnified section of
-  the trace indicated by the dotted outline, which reveals some irregularity in the process
-  execution. In particular, one of the wider task bars, indicated by (2), is taking slightly
-  longer (14 milliseconds) than other, similar tasks on this thread, which are averaging between
-  9 and 12 milliseconds to complete. This particular task execution length is likely not noticeable
-  to a user, unless it impacts another process with specific timing, such as a screen update.</p>
-
-<p>Long running processes show up as thicker than usual execution bars in a trace. These thicker
-  bars can indicate a problem in your application performance. When they show up in your
-  trace, zoom in on the process using the
-  <a href="../../tools/help/systrace.html#viewing-options">keyboard navigation</a> shortcuts to
-  identify the task causing the problem, and click on the task to get more information. You should
-  also look at other processes running at the same time, looking for a thread in one process that is
-  being blocked by another process.</p>
+<p>You should enable app level tracing when profiling your app, even if you have not added signals
+yourself. Library code can include very useful tracing signals when you enable application-level
+tracing. The <code><a href="../../reference/android/support/v7/widget/RecyclerView.html">RecyclerView</a></code> class is a great example of this,
+providing information about several important stages of work it executes.</p>
 
 
-<h3 id="display-interupts">Interruptions in display execution</h3>
-
-<p>The Systrace tool is particularly useful in analyzing application display slowness,
-  or pauses in animations, because it shows you the execution of your application across multiple
-  system processes. With display execution, drawing screen frames with a regular rhythm is essential
-  for good performance. Having a regular rhythm for display ensures that animations and motion are
-  smooth on screen. If an application drops out of this rhythm, the display can become jerky or slow
-  from the users perspective.</p>
-
-<p>If you are analyzing an application for this type of problem, examine the
-  <strong>SurfaceFlinger</strong> process in the Systrace report where your application is
-  also executing to look for places where it drops out of its regular rhythm.</p>
-
-<img src="../../images/systrace/display-rhythm.png" alt="Systrace exerpt of display processing"
-id="figure3" />
-<p class="img-caption">
-  <strong>Figure 3.</strong> Excerpt from a trace of an application showing interruptions in
-  display processing.
-</p>
-
-<p>The trace excerpt in figure 3 shows an section of a trace that indicates an interruption in the
-  device display. The section of the <strong>SurfaceFlinger</strong> process in top excerpt,
-  indicated by (1), shows that display frames are being missed. These
-  dropped frames are potentially causing the display to stutter or halt. Zooming into this problem
-  area in the lower trace, shows that a memory operation (image buffer dequeuing and allocation) in
-  the <strong>surfaceflinger</strong> secondary thread is taking a long time (2). This delay
-  causes the application to miss the display update window, indicated by the dotted
-  line. As the developer of this application, you should investigate other threads in your
-  application that may also be trying to allocate memory at the same time or otherwise blocking
-  memory allocation with another request or task.</p>
-
-<p>Regular, rhythmic execution of the <strong>SurfaceFlinger</strong> process is essential to smooth
-  display of screen content, particularly for animations and motion. Interruptions in the regular
-  execution pattern of this thread is not always an indication of a display problem with your
-  application. Further testing is required to determine if this is actually a performance problem
-  from a user perspective. Being able to identify display execution patterns like the example above
-  can help you detect display problems and build a smooth-running, high-performance application.
-</p>
-
-<p class="note">
-  <strong>Note:</strong> When using Systrace to analyze display problems, make sure
-  you activate the tracing tags for <strong>Graphics</strong> and <strong>Views</strong>.
-</p>
-
-<p>For more information on the command line options and keyboard controls for Systrace,
-see the <a href="../../tools/help/systrace.html">Systrace</a> help page.</p>
     </div>
 
-      <div class="content-footer layout-content-row"
-                    itemscope itemtype="http://schema.org/SiteNavigationElement">
-        
-        <div class="paging-links layout-content-col col-10">
-          
-        </div>
-        <div class="layout-content-col plus-container col-2" >
-          
-            <div class="g-plusone" data-size="medium"></div>
-          
-        </div>
-        
-      </div>
+    
 
   </div> <!-- end jd-content -->
 
-<div id="footer" class="wrap" >
+<div class="wrap">
+  <div class="dac-footer">
+    <div class="cols dac-footer-main">
+      <div class="col-1of2">
+        <a class="dac-footer-getnews" data-modal-toggle="newsletter" href="javascript:;">Get news &amp; tips <span
+          class="dac-fab dac-primary"><i class="dac-sprite dac-mail"></i></span></a>
+      </div>
+      <div class="col-1of2 dac-footer-reachout">
+        <div class="dac-footer-contact">
+          <a class="dac-footer-contact-link" href="http://android-developers.blogspot.com/">Blog</a>
+          <a class="dac-footer-contact-link" href="/support.html">Support</a>
+        </div>
+        <div class="dac-footer-social">
+          <a class="dac-fab dac-footer-social-link" href="https://www.youtube.com/user/androiddevelopers"><i class="dac-sprite dac-youtube"></i></a>
+          <a class="dac-fab dac-footer-social-link" href="https://plus.google.com/+AndroidDevelopers"><i class="dac-sprite dac-gplus"></i></a>
+          <a class="dac-fab dac-footer-social-link" href="https://twitter.com/AndroidDev"><i class="dac-sprite dac-twitter"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <hr class="dac-footer-separator"/>
+
+    
+      <p class="dac-footer-copyright">
         
-
-  <div id="copyright">
-    
-  Except as noted, this content is 
+  Except as noted, this content is
   licensed under <a href="http://creativecommons.org/licenses/by/2.5/">
-  Creative Commons Attribution 2.5</a>. For details and 
-  restrictions, see the <a href="../../license.html">Content 
+  Creative Commons Attribution 2.5</a>. For details and
+  restrictions, see the <a href="../../license.html">Content
   License</a>.
-  </div>
-
-
-  <div id="footerlinks">
+      </p>
     
-  <p>
-    <a href="../../about/index.html">About Android</a>&nbsp;&nbsp;|&nbsp;
-    <a href="../../legal.html">Legal</a>&nbsp;&nbsp;|&nbsp;
-    <a href="../../support.html">Support</a>
-  </p>
-  </div>
 
+    <p class="dac-footer-links">
+      <a href="/about/index.html">About Android</a>
+      <a href="/auto/index.html">Auto</a>
+      <a href="/tv/index.html">TV</a>
+      <a href="/wear/index.html">Wear</a>
+      <a href="/legal.html">Legal</a>
+
+      <span id="language" class="locales">
+        <select name="language" onchange="changeLangPref(this.value, true)">
+          <option value="en" selected="selected">English</option>
+          <option value="es">Español</option>
+          <option value="ja">日本語</option>
+          <option value="ko">한국어</option>
+          <option value="pt-br">Português Brasileiro</option>
+          <option value="ru">Русский</option>
+          <option value="zh-cn">中文（简体)</option>
+          <option value="zh-tw">中文（繁體)</option>
+        </select>
+      </span>
+    </p>
+  </div>
 </div> <!-- end footer -->
+
+<div data-modal="newsletter" data-newsletter data-swap class="dac-modal newsletter">
+  <div class="dac-modal-container">
+    <div class="dac-modal-window">
+      <header class="dac-modal-header">
+        <button class="dac-modal-header-close" data-modal-toggle><i class="dac-sprite dac-close"></i></button>
+        <div class="dac-swap" data-swap-container>
+          <section class="dac-swap-section dac-active dac-down">
+            <h2 class="norule dac-modal-header-title">Get the latest Android developer news and tips that will help you find success on Google Play.</h2>
+            <p class="dac-modal-header-subtitle">&#42; Required Fields</p>
+          </section>
+          <section class="dac-swap-section dac-up">
+            <h2 class="norule dac-modal-header-title">Hooray!</h2>
+          </section>
+        </div>
+      </header>
+      <div class="dac-swap" data-swap-container>
+        <section class="dac-swap-section dac-active dac-left">
+          <form action="https://docs.google.com/forms/d/1QgnkzbEJIDu9lMEea0mxqWrXUJu0oBCLD7ar23V0Yys/formResponse" class="dac-form" method="post" target="dac-newsletter-iframe">
+            <section class="dac-modal-content">
+              <fieldset class="dac-form-fieldset">
+                <div class="cols">
+                  <div class="col-1of2 newsletter-leftCol">
+                    <div class="dac-form-input-group">
+                      <label for="newsletter-full-name" class="dac-form-floatlabel">Full name</label>
+                      <input type="text" class="dac-form-input" name="entry.1357890476" id="newsletter-full-name" required>
+                      <span class="dac-form-required">*</span>
+                    </div>
+                    <div class="dac-form-input-group">
+                      <label for="newsletter-email" class="dac-form-floatlabel">Email address</label>
+                      <input type="email" class="dac-form-input" name="entry.472100832" id="newsletter-email" required>
+                      <span class="dac-form-required">*</span>
+                    </div>
+                  </div>
+                  <div class="col-1of2 newsletter-rightCol">
+                    <div class="dac-form-input-group">
+                      <label for="newsletter-company" class="dac-form-floatlabel">Company / developer name</label>
+                      <input type="text" class="dac-form-input" name="entry.1664780309" id="newsletter-company">
+                    </div>
+                    <div class="dac-form-input-group">
+                      <label for="newsletter-play-store" class="dac-form-floatlabel">One of your Play Store app URLs</label>
+                      <input type="url" class="dac-form-input" name="entry.47013838" id="newsletter-play-store" required>
+                      <span class="dac-form-required">*</span>
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+              <fieldset class="dac-form-fieldset">
+                <div class="cols">
+                  <div class="col-1of2 newsletter-leftCol">
+                    <legend class="dac-form-legend">Which best describes your business:<span class="dac-form-required">*</span>
+                    </legend>
+                    <div class="dac-form-radio-group">
+                      <input type="radio" value="Apps" class="dac-form-radio" name="entry.1796324055" id="newsletter-business-type-app" required>
+                      <label for="newsletter-business-type-app" class="dac-form-radio-button"></label>
+                      <label for="newsletter-business-type-app" class="dac-form-label">Apps</label>
+                    </div>
+                    <div class="dac-form-radio-group">
+                      <input type="radio" value="Games" class="dac-form-radio" name="entry.1796324055" id="newsletter-business-type-games" required>
+                      <label for="newsletter-business-type-games" class="dac-form-radio-button"></label>
+                      <label for="newsletter-business-type-games" class="dac-form-label">Games</label>
+                    </div>
+                    <div class="dac-form-radio-group">
+                      <input type="radio" value="Apps and Games" class="dac-form-radio" name="entry.1796324055" id="newsletter-business-type-appsgames" required>
+                      <label for="newsletter-business-type-appsgames" class="dac-form-radio-button"></label>
+                      <label for="newsletter-business-type-appsgames" class="dac-form-label">Apps &amp; Games</label>
+                    </div>
+                  </div>
+                  <div class="col-1of2 newsletter-rightCol newsletter-checkboxes">
+                    <div class="dac-form-radio-group">
+                      <div class="dac-media">
+                        <div class="dac-media-figure">
+                          <input type="checkbox" class="dac-form-checkbox" name="entry.732309842" id="newsletter-add" required value="Add me to the mailing list for the monthly newsletter and occasional emails about development and Google Play opportunities.">
+                          <label for="newsletter-add" class="dac-form-checkbox-button"></label>
+                        </div>
+                        <div class="dac-media-body">
+                          <label for="newsletter-add" class="dac-form-label dac-form-aside">Add me to the mailing list for the monthly newsletter and occasional emails about development and Google Play opportunities.<span class="dac-form-required">*</span></label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="dac-form-radio-group">
+                      <div class="dac-media">
+                        <div class="dac-media-figure">
+                          <input type="checkbox" class="dac-form-checkbox" name="entry.2045036090" id="newsletter-terms" required value="I acknowledge that the information provided in this form will be subject to Google's privacy policy (https://www.google.com/policies/privacy/).">
+                          <label for="newsletter-terms" class="dac-form-checkbox-button"></label>
+                        </div>
+                        <div class="dac-media-body">
+                          <label for="newsletter-terms" class="dac-form-label dac-form-aside">I acknowledge that the information provided in this form will be subject to <a href="https://www.google.com/policies/privacy/">Google's privacy policy</a>.<span class="dac-form-required">*</span></label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+            </section>
+            <footer class="dac-modal-footer">
+              <div class="cols">
+                <div class="col-2of5">
+                </div>
+              </div>
+              <button type="submit" value="Submit" class="dac-fab dac-primary dac-large dac-modal-action"><i class="dac-sprite dac-arrow-right"></i></button>
+            </footer>
+          </form>
+        </section>
+        <section class="dac-swap-section dac-right">
+          <div class="dac-modal-content">
+            <p class="newsletter-success-message">
+              You have successfully signed up for the latest Android developer news and tips.
+            </p>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</div> <!-- end footer -->
+
 </div><!-- end doc-content -->
 
+</div> <!-- end .cols --> 
 </div> <!-- end body-content --> 
 
 
@@ -1173,13 +1302,10 @@ see the <a href="../../tools/help/systrace.html">Systrace</a> help page.</p>
 
 
   <script src="../../ajax/developer.android.com/ytblogger_lists_unified.js" type="text/javascript"></script>
-  <script src="../../jd_lists_unified.js?v=8" type="text/javascript"></script>
-  <script src="../../jd_extras.js?v=9" type="text/javascript"></script>
-  <script src="../../jd_collections.js?v=9" type="text/javascript"></script>
-  <script src="../../jd_tag_helpers.js?v=5" type="text/javascript"></script>
+  <script src="../../jd_lists_unified.js?v=15" type="text/javascript"></script>
+  <script src="../../jd_extras.js?v=15" type="text/javascript"></script>
+  <script src="../../jd_collections.js?v=15" type="text/javascript"></script>
+  <script src="../../jd_tag_helpers.js?v=15" type="text/javascript"></script>
 
 </body>
 </html>
-
-
-

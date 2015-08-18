@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
+
+<meta name="Description" content="#include &lt;native_activity.h&gt; These are the callbacks the framework makes into a native application. All of these callbacks happen on the main thread of the application. By default, all callbacks are NULL; set to a pointer to your own function to…">
+<link rel="shortcut icon" type="image/x-icon" href="../../favicon.ico" />
+<title>ANativeActivityCallbacks Struct Reference | Android Developers</title>
+
+<!-- STYLESHEETS -->
+<link rel="stylesheet"
+href="http://fonts.useso.com/css?family=Roboto+Condensed">
+<link rel="stylesheet" href="http://fonts.useso.com/css?family=Roboto:light,regular,medium,thin,italic,mediumitalic,bold"
+  title="roboto">
+<link rel="stylesheet" href="http://fonts.useso.com/css?family=Roboto+Mono:400,500,700" title="roboto-mono" type="text/css">
+<link href="../../assets/css/default.css?v=7" rel="stylesheet" type="text/css">
+
+
+<!-- FULLSCREEN STYLESHEET -->
+<link href="../../assets/css/fullscreen.css" rel="stylesheet" class="fullscreen"
+type="text/css">
+
+
+<!-- JAVASCRIPT -->
+<script src="../../assets/js/android_3p-bundle.js" type="text/javascript"></script>
+<link rel="stylesheet" type="text/css" href="doxygen-dac.css">
+<script type="text/javascript">
+  var toRoot = "../../";
+  var metaTags = [];
+  var devsite = false;
+</script>
+<script src="../../assets/js/docs.js?v=6" type="text/javascript"></script>
+
+
+
+</head>
+
+<body class="gc-documentation
+
+
+ndk reference" itemscope itemtype="http://schema.org/Article">
+<a name="top"></a>
+
+<!-- dialog to prompt lang pref change when loaded from hardcoded URL
+<div id="langMessage" style="display:none">
+  <div>
+    <div class="lang en">
+      <p>You requested a page in English, would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang es">
+      <p>You requested a page in Spanish (Español), would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang ja">
+      <p>You requested a page in Japanese (日本語), would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang ko">
+      <p>You requested a page in Korean (한국어), would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang ru">
+      <p>You requested a page in Russian (Русский), would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang zh-cn">
+      <p>You requested a page in Simplified Chinese (简体中文), would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang zh-tw">
+      <p>You requested a page in Traditional Chinese (繁體中文), would you like to proceed with this language setting?</p>
+    </div>
+    <a href="#" class="button yes" onclick="return false;">
+      <span class="lang en">Yes</span>
+      <span class="lang es">Sí</span>
+      <span class="lang ja">Yes</span>
+      <span class="lang ko">Yes</span>
+      <span class="lang ru">Yes</span>
+      <span class="lang zh-cn">是的</span>
+      <span class="lang zh-tw">没有</span>
+    </a>
+    <a href="#" class="button" onclick="$('#langMessage').hide();return false;">
+      <span class="lang en">No</span>
+      <span class="lang es">No</span>
+      <span class="lang ja">No</span>
+      <span class="lang ko">No</span>
+      <span class="lang ru">No</span>
+      <span class="lang zh-cn">没有</span>
+      <span class="lang zh-tw">没有</span>
+    </a>
+  </div>
+</div> -->
+
+
+  <!-- Header -->
+  <div id="header-wrapper">
+    <div class="dac-header" id="header">
+
+
+
+
+      <div class="dac-header-inner">
+        <a class="dac-nav-toggle" data-dac-toggle-nav href="javascript:;" title="Open navigation">
+          <span class="dac-nav-hamburger">
+            <span class="dac-nav-hamburger-top"></span>
+            <span class="dac-nav-hamburger-mid"></span>
+            <span class="dac-nav-hamburger-bot"></span>
+          </span>
+        </a>
+        <a class="dac-header-logo" href="../../ndk/index.html">
+          <img class="dac-header-logo-image" src="../../assets/images/android_logo_ndk.png"
+              srcset="../../assets/images/android_logo_ndk@2x.png 2x"
+              width="32" height="36" alt="Android" /> NDK
+          </a>
+
+        <ul class="dac-header-crumbs">
+          
+          <li class="dac-header-crumbs-item"><span class="dac-header-crumbs-link current ndk">ANativeActivityCallbacks Struct Reference</a></li>
+        </ul>
+
+        
+        
+
+        <a class="dac-header-console-btn" href="http://developer.android.com">
+          <span class="dac-visible-desktop-inline">Back to Android Developers</span>
+        </a>
+
+      </div><!-- end header-wrap.wrap -->
+    </div><!-- end header -->
+
+    <div id="searchResults" class="wrap" style="display:none;">
+      <h2 id="searchTitle">Results</h2>
+      <div id="leftSearchControl" class="search-control">Loading...</div>
+    </div>
+  </div> <!--end header-wrapper -->
+
+  
+  <!-- NDK Navigation-->
+  <nav class="dac-nav">
+    <div class="dac-nav-dimmer" data-dac-toggle-nav></div>
+
+    <ul class="dac-nav-list" data-dac-nav>
+      <li class="dac-nav-item dac-nav-head">
+        <a class="dac-nav-link dac-nav-logo" data-dac-toggle-nav href="javascript:;" title="Close navigation">
+          <img class="dac-logo-image" src="../../assets/images/android_logo_ndk.png"
+               srcset="../../assets/images/android_logo_ndk@2x.png 2x"
+               width="32" height="36" alt="Android" /> NDK
+        </a>
+      </li>
+      <li class="dac-nav-item guides">
+        <a class="dac-nav-link" href="../../ndk/guides/index.html"
+           zh-tw-lang="API 指南"
+           zh-cn-lang="API 指南"
+           ru-lang="Руководства по API"
+           ko-lang="API 가이드"
+           ja-lang="API ガイド"
+           es-lang="Guías de la API">Guides</a>
+      </li>
+      <li class="dac-nav-item reference">
+        <a class="dac-nav-link" href="../../ndk/reference/index.html"
+           zh-tw-lang="參考資源"
+           zh-cn-lang="参考"
+           ru-lang="Справочник"
+           ko-lang="참조문서"
+           ja-lang="リファレンス"
+           es-lang="Referencia">Reference</a>
+      </li>
+      <li class="dac-nav-item samples">
+        <a class="dac-nav-link" href="../../ndk/samples/index.html"
+           >Samples</a>
+      </li>
+      <li class="dac-nav-item downloads">
+        <a class="dac-nav-link" href="../../ndk/downloads/index.html"
+           >Downloads</a>
+      </li>
+    </ul>
+  </nav>
+  <!-- end NDK navigation-->
+  
+
+
+
+
+  <div class="wrap clearfix" id="body-content"><div class="cols">
+    <div class="col-3 dac-toggle dac-mobile" id="side-nav" itemscope itemtype="http://schema.org/SiteNavigationElement">
+      
+  <div class="dac-visible-mobile-block" data-toggle="section">
+    <span class="dac-toggle-expand dac-devdoc-toggle"><i class="dac-sprite dac-expand-more-black"></i> Show navigation</span>
+    <span class="dac-toggle-collapse dac-devdoc-toggle" data-toggle-section><i class="dac-sprite dac-expand-less-black"></i> Hide navigation</span>
+  </div>
+
+      <div class="dac-toggle-content" id="devdoc-nav">
+        <div class="scroll-pane">
+
+
+<ul id="nav">
+  <li class="nav-section">
+    <div class="nav-section-header"><a href="/ndk/reference/group___asset.html"><span class="en">Asset Manager</span></a></div>
+    <ul>
+      <li><a href="/ndk/reference/asset__manager_8h.html">asset_manager.h</a></li>
+      <li><a href="/ndk/reference/asset__manager__jni_8h.html">asset_manager_jni.h</a></li>
+    </ul>
+  </li>
+  <li class="nav-section">
+    <div class="nav-section-header"><a href="/ndk/reference/group___bitmap.html"><span class="en">
+    Bitmap</span></a></div>
+    <ul>
+      <li><a href="/ndk/reference/bitmap_8h.html">bitmap.h</a></li>
+    </ul>
+  </li>
+  <li class="nav-section">
+    <div class="nav-section-header"><a href="/ndk/reference/group___configuration.html"><span class="en">
+    Configuration</span></a></div>
+    <ul>
+      <li><a href="/ndk/reference/configuration_8h.html">configuration.h</a></li>
+    </ul>
+  </li>
+  <li class="nav-section">
+    <div class="nav-section-header"><a href="/ndk/reference/group___input.html"><span class="en">
+    Input</span></a></div>
+    <ul>
+      <li><a href="/ndk/reference/input_8h.html">input.h</a></li>
+      <li><a href="/ndk/reference/keycodes_8h.html">keycodes.h</a></li>
+    </ul>
+  </li>
+  <li class="nav-section">
+    <div class="nav-section-header"><a href="/ndk/reference/group___looper.html"><span class="en">
+    Looper</span></a></div>
+    <ul>
+      <li><a href="/ndk/reference/looper_8h.html">looper.h</a></li>
+    </ul>
+  </li>
+  <li class="nav-section">
+    <div class="nav-section-header"><a href="/ndk/reference/group___native_activity.html"><span class="en">
+    Native Activity and Window</span></a></div>
+    <ul>
+      <li><a href="/ndk/reference/native__activity_8h.html">native_activity.h</a></li>
+      <li><a href="/ndk/reference/native__window_8h.html">native_window.h</a></li>
+      <li><a href="/ndk/reference/native__window__jni_8h.html">native_window.h</a></li>
+      <li><a href="/ndk/reference/rect_8h.html">rect.h</a></li>
+    </ul>
+  </li>
+  <li class="nav-section">
+    <div class="nav-section-header"><a href="/ndk/reference/group___sensor.html"><span class="en">
+    Sensor</span></a></div>
+    <ul>
+      <li><a href="/ndk/reference/sensor_8h.html">sensor.h</a></li>
+    </ul>
+  </li>
+  <li class="nav-section">
+    <div class="nav-section-header"><a href="/ndk/reference/group___storage.html"><span class="en">
+    Storage Manager</span></a></div>
+    <ul>
+      <li><a href="/ndk/reference/storage__manager_8h.html">sensor_manager.h</a></li>
+      <li><a href="/ndk/reference/obb_8h.html">obb.h</a></li>
+    </ul>
+  </li>
+</ul>
+
+<script type="text/javascript">
+<!--
+    buildToggleLists();
+    changeNavLang(getLangPref());
+//-->
+</script>
+        </div>
+      </div>
+    </div> <!-- end side-nav -->
+    <script>
+      $(document).ready(function() {
+        scrollIntoView("devdoc-nav");
+        });
+    </script>
+
+
+
+
+<div class="col-12" id="doc-col" >
+
+
+  
+
+  
+    
+      
+        <h1 itemprop="name" >ANativeActivityCallbacks Struct Reference</h1>
+      
+    
+  
+
+
+  
+  <div id="jd-content">
+
+
+    <div class="jd-descr" itemprop="articleBody">
+    <!-- Generated by Doxygen 1.8.6 -->
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-attribs">Data Fields</a>  </div>
+  <div class="headertitle">
+<div class="title">ANativeActivityCallbacks Struct Reference<div class="ingroups"><a class="el" href="group___native_activity.html">Native Activity</a></div></div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;native_activity.h&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+Data Fields</h2></td></tr>
+<tr class="memitem:acda344fd29c2018640a85a585317d92c"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_a_native_activity_callbacks.html#acda344fd29c2018640a85a585317d92c">onStart</a> )(<a class="el" href="struct_a_native_activity.html">ANativeActivity</a> *activity)</td></tr>
+<tr class="separator:acda344fd29c2018640a85a585317d92c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac2c85491a68e6dece3d82782c1254e73"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_a_native_activity_callbacks.html#ac2c85491a68e6dece3d82782c1254e73">onResume</a> )(<a class="el" href="struct_a_native_activity.html">ANativeActivity</a> *activity)</td></tr>
+<tr class="separator:ac2c85491a68e6dece3d82782c1254e73"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a16a270d24a484a376e28bc6c48fc22a1"><td class="memItemLeft" align="right" valign="top">void *(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_a_native_activity_callbacks.html#a16a270d24a484a376e28bc6c48fc22a1">onSaveInstanceState</a> )(<a class="el" href="struct_a_native_activity.html">ANativeActivity</a> *activity, size_t *outSize)</td></tr>
+<tr class="separator:a16a270d24a484a376e28bc6c48fc22a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aee8a4dcff234b94d0bf0bc85efea42c2"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_a_native_activity_callbacks.html#aee8a4dcff234b94d0bf0bc85efea42c2">onPause</a> )(<a class="el" href="struct_a_native_activity.html">ANativeActivity</a> *activity)</td></tr>
+<tr class="separator:aee8a4dcff234b94d0bf0bc85efea42c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adefa99d16d11d21bb8a83ba426047605"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_a_native_activity_callbacks.html#adefa99d16d11d21bb8a83ba426047605">onStop</a> )(<a class="el" href="struct_a_native_activity.html">ANativeActivity</a> *activity)</td></tr>
+<tr class="separator:adefa99d16d11d21bb8a83ba426047605"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a45598ebed3d15847b4f97acb9e15076e"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_a_native_activity_callbacks.html#a45598ebed3d15847b4f97acb9e15076e">onDestroy</a> )(<a class="el" href="struct_a_native_activity.html">ANativeActivity</a> *activity)</td></tr>
+<tr class="separator:a45598ebed3d15847b4f97acb9e15076e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a620ef54556eac0b2b28d7e6d0644ee4a"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_a_native_activity_callbacks.html#a620ef54556eac0b2b28d7e6d0644ee4a">onWindowFocusChanged</a> )(<a class="el" href="struct_a_native_activity.html">ANativeActivity</a> *activity, int hasFocus)</td></tr>
+<tr class="separator:a620ef54556eac0b2b28d7e6d0644ee4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac997f07e53ba58179a2133e86e5cbd31"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_a_native_activity_callbacks.html#ac997f07e53ba58179a2133e86e5cbd31">onNativeWindowCreated</a> )(<a class="el" href="struct_a_native_activity.html">ANativeActivity</a> *activity, <a class="el" href="group___native_activity.html#ga66956d540c2e3709e12156d195e64726">ANativeWindow</a> *window)</td></tr>
+<tr class="separator:ac997f07e53ba58179a2133e86e5cbd31"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7bd120b8816508561126308f699f116"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_a_native_activity_callbacks.html#ab7bd120b8816508561126308f699f116">onNativeWindowResized</a> )(<a class="el" href="struct_a_native_activity.html">ANativeActivity</a> *activity, <a class="el" href="group___native_activity.html#ga66956d540c2e3709e12156d195e64726">ANativeWindow</a> *window)</td></tr>
+<tr class="separator:ab7bd120b8816508561126308f699f116"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3cad4792af363b9a40599d09afeab56c"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_a_native_activity_callbacks.html#a3cad4792af363b9a40599d09afeab56c">onNativeWindowRedrawNeeded</a> )(<a class="el" href="struct_a_native_activity.html">ANativeActivity</a> *activity, <a class="el" href="group___native_activity.html#ga66956d540c2e3709e12156d195e64726">ANativeWindow</a> *window)</td></tr>
+<tr class="separator:a3cad4792af363b9a40599d09afeab56c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a150442c0611e8ce24a32a7c805e7c9db"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_a_native_activity_callbacks.html#a150442c0611e8ce24a32a7c805e7c9db">onNativeWindowDestroyed</a> )(<a class="el" href="struct_a_native_activity.html">ANativeActivity</a> *activity, <a class="el" href="group___native_activity.html#ga66956d540c2e3709e12156d195e64726">ANativeWindow</a> *window)</td></tr>
+<tr class="separator:a150442c0611e8ce24a32a7c805e7c9db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a17b41ec9bb8b0b9e42d1e269a62a4d59"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_a_native_activity_callbacks.html#a17b41ec9bb8b0b9e42d1e269a62a4d59">onInputQueueCreated</a> )(<a class="el" href="struct_a_native_activity.html">ANativeActivity</a> *activity, <a class="el" href="group___input.html#ga21d8182651f4b61ae558560023e8339c">AInputQueue</a> *queue)</td></tr>
+<tr class="separator:a17b41ec9bb8b0b9e42d1e269a62a4d59"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a82675193f867bc64180016923b0bb129"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_a_native_activity_callbacks.html#a82675193f867bc64180016923b0bb129">onInputQueueDestroyed</a> )(<a class="el" href="struct_a_native_activity.html">ANativeActivity</a> *activity, <a class="el" href="group___input.html#ga21d8182651f4b61ae558560023e8339c">AInputQueue</a> *queue)</td></tr>
+<tr class="separator:a82675193f867bc64180016923b0bb129"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a61d30a43b3c77b6047afe951706f6a1e"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_a_native_activity_callbacks.html#a61d30a43b3c77b6047afe951706f6a1e">onContentRectChanged</a> )(<a class="el" href="struct_a_native_activity.html">ANativeActivity</a> *activity, const <a class="el" href="struct_a_rect.html">ARect</a> *rect)</td></tr>
+<tr class="separator:a61d30a43b3c77b6047afe951706f6a1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2926b45334319089e4e25fbc86d74c3f"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_a_native_activity_callbacks.html#a2926b45334319089e4e25fbc86d74c3f">onConfigurationChanged</a> )(<a class="el" href="struct_a_native_activity.html">ANativeActivity</a> *activity)</td></tr>
+<tr class="separator:a2926b45334319089e4e25fbc86d74c3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac61f647cbd971321c692a74a1136f67"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_a_native_activity_callbacks.html#aac61f647cbd971321c692a74a1136f67">onLowMemory</a> )(<a class="el" href="struct_a_native_activity.html">ANativeActivity</a> *activity)</td></tr>
+<tr class="separator:aac61f647cbd971321c692a74a1136f67"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>These are the callbacks the framework makes into a native application. All of these callbacks happen on the main thread of the application. By default, all callbacks are NULL; set to a pointer to your own function to have it called. </p>
+</div><h2 class="groupheader">Field Documentation</h2>
+<a class="anchor" id="a2926b45334319089e4e25fbc86d74c3f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void(* onConfigurationChanged)(<a class="el" href="struct_a_native_activity.html">ANativeActivity</a> *activity)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The current device AConfiguration has changed. The new configuration can be retrieved from assetManager. </p>
+
+</div>
+</div>
+<a class="anchor" id="a61d30a43b3c77b6047afe951706f6a1e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void(* onContentRectChanged)(<a class="el" href="struct_a_native_activity.html">ANativeActivity</a> *activity, const <a class="el" href="struct_a_rect.html">ARect</a> *rect)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The rectangle in the window in which content should be placed has changed. </p>
+
+</div>
+</div>
+<a class="anchor" id="a45598ebed3d15847b4f97acb9e15076e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void(* onDestroy)(<a class="el" href="struct_a_native_activity.html">ANativeActivity</a> *activity)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>NativeActivity is being destroyed. See Java documentation for Activity.onDestroy() for more information. </p>
+
+</div>
+</div>
+<a class="anchor" id="a17b41ec9bb8b0b9e42d1e269a62a4d59"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void(* onInputQueueCreated)(<a class="el" href="struct_a_native_activity.html">ANativeActivity</a> *activity, <a class="el" href="group___input.html#ga21d8182651f4b61ae558560023e8339c">AInputQueue</a> *queue)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The input queue for this native activity's window has been created. You can use the given input queue to start retrieving input events. </p>
+
+</div>
+</div>
+<a class="anchor" id="a82675193f867bc64180016923b0bb129"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void(* onInputQueueDestroyed)(<a class="el" href="struct_a_native_activity.html">ANativeActivity</a> *activity, <a class="el" href="group___input.html#ga21d8182651f4b61ae558560023e8339c">AInputQueue</a> *queue)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The input queue for this native activity's window is being destroyed. You should no longer try to reference this object upon returning from this function. </p>
+
+</div>
+</div>
+<a class="anchor" id="aac61f647cbd971321c692a74a1136f67"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void(* onLowMemory)(<a class="el" href="struct_a_native_activity.html">ANativeActivity</a> *activity)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The system is running low on memory. Use this callback to release resources you do not need, to help the system avoid killing more important processes. </p>
+
+</div>
+</div>
+<a class="anchor" id="ac997f07e53ba58179a2133e86e5cbd31"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void(* onNativeWindowCreated)(<a class="el" href="struct_a_native_activity.html">ANativeActivity</a> *activity, <a class="el" href="group___native_activity.html#ga66956d540c2e3709e12156d195e64726">ANativeWindow</a> *window)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The drawing window for this native activity has been created. You can use the given native window object to start drawing. </p>
+
+</div>
+</div>
+<a class="anchor" id="a150442c0611e8ce24a32a7c805e7c9db"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void(* onNativeWindowDestroyed)(<a class="el" href="struct_a_native_activity.html">ANativeActivity</a> *activity, <a class="el" href="group___native_activity.html#ga66956d540c2e3709e12156d195e64726">ANativeWindow</a> *window)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The drawing window for this native activity is going to be destroyed. You MUST ensure that you do not touch the window object after returning from this function: in the common case of drawing to the window from another thread, that means the implementation of this callback must properly synchronize with the other thread to stop its drawing before returning from here. </p>
+
+</div>
+</div>
+<a class="anchor" id="a3cad4792af363b9a40599d09afeab56c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void(* onNativeWindowRedrawNeeded)(<a class="el" href="struct_a_native_activity.html">ANativeActivity</a> *activity, <a class="el" href="group___native_activity.html#ga66956d540c2e3709e12156d195e64726">ANativeWindow</a> *window)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The drawing window for this native activity needs to be redrawn. To avoid transient artifacts during screen changes (such resizing after rotation), applications should not return from this function until they have finished drawing their window in its current state. </p>
+
+</div>
+</div>
+<a class="anchor" id="ab7bd120b8816508561126308f699f116"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void(* onNativeWindowResized)(<a class="el" href="struct_a_native_activity.html">ANativeActivity</a> *activity, <a class="el" href="group___native_activity.html#ga66956d540c2e3709e12156d195e64726">ANativeWindow</a> *window)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The drawing window for this native activity has been resized. You should retrieve the new size from the window and ensure that your rendering in it now matches. </p>
+
+</div>
+</div>
+<a class="anchor" id="aee8a4dcff234b94d0bf0bc85efea42c2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void(* onPause)(<a class="el" href="struct_a_native_activity.html">ANativeActivity</a> *activity)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>NativeActivity has paused. See Java documentation for Activity.onPause() for more information. </p>
+
+</div>
+</div>
+<a class="anchor" id="ac2c85491a68e6dece3d82782c1254e73"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void(* onResume)(<a class="el" href="struct_a_native_activity.html">ANativeActivity</a> *activity)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>NativeActivity has resumed. See Java documentation for Activity.onResume() for more information. </p>
+
+</div>
+</div>
+<a class="anchor" id="a16a270d24a484a376e28bc6c48fc22a1"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void*(* onSaveInstanceState)(<a class="el" href="struct_a_native_activity.html">ANativeActivity</a> *activity, size_t *outSize)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Framework is asking NativeActivity to save its current instance state. See Java documentation for Activity.onSaveInstanceState() for more information. The returned pointer needs to be created with malloc(); the framework will call free() on it for you. You also must fill in outSize with the number of bytes in the allocation. Note that the saved state will be persisted, so it can not contain any active entities (pointers to memory, file descriptors, etc). </p>
+
+</div>
+</div>
+<a class="anchor" id="acda344fd29c2018640a85a585317d92c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void(* onStart)(<a class="el" href="struct_a_native_activity.html">ANativeActivity</a> *activity)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>NativeActivity has started. See Java documentation for Activity.onStart() for more information. </p>
+
+</div>
+</div>
+<a class="anchor" id="adefa99d16d11d21bb8a83ba426047605"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void(* onStop)(<a class="el" href="struct_a_native_activity.html">ANativeActivity</a> *activity)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>NativeActivity has stopped. See Java documentation for Activity.onStop() for more information. </p>
+
+</div>
+</div>
+<a class="anchor" id="a620ef54556eac0b2b28d7e6d0644ee4a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void(* onWindowFocusChanged)(<a class="el" href="struct_a_native_activity.html">ANativeActivity</a> *activity, int hasFocus)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Focus has changed in this NativeActivity's window. This is often used, for example, to pause a game when it loses input focus. </p>
+
+</div>
+</div>
+<hr/>The documentation for this struct was generated from the following file:<ul>
+<li><a class="el" href="native__activity_8h.html">native_activity.h</a></li>
+</ul>
+</div><!-- contents -->
+
+    </div>
+
+    
+
+  </div> <!-- end jd-content -->
+
+<div class="wrap">
+  <div class="dac-footer">
+    <div class="cols dac-footer-main">
+      <div class="col-1of2">
+        <a class="dac-footer-getnews" data-modal-toggle="newsletter" href="javascript:;">Get news &amp; tips <span
+          class="dac-fab dac-primary"><i class="dac-sprite dac-mail"></i></span></a>
+      </div>
+      <div class="col-1of2 dac-footer-reachout">
+        <div class="dac-footer-contact">
+          <a class="dac-footer-contact-link" href="http://android-developers.blogspot.com/">Blog</a>
+          <a class="dac-footer-contact-link" href="/support.html">Support</a>
+        </div>
+        <div class="dac-footer-social">
+          <a class="dac-fab dac-footer-social-link" href="https://www.youtube.com/user/androiddevelopers"><i class="dac-sprite dac-youtube"></i></a>
+          <a class="dac-fab dac-footer-social-link" href="https://plus.google.com/+AndroidDevelopers"><i class="dac-sprite dac-gplus"></i></a>
+          <a class="dac-fab dac-footer-social-link" href="https://twitter.com/AndroidDev"><i class="dac-sprite dac-twitter"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <hr class="dac-footer-separator"/>
+
+    
+      <p class="dac-footer-copyright">
+        
+  Except as noted, this content is licensed under <a
+  href="http://www.apache.org/licenses/LICENSE-2.0">Apache 2.0</a>.
+  For details and restrictions, see the <a href="../../license.html">
+  Content License</a>.
+      </p>
+      <p class="dac-footer-build">
+        
+    Android 6.0&nbsp;r1 &mdash; 
+<script src="../../timestamp.js" type="text/javascript"></script>
+<script>document.write(BUILD_TIMESTAMP)</script>
+
+      </p>
+    
+
+    <p class="dac-footer-links">
+      <a href="/about/index.html">About Android</a>
+      <a href="/auto/index.html">Auto</a>
+      <a href="/tv/index.html">TV</a>
+      <a href="/wear/index.html">Wear</a>
+      <a href="/legal.html">Legal</a>
+
+      <span id="language" class="locales">
+        <select name="language" onchange="changeLangPref(this.value, true)">
+          <option value="en" selected="selected">English</option>
+          <option value="es">Español</option>
+          <option value="ja">日本語</option>
+          <option value="ko">한국어</option>
+          <option value="pt-br">Português Brasileiro</option>
+          <option value="ru">Русский</option>
+          <option value="zh-cn">中文（简体)</option>
+          <option value="zh-tw">中文（繁體)</option>
+        </select>
+      </span>
+    </p>
+  </div>
+</div> <!-- end footer -->
+
+<div data-modal="newsletter" data-newsletter data-swap class="dac-modal newsletter">
+  <div class="dac-modal-container">
+    <div class="dac-modal-window">
+      <header class="dac-modal-header">
+        <button class="dac-modal-header-close" data-modal-toggle><i class="dac-sprite dac-close"></i></button>
+        <div class="dac-swap" data-swap-container>
+          <section class="dac-swap-section dac-active dac-down">
+            <h2 class="norule dac-modal-header-title">Get the latest Android developer news and tips that will help you find success on Google Play.</h2>
+            <p class="dac-modal-header-subtitle">&#42; Required Fields</p>
+          </section>
+          <section class="dac-swap-section dac-up">
+            <h2 class="norule dac-modal-header-title">Hooray!</h2>
+          </section>
+        </div>
+      </header>
+      <div class="dac-swap" data-swap-container>
+        <section class="dac-swap-section dac-active dac-left">
+          <form action="https://docs.google.com/forms/d/1QgnkzbEJIDu9lMEea0mxqWrXUJu0oBCLD7ar23V0Yys/formResponse" class="dac-form" method="post" target="dac-newsletter-iframe">
+            <section class="dac-modal-content">
+              <fieldset class="dac-form-fieldset">
+                <div class="cols">
+                  <div class="col-1of2 newsletter-leftCol">
+                    <div class="dac-form-input-group">
+                      <label for="newsletter-full-name" class="dac-form-floatlabel">Full name</label>
+                      <input type="text" class="dac-form-input" name="entry.1357890476" id="newsletter-full-name" required>
+                      <span class="dac-form-required">*</span>
+                    </div>
+                    <div class="dac-form-input-group">
+                      <label for="newsletter-email" class="dac-form-floatlabel">Email address</label>
+                      <input type="email" class="dac-form-input" name="entry.472100832" id="newsletter-email" required>
+                      <span class="dac-form-required">*</span>
+                    </div>
+                  </div>
+                  <div class="col-1of2 newsletter-rightCol">
+                    <div class="dac-form-input-group">
+                      <label for="newsletter-company" class="dac-form-floatlabel">Company / developer name</label>
+                      <input type="text" class="dac-form-input" name="entry.1664780309" id="newsletter-company">
+                    </div>
+                    <div class="dac-form-input-group">
+                      <label for="newsletter-play-store" class="dac-form-floatlabel">One of your Play Store app URLs</label>
+                      <input type="url" class="dac-form-input" name="entry.47013838" id="newsletter-play-store" required>
+                      <span class="dac-form-required">*</span>
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+              <fieldset class="dac-form-fieldset">
+                <div class="cols">
+                  <div class="col-1of2 newsletter-leftCol">
+                    <legend class="dac-form-legend">Which best describes your business:<span class="dac-form-required">*</span>
+                    </legend>
+                    <div class="dac-form-radio-group">
+                      <input type="radio" value="Apps" class="dac-form-radio" name="entry.1796324055" id="newsletter-business-type-app" required>
+                      <label for="newsletter-business-type-app" class="dac-form-radio-button"></label>
+                      <label for="newsletter-business-type-app" class="dac-form-label">Apps</label>
+                    </div>
+                    <div class="dac-form-radio-group">
+                      <input type="radio" value="Games" class="dac-form-radio" name="entry.1796324055" id="newsletter-business-type-games" required>
+                      <label for="newsletter-business-type-games" class="dac-form-radio-button"></label>
+                      <label for="newsletter-business-type-games" class="dac-form-label">Games</label>
+                    </div>
+                    <div class="dac-form-radio-group">
+                      <input type="radio" value="Apps and Games" class="dac-form-radio" name="entry.1796324055" id="newsletter-business-type-appsgames" required>
+                      <label for="newsletter-business-type-appsgames" class="dac-form-radio-button"></label>
+                      <label for="newsletter-business-type-appsgames" class="dac-form-label">Apps &amp; Games</label>
+                    </div>
+                  </div>
+                  <div class="col-1of2 newsletter-rightCol newsletter-checkboxes">
+                    <div class="dac-form-radio-group">
+                      <div class="dac-media">
+                        <div class="dac-media-figure">
+                          <input type="checkbox" class="dac-form-checkbox" name="entry.732309842" id="newsletter-add" required value="Add me to the mailing list for the monthly newsletter and occasional emails about development and Google Play opportunities.">
+                          <label for="newsletter-add" class="dac-form-checkbox-button"></label>
+                        </div>
+                        <div class="dac-media-body">
+                          <label for="newsletter-add" class="dac-form-label dac-form-aside">Add me to the mailing list for the monthly newsletter and occasional emails about development and Google Play opportunities.<span class="dac-form-required">*</span></label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="dac-form-radio-group">
+                      <div class="dac-media">
+                        <div class="dac-media-figure">
+                          <input type="checkbox" class="dac-form-checkbox" name="entry.2045036090" id="newsletter-terms" required value="I acknowledge that the information provided in this form will be subject to Google's privacy policy (https://www.google.com/policies/privacy/).">
+                          <label for="newsletter-terms" class="dac-form-checkbox-button"></label>
+                        </div>
+                        <div class="dac-media-body">
+                          <label for="newsletter-terms" class="dac-form-label dac-form-aside">I acknowledge that the information provided in this form will be subject to <a href="https://www.google.com/policies/privacy/">Google's privacy policy</a>.<span class="dac-form-required">*</span></label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+            </section>
+            <footer class="dac-modal-footer">
+              <div class="cols">
+                <div class="col-2of5">
+                </div>
+              </div>
+              <button type="submit" value="Submit" class="dac-fab dac-primary dac-large dac-modal-action"><i class="dac-sprite dac-arrow-right"></i></button>
+            </footer>
+          </form>
+        </section>
+        <section class="dac-swap-section dac-right">
+          <div class="dac-modal-content">
+            <p class="newsletter-success-message">
+              You have successfully signed up for the latest Android developer news and tips.
+            </p>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</div> <!-- end footer -->
+
+</div><!-- end doc-content -->
+
+</div> <!-- end .cols --> 
+</div> <!-- end body-content --> 
+
+
+
+
+
+  <script src="../../ajax/developer.android.com/ytblogger_lists_unified.js" type="text/javascript"></script>
+  <script src="../../jd_lists_unified.js?v=15" type="text/javascript"></script>
+  <script src="../../jd_extras.js?v=15" type="text/javascript"></script>
+  <script src="../../jd_collections.js?v=15" type="text/javascript"></script>
+  <script src="../../jd_tag_helpers.js?v=15" type="text/javascript"></script>
+
+</body>
+</html>

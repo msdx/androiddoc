@@ -90,6 +90,8 @@
 
 
 
+
+
 <html>
 
   <head>
@@ -101,10 +103,9 @@
   develop" itemscope itemtype="http://schema.org/CreativeWork">
   <a name="top"></a>
 
-
 <a name="top"></a>
 
-<!-- dialog to prompt lang pref change when loaded from hardcoded URL 
+<!-- dialog to prompt lang pref change when loaded from hardcoded URL
 <div id="langMessage" style="display:none">
   <div>
     <div class="lang en">
@@ -152,108 +153,52 @@
 
   <!-- Header -->
   <div id="header-wrapper">
-    <div id="header">
-
-    
+    <div class="dac-header" id="header">
 
 
-      <div class="wrap" id="header-wrap">
-        <div class="col-3 logo">
-          <a href="../../../index.html">
-            <img src="../../../assets/images/dac_logo.png"
-                srcset="../../../assets/images/dac_logo@2x.png 2x"
-                width="123" height="25" alt="Android Developers" />
+
+
+      <div class="dac-header-inner">
+        <a class="dac-nav-toggle" data-dac-toggle-nav href="javascript:;" title="Open navigation">
+          <span class="dac-nav-hamburger">
+            <span class="dac-nav-hamburger-top"></span>
+            <span class="dac-nav-hamburger-mid"></span>
+            <span class="dac-nav-hamburger-bot"></span>
+          </span>
+        </a>
+        <a class="dac-header-logo" href="../../../index.html">
+          <img class="dac-header-logo-image" src="../../../assets/images/android_logo.png"
+              srcset="../../../assets/images/android_logo@2x.png 2x"
+              width="32" height="36" alt="Android" /> Developers
           </a>
-          <div class="btn-quicknav" id="btn-quicknav">
-            <a href="#" class="arrow-inactive">Quicknav</a>
-            <a href="#" class="arrow-active">Quicknav</a>
-          </div>
-        </div>
-        <ul class="nav-x col-9">
-            <li class="design">
-              <a href="../../../design/index.html"
-              zh-tw-lang="設計"
-              zh-cn-lang="设计"
-              ru-lang="Проектирование"
-              ko-lang="디자인"
-              ja-lang="設計"
-              es-lang="Diseñar"
-              >Design</a></li>
-            <li class="develop"><a href="../../../develop/index.html"
-              zh-tw-lang="開發"
-              zh-cn-lang="开发"
-              ru-lang="Разработка"
-              ko-lang="개발"
-              ja-lang="開発"
-              es-lang="Desarrollar"
-              >Develop</a></li>
-            <li class="distribute last"><a href="../../../distribute/googleplay/index.html"
-              zh-tw-lang="發佈"
-              zh-cn-lang="分发"
-              ru-lang="Распространение"
-              ko-lang="배포"
-              ja-lang="配布"
-              es-lang="Distribuir"
-              >Distribute</a></li>
+
+        <ul class="dac-header-crumbs">
+          
+          <li class="dac-header-crumbs-item"><span class="dac-header-crumbs-link current "></a></li>
         </ul>
 
-
         
         
-<div class="menu-container">
-  <div class="moremenu">
-    <div id="more-btn"></div>
-  </div>
-  <div class="morehover" id="moremenu">
-    <div class="top"></div>
-    <div class="mid">
-      <div class="header">Links</div>
-      <ul>
-        <li><a href="https://play.google.com/apps/publish/" target="_googleplay">Google Play Developer Console</a></li>
-        <li><a href="http://android-developers.blogspot.com/">Android Developers Blog</a></li>
-        <li><a href="../../../about/index.html">About Android</a></li>
-      </ul>
-      <div class="header">Android Sites</div>
-      <ul>
-        <li><a href="http://www.android.com">Android.com</a></li>
-        <li class="active"><a>Android Developers</a></li>
-        <li><a href="http://source.android.com">Android Open Source Project</a></li>
-      </ul>
-
-      
-      
-      
-      <br class="clearfix" />
-    </div><!-- end 'mid' -->
-    <div class="bottom"></div>
-  </div><!-- end 'moremenu' -->
-
-  <div class="search" id="search-container">
-    <div class="search-inner">
-      <div id="search-btn"></div>
-      <div class="left"></div>
-      <form onsubmit="return submit_search()">
+        
+  <div class="dac-header-search" id="search-container">
+    <div class="dac-header-search-inner">
+      <div class="dac-sprite dac-search dac-header-search-btn" id="search-btn"></div>
+      <form class="dac-header-search-form" onsubmit="return submit_search()">
         <input id="search_autocomplete" type="text" value="" autocomplete="off" name="q"
           onfocus="search_focus_changed(this, true)" onblur="search_focus_changed(this, false)"
           onkeydown="return search_changed(event, true, '../../../')"
-          onkeyup="return search_changed(event, false, '../../../')" />
+          onkeyup="return search_changed(event, false, '../../../')"
+          class="dac-header-search-input" placeholder="Search" />
+          <a class="dac-header-search-close hide" id="search-close">close</a>
       </form>
-      <div class="right"></div>
-      <a class="close hide">close</a>
-      <div class="left"></div>
-      <div class="right"></div>
-    </div><!-- end search-inner -->
-  </div><!-- end search-container -->
+    </div><!-- end dac-header-search-inner -->
+  </div><!-- end dac-header-search -->
 
-  <div class="search_filtered_wrapper reference">
+  <div class="search_filtered_wrapper">
     <div class="suggest-card reference no-display">
       <ul class="search_filtered">
       </ul>
     </div>
-  </div>
-
-  <div class="search_filtered_wrapper docs">
-    <div class="suggest-card dummy no-display">&nbsp;</div>
     <div class="suggest-card develop no-display">
       <ul class="search_filtered">
       </ul>
@@ -273,139 +218,17 @@
       </ul>
     </div>
   </div>
-</div><!-- end menu-container (search and menu widget) -->
-
-
-
-        <!-- Expanded quicknav -->
-        <div id="quicknav" class="col-13">
-          <ul>
-            <li class="about">
-              <ul>
-                <li><a href="../../../about/index.html">About</a></li>
-                <li><a href="../../../wear/index.html">Wear</a></li>
-                <li><a href="../../../tv/index.html">TV</a></li>
-                <li><a href="../../../auto/index.html">Auto</a></li>
-              </ul>
-            </li>
-            <li class="design">
-              <ul>
-                <li><a href="../../../design/index.html">Get Started</a></li>
-                <li><a href="../../../design/devices.html">Devices</a></li>
-                <li><a href="../../../design/style/index.html">Style</a></li>
-                <li><a href="../../../design/patterns/index.html">Patterns</a></li>
-                <li><a href="../../../design/building-blocks/index.html">Building Blocks</a></li>
-                <li><a href="../../../design/downloads/index.html">Downloads</a></li>
-                <li><a href="../../../design/videos/index.html">Videos</a></li>
-              </ul>
-            </li>
-            <li class="develop">
-              <ul>
-                <li><a href="../../../training/index.html"
-                  zh-tw-lang="訓練課程"
-                  zh-cn-lang="培训"
-                  ru-lang="Курсы"
-                  ko-lang="교육"
-                  ja-lang="トレーニング"
-                  es-lang="Capacitación"
-                  >Training</a></li>
-                <li><a href="../../../guide/index.html"
-                  zh-tw-lang="API 指南"
-                  zh-cn-lang="API 指南"
-                  ru-lang="Руководства по API"
-                  ko-lang="API 가이드"
-                  ja-lang="API ガイド"
-                  es-lang="Guías de la API"
-                  >API Guides</a></li>
-                <li><a href="../../../reference/packages.html"
-                  zh-tw-lang="參考資源"
-                  zh-cn-lang="参考"
-                  ru-lang="Справочник"
-                  ko-lang="참조문서"
-                  ja-lang="リファレンス"
-                  es-lang="Referencia"
-                  >Reference</a></li>
-                <li><a href="../../../sdk/index.html"
-                  zh-tw-lang="相關工具"
-                  zh-cn-lang="工具"
-                  ru-lang="Инструменты"
-                  ko-lang="도구"
-                  ja-lang="ツール"
-                  es-lang="Herramientas"
-                  >Tools</a>
-                </li>
-                <li><a href="../../../google/index.html">Google Services</a>
-                </li>
-                
-              </ul>
-            </li>
-            <li class="distribute last">
-              <ul>
-                <li><a href="../../../distribute/googleplay/index.html">Google Play</a></li>
-                <li><a href="../../../distribute/essentials/index.html">Essentials</a></li>
-                <li><a href="../../../distribute/users/index.html">Get Users</a></li>
-                <li><a href="../../../distribute/engage/index.html">Engage &amp; Retain</a></li>
-                <li><a href="../../../distribute/monetize/index.html">Monetize</a></li>
-                <li><a href="../../../distribute/analyze/index.html">Analyze</a></li>
-                <li><a href="../../../distribute/tools/index.html">Tools &amp; Reference</a></li>
-                <li><a href="../../../distribute/stories/index.html">Developer Stories</a></li>
-              </ul>
-            </li>
-          </ul>
-        </div><!-- /Expanded quicknav -->
-      </div><!-- end header-wrap.wrap -->
-    </div><!-- end header -->
-
-  
-    <!-- Secondary x-nav -->
-    <div id="nav-x">
-        <div class="wrap" style="position:relative;z-index:1">
 
         
 
-            <ul class="nav-x col-9 develop" style="width:100%">
-                <li class="training"><a href="../../../training/index.html"
-                  zh-tw-lang="訓練課程"
-                  zh-cn-lang="培训"
-                  ru-lang="Курсы"
-                  ko-lang="교육"
-                  ja-lang="トレーニング"
-                  es-lang="Capacitación"
-                  >Training</a></li>
-                <li class="guide"><a href="../../../guide/index.html"
-                  zh-tw-lang="API 指南"
-                  zh-cn-lang="API 指南"
-                  ru-lang="Руководства по API"
-                  ko-lang="API 가이드"
-                  ja-lang="API ガイド"
-                  es-lang="Guías de la API"
-                  >API Guides</a></li>
-                <li class="reference"><a href="../../../reference/packages.html"
-                  zh-tw-lang="參考資源"
-                  zh-cn-lang="参考"
-                  ru-lang="Справочник"
-                  ko-lang="참조문서"
-                  ja-lang="リファレンス"
-                  es-lang="Referencia"
-                  >Reference</a></li>
-                <li class="tools"><a href="../../../sdk/index.html"
-                  zh-tw-lang="相關工具"
-                  zh-cn-lang="工具"
-                  ru-lang="Инструменты"
-                  ko-lang="도구"
-                  ja-lang="ツール"
-                  es-lang="Herramientas"
-                  >Tools</a></li>
-                <li class="google"><a href="../../../google/index.html"
-                  >Google Services</a>
-                </li>
-                
-            </ul>
-        </div>
-    </div>
-    <!-- /Sendondary x-nav DEVELOP -->
+        <a class="dac-header-console-btn" href="https://play.google.com/apps/publish/">
+          <span class="dac-sprite dac-google-play"></span>
+          <span class="dac-visible-desktop-inline">Developer</span>
+          Console
+        </a>
 
-  
+      </div><!-- end header-wrap.wrap -->
+    </div><!-- end header -->
 
     <div id="searchResults" class="wrap" style="display:none;">
       <h2 id="searchTitle">Results</h2>
@@ -413,23 +236,144 @@
     </div>
   </div> <!--end header-wrapper -->
 
-  <div id="sticky-header">
-    <div>
-      <a class="logo" href="#top"></a>
-      <a class="top" href="#top"></a>
-      <ul class="breadcrumb">
-        
-        <li class="current"></li>
-      </ul>
-    </div>
+  
+  <!-- Navigation-->
+  <nav class="dac-nav">
+    <div class="dac-nav-dimmer" data-dac-toggle-nav></div>
+
+    <ul class="dac-nav-list" data-dac-nav>
+      <li class="dac-nav-item dac-nav-head">
+        <a class="dac-nav-link dac-nav-logo" data-dac-toggle-nav href="javascript:;" title="Close navigation">
+          <img class="dac-logo-image" src="../../../assets/images/android_logo.png"
+               srcset="../../../assets/images/android_logo@2x.png 2x"
+               width="32" height="36" alt="Android" /> Developers
+        </a>
+      </li>
+      <li class="dac-nav-item home">
+        <a class="dac-nav-link dac-visible-mobile-block" href="../../../index.html">Home</a>
+        <ul class="dac-nav-secondary about">
+          <li class="dac-nav-item about">
+            <a class="dac-nav-link" href="../../../about/index.html">Android</a>
+          </li>
+          <li class="dac-nav-item wear">
+            <a class="dac-nav-link" href="../../../wear/index.html">Wear</a>
+          </li>
+          <li class="dac-nav-item tv">
+            <a class="dac-nav-link" href="../../../tv/index.html">TV</a>
+          </li>
+          <li class="dac-nav-item auto">
+            <a class="dac-nav-link" href="../../../auto/index.html">Auto</a>
+          </li>
+        </ul>
+      </li>
+      <li class="dac-nav-item design">
+        <a class="dac-nav-link" href="../../../design/index.html"
+           zh-tw-lang="設計"
+           zh-cn-lang="设计"
+           ru-lang="Проектирование"
+           ko-lang="디자인"
+           ja-lang="設計"
+           es-lang="Diseñar">Design</a>
+      </li>
+      <li class="dac-nav-item develop">
+        <a class="dac-nav-link" href="../../../develop/index.html"
+           zh-tw-lang="開發"
+           zh-cn-lang="开发"
+           ru-lang="Разработка"
+           ko-lang="개발"
+           ja-lang="開発"
+           es-lang="Desarrollar">Develop</a>
+        <ul class="dac-nav-secondary develop">
+          <li class="dac-nav-item training">
+            <a class="dac-nav-link" href="../../../training/index.html"
+               zh-tw-lang="訓練課程"
+               zh-cn-lang="培训"
+               ru-lang="Курсы"
+               ko-lang="교육"
+               ja-lang="トレーニング"
+               es-lang="Capacitación">Training</a>
+          </li>
+          <li class="dac-nav-item guide">
+            <a class="dac-nav-link" href="../../../guide/index.html"
+               zh-tw-lang="API 指南"
+               zh-cn-lang="API 指南"
+               ru-lang="Руководства по API"
+               ko-lang="API 가이드"
+               ja-lang="API ガイド"
+               es-lang="Guías de la API">API Guides</a>
+          </li>
+          <li class="dac-nav-item reference">
+            <a class="dac-nav-link" href="../../../reference/packages.html"
+               zh-tw-lang="參考資源"
+               zh-cn-lang="参考"
+               ru-lang="Справочник"
+               ko-lang="참조문서"
+               ja-lang="リファレンス"
+               es-lang="Referencia">Reference</a>
+          </li>
+          <li class="dac-nav-item tools">
+            <a class="dac-nav-link" href="../../../sdk/index.html"
+               zh-tw-lang="相關工具"
+               zh-cn-lang="工具"
+               ru-lang="Инструменты"
+               ko-lang="도구"
+               ja-lang="ツール"
+               es-lang="Herramientas">Tools</a></li>
+          <li class="dac-nav-item google">
+            <a class="dac-nav-link" href="../../../google/index.html">Google Services</a>
+          </li>
+          
+          <li class="dac-nav-item preview">
+            <a class="dac-nav-link" href="../../../preview/index.html">Preview</a>
+          </li>
+        </ul>
+      </li>
+      <li class="dac-nav-item distribute">
+        <a class="dac-nav-link" href="../../../distribute/googleplay/index.html"
+           zh-tw-lang="發佈"
+           zh-cn-lang="分发"
+           ru-lang="Распространение"
+           ko-lang="배포"
+           ja-lang="配布"
+           es-lang="Distribuir">Distribute</a>
+        <ul class="dac-nav-secondary distribute">
+          <li class="dac-nav-item googleplay">
+            <a class="dac-nav-link" href="../../../distribute/googleplay/index.html">Google Play</a></li>
+          <li class="dac-nav-item essentials">
+            <a class="dac-nav-link" href="../../../distribute/essentials/index.html">Essentials</a></li>
+          <li class="dac-nav-item users">
+            <a class="dac-nav-link" href="../../../distribute/users/index.html">Get Users</a></li>
+          <li class="dac-nav-item engage">
+            <a class="dac-nav-link" href="../../../distribute/engage/index.html">Engage &amp; Retain</a></li>
+          <li class="dac-nav-item monetize">
+            <a class="dac-nav-link" href="../../../distribute/monetize/index.html">Earn</a>
+          </li>
+          <li class="dac-nav-item analyze">
+            <a class="dac-nav-link" href="../../../distribute/analyze/index.html">Analyze</a>
+          </li>
+          <li class="dac-nav-item stories">
+            <a class="dac-nav-link" href="../../../distribute/stories/index.html">Stories</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+  <!-- end navigation-->
+  
+
+
+
+
+  <div class="wrap clearfix" id="body-content"><div class="cols">
+    <div class="col-3 dac-toggle dac-mobile" id="side-nav" itemscope itemtype="http://schema.org/SiteNavigationElement">
+      
+  <div class="dac-visible-mobile-block" data-toggle="section">
+    <span class="dac-toggle-expand dac-devdoc-toggle"><i class="dac-sprite dac-expand-more-black"></i> Show navigation</span>
+    <span class="dac-toggle-collapse dac-devdoc-toggle" data-toggle-section><i class="dac-sprite dac-expand-less-black"></i> Hide navigation</span>
   </div>
 
-
-
-
-  <div class="wrap clearfix" id="body-content">
-    <div class="col-3" id="side-nav" itemscope itemtype="http://schema.org/SiteNavigationElement">
-      <div id="devdoc-nav" class="scroll-pane">
+      <div class="dac-toggle-content" id="devdoc-nav">
+        <div class="scroll-pane">
 <ul id="nav">
 
   <li class="nav-section">
@@ -451,6 +395,10 @@
       <a href="../../../tools/studio/index.html">Android Studio</a>
     </div>
     <ul>
+      <li><a href="../../../tools/studio/studio-config.html">
+          Configuration</a></li>
+      <li><a href="../../../tools/studio/studio-features.html">
+          Features</a></li>
       <li><a href="../../../sdk/installing/studio-tips.html">
           Tips and Tricks</a></li>
     </ul>
@@ -560,7 +508,8 @@
       <li><a href="../../../tools/debugging/improving-w-lint.html"><span class="en">Improving Your Code with lint</span></a></li>
       <li><a href="../../../tools/debugging/debugging-ui.html"><span class="en">Optimizing your UI</span></a></li>
       <li><a href="../../../tools/debugging/debugging-tracing.html"><span class="en">Profiling with Traceview and dmtracedump</span></a></li>
-      <li><a href="../../../tools/debugging/systrace.html"><span class="en">Analyzing Display and Performance</span></a></li>
+      <li><a href="../../../tools/debugging/annotations.html"><span class="en">Improving Code Inspection with Annotations</span></a></li>
+      <li><a href="../../../tools/debugging/systrace.html"><span class="en">Analyzing UI Performance</span></a></li>
       <li><a href="../../../tools/debugging/debugging-memory.html">Investigating Your RAM Usage</a></li>
       <li><a href="../../../tools/debugging/debugging-devtools.html"><span class="en">Using the Dev Tools App</span></a></li>
     </ul>
@@ -596,38 +545,11 @@ class="en">Tools Help</span></a></div>
       <li><a href="../../../tools/help/lint.html">lint</span></a></li>
       <li><a href="../../../tools/help/logcat.html">logcat</a></li>
       <li><a href="../../../tools/help/mksdcard.html">mksdcard</a></li>
-      <li><a href="../../../tools/help/monkey.html">monkey</a></li>
-      <li class="nav-section">
-        <div class="nav-section-header"><a href="../../../tools/help/monkeyrunner_concepts.html"><span class="en">monkeyrunner</span></a></div>
-        <ul>
-          <li><a href="../../../tools/help/MonkeyDevice.html"><span
-class="en">MonkeyDevice</span></a></li>
-          <li><a href="../../../tools/help/MonkeyImage.html"><span
-class="en">MonkeyImage</span></a></li>
-          <li><a href="../../../tools/help/MonkeyRunner.html"><span
-class="en">MonkeyRunner</span></a></li>
-        </ul>
-      </li>
        <li><a href="../../../tools/help/proguard.html" zh-cn-lang="ProGuard">ProGuard</a></li>
        <li><a href="../../../tools/help/sdk-manager.html">SDK Manager</a></li>
        <li><a href="../../../tools/help/systrace.html">Systrace</a></li>
        <li><a href="../../../tools/help/gltracer.html">Tracer for OpenGL ES</a></li>
        <li><a href="../../../tools/help/traceview.html">Traceview</a></li>
-       <li class="nav-section">
-          <div class="nav-section-header"><a href="../../../tools/help/uiautomator/index.html"><span class="en">uiautomator</span></a></div>
-          <ul>
-             <li><a href="../../../tools/help/uiautomator/Configurator.html"><span class="en">Configurator</span></a></li>
-             <li><a href="../../../tools/help/uiautomator/IAutomationSupport.html"><span class="en">IAutomationSupport</span></a></li>
-             <li><a href="../../../tools/help/uiautomator/UiAutomatorTestCase.html"><span class="en">UiAutomatorTestCase</span></a></li>
-             <li><a href="../../../tools/help/uiautomator/UiCollection.html"><span class="en">UiCollection</span></a></li>
-             <li><a href="../../../tools/help/uiautomator/UiDevice.html"><span class="en">UiDevice</span></a></li>
-             <li><a href="../../../tools/help/uiautomator/UiObject.html"><span class="en">UiObject</span></a></li>
-             <li><a href="../../../tools/help/uiautomator/UiObjectNotFoundException.html"><span class="en">UiObjectNotFoundException</span></a></li>
-             <li><a href="../../../tools/help/uiautomator/UiScrollable.html"><span class="en">UiScrollable</span></a></li>
-             <li><a href="../../../tools/help/uiautomator/UiSelector.html"><span class="en">UiSelector</span></a></li>
-             <li><a href="../../../tools/help/uiautomator/UiWatcher.html"><span class="en">UiWatcher</span></a></li>
-          </ul>
-       </li>
        <li><a href="../../../tools/help/zipalign.html">zipalign</a></li>
     </ul>
   </li>
@@ -646,10 +568,101 @@ class="en">MonkeyRunner</span></a></li>
         <span class="en">Configuring Gradle Builds</span></a></li>
       <li><a href="../../../tools/building/plugin-for-gradle.html">
         <span class="en">Android Plugin for Gradle</span></a></li>
+      <li><a href="../../../tools/building/manifest-merge.html">
+        <span class="en">Manifest Merging</span></a></li>
       <li><a href="../../../tools/building/multidex.html">
         <span class="en">Apps Over 65K Methods</span></a></li>
       </ul>
   </li><!-- end of build system -->
+
+
+<!-- Performance Tools menu-->
+  <li class="nav-section">
+    <div class="nav-section-header">
+      <a href="../../../tools/performance/index.html">Peformance Tools</a>
+    </div>
+    <ul>
+      <li><a href="../../../tools/performance/debug-gpu-overdraw/index.html">
+        Overdraw Debugger</a>
+      </li>
+      <li><a href="../../../tools/performance/profile-gpu-rendering/index.html">
+        Rendering Profiler</a>
+      </li>
+      <li class="nav-section">
+        <div class="nav-section-header">
+          <a href="../../../tools/performance/hierarchy-viewer/index.html">
+          Hierarchy Viewer</a></div>
+        <ul>
+          <li><a href="../../../tools/performance/hierarchy-viewer/setup.html"><span
+            class="en">Setup</span></a>
+          </li>
+          <li><a href="../../../tools/performance/hierarchy-viewer/profiling.html"><span
+            class="en">Profiling</span></a>
+          </li>
+        </ul>
+      </li>
+      <li class="nav-section">
+        <div class="nav-section-header">
+          <a href="../../../tools/performance/comparison.html">
+          Memory Profilers</a></div>
+        <ul>
+          <li><a href="../../../tools/performance/memory-monitor/index.html"><span
+            class="en">Memory Monitor</span></a>
+          </li>
+          <li><a href="../../../tools/performance/heap-viewer/index.html"><span
+            class="en">Heap Viewer</span></a>
+          </li>
+          <li><a href="../../../tools/performance/allocation-tracker/index.html"><span
+            class="en">Allocation Tracker</span></a>
+          </li>
+        </ul>
+      </li>
+      <li><a href="../../../tools/performance/traceview/index.html">
+        Traceview</a>
+      </li>
+      <li><a href="../../../tools/performance/systrace/index.html">
+        Systrace</a>
+      </li>
+      <li class="nav-section">
+        <div class="nav-section-header">
+          <a href="../../../tools/performance/batterystats-battery-historian/index.html">
+          Battery Profilers</a></div>
+        <ul>
+          <li><a href="../../../tools/performance/batterystats-battery-historian/charts.html"><span
+            class="en">Historian Charts</span></a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li><!-- End Performance Tools menu-->
+
+
+  <!-- Testing Tools menu-->
+
+  <li class="nav-section">
+    <div class="nav-section-header"><a href="../../../tools/testing/testing-tools.html"><span class="en">Testing Tools</span></a></div>
+    <ul>
+      <li class="nav-section">
+         <div class="nav-section-header"><a href="../../../tools/testing-support-library/index.html"><span
+class="en">Testing Support Library</span></a></div>
+         <ul>
+            <li><a href="../../../reference/android/support/test/package-summary.html">API Reference</a></li>
+         </ul>
+      </li>
+      <li><a href="../../../tools/help/monkey.html">monkey</a></li>
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../../tools/help/monkeyrunner_concepts.html"><span class="en">monkeyrunner</span></a></div>
+        <ul>
+          <li><a href="../../../tools/help/MonkeyDevice.html"><span
+class="en">MonkeyDevice</span></a></li>
+          <li><a href="../../../tools/help/MonkeyImage.html"><span
+class="en">MonkeyImage</span></a></li>
+          <li><a href="../../../tools/help/MonkeyRunner.html"><span
+class="en">MonkeyRunner</span></a></li>
+        </ul>
+      </li>
+    </ul>
+  </li><!-- end of testing support library -->
 
 
 <!-- Support Library menu-->
@@ -661,6 +674,11 @@ class="en">Support Library</span></a></div>
       <li><a href="../../../tools/support-library/features.html">Features</a></li>
       <li><a href="../../../tools/support-library/setup.html">Setup</a></li>
     </ul>
+  </li><!-- end of support library -->
+
+  <li class="nav-section">
+    <div class="nav-section-header empty"><a href="../../../tools/data-binding/guide.html"><span
+class="en">Data Binding Library</span></a></div>
   </li><!-- end of support library -->
 
 
@@ -678,6 +696,9 @@ class="en">Support Library</span></a></div>
       <li><a href="../../../tools/revisions/build-tools.html">
         <span class="en">SDK Build Tools</span>
       </a></li>
+      <li><a href="../../../tools/revisions/gradle-plugin.html">
+        <span class="en">Android Plugin for Gradle</span>
+      </a></li>
       <li><a href="../../../tools/revisions/platforms.html">
         <span class="en">SDK Platforms</span></a></li>
       <li><a href="../../../tools/sdk/eclipse-adt.html">
@@ -691,7 +712,7 @@ class="en">Support Library</span></a></div>
     </div>
   </li>
 
-  <li class="nav-section">
+<!--  <li class="nav-section">
     <div class="nav-section-header">
     <a href="../../../tools/adk/index.html">
       <span class="en">ADK</span></a>
@@ -700,7 +721,7 @@ class="en">Support Library</span></a></div>
       <li><a href="../../../tools/adk/adk2.html">ADK 2012 Guide</a></li>
       <li><a href="../../../tools/adk/adk.html">ADK 2011 Guide</a></li>
     </ul>
-  </li>
+  </li> -->
 
 
 <!-- Eclipse ADT menu-->
@@ -711,7 +732,15 @@ class="en">Support Library</span></a></div>
       <span class="en">Eclipse with ADT</span></a>
     </div>
     <ul>
-    <li><a href="../../../sdk/installing/migrate.html">Migrating to Android Studio</a></li>
+        <li class="nav-section">
+        <div class="nav-section-header"><a href="../../../sdk/installing/migrate.html">
+          <span class="en">Migrating to Android Studio</span></a></div>
+         <ul>
+            <li><a href="../../../tools/studio/eclipse-transition-guide.html">
+            Transition Guide</span></a> </li>
+         </ul>
+        </li>
+
     <li><a href="../../../sdk/installing/installing-adt.html">
         <span class="en">Installing the Eclipse Plugin</span></a></li>
     <li><a href="../../../tools/projects/projects-eclipse.html">Managing Projects</a></li>
@@ -733,8 +762,7 @@ class="en">Support Library</span></a></div>
 //-->
 </script>
 
-        
-        
+        </div>
       </div>
     </div> <!-- end side-nav -->
     <script>
@@ -766,6 +794,7 @@ class="en">Support Library</span></a></div>
 
 </div><!-- end g-unit -->
 
+</div> <!-- end .cols --> 
 </div> <!-- end body-content --> 
 
 
