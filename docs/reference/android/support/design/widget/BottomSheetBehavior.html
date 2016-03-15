@@ -1,0 +1,4244 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
+
+<link rel="shortcut icon" type="image/x-icon" href="../../../../../favicon.ico" />
+<title>BottomSheetBehavior - Android SDK | Android Developers</title>
+
+<!-- STYLESHEETS -->
+<link rel="stylesheet"
+href="https://fonts.useso.com/css?family=Roboto+Condensed">
+<link rel="stylesheet" href="https://fonts.useso.com/css?family=Roboto:light,regular,medium,thin,italic,mediumitalic,bold"
+  title="roboto">
+
+<link href="../../../../../assets/css/default.css?v=7" rel="stylesheet" type="text/css">
+
+
+<!-- FULLSCREEN STYLESHEET -->
+<link href="../../../../../assets/css/fullscreen.css" rel="stylesheet" class="fullscreen"
+type="text/css">
+
+
+<!-- JAVASCRIPT -->
+<script src="../../../../../assets/js/android_3p-bundle.js" type="text/javascript"></script>
+<script type="text/javascript">
+  var toRoot = "../../../../../";
+  var metaTags = [];
+  var devsite = false;
+</script>
+<script src="../../../../../assets/js/docs.js?v=6" type="text/javascript"></script>
+
+
+
+</head>
+
+<body class="gc-documentation 
+  develop reference" itemscope itemtype="http://schema.org/Article">
+  <div id="doc-api-level" class="" style="display:none"></div>
+  <a name="top"></a>
+
+<a name="top"></a>
+
+<!-- dialog to prompt lang pref change when loaded from hardcoded URL
+<div id="langMessage" style="display:none">
+  <div>
+    <div class="lang en">
+      <p>You requested a page in English, would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang es">
+      <p>You requested a page in Spanish (Español), would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang ja">
+      <p>You requested a page in Japanese (日本語), would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang ko">
+      <p>You requested a page in Korean (한국어), would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang ru">
+      <p>You requested a page in Russian (Русский), would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang zh-cn">
+      <p>You requested a page in Simplified Chinese (简体中文), would you like to proceed with this language setting?</p>
+    </div>
+    <div class="lang zh-tw">
+      <p>You requested a page in Traditional Chinese (繁體中文), would you like to proceed with this language setting?</p>
+    </div>
+    <a href="#" class="button yes" onclick="return false;">
+      <span class="lang en">Yes</span>
+      <span class="lang es">Sí</span>
+      <span class="lang ja">Yes</span>
+      <span class="lang ko">Yes</span>
+      <span class="lang ru">Yes</span>
+      <span class="lang zh-cn">是的</span>
+      <span class="lang zh-tw">没有</span>
+    </a>
+    <a href="#" class="button" onclick="$('#langMessage').hide();return false;">
+      <span class="lang en">No</span>
+      <span class="lang es">No</span>
+      <span class="lang ja">No</span>
+      <span class="lang ko">No</span>
+      <span class="lang ru">No</span>
+      <span class="lang zh-cn">没有</span>
+      <span class="lang zh-tw">没有</span>
+    </a>
+  </div>
+</div> -->
+
+
+  <!-- Header -->
+  <div id="header-wrapper">
+    <div class="dac-header" id="header">
+
+
+
+
+      <div class="dac-header-inner">
+        <a class="dac-nav-toggle" data-dac-toggle-nav href="javascript:;" title="Open navigation">
+          <span class="dac-nav-hamburger">
+            <span class="dac-nav-hamburger-top"></span>
+            <span class="dac-nav-hamburger-mid"></span>
+            <span class="dac-nav-hamburger-bot"></span>
+          </span>
+        </a>
+        <a class="dac-header-logo" href="../../../../../index.html">
+          <img class="dac-header-logo-image" src="../../../../../assets/images/android_logo.png"
+              srcset="../../../../../assets/images/android_logo@2x.png 2x"
+              width="32" height="36" alt="Android" /> Developers
+          </a>
+
+        <ul class="dac-header-crumbs">
+          
+          <li class="dac-header-crumbs-item"><span class="dac-header-crumbs-link current ">BottomSheetBehavior - Android SDK</a></li>
+        </ul>
+
+        
+        
+        
+  <div class="dac-header-search" id="search-container">
+    <div class="dac-header-search-inner">
+      <div class="dac-sprite dac-search dac-header-search-btn" id="search-btn"></div>
+      <form class="dac-header-search-form" onsubmit="return submit_search()">
+        <input id="search_autocomplete" type="text" value="" autocomplete="off" name="q"
+          onfocus="search_focus_changed(this, true)" onblur="search_focus_changed(this, false)"
+          onkeydown="return search_changed(event, true, '../../../../../')"
+          onkeyup="return search_changed(event, false, '../../../../../')"
+          class="dac-header-search-input" placeholder="Search" />
+          <a class="dac-header-search-close hide" id="search-close">close</a>
+      </form>
+    </div><!-- end dac-header-search-inner -->
+  </div><!-- end dac-header-search -->
+
+  <div class="search_filtered_wrapper">
+    <div class="suggest-card reference no-display">
+      <ul class="search_filtered">
+      </ul>
+    </div>
+    <div class="suggest-card develop no-display">
+      <ul class="search_filtered">
+      </ul>
+      <div class="child-card guides no-display">
+      </div>
+      <div class="child-card training no-display">
+      </div>
+      <div class="child-card samples no-display">
+      </div>
+    </div>
+    <div class="suggest-card design no-display">
+      <ul class="search_filtered">
+      </ul>
+    </div>
+    <div class="suggest-card distribute no-display">
+      <ul class="search_filtered">
+      </ul>
+    </div>
+  </div>
+
+        
+
+        <a class="dac-header-console-btn" href="https://play.google.com/apps/publish/">
+          <span class="dac-sprite dac-google-play"></span>
+          <span class="dac-visible-desktop-inline">Developer</span>
+          Console
+        </a>
+
+      </div><!-- end header-wrap.wrap -->
+    </div><!-- end header -->
+
+    <div id="searchResults" class="wrap" style="display:none;">
+      <h2 id="searchTitle">Results</h2>
+      <div id="leftSearchControl" class="search-control">Loading...</div>
+    </div>
+  </div> <!--end header-wrapper -->
+
+  
+  <!-- Navigation-->
+  <nav class="dac-nav">
+    <div class="dac-nav-dimmer" data-dac-toggle-nav></div>
+
+    <ul class="dac-nav-list" data-dac-nav>
+      <li class="dac-nav-item dac-nav-head">
+        <a class="dac-nav-link dac-nav-logo" data-dac-toggle-nav href="javascript:;" title="Close navigation">
+          <img class="dac-logo-image" src="../../../../../assets/images/android_logo.png"
+               srcset="../../../../../assets/images/android_logo@2x.png 2x"
+               width="32" height="36" alt="Android" /> Developers
+        </a>
+      </li>
+      <li class="dac-nav-item home">
+        <a class="dac-nav-link dac-visible-mobile-block" href="../../../../../index.html">Home</a>
+        <ul class="dac-nav-secondary about">
+          <li class="dac-nav-item about">
+            <a class="dac-nav-link" href="../../../../../about/index.html">Android</a>
+          </li>
+          <li class="dac-nav-item wear">
+            <a class="dac-nav-link" href="../../../../../wear/index.html">Wear</a>
+          </li>
+          <li class="dac-nav-item tv">
+            <a class="dac-nav-link" href="../../../../../tv/index.html">TV</a>
+          </li>
+          <li class="dac-nav-item auto">
+            <a class="dac-nav-link" href="../../../../../auto/index.html">Auto</a>
+          </li>
+        </ul>
+      </li>
+      <li class="dac-nav-item design">
+        <a class="dac-nav-link" href="../../../../../design/index.html"
+           zh-tw-lang="設計"
+           zh-cn-lang="设计"
+           ru-lang="Проектирование"
+           ko-lang="디자인"
+           ja-lang="設計"
+           es-lang="Diseñar">Design</a>
+      </li>
+      <li class="dac-nav-item develop">
+        <a class="dac-nav-link" href="../../../../../develop/index.html"
+           zh-tw-lang="開發"
+           zh-cn-lang="开发"
+           ru-lang="Разработка"
+           ko-lang="개발"
+           ja-lang="開発"
+           es-lang="Desarrollar">Develop</a>
+        <ul class="dac-nav-secondary develop">
+          <li class="dac-nav-item training">
+            <a class="dac-nav-link" href="../../../../../training/index.html"
+               zh-tw-lang="訓練課程"
+               zh-cn-lang="培训"
+               ru-lang="Курсы"
+               ko-lang="교육"
+               ja-lang="トレーニング"
+               es-lang="Capacitación">Training</a>
+          </li>
+          <li class="dac-nav-item guide">
+            <a class="dac-nav-link" href="../../../../../guide/index.html"
+               zh-tw-lang="API 指南"
+               zh-cn-lang="API 指南"
+               ru-lang="Руководства по API"
+               ko-lang="API 가이드"
+               ja-lang="API ガイド"
+               es-lang="Guías de la API">API Guides</a>
+          </li>
+          <li class="dac-nav-item reference">
+            <a class="dac-nav-link" href="../../../../../reference/packages.html"
+               zh-tw-lang="參考資源"
+               zh-cn-lang="参考"
+               ru-lang="Справочник"
+               ko-lang="참조문서"
+               ja-lang="リファレンス"
+               es-lang="Referencia">Reference</a>
+          </li>
+          <li class="dac-nav-item tools">
+            <a class="dac-nav-link" href="../../../../../sdk/index.html"
+               zh-tw-lang="相關工具"
+               zh-cn-lang="工具"
+               ru-lang="Инструменты"
+               ko-lang="도구"
+               ja-lang="ツール"
+               es-lang="Herramientas">Tools</a></li>
+          <li class="dac-nav-item google">
+            <a class="dac-nav-link" href="../../../../../google/index.html">Google Services</a>
+          </li>
+          
+          <li class="dac-nav-item preview">
+            <a class="dac-nav-link" href="../../../../../preview/index.html">Preview</a>
+          </li>
+        </ul>
+      </li>
+      <li class="dac-nav-item distribute">
+        <a class="dac-nav-link" href="../../../../../distribute/googleplay/index.html"
+           zh-tw-lang="發佈"
+           zh-cn-lang="分发"
+           ru-lang="Распространение"
+           ko-lang="배포"
+           ja-lang="配布"
+           es-lang="Distribuir">Distribute</a>
+        <ul class="dac-nav-secondary distribute">
+          <li class="dac-nav-item googleplay">
+            <a class="dac-nav-link" href="../../../../../distribute/googleplay/index.html">Google Play</a></li>
+          <li class="dac-nav-item essentials">
+            <a class="dac-nav-link" href="../../../../../distribute/essentials/index.html">Essentials</a></li>
+          <li class="dac-nav-item users">
+            <a class="dac-nav-link" href="../../../../../distribute/users/index.html">Get Users</a></li>
+          <li class="dac-nav-item engage">
+            <a class="dac-nav-link" href="../../../../../distribute/engage/index.html">Engage &amp; Retain</a></li>
+          <li class="dac-nav-item monetize">
+            <a class="dac-nav-link" href="../../../../../distribute/monetize/index.html">Earn</a>
+          </li>
+          <li class="dac-nav-item analyze">
+            <a class="dac-nav-link" href="../../../../../distribute/analyze/index.html">Analyze</a>
+          </li>
+          <li class="dac-nav-item stories">
+            <a class="dac-nav-link" href="../../../../../distribute/stories/index.html">Stories</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+  <!-- end navigation-->
+  
+
+
+
+
+
+  <div class="wrap clearfix" id="body-content"><div class="cols">
+    <div class="col-4 dac-hidden-mobile" id="side-nav" itemscope itemtype="http://schema.org/SiteNavigationElement">
+      <div id="devdoc-nav">
+      <div id="api-nav-header">
+        <div id="api-level-toggle">
+          <label for="apiLevelCheckbox" class="disabled"
+            title="Select your target API level to dim unavailable APIs">API level: </label>
+          <div class="select-wrapper">
+            <select id="apiLevelSelector">
+              <!-- option elements added by buildApiLevelSelector() -->
+            </select>
+          </div>
+        </div><!-- end toggle -->
+        <div id="api-nav-title">Android APIs</div>
+        </div><!-- end nav header -->
+      <script>
+        var SINCE_DATA = [ '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', 'N' ];
+        buildApiLevelSelector();
+      </script>
+
+      <div id="swapper">
+        <div id="nav-panels">
+          <div id="resize-packages-nav">
+            <div id="packages-nav" class="scroll-pane">
+
+              <ul>
+                
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/android/package-summary.html">android</a></li>
+    <li class="api apilevel-4">
+  <a href="../../../../../reference/android/accessibilityservice/package-summary.html">android.accessibilityservice</a></li>
+    <li class="api apilevel-5">
+  <a href="../../../../../reference/android/accounts/package-summary.html">android.accounts</a></li>
+    <li class="api apilevel-11">
+  <a href="../../../../../reference/android/animation/package-summary.html">android.animation</a></li>
+    <li class="api apilevel-16">
+  <a href="../../../../../reference/android/annotation/package-summary.html">android.annotation</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/android/app/package-summary.html">android.app</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../../../reference/android/app/admin/package-summary.html">android.app.admin</a></li>
+    <li class="api apilevel-23">
+  <a href="../../../../../reference/android/app/assist/package-summary.html">android.app.assist</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../../../reference/android/app/backup/package-summary.html">android.app.backup</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../../../reference/android/app/job/package-summary.html">android.app.job</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../../../reference/android/app/usage/package-summary.html">android.app.usage</a></li>
+    <li class="api apilevel-3">
+  <a href="../../../../../reference/android/appwidget/package-summary.html">android.appwidget</a></li>
+    <li class="api apilevel-N">
+  <a href="../../../../../reference/android/auditing/package-summary.html">android.auditing</a></li>
+    <li class="api apilevel-5">
+  <a href="../../../../../reference/android/bluetooth/package-summary.html">android.bluetooth</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../../../reference/android/bluetooth/le/package-summary.html">android.bluetooth.le</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/android/content/package-summary.html">android.content</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/android/content/pm/package-summary.html">android.content.pm</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/android/content/res/package-summary.html">android.content.res</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/android/database/package-summary.html">android.database</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/android/database/sqlite/package-summary.html">android.database.sqlite</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/android/databinding/package-summary.html">android.databinding</a></li>
+    <li class="api apilevel-11">
+  <a href="../../../../../reference/android/drm/package-summary.html">android.drm</a></li>
+    <li class="api apilevel-4">
+  <a href="../../../../../reference/android/gesture/package-summary.html">android.gesture</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/android/graphics/package-summary.html">android.graphics</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/android/graphics/drawable/package-summary.html">android.graphics.drawable</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/android/graphics/drawable/shapes/package-summary.html">android.graphics.drawable.shapes</a></li>
+    <li class="api apilevel-19">
+  <a href="../../../../../reference/android/graphics/pdf/package-summary.html">android.graphics.pdf</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/android/hardware/package-summary.html">android.hardware</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../../../reference/android/hardware/camera2/package-summary.html">android.hardware.camera2</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../../../reference/android/hardware/camera2/params/package-summary.html">android.hardware.camera2.params</a></li>
+    <li class="api apilevel-17">
+  <a href="../../../../../reference/android/hardware/display/package-summary.html">android.hardware.display</a></li>
+    <li class="api apilevel-23">
+  <a href="../../../../../reference/android/hardware/fingerprint/package-summary.html">android.hardware.fingerprint</a></li>
+    <li class="api apilevel-16">
+  <a href="../../../../../reference/android/hardware/input/package-summary.html">android.hardware.input</a></li>
+    <li class="api apilevel-12">
+  <a href="../../../../../reference/android/hardware/usb/package-summary.html">android.hardware.usb</a></li>
+    <li class="api apilevel-N">
+  <a href="../../../../../reference/android/icu/lang/package-summary.html">android.icu.lang</a></li>
+    <li class="api apilevel-N">
+  <a href="../../../../../reference/android/icu/math/package-summary.html">android.icu.math</a></li>
+    <li class="api apilevel-N">
+  <a href="../../../../../reference/android/icu/text/package-summary.html">android.icu.text</a></li>
+    <li class="api apilevel-N">
+  <a href="../../../../../reference/android/icu/util/package-summary.html">android.icu.util</a></li>
+    <li class="api apilevel-3">
+  <a href="../../../../../reference/android/inputmethodservice/package-summary.html">android.inputmethodservice</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/android/location/package-summary.html">android.location</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/android/media/package-summary.html">android.media</a></li>
+    <li class="api apilevel-9">
+  <a href="../../../../../reference/android/media/audiofx/package-summary.html">android.media.audiofx</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../../../reference/android/media/browse/package-summary.html">android.media.browse</a></li>
+    <li class="api apilevel-14">
+  <a href="../../../../../reference/android/media/effect/package-summary.html">android.media.effect</a></li>
+    <li class="api apilevel-23">
+  <a href="../../../../../reference/android/media/midi/package-summary.html">android.media.midi</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../../../reference/android/media/projection/package-summary.html">android.media.projection</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../../../reference/android/media/session/package-summary.html">android.media.session</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../../../reference/android/media/tv/package-summary.html">android.media.tv</a></li>
+    <li class="api apilevel-12">
+  <a href="../../../../../reference/android/mtp/package-summary.html">android.mtp</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/android/net/package-summary.html">android.net</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/android/net/http/package-summary.html">android.net.http</a></li>
+    <li class="api apilevel-16">
+  <a href="../../../../../reference/android/net/nsd/package-summary.html">android.net.nsd</a></li>
+    <li class="api apilevel-12">
+  <a href="../../../../../reference/android/net/rtp/package-summary.html">android.net.rtp</a></li>
+    <li class="api apilevel-9">
+  <a href="../../../../../reference/android/net/sip/package-summary.html">android.net.sip</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/android/net/wifi/package-summary.html">android.net.wifi</a></li>
+    <li class="api apilevel-14">
+  <a href="../../../../../reference/android/net/wifi/p2p/package-summary.html">android.net.wifi.p2p</a></li>
+    <li class="api apilevel-16">
+  <a href="../../../../../reference/android/net/wifi/p2p/nsd/package-summary.html">android.net.wifi.p2p.nsd</a></li>
+    <li class="api apilevel-9">
+  <a href="../../../../../reference/android/nfc/package-summary.html">android.nfc</a></li>
+    <li class="api apilevel-19">
+  <a href="../../../../../reference/android/nfc/cardemulation/package-summary.html">android.nfc.cardemulation</a></li>
+    <li class="api apilevel-10">
+  <a href="../../../../../reference/android/nfc/tech/package-summary.html">android.nfc.tech</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/android/opengl/package-summary.html">android.opengl</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/android/os/package-summary.html">android.os</a></li>
+    <li class="api apilevel-9">
+  <a href="../../../../../reference/android/os/storage/package-summary.html">android.os.storage</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/android/preference/package-summary.html">android.preference</a></li>
+    <li class="api apilevel-19">
+  <a href="../../../../../reference/android/print/package-summary.html">android.print</a></li>
+    <li class="api apilevel-19">
+  <a href="../../../../../reference/android/print/pdf/package-summary.html">android.print.pdf</a></li>
+    <li class="api apilevel-19">
+  <a href="../../../../../reference/android/printservice/package-summary.html">android.printservice</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/android/provider/package-summary.html">android.provider</a></li>
+    <li class="api apilevel-11">
+  <a href="../../../../../reference/android/renderscript/package-summary.html">android.renderscript</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/android/sax/package-summary.html">android.sax</a></li>
+    <li class="api apilevel-14">
+  <a href="../../../../../reference/android/security/package-summary.html">android.security</a></li>
+    <li class="api apilevel-23">
+  <a href="../../../../../reference/android/security/keystore/package-summary.html">android.security.keystore</a></li>
+    <li class="api apilevel-22">
+  <a href="../../../../../reference/android/service/carrier/package-summary.html">android.service.carrier</a></li>
+    <li class="api apilevel-23">
+  <a href="../../../../../reference/android/service/chooser/package-summary.html">android.service.chooser</a></li>
+    <li class="api apilevel-17">
+  <a href="../../../../../reference/android/service/dreams/package-summary.html">android.service.dreams</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../../../reference/android/service/media/package-summary.html">android.service.media</a></li>
+    <li class="api apilevel-18">
+  <a href="../../../../../reference/android/service/notification/package-summary.html">android.service.notification</a></li>
+    <li class="api apilevel-N">
+  <a href="../../../../../reference/android/service/quicksettings/package-summary.html">android.service.quicksettings</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../../../reference/android/service/restrictions/package-summary.html">android.service.restrictions</a></li>
+    <li class="api apilevel-14">
+  <a href="../../../../../reference/android/service/textservice/package-summary.html">android.service.textservice</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../../../reference/android/service/voice/package-summary.html">android.service.voice</a></li>
+    <li class="api apilevel-7">
+  <a href="../../../../../reference/android/service/wallpaper/package-summary.html">android.service.wallpaper</a></li>
+    <li class="api apilevel-3">
+  <a href="../../../../../reference/android/speech/package-summary.html">android.speech</a></li>
+    <li class="api apilevel-4">
+  <a href="../../../../../reference/android/speech/tts/package-summary.html">android.speech.tts</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/android/support/annotation/package-summary.html">android.support.annotation</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/android/support/app/recommendation/package-summary.html">android.support.app.recommendation</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/android/support/customtabs/package-summary.html">android.support.customtabs</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/android/support/design/package-summary.html">android.support.design</a></li>
+    <li class="selected api apilevel-">
+  <a href="../../../../../reference/android/support/design/widget/package-summary.html">android.support.design.widget</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/android/support/multidex/package-summary.html">android.support.multidex</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/android/support/percent/package-summary.html">android.support.percent</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/android/support/v13/app/package-summary.html">android.support.v13.app</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/android/support/v13/view/package-summary.html">android.support.v13.view</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/android/support/v14/preference/package-summary.html">android.support.v14.preference</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/android/support/v17/leanback/package-summary.html">android.support.v17.leanback</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/android/support/v17/leanback/app/package-summary.html">android.support.v17.leanback.app</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/android/support/v17/leanback/database/package-summary.html">android.support.v17.leanback.database</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/android/support/v17/leanback/graphics/package-summary.html">android.support.v17.leanback.graphics</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/android/support/v17/leanback/system/package-summary.html">android.support.v17.leanback.system</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/android/support/v17/leanback/widget/package-summary.html">android.support.v17.leanback.widget</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/android/support/v17/leanback/widget/picker/package-summary.html">android.support.v17.leanback.widget.picker</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/android/support/v17/preference/package-summary.html">android.support.v17.preference</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/android/support/v4/accessibilityservice/package-summary.html">android.support.v4.accessibilityservice</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/android/support/v4/app/package-summary.html">android.support.v4.app</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/android/support/v4/content/package-summary.html">android.support.v4.content</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/android/support/v4/content/pm/package-summary.html">android.support.v4.content.pm</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/android/support/v4/content/res/package-summary.html">android.support.v4.content.res</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/android/support/v4/database/package-summary.html">android.support.v4.database</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/android/support/v4/graphics/package-summary.html">android.support.v4.graphics</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/android/support/v4/graphics/drawable/package-summary.html">android.support.v4.graphics.drawable</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/android/support/v4/hardware/display/package-summary.html">android.support.v4.hardware.display</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/android/support/v4/hardware/fingerprint/package-summary.html">android.support.v4.hardware.fingerprint</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/android/support/v4/media/package-summary.html">android.support.v4.media</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/android/support/v4/media/session/package-summary.html">android.support.v4.media.session</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/android/support/v4/net/package-summary.html">android.support.v4.net</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/android/support/v4/os/package-summary.html">android.support.v4.os</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/android/support/v4/print/package-summary.html">android.support.v4.print</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/android/support/v4/provider/package-summary.html">android.support.v4.provider</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/android/support/v4/text/package-summary.html">android.support.v4.text</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/android/support/v4/util/package-summary.html">android.support.v4.util</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/android/support/v4/view/package-summary.html">android.support.v4.view</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/android/support/v4/view/accessibility/package-summary.html">android.support.v4.view.accessibility</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/android/support/v4/view/animation/package-summary.html">android.support.v4.view.animation</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/android/support/v4/widget/package-summary.html">android.support.v4.widget</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/android/support/v7/app/package-summary.html">android.support.v7.app</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/android/support/v7/appcompat/package-summary.html">android.support.v7.appcompat</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/android/support/v7/cardview/package-summary.html">android.support.v7.cardview</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/android/support/v7/graphics/package-summary.html">android.support.v7.graphics</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/android/support/v7/graphics/drawable/package-summary.html">android.support.v7.graphics.drawable</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/android/support/v7/gridlayout/package-summary.html">android.support.v7.gridlayout</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/android/support/v7/media/package-summary.html">android.support.v7.media</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/android/support/v7/mediarouter/package-summary.html">android.support.v7.mediarouter</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/android/support/v7/preference/package-summary.html">android.support.v7.preference</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/android/support/v7/recyclerview/package-summary.html">android.support.v7.recyclerview</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/android/support/v7/util/package-summary.html">android.support.v7.util</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/android/support/v7/view/package-summary.html">android.support.v7.view</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/android/support/v7/widget/package-summary.html">android.support.v7.widget</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/android/support/v7/widget/helper/package-summary.html">android.support.v7.widget.helper</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/android/support/v7/widget/util/package-summary.html">android.support.v7.widget.util</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/android/support/v8/renderscript/package-summary.html">android.support.v8.renderscript</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../../../reference/android/system/package-summary.html">android.system</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../../../reference/android/telecom/package-summary.html">android.telecom</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/android/telephony/package-summary.html">android.telephony</a></li>
+    <li class="api apilevel-5">
+  <a href="../../../../../reference/android/telephony/cdma/package-summary.html">android.telephony.cdma</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/android/telephony/gsm/package-summary.html">android.telephony.gsm</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/android/test/package-summary.html">android.test</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/android/test/mock/package-summary.html">android.test.mock</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/android/test/suitebuilder/package-summary.html">android.test.suitebuilder</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/android/test/suitebuilder/annotation/package-summary.html">android.test.suitebuilder.annotation</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/android/text/package-summary.html">android.text</a></li>
+    <li class="api apilevel-3">
+  <a href="../../../../../reference/android/text/format/package-summary.html">android.text.format</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/android/text/method/package-summary.html">android.text.method</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/android/text/style/package-summary.html">android.text.style</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/android/text/util/package-summary.html">android.text.util</a></li>
+    <li class="api apilevel-19">
+  <a href="../../../../../reference/android/transition/package-summary.html">android.transition</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/android/util/package-summary.html">android.util</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/android/view/package-summary.html">android.view</a></li>
+    <li class="api apilevel-4">
+  <a href="../../../../../reference/android/view/accessibility/package-summary.html">android.view.accessibility</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/android/view/animation/package-summary.html">android.view.animation</a></li>
+    <li class="api apilevel-3">
+  <a href="../../../../../reference/android/view/inputmethod/package-summary.html">android.view.inputmethod</a></li>
+    <li class="api apilevel-14">
+  <a href="../../../../../reference/android/view/textservice/package-summary.html">android.view.textservice</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/android/webkit/package-summary.html">android.webkit</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/android/widget/package-summary.html">android.widget</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/com/android/internal/backup/package-summary.html">com.android.internal.backup</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/com/android/internal/logging/package-summary.html">com.android.internal.logging</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/com/android/internal/os/package-summary.html">com.android.internal.os</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/com/android/internal/statusbar/package-summary.html">com.android.internal.statusbar</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/com/android/internal/widget/package-summary.html">com.android.internal.widget</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/com/android/test/runner/package-summary.html">com.android.test.runner</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/dalvik/annotation/package-summary.html">dalvik.annotation</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/dalvik/bytecode/package-summary.html">dalvik.bytecode</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/dalvik/system/package-summary.html">dalvik.system</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/java/awt/font/package-summary.html">java.awt.font</a></li>
+    <li class="api apilevel-3">
+  <a href="../../../../../reference/java/beans/package-summary.html">java.beans</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/java/io/package-summary.html">java.io</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/java/lang/package-summary.html">java.lang</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/java/lang/annotation/package-summary.html">java.lang.annotation</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/java/lang/ref/package-summary.html">java.lang.ref</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/java/lang/reflect/package-summary.html">java.lang.reflect</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/java/math/package-summary.html">java.math</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/java/net/package-summary.html">java.net</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/java/nio/package-summary.html">java.nio</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/java/nio/channels/package-summary.html">java.nio.channels</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/java/nio/channels/spi/package-summary.html">java.nio.channels.spi</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/java/nio/charset/package-summary.html">java.nio.charset</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/java/nio/charset/spi/package-summary.html">java.nio.charset.spi</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/java/security/package-summary.html">java.security</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/java/security/acl/package-summary.html">java.security.acl</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/java/security/cert/package-summary.html">java.security.cert</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/java/security/interfaces/package-summary.html">java.security.interfaces</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/java/security/spec/package-summary.html">java.security.spec</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/java/sql/package-summary.html">java.sql</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/java/text/package-summary.html">java.text</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/java/util/package-summary.html">java.util</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/java/util/concurrent/package-summary.html">java.util.concurrent</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/java/util/concurrent/atomic/package-summary.html">java.util.concurrent.atomic</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/java/util/concurrent/locks/package-summary.html">java.util.concurrent.locks</a></li>
+    <li class="api apilevel-N">
+  <a href="../../../../../reference/java/util/function/package-summary.html">java.util.function</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/java/util/jar/package-summary.html">java.util.jar</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/java/util/logging/package-summary.html">java.util.logging</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/java/util/prefs/package-summary.html">java.util.prefs</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/java/util/regex/package-summary.html">java.util.regex</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/java/util/zip/package-summary.html">java.util.zip</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/javax/crypto/package-summary.html">javax.crypto</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/javax/crypto/interfaces/package-summary.html">javax.crypto.interfaces</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/javax/crypto/spec/package-summary.html">javax.crypto.spec</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/javax/microedition/khronos/egl/package-summary.html">javax.microedition.khronos.egl</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/javax/microedition/khronos/opengles/package-summary.html">javax.microedition.khronos.opengles</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/javax/net/package-summary.html">javax.net</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/javax/net/ssl/package-summary.html">javax.net.ssl</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/javax/security/auth/package-summary.html">javax.security.auth</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/javax/security/auth/callback/package-summary.html">javax.security.auth.callback</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/javax/security/auth/login/package-summary.html">javax.security.auth.login</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/javax/security/auth/x500/package-summary.html">javax.security.auth.x500</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/javax/security/cert/package-summary.html">javax.security.cert</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/javax/sql/package-summary.html">javax.sql</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/javax/xml/package-summary.html">javax.xml</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../../../reference/javax/xml/datatype/package-summary.html">javax.xml.datatype</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../../../reference/javax/xml/namespace/package-summary.html">javax.xml.namespace</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/javax/xml/parsers/package-summary.html">javax.xml.parsers</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../../../reference/javax/xml/transform/package-summary.html">javax.xml.transform</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../../../reference/javax/xml/transform/dom/package-summary.html">javax.xml.transform.dom</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../../../reference/javax/xml/transform/sax/package-summary.html">javax.xml.transform.sax</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../../../reference/javax/xml/transform/stream/package-summary.html">javax.xml.transform.stream</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../../../reference/javax/xml/validation/package-summary.html">javax.xml.validation</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../../../reference/javax/xml/xpath/package-summary.html">javax.xml.xpath</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/junit/framework/package-summary.html">junit.framework</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/junit/runner/package-summary.html">junit.runner</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/org/apache/http/conn/package-summary.html">org.apache.http.conn</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/org/apache/http/conn/scheme/package-summary.html">org.apache.http.conn.scheme</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/org/apache/http/conn/ssl/package-summary.html">org.apache.http.conn.ssl</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/org/apache/http/params/package-summary.html">org.apache.http.params</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/org/json/package-summary.html">org.json</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/org/w3c/dom/package-summary.html">org.w3c.dom</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../../../reference/org/w3c/dom/ls/package-summary.html">org.w3c.dom.ls</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/org/xml/sax/package-summary.html">org.xml.sax</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/org/xml/sax/ext/package-summary.html">org.xml.sax.ext</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/org/xml/sax/helpers/package-summary.html">org.xml.sax.helpers</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/org/xmlpull/v1/package-summary.html">org.xmlpull.v1</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../../reference/org/xmlpull/v1/sax2/package-summary.html">org.xmlpull.v1.sax2</a></li>
+              </ul><br/>
+
+            </div> <!-- end packages-nav -->
+          </div> <!-- end resize-packages -->
+          <div id="classes-nav" class="scroll-pane">
+
+
+
+            <ul>
+              
+    <li><h2>Annotations</h2>
+      <ul>
+          <li class="api apilevel-"><a href="../../../../../reference/android/support/design/widget/CoordinatorLayout.DefaultBehavior.html">CoordinatorLayout.DefaultBehavior</a></li>
+      </ul>
+    </li>
+              
+    <li><h2>Interfaces</h2>
+      <ul>
+          <li class="api apilevel-"><a href="../../../../../reference/android/support/design/widget/AppBarLayout.OnOffsetChangedListener.html">AppBarLayout.OnOffsetChangedListener</a></li>
+          <li class="api apilevel-"><a href="../../../../../reference/android/support/design/widget/NavigationView.OnNavigationItemSelectedListener.html">NavigationView.OnNavigationItemSelectedListener</a></li>
+          <li class="api apilevel-"><a href="../../../../../reference/android/support/design/widget/SwipeDismissBehavior.OnDismissListener.html">SwipeDismissBehavior.OnDismissListener</a></li>
+          <li class="api apilevel-"><a href="../../../../../reference/android/support/design/widget/TabLayout.OnTabSelectedListener.html">TabLayout.OnTabSelectedListener</a></li>
+      </ul>
+    </li>
+              
+    <li><h2>Classes</h2>
+      <ul>
+          <li class="api apilevel-"><a href="../../../../../reference/android/support/design/widget/AppBarLayout.html">AppBarLayout</a></li>
+          <li class="api apilevel-"><a href="../../../../../reference/android/support/design/widget/AppBarLayout.Behavior.html">AppBarLayout.Behavior</a></li>
+          <li class="api apilevel-"><a href="../../../../../reference/android/support/design/widget/AppBarLayout.Behavior.DragCallback.html">AppBarLayout.Behavior.DragCallback</a></li>
+          <li class="api apilevel-"><a href="../../../../../reference/android/support/design/widget/AppBarLayout.Behavior.SavedState.html">AppBarLayout.Behavior.SavedState</a></li>
+          <li class="api apilevel-"><a href="../../../../../reference/android/support/design/widget/AppBarLayout.LayoutParams.html">AppBarLayout.LayoutParams</a></li>
+          <li class="api apilevel-"><a href="../../../../../reference/android/support/design/widget/AppBarLayout.ScrollingViewBehavior.html">AppBarLayout.ScrollingViewBehavior</a></li>
+          <li class="selected api apilevel-"><a href="../../../../../reference/android/support/design/widget/BottomSheetBehavior.html">BottomSheetBehavior</a></li>
+          <li class="api apilevel-"><a href="../../../../../reference/android/support/design/widget/BottomSheetBehavior.BottomSheetCallback.html">BottomSheetBehavior.BottomSheetCallback</a></li>
+          <li class="api apilevel-"><a href="../../../../../reference/android/support/design/widget/BottomSheetBehavior.SavedState.html">BottomSheetBehavior.SavedState</a></li>
+          <li class="api apilevel-"><a href="../../../../../reference/android/support/design/widget/BottomSheetDialog.html">BottomSheetDialog</a></li>
+          <li class="api apilevel-"><a href="../../../../../reference/android/support/design/widget/BottomSheetDialogFragment.html">BottomSheetDialogFragment</a></li>
+          <li class="api apilevel-"><a href="../../../../../reference/android/support/design/widget/CollapsingToolbarLayout.html">CollapsingToolbarLayout</a></li>
+          <li class="api apilevel-"><a href="../../../../../reference/android/support/design/widget/CollapsingToolbarLayout.LayoutParams.html">CollapsingToolbarLayout.LayoutParams</a></li>
+          <li class="api apilevel-"><a href="../../../../../reference/android/support/design/widget/CoordinatorLayout.html">CoordinatorLayout</a></li>
+          <li class="api apilevel-"><a href="../../../../../reference/android/support/design/widget/CoordinatorLayout.Behavior.html">CoordinatorLayout.Behavior</a></li>
+          <li class="api apilevel-"><a href="../../../../../reference/android/support/design/widget/CoordinatorLayout.LayoutParams.html">CoordinatorLayout.LayoutParams</a></li>
+          <li class="api apilevel-"><a href="../../../../../reference/android/support/design/widget/CoordinatorLayout.SavedState.html">CoordinatorLayout.SavedState</a></li>
+          <li class="api apilevel-"><a href="../../../../../reference/android/support/design/widget/FloatingActionButton.html">FloatingActionButton</a></li>
+          <li class="api apilevel-"><a href="../../../../../reference/android/support/design/widget/FloatingActionButton.Behavior.html">FloatingActionButton.Behavior</a></li>
+          <li class="api apilevel-"><a href="../../../../../reference/android/support/design/widget/FloatingActionButton.OnVisibilityChangedListener.html">FloatingActionButton.OnVisibilityChangedListener</a></li>
+          <li class="api apilevel-"><a href="../../../../../reference/android/support/design/widget/NavigationView.html">NavigationView</a></li>
+          <li class="api apilevel-"><a href="../../../../../reference/android/support/design/widget/NavigationView.SavedState.html">NavigationView.SavedState</a></li>
+          <li class="api apilevel-"><a href="../../../../../reference/android/support/design/widget/Snackbar.html">Snackbar</a></li>
+          <li class="api apilevel-"><a href="../../../../../reference/android/support/design/widget/Snackbar.Callback.html">Snackbar.Callback</a></li>
+          <li class="api apilevel-"><a href="../../../../../reference/android/support/design/widget/SwipeDismissBehavior.html">SwipeDismissBehavior</a></li>
+          <li class="api apilevel-"><a href="../../../../../reference/android/support/design/widget/TabItem.html">TabItem</a></li>
+          <li class="api apilevel-"><a href="../../../../../reference/android/support/design/widget/TabLayout.html">TabLayout</a></li>
+          <li class="api apilevel-"><a href="../../../../../reference/android/support/design/widget/TabLayout.Tab.html">TabLayout.Tab</a></li>
+          <li class="api apilevel-"><a href="../../../../../reference/android/support/design/widget/TabLayout.TabLayoutOnPageChangeListener.html">TabLayout.TabLayoutOnPageChangeListener</a></li>
+          <li class="api apilevel-"><a href="../../../../../reference/android/support/design/widget/TabLayout.ViewPagerOnTabSelectedListener.html">TabLayout.ViewPagerOnTabSelectedListener</a></li>
+          <li class="api apilevel-"><a href="../../../../../reference/android/support/design/widget/TextInputEditText.html">TextInputEditText</a></li>
+          <li class="api apilevel-"><a href="../../../../../reference/android/support/design/widget/TextInputLayout.html">TextInputLayout</a></li>
+      </ul>
+    </li>
+              
+              
+              
+            </ul><br/>
+
+
+          </div><!-- end classes -->
+        </div><!-- end nav-panels -->
+        <div id="nav-tree" style="display:none" class="scroll-pane">
+          <div id="tree-list"></div>
+        </div><!-- end nav-tree -->
+      </div><!-- end swapper -->
+      <div id="nav-swap">
+      <a class="fullscreen">fullscreen</a>
+      <a href='#' onclick='swapNav();return false;'><span id='tree-link'>Use Tree Navigation</span><span id='panel-link' style='display:none'>Use Panel Navigation</span></a>
+      </div>
+    </div> <!-- end devdoc-nav -->
+    </div> <!-- end side-nav -->
+    <script type="text/javascript">
+      // init fullscreen based on user pref
+      var fullscreen = readCookie("fullscreen");
+      if (fullscreen != 0) {
+        if (fullscreen == "false") {
+          toggleFullscreen(false);
+        } else {
+          toggleFullscreen(true);
+        }
+      }
+      // init nav version for mobile
+      if (isMobile) {
+        swapNav(); // tree view should be used on mobile
+        $('#nav-swap').hide();
+      } else {
+        chooseDefaultNav();
+        if ($("#nav-tree").is(':visible')) {
+          init_default_navtree("../../../../../");
+        }
+      }
+      // scroll the selected page into view
+      $(document).ready(function() {
+        scrollIntoView("packages-nav");
+        scrollIntoView("classes-nav");
+        });
+    </script>
+
+     
+
+
+
+<div class="col-12"  id="doc-col">
+
+<div id="api-info-block">
+
+
+
+  
+   
+  
+  
+  
+  
+
+  
+   
+  
+  
+  
+  
+
+
+<div class="sum-details-links">
+
+Summary:
+
+  <a href="#nestedclasses">Nested Classes</a>
+  
+
+
+  &#124; <a href="#lattrs">XML Attrs</a>
+  
+
+
+
+
+  &#124; <a href="#constants">Constants</a>
+  
+
+
+
+
+
+  &#124; <a href="#pubctors">Ctors</a>
+  
+
+
+
+  &#124; <a href="#pubmethods">Methods</a>
+  
+
+
+
+  &#124; <a href="#inhmethods">Inherited Methods</a>
+
+&#124; <a href="#" onclick="return toggleAllClassInherited()" id="toggleAllClassInherited">[Expand All]</a>
+
+</div><!-- end sum-details-links -->
+<div class="api-level">
+  
+  
+  
+
+</div>
+</div><!-- end api-info-block -->
+
+
+<!-- ======== START OF CLASS DATA ======== -->
+
+<div id="jd-header">
+    public
+     
+     
+    
+    class
+<h1 itemprop="name">BottomSheetBehavior</h1>
+
+
+
+  
+  
+  
+
+  
+    extends <a href="../../../../../reference/android/support/design/widget/CoordinatorLayout.Behavior.html">Behavior</a>&lt;V&nbsp;extends&nbsp;<a href="../../../../../reference/android/view/View.html">View</a>&gt;<br/>
+  
+  
+  
+
+  
+  
+  
+
+
+    
+
+
+</div><!-- end header -->
+
+<div id="naMessage"></div>
+
+<div id="jd-content" class="api apilevel-">
+<table class="jd-inheritance-table">
+
+
+    <tr>
+         	
+        <td colspan="3" class="jd-inheritance-class-cell"><a href="../../../../../reference/java/lang/Object.html">java.lang.Object</a></td>
+    </tr>
+    
+
+    <tr>
+        
+            <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
+         	
+        <td colspan="2" class="jd-inheritance-class-cell"><a href="../../../../../reference/android/support/design/widget/CoordinatorLayout.Behavior.html">android.support.design.widget.CoordinatorLayout.Behavior</a>&lt;V&nbsp;extends&nbsp;<a href="../../../../../reference/android/view/View.html">android.view.View</a>&gt;</td>
+    </tr>
+    
+
+    <tr>
+        
+            <td class="jd-inheritance-space">&nbsp;</td>
+        
+            <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
+         	
+        <td colspan="1" class="jd-inheritance-class-cell">android.support.design.widget.BottomSheetBehavior&lt;V&nbsp;extends&nbsp;<a href="../../../../../reference/android/view/View.html">android.view.View</a>&gt;</td>
+    </tr>
+    
+
+</table>
+
+
+
+
+
+
+
+<div class="jd-descr">
+
+
+<h2>Class Overview</h2>
+<p itemprop="articleBody">An interaction behavior plugin for a child view of <code><a href="../../../../../reference/android/support/design/widget/CoordinatorLayout.html">CoordinatorLayout</a></code> to make it work as
+ a bottom sheet.
+</p>
+
+
+
+
+
+</div><!-- jd-descr -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="jd-descr">
+
+
+<h2>Summary</h2>
+
+
+
+<!-- ======== NESTED CLASS SUMMARY ======== -->
+<table id="nestedclasses" class="jd-sumtable"><tr><th colspan="12">Nested Classes</th></tr>
+
+
+  
+    <tr class="alt-color api apilevel-" >
+      <td class="jd-typecol"><nobr>
+        
+         
+         
+        
+        class</nobr></td>
+      <td class="jd-linkcol"><a href="../../../../../reference/android/support/design/widget/BottomSheetBehavior.BottomSheetCallback.html">BottomSheetBehavior.BottomSheetCallback</a></td>
+      <td class="jd-descrcol" width="100%">
+        Callback for monitoring events about bottom sheets.&nbsp;
+        
+    
+
+      </td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+      <td class="jd-typecol"><nobr>
+        
+         
+         
+        
+        class</nobr></td>
+      <td class="jd-linkcol"><a href="../../../../../reference/android/support/design/widget/BottomSheetBehavior.SavedState.html">BottomSheetBehavior.SavedState</a></td>
+      <td class="jd-descrcol" width="100%">
+        &nbsp;
+        
+    
+
+      </td>
+    </tr>
+    
+    
+
+
+
+
+
+<!-- =========== FIELD SUMMARY =========== -->
+<table id="lattrs" class="jd-sumtable"><tr><th colspan="12">XML Attributes</th></tr>
+
+
+    <tr>
+        <td><nobr><em>Attribute Name</em></nobr></td>
+        <td><nobr><em>Related Method</em></nobr></td>
+        <td><nobr><em>Description</em></nobr></td>
+    </tr>
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-linkcol"><a href="../../../../../reference/android/support/design/widget/BottomSheetBehavior.html#attr_android.support.design:behavior_hideable">android.support.design:behavior_hideable</a></td>
+        <td class="jd-linkcol">
+            <a href="../../../../../reference/android/support/design/widget/BottomSheetBehavior.html#setHideable(boolean)">setHideable(boolean)</a>
+            
+        </td>
+        <td class="jd-descrcol" width="100%">
+          &nbsp;
+          
+    
+
+        </td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-linkcol"><a href="../../../../../reference/android/support/design/widget/BottomSheetBehavior.html#attr_android.support.design:behavior_peekHeight">android.support.design:behavior_peekHeight</a></td>
+        <td class="jd-linkcol">
+            <a href="../../../../../reference/android/support/design/widget/BottomSheetBehavior.html#setPeekHeight(int)">setPeekHeight(int)</a>
+            
+        </td>
+        <td class="jd-descrcol" width="100%">
+          The height of the bottom sheet when it is collapsed.&nbsp;
+          
+    
+
+        </td>
+    </tr>
+    
+    
+
+
+
+
+
+
+
+
+
+
+<!-- =========== ENUM CONSTANT SUMMARY =========== -->
+<table id="constants" class="jd-sumtable"><tr><th colspan="12">Constants</th></tr>
+
+
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">int</td>
+        <td class="jd-linkcol"><a href="../../../../../reference/android/support/design/widget/BottomSheetBehavior.html#STATE_COLLAPSED">STATE_COLLAPSED</a></td>
+        <td class="jd-descrcol" width="100%">
+          The bottom sheet is collapsed.
+          
+    
+
+        </td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">int</td>
+        <td class="jd-linkcol"><a href="../../../../../reference/android/support/design/widget/BottomSheetBehavior.html#STATE_DRAGGING">STATE_DRAGGING</a></td>
+        <td class="jd-descrcol" width="100%">
+          The bottom sheet is dragging.
+          
+    
+
+        </td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">int</td>
+        <td class="jd-linkcol"><a href="../../../../../reference/android/support/design/widget/BottomSheetBehavior.html#STATE_EXPANDED">STATE_EXPANDED</a></td>
+        <td class="jd-descrcol" width="100%">
+          The bottom sheet is expanded.
+          
+    
+
+        </td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">int</td>
+        <td class="jd-linkcol"><a href="../../../../../reference/android/support/design/widget/BottomSheetBehavior.html#STATE_HIDDEN">STATE_HIDDEN</a></td>
+        <td class="jd-descrcol" width="100%">
+          The bottom sheet is hidden.
+          
+    
+
+        </td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">int</td>
+        <td class="jd-linkcol"><a href="../../../../../reference/android/support/design/widget/BottomSheetBehavior.html#STATE_SETTLING">STATE_SETTLING</a></td>
+        <td class="jd-descrcol" width="100%">
+          The bottom sheet is settling.
+          
+    
+
+        </td>
+    </tr>
+    
+    
+
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+<table id="pubctors" class="jd-sumtable"><tr><th colspan="12">Public Constructors</th></tr>
+
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            </nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/android/support/design/widget/BottomSheetBehavior.html#BottomSheetBehavior()">BottomSheetBehavior</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">
+          Default constructor for instantiating BottomSheetBehaviors.
+          
+    
+
+        </div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            </nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/android/support/design/widget/BottomSheetBehavior.html#BottomSheetBehavior(android.content.Context, android.util.AttributeSet)">BottomSheetBehavior</a></span>(<a href="../../../../../reference/android/content/Context.html">Context</a> context, <a href="../../../../../reference/android/util/AttributeSet.html">AttributeSet</a> attrs)</nobr>
+        
+        <div class="jd-descrdiv">
+          Default constructor for inflating BottomSheetBehaviors from layout.
+          
+    
+
+        </div>
+  
+  </td></tr>
+
+
+
+</table>
+
+
+
+
+
+
+<!-- ========== METHOD SUMMARY =========== -->
+<table id="pubmethods" class="jd-sumtable"><tr><th colspan="12">Public Methods</th></tr>
+
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            static
+            
+            &lt;V&nbsp;extends&nbsp;<a href="../../../../../reference/android/view/View.html">View</a>&gt;
+            <a href="../../../../../reference/android/support/design/widget/BottomSheetBehavior.html">BottomSheetBehavior</a>&lt;V&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/android/support/design/widget/BottomSheetBehavior.html#from(V)">from</a></span>(V view)</nobr>
+        
+        <div class="jd-descrdiv">
+          A utility function to get the <code><a href="../../../../../reference/android/support/design/widget/BottomSheetBehavior.html">BottomSheetBehavior</a></code> associated with the <code>view</code>.
+          
+    
+
+        </div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            final
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/android/support/design/widget/BottomSheetBehavior.html#getPeekHeight()">getPeekHeight</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">
+          Gets the height of the bottom sheet when it is collapsed.
+          
+    
+
+        </div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            final
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/android/support/design/widget/BottomSheetBehavior.html#getState()">getState</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">
+          Gets the current state of the bottom sheet.
+          
+    
+
+        </div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/android/support/design/widget/BottomSheetBehavior.html#isHideable()">isHideable</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">
+          Gets whether this bottom sheet can hide when it is swiped down.
+          
+    
+
+        </div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/android/support/design/widget/BottomSheetBehavior.html#onInterceptTouchEvent(android.support.design.widget.CoordinatorLayout, V, android.view.MotionEvent)">onInterceptTouchEvent</a></span>(<a href="../../../../../reference/android/support/design/widget/CoordinatorLayout.html">CoordinatorLayout</a> parent, V child, <a href="../../../../../reference/android/view/MotionEvent.html">MotionEvent</a> event)</nobr>
+        
+        <div class="jd-descrdiv">
+          Respond to CoordinatorLayout touch events before they are dispatched to child views.
+          
+    
+
+        </div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/android/support/design/widget/BottomSheetBehavior.html#onLayoutChild(android.support.design.widget.CoordinatorLayout, V, int)">onLayoutChild</a></span>(<a href="../../../../../reference/android/support/design/widget/CoordinatorLayout.html">CoordinatorLayout</a> parent, V child, int layoutDirection)</nobr>
+        
+        <div class="jd-descrdiv">
+          Called when the parent CoordinatorLayout is about the lay out the given child view.
+          
+    
+
+        </div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/android/support/design/widget/BottomSheetBehavior.html#onNestedPreFling(android.support.design.widget.CoordinatorLayout, V, android.view.View, float, float)">onNestedPreFling</a></span>(<a href="../../../../../reference/android/support/design/widget/CoordinatorLayout.html">CoordinatorLayout</a> coordinatorLayout, V child, <a href="../../../../../reference/android/view/View.html">View</a> target, float velocityX, float velocityY)</nobr>
+        
+        <div class="jd-descrdiv">
+          Called when a nested scrolling child is about to start a fling.
+          
+    
+
+        </div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/android/support/design/widget/BottomSheetBehavior.html#onNestedPreScroll(android.support.design.widget.CoordinatorLayout, V, android.view.View, int, int, int[])">onNestedPreScroll</a></span>(<a href="../../../../../reference/android/support/design/widget/CoordinatorLayout.html">CoordinatorLayout</a> coordinatorLayout, V child, <a href="../../../../../reference/android/view/View.html">View</a> target, int dx, int dy, int[] consumed)</nobr>
+        
+        <div class="jd-descrdiv">
+          Called when a nested scroll in progress is about to update, before the target has
+ consumed any of the scrolled distance.
+          
+    
+
+        </div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/android/support/design/widget/BottomSheetBehavior.html#onRestoreInstanceState(android.support.design.widget.CoordinatorLayout, V, android.os.Parcelable)">onRestoreInstanceState</a></span>(<a href="../../../../../reference/android/support/design/widget/CoordinatorLayout.html">CoordinatorLayout</a> parent, V child, <a href="../../../../../reference/android/os/Parcelable.html">Parcelable</a> state)</nobr>
+        
+        <div class="jd-descrdiv">
+          Hook allowing a behavior to re-apply a representation of its internal state that had
+ previously been generated by <code><a href="../../../../../reference/android/support/design/widget/CoordinatorLayout.Behavior.html#onSaveInstanceState(android.support.design.widget.CoordinatorLayout, V)">onSaveInstanceState(CoordinatorLayout, V)</a></code>.
+          
+    
+
+        </div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../../../reference/android/os/Parcelable.html">Parcelable</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/android/support/design/widget/BottomSheetBehavior.html#onSaveInstanceState(android.support.design.widget.CoordinatorLayout, V)">onSaveInstanceState</a></span>(<a href="../../../../../reference/android/support/design/widget/CoordinatorLayout.html">CoordinatorLayout</a> parent, V child)</nobr>
+        
+        <div class="jd-descrdiv">
+          Hook allowing a behavior to generate a representation of its internal state
+ that can later be used to create a new instance with that same state.
+          
+    
+
+        </div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/android/support/design/widget/BottomSheetBehavior.html#onStartNestedScroll(android.support.design.widget.CoordinatorLayout, V, android.view.View, android.view.View, int)">onStartNestedScroll</a></span>(<a href="../../../../../reference/android/support/design/widget/CoordinatorLayout.html">CoordinatorLayout</a> coordinatorLayout, V child, <a href="../../../../../reference/android/view/View.html">View</a> directTargetChild, <a href="../../../../../reference/android/view/View.html">View</a> target, int nestedScrollAxes)</nobr>
+        
+        <div class="jd-descrdiv">
+          Called when a descendant of the CoordinatorLayout attempts to initiate a nested scroll.
+          
+    
+
+        </div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/android/support/design/widget/BottomSheetBehavior.html#onStopNestedScroll(android.support.design.widget.CoordinatorLayout, V, android.view.View)">onStopNestedScroll</a></span>(<a href="../../../../../reference/android/support/design/widget/CoordinatorLayout.html">CoordinatorLayout</a> coordinatorLayout, V child, <a href="../../../../../reference/android/view/View.html">View</a> target)</nobr>
+        
+        <div class="jd-descrdiv">
+          Called when a nested scroll has ended.
+          
+    
+
+        </div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/android/support/design/widget/BottomSheetBehavior.html#onTouchEvent(android.support.design.widget.CoordinatorLayout, V, android.view.MotionEvent)">onTouchEvent</a></span>(<a href="../../../../../reference/android/support/design/widget/CoordinatorLayout.html">CoordinatorLayout</a> parent, V child, <a href="../../../../../reference/android/view/MotionEvent.html">MotionEvent</a> event)</nobr>
+        
+        <div class="jd-descrdiv">
+          Respond to CoordinatorLayout touch events after this Behavior has started
+ <code><a href="../../../../../reference/android/support/design/widget/CoordinatorLayout.Behavior.html#onInterceptTouchEvent(android.support.design.widget.CoordinatorLayout, V, android.view.MotionEvent)">intercepting</a></code> them.
+          
+    
+
+        </div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/android/support/design/widget/BottomSheetBehavior.html#setBottomSheetCallback(android.support.design.widget.BottomSheetBehavior.BottomSheetCallback)">setBottomSheetCallback</a></span>(<a href="../../../../../reference/android/support/design/widget/BottomSheetBehavior.BottomSheetCallback.html">BottomSheetBehavior.BottomSheetCallback</a> callback)</nobr>
+        
+        <div class="jd-descrdiv">
+          Sets a callback to be notified of bottom sheet events.
+          
+    
+
+        </div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/android/support/design/widget/BottomSheetBehavior.html#setHideable(boolean)">setHideable</a></span>(boolean hideable)</nobr>
+        
+        <div class="jd-descrdiv">
+          Sets whether this bottom sheet can hide when it is swiped down.
+          
+    
+
+        </div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            final
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/android/support/design/widget/BottomSheetBehavior.html#setPeekHeight(int)">setPeekHeight</a></span>(int peekHeight)</nobr>
+        
+        <div class="jd-descrdiv">
+          Sets the height of the bottom sheet when it is collapsed.
+          
+    
+
+        </div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            final
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/android/support/design/widget/BottomSheetBehavior.html#setState(int)">setState</a></span>(int state)</nobr>
+        
+        <div class="jd-descrdiv">
+          Sets the state of the bottom sheet.
+          
+    
+
+        </div>
+  
+  </td></tr>
+
+
+
+</table>
+
+
+
+
+
+
+
+<!-- ========== METHOD SUMMARY =========== -->
+<table id="inhmethods" class="jd-sumtable"><tr><th>
+  <a href="#" class="toggle-all" onclick="return toggleAllInherited(this, null)">[Expand]</a>
+  <div style="clear:left;">Inherited Methods</div></th></tr>
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-android.support.design.widget.CoordinatorLayout.Behavior" class="jd-expando-trigger closed"
+          ><img id="inherited-methods-android.support.design.widget.CoordinatorLayout.Behavior-trigger"
+          src="../../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>
+From class
+
+  <a href="../../../../../reference/android/support/design/widget/CoordinatorLayout.Behavior.html">android.support.design.widget.CoordinatorLayout.Behavior</a>
+
+<div id="inherited-methods-android.support.design.widget.CoordinatorLayout.Behavior">
+  <div id="inherited-methods-android.support.design.widget.CoordinatorLayout.Behavior-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-methods-android.support.design.widget.CoordinatorLayout.Behavior-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/android/support/design/widget/CoordinatorLayout.Behavior.html#blocksInteractionBelow(android.support.design.widget.CoordinatorLayout, V)">blocksInteractionBelow</a></span>(<a href="../../../../../reference/android/support/design/widget/CoordinatorLayout.html">CoordinatorLayout</a> parent, V child)</nobr>
+        
+        <div class="jd-descrdiv">
+          Determine whether interaction with views behind the given child in the child order
+ should be blocked.
+          
+    
+
+        </div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/android/support/design/widget/CoordinatorLayout.Behavior.html#getScrimColor(android.support.design.widget.CoordinatorLayout, V)">getScrimColor</a></span>(<a href="../../../../../reference/android/support/design/widget/CoordinatorLayout.html">CoordinatorLayout</a> parent, V child)</nobr>
+        
+        <div class="jd-descrdiv">
+          Supply a scrim color that will be painted behind the associated child view.
+          
+    
+
+        </div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            float</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/android/support/design/widget/CoordinatorLayout.Behavior.html#getScrimOpacity(android.support.design.widget.CoordinatorLayout, V)">getScrimOpacity</a></span>(<a href="../../../../../reference/android/support/design/widget/CoordinatorLayout.html">CoordinatorLayout</a> parent, V child)</nobr>
+        
+        <div class="jd-descrdiv">
+          Determine the current opacity of the scrim behind a given child view
+
+ <p>A scrim may be used to indicate that the other elements beneath it are not currently
+ interactive or actionable, drawing user focus and attention to the views above the scrim.
+          
+    
+
+        </div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            static
+            
+            
+            <a href="../../../../../reference/java/lang/Object.html">Object</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/android/support/design/widget/CoordinatorLayout.Behavior.html#getTag(android.view.View)">getTag</a></span>(<a href="../../../../../reference/android/view/View.html">View</a> child)</nobr>
+        
+        <div class="jd-descrdiv">
+          Get the behavior-specific tag object with the given child view.
+          
+    
+
+        </div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/android/support/design/widget/CoordinatorLayout.Behavior.html#isDirty(android.support.design.widget.CoordinatorLayout, V)">isDirty</a></span>(<a href="../../../../../reference/android/support/design/widget/CoordinatorLayout.html">CoordinatorLayout</a> parent, V child)</nobr>
+        
+        <div class="jd-descrdiv">
+          Determine whether the given child view should be considered dirty.
+          
+    
+
+        </div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/android/support/design/widget/CoordinatorLayout.Behavior.html#layoutDependsOn(android.support.design.widget.CoordinatorLayout, V, android.view.View)">layoutDependsOn</a></span>(<a href="../../../../../reference/android/support/design/widget/CoordinatorLayout.html">CoordinatorLayout</a> parent, V child, <a href="../../../../../reference/android/view/View.html">View</a> dependency)</nobr>
+        
+        <div class="jd-descrdiv">
+          Determine whether the supplied child view has another specific sibling view as a
+ layout dependency.
+          
+    
+
+        </div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../../../reference/android/support/v4/view/WindowInsetsCompat.html">WindowInsetsCompat</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/android/support/design/widget/CoordinatorLayout.Behavior.html#onApplyWindowInsets(android.support.design.widget.CoordinatorLayout, V, android.support.v4.view.WindowInsetsCompat)">onApplyWindowInsets</a></span>(<a href="../../../../../reference/android/support/design/widget/CoordinatorLayout.html">CoordinatorLayout</a> coordinatorLayout, V child, <a href="../../../../../reference/android/support/v4/view/WindowInsetsCompat.html">WindowInsetsCompat</a> insets)</nobr>
+        
+        <div class="jd-descrdiv">
+          Called when the window insets have changed.
+          
+    
+
+        </div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/android/support/design/widget/CoordinatorLayout.Behavior.html#onDependentViewChanged(android.support.design.widget.CoordinatorLayout, V, android.view.View)">onDependentViewChanged</a></span>(<a href="../../../../../reference/android/support/design/widget/CoordinatorLayout.html">CoordinatorLayout</a> parent, V child, <a href="../../../../../reference/android/view/View.html">View</a> dependency)</nobr>
+        
+        <div class="jd-descrdiv">
+          Respond to a change in a child's dependent view
+
+ <p>This method is called whenever a dependent view changes in size or position outside
+ of the standard layout flow.
+          
+    
+
+        </div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/android/support/design/widget/CoordinatorLayout.Behavior.html#onDependentViewRemoved(android.support.design.widget.CoordinatorLayout, V, android.view.View)">onDependentViewRemoved</a></span>(<a href="../../../../../reference/android/support/design/widget/CoordinatorLayout.html">CoordinatorLayout</a> parent, V child, <a href="../../../../../reference/android/view/View.html">View</a> dependency)</nobr>
+        
+        <div class="jd-descrdiv">
+          Respond to a child's dependent view being removed.
+          
+    
+
+        </div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/android/support/design/widget/CoordinatorLayout.Behavior.html#onInterceptTouchEvent(android.support.design.widget.CoordinatorLayout, V, android.view.MotionEvent)">onInterceptTouchEvent</a></span>(<a href="../../../../../reference/android/support/design/widget/CoordinatorLayout.html">CoordinatorLayout</a> parent, V child, <a href="../../../../../reference/android/view/MotionEvent.html">MotionEvent</a> ev)</nobr>
+        
+        <div class="jd-descrdiv">
+          Respond to CoordinatorLayout touch events before they are dispatched to child views.
+          
+    
+
+        </div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/android/support/design/widget/CoordinatorLayout.Behavior.html#onLayoutChild(android.support.design.widget.CoordinatorLayout, V, int)">onLayoutChild</a></span>(<a href="../../../../../reference/android/support/design/widget/CoordinatorLayout.html">CoordinatorLayout</a> parent, V child, int layoutDirection)</nobr>
+        
+        <div class="jd-descrdiv">
+          Called when the parent CoordinatorLayout is about the lay out the given child view.
+          
+    
+
+        </div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/android/support/design/widget/CoordinatorLayout.Behavior.html#onMeasureChild(android.support.design.widget.CoordinatorLayout, V, int, int, int, int)">onMeasureChild</a></span>(<a href="../../../../../reference/android/support/design/widget/CoordinatorLayout.html">CoordinatorLayout</a> parent, V child, int parentWidthMeasureSpec, int widthUsed, int parentHeightMeasureSpec, int heightUsed)</nobr>
+        
+        <div class="jd-descrdiv">
+          Called when the parent CoordinatorLayout is about to measure the given child view.
+          
+    
+
+        </div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/android/support/design/widget/CoordinatorLayout.Behavior.html#onNestedFling(android.support.design.widget.CoordinatorLayout, V, android.view.View, float, float, boolean)">onNestedFling</a></span>(<a href="../../../../../reference/android/support/design/widget/CoordinatorLayout.html">CoordinatorLayout</a> coordinatorLayout, V child, <a href="../../../../../reference/android/view/View.html">View</a> target, float velocityX, float velocityY, boolean consumed)</nobr>
+        
+        <div class="jd-descrdiv">
+          Called when a nested scrolling child is starting a fling or an action that would
+ be a fling.
+          
+    
+
+        </div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/android/support/design/widget/CoordinatorLayout.Behavior.html#onNestedPreFling(android.support.design.widget.CoordinatorLayout, V, android.view.View, float, float)">onNestedPreFling</a></span>(<a href="../../../../../reference/android/support/design/widget/CoordinatorLayout.html">CoordinatorLayout</a> coordinatorLayout, V child, <a href="../../../../../reference/android/view/View.html">View</a> target, float velocityX, float velocityY)</nobr>
+        
+        <div class="jd-descrdiv">
+          Called when a nested scrolling child is about to start a fling.
+          
+    
+
+        </div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/android/support/design/widget/CoordinatorLayout.Behavior.html#onNestedPreScroll(android.support.design.widget.CoordinatorLayout, V, android.view.View, int, int, int[])">onNestedPreScroll</a></span>(<a href="../../../../../reference/android/support/design/widget/CoordinatorLayout.html">CoordinatorLayout</a> coordinatorLayout, V child, <a href="../../../../../reference/android/view/View.html">View</a> target, int dx, int dy, int[] consumed)</nobr>
+        
+        <div class="jd-descrdiv">
+          Called when a nested scroll in progress is about to update, before the target has
+ consumed any of the scrolled distance.
+          
+    
+
+        </div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/android/support/design/widget/CoordinatorLayout.Behavior.html#onNestedScroll(android.support.design.widget.CoordinatorLayout, V, android.view.View, int, int, int, int)">onNestedScroll</a></span>(<a href="../../../../../reference/android/support/design/widget/CoordinatorLayout.html">CoordinatorLayout</a> coordinatorLayout, V child, <a href="../../../../../reference/android/view/View.html">View</a> target, int dxConsumed, int dyConsumed, int dxUnconsumed, int dyUnconsumed)</nobr>
+        
+        <div class="jd-descrdiv">
+          Called when a nested scroll in progress has updated and the target has scrolled or
+ attempted to scroll.
+          
+    
+
+        </div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/android/support/design/widget/CoordinatorLayout.Behavior.html#onNestedScrollAccepted(android.support.design.widget.CoordinatorLayout, V, android.view.View, android.view.View, int)">onNestedScrollAccepted</a></span>(<a href="../../../../../reference/android/support/design/widget/CoordinatorLayout.html">CoordinatorLayout</a> coordinatorLayout, V child, <a href="../../../../../reference/android/view/View.html">View</a> directTargetChild, <a href="../../../../../reference/android/view/View.html">View</a> target, int nestedScrollAxes)</nobr>
+        
+        <div class="jd-descrdiv">
+          Called when a nested scroll has been accepted by the CoordinatorLayout.
+          
+    
+
+        </div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/android/support/design/widget/CoordinatorLayout.Behavior.html#onRestoreInstanceState(android.support.design.widget.CoordinatorLayout, V, android.os.Parcelable)">onRestoreInstanceState</a></span>(<a href="../../../../../reference/android/support/design/widget/CoordinatorLayout.html">CoordinatorLayout</a> parent, V child, <a href="../../../../../reference/android/os/Parcelable.html">Parcelable</a> state)</nobr>
+        
+        <div class="jd-descrdiv">
+          Hook allowing a behavior to re-apply a representation of its internal state that had
+ previously been generated by <code><a href="../../../../../reference/android/support/design/widget/CoordinatorLayout.Behavior.html#onSaveInstanceState(android.support.design.widget.CoordinatorLayout, V)">onSaveInstanceState(CoordinatorLayout, V)</a></code>.
+          
+    
+
+        </div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../../../reference/android/os/Parcelable.html">Parcelable</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/android/support/design/widget/CoordinatorLayout.Behavior.html#onSaveInstanceState(android.support.design.widget.CoordinatorLayout, V)">onSaveInstanceState</a></span>(<a href="../../../../../reference/android/support/design/widget/CoordinatorLayout.html">CoordinatorLayout</a> parent, V child)</nobr>
+        
+        <div class="jd-descrdiv">
+          Hook allowing a behavior to generate a representation of its internal state
+ that can later be used to create a new instance with that same state.
+          
+    
+
+        </div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/android/support/design/widget/CoordinatorLayout.Behavior.html#onStartNestedScroll(android.support.design.widget.CoordinatorLayout, V, android.view.View, android.view.View, int)">onStartNestedScroll</a></span>(<a href="../../../../../reference/android/support/design/widget/CoordinatorLayout.html">CoordinatorLayout</a> coordinatorLayout, V child, <a href="../../../../../reference/android/view/View.html">View</a> directTargetChild, <a href="../../../../../reference/android/view/View.html">View</a> target, int nestedScrollAxes)</nobr>
+        
+        <div class="jd-descrdiv">
+          Called when a descendant of the CoordinatorLayout attempts to initiate a nested scroll.
+          
+    
+
+        </div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/android/support/design/widget/CoordinatorLayout.Behavior.html#onStopNestedScroll(android.support.design.widget.CoordinatorLayout, V, android.view.View)">onStopNestedScroll</a></span>(<a href="../../../../../reference/android/support/design/widget/CoordinatorLayout.html">CoordinatorLayout</a> coordinatorLayout, V child, <a href="../../../../../reference/android/view/View.html">View</a> target)</nobr>
+        
+        <div class="jd-descrdiv">
+          Called when a nested scroll has ended.
+          
+    
+
+        </div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/android/support/design/widget/CoordinatorLayout.Behavior.html#onTouchEvent(android.support.design.widget.CoordinatorLayout, V, android.view.MotionEvent)">onTouchEvent</a></span>(<a href="../../../../../reference/android/support/design/widget/CoordinatorLayout.html">CoordinatorLayout</a> parent, V child, <a href="../../../../../reference/android/view/MotionEvent.html">MotionEvent</a> ev)</nobr>
+        
+        <div class="jd-descrdiv">
+          Respond to CoordinatorLayout touch events after this Behavior has started
+ <code><a href="../../../../../reference/android/support/design/widget/CoordinatorLayout.Behavior.html#onInterceptTouchEvent(android.support.design.widget.CoordinatorLayout, V, android.view.MotionEvent)">intercepting</a></code> them.
+          
+    
+
+        </div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            static
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/android/support/design/widget/CoordinatorLayout.Behavior.html#setTag(android.view.View, java.lang.Object)">setTag</a></span>(<a href="../../../../../reference/android/view/View.html">View</a> child, <a href="../../../../../reference/java/lang/Object.html">Object</a> tag)</nobr>
+        
+        <div class="jd-descrdiv">
+          Associate a Behavior-specific tag object with the given child view.
+          
+    
+
+        </div>
+  
+  </td></tr>
+
+
+</table>
+  </div>
+</div>
+</td></tr>
+
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-java.lang.Object" class="jd-expando-trigger closed"
+          ><img id="inherited-methods-java.lang.Object-trigger"
+          src="../../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>
+From class
+
+  <a href="../../../../../reference/java/lang/Object.html">java.lang.Object</a>
+
+<div id="inherited-methods-java.lang.Object">
+  <div id="inherited-methods-java.lang.Object-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-methods-java.lang.Object-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../../../reference/java/lang/Object.html">Object</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/java/lang/Object.html#clone()">clone</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">
+          Creates and returns a copy of this object.
+          
+    
+
+        </div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/java/lang/Object.html#equals(java.lang.Object)">equals</a></span>(<a href="../../../../../reference/java/lang/Object.html">Object</a> obj)</nobr>
+        
+        <div class="jd-descrdiv">
+          Indicates whether some other object is "equal to" this one.
+          
+    
+
+        </div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/java/lang/Object.html#finalize()">finalize</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">
+          Called by the garbage collector on an object when garbage collection
+ determines that there are no more references to the object.
+          
+    
+
+        </div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            final
+            
+            <a href="../../../../../reference/java/lang/Class.html">Class</a>&lt;?&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/java/lang/Object.html#getClass()">getClass</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">
+          Returns the runtime class of this <code>Object</code>.
+          
+    
+
+        </div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/java/lang/Object.html#hashCode()">hashCode</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">
+          Returns a hash code value for the object.
+          
+    
+
+        </div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            final
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/java/lang/Object.html#notify()">notify</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">
+          Wakes up a single thread that is waiting on this object's
+ monitor.
+          
+    
+
+        </div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            final
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/java/lang/Object.html#notifyAll()">notifyAll</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">
+          Wakes up all threads that are waiting on this object's monitor.
+          
+    
+
+        </div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../../../reference/java/lang/String.html">String</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/java/lang/Object.html#toString()">toString</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">
+          Returns a string representation of the object.
+          
+    
+
+        </div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            final
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/java/lang/Object.html#wait(long, int)">wait</a></span>(long millis, int nanos)</nobr>
+        
+        <div class="jd-descrdiv">
+          Causes the current thread to wait until another thread invokes the
+ <code><a href="../../../../../reference/java/lang/Object.html#notify()">notify()</a></code> method or the
+ <code><a href="../../../../../reference/java/lang/Object.html#notifyAll()">notifyAll()</a></code> method for this object, or
+ some other thread interrupts the current thread, or a certain
+ amount of real time has elapsed.
+          
+    
+
+        </div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            final
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/java/lang/Object.html#wait(long)">wait</a></span>(long millis)</nobr>
+        
+        <div class="jd-descrdiv">
+          Causes the current thread to wait until either another thread invokes the
+ <code><a href="../../../../../reference/java/lang/Object.html#notify()">notify()</a></code> method or the
+ <code><a href="../../../../../reference/java/lang/Object.html#notifyAll()">notifyAll()</a></code> method for this object, or a
+ specified amount of time has elapsed.
+          
+    
+
+        </div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-1" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            final
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../reference/java/lang/Object.html#wait()">wait</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">
+          Causes the current thread to wait until another thread invokes the
+ <code><a href="../../../../../reference/java/lang/Object.html#notify()">notify()</a></code> method or the
+ <code><a href="../../../../../reference/java/lang/Object.html#notifyAll()">notifyAll()</a></code> method for this object.
+          
+    
+
+        </div>
+  
+  </td></tr>
+
+
+</table>
+  </div>
+</div>
+</td></tr>
+
+
+</table>
+
+
+</div><!-- jd-descr (summary) -->
+
+<!-- Details -->
+
+
+
+
+
+
+
+
+<!-- XML Attributes -->
+
+
+<!-- ========= FIELD DETAIL ======== -->
+<h2>XML Attributes</h2>
+
+
+
+<A NAME="attr_android.support.design:behavior_hideable"></A>
+<div class="jd-details"> 
+    <h4 class="jd-details-title">android.support.design:behavior_hideable
+    </h4>
+    <div class="jd-details-descr">
+        
+    
+
+        
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+
+        <div class="jd-tagdata">
+            <h5 class="jd-tagtitle">Related Methods</h5>
+            <ul class="nolist">
+            
+                <li><a href="../../../../../reference/android/support/design/widget/BottomSheetBehavior.html#setHideable(boolean)">setHideable(boolean)</a></li>
+            
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+<A NAME="attr_android.support.design:behavior_peekHeight"></A>
+<div class="jd-details"> 
+    <h4 class="jd-details-title">android.support.design:behavior_peekHeight
+    </h4>
+    <div class="jd-details-descr">
+        
+    
+
+        
+  <div class="jd-tagdata jd-tagdescr"><p>The height of the bottom sheet when it is collapsed. 
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.</p></div>
+
+
+        <div class="jd-tagdata">
+            <h5 class="jd-tagtitle">Related Methods</h5>
+            <ul class="nolist">
+            
+                <li><a href="../../../../../reference/android/support/design/widget/BottomSheetBehavior.html#setPeekHeight(int)">setPeekHeight(int)</a></li>
+            
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+
+
+<!-- Enum Values -->
+
+
+<!-- Constants -->
+
+
+<!-- ========= ENUM CONSTANTS DETAIL ======== -->
+<h2>Constants</h2>
+
+
+
+
+<A NAME="STATE_COLLAPSED"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        int
+      </span>
+        STATE_COLLAPSED
+    </h4>
+      <div class="api-level">
+        
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+    
+
+      
+  <div class="jd-tagdata jd-tagdescr"><p>The bottom sheet is collapsed.
+</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                4
+                (0x00000004)
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="STATE_DRAGGING"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        int
+      </span>
+        STATE_DRAGGING
+    </h4>
+      <div class="api-level">
+        
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+    
+
+      
+  <div class="jd-tagdata jd-tagdescr"><p>The bottom sheet is dragging.
+</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                1
+                (0x00000001)
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="STATE_EXPANDED"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        int
+      </span>
+        STATE_EXPANDED
+    </h4>
+      <div class="api-level">
+        
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+    
+
+      
+  <div class="jd-tagdata jd-tagdescr"><p>The bottom sheet is expanded.
+</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                3
+                (0x00000003)
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="STATE_HIDDEN"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        int
+      </span>
+        STATE_HIDDEN
+    </h4>
+      <div class="api-level">
+        
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+    
+
+      
+  <div class="jd-tagdata jd-tagdescr"><p>The bottom sheet is hidden.
+</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                5
+                (0x00000005)
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<A NAME="STATE_SETTLING"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        int
+      </span>
+        STATE_SETTLING
+    </h4>
+      <div class="api-level">
+        
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+    
+
+      
+  <div class="jd-tagdata jd-tagdescr"><p>The bottom sheet is settling.
+</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                2
+                (0x00000002)
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+
+<!-- Fields -->
+
+
+<!-- Public ctors -->
+
+
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<h2>Public Constructors</h2>
+
+
+
+<A NAME="BottomSheetBehavior()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public
+        
+        
+        
+        
+        
+      </span>
+      <span class="sympad">BottomSheetBehavior</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+    
+
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Default constructor for instantiating BottomSheetBehaviors.
+</p></div>
+
+    </div>
+</div>
+
+
+<A NAME="BottomSheetBehavior(android.content.Context, android.util.AttributeSet)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public
+        
+        
+        
+        
+        
+      </span>
+      <span class="sympad">BottomSheetBehavior</span>
+      <span class="normal">(<a href="../../../../../reference/android/content/Context.html">Context</a> context, <a href="../../../../../reference/android/util/AttributeSet.html">AttributeSet</a> attrs)</span>
+    </h4>
+      <div class="api-level">
+        <div></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+    
+
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Default constructor for inflating BottomSheetBehaviors from layout.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>context</td>
+          <td>The <code><a href="../../../../../reference/android/content/Context.html">Context</a></code>.</td>
+        </tr>
+        <tr>
+          <th>attrs</td>
+          <td>The <code><a href="../../../../../reference/android/util/AttributeSet.html">AttributeSet</a></code>.
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+
+
+
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<!-- Protected ctors -->
+
+
+
+<!-- ========= METHOD DETAIL ======== -->
+<!-- Public methdos -->
+
+<h2>Public Methods</h2>
+
+
+
+<A NAME="from(V)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public
+        
+        
+        static
+        
+        <a href="../../../../../reference/android/support/design/widget/BottomSheetBehavior.html">BottomSheetBehavior</a>&lt;V&gt;
+      </span>
+      <span class="sympad">from</span>
+      <span class="normal">(V view)</span>
+    </h4>
+      <div class="api-level">
+        <div></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+    
+
+      
+  <div class="jd-tagdata jd-tagdescr"><p>A utility function to get the <code><a href="../../../../../reference/android/support/design/widget/BottomSheetBehavior.html">BottomSheetBehavior</a></code> associated with the <code>view</code>.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>view</td>
+          <td>The <code><a href="../../../../../reference/android/view/View.html">View</a></code> with <code><a href="../../../../../reference/android/support/design/widget/BottomSheetBehavior.html">BottomSheetBehavior</a></code>.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>The <code><a href="../../../../../reference/android/support/design/widget/BottomSheetBehavior.html">BottomSheetBehavior</a></code> associated with the <code>view</code>.
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getPeekHeight()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public
+        
+        
+        
+        final
+        int
+      </span>
+      <span class="sympad">getPeekHeight</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+    
+
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Gets the height of the bottom sheet when it is collapsed.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Related XML Attributes</h5>
+      <ul class="nolist">
+            <li><a href="../../../../../reference/android/support/design/widget/BottomSheetBehavior.html#attr_android.support.design:behavior_peekHeight">android.support.design:behavior_peekHeight</a></li>
+      </ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>The height of the collapsed bottom sheet.</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getState()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public
+        
+        
+        
+        final
+        int
+      </span>
+      <span class="sympad">getState</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+    
+
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Gets the current state of the bottom sheet.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>One of <code><a href="../../../../../reference/android/support/design/widget/BottomSheetBehavior.html#STATE_EXPANDED">STATE_EXPANDED</a></code>, <code><a href="../../../../../reference/android/support/design/widget/BottomSheetBehavior.html#STATE_COLLAPSED">STATE_COLLAPSED</a></code>, <code><a href="../../../../../reference/android/support/design/widget/BottomSheetBehavior.html#STATE_DRAGGING">STATE_DRAGGING</a></code>,
+ and <code><a href="../../../../../reference/android/support/design/widget/BottomSheetBehavior.html#STATE_SETTLING">STATE_SETTLING</a></code>.
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="isHideable()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public
+        
+        
+        
+        
+        boolean
+      </span>
+      <span class="sympad">isHideable</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+    
+
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Gets whether this bottom sheet can hide when it is swiped down.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Related XML Attributes</h5>
+      <ul class="nolist">
+            <li><a href="../../../../../reference/android/support/design/widget/BottomSheetBehavior.html#attr_android.support.design:behavior_hideable">android.support.design:behavior_hideable</a></li>
+      </ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li><code>true</code> if this bottom sheet can hide.</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="onInterceptTouchEvent(android.support.design.widget.CoordinatorLayout, V, android.view.MotionEvent)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public
+        
+        
+        
+        
+        boolean
+      </span>
+      <span class="sympad">onInterceptTouchEvent</span>
+      <span class="normal">(<a href="../../../../../reference/android/support/design/widget/CoordinatorLayout.html">CoordinatorLayout</a> parent, V child, <a href="../../../../../reference/android/view/MotionEvent.html">MotionEvent</a> event)</span>
+    </h4>
+      <div class="api-level">
+        <div></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+    
+
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Respond to CoordinatorLayout touch events before they are dispatched to child views.
+
+ <p>Behaviors can use this to monitor inbound touch events until one decides to
+ intercept the rest of the event stream to take an action on its associated child view.
+ This method will return false until it detects the proper intercept conditions, then
+ return true once those conditions have occurred.</p>
+
+ <p>Once a Behavior intercepts touch events, the rest of the event stream will
+ be sent to the <code><a href="../../../../../reference/android/support/design/widget/CoordinatorLayout.Behavior.html#onTouchEvent(android.support.design.widget.CoordinatorLayout, V, android.view.MotionEvent)">onTouchEvent(CoordinatorLayout, V, MotionEvent)</a></code> method.</p>
+
+ <p>The default implementation of this method always returns false.</p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>parent</td>
+          <td>the parent view currently receiving this touch event</td>
+        </tr>
+        <tr>
+          <th>child</td>
+          <td>the child view associated with this Behavior</td>
+        </tr>
+        <tr>
+          <th>event</td>
+          <td>the MotionEvent describing the touch event being processed</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>true if this Behavior would like to intercept and take over the event stream.
+         The default always returns false.
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="onLayoutChild(android.support.design.widget.CoordinatorLayout, V, int)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public
+        
+        
+        
+        
+        boolean
+      </span>
+      <span class="sympad">onLayoutChild</span>
+      <span class="normal">(<a href="../../../../../reference/android/support/design/widget/CoordinatorLayout.html">CoordinatorLayout</a> parent, V child, int layoutDirection)</span>
+    </h4>
+      <div class="api-level">
+        <div></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+    
+
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Called when the parent CoordinatorLayout is about the lay out the given child view.
+
+ <p>This method can be used to perform custom or modified layout of a child view
+ in place of the default child layout behavior. The Behavior's implementation can
+ delegate to the standard CoordinatorLayout measurement behavior by calling
+ <code><a href="../../../../../reference/android/support/design/widget/CoordinatorLayout.html#onLayoutChild(android.view.View, int)">parent.onLayoutChild</a></code>.</p>
+
+ <p>If a Behavior implements
+ <code><a href="../../../../../reference/android/support/design/widget/CoordinatorLayout.Behavior.html#onDependentViewChanged(android.support.design.widget.CoordinatorLayout, V, android.view.View)">onDependentViewChanged(CoordinatorLayout, android.view.View, android.view.View)</a></code>
+ to change the position of a view in response to a dependent view changing, it
+ should also implement <code>onLayoutChild</code> in such a way that respects those
+ dependent views. <code>onLayoutChild</code> will always be called for a dependent view
+ <em>after</em> its dependency has been laid out.</p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>parent</td>
+          <td>the parent CoordinatorLayout</td>
+        </tr>
+        <tr>
+          <th>child</td>
+          <td>child view to lay out</td>
+        </tr>
+        <tr>
+          <th>layoutDirection</td>
+          <td>the resolved layout direction for the CoordinatorLayout, such as
+                        <code><a href="../../../../../reference/android/support/v4/view/ViewCompat.html#LAYOUT_DIRECTION_LTR">LAYOUT_DIRECTION_LTR</a></code> or
+                        <code><a href="../../../../../reference/android/support/v4/view/ViewCompat.html#LAYOUT_DIRECTION_RTL">LAYOUT_DIRECTION_RTL</a></code>.</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>true if the Behavior performed layout of the child view, false to request
+         default layout behavior
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="onNestedPreFling(android.support.design.widget.CoordinatorLayout, V, android.view.View, float, float)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public
+        
+        
+        
+        
+        boolean
+      </span>
+      <span class="sympad">onNestedPreFling</span>
+      <span class="normal">(<a href="../../../../../reference/android/support/design/widget/CoordinatorLayout.html">CoordinatorLayout</a> coordinatorLayout, V child, <a href="../../../../../reference/android/view/View.html">View</a> target, float velocityX, float velocityY)</span>
+    </h4>
+      <div class="api-level">
+        <div></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+    
+
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Called when a nested scrolling child is about to start a fling.
+
+ <p>Any Behavior associated with the direct child of the CoordinatorLayout may elect
+ to accept the nested scroll as part of <code><a href="../../../../../reference/android/support/design/widget/CoordinatorLayout.Behavior.html#onStartNestedScroll(android.support.design.widget.CoordinatorLayout, V, android.view.View, android.view.View, int)">onStartNestedScroll(CoordinatorLayout, V, View, View, int)</a></code>. Each Behavior
+ that returned true will receive subsequent nested scroll events for that nested scroll.
+ </p>
+
+ <p><code>onNestedPreFling</code> is called when the current nested scrolling child view
+ detects the proper conditions for a fling, but it has not acted on it yet. A
+ Behavior can return true to indicate that it consumed the fling. If at least one
+ Behavior returns true, the fling should not be acted upon by the child.</p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>coordinatorLayout</td>
+          <td>the CoordinatorLayout parent of the view this Behavior is
+                          associated with</td>
+        </tr>
+        <tr>
+          <th>child</td>
+          <td>the child view of the CoordinatorLayout this Behavior is associated with</td>
+        </tr>
+        <tr>
+          <th>target</td>
+          <td>the descendant view of the CoordinatorLayout performing the nested scroll</td>
+        </tr>
+        <tr>
+          <th>velocityX</td>
+          <td>horizontal velocity of the attempted fling</td>
+        </tr>
+        <tr>
+          <th>velocityY</td>
+          <td>vertical velocity of the attempted fling</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>true if the Behavior consumed the fling</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="onNestedPreScroll(android.support.design.widget.CoordinatorLayout, V, android.view.View, int, int, int[])"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public
+        
+        
+        
+        
+        void
+      </span>
+      <span class="sympad">onNestedPreScroll</span>
+      <span class="normal">(<a href="../../../../../reference/android/support/design/widget/CoordinatorLayout.html">CoordinatorLayout</a> coordinatorLayout, V child, <a href="../../../../../reference/android/view/View.html">View</a> target, int dx, int dy, int[] consumed)</span>
+    </h4>
+      <div class="api-level">
+        <div></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+    
+
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Called when a nested scroll in progress is about to update, before the target has
+ consumed any of the scrolled distance.
+
+ <p>Any Behavior associated with the direct child of the CoordinatorLayout may elect
+ to accept the nested scroll as part of <code><a href="../../../../../reference/android/support/design/widget/CoordinatorLayout.Behavior.html#onStartNestedScroll(android.support.design.widget.CoordinatorLayout, V, android.view.View, android.view.View, int)">onStartNestedScroll(CoordinatorLayout, V, View, View, int)</a></code>. Each Behavior
+ that returned true will receive subsequent nested scroll events for that nested scroll.
+ </p>
+
+ <p><code>onNestedPreScroll</code> is called each time the nested scroll is updated
+ by the nested scrolling child, before the nested scrolling child has consumed the scroll
+ distance itself. <em>Each Behavior responding to the nested scroll will receive the
+ same values.</em> The CoordinatorLayout will report as consumed the maximum number
+ of pixels in either direction that any Behavior responding to the nested scroll reported
+ as consumed.</p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>coordinatorLayout</td>
+          <td>the CoordinatorLayout parent of the view this Behavior is
+                          associated with</td>
+        </tr>
+        <tr>
+          <th>child</td>
+          <td>the child view of the CoordinatorLayout this Behavior is associated with</td>
+        </tr>
+        <tr>
+          <th>target</td>
+          <td>the descendant view of the CoordinatorLayout performing the nested scroll</td>
+        </tr>
+        <tr>
+          <th>dx</td>
+          <td>the raw horizontal number of pixels that the user attempted to scroll</td>
+        </tr>
+        <tr>
+          <th>dy</td>
+          <td>the raw vertical number of pixels that the user attempted to scroll</td>
+        </tr>
+        <tr>
+          <th>consumed</td>
+          <td>out parameter. consumed[0] should be set to the distance of dx that
+                 was consumed, consumed[1] should be set to the distance of dy that
+                 was consumed</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="onRestoreInstanceState(android.support.design.widget.CoordinatorLayout, V, android.os.Parcelable)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public
+        
+        
+        
+        
+        void
+      </span>
+      <span class="sympad">onRestoreInstanceState</span>
+      <span class="normal">(<a href="../../../../../reference/android/support/design/widget/CoordinatorLayout.html">CoordinatorLayout</a> parent, V child, <a href="../../../../../reference/android/os/Parcelable.html">Parcelable</a> state)</span>
+    </h4>
+      <div class="api-level">
+        <div></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+    
+
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Hook allowing a behavior to re-apply a representation of its internal state that had
+ previously been generated by <code><a href="../../../../../reference/android/support/design/widget/CoordinatorLayout.Behavior.html#onSaveInstanceState(android.support.design.widget.CoordinatorLayout, V)">onSaveInstanceState(CoordinatorLayout, V)</a></code>. This function will never
+ be called with a null state.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>parent</td>
+          <td>the parent CoordinatorLayout</td>
+        </tr>
+        <tr>
+          <th>child</td>
+          <td>child view to restore from</td>
+        </tr>
+        <tr>
+          <th>state</td>
+          <td>The frozen state that had previously been returned by
+        <code><a href="../../../../../reference/android/support/design/widget/BottomSheetBehavior.html#onSaveInstanceState(android.support.design.widget.CoordinatorLayout, V)">onSaveInstanceState(CoordinatorLayout, V)</a></code>.</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="onSaveInstanceState(android.support.design.widget.CoordinatorLayout, V)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public
+        
+        
+        
+        
+        <a href="../../../../../reference/android/os/Parcelable.html">Parcelable</a>
+      </span>
+      <span class="sympad">onSaveInstanceState</span>
+      <span class="normal">(<a href="../../../../../reference/android/support/design/widget/CoordinatorLayout.html">CoordinatorLayout</a> parent, V child)</span>
+    </h4>
+      <div class="api-level">
+        <div></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+    
+
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Hook allowing a behavior to generate a representation of its internal state
+ that can later be used to create a new instance with that same state.
+ This state should only contain information that is not persistent or can
+ not be reconstructed later.
+
+ <p>Behavior state is only saved when both the parent <code><a href="../../../../../reference/android/support/design/widget/CoordinatorLayout.html">CoordinatorLayout</a></code> and
+ a view using this behavior have valid IDs set.</p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>parent</td>
+          <td>the parent CoordinatorLayout</td>
+        </tr>
+        <tr>
+          <th>child</td>
+          <td>child view to restore from</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>Returns a Parcelable object containing the behavior's current dynamic
+         state.</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="onStartNestedScroll(android.support.design.widget.CoordinatorLayout, V, android.view.View, android.view.View, int)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public
+        
+        
+        
+        
+        boolean
+      </span>
+      <span class="sympad">onStartNestedScroll</span>
+      <span class="normal">(<a href="../../../../../reference/android/support/design/widget/CoordinatorLayout.html">CoordinatorLayout</a> coordinatorLayout, V child, <a href="../../../../../reference/android/view/View.html">View</a> directTargetChild, <a href="../../../../../reference/android/view/View.html">View</a> target, int nestedScrollAxes)</span>
+    </h4>
+      <div class="api-level">
+        <div></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+    
+
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Called when a descendant of the CoordinatorLayout attempts to initiate a nested scroll.
+
+ <p>Any Behavior associated with any direct child of the CoordinatorLayout may respond
+ to this event and return true to indicate that the CoordinatorLayout should act as
+ a nested scrolling parent for this scroll. Only Behaviors that return true from
+ this method will receive subsequent nested scroll events.</p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>coordinatorLayout</td>
+          <td>the CoordinatorLayout parent of the view this Behavior is
+                          associated with</td>
+        </tr>
+        <tr>
+          <th>child</td>
+          <td>the child view of the CoordinatorLayout this Behavior is associated with</td>
+        </tr>
+        <tr>
+          <th>directTargetChild</td>
+          <td>the child view of the CoordinatorLayout that either is or
+                          contains the target of the nested scroll operation</td>
+        </tr>
+        <tr>
+          <th>target</td>
+          <td>the descendant view of the CoordinatorLayout initiating the nested scroll</td>
+        </tr>
+        <tr>
+          <th>nestedScrollAxes</td>
+          <td>the axes that this nested scroll applies to. See
+                         <code><a href="../../../../../reference/android/support/v4/view/ViewCompat.html#SCROLL_AXIS_HORIZONTAL">SCROLL_AXIS_HORIZONTAL</a></code>,
+                         <code><a href="../../../../../reference/android/support/v4/view/ViewCompat.html#SCROLL_AXIS_VERTICAL">SCROLL_AXIS_VERTICAL</a></code></td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>true if the Behavior wishes to accept this nested scroll</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="onStopNestedScroll(android.support.design.widget.CoordinatorLayout, V, android.view.View)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public
+        
+        
+        
+        
+        void
+      </span>
+      <span class="sympad">onStopNestedScroll</span>
+      <span class="normal">(<a href="../../../../../reference/android/support/design/widget/CoordinatorLayout.html">CoordinatorLayout</a> coordinatorLayout, V child, <a href="../../../../../reference/android/view/View.html">View</a> target)</span>
+    </h4>
+      <div class="api-level">
+        <div></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+    
+
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Called when a nested scroll has ended.
+
+ <p>Any Behavior associated with any direct child of the CoordinatorLayout may elect
+ to accept the nested scroll as part of <code><a href="../../../../../reference/android/support/design/widget/CoordinatorLayout.Behavior.html#onStartNestedScroll(android.support.design.widget.CoordinatorLayout, V, android.view.View, android.view.View, int)">onStartNestedScroll(CoordinatorLayout, V, View, View, int)</a></code>. Each Behavior
+ that returned true will receive subsequent nested scroll events for that nested scroll.
+ </p>
+
+ <p><code>onStopNestedScroll</code> marks the end of a single nested scroll event
+ sequence. This is a good place to clean up any state related to the nested scroll.
+ </p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>coordinatorLayout</td>
+          <td>the CoordinatorLayout parent of the view this Behavior is
+                          associated with</td>
+        </tr>
+        <tr>
+          <th>child</td>
+          <td>the child view of the CoordinatorLayout this Behavior is associated with</td>
+        </tr>
+        <tr>
+          <th>target</td>
+          <td>the descendant view of the CoordinatorLayout that initiated
+               the nested scroll</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="onTouchEvent(android.support.design.widget.CoordinatorLayout, V, android.view.MotionEvent)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public
+        
+        
+        
+        
+        boolean
+      </span>
+      <span class="sympad">onTouchEvent</span>
+      <span class="normal">(<a href="../../../../../reference/android/support/design/widget/CoordinatorLayout.html">CoordinatorLayout</a> parent, V child, <a href="../../../../../reference/android/view/MotionEvent.html">MotionEvent</a> event)</span>
+    </h4>
+      <div class="api-level">
+        <div></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+    
+
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Respond to CoordinatorLayout touch events after this Behavior has started
+ <code><a href="../../../../../reference/android/support/design/widget/CoordinatorLayout.Behavior.html#onInterceptTouchEvent(android.support.design.widget.CoordinatorLayout, V, android.view.MotionEvent)">intercepting</a></code> them.
+
+ <p>Behaviors may intercept touch events in order to help the CoordinatorLayout
+ manipulate its child views. For example, a Behavior may allow a user to drag a
+ UI pane open or closed. This method should perform actual mutations of view
+ layout state.</p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>parent</td>
+          <td>the parent view currently receiving this touch event</td>
+        </tr>
+        <tr>
+          <th>child</td>
+          <td>the child view associated with this Behavior</td>
+        </tr>
+        <tr>
+          <th>event</td>
+          <td>the MotionEvent describing the touch event being processed</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>true if this Behavior handled this touch event and would like to continue
+         receiving events in this stream. The default always returns false.
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setBottomSheetCallback(android.support.design.widget.BottomSheetBehavior.BottomSheetCallback)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public
+        
+        
+        
+        
+        void
+      </span>
+      <span class="sympad">setBottomSheetCallback</span>
+      <span class="normal">(<a href="../../../../../reference/android/support/design/widget/BottomSheetBehavior.BottomSheetCallback.html">BottomSheetBehavior.BottomSheetCallback</a> callback)</span>
+    </h4>
+      <div class="api-level">
+        <div></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+    
+
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets a callback to be notified of bottom sheet events.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>callback</td>
+          <td>The callback to notify when bottom sheet events occur.
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setHideable(boolean)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public
+        
+        
+        
+        
+        void
+      </span>
+      <span class="sympad">setHideable</span>
+      <span class="normal">(boolean hideable)</span>
+    </h4>
+      <div class="api-level">
+        <div></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+    
+
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets whether this bottom sheet can hide when it is swiped down.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Related XML Attributes</h5>
+      <ul class="nolist">
+            <li><a href="../../../../../reference/android/support/design/widget/BottomSheetBehavior.html#attr_android.support.design:behavior_hideable">android.support.design:behavior_hideable</a></li>
+      </ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>hideable</td>
+          <td><code>true</code> to make this bottom sheet hideable.</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setPeekHeight(int)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public
+        
+        
+        
+        final
+        void
+      </span>
+      <span class="sympad">setPeekHeight</span>
+      <span class="normal">(int peekHeight)</span>
+    </h4>
+      <div class="api-level">
+        <div></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+    
+
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets the height of the bottom sheet when it is collapsed.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Related XML Attributes</h5>
+      <ul class="nolist">
+            <li><a href="../../../../../reference/android/support/design/widget/BottomSheetBehavior.html#attr_android.support.design:behavior_peekHeight">android.support.design:behavior_peekHeight</a></li>
+      </ul>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>peekHeight</td>
+          <td>The height of the collapsed bottom sheet in pixels.</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setState(int)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public
+        
+        
+        
+        final
+        void
+      </span>
+      <span class="sympad">setState</span>
+      <span class="normal">(int state)</span>
+    </h4>
+      <div class="api-level">
+        <div></div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+    
+
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets the state of the bottom sheet. The bottom sheet will transition to that state with
+ animation.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>state</td>
+          <td>One of <code><a href="../../../../../reference/android/support/design/widget/BottomSheetBehavior.html#STATE_COLLAPSED">STATE_COLLAPSED</a></code>, <code><a href="../../../../../reference/android/support/design/widget/BottomSheetBehavior.html#STATE_EXPANDED">STATE_EXPANDED</a></code>, or
+              <code><a href="../../../../../reference/android/support/design/widget/BottomSheetBehavior.html#STATE_HIDDEN">STATE_HIDDEN</a></code>.
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+
+
+
+<!-- ========= METHOD DETAIL ======== -->
+
+
+
+<!-- ========= END OF CLASS DATA ========= -->
+<A NAME="navbar_top"></A>
+</div> <!-- jd-content -->
+
+<div class="wrap">
+  <div class="dac-footer">
+    <div class="cols dac-footer-main">
+      <div class="col-1of2">
+        <a class="dac-footer-getnews" data-modal-toggle="newsletter" href="javascript:;">Get news &amp; tips <span
+          class="dac-fab dac-primary"><i class="dac-sprite dac-mail"></i></span></a>
+      </div>
+      <div class="col-1of2 dac-footer-reachout">
+        <div class="dac-footer-contact">
+          <a class="dac-footer-contact-link" href="//android-developers.blogspot.com/">Blog</a>
+          <a class="dac-footer-contact-link" href="../../../../../support.html">Support</a>
+        </div>
+        <div class="dac-footer-social">
+          <a class="dac-fab dac-footer-social-link" href="https://www.youtube.com/user/androiddevelopers"><i class="dac-sprite dac-youtube"></i></a>
+          <a class="dac-fab dac-footer-social-link" href="https://plus.google.com/+AndroidDevelopers"><i class="dac-sprite dac-gplus"></i></a>
+          <a class="dac-fab dac-footer-social-link" href="https://twitter.com/AndroidDev"><i class="dac-sprite dac-twitter"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <hr class="dac-footer-separator"/>
+
+    
+      <p class="dac-footer-copyright">
+        
+  Except as noted, this content is licensed under <a
+  href="//www.apache.org/licenses/LICENSE-2.0">Apache 2.0</a>.
+  For details and restrictions, see the <a href="../../../../../license.html">
+  Content License</a>.
+      </p>
+      <p class="dac-footer-build">
+        
+    Android 6.0&nbsp;r1 &mdash; 
+<script src="../../../../../timestamp.js" type="text/javascript"></script>
+<script>document.write(BUILD_TIMESTAMP)</script>
+
+      </p>
+    
+
+    <p class="dac-footer-links">
+      <a href="../../../../../about/index.html">About Android</a>
+      <a href="../../../../../auto/index.html">Auto</a>
+      <a href="../../../../../tv/index.html">TV</a>
+      <a href="../../../../../wear/index.html">Wear</a>
+      <a href="../../../../../legal.html">Legal</a>
+
+      <span id="language" class="locales">
+        <select name="language" onchange="changeLangPref(this.value, true)">
+          <option value="en" selected="selected">English</option>
+          <option value="es">Español</option>
+          <option value="ja">日本語</option>
+          <option value="ko">한국어</option>
+          <option value="pt-br">Português Brasileiro</option>
+          <option value="ru">Русский</option>
+          <option value="zh-cn">中文（简体)</option>
+          <option value="zh-tw">中文（繁體)</option>
+        </select>
+      </span>
+    </p>
+  </div>
+</div> <!-- end footer -->
+
+<div data-modal="newsletter" data-newsletter data-swap class="dac-modal newsletter">
+  <div class="dac-modal-container">
+    <div class="dac-modal-window">
+      <header class="dac-modal-header">
+        <button class="dac-modal-header-close" data-modal-toggle><i class="dac-sprite dac-close"></i></button>
+        <div class="dac-swap" data-swap-container>
+          <section class="dac-swap-section dac-active dac-down">
+            <h2 class="norule dac-modal-header-title">Get the latest Android developer news and tips that will help you find success on Google Play.</h2>
+            <p class="dac-modal-header-subtitle">&#42; Required Fields</p>
+          </section>
+          <section class="dac-swap-section dac-up">
+            <h2 class="norule dac-modal-header-title">Hooray!</h2>
+          </section>
+        </div>
+      </header>
+      <div class="dac-swap" data-swap-container>
+        <section class="dac-swap-section dac-active dac-left">
+          <form action="https://docs.google.com/forms/d/1QgnkzbEJIDu9lMEea0mxqWrXUJu0oBCLD7ar23V0Yys/formResponse" class="dac-form" method="post" target="dac-newsletter-iframe">
+            <section class="dac-modal-content">
+              <fieldset class="dac-form-fieldset">
+                <div class="cols">
+                  <div class="col-1of2 newsletter-leftCol">
+                    <div class="dac-form-input-group">
+                      <label for="newsletter-full-name" class="dac-form-floatlabel">Full name</label>
+                      <input type="text" class="dac-form-input" name="entry.1357890476" id="newsletter-full-name" required>
+                      <span class="dac-form-required">*</span>
+                    </div>
+                    <div class="dac-form-input-group">
+                      <label for="newsletter-email" class="dac-form-floatlabel">Email address</label>
+                      <input type="email" class="dac-form-input" name="entry.472100832" id="newsletter-email" required>
+                      <span class="dac-form-required">*</span>
+                    </div>
+                  </div>
+                  <div class="col-1of2 newsletter-rightCol">
+                    <div class="dac-form-input-group">
+                      <label for="newsletter-company" class="dac-form-floatlabel">Company / developer name</label>
+                      <input type="text" class="dac-form-input" name="entry.1664780309" id="newsletter-company">
+                    </div>
+                    <div class="dac-form-input-group">
+                      <label for="newsletter-play-store" class="dac-form-floatlabel">One of your Play Store app URLs</label>
+                      <input type="url" class="dac-form-input" name="entry.47013838" id="newsletter-play-store" required>
+                      <span class="dac-form-required">*</span>
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+              <fieldset class="dac-form-fieldset">
+                <div class="cols">
+                  <div class="col-1of2 newsletter-leftCol">
+                    <legend class="dac-form-legend">Which best describes your business:<span class="dac-form-required">*</span>
+                    </legend>
+                    <div class="dac-form-radio-group">
+                      <input type="radio" value="Apps" class="dac-form-radio" name="entry.1796324055" id="newsletter-business-type-app" required>
+                      <label for="newsletter-business-type-app" class="dac-form-radio-button"></label>
+                      <label for="newsletter-business-type-app" class="dac-form-label">Apps</label>
+                    </div>
+                    <div class="dac-form-radio-group">
+                      <input type="radio" value="Games" class="dac-form-radio" name="entry.1796324055" id="newsletter-business-type-games" required>
+                      <label for="newsletter-business-type-games" class="dac-form-radio-button"></label>
+                      <label for="newsletter-business-type-games" class="dac-form-label">Games</label>
+                    </div>
+                    <div class="dac-form-radio-group">
+                      <input type="radio" value="Apps and Games" class="dac-form-radio" name="entry.1796324055" id="newsletter-business-type-appsgames" required>
+                      <label for="newsletter-business-type-appsgames" class="dac-form-radio-button"></label>
+                      <label for="newsletter-business-type-appsgames" class="dac-form-label">Apps &amp; Games</label>
+                    </div>
+                  </div>
+                  <div class="col-1of2 newsletter-rightCol newsletter-checkboxes">
+                    <div class="dac-form-radio-group">
+                      <div class="dac-media">
+                        <div class="dac-media-figure">
+                          <input type="checkbox" class="dac-form-checkbox" name="entry.732309842" id="newsletter-add" required value="Add me to the mailing list for the monthly newsletter and occasional emails about development and Google Play opportunities.">
+                          <label for="newsletter-add" class="dac-form-checkbox-button"></label>
+                        </div>
+                        <div class="dac-media-body">
+                          <label for="newsletter-add" class="dac-form-label dac-form-aside">Add me to the mailing list for the monthly newsletter and occasional emails about development and Google Play opportunities.<span class="dac-form-required">*</span></label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="dac-form-radio-group">
+                      <div class="dac-media">
+                        <div class="dac-media-figure">
+                          <input type="checkbox" class="dac-form-checkbox" name="entry.2045036090" id="newsletter-terms" required value="I acknowledge that the information provided in this form will be subject to Google's privacy policy (https://www.google.com/policies/privacy/).">
+                          <label for="newsletter-terms" class="dac-form-checkbox-button"></label>
+                        </div>
+                        <div class="dac-media-body">
+                          <label for="newsletter-terms" class="dac-form-label dac-form-aside">I acknowledge that the information provided in this form will be subject to <a href="https://www.google.com/policies/privacy/">Google's privacy policy</a>.<span class="dac-form-required">*</span></label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+            </section>
+            <footer class="dac-modal-footer">
+              <div class="cols">
+                <div class="col-2of5">
+                </div>
+              </div>
+              <button type="submit" value="Submit" class="dac-fab dac-primary dac-large dac-modal-action"><i class="dac-sprite dac-arrow-right"></i></button>
+            </footer>
+          </form>
+        </section>
+        <section class="dac-swap-section dac-right">
+          <div class="dac-modal-content">
+            <p class="newsletter-success-message">
+              You have successfully signed up for the latest Android developer news and tips.
+            </p>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</div> <!-- end footer -->
+
+</div><!-- end doc-content -->
+
+</div> <!-- end .cols --> 
+</div> <!-- end body-content --> 
+
+
+
+
+
+
+</body>
+</html>

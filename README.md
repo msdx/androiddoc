@@ -5,13 +5,13 @@ ANDROID API镜像站
 
 访问地址：
 
-[http://androiddoc.qiniudn.com/](http://androiddoc.qiniudn.com)
+Android 6.0: [http://androiddoc.qiniudn.com](http://androiddoc.qiniudn.com)
 
-[http://msdx.github.io/androiddoc/docs/](http://msdx.github.io/androiddoc/docs/)
+Android 6.0: [http://7ktv9b.com1.z0.glb.clouddn.com](http://7ktv9b.com1.z0.glb.clouddn.com)
 
-[http://7ktv9b.com1.z0.glb.clouddn.com](http://7ktv9b.com1.z0.glb.clouddn.com)
+N Developer Preview 1: [http://msdx.github.io/androiddoc/docs/](http://msdx.github.io/androiddoc/docs/)
 
-目前版本：android 6.0。欢迎检出及部署。
+当前版本：Android N Developer Preview 1，如想使用6.0请转至[tag 6.0](https://github.com/msdx/androiddoc/tree/6.0)。欢迎检出及部署。
 
 ---
 
