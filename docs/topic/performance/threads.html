@@ -1,0 +1,1185 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+
+  
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
+<link rel="shortcut icon" type="image/x-icon" href="../../favicon.ico" />
+<link rel="alternate" href="http://developer.android.com/topic/performance/threads.html" hreflang="en" />
+<link rel="alternate" href="http://developer.android.com/intl/es/topic/performance/threads.html" hreflang="es" />
+<link rel="alternate" href="http://developer.android.com/intl/id/topic/performance/threads.html" hreflang="id" />
+<link rel="alternate" href="http://developer.android.com/intl/ja/topic/performance/threads.html" hreflang="ja" />
+<link rel="alternate" href="http://developer.android.com/intl/ko/topic/performance/threads.html" hreflang="ko" />
+<link rel="alternate" href="http://developer.android.com/intl/pt-br/topic/performance/threads.html" hreflang="pt-br" />
+<link rel="alternate" href="http://developer.android.com/intl/ru/topic/performance/threads.html" hreflang="ru" />
+<link rel="alternate" href="http://developer.android.com/intl/vi/topic/performance/threads.html" hreflang="vi" />
+<link rel="alternate" href="http://developer.android.com/intl/zh-cn/topic/performance/threads.html" hreflang="zh-cn" />
+<link rel="alternate" href="http://developer.android.com/intl/zh-tw/topic/performance/threads.html" hreflang="zh-tw" />
+
+
+<title>Threading Performance | Android Developers
+</title>
+
+<meta name="description" content="Making adept use of threads on Android can help you boost your app’s performance. This page discusses several aspects of working with threads: working with the UI, or main, thread; the relationship between app lifecycle and thread priority; and, methods…">
+
+<!-- STYLESHEETS -->
+<link rel="stylesheet"
+href="http://fonts.useso.com/css?family=Roboto+Condensed">
+<link rel="stylesheet" href="http://fonts.useso.com/css?family=Roboto:light,regular,medium,thin,italic,mediumitalic,bold"
+  title="roboto">
+
+<link href="../../assets/css/default.css?v=16" rel="stylesheet" type="text/css">
+
+<!-- JAVASCRIPT -->
+<script src="../../assets/js/android_3p-bundle.js" type="text/javascript"></script>
+<script type="text/javascript">
+  var toRoot = "../../";
+  var metaTags = [];
+  var devsite = false;
+  var useUpdatedTemplates = false;
+</script>
+<script src="../../assets/js/docs.js?v=17" type="text/javascript"></script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//../../ajax/www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-5831155-1', 'android.com');
+  ga('create', 'UA-49880327-2', 'android.com', {'name': 'universal'});  // New tracker);
+  ga('send', 'pageview');
+  ga('universal.send', 'pageview'); // Send page view for new tracker.
+</script>
+
+</head>
+
+<body class="gc-documentation
+
+
+" itemscope itemtype="http://schema.org/Article">
+  
+  <a name="top"></a>
+  <!-- Header -->
+  <div id="header-wrapper">
+    <div class="dac-header " id="header">
+      <div class="dac-header-inner">
+        <a class="dac-nav-toggle" data-dac-toggle-nav href="javascript:;" title="Open navigation">
+          <span class="dac-nav-hamburger">
+            <span class="dac-nav-hamburger-top"></span>
+            <span class="dac-nav-hamburger-mid"></span>
+            <span class="dac-nav-hamburger-bot"></span>
+          </span>
+        </a>
+        <a class="dac-header-logo" href="../../index.html">
+          <img class="dac-header-logo-image" src="../../assets/images/android_logo.png"
+              srcset="../../assets/images/android_logo@2x.png 2x"
+              width="32" height="36" alt="Android" /> Developers
+          </a>
+
+        <ul class="dac-header-tabs">
+          <li>
+          <a class="dac-header-tab" href="../../design/index.html"
+             zh-tw-lang="設計"
+             zh-cn-lang="设计"
+             ru-lang="Проектирование"
+             ko-lang="디자인"
+             ja-lang="設計"
+             es-lang="Diseñar">Design</a>
+          </li>
+          <li>
+          <a class="dac-header-tab" href="../../develop/index.html"
+             zh-tw-lang="開發"
+             zh-cn-lang="开发"
+             ru-lang="Разработка"
+             ko-lang="개발"
+             ja-lang="開発"
+             es-lang="Desarrollar">Develop</a>
+          </li>
+          <li>
+          <a class="dac-header-tab" href="../../distribute/index.html"
+             zh-tw-lang="發佈"
+             zh-cn-lang="分发"
+             ru-lang="Распространение"
+             ko-lang="배포"
+             ja-lang="配布"
+             es-lang="Distribuir">Distribute</a>
+          </li>
+        </ul>
+
+        <a class="dac-header-console-btn" href="https://play.google.com/apps/publish/">
+          <span class="dac-sprite dac-google-play"></span>
+          <span class="dac-visible-desktop-inline">Developer</span>
+          Console
+        </a>
+
+        
+        
+        
+  <form data-search class="dac-header-search">
+    <button class="dac-header-search-close" data-search-close>
+      <i class="dac-sprite dac-back-arrow"></i>
+    </button>
+
+    <div class="dac-header-search-inner">
+      <i class="dac-sprite dac-search-white dac-header-search-icon"></i>
+      <input id="search_autocomplete" type="text" value="" autocomplete="off" name="q" class="dac-header-search-input" placeholder="Search" />
+      <button class="dac-header-search-clear dac-hidden" data-search-clear>
+        <i class="dac-sprite dac-close-black"></i>
+      </button>
+    </div>
+  </form>
+
+        
+      </div><!-- end header-wrap.wrap -->
+    </div><!-- end header -->
+  </div> <!--end header-wrapper -->
+
+  
+  <!-- Navigation-->
+  <nav class="dac-nav">
+    <div class="dac-nav-dimmer" data-dac-toggle-nav></div>
+
+    <div class="dac-nav-sidebar" data-swap data-dynamic="false" data-transition-speed="300" data-dac-nav>
+      <div data-swap-container>
+        
+  
+    <a class="dac-nav-back-button dac-swap-section dac-up dac-no-anim" data-swap-button href="javascript:;">
+      <i class="dac-sprite dac-nav-back"></i> <span class="dac-nav-back-title">Back</span>
+    </a>
+    <div class="dac-nav-sub dac-swap-section dac-right dac-active" itemscope itemtype="http://schema.org/SiteNavigationElement">
+      
+        
+  <!-- Fullscreen toggler -->
+  <button data-fullscreen class="dac-nav-fullscreen">
+    <i class="dac-sprite dac-fullscreen"></i>
+  </button>
+
+  <script>$('[data-fullscreen]').dacFullscreen();</script>
+  <!-- End: Fullscreen toggler -->
+
+  
+    <div id="devdoc-nav">
+      <div id="api-nav-header">
+        <div id="api-level-toggle">
+          <label for="apiLevelCheckbox" class="disabled"
+                 title="Select your target API level to dim unavailable APIs">API level: </label>
+          <div class="select-wrapper">
+            <select id="apiLevelSelector">
+              <!-- option elements added by buildApiLevelSelector() -->
+            </select>
+          </div>
+        </div><!-- end toggle -->
+        <div id="api-nav-title">Android APIs</div>
+      </div><!-- end nav header -->
+      <script>
+        var SINCE_DATA = [  ];
+        buildApiLevelSelector();
+      </script>
+
+      <div class="dac-reference-nav" data-reference-tree>
+        <ul class="dac-reference-nav-list" data-reference-namespaces>
+          
+        </ul>
+
+        
+      </div>
+    </div>
+  
+
+      
+    </div>
+  
+
+        <ul id="dac-main-navigation" class="dac-nav-list dac-swap-section dac-left dac-no-anim">
+        <li class="dac-nav-item home">
+          <a class="dac-nav-link" href="../../index.html">Home</a>
+          <i class="dac-sprite dac-expand-more-black dac-nav-sub-slider"></i>
+          <ul class="dac-nav-secondary about">
+            <li class="dac-nav-item versions">
+              <a class="dac-nav-link" href="../../about/versions/marshmallow/index.html">Android</a>
+            </li>
+            <li class="dac-nav-item wear">
+              <a class="dac-nav-link" href="../../wear/index.html">Wear</a>
+            </li>
+            <li class="dac-nav-item tv">
+              <a class="dac-nav-link" href="../../tv/index.html">TV</a>
+            </li>
+            <li class="dac-nav-item auto">
+              <a class="dac-nav-link" href="../../auto/index.html">Auto</a>
+            </li>
+          </ul>
+        </li>
+        <li class="dac-nav-item design">
+          <a class="dac-nav-link" href="../../design/index.html"
+             zh-tw-lang="設計"
+             zh-cn-lang="设计"
+             ru-lang="Проектирование"
+             ko-lang="디자인"
+             ja-lang="設計"
+             es-lang="Diseñar">Design</a>
+        </li>
+        <li class="dac-nav-item develop">
+          <a class="dac-nav-link" href="../../develop/index.html"
+             zh-tw-lang="開發"
+             zh-cn-lang="开发"
+             ru-lang="Разработка"
+             ko-lang="개발"
+             ja-lang="開発"
+             es-lang="Desarrollar">Develop</a>
+          <i class="dac-sprite dac-expand-more-black dac-nav-sub-slider"></i>
+          <ul class="dac-nav-secondary develop">
+            <li class="dac-nav-item training">
+              <a class="dac-nav-link" href="../../training/index.html"
+                 zh-tw-lang="訓練課程"
+                 zh-cn-lang="培训"
+                 ru-lang="Курсы"
+                 ko-lang="교육"
+                 ja-lang="トレーニング"
+                 es-lang="Capacitación">Training</a>
+            </li>
+            <li class="dac-nav-item guide">
+              <a class="dac-nav-link" href="../../guide/index.html"
+                 zh-tw-lang="API 指南"
+                 zh-cn-lang="API 指南"
+                 ru-lang="Руководства по API"
+                 ko-lang="API 가이드"
+                 ja-lang="API ガイド"
+                 es-lang="Guías de la API">API Guides</a>
+            </li>
+            <li class="dac-nav-item reference">
+              <a class="dac-nav-link" href="../../reference/packages.html"
+                 zh-tw-lang="參考資源"
+                 zh-cn-lang="参考"
+                 ru-lang="Справочник"
+                 ko-lang="참조문서"
+                 ja-lang="リファレンス"
+                 es-lang="Referencia">Reference</a>
+            </li>
+            <li class="dac-nav-item tools">
+              <a class="dac-nav-link" href="../../sdk/index.html"
+                 zh-tw-lang="相關工具"
+                 zh-cn-lang="工具"
+                 ru-lang="Инструменты"
+                 ko-lang="도구"
+                 ja-lang="ツール"
+                 es-lang="Herramientas">Tools</a></li>
+            <li class="dac-nav-item google">
+              <a class="dac-nav-link" href="../../google/index.html">Google Services</a>
+            </li>
+            
+          </ul>
+        </li>
+        <li class="dac-nav-item distribute">
+          <a class="dac-nav-link" href="../../distribute/googleplay/index.html"
+             zh-tw-lang="發佈"
+             zh-cn-lang="分发"
+             ru-lang="Распространение"
+             ko-lang="배포"
+             ja-lang="配布"
+             es-lang="Distribuir">Distribute</a>
+          <i class="dac-sprite dac-expand-more-black dac-nav-sub-slider"></i>
+          <ul class="dac-nav-secondary distribute">
+            <li class="dac-nav-item googleplay">
+              <a class="dac-nav-link" href="../../distribute/googleplay/index.html">Google Play</a></li>
+            <li class="dac-nav-item essentials">
+              <a class="dac-nav-link" href="../../distribute/essentials/index.html">Essentials</a></li>
+            <li class="dac-nav-item users">
+              <a class="dac-nav-link" href="../../distribute/users/index.html">Get Users</a></li>
+            <li class="dac-nav-item engage">
+              <a class="dac-nav-link" href="../../distribute/engage/index.html">Engage &amp; Retain</a></li>
+            <li class="dac-nav-item monetize">
+              <a class="dac-nav-link" href="../../distribute/monetize/index.html">Earn</a>
+            </li>
+            <li class="dac-nav-item analyze">
+              <a class="dac-nav-link" href="../../distribute/analyze/index.html">Analyze</a>
+            </li>
+            <li class="dac-nav-item stories">
+              <a class="dac-nav-link" href="../../distribute/stories/index.html">Stories</a>
+            </li>
+          </ul>
+        </li>
+        <li class="dac-nav-item preview">
+          <a class="dac-nav-link" href="../../preview/index.html">Preview</a>
+        </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- end navigation-->
+  
+
+<!-- Nav Setup -->
+<script>$('[data-dac-nav]').dacNav();</script>
+
+
+
+  
+    
+  <div class="wrap clearfix" id="body-content">
+
+  
+
+  
+  <div id="search-results" class="dac-search-results">
+    <div id="dac-search-results-history" class="dac-search-results-history">
+      <div class="wrap dac-search-results-history-wrap">
+        <div class="cols">
+          <div class="col-1of2 col-tablet-1of2 col-mobile-1of1">
+            <h2>Most visited</h2>
+            <div class="resource-flow-layout" data-history-query="history:most/visited" data-maxresults="3" data-cardsizes="18x2"></div>
+          </div>
+
+          <div class="col-1of2 col-tablet-1of2 col-mobile-1of1">
+            <h2>Recently visited</h2>
+            <div class="resource-flow-layout cols" data-history-query="history:recent" data-allow-duplicates="true" data-maxresults="3" data-cardsizes="18x2"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="dac-search-results-content" class="dac-search-results-content">
+      <div class="dac-search-results-metadata wrap">
+        <div class="dac-search-results-for">
+          <h2>Results for <span id="search-results-for"></span></h2>
+        </div>
+
+        <div id="dac-search-results-hero"></div>
+
+        <div class="dac-search-results-hero cols">
+          <div id="dac-search-results-reference" class="col-3of6 col-tablet-1of2 col-mobile-1of1">
+            <div class="suggest-card reference no-display">
+              <ul class="dac-search-results-reference">
+              </ul>
+            </div>
+          </div>
+          <div id="dac-custom-search-results"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+
+
+
+  
+    
+      
+        <ul class="dac-header-crumbs">
+          
+        </ul>
+
+        <!-- Breadcrumb Setup -->
+        <p><script>$('.dac-nav-list').dacCurrentPage().dacCrumbs();</script></p>
+
+        <h1 itemprop="name" >Threading Performance</h1>
+      
+    
+  
+
+
+  
+
+  
+  <div id="jd-content">
+    <div class="jd-descr" itemprop="articleBody">
+    
+
+    <div id="qv-wrapper">
+<div id="qv">
+
+<h2>In this document</h2>
+<ol>
+<li><a href="#main">Main Thread</a>
+  <ol>
+    <li><a href="#internals">Internals</a></li>
+  </ol>
+</li>
+<li><a href="#references">Threading and UI Object References</a>
+  <ol>
+    <li><a href="#explicit">Explicit references</a></li>
+    <li><a href="#implicit">Implicit references</a></li>
+  </ol>
+</li>
+<li><a href="#lifecycles">Threading and App and Activity Lifecycles</a>
+   <ol>
+      <li><a href="#persisting">Persisting threads</a></li>
+      <li><a href="#priority">Thread priority</a></li>
+   </ol>
+      </li>
+<li><a href="#helper">Helper Classes for Threading</a>
+   <ol>
+      <li><a href="#asynctask">The AsyncTask class</a></li>
+      <li><a href="#handlerthread">The HandlerThread class</a></li>
+      <li><a href="#threadpool">The ThreadPoolExecutor class</a></li>
+   </ol>
+      </li>
+</ol>
+</div>
+</div>
+
+<p>
+Making adept use of threads on Android can help you boost your app’s
+performance. This page discusses several aspects of working with threads:
+working with the UI, or main, thread; the relationship between app lifecycle and
+thread priority; and, methods that the platform provides to help manage thread
+complexity. In each of these areas, this page describes potential pitfalls and
+strategies for avoiding them.
+</p>
+<h2 id="main">Main Thread</h2>
+<p>
+When the user launches your app, Android creates a new <a
+href="../../guide/components/fundamentals.html">Linux
+process</a> along with an execution thread. This <strong>main thread,</strong>
+also known as the UI thread, is responsible for everything that happens
+onscreen. Understanding how it works can help you design your app to use the
+main thread for the best possible performance.
+</p>
+<h3 id="internals">Internals</h3>
+<p>
+The main thread has a very simple design: Its only job is to take and execute
+blocks of work from a thread-safe work queue until its app is terminated. The
+framework generates some of these blocks of work from a variety of places. These
+places include callbacks associated with lifecycle information, user events such
+as input, or events coming from other apps and processes. In addition, app can
+explicitly enqueue blocks on their own, without using the framework.
+</p>
+<p>
+Nearly <a
+href="https://www.youtube.com/watch?v=qk5F6Bxqhr4&index=1&list=PLWz5rJ2EKKc9CBxr3BVjPTPoDPLdPIFCE">any
+block of code your app executes</a> is tied to an event callback, such as input,
+layout inflation, or draw. When something triggers an event, the thread where the event
+happened pushes the event out of itself, and into the main thread’s message
+queue. The main thread can then service the event.
+</p>
+
+<p>
+While an animation or screen update is occurring, the system tries to execute a
+block of work (which is responsible for drawing the screen) every 16ms or so, in
+order to render smoothly at <a
+href="https://www.youtube.com/watch?v=CaMTIgxCSqU&index=62&list=PLWz5rJ2EKKc9CBxr3BVjPTPoDPLdPIFCE">60
+frames per second</a>. For the system to reach this goal, some operations must
+happen on the main thread. However, when the main thread’s messaging queue
+contains tasks that are either too numerous or too long for the main thread to
+complete work within the 16ms window, the app should move this work to a worker
+thread. If the main thread cannot finish executing blocks of work within 16ms,
+the user may observe hitching, lagging, or a lack of UI responsiveness to input.
+If the main thread blocks for approximately five seconds, the system displays
+the <a
+href="../../training/articles/perf-anr.html"><em>Application
+Not Responding</em></a> (ANR) dialog, allowing the user to close the app directly.
+</p>
+<p>
+Moving numerous or long tasks from the main thread, so that they don’t interfere
+with smooth rendering and fast responsiveness to user input, is the biggest
+reason for you to adopt threading in your app.
+</p>
+<h2 id="references">Threading and UI Object References</h2>
+<p>
+By design, <a
+href="https://www.youtube.com/watch?v=tBHPmQQNiS8&index=3&list=PLWz5rJ2EKKc9CBxr3BVjPTPoDPLdPIFCE">Android
+UI objects are not thread-safe</a>. An app is expected to create, use, and
+destroy UI objects, all on the main thread. If you try to modify
+or even reference a UI object in a thread other than the main thread, the result
+can be exceptions, silent failures, crashes, and other undefined misbehavior.
+</p>
+<p>
+Issues with references fall into two distinct categories: explicit references
+and implicit references.
+</p>
+<h3 id="explicit">Explicit references</h3>
+<p>
+Many tasks on non-main threads have the end goal of updating UI objects.
+However, if one of these threads accesses an object in the view hierarchy,
+application instability can result: If a worker thread changes the properties of
+that object at the same time that any other thread is referencing the object,
+the results are undefined.
+</p>
+<p>
+For example, consider an app that holds a direct reference to a UI object on a
+worker thread. The object on the worker thread may contain a reference to a
+<code><a href="../../reference/android/view/View.html">View</a></code>; but before the work completes, the <code><a href="../../reference/android/view/View.html">View</a></code> is
+removed from the view hierarchy. When these two actions happen simultaneously,
+the reference keeps the <code><a href="../../reference/android/view/View.html">View</a></code> object in memory and sets properties on it.
+However, the user never sees
+this object, and the app deletes the object once the reference to it is gone.
+</p>
+
+<p>
+In another example, <code><a href="../../reference/android/view/View.html">View</a></code> objects contain references to the activity
+that owns them. If
+that activity is destroyed, but there remains a threaded block of work that
+references it&mdash;directly or indirectly&mdash;the garbage collector will not collect
+the activity until that block of work finishes executing.
+</p>
+<p>
+This scenario can cause a problem in situations where threaded work may be in
+flight while some activity lifecycle event, such as a screen rotation, occurs.
+The system wouldn’t be able to perform garbage collection until the in-flight
+work completes. As a result, there may be two <code><a href="../../reference/android/app/Activity.html">Activity</a></code> objects in
+memory until garbage collection can take place.
+</p>
+
+<p>
+With scenarios like these, we suggest that your app not include explicit
+references to UI objects in threaded work tasks. Avoiding such references helps you avoid
+these types of memory leaks, while also steering clear of threading contention.
+</p>
+<p>
+In all cases, your app should only update UI objects on the main thread. This
+means that you should craft a negotiation policy that allows multiple threads to
+communicate work back to the main thread, which tasks the topmost activity or
+fragment with the work of updating the actual UI object.
+</p>
+<h3 id="implicit">Implicit references</h3>
+<p>
+A common code-design flaw with threaded objects can be seen in the snippet of
+code below:
+</p>
+<pre class="prettyprint">
+public class MainActivity extends Activity {
+  // …...
+  public class MyAsyncTask extends AsyncTask<Void, Void, String>   {
+    &#64;Override protected String doInBackground(Void... params) {...}
+    &#64;Override protected void onPostExecute(String result) {...}
+  }
+}
+</pre>
+<p>
+The flaw in this snippet is that the code declares the threading object
+<code>MyAsyncTask</code> as an inner class of some activity. This declaration creates an
+implicit reference to the enclosing <code><a href="../../reference/android/app/Activity.html">Activity</a></code> object.
+As a result, the object contains a reference to the activity until the
+threaded work completes, causing a delay in the destruction of the referenced activity.
+This delay, in turn, puts more pressure on memory.
+</p>
+<p>
+A direct solution to this problem would be to define your overloaded class
+instances in their own files, thus removing the implicit reference.
+</p>
+<p>
+Another solution is to declare the <code><a href="../../reference/android/os/AsyncTask.html">AsyncTask</a></code> object
+as a static nested class.  Doing so eliminates the implicit reference problem
+because of the way a static nested
+class differs from an inner class: An instance of an inner class requires an
+instance of the outer class to be instantiated, and has direct access to the
+methods and fields of its enclosing instance. By contrast, a static nested class
+does not require a reference to an instance of enclosing class, so it contains
+no references to the outer class members.
+</p>
+<pre class="prettyprint">
+public class MainActivity extends Activity {
+  // …...
+  Static public class MyAsyncTask extends AsyncTask<Void, Void, String>   {
+    &#64;Override protected String doInBackground(Void... params) {...}
+    &#64;Override protected void onPostExecute(String result) {...}
+  }
+}
+</pre>
+<h2 id="lifecycles">Threading and App and Activity Lifecycles</h2>
+<p>
+The app lifecycle can affect how threading works in your application.
+You may need to decide that a thread should, or should not, persist after an
+activity is destroyed. You should also be aware of the relationship between
+thread prioritization and whether an activity is running in the foreground or
+background.
+</p>
+<h3 id="persisting">Persisting threads</h3>
+<p>
+Threads persist past the lifetime of the activities that spawn them. Threads
+continue to execute, uninterrupted, regardless of the creation or destruction of
+activities. In some cases, this persistence is undesirable.
+</p>
+<p>
+Consider a case in which an activity spawns a set of threaded work blocks, and
+is then destroyed before a worker thread can execute the blocks. What should the
+app do with the blocks that are in flight?
+</p>
+
+<p>
+If the blocks were going to update a UI that no longer exists, there’s no reason
+for the work to continue. For example, if the work is to load user information
+from a database, and then update views, the thread is no longer necessary.
+</p>
+
+<p>
+By contrast, the work packets may have some benefit not entirely related to the
+UI. In this case, you should persist the thread. For example, the packets may be
+waiting to download an image, cache it to disk, and update the associated
+<code><a href="../../reference/android/view/View.html">View</a></code> object. Although the object no longer exists, the acts of downloading and
+caching the image may still be helpful, in case the user returns to the
+destroyed activity.
+</p>
+
+<p>
+Managing lifecycle responses manually for all threading objects can become
+extremely complex. If you don’t manage them correctly, your app can suffer from
+memory contention and performance issues. <a
+href="../../guide/components/loaders.html">Loaders</a>
+are one solution to this problem. A loader facilitates asynchronous loading of
+data, while also persisting information through configuration changes.
+</p>
+<h3 id="priority">Thread priority</h3>
+<p>
+As described in <a
+href="../../guide/topics/processes/process-lifecycle.html">Processes
+and the Application Lifecycle</a>, the priority that your app’s threads receive
+depends partly on where the app is in the app lifecycle. As you create and
+manage threads in your application, it’s important to set their priority so that
+the right threads get the right priorities at the right times. If set too high,
+your thread may interrupt the UI thread and RenderThread, causing your app to
+drop frames. If set too low, you can make your async tasks (such as image
+loading) slower than they need to be.
+</p>
+<p>
+Every time you create a thread, you should call
+<code><a href="../../reference/android/os/Process.html#setThreadPriority(int, int)">setThreadPriority()</a></code>.
+The system’s thread
+scheduler gives preference to threads with high priorities, balancing those
+priorities with the need to eventually get all the work done. Generally, threads
+in the <a
+href="https://www.youtube.com/watch?v=NwFXVsM15Co&list=PLWz5rJ2EKKc9CBxr3BVjPTPoDPLdPIFCE&index=9">foreground
+group get about 95%</a> of the total execution time from the device, while the
+background group gets roughly 5%.
+</p>
+<p>
+The system also assigns each thread its own priority value, using the
+<code><a href="../../reference/android/os/Process.html">Process</a></code> class.
+</p>
+<p>
+By default, the system sets a thread’s priority to the same priority and group
+memberships as the spawning thread. However, your application can explicitly
+adjust thread priority by using
+<code><a href="../../reference/android/os/Process.html#setThreadPriority(int, int)">setThreadPriority()</a></code>.
+</p>
+<p>
+The <code><a href="../../reference/android/os/Process.html">Process</a></code>
+class</a> helps reduce complexity in assigning priority values by providing a
+set of constants that your app can use to set thread priorities. For example, <a
+href="../../reference/android/os/Process.html#THREAD_PRIORITY_DEFAULT">THREAD_PRIORITY_DEFAULT</a>
+represents the default value for a thread. Your app should set the thread's priority to <a
+href="../../reference/android/os/Process.html#THREAD_PRIORITY_BACKGROUND">THREAD_PRIORITY_BACKGROUND</a>
+for threads that are executing less-urgent work.
+</p>
+<p>
+Your app can use the <a
+href="../../reference/android/os/Process.html#THREAD_PRIORITY_LESS_FAVORABLE">THREAD_PRIORITY_LESS_FAVORABLE</a>
+and <a
+href="../../reference/android/os/Process.html#THREAD_PRIORITY_MORE_FAVORABLE">THREAD_PRIORITY_MORE_FAVORABLE</a>
+constants as incrementers to set relative priorities. A list of all of these
+enumerated states and modifiers appears in the reference documentation for
+the <code><a href="../../reference/android/os/Process.html#THREAD_PRIORITY_AUDIO">THREAD_PRIORITY_AUDIO</a></code> class.
+
+For more information on
+managing threads, see the reference documentation about the
+<code><a href="../../reference/java/lang/Thread.html">Thread</a></code> and <code><a href="../../reference/android/os/Process.html">Process</a></code> classes.
+</p>
+<p>
+https://developer.android.com/reference/android/os/Process.html#THREAD_PRIORITY_AUDIO
+</p>
+<h2 id="helper">Helper Classes for Threading</h2>
+<p>
+The framework provides the same Java classes & primitives to facilitate
+threading, such as the <code><a href="../../reference/java/lang/Thread.html">Thread</a></code> and
+<code><a href="../../reference/java/lang/Runnable.html">Runnable</a></code> classes.
+In order to help reduce the cognitive load associated with
+of developing threaded applications for
+Android, the framework provides a set of helpers which can aide in development.
+Each helper class has a specific set of performance nuances that make them
+unique for a specific subset of threading problems. Using the wrong class for
+the wrong situation can lead to performance issues.
+</p>
+<h3 id="asynctask">The AsyncTask class</h3>
+<p>
+
+The <code><a href="../../reference/android/os/AsyncTask.html">AsyncTask</a></code> class
+is a simple, useful primitive for apps that need to quickly move work from the
+main thread onto worker threads. For example, an input event might trigger the
+need to update the UI with a loaded bitmap. An <code><a href="../../reference/android/os/AsyncTask.html">AsyncTask</a></code>
+object can offload the
+bitmap loading and decoding to an alternate thread; once that processing is
+complete, the <code><a href="../../reference/android/os/AsyncTask.html">AsyncTask</a></code> object can manage receiving the work
+back on the main thread to update the UI.
+</p>
+<p>
+When using <code><a href="../../reference/android/os/AsyncTask.html">AsyncTask</a></code>, there are a few important performance
+aspects to keep in
+mind. First, by default, an app pushes all of the <code><a href="../../reference/android/os/AsyncTask.html">AsyncTask</a></code>
+objects it creates into a
+single thread. Therefore, they execute in serial fashion, and&mdash;as with the
+main
+thread&mdash;an especially long work packet can block the queue. For this reason,
+we suggest that you only use <code><a href="../../reference/android/os/AsyncTask.html">AsyncTask</a></code> to handle work items
+shorter than 5ms in duration.
+</p>
+<p>
+<code><a href="../../reference/android/os/AsyncTask.html">AsyncTask</a></code> objects are also the most common offenders
+for implicit-reference issues.
+<code><a href="../../reference/android/os/AsyncTask.html">AsyncTask</a></code> objects present risks related to explicit
+references, as well, but these are
+sometimes easier to work around. For example, an <code><a href="../../reference/android/os/AsyncTask.html">AsyncTask</a></code>
+may require a reference to a UI object in order to update the UI object
+properly once <code><a href="../../reference/android/os/AsyncTask.html">AsyncTask</a></code> executes its callbacks on the
+main thread. In such a situation, you
+can use a <code><a href="../../reference/java/lang/ref/WeakReference.html">WeakReference</a></code>
+to store a reference to the required UI object, and access the object once the
+<code><a href="../../reference/android/os/AsyncTask.html">AsyncTask</a></code> is operating on the main thread. To be clear,
+holding a <code><a href="../../reference/java/lang/ref/WeakReference.html">WeakReference</a></code>
+to an object does not make the object thread-safe; the
+<code><a href="../../reference/java/lang/ref/WeakReference.html">WeakReference</a></code> merely
+provides a method to handle issues with explicit references and garbage
+collection.
+</p>
+<h3 id="handlerthread">The HandlerThread class</h3>
+<p>
+While an <code><a href="../../reference/android/os/AsyncTask.html">AsyncTask</a></code>
+is useful,<a
+href="https://www.youtube.com/watch?v=adPLIAnx9og&index=5&list=PLWz5rJ2EKKc9CBxr3BVjPTPoDPLdPIFCE">
+it may not always be the right solution</a> to your threading problem. Instead,
+you may need a more traditional approach to executing a block of work on a
+longer running thread, and some ability to manage that workflow manually.
+</p>
+
+<p>
+Consider a common challenge with getting preview frames from your
+<code><a href="../../reference/android/hardware/Camera.html">Camera</a></code> object.
+ When you register for Camera preview frames, you receive them in the
+ <code><a href="../../reference/android/hardware/Camera.PreviewCallback.html#onPreviewFrame(byte[], android.hardware.Camera)">onPreviewFrame()</a></code>
+callback, which is invoked on the event thread it was called from. If this
+callback were invoked on the UI thread, the task of dealing with the huge pixel
+arrays would be interfering with rendering and event processing work. The same
+problem applies to <code><a href="../../reference/android/os/AsyncTask.html">AsyncTask</a></code>, which also executes jobs serially and is
+susceptible to blocking.
+</p>
+<p>
+This is a situation where a handler thread would be appropriate: A handler thread
+is effectively a long-running thread that grabs work from a queue, and operates
+on it. In this example, when your app delegates the
+<code><a href="../../reference/android/hardware/Camera.html#open()">Camera.open()</a></code> command to a
+block of work on the handler thread, the associated
+ <code><a href="../../reference/android/hardware/Camera.PreviewCallback.html#onPreviewFrame(byte[], android.hardware.Camera)">onPreviewFrame()</a></code>
+callback
+lands on the handler thread, rather than the UI or <code><a href="../../reference/android/os/AsyncTask.html">AsyncTask</a></code>
+threads. So, if you’re going to be doing long-running work on the pixels, this
+may be a better solution for you.
+</p>
+<p>
+When your app creates a thread using <code><a href="../../reference/android/os/HandlerThread.html">HandlerThread</a></code>, don’t
+forget to set the thread’s
+<a href="https://www.youtube.com/watch?v=NwFXVsM15Co&index=9&list=PLWz5rJ2EKKc9CBxr3BVjPTPoDPLdPIFCE">
+priority based on the type of work it’s doing</a>. Remember, CPUs can only
+handle a small number of threads in parallel. Setting the priority helps
+the system know the right ways to schedule this work when all other threads
+are fighting for attention.
+</p>
+<h3 id="threadpool">The ThreadPoolExecutor class</h3>
+<p>
+There are certain types of work that can be reduced to highly parallel,
+distributed tasks. One such task, for example, is calculating a filter for each
+8x8 block of an 8 megapixel image. With the sheer volume of work packets this
+creates, <a
+href="https://www.youtube.com/watch?v=uCmHoEY1iTM&index=6&list=PLWz5rJ2EKKc9CBxr3BVjPTPoDPLdPIFCE">
+<code>AsyncTask</code> and <code>HandlerThread</code> aren’t appropriate
+classes</a>. The single-threaded nature of <code><a href="../../reference/android/os/AsyncTask.html">AsyncTask</a></code> would
+turn all the threadpooled work into a linear system.
+Using the <code><a href="../../reference/android/os/HandlerThread.html">HandlerThread</a></code> class, on the other hand, would
+require the programmer to manually manage load balancing between a group of
+threads.
+</p>
+
+<p>
+<code><a href="../../reference/java/util/concurrent/ThreadPoolExecutor.html">ThreadPoolExecutor</a></code> is a helper class to make
+this process easier. This class manages the creation of a group of threads, sets
+their priorities, and manages how work is distributed among those threads.
+As workload increases or decreases, the class spins up or destroys more threads
+to adjust to the workload.
+</p>
+<p>
+This class also helps your app spawn an optimum number of threads. When it
+constructs a <code><a href="../../reference/java/util/concurrent/ThreadPoolExecutor.html">ThreadPoolExecutor</a></code>
+object, the app sets a minimum and maximum
+number of threads. As the workload given to the
+<code><a href="../../reference/java/util/concurrent/ThreadPoolExecutor.html">ThreadPoolExecutor</a></code> increases,
+the class will take the initialized minimum and maximum thread counts into
+account, and consider the amount of pending work there is to do. Based on these
+factors, <code><a href="../../reference/java/util/concurrent/ThreadPoolExecutor.html">ThreadPoolExecutor</a></code> decides on how many
+threads should be alive at any given time.
+</p>
+<h4>How many threads should you create?</h4>
+<p>
+Although from a software level, your code has the ability to create hundreds of
+threads, doing so can create performance issues. CPUs really only have the
+ability to handle a small number of threads in parallel; everything above that
+runs<a
+href="https://www.youtube.com/watch?v=NwFXVsM15Co&list=PLWz5rJ2EKKc9CBxr3BVjPTPoDPLdPIFCE&index=9">
+into priority and scheduling issues</a>. As such, it’s important to only create
+as many threads as your workload needs.
+</p>
+<p>
+Practically speaking, there’s a number of variables responsible for this, but
+picking a value (like 4, for starters), and testing it with <a
+href=”../../studio/profile/systrace-commandline.html”>Systrace</a> is as
+solid a strategy as any other. You can use trial-and-error to discover the
+minimum number of threads you can use without running into problems.
+</p>
+<p>
+Another consideration in deciding on how many threads to have is that threads
+aren’t free: they take up memory. Each thread costs a minimum of 64k of memory.
+This adds up quickly across the many apps installed on a device, especially in
+situations where the call stacks grow significantly.
+</p>
+<p>
+Many system processes and third-party libraries often spin up their own
+threadpools. If your app can reuse an existing threadpool, this reuse may help
+performance by reducing contention for memory and processing resources.
+</p>
+
+
+
+    </div>
+
+    
+
+  </div> <!-- end jd-content -->
+
+
+
+<div class="wrap">
+  <div class="dac-footer">
+    <div class="cols dac-footer-main">
+      <div class="col-1of2">
+        <a class="dac-footer-getnews" id="newsletter" data-modal-toggle="newsletter" href="javascript:;">Get news &amp; tips <span
+          class="dac-fab dac-primary"><i class="dac-sprite dac-mail"></i></span></a>
+      </div>
+      <div class="col-1of2 dac-footer-reachout">
+        <div class="dac-footer-contact">
+          <a class="dac-footer-contact-link" href="http://android-developers.blogspot.com/">Blog</a>
+          <a class="dac-footer-contact-link" href="../../support.html">Support</a>
+        </div>
+        <div class="dac-footer-social">
+          <a class="dac-button-social dac-youtube dac-footer-social-link" href="https://www.youtube.com/user/androiddevelopers"><i class="dac-sprite dac-youtube"></i></a>
+          <a class="dac-button-social dac-gplus dac-footer-social-link" href="https://plus.google.com/+AndroidDevelopers"><i class="dac-sprite dac-gplus"></i></a>
+          <a class="dac-button-social dac-twitter dac-footer-social-link" href="https://twitter.com/AndroidDev"><i class="dac-sprite dac-twitter"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <hr class="dac-footer-separator"/>
+
+    
+      <p class="dac-footer-copyright">
+        
+  Except as noted, this content is
+  licensed under <a href="http://creativecommons.org/licenses/by/2.5/">
+  Creative Commons Attribution 2.5</a>. For details and
+  restrictions, see the <a href="../../license.html">Content
+  License</a>.
+
+      </p>
+    
+
+    <p class="dac-footer-links">
+      <a href="../../about/android.html">About Android</a>
+      <a href="../../auto/index.html">Auto</a>
+      <a href="../../tv/index.html">TV</a>
+      <a href="../../wear/index.html">Wear</a>
+      <a href="../../legal.html">Legal</a>
+
+      <span id="language" class="locales">
+        <select name="language" onchange="changeLangPref(this.value, true)">
+          <option value="en" selected="selected">English</option>
+          <option value="es">Español</option>
+          <option value="in">Bahasa Indonesia</option>
+          <option value="ja">日本語</option>
+          <option value="ko">한국어</option>
+          <option value="pt-br">Português Brasileiro</option>
+          <option value="ru">Русский</option>
+          <option value="vi">tiếng Việt</option>
+          <option value="zh-cn">中文（简体)</option>
+          <option value="zh-tw">中文（繁體)</option>
+        </select>
+      </span>
+    </p>
+  </div>
+</div>
+<!-- end footer -->
+
+
+
+  
+
+
+
+<div data-modal="newsletter" data-newsletter data-swap class="dac-modal newsletter">
+  <div class="dac-modal-container">
+    <div class="dac-modal-window">
+      <header class="dac-modal-header">
+        <div class="dac-modal-header-actions">
+          <button class="dac-modal-header-close" data-modal-toggle></button>
+        </div>
+        <div class="dac-swap" data-swap-container>
+          <section class="dac-swap-section dac-active dac-down">
+            <h2 class="norule dac-modal-header-title" data-t="newsletter.title"></h2>
+            <p class="dac-modal-header-subtitle" data-t="newsletter.requiredHint"></p>
+          </section>
+          <section class="dac-swap-section dac-up">
+            <h2 class="norule dac-modal-header-title" data-t="newsletter.successTitle">Hooray!</h2>
+          </section>
+        </div>
+      </header>
+      <div class="dac-swap" data-swap-container>
+        <section class="dac-swap-section dac-active dac-left">
+          <form action="https://docs.google.com/forms/d/1QgnkzbEJIDu9lMEea0mxqWrXUJu0oBCLD7ar23V0Yys/formResponse" class="dac-form" method="post" target="dac-newsletter-iframe">
+            <input type="hidden" name="entry.935454734" data-newsletter-language>
+            <section class="dac-modal-content">
+              <fieldset class="dac-form-fieldset">
+                <div class="cols">
+                  <div class="col-1of2 newsletter-leftCol">
+                    <div class="dac-form-input-group">
+                      <label for="newsletter-full-name" class="dac-form-floatlabel" data-t="newsletter.name">Full name</label>
+                      <input type="text" class="dac-form-input" name="entry.1357890476" id="newsletter-full-name" required>
+                      <span class="dac-form-required">*</span>
+                    </div>
+                    <div class="dac-form-input-group">
+                      <label for="newsletter-email" class="dac-form-floatlabel" data-t="newsletter.email">Email address</label>
+                      <input type="email" class="dac-form-input" name="entry.472100832" id="newsletter-email" required>
+                      <span class="dac-form-required">*</span>
+                    </div>
+                  </div>
+                  <div class="col-1of2 newsletter-rightCol">
+                    <div class="dac-form-input-group">
+                      <label for="newsletter-company" class="dac-form-floatlabel" data-t="newsletter.company">Company / developer name</label>
+                      <input type="text" class="dac-form-input" name="entry.1664780309" id="newsletter-company">
+                    </div>
+                    <div class="dac-form-input-group">
+                      <label for="newsletter-play-store" class="dac-form-floatlabel" data-t="newsletter.appUrl">One of your Play Store app URLs</label>
+                      <input type="url" class="dac-form-input" name="entry.47013838" id="newsletter-play-store" required>
+                      <span class="dac-form-required">*</span>
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+              <fieldset class="dac-form-fieldset">
+                <div class="cols">
+                  <div class="col-1of2 newsletter-leftCol">
+                    <legend class="dac-form-legend"><span data-t="newsletter.business.label">Which best describes your business:</span><span class="dac-form-required">*</span>
+                    </legend>
+                    <div class="dac-form-radio-group">
+                      <input type="radio" value="Apps" class="dac-form-radio" name="entry.1796324055" id="newsletter-business-type-app" required>
+                      <label for="newsletter-business-type-app" class="dac-form-radio-button"></label>
+                      <label for="newsletter-business-type-app" class="dac-form-label" data-t="newsletter.business.apps">Apps</label>
+                    </div>
+                    <div class="dac-form-radio-group">
+                      <input type="radio" value="Games" class="dac-form-radio" name="entry.1796324055" id="newsletter-business-type-games" required>
+                      <label for="newsletter-business-type-games" class="dac-form-radio-button"></label>
+                      <label for="newsletter-business-type-games" class="dac-form-label" data-t="newsletter.business.games">Games</label>
+                    </div>
+                    <div class="dac-form-radio-group">
+                      <input type="radio" value="Apps and Games" class="dac-form-radio" name="entry.1796324055" id="newsletter-business-type-appsgames" required>
+                      <label for="newsletter-business-type-appsgames" class="dac-form-radio-button"></label>
+                      <label for="newsletter-business-type-appsgames" class="dac-form-label" data-t="newsletter.business.both">Apps &amp; Games</label>
+                    </div>
+                  </div>
+                  <div class="col-1of2 newsletter-rightCol newsletter-checkboxes">
+                    <div class="dac-form-radio-group">
+                      <div class="dac-media">
+                        <div class="dac-media-figure">
+                          <input type="checkbox" class="dac-form-checkbox" name="entry.732309842" id="newsletter-add" required value="Add me to the mailing list for the monthly newsletter and occasional emails about development and Google Play opportunities.">
+                          <label for="newsletter-add" class="dac-form-checkbox-button"></label>
+                        </div>
+                        <div class="dac-media-body">
+                          <label for="newsletter-add" class="dac-form-label dac-form-aside"><span data-t="newsletter.confirmMailingList"></span><span class="dac-form-required">*</span></label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="dac-form-radio-group">
+                      <div class="dac-media">
+                        <div class="dac-media-figure">
+                          <input type="checkbox" class="dac-form-checkbox" name="entry.2045036090" id="newsletter-terms" required value="I acknowledge that the information provided in this form will be subject to Google's privacy policy (https://www.google.com/policies/privacy/).">
+                          <label for="newsletter-terms" class="dac-form-checkbox-button"></label>
+                        </div>
+                        <div class="dac-media-body">
+                          <label for="newsletter-terms" class="dac-form-label dac-form-aside"><span data-t="newsletter.privacyPolicy" data-t-html></span><span class="dac-form-required">*</span></label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+            </section>
+            <footer class="dac-modal-footer">
+              <div class="cols">
+                <div class="col-2of5">
+                </div>
+              </div>
+              <button type="submit" value="Submit" class="dac-fab dac-primary dac-large dac-modal-action"><i class="dac-sprite dac-arrow-right"></i></button>
+            </footer>
+          </form>
+        </section>
+        <section class="dac-swap-section dac-right">
+          <div class="dac-modal-content">
+            <p class="newsletter-success-message" data-t="newsletter.successDetails"></p>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end newsletter modal -->
+
+<!-- start reset language header modal -->
+<div data-modal="langform" class="dac-modal" id="langform">
+  <div class="dac-modal-container">
+    <div class="dac-modal-window">
+      <header class="dac-modal-header">
+        <div class="dac-modal-header-actions">
+          <button class="dac-modal-header-close" data-modal-toggle></button>
+        </div>
+        <section class="dac-swap-section dac-active dac-down">
+          <h2 class="norule dac-modal-header-title"></h2>
+        </section>
+      </header>
+      <section class="dac-swap-section dac-active dac-left">
+          <section class="dac-modal-content">
+            <fieldset class="dac-form-fieldset">
+              <div class="cols">
+                <div class="col-2of2 langform-leftCol">
+                  <p id="resetLangText"></p>
+                  <p id="resetLangCta"></p>
+                </div>
+              </div>
+            </fieldset>
+          </section>
+          <footer class="dac-modal-footer" id="langfooter">
+            <div class="cols">
+              <div class="col-2of5">
+              </div>
+            </div>
+              <button class="button dac-primary dac-modal-action lang yes" data-t="newsletter.resetLangButtonYes" data-modal-toggle></button>
+              <button class="button dac-primary dac-modal-action lang no" data-t="newsletter.resetLangButtonNo" data-modal-toggle></button>
+            </a>
+          </footer>
+        </form>
+      </section>
+    </div>
+  </div>
+</div>
+<!-- end langreset modal -->
+
+
+</div> <!-- end body-content --> 
+
+
+
+
+<script src="../../ajax/developer.android.com/ytblogger_lists_unified.js" defer></script>
+<script src="/jd_lists_unified_en.js?v=17" defer></script>
+<script src="/reference/lists.js?v=17" defer></script>
+<script src="/reference/gcm_lists.js?v=17" defer></script>
+<script src="/reference/gms_lists.js?v=17" defer></script>
+<script>
+  // Load localized metadata.
+  (function(lang) {
+    if (lang === 'en') { return; }
+
+    // Write it to the document so it gets evaluated before DOMContentReady.
+    document.write('<script src="/jd_lists_unified_' + lang + '.js?v=14" defer></' + 'script>');
+  })(getLangPref())
+</script>
+
+
+</body>
+</html>

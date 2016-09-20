@@ -1,131 +1,154 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!DOCTYPE html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <html>
 <head>
 
+  
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
 <meta content="IE=edge" http-equiv="X-UA-Compatible">
-
 <link rel="shortcut icon" type="image/x-icon" href="../../../../../favicon.ico" />
-<title>RecyclerView.Adapter - Android SDK | Android Developers</title>
+<link rel="alternate" href="http://developer.android.com/" hreflang="en" />
+<link rel="alternate" href="http://developer.android.com/intl/es/" hreflang="es" />
+<link rel="alternate" href="http://developer.android.com/intl/id/" hreflang="id" />
+<link rel="alternate" href="http://developer.android.com/intl/ja/" hreflang="ja" />
+<link rel="alternate" href="http://developer.android.com/intl/ko/" hreflang="ko" />
+<link rel="alternate" href="http://developer.android.com/intl/pt-br/" hreflang="pt-br" />
+<link rel="alternate" href="http://developer.android.com/intl/ru/" hreflang="ru" />
+<link rel="alternate" href="http://developer.android.com/intl/vi/" hreflang="vi" />
+<link rel="alternate" href="http://developer.android.com/intl/zh-cn/" hreflang="zh-cn" />
+<link rel="alternate" href="http://developer.android.com/intl/zh-tw/" hreflang="zh-tw" />
+
+
+<title>RecyclerView.Adapter - Android SDK | Android Developers
+</title>
+
 
 <!-- STYLESHEETS -->
 <link rel="stylesheet"
-href="https://fonts.useso.com/css?family=Roboto+Condensed">
-<link rel="stylesheet" href="https://fonts.useso.com/css?family=Roboto:light,regular,medium,thin,italic,mediumitalic,bold"
+href="http://fonts.useso.com/css?family=Roboto+Condensed">
+<link rel="stylesheet" href="http://fonts.useso.com/css?family=Roboto:light,regular,medium,thin,italic,mediumitalic,bold"
   title="roboto">
 
-<link href="../../../../../assets/css/default.css?v=7" rel="stylesheet" type="text/css">
-
-
-<!-- FULLSCREEN STYLESHEET -->
-<link href="../../../../../assets/css/fullscreen.css" rel="stylesheet" class="fullscreen"
-type="text/css">
-
+<link href="../../../../../assets/css/default.css?v=16" rel="stylesheet" type="text/css">
 
 <!-- JAVASCRIPT -->
 <script src="../../../../../assets/js/android_3p-bundle.js" type="text/javascript"></script>
@@ -133,73 +156,21 @@ type="text/css">
   var toRoot = "../../../../../";
   var metaTags = [];
   var devsite = false;
+  var useUpdatedTemplates = false;
 </script>
-<script src="../../../../../assets/js/docs.js?v=6" type="text/javascript"></script>
-
-
+<script src="../../../../../assets/js/docs.js?v=17" type="text/javascript"></script>
 
 </head>
 
-<body class="gc-documentation 
-  develop reference" itemscope itemtype="http://schema.org/Article">
-  <div id="doc-api-level" class="" style="display:none"></div>
+<body class="gc-documentation develop reference api apilevel-">
+<div id="doc-api-level" class="" style="display:none"></div>
+
+
+  
   <a name="top"></a>
-
-<a name="top"></a>
-
-<!-- dialog to prompt lang pref change when loaded from hardcoded URL
-<div id="langMessage" style="display:none">
-  <div>
-    <div class="lang en">
-      <p>You requested a page in English, would you like to proceed with this language setting?</p>
-    </div>
-    <div class="lang es">
-      <p>You requested a page in Spanish (Español), would you like to proceed with this language setting?</p>
-    </div>
-    <div class="lang ja">
-      <p>You requested a page in Japanese (日本語), would you like to proceed with this language setting?</p>
-    </div>
-    <div class="lang ko">
-      <p>You requested a page in Korean (한국어), would you like to proceed with this language setting?</p>
-    </div>
-    <div class="lang ru">
-      <p>You requested a page in Russian (Русский), would you like to proceed with this language setting?</p>
-    </div>
-    <div class="lang zh-cn">
-      <p>You requested a page in Simplified Chinese (简体中文), would you like to proceed with this language setting?</p>
-    </div>
-    <div class="lang zh-tw">
-      <p>You requested a page in Traditional Chinese (繁體中文), would you like to proceed with this language setting?</p>
-    </div>
-    <a href="#" class="button yes" onclick="return false;">
-      <span class="lang en">Yes</span>
-      <span class="lang es">Sí</span>
-      <span class="lang ja">Yes</span>
-      <span class="lang ko">Yes</span>
-      <span class="lang ru">Yes</span>
-      <span class="lang zh-cn">是的</span>
-      <span class="lang zh-tw">没有</span>
-    </a>
-    <a href="#" class="button" onclick="$('#langMessage').hide();return false;">
-      <span class="lang en">No</span>
-      <span class="lang es">No</span>
-      <span class="lang ja">No</span>
-      <span class="lang ko">No</span>
-      <span class="lang ru">No</span>
-      <span class="lang zh-cn">没有</span>
-      <span class="lang zh-tw">没有</span>
-    </a>
-  </div>
-</div> -->
-
-
   <!-- Header -->
   <div id="header-wrapper">
-    <div class="dac-header" id="header">
-
-
-
-
+    <div class="dac-header " id="header">
       <div class="dac-header-inner">
         <a class="dac-nav-toggle" data-dac-toggle-nav href="javascript:;" title="Open navigation">
           <span class="dac-nav-hamburger">
@@ -214,54 +185,35 @@ type="text/css">
               width="32" height="36" alt="Android" /> Developers
           </a>
 
-        <ul class="dac-header-crumbs">
-          
-          <li class="dac-header-crumbs-item"><span class="dac-header-crumbs-link current ">RecyclerView.Adapter - Android SDK</a></li>
+        <ul class="dac-header-tabs">
+          <li>
+          <a class="dac-header-tab" href="../../../../../design/index.html"
+             zh-tw-lang="設計"
+             zh-cn-lang="设计"
+             ru-lang="Проектирование"
+             ko-lang="디자인"
+             ja-lang="設計"
+             es-lang="Diseñar">Design</a>
+          </li>
+          <li>
+          <a class="dac-header-tab" href="../../../../../develop/index.html"
+             zh-tw-lang="開發"
+             zh-cn-lang="开发"
+             ru-lang="Разработка"
+             ko-lang="개발"
+             ja-lang="開発"
+             es-lang="Desarrollar">Develop</a>
+          </li>
+          <li>
+          <a class="dac-header-tab" href="../../../../../distribute/index.html"
+             zh-tw-lang="發佈"
+             zh-cn-lang="分发"
+             ru-lang="Распространение"
+             ko-lang="배포"
+             ja-lang="配布"
+             es-lang="Distribuir">Distribute</a>
+          </li>
         </ul>
-
-        
-        
-        
-  <div class="dac-header-search" id="search-container">
-    <div class="dac-header-search-inner">
-      <div class="dac-sprite dac-search dac-header-search-btn" id="search-btn"></div>
-      <form class="dac-header-search-form" onsubmit="return submit_search()">
-        <input id="search_autocomplete" type="text" value="" autocomplete="off" name="q"
-          onfocus="search_focus_changed(this, true)" onblur="search_focus_changed(this, false)"
-          onkeydown="return search_changed(event, true, '../../../../../')"
-          onkeyup="return search_changed(event, false, '../../../../../')"
-          class="dac-header-search-input" placeholder="Search" />
-          <a class="dac-header-search-close hide" id="search-close">close</a>
-      </form>
-    </div><!-- end dac-header-search-inner -->
-  </div><!-- end dac-header-search -->
-
-  <div class="search_filtered_wrapper">
-    <div class="suggest-card reference no-display">
-      <ul class="search_filtered">
-      </ul>
-    </div>
-    <div class="suggest-card develop no-display">
-      <ul class="search_filtered">
-      </ul>
-      <div class="child-card guides no-display">
-      </div>
-      <div class="child-card training no-display">
-      </div>
-      <div class="child-card samples no-display">
-      </div>
-    </div>
-    <div class="suggest-card design no-display">
-      <ul class="search_filtered">
-      </ul>
-    </div>
-    <div class="suggest-card distribute no-display">
-      <ul class="search_filtered">
-      </ul>
-    </div>
-  </div>
-
-        
 
         <a class="dac-header-console-btn" href="https://play.google.com/apps/publish/">
           <span class="dac-sprite dac-google-play"></span>
@@ -269,13 +221,26 @@ type="text/css">
           Console
         </a>
 
+        
+        
+        
+  <form data-search class="dac-header-search">
+    <button class="dac-header-search-close" data-search-close>
+      <i class="dac-sprite dac-back-arrow"></i>
+    </button>
+
+    <div class="dac-header-search-inner">
+      <i class="dac-sprite dac-search-white dac-header-search-icon"></i>
+      <input id="search_autocomplete" type="text" value="" autocomplete="off" name="q" class="dac-header-search-input" placeholder="Search" />
+      <button class="dac-header-search-clear dac-hidden" data-search-clear>
+        <i class="dac-sprite dac-close-black"></i>
+      </button>
+    </div>
+  </form>
+
+        
       </div><!-- end header-wrap.wrap -->
     </div><!-- end header -->
-
-    <div id="searchResults" class="wrap" style="display:none;">
-      <h2 id="searchTitle">Results</h2>
-      <div id="leftSearchControl" class="search-control">Loading...</div>
-    </div>
   </div> <!--end header-wrapper -->
 
   
@@ -283,137 +248,30 @@ type="text/css">
   <nav class="dac-nav">
     <div class="dac-nav-dimmer" data-dac-toggle-nav></div>
 
-    <ul class="dac-nav-list" data-dac-nav>
-      <li class="dac-nav-item dac-nav-head">
-        <a class="dac-nav-link dac-nav-logo" data-dac-toggle-nav href="javascript:;" title="Close navigation">
-          <img class="dac-logo-image" src="../../../../../assets/images/android_logo.png"
-               srcset="../../../../../assets/images/android_logo@2x.png 2x"
-               width="32" height="36" alt="Android" /> Developers
-        </a>
-      </li>
-      <li class="dac-nav-item home">
-        <a class="dac-nav-link dac-visible-mobile-block" href="../../../../../index.html">Home</a>
-        <ul class="dac-nav-secondary about">
-          <li class="dac-nav-item about">
-            <a class="dac-nav-link" href="../../../../../about/index.html">Android</a>
-          </li>
-          <li class="dac-nav-item wear">
-            <a class="dac-nav-link" href="../../../../../wear/index.html">Wear</a>
-          </li>
-          <li class="dac-nav-item tv">
-            <a class="dac-nav-link" href="../../../../../tv/index.html">TV</a>
-          </li>
-          <li class="dac-nav-item auto">
-            <a class="dac-nav-link" href="../../../../../auto/index.html">Auto</a>
-          </li>
-        </ul>
-      </li>
-      <li class="dac-nav-item design">
-        <a class="dac-nav-link" href="../../../../../design/index.html"
-           zh-tw-lang="設計"
-           zh-cn-lang="设计"
-           ru-lang="Проектирование"
-           ko-lang="디자인"
-           ja-lang="設計"
-           es-lang="Diseñar">Design</a>
-      </li>
-      <li class="dac-nav-item develop">
-        <a class="dac-nav-link" href="../../../../../develop/index.html"
-           zh-tw-lang="開發"
-           zh-cn-lang="开发"
-           ru-lang="Разработка"
-           ko-lang="개발"
-           ja-lang="開発"
-           es-lang="Desarrollar">Develop</a>
-        <ul class="dac-nav-secondary develop">
-          <li class="dac-nav-item training">
-            <a class="dac-nav-link" href="../../../../../training/index.html"
-               zh-tw-lang="訓練課程"
-               zh-cn-lang="培训"
-               ru-lang="Курсы"
-               ko-lang="교육"
-               ja-lang="トレーニング"
-               es-lang="Capacitación">Training</a>
-          </li>
-          <li class="dac-nav-item guide">
-            <a class="dac-nav-link" href="../../../../../guide/index.html"
-               zh-tw-lang="API 指南"
-               zh-cn-lang="API 指南"
-               ru-lang="Руководства по API"
-               ko-lang="API 가이드"
-               ja-lang="API ガイド"
-               es-lang="Guías de la API">API Guides</a>
-          </li>
-          <li class="dac-nav-item reference">
-            <a class="dac-nav-link" href="../../../../../reference/packages.html"
-               zh-tw-lang="參考資源"
-               zh-cn-lang="参考"
-               ru-lang="Справочник"
-               ko-lang="참조문서"
-               ja-lang="リファレンス"
-               es-lang="Referencia">Reference</a>
-          </li>
-          <li class="dac-nav-item tools">
-            <a class="dac-nav-link" href="../../../../../sdk/index.html"
-               zh-tw-lang="相關工具"
-               zh-cn-lang="工具"
-               ru-lang="Инструменты"
-               ko-lang="도구"
-               ja-lang="ツール"
-               es-lang="Herramientas">Tools</a></li>
-          <li class="dac-nav-item google">
-            <a class="dac-nav-link" href="../../../../../google/index.html">Google Services</a>
-          </li>
-          
-          <li class="dac-nav-item preview">
-            <a class="dac-nav-link" href="../../../../../preview/index.html">Preview</a>
-          </li>
-        </ul>
-      </li>
-      <li class="dac-nav-item distribute">
-        <a class="dac-nav-link" href="../../../../../distribute/googleplay/index.html"
-           zh-tw-lang="發佈"
-           zh-cn-lang="分发"
-           ru-lang="Распространение"
-           ko-lang="배포"
-           ja-lang="配布"
-           es-lang="Distribuir">Distribute</a>
-        <ul class="dac-nav-secondary distribute">
-          <li class="dac-nav-item googleplay">
-            <a class="dac-nav-link" href="../../../../../distribute/googleplay/index.html">Google Play</a></li>
-          <li class="dac-nav-item essentials">
-            <a class="dac-nav-link" href="../../../../../distribute/essentials/index.html">Essentials</a></li>
-          <li class="dac-nav-item users">
-            <a class="dac-nav-link" href="../../../../../distribute/users/index.html">Get Users</a></li>
-          <li class="dac-nav-item engage">
-            <a class="dac-nav-link" href="../../../../../distribute/engage/index.html">Engage &amp; Retain</a></li>
-          <li class="dac-nav-item monetize">
-            <a class="dac-nav-link" href="../../../../../distribute/monetize/index.html">Earn</a>
-          </li>
-          <li class="dac-nav-item analyze">
-            <a class="dac-nav-link" href="../../../../../distribute/analyze/index.html">Analyze</a>
-          </li>
-          <li class="dac-nav-item stories">
-            <a class="dac-nav-link" href="../../../../../distribute/stories/index.html">Stories</a>
-          </li>
-        </ul>
-      </li>
-    </ul>
-  </nav>
-  <!-- end navigation-->
+    <div class="dac-nav-sidebar" data-swap data-dynamic="false" data-transition-speed="300" data-dac-nav>
+      <div data-swap-container>
+        
   
+    <a class="dac-nav-back-button dac-swap-section dac-up dac-no-anim" data-swap-button href="javascript:;">
+      <i class="dac-sprite dac-nav-back"></i> <span class="dac-nav-back-title">Back</span>
+    </a>
+    <div class="dac-nav-sub dac-swap-section dac-right dac-active" itemscope itemtype="http://schema.org/SiteNavigationElement">
+      
+        
+  <!-- Fullscreen toggler -->
+  <button data-fullscreen class="dac-nav-fullscreen">
+    <i class="dac-sprite dac-fullscreen"></i>
+  </button>
 
+  <script>$('[data-fullscreen]').dacFullscreen();</script>
+  <!-- End: Fullscreen toggler -->
 
-
-
-
-  <div class="wrap clearfix" id="body-content"><div class="cols">
-    <div class="col-4 dac-hidden-mobile" id="side-nav" itemscope itemtype="http://schema.org/SiteNavigationElement">
-      <div id="devdoc-nav">
+  
+    <div id="devdoc-nav">
       <div id="api-nav-header">
         <div id="api-level-toggle">
           <label for="apiLevelCheckbox" class="disabled"
-            title="Select your target API level to dim unavailable APIs">API level: </label>
+                 title="Select your target API level to dim unavailable APIs">API level: </label>
           <div class="select-wrapper">
             <select id="apiLevelSelector">
               <!-- option elements added by buildApiLevelSelector() -->
@@ -421,19 +279,15 @@ type="text/css">
           </div>
         </div><!-- end toggle -->
         <div id="api-nav-title">Android APIs</div>
-        </div><!-- end nav header -->
+      </div><!-- end nav header -->
       <script>
-        var SINCE_DATA = [ '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', 'N' ];
+        var SINCE_DATA = [ '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24' ];
         buildApiLevelSelector();
       </script>
 
-      <div id="swapper">
-        <div id="nav-panels">
-          <div id="resize-packages-nav">
-            <div id="packages-nav" class="scroll-pane">
-
-              <ul>
-                
+      <div class="dac-reference-nav" data-reference-tree>
+        <ul class="dac-reference-nav-list" data-reference-namespaces>
+          
     <li class="api apilevel-1">
   <a href="../../../../../reference/android/package-summary.html">android</a></li>
     <li class="api apilevel-4">
@@ -458,8 +312,6 @@ type="text/css">
   <a href="../../../../../reference/android/app/usage/package-summary.html">android.app.usage</a></li>
     <li class="api apilevel-3">
   <a href="../../../../../reference/android/appwidget/package-summary.html">android.appwidget</a></li>
-    <li class="api apilevel-N">
-  <a href="../../../../../reference/android/auditing/package-summary.html">android.auditing</a></li>
     <li class="api apilevel-5">
   <a href="../../../../../reference/android/bluetooth/package-summary.html">android.bluetooth</a></li>
     <li class="api apilevel-21">
@@ -502,13 +354,13 @@ type="text/css">
   <a href="../../../../../reference/android/hardware/input/package-summary.html">android.hardware.input</a></li>
     <li class="api apilevel-12">
   <a href="../../../../../reference/android/hardware/usb/package-summary.html">android.hardware.usb</a></li>
-    <li class="api apilevel-N">
+    <li class="api apilevel-24">
   <a href="../../../../../reference/android/icu/lang/package-summary.html">android.icu.lang</a></li>
-    <li class="api apilevel-N">
+    <li class="api apilevel-24">
   <a href="../../../../../reference/android/icu/math/package-summary.html">android.icu.math</a></li>
-    <li class="api apilevel-N">
+    <li class="api apilevel-24">
   <a href="../../../../../reference/android/icu/text/package-summary.html">android.icu.text</a></li>
-    <li class="api apilevel-N">
+    <li class="api apilevel-24">
   <a href="../../../../../reference/android/icu/util/package-summary.html">android.icu.util</a></li>
     <li class="api apilevel-3">
   <a href="../../../../../reference/android/inputmethodservice/package-summary.html">android.inputmethodservice</a></li>
@@ -558,6 +410,8 @@ type="text/css">
   <a href="../../../../../reference/android/opengl/package-summary.html">android.opengl</a></li>
     <li class="api apilevel-1">
   <a href="../../../../../reference/android/os/package-summary.html">android.os</a></li>
+    <li class="api apilevel-24">
+  <a href="../../../../../reference/android/os/health/package-summary.html">android.os.health</a></li>
     <li class="api apilevel-9">
   <a href="../../../../../reference/android/os/storage/package-summary.html">android.os.storage</a></li>
     <li class="api apilevel-1">
@@ -588,7 +442,7 @@ type="text/css">
   <a href="../../../../../reference/android/service/media/package-summary.html">android.service.media</a></li>
     <li class="api apilevel-18">
   <a href="../../../../../reference/android/service/notification/package-summary.html">android.service.notification</a></li>
-    <li class="api apilevel-N">
+    <li class="api apilevel-24">
   <a href="../../../../../reference/android/service/quicksettings/package-summary.html">android.service.quicksettings</a></li>
     <li class="api apilevel-21">
   <a href="../../../../../reference/android/service/restrictions/package-summary.html">android.service.restrictions</a></li>
@@ -596,6 +450,8 @@ type="text/css">
   <a href="../../../../../reference/android/service/textservice/package-summary.html">android.service.textservice</a></li>
     <li class="api apilevel-21">
   <a href="../../../../../reference/android/service/voice/package-summary.html">android.service.voice</a></li>
+    <li class="api apilevel-24">
+  <a href="../../../../../reference/android/service/vr/package-summary.html">android.service.vr</a></li>
     <li class="api apilevel-7">
   <a href="../../../../../reference/android/service/wallpaper/package-summary.html">android.service.wallpaper</a></li>
     <li class="api apilevel-3">
@@ -605,6 +461,8 @@ type="text/css">
     <li class="api apilevel-">
   <a href="../../../../../reference/android/support/annotation/package-summary.html">android.support.annotation</a></li>
     <li class="api apilevel-">
+  <a href="../../../../../reference/android/support/annotations/package-summary.html">android.support.annotations</a></li>
+    <li class="api apilevel-">
   <a href="../../../../../reference/android/support/app/recommendation/package-summary.html">android.support.app.recommendation</a></li>
     <li class="api apilevel-">
   <a href="../../../../../reference/android/support/customtabs/package-summary.html">android.support.customtabs</a></li>
@@ -613,9 +471,13 @@ type="text/css">
     <li class="api apilevel-">
   <a href="../../../../../reference/android/support/design/widget/package-summary.html">android.support.design.widget</a></li>
     <li class="api apilevel-">
+  <a href="../../../../../reference/android/support/graphics/drawable/package-summary.html">android.support.graphics.drawable</a></li>
+    <li class="api apilevel-">
   <a href="../../../../../reference/android/support/multidex/package-summary.html">android.support.multidex</a></li>
     <li class="api apilevel-">
   <a href="../../../../../reference/android/support/percent/package-summary.html">android.support.percent</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/android/support/provider/package-summary.html">android.support.provider</a></li>
     <li class="api apilevel-">
   <a href="../../../../../reference/android/support/v13/app/package-summary.html">android.support.v13.app</a></li>
     <li class="api apilevel-">
@@ -638,6 +500,8 @@ type="text/css">
   <a href="../../../../../reference/android/support/v17/leanback/widget/picker/package-summary.html">android.support.v17.leanback.widget.picker</a></li>
     <li class="api apilevel-">
   <a href="../../../../../reference/android/support/v17/preference/package-summary.html">android.support.v17.preference</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/android/support/v4/package-summary.html">android.support.v4</a></li>
     <li class="api apilevel-">
   <a href="../../../../../reference/android/support/v4/accessibilityservice/package-summary.html">android.support.v4.accessibilityservice</a></li>
     <li class="api apilevel-">
@@ -689,6 +553,8 @@ type="text/css">
     <li class="api apilevel-">
   <a href="../../../../../reference/android/support/v7/cardview/package-summary.html">android.support.v7.cardview</a></li>
     <li class="api apilevel-">
+  <a href="../../../../../reference/android/support/v7/content/res/package-summary.html">android.support.v7.content.res</a></li>
+    <li class="api apilevel-">
   <a href="../../../../../reference/android/support/v7/graphics/package-summary.html">android.support.v7.graphics</a></li>
     <li class="api apilevel-">
   <a href="../../../../../reference/android/support/v7/graphics/drawable/package-summary.html">android.support.v7.graphics.drawable</a></li>
@@ -698,6 +564,8 @@ type="text/css">
   <a href="../../../../../reference/android/support/v7/media/package-summary.html">android.support.v7.media</a></li>
     <li class="api apilevel-">
   <a href="../../../../../reference/android/support/v7/mediarouter/package-summary.html">android.support.v7.mediarouter</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../reference/android/support/v7/palette/package-summary.html">android.support.v7.palette</a></li>
     <li class="api apilevel-">
   <a href="../../../../../reference/android/support/v7/preference/package-summary.html">android.support.v7.preference</a></li>
     <li class="api apilevel-">
@@ -828,7 +696,7 @@ type="text/css">
   <a href="../../../../../reference/java/util/concurrent/atomic/package-summary.html">java.util.concurrent.atomic</a></li>
     <li class="api apilevel-1">
   <a href="../../../../../reference/java/util/concurrent/locks/package-summary.html">java.util.concurrent.locks</a></li>
-    <li class="api apilevel-N">
+    <li class="api apilevel-24">
   <a href="../../../../../reference/java/util/function/package-summary.html">java.util.function</a></li>
     <li class="api apilevel-1">
   <a href="../../../../../reference/java/util/jar/package-summary.html">java.util.jar</a></li>
@@ -838,6 +706,8 @@ type="text/css">
   <a href="../../../../../reference/java/util/prefs/package-summary.html">java.util.prefs</a></li>
     <li class="api apilevel-1">
   <a href="../../../../../reference/java/util/regex/package-summary.html">java.util.regex</a></li>
+    <li class="api apilevel-24">
+  <a href="../../../../../reference/java/util/stream/package-summary.html">java.util.stream</a></li>
     <li class="api apilevel-1">
   <a href="../../../../../reference/java/util/zip/package-summary.html">java.util.zip</a></li>
     <li class="api apilevel-1">
@@ -914,22 +784,17 @@ type="text/css">
   <a href="../../../../../reference/org/xmlpull/v1/package-summary.html">org.xmlpull.v1</a></li>
     <li class="api apilevel-1">
   <a href="../../../../../reference/org/xmlpull/v1/sax2/package-summary.html">org.xmlpull.v1.sax2</a></li>
-              </ul><br/>
+        </ul>
 
-            </div> <!-- end packages-nav -->
-          </div> <!-- end resize-packages -->
-          <div id="classes-nav" class="scroll-pane">
-
-
-
-            <ul>
-              
+        
+        <ul data-reference-resources>
+          
     <li><h2>Annotations</h2>
       <ul>
           <li class="api apilevel-"><a href="../../../../../reference/android/support/v7/widget/RecyclerView.ItemAnimator.AdapterChanges.html">RecyclerView.ItemAnimator.AdapterChanges</a></li>
       </ul>
     </li>
-              
+          
     <li><h2>Interfaces</h2>
       <ul>
           <li class="api apilevel-"><a href="../../../../../reference/android/support/v7/widget/ActionMenuView.OnMenuItemClickListener.html">ActionMenuView.OnMenuItemClickListener</a></li>
@@ -948,7 +813,7 @@ type="text/css">
           <li class="api apilevel-"><a href="../../../../../reference/android/support/v7/widget/Toolbar.OnMenuItemClickListener.html">Toolbar.OnMenuItemClickListener</a></li>
       </ul>
     </li>
-              
+          
     <li><h2>Classes</h2>
       <ul>
           <li class="api apilevel-"><a href="../../../../../reference/android/support/v7/widget/ActionMenuView.html">ActionMenuView</a></li>
@@ -1016,58 +881,200 @@ type="text/css">
           <li class="api apilevel-"><a href="../../../../../reference/android/support/v7/widget/Toolbar.SavedState.html">Toolbar.SavedState</a></li>
       </ul>
     </li>
-              
-              
-              
-            </ul><br/>
-
-
-          </div><!-- end classes -->
-        </div><!-- end nav-panels -->
-        <div id="nav-tree" style="display:none" class="scroll-pane">
-          <div id="tree-list"></div>
-        </div><!-- end nav-tree -->
-      </div><!-- end swapper -->
-      <div id="nav-swap">
-      <a class="fullscreen">fullscreen</a>
-      <a href='#' onclick='swapNav();return false;'><span id='tree-link'>Use Tree Navigation</span><span id='panel-link' style='display:none'>Use Panel Navigation</span></a>
+          
+          
+          
+        </ul>
+        
       </div>
-    </div> <!-- end devdoc-nav -->
-    </div> <!-- end side-nav -->
-    <script type="text/javascript">
-      // init fullscreen based on user pref
-      var fullscreen = readCookie("fullscreen");
-      if (fullscreen != 0) {
-        if (fullscreen == "false") {
-          toggleFullscreen(false);
-        } else {
-          toggleFullscreen(true);
-        }
-      }
-      // init nav version for mobile
-      if (isMobile) {
-        swapNav(); // tree view should be used on mobile
-        $('#nav-swap').hide();
-      } else {
-        chooseDefaultNav();
-        if ($("#nav-tree").is(':visible')) {
-          init_default_navtree("../../../../../");
-        }
-      }
-      // scroll the selected page into view
-      $(document).ready(function() {
-        scrollIntoView("packages-nav");
-        scrollIntoView("classes-nav");
-        });
-    </script>
+    </div>
+  
 
-     
+      
+    </div>
+  
+
+        <ul id="dac-main-navigation" class="dac-nav-list dac-swap-section dac-left dac-no-anim">
+        <li class="dac-nav-item home">
+          <a class="dac-nav-link" href="../../../../../index.html">Home</a>
+          <i class="dac-sprite dac-expand-more-black dac-nav-sub-slider"></i>
+          <ul class="dac-nav-secondary about">
+            <li class="dac-nav-item versions">
+              <a class="dac-nav-link" href="../../../../../about/versions/marshmallow/index.html">Android</a>
+            </li>
+            <li class="dac-nav-item wear">
+              <a class="dac-nav-link" href="../../../../../wear/index.html">Wear</a>
+            </li>
+            <li class="dac-nav-item tv">
+              <a class="dac-nav-link" href="../../../../../tv/index.html">TV</a>
+            </li>
+            <li class="dac-nav-item auto">
+              <a class="dac-nav-link" href="../../../../../auto/index.html">Auto</a>
+            </li>
+          </ul>
+        </li>
+        <li class="dac-nav-item design">
+          <a class="dac-nav-link" href="../../../../../design/index.html"
+             zh-tw-lang="設計"
+             zh-cn-lang="设计"
+             ru-lang="Проектирование"
+             ko-lang="디자인"
+             ja-lang="設計"
+             es-lang="Diseñar">Design</a>
+        </li>
+        <li class="dac-nav-item develop">
+          <a class="dac-nav-link" href="../../../../../develop/index.html"
+             zh-tw-lang="開發"
+             zh-cn-lang="开发"
+             ru-lang="Разработка"
+             ko-lang="개발"
+             ja-lang="開発"
+             es-lang="Desarrollar">Develop</a>
+          <i class="dac-sprite dac-expand-more-black dac-nav-sub-slider"></i>
+          <ul class="dac-nav-secondary develop">
+            <li class="dac-nav-item training">
+              <a class="dac-nav-link" href="../../../../../training/index.html"
+                 zh-tw-lang="訓練課程"
+                 zh-cn-lang="培训"
+                 ru-lang="Курсы"
+                 ko-lang="교육"
+                 ja-lang="トレーニング"
+                 es-lang="Capacitación">Training</a>
+            </li>
+            <li class="dac-nav-item guide">
+              <a class="dac-nav-link" href="../../../../../guide/index.html"
+                 zh-tw-lang="API 指南"
+                 zh-cn-lang="API 指南"
+                 ru-lang="Руководства по API"
+                 ko-lang="API 가이드"
+                 ja-lang="API ガイド"
+                 es-lang="Guías de la API">API Guides</a>
+            </li>
+            <li class="dac-nav-item reference">
+              <a class="dac-nav-link" href="../../../../../reference/packages.html"
+                 zh-tw-lang="參考資源"
+                 zh-cn-lang="参考"
+                 ru-lang="Справочник"
+                 ko-lang="참조문서"
+                 ja-lang="リファレンス"
+                 es-lang="Referencia">Reference</a>
+            </li>
+            <li class="dac-nav-item tools">
+              <a class="dac-nav-link" href="../../../../../sdk/index.html"
+                 zh-tw-lang="相關工具"
+                 zh-cn-lang="工具"
+                 ru-lang="Инструменты"
+                 ko-lang="도구"
+                 ja-lang="ツール"
+                 es-lang="Herramientas">Tools</a></li>
+            <li class="dac-nav-item google">
+              <a class="dac-nav-link" href="../../../../../google/index.html">Google Services</a>
+            </li>
+            
+          </ul>
+        </li>
+        <li class="dac-nav-item distribute">
+          <a class="dac-nav-link" href="../../../../../distribute/googleplay/index.html"
+             zh-tw-lang="發佈"
+             zh-cn-lang="分发"
+             ru-lang="Распространение"
+             ko-lang="배포"
+             ja-lang="配布"
+             es-lang="Distribuir">Distribute</a>
+          <i class="dac-sprite dac-expand-more-black dac-nav-sub-slider"></i>
+          <ul class="dac-nav-secondary distribute">
+            <li class="dac-nav-item googleplay">
+              <a class="dac-nav-link" href="../../../../../distribute/googleplay/index.html">Google Play</a></li>
+            <li class="dac-nav-item essentials">
+              <a class="dac-nav-link" href="../../../../../distribute/essentials/index.html">Essentials</a></li>
+            <li class="dac-nav-item users">
+              <a class="dac-nav-link" href="../../../../../distribute/users/index.html">Get Users</a></li>
+            <li class="dac-nav-item engage">
+              <a class="dac-nav-link" href="../../../../../distribute/engage/index.html">Engage &amp; Retain</a></li>
+            <li class="dac-nav-item monetize">
+              <a class="dac-nav-link" href="../../../../../distribute/monetize/index.html">Earn</a>
+            </li>
+            <li class="dac-nav-item analyze">
+              <a class="dac-nav-link" href="../../../../../distribute/analyze/index.html">Analyze</a>
+            </li>
+            <li class="dac-nav-item stories">
+              <a class="dac-nav-link" href="../../../../../distribute/stories/index.html">Stories</a>
+            </li>
+          </ul>
+        </li>
+        <li class="dac-nav-item preview">
+          <a class="dac-nav-link" href="../../../../../preview/index.html">Preview</a>
+        </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- end navigation-->
+  
+
+<!-- Nav Setup -->
+<script>$('[data-dac-nav]').dacNav();</script>
 
 
 
-<div class="col-12"  id="doc-col">
+  
+    
+  <div class="wrap clearfix" id="body-content">
+
+  
+
+  
+  <div id="search-results" class="dac-search-results">
+    <div id="dac-search-results-history" class="dac-search-results-history">
+      <div class="wrap dac-search-results-history-wrap">
+        <div class="cols">
+          <div class="col-1of2 col-tablet-1of2 col-mobile-1of1">
+            <h2>Most visited</h2>
+            <div class="resource-flow-layout" data-history-query="history:most/visited" data-maxresults="3" data-cardsizes="18x2"></div>
+          </div>
+
+          <div class="col-1of2 col-tablet-1of2 col-mobile-1of1">
+            <h2>Recently visited</h2>
+            <div class="resource-flow-layout cols" data-history-query="history:recent" data-allow-duplicates="true" data-maxresults="3" data-cardsizes="18x2"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="dac-search-results-content" class="dac-search-results-content">
+      <div class="dac-search-results-metadata wrap">
+        <div class="dac-search-results-for">
+          <h2>Results for <span id="search-results-for"></span></h2>
+        </div>
+
+        <div id="dac-search-results-hero"></div>
+
+        <div class="dac-search-results-hero cols">
+          <div id="dac-search-results-reference" class="col-3of6 col-tablet-1of2 col-mobile-1of1">
+            <div class="suggest-card reference no-display">
+              <ul class="dac-search-results-reference">
+              </ul>
+            </div>
+          </div>
+          <div id="dac-custom-search-results"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+
+
+<div id="naMessage"></div>
 
 <div id="api-info-block">
+<div class="api-level">
+  
+  
+  
+
+</div>
 
 
 
@@ -1106,75 +1113,67 @@ Summary:
 &#124; <a href="#" onclick="return toggleAllClassInherited()" id="toggleAllClassInherited">[Expand All]</a>
 
 </div><!-- end sum-details-links -->
-<div class="api-level">
-  
-  
-  
-
-</div>
 </div><!-- end api-info-block -->
 
+<div class="api apilevel-" id="jd-content">
 
 <!-- ======== START OF CLASS DATA ======== -->
 
-<div id="jd-header">
-    public
-    static 
-     
-    abstract
-    class
-<h1 itemprop="name">RecyclerView.Adapter</h1>
+<h1 class="api-title">RecyclerView.Adapter</h1>
+<p>
+<code class="api-signature">
+  public
+  static
+  
+  abstract
+  class
+  RecyclerView.Adapter
+</code>
+<br>
 
 
+<code class="api-signature">
+  
+    extends <a href="../../../../../reference/java/lang/Object.html">Object</a>
+  
+  
+  
+</code>
 
-  
-    extends <a href="../../../../../reference/java/lang/Object.html">Object</a><br/>
-  
+<code class="api-signature">
   
   
+  
+</code>
 
-  
-  
-  
+</p><table class="jd-inheritance-table">
 
 
+  <tr>
     
+    <td colspan="2" class="jd-inheritance-class-cell"><a href="../../../../../reference/java/lang/Object.html">java.lang.Object</a>
+    </td>
+  </tr>
+  
 
-
-</div><!-- end header -->
-
-<div id="naMessage"></div>
-
-<div id="jd-content" class="api apilevel-">
-<table class="jd-inheritance-table">
-
-
-    <tr>
-         	
-        <td colspan="2" class="jd-inheritance-class-cell"><a href="../../../../../reference/java/lang/Object.html">java.lang.Object</a></td>
-    </tr>
+  <tr>
     
-
-    <tr>
-        
-            <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
-         	
-        <td colspan="1" class="jd-inheritance-class-cell">android.support.v7.widget.RecyclerView.Adapter&lt;VH&nbsp;extends&nbsp;<a href="../../../../../reference/android/support/v7/widget/RecyclerView.ViewHolder.html">android.support.v7.widget.RecyclerView.ViewHolder</a>&gt;</td>
-    </tr>
+      <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
     
+    <td colspan="1" class="jd-inheritance-class-cell">android.support.v7.widget.RecyclerView.Adapter&lt;VH&nbsp;extends&nbsp;<a href="../../../../../reference/android/support/v7/widget/RecyclerView.ViewHolder.html">android.support.v7.widget.RecyclerView.ViewHolder</a>&gt;
+    </td>
+  </tr>
+  
 
 </table>
-
-
-
-
-<table class="jd-sumtable jd-sumtable-subclasses"><tr><td colspan="12" style="border:none;margin:0;padding:0;">
-
+  <table class="jd-sumtable jd-sumtable-subclasses">
+  <tr><td style="border:none;margin:0;padding:0;">
+    
   <a href="#" onclick="return toggleInherited(this, null)" id="subclasses-direct" class="jd-expando-trigger closed"
-          ><img id="subclasses-direct-trigger"
-          src="../../../../../assets/images/triangle-closed.png"
+          ><img height="34" id="subclasses-direct-trigger"
+          src="../../../../../assets/images/styles/disclosure_down.png"
           class="jd-expando-trigger-img" /></a>Known Direct Subclasses
-
+    
   <div id="subclasses-direct">
       <div id="subclasses-direct-list"
               class="jd-inheritedlinks"
@@ -1233,16 +1232,17 @@ Summary:
 
       </div>
   </div>
-</td></tr></table>
+  </td></tr>
+  </table>
+  
+  
+
+    
+
+<br><hr>
 
 
-
-
-<div class="jd-descr">
-
-
-<h2>Class Overview</h2>
-<p itemprop="articleBody">Base class for an Adapter
+  <p>Base class for an Adapter
 
  <p>Adapters provide a binding from an app-specific data set to views that are displayed
  within a <code><a href="../../../../../reference/android/support/v7/widget/RecyclerView.html">RecyclerView</a></code>.</p>
@@ -1252,27 +1252,9 @@ Summary:
 
 
 
-</div><!-- jd-descr -->
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="jd-descr">
-
-
-<h2>Summary</h2>
+<h2 class="api-section">Summary</h2>
 
 
 
@@ -1297,25 +1279,23 @@ Summary:
 
 
 <!-- ======== CONSTRUCTOR SUMMARY ======== -->
-<table id="pubctors" class="jd-sumtable"><tr><th colspan="12">Public Constructors</th></tr>
+<table id="pubctors" class="responsive constructors">
+<tr><th colspan="2"><h3>Public constructors</h3></th></tr>
 
 
 
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            </nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../reference/android/support/v7/widget/RecyclerView.Adapter.html#RecyclerView.Adapter()">RecyclerView.Adapter</a></span>()</nobr>
-        
-  </td></tr>
-
+  
+  <tr class="api apilevel-" >
+  
+  
+    <td width="100%">
+      <code>
+      <a href="../../../../../reference/android/support/v7/widget/RecyclerView.Adapter.html#RecyclerView.Adapter()">RecyclerView.Adapter</a>()
+      </code>
+      
+    </td>
+  </tr>
+  
 
 
 </table>
@@ -1326,692 +1306,809 @@ Summary:
 
 
 <!-- ========== METHOD SUMMARY =========== -->
-<table id="pubmethods" class="jd-sumtable"><tr><th colspan="12">Public Methods</th></tr>
+<table id="pubmethods" class="responsive methods">
+<tr><th colspan="2"><h3>Public methods</h3></th></tr>
 
 
 
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            final
-            
-            void</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../reference/android/support/v7/widget/RecyclerView.Adapter.html#bindViewHolder(VH, int)">bindViewHolder</a></span>(VH holder, int position)</nobr>
+  
+  <tr class="api apilevel-" >
+  
+  
+    <td><code>
         
-        <div class="jd-descrdiv">
-          This method internally calls <code><a href="../../../../../reference/android/support/v7/widget/RecyclerView.Adapter.html#onBindViewHolder(VH, int)">onBindViewHolder(ViewHolder, int)</a></code> to update the
+        
+        
+        final
+        
+        void</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="../../../../../reference/android/support/v7/widget/RecyclerView.Adapter.html#bindViewHolder(VH, int)">bindViewHolder</a>(VH holder, int position)
+      </code>
+      
+        <p>This method internally calls <code><a href="../../../../../reference/android/support/v7/widget/RecyclerView.Adapter.html#onBindViewHolder(VH, int)">onBindViewHolder(ViewHolder, int)</a></code> to update the
  <code><a href="../../../../../reference/android/support/v7/widget/RecyclerView.ViewHolder.html">RecyclerView.ViewHolder</a></code> contents with the item at the given position and also sets up some
  private fields to be used by RecyclerView.
-          
-    
-
-        </div>
-  
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            final
-            
-            VH</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../reference/android/support/v7/widget/RecyclerView.Adapter.html#createViewHolder(android.view.ViewGroup, int)">createViewHolder</a></span>(<a href="../../../../../reference/android/view/ViewGroup.html">ViewGroup</a> parent, int viewType)</nobr>
         
-        <div class="jd-descrdiv">
-          This method calls <code><a href="../../../../../reference/android/support/v7/widget/RecyclerView.Adapter.html#onCreateViewHolder(android.view.ViewGroup, int)">onCreateViewHolder(ViewGroup, int)</a></code> to create a new
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  
+  <tr class="api apilevel-" >
+  
+  
+    <td><code>
+        
+        
+        
+        final
+        
+        VH</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="../../../../../reference/android/support/v7/widget/RecyclerView.Adapter.html#createViewHolder(android.view.ViewGroup, int)">createViewHolder</a>(<a href="../../../../../reference/android/view/ViewGroup.html">ViewGroup</a> parent, int viewType)
+      </code>
+      
+        <p>This method calls <code><a href="../../../../../reference/android/support/v7/widget/RecyclerView.Adapter.html#onCreateViewHolder(android.view.ViewGroup, int)">onCreateViewHolder(ViewGroup, int)</a></code> to create a new
  <code><a href="../../../../../reference/android/support/v7/widget/RecyclerView.ViewHolder.html">RecyclerView.ViewHolder</a></code> and initializes some private fields to be used by RecyclerView.
-          
-    
-
-        </div>
-  
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            abstract
-            
-            
-            
-            
-            int</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../reference/android/support/v7/widget/RecyclerView.Adapter.html#getItemCount()">getItemCount</a></span>()</nobr>
         
-        <div class="jd-descrdiv">
-          Returns the total number of items in the data set hold by the adapter.
-          
     
-
-        </div>
+</p>
+      
+    </td>
+  </tr>
   
-  </td></tr>
 
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            long</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../reference/android/support/v7/widget/RecyclerView.Adapter.html#getItemId(int)">getItemId</a></span>(int position)</nobr>
+  
+  <tr class="api apilevel-" >
+  
+  
+    <td><code>
+        abstract
         
-        <div class="jd-descrdiv">
-          Return the stable ID for the item at <code>position</code>.
-          
+        
+        
+        
+        int</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="../../../../../reference/android/support/v7/widget/RecyclerView.Adapter.html#getItemCount()">getItemCount</a>()
+      </code>
+      
+        <p>Returns the total number of items in the data set hold by the adapter.
+        
     
-
-        </div>
+</p>
+      
+    </td>
+  </tr>
   
-  </td></tr>
 
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            int</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../reference/android/support/v7/widget/RecyclerView.Adapter.html#getItemViewType(int)">getItemViewType</a></span>(int position)</nobr>
+  
+  <tr class="api apilevel-" >
+  
+  
+    <td><code>
         
-        <div class="jd-descrdiv">
-          Return the view type of the item at <code>position</code> for the purposes
+        
+        
+        
+        
+        long</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="../../../../../reference/android/support/v7/widget/RecyclerView.Adapter.html#getItemId(int)">getItemId</a>(int position)
+      </code>
+      
+        <p>Return the stable ID for the item at <code>position</code>.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  
+  <tr class="api apilevel-" >
+  
+  
+    <td><code>
+        
+        
+        
+        
+        
+        int</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="../../../../../reference/android/support/v7/widget/RecyclerView.Adapter.html#getItemViewType(int)">getItemViewType</a>(int position)
+      </code>
+      
+        <p>Return the view type of the item at <code>position</code> for the purposes
  of view recycling.
-          
-    
-
-        </div>
-  
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            final
-            
-            boolean</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../reference/android/support/v7/widget/RecyclerView.Adapter.html#hasObservers()">hasObservers</a></span>()</nobr>
         
-        <div class="jd-descrdiv">
-          Returns true if one or more observers are attached to this adapter.
-          
     
-
-        </div>
+</p>
+      
+    </td>
+  </tr>
   
-  </td></tr>
 
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            final
-            
-            boolean</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../reference/android/support/v7/widget/RecyclerView.Adapter.html#hasStableIds()">hasStableIds</a></span>()</nobr>
+  
+  <tr class="api apilevel-" >
+  
+  
+    <td><code>
         
-        <div class="jd-descrdiv">
-          Returns true if this adapter publishes a unique <code>long</code> value that can
+        
+        
+        final
+        
+        boolean</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="../../../../../reference/android/support/v7/widget/RecyclerView.Adapter.html#hasObservers()">hasObservers</a>()
+      </code>
+      
+        <p>Returns true if one or more observers are attached to this adapter.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  
+  <tr class="api apilevel-" >
+  
+  
+    <td><code>
+        
+        
+        
+        final
+        
+        boolean</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="../../../../../reference/android/support/v7/widget/RecyclerView.Adapter.html#hasStableIds()">hasStableIds</a>()
+      </code>
+      
+        <p>Returns true if this adapter publishes a unique <code>long</code> value that can
  act as a key for the item at a given position in the data set.
-          
-    
-
-        </div>
-  
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            final
-            
-            void</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../reference/android/support/v7/widget/RecyclerView.Adapter.html#notifyDataSetChanged()">notifyDataSetChanged</a></span>()</nobr>
         
-        <div class="jd-descrdiv">
-          Notify any registered observers that the data set has changed.
-          
     
-
-        </div>
+</p>
+      
+    </td>
+  </tr>
   
-  </td></tr>
 
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            final
-            
-            void</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../reference/android/support/v7/widget/RecyclerView.Adapter.html#notifyItemChanged(int, java.lang.Object)">notifyItemChanged</a></span>(int position, <a href="../../../../../reference/java/lang/Object.html">Object</a> payload)</nobr>
+  
+  <tr class="api apilevel-" >
+  
+  
+    <td><code>
         
-        <div class="jd-descrdiv">
-          Notify any registered observers that the item at <code>position</code> has changed with an
+        
+        
+        final
+        
+        void</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="../../../../../reference/android/support/v7/widget/RecyclerView.Adapter.html#notifyDataSetChanged()">notifyDataSetChanged</a>()
+      </code>
+      
+        <p>Notify any registered observers that the data set has changed.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  
+  <tr class="api apilevel-" >
+  
+  
+    <td><code>
+        
+        
+        
+        final
+        
+        void</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="../../../../../reference/android/support/v7/widget/RecyclerView.Adapter.html#notifyItemChanged(int, java.lang.Object)">notifyItemChanged</a>(int position, <a href="../../../../../reference/java/lang/Object.html">Object</a> payload)
+      </code>
+      
+        <p>Notify any registered observers that the item at <code>position</code> has changed with an
  optional payload object.
-          
-    
-
-        </div>
-  
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            final
-            
-            void</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../reference/android/support/v7/widget/RecyclerView.Adapter.html#notifyItemChanged(int)">notifyItemChanged</a></span>(int position)</nobr>
         
-        <div class="jd-descrdiv">
-          Notify any registered observers that the item at <code>position</code> has changed.
-          
     
-
-        </div>
+</p>
+      
+    </td>
+  </tr>
   
-  </td></tr>
 
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            final
-            
-            void</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../reference/android/support/v7/widget/RecyclerView.Adapter.html#notifyItemInserted(int)">notifyItemInserted</a></span>(int position)</nobr>
+  
+  <tr class="api apilevel-" >
+  
+  
+    <td><code>
         
-        <div class="jd-descrdiv">
-          Notify any registered observers that the item reflected at <code>position</code>
+        
+        
+        final
+        
+        void</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="../../../../../reference/android/support/v7/widget/RecyclerView.Adapter.html#notifyItemChanged(int)">notifyItemChanged</a>(int position)
+      </code>
+      
+        <p>Notify any registered observers that the item at <code>position</code> has changed.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  
+  <tr class="api apilevel-" >
+  
+  
+    <td><code>
+        
+        
+        
+        final
+        
+        void</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="../../../../../reference/android/support/v7/widget/RecyclerView.Adapter.html#notifyItemInserted(int)">notifyItemInserted</a>(int position)
+      </code>
+      
+        <p>Notify any registered observers that the item reflected at <code>position</code>
  has been newly inserted.
-          
-    
-
-        </div>
-  
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            final
-            
-            void</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../reference/android/support/v7/widget/RecyclerView.Adapter.html#notifyItemMoved(int, int)">notifyItemMoved</a></span>(int fromPosition, int toPosition)</nobr>
         
-        <div class="jd-descrdiv">
-          Notify any registered observers that the item reflected at <code>fromPosition</code>
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  
+  <tr class="api apilevel-" >
+  
+  
+    <td><code>
+        
+        
+        
+        final
+        
+        void</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="../../../../../reference/android/support/v7/widget/RecyclerView.Adapter.html#notifyItemMoved(int, int)">notifyItemMoved</a>(int fromPosition, int toPosition)
+      </code>
+      
+        <p>Notify any registered observers that the item reflected at <code>fromPosition</code>
  has been moved to <code>toPosition</code>.
-          
-    
-
-        </div>
-  
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            final
-            
-            void</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../reference/android/support/v7/widget/RecyclerView.Adapter.html#notifyItemRangeChanged(int, int, java.lang.Object)">notifyItemRangeChanged</a></span>(int positionStart, int itemCount, <a href="../../../../../reference/java/lang/Object.html">Object</a> payload)</nobr>
         
-        <div class="jd-descrdiv">
-          Notify any registered observers that the <code>itemCount</code> items starting at
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  
+  <tr class="api apilevel-" >
+  
+  
+    <td><code>
+        
+        
+        
+        final
+        
+        void</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="../../../../../reference/android/support/v7/widget/RecyclerView.Adapter.html#notifyItemRangeChanged(int, int, java.lang.Object)">notifyItemRangeChanged</a>(int positionStart, int itemCount, <a href="../../../../../reference/java/lang/Object.html">Object</a> payload)
+      </code>
+      
+        <p>Notify any registered observers that the <code>itemCount</code> items starting at
  position<code>positionStart</code> have changed.
-          
-    
-
-        </div>
-  
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            final
-            
-            void</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../reference/android/support/v7/widget/RecyclerView.Adapter.html#notifyItemRangeChanged(int, int)">notifyItemRangeChanged</a></span>(int positionStart, int itemCount)</nobr>
         
-        <div class="jd-descrdiv">
-          Notify any registered observers that the <code>itemCount</code> items starting at
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  
+  <tr class="api apilevel-" >
+  
+  
+    <td><code>
+        
+        
+        
+        final
+        
+        void</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="../../../../../reference/android/support/v7/widget/RecyclerView.Adapter.html#notifyItemRangeChanged(int, int)">notifyItemRangeChanged</a>(int positionStart, int itemCount)
+      </code>
+      
+        <p>Notify any registered observers that the <code>itemCount</code> items starting at
  position <code>positionStart</code> have changed.
-          
-    
-
-        </div>
-  
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            final
-            
-            void</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../reference/android/support/v7/widget/RecyclerView.Adapter.html#notifyItemRangeInserted(int, int)">notifyItemRangeInserted</a></span>(int positionStart, int itemCount)</nobr>
         
-        <div class="jd-descrdiv">
-          Notify any registered observers that the currently reflected <code>itemCount</code>
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  
+  <tr class="api apilevel-" >
+  
+  
+    <td><code>
+        
+        
+        
+        final
+        
+        void</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="../../../../../reference/android/support/v7/widget/RecyclerView.Adapter.html#notifyItemRangeInserted(int, int)">notifyItemRangeInserted</a>(int positionStart, int itemCount)
+      </code>
+      
+        <p>Notify any registered observers that the currently reflected <code>itemCount</code>
  items starting at <code>positionStart</code> have been newly inserted.
-          
-    
-
-        </div>
-  
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            final
-            
-            void</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../reference/android/support/v7/widget/RecyclerView.Adapter.html#notifyItemRangeRemoved(int, int)">notifyItemRangeRemoved</a></span>(int positionStart, int itemCount)</nobr>
         
-        <div class="jd-descrdiv">
-          Notify any registered observers that the <code>itemCount</code> items previously
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  
+  <tr class="api apilevel-" >
+  
+  
+    <td><code>
+        
+        
+        
+        final
+        
+        void</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="../../../../../reference/android/support/v7/widget/RecyclerView.Adapter.html#notifyItemRangeRemoved(int, int)">notifyItemRangeRemoved</a>(int positionStart, int itemCount)
+      </code>
+      
+        <p>Notify any registered observers that the <code>itemCount</code> items previously
  located at <code>positionStart</code> have been removed from the data set.
-          
-    
-
-        </div>
-  
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            final
-            
-            void</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../reference/android/support/v7/widget/RecyclerView.Adapter.html#notifyItemRemoved(int)">notifyItemRemoved</a></span>(int position)</nobr>
         
-        <div class="jd-descrdiv">
-          Notify any registered observers that the item previously located at <code>position</code>
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  
+  <tr class="api apilevel-" >
+  
+  
+    <td><code>
+        
+        
+        
+        final
+        
+        void</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="../../../../../reference/android/support/v7/widget/RecyclerView.Adapter.html#notifyItemRemoved(int)">notifyItemRemoved</a>(int position)
+      </code>
+      
+        <p>Notify any registered observers that the item previously located at <code>position</code>
  has been removed from the data set.
-          
-    
-
-        </div>
-  
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            void</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../reference/android/support/v7/widget/RecyclerView.Adapter.html#onAttachedToRecyclerView(android.support.v7.widget.RecyclerView)">onAttachedToRecyclerView</a></span>(<a href="../../../../../reference/android/support/v7/widget/RecyclerView.html">RecyclerView</a> recyclerView)</nobr>
         
-        <div class="jd-descrdiv">
-          Called by RecyclerView when it starts observing this Adapter.
-          
     
-
-        </div>
+</p>
+      
+    </td>
+  </tr>
   
-  </td></tr>
 
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            abstract
-            
-            
-            
-            
-            void</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../reference/android/support/v7/widget/RecyclerView.Adapter.html#onBindViewHolder(VH, int)">onBindViewHolder</a></span>(VH holder, int position)</nobr>
+  
+  <tr class="api apilevel-" >
+  
+  
+    <td><code>
         
-        <div class="jd-descrdiv">
-          Called by RecyclerView to display the data at the specified position.
-          
+        
+        
+        
+        
+        void</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="../../../../../reference/android/support/v7/widget/RecyclerView.Adapter.html#onAttachedToRecyclerView(android.support.v7.widget.RecyclerView)">onAttachedToRecyclerView</a>(<a href="../../../../../reference/android/support/v7/widget/RecyclerView.html">RecyclerView</a> recyclerView)
+      </code>
+      
+        <p>Called by RecyclerView when it starts observing this Adapter.
+        
     
-
-        </div>
+</p>
+      
+    </td>
+  </tr>
   
-  </td></tr>
 
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            void</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../reference/android/support/v7/widget/RecyclerView.Adapter.html#onBindViewHolder(VH, int, java.util.List<java.lang.Object>)">onBindViewHolder</a></span>(VH holder, int position, <a href="../../../../../reference/java/util/List.html">List</a>&lt;<a href="../../../../../reference/java/lang/Object.html">Object</a>&gt; payloads)</nobr>
+  
+  <tr class="api apilevel-" >
+  
+  
+    <td><code>
+        abstract
         
-        <div class="jd-descrdiv">
-          Called by RecyclerView to display the data at the specified position.
-          
+        
+        
+        
+        void</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="../../../../../reference/android/support/v7/widget/RecyclerView.Adapter.html#onBindViewHolder(VH, int)">onBindViewHolder</a>(VH holder, int position)
+      </code>
+      
+        <p>Called by RecyclerView to display the data at the specified position.
+        
     
-
-        </div>
+</p>
+      
+    </td>
+  </tr>
   
-  </td></tr>
 
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            abstract
-            
-            
-            
-            
-            VH</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../reference/android/support/v7/widget/RecyclerView.Adapter.html#onCreateViewHolder(android.view.ViewGroup, int)">onCreateViewHolder</a></span>(<a href="../../../../../reference/android/view/ViewGroup.html">ViewGroup</a> parent, int viewType)</nobr>
+  
+  <tr class="api apilevel-" >
+  
+  
+    <td><code>
         
-        <div class="jd-descrdiv">
-          Called when RecyclerView needs a new <code><a href="../../../../../reference/android/support/v7/widget/RecyclerView.ViewHolder.html">RecyclerView.ViewHolder</a></code> of the given type to represent
+        
+        
+        
+        
+        void</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="../../../../../reference/android/support/v7/widget/RecyclerView.Adapter.html#onBindViewHolder(VH, int, java.util.List<java.lang.Object>)">onBindViewHolder</a>(VH holder, int position, <a href="../../../../../reference/java/util/List.html">List</a>&lt;<a href="../../../../../reference/java/lang/Object.html">Object</a>&gt; payloads)
+      </code>
+      
+        <p>Called by RecyclerView to display the data at the specified position.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  
+  <tr class="api apilevel-" >
+  
+  
+    <td><code>
+        abstract
+        
+        
+        
+        
+        VH</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="../../../../../reference/android/support/v7/widget/RecyclerView.Adapter.html#onCreateViewHolder(android.view.ViewGroup, int)">onCreateViewHolder</a>(<a href="../../../../../reference/android/view/ViewGroup.html">ViewGroup</a> parent, int viewType)
+      </code>
+      
+        <p>Called when RecyclerView needs a new <code><a href="../../../../../reference/android/support/v7/widget/RecyclerView.ViewHolder.html">RecyclerView.ViewHolder</a></code> of the given type to represent
  an item.
-          
-    
-
-        </div>
-  
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            void</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../reference/android/support/v7/widget/RecyclerView.Adapter.html#onDetachedFromRecyclerView(android.support.v7.widget.RecyclerView)">onDetachedFromRecyclerView</a></span>(<a href="../../../../../reference/android/support/v7/widget/RecyclerView.html">RecyclerView</a> recyclerView)</nobr>
         
-        <div class="jd-descrdiv">
-          Called by RecyclerView when it stops observing this Adapter.
-          
     
-
-        </div>
+</p>
+      
+    </td>
+  </tr>
   
-  </td></tr>
 
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            boolean</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../reference/android/support/v7/widget/RecyclerView.Adapter.html#onFailedToRecycleView(VH)">onFailedToRecycleView</a></span>(VH holder)</nobr>
+  
+  <tr class="api apilevel-" >
+  
+  
+    <td><code>
         
-        <div class="jd-descrdiv">
-          Called by the RecyclerView if a ViewHolder created by this Adapter cannot be recycled
+        
+        
+        
+        
+        void</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="../../../../../reference/android/support/v7/widget/RecyclerView.Adapter.html#onDetachedFromRecyclerView(android.support.v7.widget.RecyclerView)">onDetachedFromRecyclerView</a>(<a href="../../../../../reference/android/support/v7/widget/RecyclerView.html">RecyclerView</a> recyclerView)
+      </code>
+      
+        <p>Called by RecyclerView when it stops observing this Adapter.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  
+  <tr class="api apilevel-" >
+  
+  
+    <td><code>
+        
+        
+        
+        
+        
+        boolean</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="../../../../../reference/android/support/v7/widget/RecyclerView.Adapter.html#onFailedToRecycleView(VH)">onFailedToRecycleView</a>(VH holder)
+      </code>
+      
+        <p>Called by the RecyclerView if a ViewHolder created by this Adapter cannot be recycled
  due to its transient state.
-          
-    
-
-        </div>
-  
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            void</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../reference/android/support/v7/widget/RecyclerView.Adapter.html#onViewAttachedToWindow(VH)">onViewAttachedToWindow</a></span>(VH holder)</nobr>
         
-        <div class="jd-descrdiv">
-          Called when a view created by this adapter has been attached to a window.
-          
     
-
-        </div>
+</p>
+      
+    </td>
+  </tr>
   
-  </td></tr>
 
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            void</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../reference/android/support/v7/widget/RecyclerView.Adapter.html#onViewDetachedFromWindow(VH)">onViewDetachedFromWindow</a></span>(VH holder)</nobr>
+  
+  <tr class="api apilevel-" >
+  
+  
+    <td><code>
         
-        <div class="jd-descrdiv">
-          Called when a view created by this adapter has been detached from its window.
-          
+        
+        
+        
+        
+        void</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="../../../../../reference/android/support/v7/widget/RecyclerView.Adapter.html#onViewAttachedToWindow(VH)">onViewAttachedToWindow</a>(VH holder)
+      </code>
+      
+        <p>Called when a view created by this adapter has been attached to a window.
+        
     
-
-        </div>
+</p>
+      
+    </td>
+  </tr>
   
-  </td></tr>
 
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            void</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../reference/android/support/v7/widget/RecyclerView.Adapter.html#onViewRecycled(VH)">onViewRecycled</a></span>(VH holder)</nobr>
+  
+  <tr class="api apilevel-" >
+  
+  
+    <td><code>
         
-        <div class="jd-descrdiv">
-          Called when a view created by this adapter has been recycled.
-          
+        
+        
+        
+        
+        void</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="../../../../../reference/android/support/v7/widget/RecyclerView.Adapter.html#onViewDetachedFromWindow(VH)">onViewDetachedFromWindow</a>(VH holder)
+      </code>
+      
+        <p>Called when a view created by this adapter has been detached from its window.
+        
     
-
-        </div>
+</p>
+      
+    </td>
+  </tr>
   
-  </td></tr>
 
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            void</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../reference/android/support/v7/widget/RecyclerView.Adapter.html#registerAdapterDataObserver(android.support.v7.widget.RecyclerView.AdapterDataObserver)">registerAdapterDataObserver</a></span>(<a href="../../../../../reference/android/support/v7/widget/RecyclerView.AdapterDataObserver.html">RecyclerView.AdapterDataObserver</a> observer)</nobr>
+  
+  <tr class="api apilevel-" >
+  
+  
+    <td><code>
         
-        <div class="jd-descrdiv">
-          Register a new observer to listen for data changes.
-          
+        
+        
+        
+        
+        void</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="../../../../../reference/android/support/v7/widget/RecyclerView.Adapter.html#onViewRecycled(VH)">onViewRecycled</a>(VH holder)
+      </code>
+      
+        <p>Called when a view created by this adapter has been recycled.
+        
     
-
-        </div>
+</p>
+      
+    </td>
+  </tr>
   
-  </td></tr>
 
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            void</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../reference/android/support/v7/widget/RecyclerView.Adapter.html#setHasStableIds(boolean)">setHasStableIds</a></span>(boolean hasStableIds)</nobr>
+  
+  <tr class="api apilevel-" >
+  
+  
+    <td><code>
         
-        <div class="jd-descrdiv">
-          Indicates whether each item in the data set can be represented with a unique identifier
+        
+        
+        
+        
+        void</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="../../../../../reference/android/support/v7/widget/RecyclerView.Adapter.html#registerAdapterDataObserver(android.support.v7.widget.RecyclerView.AdapterDataObserver)">registerAdapterDataObserver</a>(<a href="../../../../../reference/android/support/v7/widget/RecyclerView.AdapterDataObserver.html">RecyclerView.AdapterDataObserver</a> observer)
+      </code>
+      
+        <p>Register a new observer to listen for data changes.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  
+  <tr class="api apilevel-" >
+  
+  
+    <td><code>
+        
+        
+        
+        
+        
+        void</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="../../../../../reference/android/support/v7/widget/RecyclerView.Adapter.html#setHasStableIds(boolean)">setHasStableIds</a>(boolean hasStableIds)
+      </code>
+      
+        <p>Indicates whether each item in the data set can be represented with a unique identifier
  of type <code><a href="../../../../../reference/java/lang/Long.html">Long</a></code>.
-          
-    
-
-        </div>
-  
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            void</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../reference/android/support/v7/widget/RecyclerView.Adapter.html#unregisterAdapterDataObserver(android.support.v7.widget.RecyclerView.AdapterDataObserver)">unregisterAdapterDataObserver</a></span>(<a href="../../../../../reference/android/support/v7/widget/RecyclerView.AdapterDataObserver.html">RecyclerView.AdapterDataObserver</a> observer)</nobr>
         
-        <div class="jd-descrdiv">
-          Unregister an observer currently listening for data changes.
-          
     
-
-        </div>
+</p>
+      
+    </td>
+  </tr>
   
-  </td></tr>
 
+  
+  <tr class="api apilevel-" >
+  
+  
+    <td><code>
+        
+        
+        
+        
+        
+        void</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="../../../../../reference/android/support/v7/widget/RecyclerView.Adapter.html#unregisterAdapterDataObserver(android.support.v7.widget.RecyclerView.AdapterDataObserver)">unregisterAdapterDataObserver</a>(<a href="../../../../../reference/android/support/v7/widget/RecyclerView.AdapterDataObserver.html">RecyclerView.AdapterDataObserver</a> observer)
+      </code>
+      
+        <p>Unregister an observer currently listening for data changes.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
 
 
 </table>
@@ -2023,311 +2120,348 @@ Summary:
 
 
 <!-- ========== METHOD SUMMARY =========== -->
-<table id="inhmethods" class="jd-sumtable"><tr><th>
-  <a href="#" class="toggle-all" onclick="return toggleAllInherited(this, null)">[Expand]</a>
-  <div style="clear:left;">Inherited Methods</div></th></tr>
+<table id="inhmethods" class="methods inhtable">
+<tr><th><h3>Inherited methods</h3></th></tr>
 
 
 <tr class="api apilevel-" >
-<td colspan="12">
+<td colspan="2">
+
   <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-java.lang.Object" class="jd-expando-trigger closed"
-          ><img id="inherited-methods-java.lang.Object-trigger"
-          src="../../../../../assets/images/triangle-closed.png"
-          class="jd-expando-trigger-img" /></a>
-From class
-
-  <a href="../../../../../reference/java/lang/Object.html">java.lang.Object</a>
-
+          ><img height="34" id="inherited-methods-java.lang.Object-trigger"
+          src="../../../../../assets/images/styles/disclosure_down.png"
+          class="jd-expando-trigger-img" /></a>From
+class
+<code>
+  
+    <a href="../../../../../reference/java/lang/Object.html">java.lang.Object</a>
+  
+</code>
 <div id="inherited-methods-java.lang.Object">
   <div id="inherited-methods-java.lang.Object-list"
         class="jd-inheritedlinks">
   </div>
   <div id="inherited-methods-java.lang.Object-summary" style="display: none;">
-    <table class="jd-sumtable-expando">
-    
+    <table class="jd-sumtable-expando responsive">
+      
 
 
-	 
-    <tr class="alt-color api apilevel-1" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            <a href="../../../../../reference/java/lang/Object.html">Object</a></nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../reference/java/lang/Object.html#clone()">clone</a></span>()</nobr>
-        
-        <div class="jd-descrdiv">
-          Creates and returns a copy of this object.
-          
-    
-
-        </div>
   
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-1" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            boolean</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../reference/java/lang/Object.html#equals(java.lang.Object)">equals</a></span>(<a href="../../../../../reference/java/lang/Object.html">Object</a> obj)</nobr>
-        
-        <div class="jd-descrdiv">
-          Indicates whether some other object is "equal to" this one.
-          
-    
-
-        </div>
+  <tr class="api apilevel-1" >
   
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-1" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            void</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../reference/java/lang/Object.html#finalize()">finalize</a></span>()</nobr>
+  
+    <td><code>
         
-        <div class="jd-descrdiv">
-          Called by the garbage collector on an object when garbage collection
+        
+        
+        
+        
+        <a href="../../../../../reference/java/lang/Object.html">Object</a></code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="../../../../../reference/java/lang/Object.html#clone()">clone</a>()
+      </code>
+      
+        <p>Creates and returns a copy of this object.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  
+  <tr class="api apilevel-1" >
+  
+  
+    <td><code>
+        
+        
+        
+        
+        
+        boolean</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="../../../../../reference/java/lang/Object.html#equals(java.lang.Object)">equals</a>(<a href="../../../../../reference/java/lang/Object.html">Object</a> obj)
+      </code>
+      
+        <p>Indicates whether some other object is "equal to" this one.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  
+  <tr class="api apilevel-1" >
+  
+  
+    <td><code>
+        
+        
+        
+        
+        
+        void</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="../../../../../reference/java/lang/Object.html#finalize()">finalize</a>()
+      </code>
+      
+        <p>Called by the garbage collector on an object when garbage collection
  determines that there are no more references to the object.
-          
-    
-
-        </div>
-  
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-1" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            final
-            
-            <a href="../../../../../reference/java/lang/Class.html">Class</a>&lt;?&gt;</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../reference/java/lang/Object.html#getClass()">getClass</a></span>()</nobr>
         
-        <div class="jd-descrdiv">
-          Returns the runtime class of this <code>Object</code>.
-          
     
-
-        </div>
+</p>
+      
+    </td>
+  </tr>
   
-  </td></tr>
 
-
-	 
-    <tr class="alt-color api apilevel-1" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            int</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../reference/java/lang/Object.html#hashCode()">hashCode</a></span>()</nobr>
+  
+  <tr class="api apilevel-1" >
+  
+  
+    <td><code>
         
-        <div class="jd-descrdiv">
-          Returns a hash code value for the object.
-          
+        
+        
+        final
+        
+        <a href="../../../../../reference/java/lang/Class.html">Class</a>&lt;?&gt;</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="../../../../../reference/java/lang/Object.html#getClass()">getClass</a>()
+      </code>
+      
+        <p>Returns the runtime class of this <code>Object</code>.
+        
     
-
-        </div>
+</p>
+      
+    </td>
+  </tr>
   
-  </td></tr>
 
-
-	 
-    <tr class=" api apilevel-1" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            final
-            
-            void</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../reference/java/lang/Object.html#notify()">notify</a></span>()</nobr>
+  
+  <tr class="api apilevel-1" >
+  
+  
+    <td><code>
         
-        <div class="jd-descrdiv">
-          Wakes up a single thread that is waiting on this object's
+        
+        
+        
+        
+        int</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="../../../../../reference/java/lang/Object.html#hashCode()">hashCode</a>()
+      </code>
+      
+        <p>Returns a hash code value for the object.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  
+  <tr class="api apilevel-1" >
+  
+  
+    <td><code>
+        
+        
+        
+        final
+        
+        void</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="../../../../../reference/java/lang/Object.html#notify()">notify</a>()
+      </code>
+      
+        <p>Wakes up a single thread that is waiting on this object's
  monitor.
-          
-    
-
-        </div>
-  
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-1" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            final
-            
-            void</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../reference/java/lang/Object.html#notifyAll()">notifyAll</a></span>()</nobr>
         
-        <div class="jd-descrdiv">
-          Wakes up all threads that are waiting on this object's monitor.
-          
     
-
-        </div>
+</p>
+      
+    </td>
+  </tr>
   
-  </td></tr>
 
-
-	 
-    <tr class=" api apilevel-1" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            <a href="../../../../../reference/java/lang/String.html">String</a></nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../reference/java/lang/Object.html#toString()">toString</a></span>()</nobr>
+  
+  <tr class="api apilevel-1" >
+  
+  
+    <td><code>
         
-        <div class="jd-descrdiv">
-          Returns a string representation of the object.
-          
+        
+        
+        final
+        
+        void</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="../../../../../reference/java/lang/Object.html#notifyAll()">notifyAll</a>()
+      </code>
+      
+        <p>Wakes up all threads that are waiting on this object's monitor.
+        
     
-
-        </div>
+</p>
+      
+    </td>
+  </tr>
   
-  </td></tr>
 
-
-	 
-    <tr class="alt-color api apilevel-1" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            final
-            
-            void</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../reference/java/lang/Object.html#wait(long, int)">wait</a></span>(long millis, int nanos)</nobr>
+  
+  <tr class="api apilevel-1" >
+  
+  
+    <td><code>
         
-        <div class="jd-descrdiv">
-          Causes the current thread to wait until another thread invokes the
+        
+        
+        
+        
+        <a href="../../../../../reference/java/lang/String.html">String</a></code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="../../../../../reference/java/lang/Object.html#toString()">toString</a>()
+      </code>
+      
+        <p>Returns a string representation of the object.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  
+  <tr class="api apilevel-1" >
+  
+  
+    <td><code>
+        
+        
+        
+        final
+        
+        void</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="../../../../../reference/java/lang/Object.html#wait(long, int)">wait</a>(long millis, int nanos)
+      </code>
+      
+        <p>Causes the current thread to wait until another thread invokes the
  <code><a href="../../../../../reference/java/lang/Object.html#notify()">notify()</a></code> method or the
  <code><a href="../../../../../reference/java/lang/Object.html#notifyAll()">notifyAll()</a></code> method for this object, or
  some other thread interrupts the current thread, or a certain
  amount of real time has elapsed.
-          
-    
-
-        </div>
-  
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-1" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            final
-            
-            void</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../reference/java/lang/Object.html#wait(long)">wait</a></span>(long millis)</nobr>
         
-        <div class="jd-descrdiv">
-          Causes the current thread to wait until either another thread invokes the
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  
+  <tr class="api apilevel-1" >
+  
+  
+    <td><code>
+        
+        
+        
+        final
+        
+        void</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="../../../../../reference/java/lang/Object.html#wait(long)">wait</a>(long millis)
+      </code>
+      
+        <p>Causes the current thread to wait until either another thread invokes the
  <code><a href="../../../../../reference/java/lang/Object.html#notify()">notify()</a></code> method or the
  <code><a href="../../../../../reference/java/lang/Object.html#notifyAll()">notifyAll()</a></code> method for this object, or a
  specified amount of time has elapsed.
-          
-    
-
-        </div>
-  
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-1" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            final
-            
-            void</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../reference/java/lang/Object.html#wait()">wait</a></span>()</nobr>
         
-        <div class="jd-descrdiv">
-          Causes the current thread to wait until another thread invokes the
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  
+  <tr class="api apilevel-1" >
+  
+  
+    <td><code>
+        
+        
+        
+        final
+        
+        void</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="../../../../../reference/java/lang/Object.html#wait()">wait</a>()
+      </code>
+      
+        <p>Causes the current thread to wait until another thread invokes the
  <code><a href="../../../../../reference/java/lang/Object.html#notify()">notify()</a></code> method or the
  <code><a href="../../../../../reference/java/lang/Object.html#notifyAll()">notifyAll()</a></code> method for this object.
-          
+        
     
-
-        </div>
+</p>
+      
+    </td>
+  </tr>
   
-  </td></tr>
 
 
-</table>
+    </table>
   </div>
 </div>
 </td></tr>
 
 
 </table>
-
-
-</div><!-- jd-descr (summary) -->
-
-<!-- Details -->
-
-
-
-
-
 
 
 
@@ -2347,39 +2481,28 @@ From class
 
 
 <!-- ========= CONSTRUCTOR DETAIL ======== -->
-<h2>Public Constructors</h2>
+<h2 class="api-section">Public constructors</h2>
 
 
 
 <A NAME="RecyclerView.Adapter()"></A>
 
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public
-        
-        
-        
-        
-        
-      </span>
-      <span class="sympad">RecyclerView.Adapter</span>
-      <span class="normal">()</span>
-    </h4>
-      <div class="api-level">
-        <div></div>
-        
+<div class="api apilevel-">
+    <h3 class="api-name">RecyclerView.Adapter</h3>
+    <div class="api-level">
+      <div></div>
+      
   
 
-      </div>
-    <div class="jd-details-descr">
-      
+    </div>
+<pre class="api-signature no-pretty-print">
+RecyclerView.Adapter ()</pre>
+    
     
 
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+    
+  <p></p>
 
-    </div>
 </div>
 
 
@@ -2394,327 +2517,294 @@ From class
 <!-- ========= METHOD DETAIL ======== -->
 <!-- Public methdos -->
 
-<h2>Public Methods</h2>
+<h2 class="api-section">Public methods</h2>
 
 
 
 <A NAME="bindViewHolder(VH, int)"></A>
 
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public
-        
-        
-        
-        final
-        void
-      </span>
-      <span class="sympad">bindViewHolder</span>
-      <span class="normal">(VH holder, int position)</span>
-    </h4>
-      <div class="api-level">
-        <div></div>
-        
+<div class="api apilevel-">
+    <h3 class="api-name">bindViewHolder</h3>
+    <div class="api-level">
+      <div></div>
+      
   
 
-      </div>
-    <div class="jd-details-descr">
-      
+    </div>
+<pre class="api-signature no-pretty-print">
+void bindViewHolder (VH holder, 
+                int position)</pre>
+    
     
 
-      
-  <div class="jd-tagdata jd-tagdescr"><p>This method internally calls <code><a href="../../../../../reference/android/support/v7/widget/RecyclerView.Adapter.html#onBindViewHolder(VH, int)">onBindViewHolder(ViewHolder, int)</a></code> to update the
+    
+  <p>This method internally calls <code><a href="../../../../../reference/android/support/v7/widget/RecyclerView.Adapter.html#onBindViewHolder(VH, int)">onBindViewHolder(ViewHolder, int)</a></code> to update the
  <code><a href="../../../../../reference/android/support/v7/widget/RecyclerView.ViewHolder.html">RecyclerView.ViewHolder</a></code> contents with the item at the given position and also sets up some
- private fields to be used by RecyclerView.</p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">See Also</h5>
+ private fields to be used by RecyclerView.</p>
+    <table class="responsive">
+    <tr><th colspan=2>Parameters</th></tr>
+      <tr>
+        <td><code>holder</code></td>
+        <td width="100%">
+          <code>VH</code>
+          <!-- no parameter comment --></td>
+      </tr>
+      <tr>
+        <td><code>position</code></td>
+        <td width="100%">
+          <code>int</code>
+          <!-- no parameter comment --></td>
+      </tr>
+    </table>
+  <div>
+      <p><b>See also:</b></p>
       <ul class="nolist"><li><code><a href="../../../../../reference/android/support/v7/widget/RecyclerView.Adapter.html#onBindViewHolder(VH, int)">onBindViewHolder(ViewHolder, int)</a></code></li>
       </ul>
   </div>
 
-    </div>
 </div>
 
 
 <A NAME="createViewHolder(android.view.ViewGroup, int)"></A>
 
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public
-        
-        
-        
-        final
-        VH
-      </span>
-      <span class="sympad">createViewHolder</span>
-      <span class="normal">(<a href="../../../../../reference/android/view/ViewGroup.html">ViewGroup</a> parent, int viewType)</span>
-    </h4>
-      <div class="api-level">
-        <div></div>
-        
+<div class="api apilevel-">
+    <h3 class="api-name">createViewHolder</h3>
+    <div class="api-level">
+      <div></div>
+      
   
 
-      </div>
-    <div class="jd-details-descr">
-      
+    </div>
+<pre class="api-signature no-pretty-print">
+VH createViewHolder (<a href="../../../../../reference/android/view/ViewGroup.html">ViewGroup</a> parent, 
+                int viewType)</pre>
+    
     
 
-      
-  <div class="jd-tagdata jd-tagdescr"><p>This method calls <code><a href="../../../../../reference/android/support/v7/widget/RecyclerView.Adapter.html#onCreateViewHolder(android.view.ViewGroup, int)">onCreateViewHolder(ViewGroup, int)</a></code> to create a new
- <code><a href="../../../../../reference/android/support/v7/widget/RecyclerView.ViewHolder.html">RecyclerView.ViewHolder</a></code> and initializes some private fields to be used by RecyclerView.</p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">See Also</h5>
+    
+  <p>This method calls <code><a href="../../../../../reference/android/support/v7/widget/RecyclerView.Adapter.html#onCreateViewHolder(android.view.ViewGroup, int)">onCreateViewHolder(ViewGroup, int)</a></code> to create a new
+ <code><a href="../../../../../reference/android/support/v7/widget/RecyclerView.ViewHolder.html">RecyclerView.ViewHolder</a></code> and initializes some private fields to be used by RecyclerView.</p>
+    <table class="responsive">
+    <tr><th colspan=2>Parameters</th></tr>
+      <tr>
+        <td><code>parent</code></td>
+        <td width="100%">
+          <code>ViewGroup</code>
+          <!-- no parameter comment --></td>
+      </tr>
+      <tr>
+        <td><code>viewType</code></td>
+        <td width="100%">
+          <code>int</code>
+          <!-- no parameter comment --></td>
+      </tr>
+    </table>
+    <table class="responsive">
+      <tr><th colspan=2>Returns</th></tr>
+      <tr>
+        <td><code>VH</code></td>
+        <td width="100%"><!-- no returns description in source --></td>
+      </tr>
+    </table>
+  <div>
+      <p><b>See also:</b></p>
       <ul class="nolist"><li><code><a href="../../../../../reference/android/support/v7/widget/RecyclerView.Adapter.html#onCreateViewHolder(android.view.ViewGroup, int)">onCreateViewHolder(ViewGroup, int)</a></code></li>
       </ul>
   </div>
 
-    </div>
 </div>
 
 
 <A NAME="getItemCount()"></A>
 
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public
-        abstract
-        
-        
-        
-        int
-      </span>
-      <span class="sympad">getItemCount</span>
-      <span class="normal">()</span>
-    </h4>
-      <div class="api-level">
-        <div></div>
-        
+<div class="api apilevel-">
+    <h3 class="api-name">getItemCount</h3>
+    <div class="api-level">
+      <div></div>
+      
   
 
-      </div>
-    <div class="jd-details-descr">
-      
+    </div>
+<pre class="api-signature no-pretty-print">
+int getItemCount ()</pre>
+    
     
 
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Returns the total number of items in the data set hold by the adapter.</p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Returns</h5>
-      <ul class="nolist"><li>The total number of items in this adapter.
-</li></ul>
-  </div>
+    
+  <p>Returns the total number of items in the data set hold by the adapter.</p>
+    <table class="responsive">
+      <tr><th colspan=2>Returns</th></tr>
+      <tr>
+        <td><code>int</code></td>
+        <td width="100%">The total number of items in this adapter.
+</td>
+      </tr>
+    </table>
 
-    </div>
 </div>
 
 
 <A NAME="getItemId(int)"></A>
 
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public
-        
-        
-        
-        
-        long
-      </span>
-      <span class="sympad">getItemId</span>
-      <span class="normal">(int position)</span>
-    </h4>
-      <div class="api-level">
-        <div></div>
-        
+<div class="api apilevel-">
+    <h3 class="api-name">getItemId</h3>
+    <div class="api-level">
+      <div></div>
+      
   
 
-      </div>
-    <div class="jd-details-descr">
-      
+    </div>
+<pre class="api-signature no-pretty-print">
+long getItemId (int position)</pre>
+    
     
 
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Return the stable ID for the item at <code>position</code>. If <code><a href="../../../../../reference/android/support/v7/widget/RecyclerView.Adapter.html#hasStableIds()">hasStableIds()</a></code>
+    
+  <p>Return the stable ID for the item at <code>position</code>. If <code><a href="../../../../../reference/android/support/v7/widget/RecyclerView.Adapter.html#hasStableIds()">hasStableIds()</a></code>
  would return false this method should return <code><a href="../../../../../reference/android/support/v7/widget/RecyclerView.html#NO_ID">NO_ID</a></code>. The default implementation
- of this method returns <code><a href="../../../../../reference/android/support/v7/widget/RecyclerView.html#NO_ID">NO_ID</a></code>.</p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Parameters</h5>
-      <table class="jd-tagtable">
-        <tr>
-          <th>position</td>
-          <td>Adapter position to query</td>
-        </tr>
-      </table>
-  </div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Returns</h5>
-      <ul class="nolist"><li>the stable ID of the item at position
-</li></ul>
-  </div>
+ of this method returns <code><a href="../../../../../reference/android/support/v7/widget/RecyclerView.html#NO_ID">NO_ID</a></code>.</p>
+    <table class="responsive">
+    <tr><th colspan=2>Parameters</th></tr>
+      <tr>
+        <td><code>position</code></td>
+        <td width="100%">
+          <code>int</code>:
+          Adapter position to query</td>
+      </tr>
+    </table>
+    <table class="responsive">
+      <tr><th colspan=2>Returns</th></tr>
+      <tr>
+        <td><code>long</code></td>
+        <td width="100%">the stable ID of the item at position
+</td>
+      </tr>
+    </table>
 
-    </div>
 </div>
 
 
 <A NAME="getItemViewType(int)"></A>
 
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public
-        
-        
-        
-        
-        int
-      </span>
-      <span class="sympad">getItemViewType</span>
-      <span class="normal">(int position)</span>
-    </h4>
-      <div class="api-level">
-        <div></div>
-        
+<div class="api apilevel-">
+    <h3 class="api-name">getItemViewType</h3>
+    <div class="api-level">
+      <div></div>
+      
   
 
-      </div>
-    <div class="jd-details-descr">
-      
+    </div>
+<pre class="api-signature no-pretty-print">
+int getItemViewType (int position)</pre>
+    
     
 
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Return the view type of the item at <code>position</code> for the purposes
+    
+  <p>Return the view type of the item at <code>position</code> for the purposes
  of view recycling.
 
  <p>The default implementation of this method returns 0, making the assumption of
  a single view type for the adapter. Unlike ListView adapters, types need not
- be contiguous. Consider using id resources to uniquely identify item view types.</p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Parameters</h5>
-      <table class="jd-tagtable">
-        <tr>
-          <th>position</td>
-          <td>position to query</td>
-        </tr>
-      </table>
-  </div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Returns</h5>
-      <ul class="nolist"><li>integer value identifying the type of the view needed to represent the item at
+ be contiguous. Consider using id resources to uniquely identify item view types.</p>
+    <table class="responsive">
+    <tr><th colspan=2>Parameters</th></tr>
+      <tr>
+        <td><code>position</code></td>
+        <td width="100%">
+          <code>int</code>:
+          position to query</td>
+      </tr>
+    </table>
+    <table class="responsive">
+      <tr><th colspan=2>Returns</th></tr>
+      <tr>
+        <td><code>int</code></td>
+        <td width="100%">integer value identifying the type of the view needed to represent the item at
                  <code>position</code>. Type codes need not be contiguous.
-</li></ul>
-  </div>
+</td>
+      </tr>
+    </table>
 
-    </div>
 </div>
 
 
 <A NAME="hasObservers()"></A>
 
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public
-        
-        
-        
-        final
-        boolean
-      </span>
-      <span class="sympad">hasObservers</span>
-      <span class="normal">()</span>
-    </h4>
-      <div class="api-level">
-        <div></div>
-        
+<div class="api apilevel-">
+    <h3 class="api-name">hasObservers</h3>
+    <div class="api-level">
+      <div></div>
+      
   
 
-      </div>
-    <div class="jd-details-descr">
-      
+    </div>
+<pre class="api-signature no-pretty-print">
+boolean hasObservers ()</pre>
+    
     
 
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Returns true if one or more observers are attached to this adapter.</p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Returns</h5>
-      <ul class="nolist"><li>true if this adapter has observers
-</li></ul>
-  </div>
+    
+  <p>Returns true if one or more observers are attached to this adapter.</p>
+    <table class="responsive">
+      <tr><th colspan=2>Returns</th></tr>
+      <tr>
+        <td><code>boolean</code></td>
+        <td width="100%">true if this adapter has observers
+</td>
+      </tr>
+    </table>
 
-    </div>
 </div>
 
 
 <A NAME="hasStableIds()"></A>
 
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public
-        
-        
-        
-        final
-        boolean
-      </span>
-      <span class="sympad">hasStableIds</span>
-      <span class="normal">()</span>
-    </h4>
-      <div class="api-level">
-        <div></div>
-        
+<div class="api apilevel-">
+    <h3 class="api-name">hasStableIds</h3>
+    <div class="api-level">
+      <div></div>
+      
   
 
-      </div>
-    <div class="jd-details-descr">
-      
+    </div>
+<pre class="api-signature no-pretty-print">
+boolean hasStableIds ()</pre>
+    
     
 
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Returns true if this adapter publishes a unique <code>long</code> value that can
+    
+  <p>Returns true if this adapter publishes a unique <code>long</code> value that can
  act as a key for the item at a given position in the data set. If that item is relocated
- in the data set, the ID returned for that item should be the same.</p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Returns</h5>
-      <ul class="nolist"><li>true if this adapter's items have stable IDs
-</li></ul>
-  </div>
+ in the data set, the ID returned for that item should be the same.</p>
+    <table class="responsive">
+      <tr><th colspan=2>Returns</th></tr>
+      <tr>
+        <td><code>boolean</code></td>
+        <td width="100%">true if this adapter's items have stable IDs
+</td>
+      </tr>
+    </table>
 
-    </div>
 </div>
 
 
 <A NAME="notifyDataSetChanged()"></A>
 
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public
-        
-        
-        
-        final
-        void
-      </span>
-      <span class="sympad">notifyDataSetChanged</span>
-      <span class="normal">()</span>
-    </h4>
-      <div class="api-level">
-        <div></div>
-        
+<div class="api apilevel-">
+    <h3 class="api-name">notifyDataSetChanged</h3>
+    <div class="api-level">
+      <div></div>
+      
   
 
-      </div>
-    <div class="jd-details-descr">
-      
+    </div>
+<pre class="api-signature no-pretty-print">
+void notifyDataSetChanged ()</pre>
+    
     
 
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Notify any registered observers that the data set has changed.
+    
+  <p>Notify any registered observers that the data set has changed.
 
  <p>There are two different classes of data change events, item changes and structural
  changes. Item changes are when a single item has its data updated but no positional
@@ -2733,44 +2823,34 @@ From class
 
  <p>If you are writing an adapter it will always be more efficient to use the more
  specific change events if you can. Rely on <code>notifyDataSetChanged()</code>
- as a last resort.</p></p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">See Also</h5>
+ as a last resort.</p></p>
+  <div>
+      <p><b>See also:</b></p>
       <ul class="nolist"><li><code><a href="../../../../../reference/android/support/v7/widget/RecyclerView.Adapter.html#notifyItemChanged(int)">notifyItemChanged(int)</a></code></li><li><code><a href="../../../../../reference/android/support/v7/widget/RecyclerView.Adapter.html#notifyItemInserted(int)">notifyItemInserted(int)</a></code></li><li><code><a href="../../../../../reference/android/support/v7/widget/RecyclerView.Adapter.html#notifyItemRemoved(int)">notifyItemRemoved(int)</a></code></li><li><code><a href="../../../../../reference/android/support/v7/widget/RecyclerView.Adapter.html#notifyItemRangeChanged(int, int)">notifyItemRangeChanged(int, int)</a></code></li><li><code><a href="../../../../../reference/android/support/v7/widget/RecyclerView.Adapter.html#notifyItemRangeInserted(int, int)">notifyItemRangeInserted(int, int)</a></code></li><li><code><a href="../../../../../reference/android/support/v7/widget/RecyclerView.Adapter.html#notifyItemRangeRemoved(int, int)">notifyItemRangeRemoved(int, int)</a></code></li>
       </ul>
   </div>
 
-    </div>
 </div>
 
 
 <A NAME="notifyItemChanged(int, java.lang.Object)"></A>
 
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public
-        
-        
-        
-        final
-        void
-      </span>
-      <span class="sympad">notifyItemChanged</span>
-      <span class="normal">(int position, <a href="../../../../../reference/java/lang/Object.html">Object</a> payload)</span>
-    </h4>
-      <div class="api-level">
-        <div></div>
-        
+<div class="api apilevel-">
+    <h3 class="api-name">notifyItemChanged</h3>
+    <div class="api-level">
+      <div></div>
+      
   
 
-      </div>
-    <div class="jd-details-descr">
-      
+    </div>
+<pre class="api-signature no-pretty-print">
+void notifyItemChanged (int position, 
+                <a href="../../../../../reference/java/lang/Object.html">Object</a> payload)</pre>
+    
     
 
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Notify any registered observers that the item at <code>position</code> has changed with an
+    
+  <p>Notify any registered observers that the item at <code>position</code> has changed with an
  optional payload object.
 
  <p>This is an item change event, not a structural change event. It indicates that any
@@ -2786,211 +2866,174 @@ From class
  payloads on that item and prevent future payload until
  <code><a href="../../../../../reference/android/support/v7/widget/RecyclerView.Adapter.html#onBindViewHolder(VH, int, java.util.List<java.lang.Object>)">onBindViewHolder(ViewHolder, int, List)</a></code> is called. Adapter should not assume
  that the payload will always be passed to onBindViewHolder(), e.g. when the view is not
- attached, the payload will be simply dropped.</p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Parameters</h5>
-      <table class="jd-tagtable">
-        <tr>
-          <th>position</td>
-          <td>Position of the item that has changed</td>
-        </tr>
-        <tr>
-          <th>payload</td>
-          <td>Optional parameter, use null to identify a "full" update</td>
-        </tr>
-      </table>
-  </div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">See Also</h5>
+ attached, the payload will be simply dropped.</p>
+    <table class="responsive">
+    <tr><th colspan=2>Parameters</th></tr>
+      <tr>
+        <td><code>position</code></td>
+        <td width="100%">
+          <code>int</code>:
+          Position of the item that has changed</td>
+      </tr>
+      <tr>
+        <td><code>payload</code></td>
+        <td width="100%">
+          <code>Object</code>:
+          Optional parameter, use null to identify a "full" update</td>
+      </tr>
+    </table>
+  <div>
+      <p><b>See also:</b></p>
       <ul class="nolist"><li><code><a href="../../../../../reference/android/support/v7/widget/RecyclerView.Adapter.html#notifyItemRangeChanged(int, int)">notifyItemRangeChanged(int, int)</a></code></li>
       </ul>
   </div>
 
-    </div>
 </div>
 
 
 <A NAME="notifyItemChanged(int)"></A>
 
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public
-        
-        
-        
-        final
-        void
-      </span>
-      <span class="sympad">notifyItemChanged</span>
-      <span class="normal">(int position)</span>
-    </h4>
-      <div class="api-level">
-        <div></div>
-        
+<div class="api apilevel-">
+    <h3 class="api-name">notifyItemChanged</h3>
+    <div class="api-level">
+      <div></div>
+      
   
 
-      </div>
-    <div class="jd-details-descr">
-      
+    </div>
+<pre class="api-signature no-pretty-print">
+void notifyItemChanged (int position)</pre>
+    
     
 
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Notify any registered observers that the item at <code>position</code> has changed.
+    
+  <p>Notify any registered observers that the item at <code>position</code> has changed.
  Equivalent to calling <code>notifyItemChanged(position, null);</code>.
 
  <p>This is an item change event, not a structural change event. It indicates that any
  reflection of the data at <code>position</code> is out of date and should be updated.
- The item at <code>position</code> retains the same identity.</p></p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Parameters</h5>
-      <table class="jd-tagtable">
-        <tr>
-          <th>position</td>
-          <td>Position of the item that has changed</td>
-        </tr>
-      </table>
-  </div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">See Also</h5>
+ The item at <code>position</code> retains the same identity.</p></p>
+    <table class="responsive">
+    <tr><th colspan=2>Parameters</th></tr>
+      <tr>
+        <td><code>position</code></td>
+        <td width="100%">
+          <code>int</code>:
+          Position of the item that has changed</td>
+      </tr>
+    </table>
+  <div>
+      <p><b>See also:</b></p>
       <ul class="nolist"><li><code><a href="../../../../../reference/android/support/v7/widget/RecyclerView.Adapter.html#notifyItemRangeChanged(int, int)">notifyItemRangeChanged(int, int)</a></code></li>
       </ul>
   </div>
 
-    </div>
 </div>
 
 
 <A NAME="notifyItemInserted(int)"></A>
 
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public
-        
-        
-        
-        final
-        void
-      </span>
-      <span class="sympad">notifyItemInserted</span>
-      <span class="normal">(int position)</span>
-    </h4>
-      <div class="api-level">
-        <div></div>
-        
+<div class="api apilevel-">
+    <h3 class="api-name">notifyItemInserted</h3>
+    <div class="api-level">
+      <div></div>
+      
   
 
-      </div>
-    <div class="jd-details-descr">
-      
+    </div>
+<pre class="api-signature no-pretty-print">
+void notifyItemInserted (int position)</pre>
+    
     
 
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Notify any registered observers that the item reflected at <code>position</code>
+    
+  <p>Notify any registered observers that the item reflected at <code>position</code>
  has been newly inserted. The item previously at <code>position</code> is now at
  position <code>position + 1</code>.
 
  <p>This is a structural change event. Representations of other existing items in the
  data set are still considered up to date and will not be rebound, though their
- positions may be altered.</p></p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Parameters</h5>
-      <table class="jd-tagtable">
-        <tr>
-          <th>position</td>
-          <td>Position of the newly inserted item in the data set</td>
-        </tr>
-      </table>
-  </div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">See Also</h5>
+ positions may be altered.</p></p>
+    <table class="responsive">
+    <tr><th colspan=2>Parameters</th></tr>
+      <tr>
+        <td><code>position</code></td>
+        <td width="100%">
+          <code>int</code>:
+          Position of the newly inserted item in the data set</td>
+      </tr>
+    </table>
+  <div>
+      <p><b>See also:</b></p>
       <ul class="nolist"><li><code><a href="../../../../../reference/android/support/v7/widget/RecyclerView.Adapter.html#notifyItemRangeInserted(int, int)">notifyItemRangeInserted(int, int)</a></code></li>
       </ul>
   </div>
 
-    </div>
 </div>
 
 
 <A NAME="notifyItemMoved(int, int)"></A>
 
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public
-        
-        
-        
-        final
-        void
-      </span>
-      <span class="sympad">notifyItemMoved</span>
-      <span class="normal">(int fromPosition, int toPosition)</span>
-    </h4>
-      <div class="api-level">
-        <div></div>
-        
+<div class="api apilevel-">
+    <h3 class="api-name">notifyItemMoved</h3>
+    <div class="api-level">
+      <div></div>
+      
   
 
-      </div>
-    <div class="jd-details-descr">
-      
+    </div>
+<pre class="api-signature no-pretty-print">
+void notifyItemMoved (int fromPosition, 
+                int toPosition)</pre>
+    
     
 
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Notify any registered observers that the item reflected at <code>fromPosition</code>
+    
+  <p>Notify any registered observers that the item reflected at <code>fromPosition</code>
  has been moved to <code>toPosition</code>.
 
  <p>This is a structural change event. Representations of other existing items in the
  data set are still considered up to date and will not be rebound, though their
- positions may be altered.</p></p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Parameters</h5>
-      <table class="jd-tagtable">
-        <tr>
-          <th>fromPosition</td>
-          <td>Previous position of the item.</td>
-        </tr>
-        <tr>
-          <th>toPosition</td>
-          <td>New position of the item.
+ positions may be altered.</p></p>
+    <table class="responsive">
+    <tr><th colspan=2>Parameters</th></tr>
+      <tr>
+        <td><code>fromPosition</code></td>
+        <td width="100%">
+          <code>int</code>:
+          Previous position of the item.</td>
+      </tr>
+      <tr>
+        <td><code>toPosition</code></td>
+        <td width="100%">
+          <code>int</code>:
+          New position of the item.
 </td>
-        </tr>
-      </table>
-  </div>
+      </tr>
+    </table>
 
-    </div>
 </div>
 
 
 <A NAME="notifyItemRangeChanged(int, int, java.lang.Object)"></A>
 
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public
-        
-        
-        
-        final
-        void
-      </span>
-      <span class="sympad">notifyItemRangeChanged</span>
-      <span class="normal">(int positionStart, int itemCount, <a href="../../../../../reference/java/lang/Object.html">Object</a> payload)</span>
-    </h4>
-      <div class="api-level">
-        <div></div>
-        
+<div class="api apilevel-">
+    <h3 class="api-name">notifyItemRangeChanged</h3>
+    <div class="api-level">
+      <div></div>
+      
   
 
-      </div>
-    <div class="jd-details-descr">
-      
+    </div>
+<pre class="api-signature no-pretty-print">
+void notifyItemRangeChanged (int positionStart, 
+                int itemCount, 
+                <a href="../../../../../reference/java/lang/Object.html">Object</a> payload)</pre>
+    
     
 
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Notify any registered observers that the <code>itemCount</code> items starting at
+    
+  <p>Notify any registered observers that the <code>itemCount</code> items starting at
  position<code>positionStart</code> have changed. An optional payload can be
  passed to each changed item.
 
@@ -3007,327 +3050,275 @@ From class
  payloads on that item and prevent future payload until
  <code><a href="../../../../../reference/android/support/v7/widget/RecyclerView.Adapter.html#onBindViewHolder(VH, int, java.util.List<java.lang.Object>)">onBindViewHolder(ViewHolder, int, List)</a></code> is called. Adapter should not assume
  that the payload will always be passed to onBindViewHolder(), e.g. when the view is not
- attached, the payload will be simply dropped.</p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Parameters</h5>
-      <table class="jd-tagtable">
-        <tr>
-          <th>positionStart</td>
-          <td>Position of the first item that has changed</td>
-        </tr>
-        <tr>
-          <th>itemCount</td>
-          <td>Number of items that have changed</td>
-        </tr>
-        <tr>
-          <th>payload</td>
-          <td>Optional parameter, use null to identify a "full" update</td>
-        </tr>
-      </table>
-  </div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">See Also</h5>
+ attached, the payload will be simply dropped.</p>
+    <table class="responsive">
+    <tr><th colspan=2>Parameters</th></tr>
+      <tr>
+        <td><code>positionStart</code></td>
+        <td width="100%">
+          <code>int</code>:
+          Position of the first item that has changed</td>
+      </tr>
+      <tr>
+        <td><code>itemCount</code></td>
+        <td width="100%">
+          <code>int</code>:
+          Number of items that have changed</td>
+      </tr>
+      <tr>
+        <td><code>payload</code></td>
+        <td width="100%">
+          <code>Object</code>:
+          Optional parameter, use null to identify a "full" update</td>
+      </tr>
+    </table>
+  <div>
+      <p><b>See also:</b></p>
       <ul class="nolist"><li><code><a href="../../../../../reference/android/support/v7/widget/RecyclerView.Adapter.html#notifyItemChanged(int)">notifyItemChanged(int)</a></code></li>
       </ul>
   </div>
 
-    </div>
 </div>
 
 
 <A NAME="notifyItemRangeChanged(int, int)"></A>
 
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public
-        
-        
-        
-        final
-        void
-      </span>
-      <span class="sympad">notifyItemRangeChanged</span>
-      <span class="normal">(int positionStart, int itemCount)</span>
-    </h4>
-      <div class="api-level">
-        <div></div>
-        
+<div class="api apilevel-">
+    <h3 class="api-name">notifyItemRangeChanged</h3>
+    <div class="api-level">
+      <div></div>
+      
   
 
-      </div>
-    <div class="jd-details-descr">
-      
+    </div>
+<pre class="api-signature no-pretty-print">
+void notifyItemRangeChanged (int positionStart, 
+                int itemCount)</pre>
+    
     
 
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Notify any registered observers that the <code>itemCount</code> items starting at
+    
+  <p>Notify any registered observers that the <code>itemCount</code> items starting at
  position <code>positionStart</code> have changed.
  Equivalent to calling <code>notifyItemRangeChanged(position, itemCount, null);</code>.
 
  <p>This is an item change event, not a structural change event. It indicates that
  any reflection of the data in the given position range is out of date and should
- be updated. The items in the given range retain the same identity.</p></p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Parameters</h5>
-      <table class="jd-tagtable">
-        <tr>
-          <th>positionStart</td>
-          <td>Position of the first item that has changed</td>
-        </tr>
-        <tr>
-          <th>itemCount</td>
-          <td>Number of items that have changed</td>
-        </tr>
-      </table>
-  </div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">See Also</h5>
+ be updated. The items in the given range retain the same identity.</p></p>
+    <table class="responsive">
+    <tr><th colspan=2>Parameters</th></tr>
+      <tr>
+        <td><code>positionStart</code></td>
+        <td width="100%">
+          <code>int</code>:
+          Position of the first item that has changed</td>
+      </tr>
+      <tr>
+        <td><code>itemCount</code></td>
+        <td width="100%">
+          <code>int</code>:
+          Number of items that have changed</td>
+      </tr>
+    </table>
+  <div>
+      <p><b>See also:</b></p>
       <ul class="nolist"><li><code><a href="../../../../../reference/android/support/v7/widget/RecyclerView.Adapter.html#notifyItemChanged(int)">notifyItemChanged(int)</a></code></li>
       </ul>
   </div>
 
-    </div>
 </div>
 
 
 <A NAME="notifyItemRangeInserted(int, int)"></A>
 
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public
-        
-        
-        
-        final
-        void
-      </span>
-      <span class="sympad">notifyItemRangeInserted</span>
-      <span class="normal">(int positionStart, int itemCount)</span>
-    </h4>
-      <div class="api-level">
-        <div></div>
-        
+<div class="api apilevel-">
+    <h3 class="api-name">notifyItemRangeInserted</h3>
+    <div class="api-level">
+      <div></div>
+      
   
 
-      </div>
-    <div class="jd-details-descr">
-      
+    </div>
+<pre class="api-signature no-pretty-print">
+void notifyItemRangeInserted (int positionStart, 
+                int itemCount)</pre>
+    
     
 
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Notify any registered observers that the currently reflected <code>itemCount</code>
+    
+  <p>Notify any registered observers that the currently reflected <code>itemCount</code>
  items starting at <code>positionStart</code> have been newly inserted. The items
  previously located at <code>positionStart</code> and beyond can now be found starting
  at position <code>positionStart + itemCount</code>.
 
  <p>This is a structural change event. Representations of other existing items in the
  data set are still considered up to date and will not be rebound, though their positions
- may be altered.</p></p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Parameters</h5>
-      <table class="jd-tagtable">
-        <tr>
-          <th>positionStart</td>
-          <td>Position of the first item that was inserted</td>
-        </tr>
-        <tr>
-          <th>itemCount</td>
-          <td>Number of items inserted</td>
-        </tr>
-      </table>
-  </div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">See Also</h5>
+ may be altered.</p></p>
+    <table class="responsive">
+    <tr><th colspan=2>Parameters</th></tr>
+      <tr>
+        <td><code>positionStart</code></td>
+        <td width="100%">
+          <code>int</code>:
+          Position of the first item that was inserted</td>
+      </tr>
+      <tr>
+        <td><code>itemCount</code></td>
+        <td width="100%">
+          <code>int</code>:
+          Number of items inserted</td>
+      </tr>
+    </table>
+  <div>
+      <p><b>See also:</b></p>
       <ul class="nolist"><li><code><a href="../../../../../reference/android/support/v7/widget/RecyclerView.Adapter.html#notifyItemInserted(int)">notifyItemInserted(int)</a></code></li>
       </ul>
   </div>
 
-    </div>
 </div>
 
 
 <A NAME="notifyItemRangeRemoved(int, int)"></A>
 
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public
-        
-        
-        
-        final
-        void
-      </span>
-      <span class="sympad">notifyItemRangeRemoved</span>
-      <span class="normal">(int positionStart, int itemCount)</span>
-    </h4>
-      <div class="api-level">
-        <div></div>
-        
+<div class="api apilevel-">
+    <h3 class="api-name">notifyItemRangeRemoved</h3>
+    <div class="api-level">
+      <div></div>
+      
   
 
-      </div>
-    <div class="jd-details-descr">
-      
+    </div>
+<pre class="api-signature no-pretty-print">
+void notifyItemRangeRemoved (int positionStart, 
+                int itemCount)</pre>
+    
     
 
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Notify any registered observers that the <code>itemCount</code> items previously
+    
+  <p>Notify any registered observers that the <code>itemCount</code> items previously
  located at <code>positionStart</code> have been removed from the data set. The items
  previously located at and after <code>positionStart + itemCount</code> may now be found
  at <code>oldPosition - itemCount</code>.
 
  <p>This is a structural change event. Representations of other existing items in the data
  set are still considered up to date and will not be rebound, though their positions
- may be altered.</p></p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Parameters</h5>
-      <table class="jd-tagtable">
-        <tr>
-          <th>positionStart</td>
-          <td>Previous position of the first item that was removed</td>
-        </tr>
-        <tr>
-          <th>itemCount</td>
-          <td>Number of items removed from the data set
+ may be altered.</p></p>
+    <table class="responsive">
+    <tr><th colspan=2>Parameters</th></tr>
+      <tr>
+        <td><code>positionStart</code></td>
+        <td width="100%">
+          <code>int</code>:
+          Previous position of the first item that was removed</td>
+      </tr>
+      <tr>
+        <td><code>itemCount</code></td>
+        <td width="100%">
+          <code>int</code>:
+          Number of items removed from the data set
 </td>
-        </tr>
-      </table>
-  </div>
+      </tr>
+    </table>
 
-    </div>
 </div>
 
 
 <A NAME="notifyItemRemoved(int)"></A>
 
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public
-        
-        
-        
-        final
-        void
-      </span>
-      <span class="sympad">notifyItemRemoved</span>
-      <span class="normal">(int position)</span>
-    </h4>
-      <div class="api-level">
-        <div></div>
-        
+<div class="api apilevel-">
+    <h3 class="api-name">notifyItemRemoved</h3>
+    <div class="api-level">
+      <div></div>
+      
   
 
-      </div>
-    <div class="jd-details-descr">
-      
+    </div>
+<pre class="api-signature no-pretty-print">
+void notifyItemRemoved (int position)</pre>
+    
     
 
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Notify any registered observers that the item previously located at <code>position</code>
+    
+  <p>Notify any registered observers that the item previously located at <code>position</code>
  has been removed from the data set. The items previously located at and after
  <code>position</code> may now be found at <code>oldPosition - 1</code>.
 
  <p>This is a structural change event. Representations of other existing items in the
  data set are still considered up to date and will not be rebound, though their positions
- may be altered.</p></p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Parameters</h5>
-      <table class="jd-tagtable">
-        <tr>
-          <th>position</td>
-          <td>Position of the item that has now been removed</td>
-        </tr>
-      </table>
-  </div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">See Also</h5>
+ may be altered.</p></p>
+    <table class="responsive">
+    <tr><th colspan=2>Parameters</th></tr>
+      <tr>
+        <td><code>position</code></td>
+        <td width="100%">
+          <code>int</code>:
+          Position of the item that has now been removed</td>
+      </tr>
+    </table>
+  <div>
+      <p><b>See also:</b></p>
       <ul class="nolist"><li><code><a href="../../../../../reference/android/support/v7/widget/RecyclerView.Adapter.html#notifyItemRangeRemoved(int, int)">notifyItemRangeRemoved(int, int)</a></code></li>
       </ul>
   </div>
 
-    </div>
 </div>
 
 
 <A NAME="onAttachedToRecyclerView(android.support.v7.widget.RecyclerView)"></A>
 
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public
-        
-        
-        
-        
-        void
-      </span>
-      <span class="sympad">onAttachedToRecyclerView</span>
-      <span class="normal">(<a href="../../../../../reference/android/support/v7/widget/RecyclerView.html">RecyclerView</a> recyclerView)</span>
-    </h4>
-      <div class="api-level">
-        <div></div>
-        
+<div class="api apilevel-">
+    <h3 class="api-name">onAttachedToRecyclerView</h3>
+    <div class="api-level">
+      <div></div>
+      
   
 
-      </div>
-    <div class="jd-details-descr">
-      
+    </div>
+<pre class="api-signature no-pretty-print">
+void onAttachedToRecyclerView (<a href="../../../../../reference/android/support/v7/widget/RecyclerView.html">RecyclerView</a> recyclerView)</pre>
+    
     
 
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Called by RecyclerView when it starts observing this Adapter.
+    
+  <p>Called by RecyclerView when it starts observing this Adapter.
  <p>
- Keep in mind that same adapter may be observed by multiple RecyclerViews.</p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Parameters</h5>
-      <table class="jd-tagtable">
-        <tr>
-          <th>recyclerView</td>
-          <td>The RecyclerView instance which started observing this adapter.</td>
-        </tr>
-      </table>
-  </div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">See Also</h5>
+ Keep in mind that same adapter may be observed by multiple RecyclerViews.</p>
+    <table class="responsive">
+    <tr><th colspan=2>Parameters</th></tr>
+      <tr>
+        <td><code>recyclerView</code></td>
+        <td width="100%">
+          <code>RecyclerView</code>:
+          The RecyclerView instance which started observing this adapter.</td>
+      </tr>
+    </table>
+  <div>
+      <p><b>See also:</b></p>
       <ul class="nolist"><li><code><a href="../../../../../reference/android/support/v7/widget/RecyclerView.Adapter.html#onDetachedFromRecyclerView(android.support.v7.widget.RecyclerView)">onDetachedFromRecyclerView(RecyclerView)</a></code></li>
       </ul>
   </div>
 
-    </div>
 </div>
 
 
 <A NAME="onBindViewHolder(VH, int)"></A>
 
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public
-        abstract
-        
-        
-        
-        void
-      </span>
-      <span class="sympad">onBindViewHolder</span>
-      <span class="normal">(VH holder, int position)</span>
-    </h4>
-      <div class="api-level">
-        <div></div>
-        
+<div class="api apilevel-">
+    <h3 class="api-name">onBindViewHolder</h3>
+    <div class="api-level">
+      <div></div>
+      
   
 
-      </div>
-    <div class="jd-details-descr">
-      
+    </div>
+<pre class="api-signature no-pretty-print">
+void onBindViewHolder (VH holder, 
+                int position)</pre>
+    
     
 
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Called by RecyclerView to display the data at the specified position. This method should
+    
+  <p>Called by RecyclerView to display the data at the specified position. This method should
  update the contents of the <code><a href="../../../../../reference/android/support/v7/widget/RecyclerView.ViewHolder.html#itemView">itemView</a></code> to reflect the item at the given
  position.
  <p>
@@ -3340,54 +3331,47 @@ From class
  have the updated adapter position.
 
  Override <code><a href="../../../../../reference/android/support/v7/widget/RecyclerView.Adapter.html#onBindViewHolder(VH, int, java.util.List<java.lang.Object>)">onBindViewHolder(ViewHolder, int, List)</a></code> instead if Adapter can
- handle effcient partial bind.</p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Parameters</h5>
-      <table class="jd-tagtable">
-        <tr>
-          <th>holder</td>
-          <td>The ViewHolder which should be updated to represent the contents of the
+ handle effcient partial bind.</p>
+    <table class="responsive">
+    <tr><th colspan=2>Parameters</th></tr>
+      <tr>
+        <td><code>holder</code></td>
+        <td width="100%">
+          <code>VH</code>:
+          The ViewHolder which should be updated to represent the contents of the
         item at the given position in the data set.</td>
-        </tr>
-        <tr>
-          <th>position</td>
-          <td>The position of the item within the adapter's data set.
+      </tr>
+      <tr>
+        <td><code>position</code></td>
+        <td width="100%">
+          <code>int</code>:
+          The position of the item within the adapter's data set.
 </td>
-        </tr>
-      </table>
-  </div>
+      </tr>
+    </table>
 
-    </div>
 </div>
 
 
 <A NAME="onBindViewHolder(VH, int, java.util.List<java.lang.Object>)"></A>
 
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public
-        
-        
-        
-        
-        void
-      </span>
-      <span class="sympad">onBindViewHolder</span>
-      <span class="normal">(VH holder, int position, <a href="../../../../../reference/java/util/List.html">List</a>&lt;<a href="../../../../../reference/java/lang/Object.html">Object</a>&gt; payloads)</span>
-    </h4>
-      <div class="api-level">
-        <div></div>
-        
+<div class="api apilevel-">
+    <h3 class="api-name">onBindViewHolder</h3>
+    <div class="api-level">
+      <div></div>
+      
   
 
-      </div>
-    <div class="jd-details-descr">
-      
+    </div>
+<pre class="api-signature no-pretty-print">
+void onBindViewHolder (VH holder, 
+                int position, 
+                <a href="../../../../../reference/java/util/List.html">List</a>&lt;<a href="../../../../../reference/java/lang/Object.html">Object</a>&gt; payloads)</pre>
+    
     
 
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Called by RecyclerView to display the data at the specified position. This method
+    
+  <p>Called by RecyclerView to display the data at the specified position. This method
  should update the contents of the <code><a href="../../../../../reference/android/support/v7/widget/RecyclerView.ViewHolder.html#itemView">itemView</a></code> to reflect the item at
  the given position.
  <p>
@@ -3407,59 +3391,53 @@ From class
  update using the payload info.  If the payload is empty,  Adapter must run a full bind.
  Adapter should not assume that the payload passed in notify methods will be received by
  onBindViewHolder().  For example when the view is not attached to the screen, the
- payload in notifyItemChange() will be simply dropped.</p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Parameters</h5>
-      <table class="jd-tagtable">
-        <tr>
-          <th>holder</td>
-          <td>The ViewHolder which should be updated to represent the contents of the
+ payload in notifyItemChange() will be simply dropped.</p>
+    <table class="responsive">
+    <tr><th colspan=2>Parameters</th></tr>
+      <tr>
+        <td><code>holder</code></td>
+        <td width="100%">
+          <code>VH</code>:
+          The ViewHolder which should be updated to represent the contents of the
                item at the given position in the data set.</td>
-        </tr>
-        <tr>
-          <th>position</td>
-          <td>The position of the item within the adapter's data set.</td>
-        </tr>
-        <tr>
-          <th>payloads</td>
-          <td>A non-null list of merged payloads. Can be empty list if requires full
+      </tr>
+      <tr>
+        <td><code>position</code></td>
+        <td width="100%">
+          <code>int</code>:
+          The position of the item within the adapter's data set.</td>
+      </tr>
+      <tr>
+        <td><code>payloads</code></td>
+        <td width="100%">
+          <code>List</code>:
+          A non-null list of merged payloads. Can be empty list if requires full
                  update.
 </td>
-        </tr>
-      </table>
-  </div>
+      </tr>
+    </table>
 
-    </div>
 </div>
 
 
 <A NAME="onCreateViewHolder(android.view.ViewGroup, int)"></A>
 
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public
-        abstract
-        
-        
-        
-        VH
-      </span>
-      <span class="sympad">onCreateViewHolder</span>
-      <span class="normal">(<a href="../../../../../reference/android/view/ViewGroup.html">ViewGroup</a> parent, int viewType)</span>
-    </h4>
-      <div class="api-level">
-        <div></div>
-        
+<div class="api apilevel-">
+    <h3 class="api-name">onCreateViewHolder</h3>
+    <div class="api-level">
+      <div></div>
+      
   
 
-      </div>
-    <div class="jd-details-descr">
-      
+    </div>
+<pre class="api-signature no-pretty-print">
+VH onCreateViewHolder (<a href="../../../../../reference/android/view/ViewGroup.html">ViewGroup</a> parent, 
+                int viewType)</pre>
+    
     
 
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Called when RecyclerView needs a new <code><a href="../../../../../reference/android/support/v7/widget/RecyclerView.ViewHolder.html">RecyclerView.ViewHolder</a></code> of the given type to represent
+    
+  <p>Called when RecyclerView needs a new <code><a href="../../../../../reference/android/support/v7/widget/RecyclerView.ViewHolder.html">RecyclerView.ViewHolder</a></code> of the given type to represent
  an item.
  <p>
  This new ViewHolder should be constructed with a new View that can represent the items
@@ -3469,108 +3447,91 @@ From class
  The new ViewHolder will be used to display items of the adapter using
  <code><a href="../../../../../reference/android/support/v7/widget/RecyclerView.Adapter.html#onBindViewHolder(VH, int, java.util.List<java.lang.Object>)">onBindViewHolder(ViewHolder, int, List)</a></code>. Since it will be re-used to display
  different items in the data set, it is a good idea to cache references to sub views of
- the View to avoid unnecessary <code><a href="../../../../../reference/android/view/View.html#findViewById(int)">findViewById(int)</a></code> calls.</p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Parameters</h5>
-      <table class="jd-tagtable">
-        <tr>
-          <th>parent</td>
-          <td>The ViewGroup into which the new View will be added after it is bound to
+ the View to avoid unnecessary <code><a href="../../../../../reference/android/view/View.html#findViewById(int)">findViewById(int)</a></code> calls.</p>
+    <table class="responsive">
+    <tr><th colspan=2>Parameters</th></tr>
+      <tr>
+        <td><code>parent</code></td>
+        <td width="100%">
+          <code>ViewGroup</code>:
+          The ViewGroup into which the new View will be added after it is bound to
                an adapter position.</td>
-        </tr>
-        <tr>
-          <th>viewType</td>
-          <td>The view type of the new View.</td>
-        </tr>
-      </table>
-  </div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Returns</h5>
-      <ul class="nolist"><li>A new ViewHolder that holds a View of the given view type.</li></ul>
-  </div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">See Also</h5>
+      </tr>
+      <tr>
+        <td><code>viewType</code></td>
+        <td width="100%">
+          <code>int</code>:
+          The view type of the new View.</td>
+      </tr>
+    </table>
+    <table class="responsive">
+      <tr><th colspan=2>Returns</th></tr>
+      <tr>
+        <td><code>VH</code></td>
+        <td width="100%">A new ViewHolder that holds a View of the given view type.</td>
+      </tr>
+    </table>
+  <div>
+      <p><b>See also:</b></p>
       <ul class="nolist"><li><code><a href="../../../../../reference/android/support/v7/widget/RecyclerView.Adapter.html#getItemViewType(int)">getItemViewType(int)</a></code></li><li><code><a href="../../../../../reference/android/support/v7/widget/RecyclerView.Adapter.html#onBindViewHolder(VH, int)">onBindViewHolder(ViewHolder, int)</a></code></li>
       </ul>
   </div>
 
-    </div>
 </div>
 
 
 <A NAME="onDetachedFromRecyclerView(android.support.v7.widget.RecyclerView)"></A>
 
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public
-        
-        
-        
-        
-        void
-      </span>
-      <span class="sympad">onDetachedFromRecyclerView</span>
-      <span class="normal">(<a href="../../../../../reference/android/support/v7/widget/RecyclerView.html">RecyclerView</a> recyclerView)</span>
-    </h4>
-      <div class="api-level">
-        <div></div>
-        
+<div class="api apilevel-">
+    <h3 class="api-name">onDetachedFromRecyclerView</h3>
+    <div class="api-level">
+      <div></div>
+      
   
 
-      </div>
-    <div class="jd-details-descr">
-      
+    </div>
+<pre class="api-signature no-pretty-print">
+void onDetachedFromRecyclerView (<a href="../../../../../reference/android/support/v7/widget/RecyclerView.html">RecyclerView</a> recyclerView)</pre>
+    
     
 
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Called by RecyclerView when it stops observing this Adapter.</p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Parameters</h5>
-      <table class="jd-tagtable">
-        <tr>
-          <th>recyclerView</td>
-          <td>The RecyclerView instance which stopped observing this adapter.</td>
-        </tr>
-      </table>
-  </div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">See Also</h5>
+    
+  <p>Called by RecyclerView when it stops observing this Adapter.</p>
+    <table class="responsive">
+    <tr><th colspan=2>Parameters</th></tr>
+      <tr>
+        <td><code>recyclerView</code></td>
+        <td width="100%">
+          <code>RecyclerView</code>:
+          The RecyclerView instance which stopped observing this adapter.</td>
+      </tr>
+    </table>
+  <div>
+      <p><b>See also:</b></p>
       <ul class="nolist"><li><code><a href="../../../../../reference/android/support/v7/widget/RecyclerView.Adapter.html#onAttachedToRecyclerView(android.support.v7.widget.RecyclerView)">onAttachedToRecyclerView(RecyclerView)</a></code></li>
       </ul>
   </div>
 
-    </div>
 </div>
 
 
 <A NAME="onFailedToRecycleView(VH)"></A>
 
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public
-        
-        
-        
-        
-        boolean
-      </span>
-      <span class="sympad">onFailedToRecycleView</span>
-      <span class="normal">(VH holder)</span>
-    </h4>
-      <div class="api-level">
-        <div></div>
-        
+<div class="api apilevel-">
+    <h3 class="api-name">onFailedToRecycleView</h3>
+    <div class="api-level">
+      <div></div>
+      
   
 
-      </div>
-    <div class="jd-details-descr">
-      
+    </div>
+<pre class="api-signature no-pretty-print">
+boolean onFailedToRecycleView (VH holder)</pre>
+    
     
 
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Called by the RecyclerView if a ViewHolder created by this Adapter cannot be recycled
+    
+  <p>Called by the RecyclerView if a ViewHolder created by this Adapter cannot be recycled
  due to its transient state. Upon receiving this callback, Adapter can clear the
  animation(s) that effect the View's transient state and return <code>true</code> so that
  the View can be recycled. Keep in mind that the View in question is already removed from
@@ -3593,151 +3554,121 @@ From class
  <code>View.setHasTransientState(true)</code> call must be matched by a
  <code>View.setHasTransientState(false)</code> call, otherwise, the state of the View
  may become inconsistent. You should always prefer to end or cancel animations that are
- triggering the transient state instead of handling it manually.</p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Parameters</h5>
-      <table class="jd-tagtable">
-        <tr>
-          <th>holder</td>
-          <td>The ViewHolder containing the View that could not be recycled due to its
+ triggering the transient state instead of handling it manually.</p>
+    <table class="responsive">
+    <tr><th colspan=2>Parameters</th></tr>
+      <tr>
+        <td><code>holder</code></td>
+        <td width="100%">
+          <code>VH</code>:
+          The ViewHolder containing the View that could not be recycled due to its
                transient state.</td>
-        </tr>
-      </table>
-  </div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Returns</h5>
-      <ul class="nolist"><li>True if the View should be recycled, false otherwise. Note that if this method
+      </tr>
+    </table>
+    <table class="responsive">
+      <tr><th colspan=2>Returns</th></tr>
+      <tr>
+        <td><code>boolean</code></td>
+        <td width="100%">True if the View should be recycled, false otherwise. Note that if this method
  returns <code>true</code>, RecyclerView <em>will ignore</em> the transient state of
  the View and recycle it regardless. If this method returns <code>false</code>,
  RecyclerView will check the View's transient state again before giving a final decision.
  Default implementation returns false.
-</li></ul>
-  </div>
+</td>
+      </tr>
+    </table>
 
-    </div>
 </div>
 
 
 <A NAME="onViewAttachedToWindow(VH)"></A>
 
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public
-        
-        
-        
-        
-        void
-      </span>
-      <span class="sympad">onViewAttachedToWindow</span>
-      <span class="normal">(VH holder)</span>
-    </h4>
-      <div class="api-level">
-        <div></div>
-        
+<div class="api apilevel-">
+    <h3 class="api-name">onViewAttachedToWindow</h3>
+    <div class="api-level">
+      <div></div>
+      
   
 
-      </div>
-    <div class="jd-details-descr">
-      
+    </div>
+<pre class="api-signature no-pretty-print">
+void onViewAttachedToWindow (VH holder)</pre>
+    
     
 
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Called when a view created by this adapter has been attached to a window.
+    
+  <p>Called when a view created by this adapter has been attached to a window.
 
  <p>This can be used as a reasonable signal that the view is about to be seen
  by the user. If the adapter previously freed any resources in
  <code><a href="../../../../../reference/android/support/v7/widget/RecyclerView.Adapter.html#onViewDetachedFromWindow(VH)">onViewDetachedFromWindow</a></code>
- those resources should be restored here.</p></p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Parameters</h5>
-      <table class="jd-tagtable">
-        <tr>
-          <th>holder</td>
-          <td>Holder of the view being attached
+ those resources should be restored here.</p></p>
+    <table class="responsive">
+    <tr><th colspan=2>Parameters</th></tr>
+      <tr>
+        <td><code>holder</code></td>
+        <td width="100%">
+          <code>VH</code>:
+          Holder of the view being attached
 </td>
-        </tr>
-      </table>
-  </div>
+      </tr>
+    </table>
 
-    </div>
 </div>
 
 
 <A NAME="onViewDetachedFromWindow(VH)"></A>
 
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public
-        
-        
-        
-        
-        void
-      </span>
-      <span class="sympad">onViewDetachedFromWindow</span>
-      <span class="normal">(VH holder)</span>
-    </h4>
-      <div class="api-level">
-        <div></div>
-        
+<div class="api apilevel-">
+    <h3 class="api-name">onViewDetachedFromWindow</h3>
+    <div class="api-level">
+      <div></div>
+      
   
 
-      </div>
-    <div class="jd-details-descr">
-      
+    </div>
+<pre class="api-signature no-pretty-print">
+void onViewDetachedFromWindow (VH holder)</pre>
+    
     
 
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Called when a view created by this adapter has been detached from its window.
+    
+  <p>Called when a view created by this adapter has been detached from its window.
 
  <p>Becoming detached from the window is not necessarily a permanent condition;
  the consumer of an Adapter's views may choose to cache views offscreen while they
- are not visible, attaching an detaching them as appropriate.</p></p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Parameters</h5>
-      <table class="jd-tagtable">
-        <tr>
-          <th>holder</td>
-          <td>Holder of the view being detached
+ are not visible, attaching an detaching them as appropriate.</p></p>
+    <table class="responsive">
+    <tr><th colspan=2>Parameters</th></tr>
+      <tr>
+        <td><code>holder</code></td>
+        <td width="100%">
+          <code>VH</code>:
+          Holder of the view being detached
 </td>
-        </tr>
-      </table>
-  </div>
+      </tr>
+    </table>
 
-    </div>
 </div>
 
 
 <A NAME="onViewRecycled(VH)"></A>
 
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public
-        
-        
-        
-        
-        void
-      </span>
-      <span class="sympad">onViewRecycled</span>
-      <span class="normal">(VH holder)</span>
-    </h4>
-      <div class="api-level">
-        <div></div>
-        
+<div class="api apilevel-">
+    <h3 class="api-name">onViewRecycled</h3>
+    <div class="api-level">
+      <div></div>
+      
   
 
-      </div>
-    <div class="jd-details-descr">
-      
+    </div>
+<pre class="api-signature no-pretty-print">
+void onViewRecycled (VH holder)</pre>
+    
     
 
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Called when a view created by this adapter has been recycled.
+    
+  <p>Called when a view created by this adapter has been recycled.
 
  <p>A view is recycled when a <code><a href="../../../../../reference/android/support/v7/widget/RecyclerView.LayoutManager.html">RecyclerView.LayoutManager</a></code> decides that it no longer
  needs to be attached to its parent <code><a href="../../../../../reference/android/support/v7/widget/RecyclerView.html">RecyclerView</a></code>. This can be because it has
@@ -3749,168 +3680,134 @@ From class
  RecyclerView calls this method right before clearing ViewHolder's internal data and
  sending it to RecycledViewPool. This way, if ViewHolder was holding valid information
  before being recycled, you can call <code><a href="../../../../../reference/android/support/v7/widget/RecyclerView.ViewHolder.html#getAdapterPosition()">getAdapterPosition()</a></code> to get
- its adapter position.</p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Parameters</h5>
-      <table class="jd-tagtable">
-        <tr>
-          <th>holder</td>
-          <td>The ViewHolder for the view being recycled
+ its adapter position.</p>
+    <table class="responsive">
+    <tr><th colspan=2>Parameters</th></tr>
+      <tr>
+        <td><code>holder</code></td>
+        <td width="100%">
+          <code>VH</code>:
+          The ViewHolder for the view being recycled
 </td>
-        </tr>
-      </table>
-  </div>
+      </tr>
+    </table>
 
-    </div>
 </div>
 
 
 <A NAME="registerAdapterDataObserver(android.support.v7.widget.RecyclerView.AdapterDataObserver)"></A>
 
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public
-        
-        
-        
-        
-        void
-      </span>
-      <span class="sympad">registerAdapterDataObserver</span>
-      <span class="normal">(<a href="../../../../../reference/android/support/v7/widget/RecyclerView.AdapterDataObserver.html">RecyclerView.AdapterDataObserver</a> observer)</span>
-    </h4>
-      <div class="api-level">
-        <div></div>
-        
+<div class="api apilevel-">
+    <h3 class="api-name">registerAdapterDataObserver</h3>
+    <div class="api-level">
+      <div></div>
+      
   
 
-      </div>
-    <div class="jd-details-descr">
-      
+    </div>
+<pre class="api-signature no-pretty-print">
+void registerAdapterDataObserver (<a href="../../../../../reference/android/support/v7/widget/RecyclerView.AdapterDataObserver.html">RecyclerView.AdapterDataObserver</a> observer)</pre>
+    
     
 
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Register a new observer to listen for data changes.
+    
+  <p>Register a new observer to listen for data changes.
 
  <p>The adapter may publish a variety of events describing specific changes.
  Not all adapters may support all change types and some may fall back to a generic
  <code><a href="../../../../../reference/android/support/v7/widget/RecyclerView.AdapterDataObserver.html#onChanged()">"something changed"</a></code> event if more specific data is not available.</p>
 
  <p>Components registering observers with an adapter are responsible for
- <code><a href="../../../../../reference/android/support/v7/widget/RecyclerView.Adapter.html#unregisterAdapterDataObserver(android.support.v7.widget.RecyclerView.AdapterDataObserver)">unregistering</a></code> those observers when finished.</p></p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Parameters</h5>
-      <table class="jd-tagtable">
-        <tr>
-          <th>observer</td>
-          <td>Observer to register</td>
-        </tr>
-      </table>
-  </div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">See Also</h5>
+ <code><a href="../../../../../reference/android/support/v7/widget/RecyclerView.Adapter.html#unregisterAdapterDataObserver(android.support.v7.widget.RecyclerView.AdapterDataObserver)">unregistering</a></code> those observers when finished.</p></p>
+    <table class="responsive">
+    <tr><th colspan=2>Parameters</th></tr>
+      <tr>
+        <td><code>observer</code></td>
+        <td width="100%">
+          <code>RecyclerView.AdapterDataObserver</code>:
+          Observer to register</td>
+      </tr>
+    </table>
+  <div>
+      <p><b>See also:</b></p>
       <ul class="nolist"><li><code><a href="../../../../../reference/android/support/v7/widget/RecyclerView.Adapter.html#unregisterAdapterDataObserver(android.support.v7.widget.RecyclerView.AdapterDataObserver)">unregisterAdapterDataObserver(RecyclerView.AdapterDataObserver)</a></code></li>
       </ul>
   </div>
 
-    </div>
 </div>
 
 
 <A NAME="setHasStableIds(boolean)"></A>
 
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public
-        
-        
-        
-        
-        void
-      </span>
-      <span class="sympad">setHasStableIds</span>
-      <span class="normal">(boolean hasStableIds)</span>
-    </h4>
-      <div class="api-level">
-        <div></div>
-        
+<div class="api apilevel-">
+    <h3 class="api-name">setHasStableIds</h3>
+    <div class="api-level">
+      <div></div>
+      
   
 
-      </div>
-    <div class="jd-details-descr">
-      
+    </div>
+<pre class="api-signature no-pretty-print">
+void setHasStableIds (boolean hasStableIds)</pre>
+    
     
 
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Indicates whether each item in the data set can be represented with a unique identifier
- of type <code><a href="../../../../../reference/java/lang/Long.html">Long</a></code>.</p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Parameters</h5>
-      <table class="jd-tagtable">
-        <tr>
-          <th>hasStableIds</td>
-          <td>Whether items in data set have unique identifiers or not.</td>
-        </tr>
-      </table>
-  </div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">See Also</h5>
+    
+  <p>Indicates whether each item in the data set can be represented with a unique identifier
+ of type <code><a href="../../../../../reference/java/lang/Long.html">Long</a></code>.</p>
+    <table class="responsive">
+    <tr><th colspan=2>Parameters</th></tr>
+      <tr>
+        <td><code>hasStableIds</code></td>
+        <td width="100%">
+          <code>boolean</code>:
+          Whether items in data set have unique identifiers or not.</td>
+      </tr>
+    </table>
+  <div>
+      <p><b>See also:</b></p>
       <ul class="nolist"><li><code><a href="../../../../../reference/android/support/v7/widget/RecyclerView.Adapter.html#hasStableIds()">hasStableIds()</a></code></li><li><code><a href="../../../../../reference/android/support/v7/widget/RecyclerView.Adapter.html#getItemId(int)">getItemId(int)</a></code></li>
       </ul>
   </div>
 
-    </div>
 </div>
 
 
 <A NAME="unregisterAdapterDataObserver(android.support.v7.widget.RecyclerView.AdapterDataObserver)"></A>
 
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public
-        
-        
-        
-        
-        void
-      </span>
-      <span class="sympad">unregisterAdapterDataObserver</span>
-      <span class="normal">(<a href="../../../../../reference/android/support/v7/widget/RecyclerView.AdapterDataObserver.html">RecyclerView.AdapterDataObserver</a> observer)</span>
-    </h4>
-      <div class="api-level">
-        <div></div>
-        
+<div class="api apilevel-">
+    <h3 class="api-name">unregisterAdapterDataObserver</h3>
+    <div class="api-level">
+      <div></div>
+      
   
 
-      </div>
-    <div class="jd-details-descr">
-      
+    </div>
+<pre class="api-signature no-pretty-print">
+void unregisterAdapterDataObserver (<a href="../../../../../reference/android/support/v7/widget/RecyclerView.AdapterDataObserver.html">RecyclerView.AdapterDataObserver</a> observer)</pre>
+    
     
 
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Unregister an observer currently listening for data changes.
+    
+  <p>Unregister an observer currently listening for data changes.
 
  <p>The unregistered observer will no longer receive events about changes
- to the adapter.</p></p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Parameters</h5>
-      <table class="jd-tagtable">
-        <tr>
-          <th>observer</td>
-          <td>Observer to unregister</td>
-        </tr>
-      </table>
-  </div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">See Also</h5>
+ to the adapter.</p></p>
+    <table class="responsive">
+    <tr><th colspan=2>Parameters</th></tr>
+      <tr>
+        <td><code>observer</code></td>
+        <td width="100%">
+          <code>RecyclerView.AdapterDataObserver</code>:
+          Observer to unregister</td>
+      </tr>
+    </table>
+  <div>
+      <p><b>See also:</b></p>
       <ul class="nolist"><li><code><a href="../../../../../reference/android/support/v7/widget/RecyclerView.Adapter.html#registerAdapterDataObserver(android.support.v7.widget.RecyclerView.AdapterDataObserver)">registerAdapterDataObserver(RecyclerView.AdapterDataObserver)</a></code></li>
       </ul>
   </div>
 
-    </div>
 </div>
 
 
@@ -3922,25 +3819,29 @@ From class
 
 
 <!-- ========= END OF CLASS DATA ========= -->
-<A NAME="navbar_top"></A>
-</div> <!-- jd-content -->
+
+</div><!-- end jd-content -->
+
+
+
+
 
 <div class="wrap">
   <div class="dac-footer">
     <div class="cols dac-footer-main">
       <div class="col-1of2">
-        <a class="dac-footer-getnews" data-modal-toggle="newsletter" href="javascript:;">Get news &amp; tips <span
+        <a class="dac-footer-getnews" id="newsletter" data-modal-toggle="newsletter" href="javascript:;">Get news &amp; tips <span
           class="dac-fab dac-primary"><i class="dac-sprite dac-mail"></i></span></a>
       </div>
       <div class="col-1of2 dac-footer-reachout">
         <div class="dac-footer-contact">
-          <a class="dac-footer-contact-link" href="//android-developers.blogspot.com/">Blog</a>
+          <a class="dac-footer-contact-link" href="http://android-developers.blogspot.com/">Blog</a>
           <a class="dac-footer-contact-link" href="../../../../../support.html">Support</a>
         </div>
         <div class="dac-footer-social">
-          <a class="dac-fab dac-footer-social-link" href="https://www.youtube.com/user/androiddevelopers"><i class="dac-sprite dac-youtube"></i></a>
-          <a class="dac-fab dac-footer-social-link" href="https://plus.google.com/+AndroidDevelopers"><i class="dac-sprite dac-gplus"></i></a>
-          <a class="dac-fab dac-footer-social-link" href="https://twitter.com/AndroidDev"><i class="dac-sprite dac-twitter"></i></a>
+          <a class="dac-button-social dac-youtube dac-footer-social-link" href="https://www.youtube.com/user/androiddevelopers"><i class="dac-sprite dac-youtube"></i></a>
+          <a class="dac-button-social dac-gplus dac-footer-social-link" href="https://plus.google.com/+AndroidDevelopers"><i class="dac-sprite dac-gplus"></i></a>
+          <a class="dac-button-social dac-twitter dac-footer-social-link" href="https://twitter.com/AndroidDev"><i class="dac-sprite dac-twitter"></i></a>
         </div>
       </div>
     </div>
@@ -3951,21 +3852,24 @@ From class
       <p class="dac-footer-copyright">
         
   Except as noted, this content is licensed under <a
-  href="//www.apache.org/licenses/LICENSE-2.0">Apache 2.0</a>.
+  href="http://www.apache.org/licenses/LICENSE-2.0">Apache 2.0</a>.
   For details and restrictions, see the <a href="../../../../../license.html">
   Content License</a>.
+
       </p>
       <p class="dac-footer-build">
         
-    Android 6.0&nbsp;r1 &mdash; 
-<script src="../../../../../timestamp.js" type="text/javascript"></script>
-<script>document.write(BUILD_TIMESTAMP)</script>
+  
+    Android 6.0&nbsp;r1 &mdash;
+  
+  <script src="../../../../../timestamp.js" type="text/javascript"></script>
+  <script>document.write(BUILD_TIMESTAMP)</script>
 
       </p>
     
 
     <p class="dac-footer-links">
-      <a href="../../../../../about/index.html">About Android</a>
+      <a href="../../../../../about/android.html">About Android</a>
       <a href="../../../../../auto/index.html">Auto</a>
       <a href="../../../../../tv/index.html">TV</a>
       <a href="../../../../../wear/index.html">Wear</a>
@@ -3975,58 +3879,70 @@ From class
         <select name="language" onchange="changeLangPref(this.value, true)">
           <option value="en" selected="selected">English</option>
           <option value="es">Español</option>
+          <option value="in">Bahasa Indonesia</option>
           <option value="ja">日本語</option>
           <option value="ko">한국어</option>
           <option value="pt-br">Português Brasileiro</option>
           <option value="ru">Русский</option>
+          <option value="vi">tiếng Việt</option>
           <option value="zh-cn">中文（简体)</option>
           <option value="zh-tw">中文（繁體)</option>
         </select>
       </span>
     </p>
   </div>
-</div> <!-- end footer -->
+</div>
+<!-- end footer -->
+
+
+
+  
+
+
 
 <div data-modal="newsletter" data-newsletter data-swap class="dac-modal newsletter">
   <div class="dac-modal-container">
     <div class="dac-modal-window">
       <header class="dac-modal-header">
-        <button class="dac-modal-header-close" data-modal-toggle><i class="dac-sprite dac-close"></i></button>
+        <div class="dac-modal-header-actions">
+          <button class="dac-modal-header-close" data-modal-toggle></button>
+        </div>
         <div class="dac-swap" data-swap-container>
           <section class="dac-swap-section dac-active dac-down">
-            <h2 class="norule dac-modal-header-title">Get the latest Android developer news and tips that will help you find success on Google Play.</h2>
-            <p class="dac-modal-header-subtitle">&#42; Required Fields</p>
+            <h2 class="norule dac-modal-header-title" data-t="newsletter.title"></h2>
+            <p class="dac-modal-header-subtitle" data-t="newsletter.requiredHint"></p>
           </section>
           <section class="dac-swap-section dac-up">
-            <h2 class="norule dac-modal-header-title">Hooray!</h2>
+            <h2 class="norule dac-modal-header-title" data-t="newsletter.successTitle">Hooray!</h2>
           </section>
         </div>
       </header>
       <div class="dac-swap" data-swap-container>
         <section class="dac-swap-section dac-active dac-left">
           <form action="https://docs.google.com/forms/d/1QgnkzbEJIDu9lMEea0mxqWrXUJu0oBCLD7ar23V0Yys/formResponse" class="dac-form" method="post" target="dac-newsletter-iframe">
+            <input type="hidden" name="entry.935454734" data-newsletter-language>
             <section class="dac-modal-content">
               <fieldset class="dac-form-fieldset">
                 <div class="cols">
                   <div class="col-1of2 newsletter-leftCol">
                     <div class="dac-form-input-group">
-                      <label for="newsletter-full-name" class="dac-form-floatlabel">Full name</label>
+                      <label for="newsletter-full-name" class="dac-form-floatlabel" data-t="newsletter.name">Full name</label>
                       <input type="text" class="dac-form-input" name="entry.1357890476" id="newsletter-full-name" required>
                       <span class="dac-form-required">*</span>
                     </div>
                     <div class="dac-form-input-group">
-                      <label for="newsletter-email" class="dac-form-floatlabel">Email address</label>
+                      <label for="newsletter-email" class="dac-form-floatlabel" data-t="newsletter.email">Email address</label>
                       <input type="email" class="dac-form-input" name="entry.472100832" id="newsletter-email" required>
                       <span class="dac-form-required">*</span>
                     </div>
                   </div>
                   <div class="col-1of2 newsletter-rightCol">
                     <div class="dac-form-input-group">
-                      <label for="newsletter-company" class="dac-form-floatlabel">Company / developer name</label>
+                      <label for="newsletter-company" class="dac-form-floatlabel" data-t="newsletter.company">Company / developer name</label>
                       <input type="text" class="dac-form-input" name="entry.1664780309" id="newsletter-company">
                     </div>
                     <div class="dac-form-input-group">
-                      <label for="newsletter-play-store" class="dac-form-floatlabel">One of your Play Store app URLs</label>
+                      <label for="newsletter-play-store" class="dac-form-floatlabel" data-t="newsletter.appUrl">One of your Play Store app URLs</label>
                       <input type="url" class="dac-form-input" name="entry.47013838" id="newsletter-play-store" required>
                       <span class="dac-form-required">*</span>
                     </div>
@@ -4036,22 +3952,22 @@ From class
               <fieldset class="dac-form-fieldset">
                 <div class="cols">
                   <div class="col-1of2 newsletter-leftCol">
-                    <legend class="dac-form-legend">Which best describes your business:<span class="dac-form-required">*</span>
+                    <legend class="dac-form-legend"><span data-t="newsletter.business.label">Which best describes your business:</span><span class="dac-form-required">*</span>
                     </legend>
                     <div class="dac-form-radio-group">
                       <input type="radio" value="Apps" class="dac-form-radio" name="entry.1796324055" id="newsletter-business-type-app" required>
                       <label for="newsletter-business-type-app" class="dac-form-radio-button"></label>
-                      <label for="newsletter-business-type-app" class="dac-form-label">Apps</label>
+                      <label for="newsletter-business-type-app" class="dac-form-label" data-t="newsletter.business.apps">Apps</label>
                     </div>
                     <div class="dac-form-radio-group">
                       <input type="radio" value="Games" class="dac-form-radio" name="entry.1796324055" id="newsletter-business-type-games" required>
                       <label for="newsletter-business-type-games" class="dac-form-radio-button"></label>
-                      <label for="newsletter-business-type-games" class="dac-form-label">Games</label>
+                      <label for="newsletter-business-type-games" class="dac-form-label" data-t="newsletter.business.games">Games</label>
                     </div>
                     <div class="dac-form-radio-group">
                       <input type="radio" value="Apps and Games" class="dac-form-radio" name="entry.1796324055" id="newsletter-business-type-appsgames" required>
                       <label for="newsletter-business-type-appsgames" class="dac-form-radio-button"></label>
-                      <label for="newsletter-business-type-appsgames" class="dac-form-label">Apps &amp; Games</label>
+                      <label for="newsletter-business-type-appsgames" class="dac-form-label" data-t="newsletter.business.both">Apps &amp; Games</label>
                     </div>
                   </div>
                   <div class="col-1of2 newsletter-rightCol newsletter-checkboxes">
@@ -4062,7 +3978,7 @@ From class
                           <label for="newsletter-add" class="dac-form-checkbox-button"></label>
                         </div>
                         <div class="dac-media-body">
-                          <label for="newsletter-add" class="dac-form-label dac-form-aside">Add me to the mailing list for the monthly newsletter and occasional emails about development and Google Play opportunities.<span class="dac-form-required">*</span></label>
+                          <label for="newsletter-add" class="dac-form-label dac-form-aside"><span data-t="newsletter.confirmMailingList"></span><span class="dac-form-required">*</span></label>
                         </div>
                       </div>
                     </div>
@@ -4073,7 +3989,7 @@ From class
                           <label for="newsletter-terms" class="dac-form-checkbox-button"></label>
                         </div>
                         <div class="dac-media-body">
-                          <label for="newsletter-terms" class="dac-form-label dac-form-aside">I acknowledge that the information provided in this form will be subject to <a href="https://www.google.com/policies/privacy/">Google's privacy policy</a>.<span class="dac-form-required">*</span></label>
+                          <label for="newsletter-terms" class="dac-form-label dac-form-aside"><span data-t="newsletter.privacyPolicy" data-t-html></span><span class="dac-form-required">*</span></label>
                         </div>
                       </div>
                     </div>
@@ -4092,24 +4008,74 @@ From class
         </section>
         <section class="dac-swap-section dac-right">
           <div class="dac-modal-content">
-            <p class="newsletter-success-message">
-              You have successfully signed up for the latest Android developer news and tips.
-            </p>
+            <p class="newsletter-success-message" data-t="newsletter.successDetails"></p>
           </div>
         </section>
       </div>
     </div>
   </div>
-</div> <!-- end footer -->
+</div>
+<!-- end newsletter modal -->
 
-</div><!-- end doc-content -->
+<!-- start reset language header modal -->
+<div data-modal="langform" class="dac-modal" id="langform">
+  <div class="dac-modal-container">
+    <div class="dac-modal-window">
+      <header class="dac-modal-header">
+        <div class="dac-modal-header-actions">
+          <button class="dac-modal-header-close" data-modal-toggle></button>
+        </div>
+        <section class="dac-swap-section dac-active dac-down">
+          <h2 class="norule dac-modal-header-title"></h2>
+        </section>
+      </header>
+      <section class="dac-swap-section dac-active dac-left">
+          <section class="dac-modal-content">
+            <fieldset class="dac-form-fieldset">
+              <div class="cols">
+                <div class="col-2of2 langform-leftCol">
+                  <p id="resetLangText"></p>
+                  <p id="resetLangCta"></p>
+                </div>
+              </div>
+            </fieldset>
+          </section>
+          <footer class="dac-modal-footer" id="langfooter">
+            <div class="cols">
+              <div class="col-2of5">
+              </div>
+            </div>
+              <button class="button dac-primary dac-modal-action lang yes" data-t="newsletter.resetLangButtonYes" data-modal-toggle></button>
+              <button class="button dac-primary dac-modal-action lang no" data-t="newsletter.resetLangButtonNo" data-modal-toggle></button>
+            </a>
+          </footer>
+        </form>
+      </section>
+    </div>
+  </div>
+</div>
+<!-- end langreset modal -->
 
-</div> <!-- end .cols --> 
+
 </div> <!-- end body-content --> 
 
 
 
 
+<script src="../../../../../ajax/developer.android.com/ytblogger_lists_unified.js" defer></script>
+<script src="/jd_lists_unified_en.js?v=17" defer></script>
+<script src="/reference/lists.js?v=17" defer></script>
+<script src="/reference/gcm_lists.js?v=17" defer></script>
+<script src="/reference/gms_lists.js?v=17" defer></script>
+<script>
+  // Load localized metadata.
+  (function(lang) {
+    if (lang === 'en') { return; }
+
+    // Write it to the document so it gets evaluated before DOMContentReady.
+    document.write('<script src="/jd_lists_unified_' + lang + '.js?v=14" defer></' + 'script>');
+  })(getLangPref())
+</script>
 
 
 </body>

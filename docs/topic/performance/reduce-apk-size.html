@@ -1,0 +1,1258 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+
+  
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
+<link rel="shortcut icon" type="image/x-icon" href="../../favicon.ico" />
+<link rel="alternate" href="http://developer.android.com/topic/performance/reduce-apk-size.html" hreflang="en" />
+<link rel="alternate" href="http://developer.android.com/intl/es/topic/performance/reduce-apk-size.html" hreflang="es" />
+<link rel="alternate" href="http://developer.android.com/intl/id/topic/performance/reduce-apk-size.html" hreflang="id" />
+<link rel="alternate" href="http://developer.android.com/intl/ja/topic/performance/reduce-apk-size.html" hreflang="ja" />
+<link rel="alternate" href="http://developer.android.com/intl/ko/topic/performance/reduce-apk-size.html" hreflang="ko" />
+<link rel="alternate" href="http://developer.android.com/intl/pt-br/topic/performance/reduce-apk-size.html" hreflang="pt-br" />
+<link rel="alternate" href="http://developer.android.com/intl/ru/topic/performance/reduce-apk-size.html" hreflang="ru" />
+<link rel="alternate" href="http://developer.android.com/intl/vi/topic/performance/reduce-apk-size.html" hreflang="vi" />
+<link rel="alternate" href="http://developer.android.com/intl/zh-cn/topic/performance/reduce-apk-size.html" hreflang="zh-cn" />
+<link rel="alternate" href="http://developer.android.com/intl/zh-tw/topic/performance/reduce-apk-size.html" hreflang="zh-tw" />
+
+
+<title>Reduce APK Size | Android Developers
+</title>
+
+<meta name="description" content="Users often avoid downloading apps that seem too large, particularly in emerging markets where devices connect to often-spotty 2G and 3G networks or work on pay-by-the-byte plans. This article describes how to reduce your app&#39;s APK size, which enables…">
+
+<!-- STYLESHEETS -->
+<link rel="stylesheet"
+href="http://fonts.useso.com/css?family=Roboto+Condensed">
+<link rel="stylesheet" href="http://fonts.useso.com/css?family=Roboto:light,regular,medium,thin,italic,mediumitalic,bold"
+  title="roboto">
+
+<link href="../../assets/css/default.css?v=16" rel="stylesheet" type="text/css">
+
+<!-- JAVASCRIPT -->
+<script src="../../assets/js/android_3p-bundle.js" type="text/javascript"></script>
+<script type="text/javascript">
+  var toRoot = "../../";
+  var metaTags = [];
+  var devsite = false;
+  var useUpdatedTemplates = false;
+</script>
+<script src="../../assets/js/docs.js?v=17" type="text/javascript"></script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//../../ajax/www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-5831155-1', 'android.com');
+  ga('create', 'UA-49880327-2', 'android.com', {'name': 'universal'});  // New tracker);
+  ga('send', 'pageview');
+  ga('universal.send', 'pageview'); // Send page view for new tracker.
+</script>
+
+</head>
+
+<body class="gc-documentation
+
+
+" itemscope itemtype="http://schema.org/Article">
+  
+  <a name="top"></a>
+  <!-- Header -->
+  <div id="header-wrapper">
+    <div class="dac-header " id="header">
+      <div class="dac-header-inner">
+        <a class="dac-nav-toggle" data-dac-toggle-nav href="javascript:;" title="Open navigation">
+          <span class="dac-nav-hamburger">
+            <span class="dac-nav-hamburger-top"></span>
+            <span class="dac-nav-hamburger-mid"></span>
+            <span class="dac-nav-hamburger-bot"></span>
+          </span>
+        </a>
+        <a class="dac-header-logo" href="../../index.html">
+          <img class="dac-header-logo-image" src="../../assets/images/android_logo.png"
+              srcset="../../assets/images/android_logo@2x.png 2x"
+              width="32" height="36" alt="Android" /> Developers
+          </a>
+
+        <ul class="dac-header-tabs">
+          <li>
+          <a class="dac-header-tab" href="../../design/index.html"
+             zh-tw-lang="設計"
+             zh-cn-lang="设计"
+             ru-lang="Проектирование"
+             ko-lang="디자인"
+             ja-lang="設計"
+             es-lang="Diseñar">Design</a>
+          </li>
+          <li>
+          <a class="dac-header-tab" href="../../develop/index.html"
+             zh-tw-lang="開發"
+             zh-cn-lang="开发"
+             ru-lang="Разработка"
+             ko-lang="개발"
+             ja-lang="開発"
+             es-lang="Desarrollar">Develop</a>
+          </li>
+          <li>
+          <a class="dac-header-tab" href="../../distribute/index.html"
+             zh-tw-lang="發佈"
+             zh-cn-lang="分发"
+             ru-lang="Распространение"
+             ko-lang="배포"
+             ja-lang="配布"
+             es-lang="Distribuir">Distribute</a>
+          </li>
+        </ul>
+
+        <a class="dac-header-console-btn" href="https://play.google.com/apps/publish/">
+          <span class="dac-sprite dac-google-play"></span>
+          <span class="dac-visible-desktop-inline">Developer</span>
+          Console
+        </a>
+
+        
+        
+        
+  <form data-search class="dac-header-search">
+    <button class="dac-header-search-close" data-search-close>
+      <i class="dac-sprite dac-back-arrow"></i>
+    </button>
+
+    <div class="dac-header-search-inner">
+      <i class="dac-sprite dac-search-white dac-header-search-icon"></i>
+      <input id="search_autocomplete" type="text" value="" autocomplete="off" name="q" class="dac-header-search-input" placeholder="Search" />
+      <button class="dac-header-search-clear dac-hidden" data-search-clear>
+        <i class="dac-sprite dac-close-black"></i>
+      </button>
+    </div>
+  </form>
+
+        
+      </div><!-- end header-wrap.wrap -->
+    </div><!-- end header -->
+  </div> <!--end header-wrapper -->
+
+  
+  <!-- Navigation-->
+  <nav class="dac-nav">
+    <div class="dac-nav-dimmer" data-dac-toggle-nav></div>
+
+    <div class="dac-nav-sidebar" data-swap data-dynamic="false" data-transition-speed="300" data-dac-nav>
+      <div data-swap-container>
+        
+  
+    <a class="dac-nav-back-button dac-swap-section dac-up dac-no-anim" data-swap-button href="javascript:;">
+      <i class="dac-sprite dac-nav-back"></i> <span class="dac-nav-back-title">Back</span>
+    </a>
+    <div class="dac-nav-sub dac-swap-section dac-right dac-active" itemscope itemtype="http://schema.org/SiteNavigationElement">
+      
+        
+  <!-- Fullscreen toggler -->
+  <button data-fullscreen class="dac-nav-fullscreen">
+    <i class="dac-sprite dac-fullscreen"></i>
+  </button>
+
+  <script>$('[data-fullscreen]').dacFullscreen();</script>
+  <!-- End: Fullscreen toggler -->
+
+  
+    <div id="devdoc-nav">
+      <div id="api-nav-header">
+        <div id="api-level-toggle">
+          <label for="apiLevelCheckbox" class="disabled"
+                 title="Select your target API level to dim unavailable APIs">API level: </label>
+          <div class="select-wrapper">
+            <select id="apiLevelSelector">
+              <!-- option elements added by buildApiLevelSelector() -->
+            </select>
+          </div>
+        </div><!-- end toggle -->
+        <div id="api-nav-title">Android APIs</div>
+      </div><!-- end nav header -->
+      <script>
+        var SINCE_DATA = [  ];
+        buildApiLevelSelector();
+      </script>
+
+      <div class="dac-reference-nav" data-reference-tree>
+        <ul class="dac-reference-nav-list" data-reference-namespaces>
+          
+        </ul>
+
+        
+      </div>
+    </div>
+  
+
+      
+    </div>
+  
+
+        <ul id="dac-main-navigation" class="dac-nav-list dac-swap-section dac-left dac-no-anim">
+        <li class="dac-nav-item home">
+          <a class="dac-nav-link" href="../../index.html">Home</a>
+          <i class="dac-sprite dac-expand-more-black dac-nav-sub-slider"></i>
+          <ul class="dac-nav-secondary about">
+            <li class="dac-nav-item versions">
+              <a class="dac-nav-link" href="../../about/versions/marshmallow/index.html">Android</a>
+            </li>
+            <li class="dac-nav-item wear">
+              <a class="dac-nav-link" href="../../wear/index.html">Wear</a>
+            </li>
+            <li class="dac-nav-item tv">
+              <a class="dac-nav-link" href="../../tv/index.html">TV</a>
+            </li>
+            <li class="dac-nav-item auto">
+              <a class="dac-nav-link" href="../../auto/index.html">Auto</a>
+            </li>
+          </ul>
+        </li>
+        <li class="dac-nav-item design">
+          <a class="dac-nav-link" href="../../design/index.html"
+             zh-tw-lang="設計"
+             zh-cn-lang="设计"
+             ru-lang="Проектирование"
+             ko-lang="디자인"
+             ja-lang="設計"
+             es-lang="Diseñar">Design</a>
+        </li>
+        <li class="dac-nav-item develop">
+          <a class="dac-nav-link" href="../../develop/index.html"
+             zh-tw-lang="開發"
+             zh-cn-lang="开发"
+             ru-lang="Разработка"
+             ko-lang="개발"
+             ja-lang="開発"
+             es-lang="Desarrollar">Develop</a>
+          <i class="dac-sprite dac-expand-more-black dac-nav-sub-slider"></i>
+          <ul class="dac-nav-secondary develop">
+            <li class="dac-nav-item training">
+              <a class="dac-nav-link" href="../../training/index.html"
+                 zh-tw-lang="訓練課程"
+                 zh-cn-lang="培训"
+                 ru-lang="Курсы"
+                 ko-lang="교육"
+                 ja-lang="トレーニング"
+                 es-lang="Capacitación">Training</a>
+            </li>
+            <li class="dac-nav-item guide">
+              <a class="dac-nav-link" href="../../guide/index.html"
+                 zh-tw-lang="API 指南"
+                 zh-cn-lang="API 指南"
+                 ru-lang="Руководства по API"
+                 ko-lang="API 가이드"
+                 ja-lang="API ガイド"
+                 es-lang="Guías de la API">API Guides</a>
+            </li>
+            <li class="dac-nav-item reference">
+              <a class="dac-nav-link" href="../../reference/packages.html"
+                 zh-tw-lang="參考資源"
+                 zh-cn-lang="参考"
+                 ru-lang="Справочник"
+                 ko-lang="참조문서"
+                 ja-lang="リファレンス"
+                 es-lang="Referencia">Reference</a>
+            </li>
+            <li class="dac-nav-item tools">
+              <a class="dac-nav-link" href="../../sdk/index.html"
+                 zh-tw-lang="相關工具"
+                 zh-cn-lang="工具"
+                 ru-lang="Инструменты"
+                 ko-lang="도구"
+                 ja-lang="ツール"
+                 es-lang="Herramientas">Tools</a></li>
+            <li class="dac-nav-item google">
+              <a class="dac-nav-link" href="../../google/index.html">Google Services</a>
+            </li>
+            
+          </ul>
+        </li>
+        <li class="dac-nav-item distribute">
+          <a class="dac-nav-link" href="../../distribute/googleplay/index.html"
+             zh-tw-lang="發佈"
+             zh-cn-lang="分发"
+             ru-lang="Распространение"
+             ko-lang="배포"
+             ja-lang="配布"
+             es-lang="Distribuir">Distribute</a>
+          <i class="dac-sprite dac-expand-more-black dac-nav-sub-slider"></i>
+          <ul class="dac-nav-secondary distribute">
+            <li class="dac-nav-item googleplay">
+              <a class="dac-nav-link" href="../../distribute/googleplay/index.html">Google Play</a></li>
+            <li class="dac-nav-item essentials">
+              <a class="dac-nav-link" href="../../distribute/essentials/index.html">Essentials</a></li>
+            <li class="dac-nav-item users">
+              <a class="dac-nav-link" href="../../distribute/users/index.html">Get Users</a></li>
+            <li class="dac-nav-item engage">
+              <a class="dac-nav-link" href="../../distribute/engage/index.html">Engage &amp; Retain</a></li>
+            <li class="dac-nav-item monetize">
+              <a class="dac-nav-link" href="../../distribute/monetize/index.html">Earn</a>
+            </li>
+            <li class="dac-nav-item analyze">
+              <a class="dac-nav-link" href="../../distribute/analyze/index.html">Analyze</a>
+            </li>
+            <li class="dac-nav-item stories">
+              <a class="dac-nav-link" href="../../distribute/stories/index.html">Stories</a>
+            </li>
+          </ul>
+        </li>
+        <li class="dac-nav-item preview">
+          <a class="dac-nav-link" href="../../preview/index.html">Preview</a>
+        </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- end navigation-->
+  
+
+<!-- Nav Setup -->
+<script>$('[data-dac-nav]').dacNav();</script>
+
+
+
+  
+    
+  <div class="wrap clearfix" id="body-content">
+
+  
+
+  
+  <div id="search-results" class="dac-search-results">
+    <div id="dac-search-results-history" class="dac-search-results-history">
+      <div class="wrap dac-search-results-history-wrap">
+        <div class="cols">
+          <div class="col-1of2 col-tablet-1of2 col-mobile-1of1">
+            <h2>Most visited</h2>
+            <div class="resource-flow-layout" data-history-query="history:most/visited" data-maxresults="3" data-cardsizes="18x2"></div>
+          </div>
+
+          <div class="col-1of2 col-tablet-1of2 col-mobile-1of1">
+            <h2>Recently visited</h2>
+            <div class="resource-flow-layout cols" data-history-query="history:recent" data-allow-duplicates="true" data-maxresults="3" data-cardsizes="18x2"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="dac-search-results-content" class="dac-search-results-content">
+      <div class="dac-search-results-metadata wrap">
+        <div class="dac-search-results-for">
+          <h2>Results for <span id="search-results-for"></span></h2>
+        </div>
+
+        <div id="dac-search-results-hero"></div>
+
+        <div class="dac-search-results-hero cols">
+          <div id="dac-search-results-reference" class="col-3of6 col-tablet-1of2 col-mobile-1of1">
+            <div class="suggest-card reference no-display">
+              <ul class="dac-search-results-reference">
+              </ul>
+            </div>
+          </div>
+          <div id="dac-custom-search-results"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+
+
+
+  
+    
+      
+        <ul class="dac-header-crumbs">
+          
+        </ul>
+
+        <!-- Breadcrumb Setup -->
+        <p><script>$('.dac-nav-list').dacCurrentPage().dacCrumbs();</script></p>
+
+        <h1 itemprop="name" >Reduce APK Size</h1>
+      
+    
+  
+
+
+  
+
+  
+  <div id="jd-content">
+    <div class="jd-descr" itemprop="articleBody">
+    
+
+    <div id="tb-wrapper">
+<div id="tb">
+
+<h2>This lesson teaches you to</h2>
+<ol>
+  <li><a href="#apk-structure">Understand the APK Structure</a></li>
+  <li><a href="#reduce-resources">Reduce Resource Count and Size</a></li>
+  <li><a href="#reduce-code">Reduce Native and Java Code</a></li>
+  <li><a href="#multiple-apks">Maintain Multiple Lean APKs</a></li>
+</ol>
+
+<h2>
+  You should also read
+</h2>
+
+<ul>
+  <li>
+    <a href="../../studio/build/shrink-code.html">Shrink Your Code and
+    Resources</a>
+  </li>
+</ul>
+
+
+</div>
+</div>
+
+<p>
+  Users often avoid downloading apps that seem too large, particularly in
+  emerging markets where devices connect to often-spotty 2G and
+  3G networks or work on pay-by-the-byte plans. This article describes how to
+  reduce your app's APK size, which enables more users to download your app.
+</p>
+
+<h2 id="apk-structure">
+  Understand the APK Structure
+</h2>
+
+<p>
+  Before discussing how to reduce the size of your app, it's helpful to
+  understand the structure of an app's APK. An APK file consists of a ZIP
+  archive that contains all the files that comprise your app. These files
+  include Java class files, resource files, and a file containing compiled
+  resources.
+</p>
+
+<p>
+An APK contains the following directories:
+</p>
+
+<ul>
+  <li><code>META-INF/</code>: Contains the <code>CERT.SF</code> and
+  <code>CERT.RSA</code> signature files, as well as the <code>MANIFEST.MF</code>
+  manifest file.
+  </li>
+
+  <li><code>assets/</code>: Contains the app's assets, which the app can retrieve
+  using an <code><a href="../../reference/android/content/res/AssetManager.html">AssetManager</a></code> object.
+  </li>
+
+  <li>
+  <code>res/</code>: Contains resources that aren't compiled into
+  <code>resources.arsc</code>.
+  </li>
+
+  <li><code>lib/</code>: Contains the compiled code that is specific to the software
+  layer of a processor. This directory contains a subdirectory for each
+  platform type, like <code>armeabi</code>, <code>armeabi-v7a</code>,
+  <code>arm64-v8a</code>, <code>x86</code>, <code>x86_64</code>, and
+  <code>mips</code>.
+  </li>
+</ul>
+
+<p>
+An APK also contains the following files. Among them,
+only <code>AndroidManifest.xml</code> is mandatory.
+</p>
+
+<ul>
+  <li><code>resources.arsc</code>: Contains compiled resources. This file contains
+  the XML content from all configurations of the <code>res/values/</code>
+  folder. The packaging tool extracts this XML content, compiles it to binary
+  form, and archives the content. This content includes language strings and
+  styles, as well as paths to content that is not included directly in the
+  <code>resources.arsc</code> file, such as layout files and images.
+  </li>
+
+  <li><code>classes.dex</code>: Contains the classes compiled in the DEX file format
+  understood by the Dalvik/ART virtual machine.
+  </li>
+
+  <li><code>AndroidManifest.xml</code>: Contains the core Android manifest file.
+  This file lists the name, version, access rights, and referenced library
+  files of the app. The file uses Android's binary XML format.
+  </li>
+</ul>
+
+<h2 id="reduce-resources">
+  Reduce Resource Count and Size
+</h2>
+
+<p>
+  The size of your APK has an impact on how fast your app loads, how much
+  memory it uses, and how much power it consumes. One of the simple ways to
+  make your APK smaller is to reduce the number and size of the
+  resources it contains. In particular, you can remove resources
+  that your app no longer uses, and you can use scalable <code><a href="../../reference/android/graphics/drawable/Drawable.html">Drawable</a></code> objects in place of image files. This
+  section discusses these methods as well as several other ways that you can
+  reduce the resources in your app to decrease the overall size of your APK.
+</p>
+
+<h3 id="remove-unused">
+  Remove Unused Resources
+</h3>
+
+<p>
+  The <a href="../../studio/write/lint.html"><code>lint</code></a> tool, a
+  static code analyzer included in Android Studio, detects resources in your
+  <code>res/</code> folder that your code doesn't reference. When the
+  <code>lint</code> tool discovers a potentially unused resource in your
+  project, it prints a message like the following example.
+</p>
+
+<pre class="no-pretty-print">
+res/layout/preferences.xml: Warning: The resource R.layout.preferences appears
+    to be unused [UnusedResources]
+</pre>
+<p class="note">
+  <strong>Note:</strong> The <code>lint</code> tool doesn't scan the <code>assets/</code> folder, assets that are referenced via reflection, or library files
+  that you've linked to your app. Also, it doesn't remove resources; it only
+  alerts you to their presence.
+</p>
+
+<p>
+  Libraries that you add to your code may include unused resources. Gradle can
+  automatically remove resources on your behalf if you enable <a href=
+  "../../studio/build/shrink-code.html"><code>shrinkResources</code></a> in
+  your app's <code>build.gradle</code> file.
+</p>
+
+<pre class="prettyprint">
+android {
+    // Other settings
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+</pre>
+<p>
+  To use <code>shrinkResources</code>, you must enable code shrinking. During the
+  build process, first <a href=
+  "../../studio/build/shrink-code.html">ProGuard</a> removes unused code
+  but leaves unused resources. Then Gradle removes the unused resources.
+</p>
+
+<p>
+  For more information about ProGuard and other ways
+  Android Studio helps you reduce APK size, see <a href=
+  "../../studio/build/shrink-code.html">Shrink Your Code and Resources</a>.
+</p>
+
+<p>
+  In Android Gradle Plugin 0.7 and higher, you can declare the configurations
+  that your app supports. Gradle passes this information to the build system
+  using the <code>resConfig</code> and <code>resConfigs</code> flavors and the
+  <code>defaultConfig</code> option. The build system then prevents resources
+  from other, unsupported configurations from appearing in the APK, reducing
+  the APK's size. For more information about this feature, see <a href=
+  "../../studio/build/shrink-code.html#unused-alt-resources">Remove unused
+  alternative resources</a>.
+</p>
+
+<h3 id="minimize">
+  Minimize Resource Use from Libraries
+</h3>
+
+<p>
+  When developing an Android app, you usually use external libraries to improve
+  your app's usability and versatility. For example, you might reference the
+  <a href="../../topic/libraries/support-library/index.html">Android
+  Support Library</a> to improve the user experience on older devices, or you
+  could use <a class="external-link" href=
+  "https://developers.google.com/android/guides/overview">Google Play
+  Services</a> to retrieve automatic translations for text within your app.
+</p>
+
+<p>
+  If a library was designed for a server or desktop, it can include many
+  objects and methods that your app doesn’t need. To include only the parts of
+  the library that your app needs, you can edit the library's files if the
+  license allows you to modify the library. You can also use an alternative,
+  mobile-friendly library to add specific functionality to your app.
+</p>
+
+<p class="note">
+  <strong>Note:</strong> <a href=
+  "../../studio/build/shrink-code.html">ProGuard</a> can clean up some
+  unnecessary code imported with a library, but it can't remove a library's
+  large internal dependencies.
+</p>
+
+<h3 id="support-densities">
+  Support Only Specific Densities
+</h3>
+
+<p>
+  Android supports a very large set of devices, encompassing a variety of
+  screen densities. In Android 4.4 (API level 19) and higher, the framework
+  supports various densities: <code>ldpi</code>, <code>mdpi</code>,
+  <code>tvdpi</code>, <code>hdpi,</code> <code>xhdpi</code>,
+  <code>xxhdpi</code> and <code>xxxhdpi</code>. Although Android supports all
+  these densities, you don't need to export your rasterized assets to each
+  density.
+</p>
+
+<p>
+  If you know that only a small percentage of your users have devices with
+  specific densities, consider whether you need to bundle those densities into
+  your app. If you don't include resources for a specific screen density,
+  Android automatically scales existing resources originally designed for other
+  screen densities.
+</p>
+
+<p>
+  If your app needs only scaled images, you can save even more space by having
+  a single variant of an image in <code>drawable-nodpi/</code>. We recommend
+  that every app include at least an <code>xxhdpi</code> image variant.
+</p>
+
+<p>
+  For more information screen densities, see <a class="external-link" href=
+  "../../about/dashboards/index.html#Screens">Screen Sizes and
+  Densities</a>.
+</p>
+
+<h3 id="reduce-frames">
+  Reduce Animation Frames
+</h3>
+
+<p>
+  Frame-by-frame animations can drastically increase the size of your APK.
+  Figure 1 shows an example of a frame-by-frame animation separated into
+  multiple PNG files within a directory. Each image is one frame in the
+  animation.
+</p>
+
+<p>
+  For each frame that you add to the animation, you increase the number of
+  images stored in the APK. In Figure 1, the image animates at 30 FPS within
+  the app. If the image animated at only 15 FPS instead, the animation would
+  require only half the number of needed frames.
+</p>
+
+<figure id="fig-frame-animations">
+  <img src="../../images/training/performance/animation-frames.png" srcset=
+  "../../images/training/performance/animation-frames.png 1x, ../../images/training/performance/animation-frames_2x.png 2x"
+  width="803" alt="">
+  <figcaption>
+    <strong>Figure 1.</strong> Frame by frame animations stored as resources.
+  </figcaption>
+</figure>
+
+<h3 id="use-drawables">
+  Use Drawable Objects
+</h3>
+
+<p>
+  Some images don't require a static image resource; the framework can
+  dynamically draw the image at runtime instead. <code><a href="../../reference/android/graphics/drawable/Drawable.html">Drawable</a></code> objects (<code>&lt;shape&gt;</code> in
+  XML) can take up a tiny amount of space in your APK. In addition, XML <code><a href="../../reference/android/graphics/drawable/Drawable.html">Drawable</a></code> objects produce monochromatic images
+  compliant with material design guidelines.
+</p>
+
+<h3 id="reuse-resources">
+  Reuse Resources
+</h3>
+
+<p>
+  You can include a separate resource for variations of an image, such as
+  tinted, shaded, or rotated versions of the same image. We recommend, however,
+  that you reuse the same set of resources, customizing them as needed at
+  runtime.
+</p>
+
+<p>
+  Android provides several utilities to change the color of an asset, either
+  using the <code>android:tint</code> and <code>tintMode</code> attributes on Android 5.0
+  (API level 21) and higher. For lower versions of the platform, use the <code><a href="../../reference/android/graphics/ColorFilter.html">ColorFilter</a></code> class.
+</p>
+<p>
+  You can also omit resources that are only a rotated equivalent of another
+  resource. The following code snippet provides an example of turning an
+  "expand" arrow into a "collapse" arrow icon by simply rotating the original
+  image 180 degrees:
+</p>
+
+<pre class="prettyprint">
+&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;rotate xmlns:android="http://schemas.android.com/apk/res/android"
+    android:drawable="@drawable/ic_arrow_expand"
+    android:fromDegrees="180"
+    android:pivotX="50%"
+    android:pivotY="50%"
+    android:toDegrees="180" /&gt;
+</pre>
+<h3 id="render-code">
+  Render From Code
+</h3>
+
+<p>
+  You can also reduce your APK size by procedurally rendering your images.
+  Procedural rendering frees up space because you no longer store an image file
+  in your APK.
+</p>
+
+<h3 id="crunch">
+  Crunch PNG Files
+</h3>
+
+<p>
+  The <code>aapt</code> tool can optimize the image resources placed in
+  <code>res/drawable/</code> with lossless compression during the build
+  process. For example, the <code>aapt</code> tool can convert a true-color PNG
+  that does not require more than 256 colors to an 8-bit PNG with a color
+  palette. Doing so results in an image of equal quality but a smaller memory
+  footprint.
+</p>
+
+<p>
+  Keep in mind that the <code>aapt</code> has the following limitations:
+</p>
+
+<ul>
+  <li>The <code>aapt</code> tool does not shrink PNG files contained in the
+  <code>asset/</code> folder.
+  </li>
+
+  <li>Image files need to use 256 or fewer colors for the <code>aapt</code>
+  tool to optimize them.
+  </li>
+
+  <li>The <code>aapt</code> tool may inflate PNG files that have already been
+  compressed. To prevent this, you can use the <code>cruncherEnabled</code>
+  flag in Gradle to disable this process for PNG files:
+  </li>
+</ul>
+
+<pre class="prettyprint">
+aaptOptions {
+    cruncherEnabled = false
+}
+</pre>
+<h3 id="compress">
+  Compress PNG and JPEG Files
+</h3>
+
+<p>
+  You can reduce PNG file sizes without losing image quality using tools like
+  <a class="external-link" href=
+  "http://pmt.sourceforge.net/pngcrush/">pngcrush</a>, <a class="external-link"
+  href="https://pngquant.org/">pngquant</a>, or <a class="external-link" href=
+  "https://github.com/google/zopfli">zopflipng</a>. All of these tools can
+  reduce PNG file size while preserving image quality.
+</p>
+
+<p>
+  The <code>pngcrush</code> tool is particularly effective: This tool iterates over
+  PNG filters and zlib (Deflate) parameters, using each combination of filters
+  and parameters to compress the image. It then chooses the configuration that
+  yields the smallest compressed output.
+</p>
+
+<p>
+  For JPEG files, you can use tools like <a class="external-link" href=
+  "http://www.elektronik.htw-aalen.de/packjpg/">packJPG</a> that compress JPEG
+  files into a more compact form.
+</p>
+
+<h3 id="use-webp">
+  Use WebP File Format
+</h3>
+
+<p>
+  Instead of using PNG or JPEG files, you can also use the <a class=
+  "external-link" href="https://developers.google.com/speed/webp/">WebP</a>
+  file format for your images. The WebP format provides lossy compression (like
+  JPEG) as well as transparency (like PNG) but can provide better compression
+  than either JPEG or PNG.
+</p>
+
+<p>
+  Using the WebP file format has a few notable drawbacks, however. First,
+  support for WebP is not available in versions of the platform lower than
+  Android 3.2 (API level 13). Second, it takes a longer amount of time for the
+  system to decode WebP than PNG files.
+</p>
+
+<p class="note">
+  <strong>Note:</strong> Google Play accepts APKs only if the included icons
+  use the PNG format. You can't use other file formats like JPEG or WebP for
+  app icons if you intend to publish your app through Google Play.
+</p>
+
+<h3 id="vector">
+  Use Vector Graphics
+</h3>
+
+<p>
+  You can use vector graphics to create resolution-independent icons and other
+  scalable media. Using these graphics can greatly reduce your APK footprint.
+  Vector images are represented in Android as <code><a href="../../reference/android/graphics/drawable/VectorDrawable.html">VectorDrawable</a></code> objects. With a <code><a href="../../reference/android/graphics/drawable/VectorDrawable.html">VectorDrawable</a></code> object, a 100-byte file can
+  generate a sharp image the size of the screen.
+</p>
+
+<p>
+  However, it takes a significant amount of time for the system to render each
+  <code><a href="../../reference/android/graphics/drawable/VectorDrawable.html">VectorDrawable</a></code> object, and larger images
+  take even longer to appear on the screen. Therefore, consider using these
+  vector graphics only when displaying small images.
+</p>
+
+<p>
+  For more information on working with <code><a href="../../reference/android/graphics/drawable/VectorDrawable.html">VectorDrawable</a></code> objects, see <a class=
+  "external-link" href="../../training/material/drawables.html">Working
+  with Drawables</a>.
+</p>
+
+<h2 id="reduce-code">
+  Reduce Native and Java Code
+</h2>
+
+<p>
+  There are several methods you can use to reduce the size of the Java and
+  native codebase in your app.
+</p>
+
+<h3 id="remove-generated">
+  Remove Unnecessary Generated Code
+</h3>
+
+<p>
+  Make sure to understand the footprint of any code which is automatically
+  generated. For example, many protocol buffer tools generate an excessive
+  number of methods and classes, which can double or triple the size of your
+  app.
+</p>
+
+<h3 id="remove-enums">
+  Remove Enumerations
+</h3>
+
+<p>
+  A single enum can add about 1.0 to 1.4 KB of size to your app's
+  <code>classes.dex</code> file. These additions can quickly accumulate for
+  complex systems or shared libraries. If possible, consider using the
+  <code>@IntDef</code> annotation and <a href=
+  "../../studio/build/shrink-code.html">ProGuard</a> to strip enumerations
+  out and convert them to integers. This type conversion preserves all of the
+  type safety benefits of enums.
+</p>
+
+<h3 id="reduce-binaries">
+  Reduce the Size of Native Binaries
+</h3>
+
+<p>
+  If your app uses native code and the Android NDK, you can also reduce the
+  size of your app by optimizing your code. Two useful techniques are
+  removing debug symbols and not extracting native libraries.
+</p>
+
+<h4 id="remove-debug">
+  Remove Debug Symbols
+</h4>
+
+<p>
+  Using debug symbols makes sense if your application is in development and
+  still requires debugging. Use the <code>arm-eabi-strip</code> tool, provided
+  in the Android NDK, to remove unnecessary debug symbols from native
+  libraries. After that, you can compile your release build.
+</p>
+
+<h4 id="extract-false">
+  Avoid Extracting Native Libraries
+</h4>
+
+<p>
+  Store <code>.so</code> files uncompressed in the APK, and set the <code>android:extractNativeLibs</code> flag to false in the <a href=
+  "../../guide/topics/manifest/application-element.html"><code>&lt;application&gt;</code></a> element of your app manifest. This will prevent
+  <code><a href="../../reference/android/content/pm/PackageManager.html">PackageManager</a></code> from copying out <code>.so</code> files
+  from the APK to the filesystem during installation and will have the added
+  benefit of making delta updates of your app smaller.
+</p>
+
+<h2 id="multiple-apks">
+  Maintain Multiple Lean APKs
+</h2>
+
+<p>
+  Your APK can contain content that users download but never use, like regional
+  or language information. To create a minimal download for your users, you can
+  segment your app into several APKs, differentiated by factors such as screen
+  size or GPU texture support.
+</p>
+
+<p>
+  When a user downloads your app, their device receives the correct APK based
+  on the device's features and settings. This way, devices don't receive assets
+  for features that the devices don't have. For example, if a user has a
+  <code>hdpi</code> device, they don’t need <code>xxxhdpi</code> resources that
+  you might include for devices with higher density displays.
+</p>
+
+<p>
+  For more information, see <a href=
+  "../../studio/build/configure-apk-splits.html">Configure APK Splits</a>
+  and <a class="external-link" href=
+  "../../training/multiple-apks/index.html">Maintaining Multiple APKs</a>.
+</p>
+
+    </div>
+
+    
+
+  </div> <!-- end jd-content -->
+
+
+
+<div class="wrap">
+  <div class="dac-footer">
+    <div class="cols dac-footer-main">
+      <div class="col-1of2">
+        <a class="dac-footer-getnews" id="newsletter" data-modal-toggle="newsletter" href="javascript:;">Get news &amp; tips <span
+          class="dac-fab dac-primary"><i class="dac-sprite dac-mail"></i></span></a>
+      </div>
+      <div class="col-1of2 dac-footer-reachout">
+        <div class="dac-footer-contact">
+          <a class="dac-footer-contact-link" href="http://android-developers.blogspot.com/">Blog</a>
+          <a class="dac-footer-contact-link" href="../../support.html">Support</a>
+        </div>
+        <div class="dac-footer-social">
+          <a class="dac-button-social dac-youtube dac-footer-social-link" href="https://www.youtube.com/user/androiddevelopers"><i class="dac-sprite dac-youtube"></i></a>
+          <a class="dac-button-social dac-gplus dac-footer-social-link" href="https://plus.google.com/+AndroidDevelopers"><i class="dac-sprite dac-gplus"></i></a>
+          <a class="dac-button-social dac-twitter dac-footer-social-link" href="https://twitter.com/AndroidDev"><i class="dac-sprite dac-twitter"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <hr class="dac-footer-separator"/>
+
+    
+      <p class="dac-footer-copyright">
+        
+  Except as noted, this content is
+  licensed under <a href="http://creativecommons.org/licenses/by/2.5/">
+  Creative Commons Attribution 2.5</a>. For details and
+  restrictions, see the <a href="../../license.html">Content
+  License</a>.
+
+      </p>
+    
+
+    <p class="dac-footer-links">
+      <a href="../../about/android.html">About Android</a>
+      <a href="../../auto/index.html">Auto</a>
+      <a href="../../tv/index.html">TV</a>
+      <a href="../../wear/index.html">Wear</a>
+      <a href="../../legal.html">Legal</a>
+
+      <span id="language" class="locales">
+        <select name="language" onchange="changeLangPref(this.value, true)">
+          <option value="en" selected="selected">English</option>
+          <option value="es">Español</option>
+          <option value="in">Bahasa Indonesia</option>
+          <option value="ja">日本語</option>
+          <option value="ko">한국어</option>
+          <option value="pt-br">Português Brasileiro</option>
+          <option value="ru">Русский</option>
+          <option value="vi">tiếng Việt</option>
+          <option value="zh-cn">中文（简体)</option>
+          <option value="zh-tw">中文（繁體)</option>
+        </select>
+      </span>
+    </p>
+  </div>
+</div>
+<!-- end footer -->
+
+
+
+  
+
+
+
+<div data-modal="newsletter" data-newsletter data-swap class="dac-modal newsletter">
+  <div class="dac-modal-container">
+    <div class="dac-modal-window">
+      <header class="dac-modal-header">
+        <div class="dac-modal-header-actions">
+          <button class="dac-modal-header-close" data-modal-toggle></button>
+        </div>
+        <div class="dac-swap" data-swap-container>
+          <section class="dac-swap-section dac-active dac-down">
+            <h2 class="norule dac-modal-header-title" data-t="newsletter.title"></h2>
+            <p class="dac-modal-header-subtitle" data-t="newsletter.requiredHint"></p>
+          </section>
+          <section class="dac-swap-section dac-up">
+            <h2 class="norule dac-modal-header-title" data-t="newsletter.successTitle">Hooray!</h2>
+          </section>
+        </div>
+      </header>
+      <div class="dac-swap" data-swap-container>
+        <section class="dac-swap-section dac-active dac-left">
+          <form action="https://docs.google.com/forms/d/1QgnkzbEJIDu9lMEea0mxqWrXUJu0oBCLD7ar23V0Yys/formResponse" class="dac-form" method="post" target="dac-newsletter-iframe">
+            <input type="hidden" name="entry.935454734" data-newsletter-language>
+            <section class="dac-modal-content">
+              <fieldset class="dac-form-fieldset">
+                <div class="cols">
+                  <div class="col-1of2 newsletter-leftCol">
+                    <div class="dac-form-input-group">
+                      <label for="newsletter-full-name" class="dac-form-floatlabel" data-t="newsletter.name">Full name</label>
+                      <input type="text" class="dac-form-input" name="entry.1357890476" id="newsletter-full-name" required>
+                      <span class="dac-form-required">*</span>
+                    </div>
+                    <div class="dac-form-input-group">
+                      <label for="newsletter-email" class="dac-form-floatlabel" data-t="newsletter.email">Email address</label>
+                      <input type="email" class="dac-form-input" name="entry.472100832" id="newsletter-email" required>
+                      <span class="dac-form-required">*</span>
+                    </div>
+                  </div>
+                  <div class="col-1of2 newsletter-rightCol">
+                    <div class="dac-form-input-group">
+                      <label for="newsletter-company" class="dac-form-floatlabel" data-t="newsletter.company">Company / developer name</label>
+                      <input type="text" class="dac-form-input" name="entry.1664780309" id="newsletter-company">
+                    </div>
+                    <div class="dac-form-input-group">
+                      <label for="newsletter-play-store" class="dac-form-floatlabel" data-t="newsletter.appUrl">One of your Play Store app URLs</label>
+                      <input type="url" class="dac-form-input" name="entry.47013838" id="newsletter-play-store" required>
+                      <span class="dac-form-required">*</span>
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+              <fieldset class="dac-form-fieldset">
+                <div class="cols">
+                  <div class="col-1of2 newsletter-leftCol">
+                    <legend class="dac-form-legend"><span data-t="newsletter.business.label">Which best describes your business:</span><span class="dac-form-required">*</span>
+                    </legend>
+                    <div class="dac-form-radio-group">
+                      <input type="radio" value="Apps" class="dac-form-radio" name="entry.1796324055" id="newsletter-business-type-app" required>
+                      <label for="newsletter-business-type-app" class="dac-form-radio-button"></label>
+                      <label for="newsletter-business-type-app" class="dac-form-label" data-t="newsletter.business.apps">Apps</label>
+                    </div>
+                    <div class="dac-form-radio-group">
+                      <input type="radio" value="Games" class="dac-form-radio" name="entry.1796324055" id="newsletter-business-type-games" required>
+                      <label for="newsletter-business-type-games" class="dac-form-radio-button"></label>
+                      <label for="newsletter-business-type-games" class="dac-form-label" data-t="newsletter.business.games">Games</label>
+                    </div>
+                    <div class="dac-form-radio-group">
+                      <input type="radio" value="Apps and Games" class="dac-form-radio" name="entry.1796324055" id="newsletter-business-type-appsgames" required>
+                      <label for="newsletter-business-type-appsgames" class="dac-form-radio-button"></label>
+                      <label for="newsletter-business-type-appsgames" class="dac-form-label" data-t="newsletter.business.both">Apps &amp; Games</label>
+                    </div>
+                  </div>
+                  <div class="col-1of2 newsletter-rightCol newsletter-checkboxes">
+                    <div class="dac-form-radio-group">
+                      <div class="dac-media">
+                        <div class="dac-media-figure">
+                          <input type="checkbox" class="dac-form-checkbox" name="entry.732309842" id="newsletter-add" required value="Add me to the mailing list for the monthly newsletter and occasional emails about development and Google Play opportunities.">
+                          <label for="newsletter-add" class="dac-form-checkbox-button"></label>
+                        </div>
+                        <div class="dac-media-body">
+                          <label for="newsletter-add" class="dac-form-label dac-form-aside"><span data-t="newsletter.confirmMailingList"></span><span class="dac-form-required">*</span></label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="dac-form-radio-group">
+                      <div class="dac-media">
+                        <div class="dac-media-figure">
+                          <input type="checkbox" class="dac-form-checkbox" name="entry.2045036090" id="newsletter-terms" required value="I acknowledge that the information provided in this form will be subject to Google's privacy policy (https://www.google.com/policies/privacy/).">
+                          <label for="newsletter-terms" class="dac-form-checkbox-button"></label>
+                        </div>
+                        <div class="dac-media-body">
+                          <label for="newsletter-terms" class="dac-form-label dac-form-aside"><span data-t="newsletter.privacyPolicy" data-t-html></span><span class="dac-form-required">*</span></label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+            </section>
+            <footer class="dac-modal-footer">
+              <div class="cols">
+                <div class="col-2of5">
+                </div>
+              </div>
+              <button type="submit" value="Submit" class="dac-fab dac-primary dac-large dac-modal-action"><i class="dac-sprite dac-arrow-right"></i></button>
+            </footer>
+          </form>
+        </section>
+        <section class="dac-swap-section dac-right">
+          <div class="dac-modal-content">
+            <p class="newsletter-success-message" data-t="newsletter.successDetails"></p>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end newsletter modal -->
+
+<!-- start reset language header modal -->
+<div data-modal="langform" class="dac-modal" id="langform">
+  <div class="dac-modal-container">
+    <div class="dac-modal-window">
+      <header class="dac-modal-header">
+        <div class="dac-modal-header-actions">
+          <button class="dac-modal-header-close" data-modal-toggle></button>
+        </div>
+        <section class="dac-swap-section dac-active dac-down">
+          <h2 class="norule dac-modal-header-title"></h2>
+        </section>
+      </header>
+      <section class="dac-swap-section dac-active dac-left">
+          <section class="dac-modal-content">
+            <fieldset class="dac-form-fieldset">
+              <div class="cols">
+                <div class="col-2of2 langform-leftCol">
+                  <p id="resetLangText"></p>
+                  <p id="resetLangCta"></p>
+                </div>
+              </div>
+            </fieldset>
+          </section>
+          <footer class="dac-modal-footer" id="langfooter">
+            <div class="cols">
+              <div class="col-2of5">
+              </div>
+            </div>
+              <button class="button dac-primary dac-modal-action lang yes" data-t="newsletter.resetLangButtonYes" data-modal-toggle></button>
+              <button class="button dac-primary dac-modal-action lang no" data-t="newsletter.resetLangButtonNo" data-modal-toggle></button>
+            </a>
+          </footer>
+        </form>
+      </section>
+    </div>
+  </div>
+</div>
+<!-- end langreset modal -->
+
+
+</div> <!-- end body-content --> 
+
+
+
+
+<script src="../../ajax/developer.android.com/ytblogger_lists_unified.js" defer></script>
+<script src="/jd_lists_unified_en.js?v=17" defer></script>
+<script src="/reference/lists.js?v=17" defer></script>
+<script src="/reference/gcm_lists.js?v=17" defer></script>
+<script src="/reference/gms_lists.js?v=17" defer></script>
+<script>
+  // Load localized metadata.
+  (function(lang) {
+    if (lang === 'en') { return; }
+
+    // Write it to the document so it gets evaluated before DOMContentReady.
+    document.write('<script src="/jd_lists_unified_' + lang + '.js?v=14" defer></' + 'script>');
+  })(getLangPref())
+</script>
+
+
+</body>
+</html>

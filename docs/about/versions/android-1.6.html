@@ -1,0 +1,1258 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+
+  
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
+<link rel="shortcut icon" type="image/x-icon" href="../../favicon.ico" />
+<link rel="alternate" href="http://developer.android.com/" hreflang="en" />
+<link rel="alternate" href="http://developer.android.com/intl/es/" hreflang="es" />
+<link rel="alternate" href="http://developer.android.com/intl/id/" hreflang="id" />
+<link rel="alternate" href="http://developer.android.com/intl/ja/" hreflang="ja" />
+<link rel="alternate" href="http://developer.android.com/intl/ko/" hreflang="ko" />
+<link rel="alternate" href="http://developer.android.com/intl/pt-br/" hreflang="pt-br" />
+<link rel="alternate" href="http://developer.android.com/intl/ru/" hreflang="ru" />
+<link rel="alternate" href="http://developer.android.com/intl/vi/" hreflang="vi" />
+<link rel="alternate" href="http://developer.android.com/intl/zh-cn/" hreflang="zh-cn" />
+<link rel="alternate" href="http://developer.android.com/intl/zh-tw/" hreflang="zh-tw" />
+
+
+<title>Android 1.6 Platform | Android Developers
+</title>
+
+<meta name="description" content="API Level:   {@sdkPlatformApiLevel} Android {@sdkPlatformVersion} is a {@sdkPlatformMajorMinor} platform release deployable to Android-powered handsets since October 2009. The platform includes new features for users and developers, as well as changes…">
+
+<!-- STYLESHEETS -->
+<link rel="stylesheet"
+href="http://fonts.useso.com/css?family=Roboto+Condensed">
+<link rel="stylesheet" href="http://fonts.useso.com/css?family=Roboto:light,regular,medium,thin,italic,mediumitalic,bold"
+  title="roboto">
+
+<link href="../../assets/css/default.css?v=16" rel="stylesheet" type="text/css">
+
+<!-- JAVASCRIPT -->
+<script src="../../assets/js/android_3p-bundle.js" type="text/javascript"></script>
+<script type="text/javascript">
+  var toRoot = "../../";
+  var metaTags = [];
+  var devsite = false;
+  var useUpdatedTemplates = false;
+</script>
+<script src="../../assets/js/docs.js?v=17" type="text/javascript"></script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//../../ajax/www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-5831155-1', 'android.com');
+  ga('create', 'UA-49880327-2', 'android.com', {'name': 'universal'});  // New tracker);
+  ga('send', 'pageview');
+  ga('universal.send', 'pageview'); // Send page view for new tracker.
+</script>
+
+</head>
+
+<body class="gc-documentation
+
+
+ about" itemscope itemtype="http://schema.org/Article">
+  
+  <a name="top"></a>
+  <!-- Header -->
+  <div id="header-wrapper">
+    <div class="dac-header " id="header">
+      <div class="dac-header-inner">
+        <a class="dac-nav-toggle" data-dac-toggle-nav href="javascript:;" title="Open navigation">
+          <span class="dac-nav-hamburger">
+            <span class="dac-nav-hamburger-top"></span>
+            <span class="dac-nav-hamburger-mid"></span>
+            <span class="dac-nav-hamburger-bot"></span>
+          </span>
+        </a>
+        <a class="dac-header-logo" href="../../index.html">
+          <img class="dac-header-logo-image" src="../../assets/images/android_logo.png"
+              srcset="../../assets/images/android_logo@2x.png 2x"
+              width="32" height="36" alt="Android" /> Developers
+          </a>
+
+        <ul class="dac-header-tabs">
+          <li>
+          <a class="dac-header-tab" href="../../design/index.html"
+             zh-tw-lang="設計"
+             zh-cn-lang="设计"
+             ru-lang="Проектирование"
+             ko-lang="디자인"
+             ja-lang="設計"
+             es-lang="Diseñar">Design</a>
+          </li>
+          <li>
+          <a class="dac-header-tab" href="../../develop/index.html"
+             zh-tw-lang="開發"
+             zh-cn-lang="开发"
+             ru-lang="Разработка"
+             ko-lang="개발"
+             ja-lang="開発"
+             es-lang="Desarrollar">Develop</a>
+          </li>
+          <li>
+          <a class="dac-header-tab" href="../../distribute/index.html"
+             zh-tw-lang="發佈"
+             zh-cn-lang="分发"
+             ru-lang="Распространение"
+             ko-lang="배포"
+             ja-lang="配布"
+             es-lang="Distribuir">Distribute</a>
+          </li>
+        </ul>
+
+        <a class="dac-header-console-btn" href="https://play.google.com/apps/publish/">
+          <span class="dac-sprite dac-google-play"></span>
+          <span class="dac-visible-desktop-inline">Developer</span>
+          Console
+        </a>
+
+        
+        
+        
+  <form data-search class="dac-header-search">
+    <button class="dac-header-search-close" data-search-close>
+      <i class="dac-sprite dac-back-arrow"></i>
+    </button>
+
+    <div class="dac-header-search-inner">
+      <i class="dac-sprite dac-search-white dac-header-search-icon"></i>
+      <input id="search_autocomplete" type="text" value="" autocomplete="off" name="q" class="dac-header-search-input" placeholder="Search" />
+      <button class="dac-header-search-clear dac-hidden" data-search-clear>
+        <i class="dac-sprite dac-close-black"></i>
+      </button>
+    </div>
+  </form>
+
+        
+      </div><!-- end header-wrap.wrap -->
+    </div><!-- end header -->
+  </div> <!--end header-wrapper -->
+
+  
+  <!-- Navigation-->
+  <nav class="dac-nav">
+    <div class="dac-nav-dimmer" data-dac-toggle-nav></div>
+
+    <div class="dac-nav-sidebar" data-swap data-dynamic="false" data-transition-speed="300" data-dac-nav>
+      <div data-swap-container>
+        
+  
+    <a class="dac-nav-back-button dac-swap-section dac-up dac-no-anim" data-swap-button href="javascript:;">
+      <i class="dac-sprite dac-nav-back"></i> <span class="dac-nav-back-title">Back</span>
+    </a>
+    <div class="dac-nav-sub dac-swap-section dac-right dac-active" itemscope itemtype="http://schema.org/SiteNavigationElement">
+      
+        <ul id="nav">
+  <li class="nav-section">
+    <div class="nav-section-header"><a href="../../about/versions/marshmallow/index.html">
+      <span class="en">Marshmallow</span></a></div>
+      <ul>
+        <li><a href="../../about/versions/marshmallow/android-6.0.html">
+        Android 6.0 APIs</a></li>
+        <li><a href="../../about/versions/marshmallow/android-6.0-changes.html">
+        Android 6.0 Changes</a></li>
+        <li><a href="../../about/versions/marshmallow/samples.html">
+        Android 6.0 Samples</a></li>
+      </ul>
+  </li>
+  <li class="nav-section">
+    <div class="nav-section-header"><a href="../../about/versions/lollipop.html"
+              zh-tw-lang="Lollipop"
+              zh-cn-lang="Lollipop"
+              ru-lang="Lollipop"
+              ko-lang="Lollipop"
+              ja-lang="Lollipop"
+              es-lang="Lollipop">
+      <span class="en">Lollipop</span></a></div>
+      <ul>
+        <li><a href="../../about/versions/android-5.1.html">Android 5.1 APIs</a></li>
+        <li><a href="../../about/versions/android-5.0.html"
+              zh-tw-lang="Android 5.0 API"
+              zh-cn-lang="Android 5.0 API"
+              ru-lang="API для Android 5.0"
+              ko-lang="Android 5.0 API"
+              ja-lang="Android 5.0 API"
+              es-lang="API de Android 5.0">
+              Android 5.0 APIs</a></li>
+        <li><a href="../../about/versions/android-5.0-changes.html">
+
+        Android 5.0 Changes</a></li>
+      </ul>
+  </li>
+  <li class="nav-section">
+    <div class="nav-section-header"><a href="../../about/versions/kitkat.html">
+      <span class="en">KitKat</span></a></div>
+      <ul>
+        <li><a href="../../about/versions/android-4.4.html">Android 4.4 APIs</a></li>
+      </ul>
+  </li>
+  <li class="nav-section">
+    <div class="nav-section-header"><a href="../../about/versions/jelly-bean.html">
+      <span class="en">Jelly Bean</span></a></div>
+      <ul>
+        <li><a href="../../about/versions/android-4.3.html">Android 4.3 APIs</a></li>
+        <li><a href="../../about/versions/android-4.2.html">Android 4.2 APIs</a></li>
+        <li><a href="../../about/versions/android-4.1.html">Android 4.1 APIs</a></li>
+      </ul>
+  </li>
+
+  <!-- <li class="nav-section">
+    <div class="nav-section-header"><a href="../../about/versions/android-4.0-highlights.html">
+      <span class="en">Ice Cream Sandwich</span></a></div>
+      <ul>
+        <li><a href="../../about/versions/android-4.0.3.html">Android 4.0.3 APIs</a></li>
+        <li><a href="../../about/versions/android-4.0.html">Android 4.0 APIs</a> </li>
+      </ul>
+  </li> -->
+
+  <li class="nav-section">
+    <div class="nav-section-header empty"><a href="../../about/android.html">About Android</a></div>
+  </li>
+
+  <li class="nav-section">
+    <div class="nav-section-header empty"><a href="../../about/dashboards/index.html">Dashboards</a></div>
+  </li>
+
+</ul>
+      
+    </div>
+  
+
+        <ul id="dac-main-navigation" class="dac-nav-list dac-swap-section dac-left dac-no-anim">
+        <li class="dac-nav-item home">
+          <a class="dac-nav-link" href="../../index.html">Home</a>
+          <i class="dac-sprite dac-expand-more-black dac-nav-sub-slider"></i>
+          <ul class="dac-nav-secondary about">
+            <li class="dac-nav-item versions">
+              <a class="dac-nav-link" href="../../about/versions/marshmallow/index.html">Android</a>
+            </li>
+            <li class="dac-nav-item wear">
+              <a class="dac-nav-link" href="../../wear/index.html">Wear</a>
+            </li>
+            <li class="dac-nav-item tv">
+              <a class="dac-nav-link" href="../../tv/index.html">TV</a>
+            </li>
+            <li class="dac-nav-item auto">
+              <a class="dac-nav-link" href="../../auto/index.html">Auto</a>
+            </li>
+          </ul>
+        </li>
+        <li class="dac-nav-item design">
+          <a class="dac-nav-link" href="../../design/index.html"
+             zh-tw-lang="設計"
+             zh-cn-lang="设计"
+             ru-lang="Проектирование"
+             ko-lang="디자인"
+             ja-lang="設計"
+             es-lang="Diseñar">Design</a>
+        </li>
+        <li class="dac-nav-item develop">
+          <a class="dac-nav-link" href="../../develop/index.html"
+             zh-tw-lang="開發"
+             zh-cn-lang="开发"
+             ru-lang="Разработка"
+             ko-lang="개발"
+             ja-lang="開発"
+             es-lang="Desarrollar">Develop</a>
+          <i class="dac-sprite dac-expand-more-black dac-nav-sub-slider"></i>
+          <ul class="dac-nav-secondary develop">
+            <li class="dac-nav-item training">
+              <a class="dac-nav-link" href="../../training/index.html"
+                 zh-tw-lang="訓練課程"
+                 zh-cn-lang="培训"
+                 ru-lang="Курсы"
+                 ko-lang="교육"
+                 ja-lang="トレーニング"
+                 es-lang="Capacitación">Training</a>
+            </li>
+            <li class="dac-nav-item guide">
+              <a class="dac-nav-link" href="../../guide/index.html"
+                 zh-tw-lang="API 指南"
+                 zh-cn-lang="API 指南"
+                 ru-lang="Руководства по API"
+                 ko-lang="API 가이드"
+                 ja-lang="API ガイド"
+                 es-lang="Guías de la API">API Guides</a>
+            </li>
+            <li class="dac-nav-item reference">
+              <a class="dac-nav-link" href="../../reference/packages.html"
+                 zh-tw-lang="參考資源"
+                 zh-cn-lang="参考"
+                 ru-lang="Справочник"
+                 ko-lang="참조문서"
+                 ja-lang="リファレンス"
+                 es-lang="Referencia">Reference</a>
+            </li>
+            <li class="dac-nav-item tools">
+              <a class="dac-nav-link" href="../../sdk/index.html"
+                 zh-tw-lang="相關工具"
+                 zh-cn-lang="工具"
+                 ru-lang="Инструменты"
+                 ko-lang="도구"
+                 ja-lang="ツール"
+                 es-lang="Herramientas">Tools</a></li>
+            <li class="dac-nav-item google">
+              <a class="dac-nav-link" href="../../google/index.html">Google Services</a>
+            </li>
+            
+          </ul>
+        </li>
+        <li class="dac-nav-item distribute">
+          <a class="dac-nav-link" href="../../distribute/googleplay/index.html"
+             zh-tw-lang="發佈"
+             zh-cn-lang="分发"
+             ru-lang="Распространение"
+             ko-lang="배포"
+             ja-lang="配布"
+             es-lang="Distribuir">Distribute</a>
+          <i class="dac-sprite dac-expand-more-black dac-nav-sub-slider"></i>
+          <ul class="dac-nav-secondary distribute">
+            <li class="dac-nav-item googleplay">
+              <a class="dac-nav-link" href="../../distribute/googleplay/index.html">Google Play</a></li>
+            <li class="dac-nav-item essentials">
+              <a class="dac-nav-link" href="../../distribute/essentials/index.html">Essentials</a></li>
+            <li class="dac-nav-item users">
+              <a class="dac-nav-link" href="../../distribute/users/index.html">Get Users</a></li>
+            <li class="dac-nav-item engage">
+              <a class="dac-nav-link" href="../../distribute/engage/index.html">Engage &amp; Retain</a></li>
+            <li class="dac-nav-item monetize">
+              <a class="dac-nav-link" href="../../distribute/monetize/index.html">Earn</a>
+            </li>
+            <li class="dac-nav-item analyze">
+              <a class="dac-nav-link" href="../../distribute/analyze/index.html">Analyze</a>
+            </li>
+            <li class="dac-nav-item stories">
+              <a class="dac-nav-link" href="../../distribute/stories/index.html">Stories</a>
+            </li>
+          </ul>
+        </li>
+        <li class="dac-nav-item preview">
+          <a class="dac-nav-link" href="../../preview/index.html">Preview</a>
+        </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- end navigation-->
+  
+
+<!-- Nav Setup -->
+<script>$('[data-dac-nav]').dacNav();</script>
+
+
+
+  
+    
+  <div class="wrap clearfix" id="body-content">
+
+  
+
+  
+  <div id="search-results" class="dac-search-results">
+    <div id="dac-search-results-history" class="dac-search-results-history">
+      <div class="wrap dac-search-results-history-wrap">
+        <div class="cols">
+          <div class="col-1of2 col-tablet-1of2 col-mobile-1of1">
+            <h2>Most visited</h2>
+            <div class="resource-flow-layout" data-history-query="history:most/visited" data-maxresults="3" data-cardsizes="18x2"></div>
+          </div>
+
+          <div class="col-1of2 col-tablet-1of2 col-mobile-1of1">
+            <h2>Recently visited</h2>
+            <div class="resource-flow-layout cols" data-history-query="history:recent" data-allow-duplicates="true" data-maxresults="3" data-cardsizes="18x2"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="dac-search-results-content" class="dac-search-results-content">
+      <div class="dac-search-results-metadata wrap">
+        <div class="dac-search-results-for">
+          <h2>Results for <span id="search-results-for"></span></h2>
+        </div>
+
+        <div id="dac-search-results-hero"></div>
+
+        <div class="dac-search-results-hero cols">
+          <div id="dac-search-results-reference" class="col-3of6 col-tablet-1of2 col-mobile-1of1">
+            <div class="suggest-card reference no-display">
+              <ul class="dac-search-results-reference">
+              </ul>
+            </div>
+          </div>
+          <div id="dac-custom-search-results"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+
+
+
+  
+    
+      
+        <ul class="dac-header-crumbs">
+          
+        </ul>
+
+        <!-- Breadcrumb Setup -->
+        <p><script>$('.dac-nav-list').dacCurrentPage().dacCrumbs();</script></p>
+
+        <h1 itemprop="name" >Android 1.6 Platform</h1>
+      
+    
+  
+
+
+  
+
+  
+  <div id="jd-content">
+    <div class="jd-descr" itemprop="articleBody">
+    
+
+    <div id="qv-wrapper">
+<div id="qv">
+
+<h2>In this document</h2>
+<ol>
+  <li><a href="#features">Platform Highlights</a></li>
+  <li><a href="#relnotes">Revisions</a></li>
+  <li><a href="#api-level">API Level</a></li>
+  <li><a href="#api">Framework API Changes</a>
+  <li><a href="#apps">Built-in Applications</a></li>
+  <li><a href="#locs">Locales</a></li>
+  <li><a href="#skins">Emulator Skins</a></li>
+
+    </ol>
+  </li>
+</ol>
+
+<h2>Reference</h2>
+<ol>
+<li><a
+href="../../sdk/api_diff/4/changes.html">API
+Differences Report &raquo;</a> </li>
+</ol>
+
+</div>
+</div>
+
+<p>
+<em>API Level:</em>&nbsp;<strong>4</strong></p>
+
+<p>Android 1.6 is a minor platform release
+deployable to Android-powered handsets since October 2009.
+The platform includes new features for users and developers, as well as changes
+in the Android framework API. </p>
+
+<p>For developers, a new release of the Android 1.6 platform
+is available as a downloadable component for the Android SDK. The platform
+&mdash; Android 1.6 r2 &mdash; includes a fully compliant Android library and
+system image, as well as a set of emulator skins, sample applications, and minor
+development updates. The downloadable platform is fully compliant (API Level 4)
+and includes no external libraries.</p>
+
+<p>To get started developing or testing against the Android
+1.6 platform, use the Android SDK and AVD Manager tool to
+download the latest Android 1.6 platform into your Android 1.6 or later SDK.</p>
+
+
+<h2 id="features">Platform Highlights</h2>
+
+<p>For a list of new user features and platform highlights, see the <a
+href="http://developer.android.com/about/versions/android-1.6-highlights.html">Android
+1.6 Platform Highlights</a> document.</p>
+
+
+<h2 id="relnotes">Revisions</h2>
+
+<p>The sections below provide notes about successive releases of
+the Android 1.6 platform component for the Android SDK, as denoted by
+revision number. To determine what revision(s) of the Android
+1.6 platforms are installed in your SDK environment, refer to
+the "Installed Packages" listing in the Android SDK and AVD Manager.</p>
+
+<script type="text/javascript">
+function toggleDiv(link) {
+  var toggleable = $(link).parent();
+  if (toggleable.hasClass("closed")) {
+    //$(".toggleme", toggleable).slideDown("fast");
+    toggleable.removeClass("closed");
+    toggleable.addClass("open");
+    $(".toggle-img", toggleable).attr("title", "hide").attr("src", (toRoot + "assets/images/styles/disclosure_up.png"));
+  } else {
+    //$(".toggleme", toggleable).slideUp("fast");
+    toggleable.removeClass("open");
+    toggleable.addClass("closed");
+    $(".toggle-img", toggleable).attr("title", "show").attr("src", (toRoot + "assets/images/styles/disclosure_down.png"));
+  }
+  return false;
+}
+</script>
+<style>
+.toggleable {
+  padding: .25em 1em 0em 1em;
+  margin-bottom: 0;
+}
+.toggleme {
+  padding: 1em 1em 0 2em;
+  line-height:1em;
+}
+.toggleable a {
+  text-decoration:none;
+}
+.toggleme a {
+  text-decoration:underline;
+}
+.toggleable.closed .toggleme {
+  display:none;
+}
+#jd-content .toggle-img {
+  margin:0;
+}
+</style>
+
+<div class="toggleable opened">
+  <a href="#" onclick="return toggleDiv(this)">
+        <img src="../../assets/images/styles/disclosure_up.png" class="toggle-img" height="9px" width="9px" />
+        Android 1.6, Revision 3</a> <em>(May 2010)</em></a>
+  <div class="toggleme">
+<dl>
+<dt>Dependencies:</dt>
+<dd>
+<p>Requires SDK Tools r6 or higher.</p>
+</dd>
+<dt>Tools:</dt>
+<dd>
+<ul>
+<li>Adds support for library projects in the Ant build system.</li>
+</ul>
+</dd>
+</dl>
+ </div>
+</div>
+
+<div class="toggleable closed">
+  <a href="#" onclick="return toggleDiv(this)">
+        <img src="../../assets/images/styles/disclosure_down.png" class="toggle-img" height="9px" width="9px" />
+        Android 1.6, Revision 2</a> <em>(December 2009)</em></a>
+  <div class="toggleme">
+<dl>
+<dt>Dependencies:</dt>
+<dd>
+<p>Requires SDK Tools r4 or higher.</p>
+</dd>
+
+<dt>API related:</dt>
+<dd>
+<ul>
+<li>Properly exposes CDMA-related constants in <code><a href="../../reference/android/telephony/TelephonyManager.html">android.telephony.TelephonyManager</a></code>: <code>DATA_ACTIVITY_DORMANT</code>,
+<code>PHONE_TYPE_CDMA</code>, <code>NETWORK_TYPE_CDMA</code>,
+<code>NETWORK_TYPE_EVDO_0</code>, <code>NETWORK_TYPE_EVDO_A</code>, and
+<code>NETWORK_TYPE_1xRTT</code>.</li>
+</ul>
+</dd>
+<dt>System image:</dt>
+<dd>
+<ul>
+<li>Fixes bug so that Bitmap's density is now propagated through Parcelable.</li>
+<li>Fixes NinePatchDrawable to properly scale its reported padding for compatibility mode.</li>
+<li>Fixes TextView to properly compute styled font metrics based on the screen density.</li>
+<li>Updates kernel to 2.6.29, to match kernel on commercially
+available Android-powered devices.</li>
+</ul>
+</dd>
+<dt>Tools:</dt>
+<dd>
+<ul>
+<li>Adds new Ant build system with support for Emma instrumentation projects
+(code coverage).</li>
+<li>Fixes emulator skins to properly emulate d-pad in landscape mode.</li>
+<li>Fixes density rendering in the layout editor in ADT.</li>
+</ul>
+</dd>
+</dl>
+ </div>
+</div>
+
+<div class="toggleable closed">
+  <a href="#" onclick="return toggleDiv(this)">
+        <img src="../../assets/images/styles/disclosure_down.png" class="toggle-img" height="9px" width="9px" />
+        Android 1.6, Revision 1</a> <em>(September 2009)</em></a>
+  <div class="toggleme">
+<dl>
+<dt>Dependencies</dt>
+<dd>
+<p>Requires SDK Tools r3 or higher.</p>
+</dd>
+</dl>
+ </div>
+</div>
+
+
+<h2 id="api-level">API Level</h2>
+
+<p>The Android 1.6 platform delivers an updated version of
+the framework API. The Android 1.6 API
+is assigned an integer identifier &mdash;
+<strong>4</strong> &mdash; that is
+stored in the system itself. This identifier, called the "API Level", allows the
+system to correctly determine whether an application is compatible with
+the system, prior to installing the application. </p>
+
+<p>To use APIs introduced in Android 1.6 in your
+application, you need to set the proper value, "4", in the
+<code>android:minSdkVersion</code> attributes of the <code>&lt;uses-sdk&gt;</code>
+element in your application's manifest. </p>
+
+<p>For more information about how to use API Level, see the <a
+href="../../guide/topics/manifest/uses-sdk-element.html#ApiLevels">API Levels</a> document. </p>
+
+
+<h2 id="api">Framework API Changes</h2>
+
+<p>The sections below provide information about the application framework API provided by the Android 1.6 platform. </p>
+
+<h3 id="UIFramework">UI framework</h3>
+    <ul>
+      <li>New classes in <code><a href="../../reference/android/view/animation/package-summary.html">android.view.animation</a></code>
+      to control the behavior of animations:
+        <ul>
+          <li><code>AnticipateInterpolator</code></li>
+          <li><code>AnticipateOvershootInterpolator</code></li>
+          <li><code>BounceInterpolator</code></li>
+          <li><code>OvershootInterpolator</code></li>
+        </ul>
+      </li>
+      <li>New XML attribute <code>android:onClick</code> to specify a View's
+<a href="../../reference/android/view/View.OnClickListener.html">View.OnClickListener</a>
+from a layout file.
+      </li>
+      <li>New support for dealing with varying screen densities. Density
+information is associated with Bitmap and Canvas for performing the
+correct scaling. The framework will automatically scale bitmaps and
+nine-patches based on the density the resource was found under and the
+density of the screen, etc.
+      </li><p>To use APIs introduced in Android 1.6 in your application, you need to
+set the proper value, "4", in the attributes of the <code>&lt;uses-sdk&gt;</code>
+element in your application's manifest. </p>
+    </ul>
+
+<h3>Search framework</h3>
+  <ul>
+    <li>Applications can now expose relevant content to users as search
+suggestions in the Quick Search Box, a new device-wide search capability that is
+accessible from the home screen. To support this, the search framework adds new
+attributes to the searchable metadata file. For complete information, see the
+<code><a href="../../reference/android/app/SearchManager.html">SearchManager</a></code> documentation.
+    </li>
+  </ul>
+
+<h3>Accessibility framework</h3>
+  <ul>
+    <li>New <code><a href="../../reference/android/view/accessibility/package-summary.html">android.accessibility</a></code> package
+that includes classes for capturing accessibility events and forwarding them to
+an <code><a href="../../reference/android/accessibilityservice/package-summary.html">AccessibilityService</a></code> handler. </li>
+    <li>New <code><a href="../../reference/android/accessibilityservice/package-summary.html">AccessibilityService</a></code> package
+that lets your application track user events and provide visual, audible, or
+haptic feedback to the user. </li>
+  </ul>
+
+<h3>Gesture input</h3>
+  <ul>
+    <li>New <code><a href="../../reference/android/gesture/package-summary.html">gesture</a></code> API for creating, recognizing,
+loading, and saving gestures.</li>
+  </ul>
+
+<h3>Text-to-speech</h3>
+  <ul>
+    <li>New <code><a href="../../reference/android/speech/tts/package-summary.html">android.speech.tts</a></code> package provides
+classes for synthesizing speech from text, for immediate playback or to create a
+sound file.</li>
+  </ul>
+
+<h3>Graphics</h3>
+  <ul>
+    <li>Classes in <code><a href="../../reference/android/graphics/package-summary.html">android.graphics</a></code> now support scaling
+for different screen densities.</li>
+  </ul>
+
+<h3>Telephony</h3>
+  <ul>
+    <li>New <code><a href="../../reference/android/telephony/SmsManager.html">SmsManager</a></code> and other classes
+for sending and receiving SMS messages.</li>
+  </ul>
+
+<h3>Utilities</h3>
+  <ul>
+    <li>New <code><a href="../../reference/android/util/DisplayMetrics.html">DisplayMetrics</a></code> fields for
+determining the density of the current device screen.</li>
+  </ul>
+
+<h3 id="AndroidManifest">Android Manifest elements</h3>
+
+    <ul>
+      <li>New <a href="../../guide/topics/manifest/supports-screens-element.html"><code>&lt;supports-screens&gt;</code></a> element lets you specify the device screen sizes that your
+      application is designed and tested to support, where "size" is a combination
+      of resolution and density. If your application is run on a device whose screen
+      size is not specified in the <code>&lt;supports-screen&gt;</code> element, the system
+      displays the application in <em>compatibility mode</em>, which performs best-effort scaling
+      of the application UI to match the resolution and density of the screen.
+
+    <p>The attributes available for defining an application's screen support are:
+
+        <ul>
+
+          <li><code>smallScreen</code>: Boolean value that indicates whether the
+            application is designed to run on devices with small screens.
+            Examples: QVGA low density; VGA high density.
+          </li>
+          <li><code>normalScreens</code>: Boolean value that indicates whether
+            the application is designed to run on devices with normal screens.
+            Examples: WQVGA low density; HVGA medium density; WVGA high density.
+          </li>
+          <li><code>largeScreens</code>: Boolean value that indicates whether
+            the application is designed to run on devices with significantly
+            larger screens, such that special care may be required on
+            the application's part to make proper use of the screen area.
+            Examples: VGA medium density; WVGA medium density.
+          </li>
+          <li><code>anyDensity</code>: Boolean value that indicates whether
+            the application can accommodate any screen density.
+          </li>
+          <li><code>resizable</code>: Boolean value that indicates whether
+            the application can expand its layout to fit slightly larger screens.
+          </li>
+        </ul>
+    </p>
+    </li>
+
+      <li>New <a href="../../guide/topics/manifest/uses-feature-element.html"><code>&lt;uses-feature&gt;</code></a>
+        element lets an application specify hardware (or other)
+        features that it requires to function normally. When an application
+        specifies such features, the system allows the application to be installed only
+        on devices that offer the required features. The element supports these
+        attributes:
+        <ul>
+          <li><code>name</code>: The name of the feature required by the application. Currently accepts
+          "android.hardware.camera" and "android.hardware.camera.autofocus" values, which specify that a
+          camera and camera autofocus are required, respectively.</li>
+          <li><code>glEsVersion</code>: Indicates the minimum version of OpenGL ES required.</li>
+        </ul>
+      </li>
+      <li>New attributes for the
+      <a href="../../guide/topics/manifest/uses-sdk-element.html"><code>&lt;uses-sdk&gt;</code></a> element:
+        <ul>
+          <li><code>targetSdkVersion</code>: Indicates the API Level that the application is targeting.
+          It is able to run on older versions (down to minSdkVersion), but was explicitly tested to
+          work with the version specified here. Specifying this version allows the platform to
+          disable compatibility code that is not required or enable newer features that are not
+          available to older applications. </li>
+          <li><code>maxSdkVersion</code>: Indicates the maximum API Level on which an application is
+          designed to run. <strong>Important:</strong> Please read the <a
+          href="../../guide/topics/manifest/uses-sdk-element.html"><code>&lt;uses-sdk&gt;</code></a>
+          documentation before using this attribute. </li>
+        </ul>
+      </li>
+
+      </li>
+    </ul>
+
+<h3>New permissions</h3>
+
+    <ul>
+      <li><code><a href="../../reference/android/Manifest.permission.html#CHANGE_WIFI_MULTICAST_STATE">CHANGE_WIFI_MULTICAST_STATE</a></code>: Allows applications to enter Wi-Fi
+          Multicast mode.
+      </li>
+      <li><code><a href="../../reference/android/Manifest.permission.html#GLOBAL_SEARCH">GLOBAL_SEARCH</a></code>: Allows the
+          global search system to access the data of a specified content provider.
+      </li>
+      <li><code><a href="../../reference/android/Manifest.permission.html#INSTALL_LOCATION_PROVIDER">INSTALL_LOCATION_PROVIDER</a></code>:
+          Allows an application to install a location provider into the Location Manager.
+      </li>
+      <li>READ_HISTORY_BOOKMARKS:
+          Allows an application to read (but not write) the user's browsing history
+          and bookmarks.
+      </li>
+      <li>WRITE_HISTORY_BOOKMARKS:
+          Allows an application to write (but not read) the user's browsing history
+          and bookmarks.
+      </li>
+      <li><code><a href="../../reference/android/Manifest.permission.html#WRITE_EXTERNAL_STORAGE">WRITE_EXTERNAL_STORAGE</a></code>:
+          Allows an application to write to external storage. Applications using API Level 3
+          and lower will be implicitly granted this permission (and this will be visible to
+          the user); Applications using API Level 4 or higher must explicitly request this
+          permission.
+      </li>
+    </ul>
+
+
+<h3 id="api-diff">API differences report</h3>
+
+<p>For a detailed view of API changes in Android 1.6 (API Level 4), as compared to
+the previous version, see the <a href="../../sdk/api_diff/4/changes.html">API
+Differences Report</a>.</p>
+
+<h2 id="apps">Built-in Applications</h2>
+
+<p>The system image included in the downloadable platform provides these
+built-in applications:</p>
+
+<table style="border:0;padding-bottom:0;margin-bottom:0;">
+<tr>
+<td style="border:0;padding-bottom:0;margin-bottom:0;">
+	<ul>
+	<li>Alarm Clock</li>
+	<li>Browser</li>
+	<li>Calculator</li>
+	<li>Camcorder</li>
+	<li>Camera</li>
+	<li>Contacts</li>
+	<li>Custom Locale (developer app)</li>
+	<li>Dev Tools (developer app)</li>
+	<li>Dialer</li>
+	</ul>
+</td>
+<td style="border:0;padding-bottom:0;margin-bottom:0;padding-left:5em;">
+	<ul>
+	<li>Email</li>
+	<li>Gallery</li>
+	<li>Gestures Builder</li>
+	<li>IME for Japanese text input</li>
+	<li>Messaging</li>
+	<li>Music</li>
+	<li>Settings</li>
+	<li>Spare Parts (developer app)</li>
+	</ul>
+</td>
+</tr>
+</table>
+
+<h2 id="locs" style="margin-top:.75em;">Locales</h2>
+
+<p>The system image included in the downloadable platform provides a variety of
+built-in locales. In some cases, region-specific strings are available for the
+locales. In other cases, a default version of the language is used. The
+languages that are available in the Android 1.6 system
+image are listed below (with <em>language</em>_<em>country/region</em>
+locale descriptor).</p>
+
+<table style="border:0;margin-bottom:0;padding-bottom:0;">
+<tr>
+<td style="border:0;padding-bottom:0;margin-bottom:0;">
+<ul>
+<li>Chinese, PRC (zh_CN)</li>
+<li>Chinese, Taiwan (zh_TW)</li>
+<li>Czech (cs_CZ)</li>
+<li>Dutch, Netherlands (nl_NL)</li>
+<li>Dutch, Belgium (nl_BE)</li>
+<li>English, US (en_US)</li>
+<li>English, Britain (en_GB)</li>
+<li>English, Canada (en_CA)</li>
+<li>English, Australia (en_AU)</li>
+<li>English, New Zealand (en_NZ)</li>
+<li>English, Singapore(en_SG)</li>
+<li>French, France (fr_FR)</li>
+<li>French, Belgium (fr_BE)</li>
+</ul>
+</td>
+<td style="border:0;padding-bottom:0;margin-bottom:0;padding-left:5em;">
+<li>French, Canada (fr_CA)</li>
+<li>French, Switzerland (fr_CH)</li>
+<li>German, Germany (de_DE)</li>
+<li>German, Austria (de_AT)</li>
+<li>German, Switzerland (de_CH)</li>
+<li>German, Liechtenstein (de_LI)</li>
+<li>Italian, Italy (it_IT)</li>
+<li>Italian, Switzerland (it_CH)</li>
+<li>Japanese (ja_JP)</li>
+<li>Korean (ko_KR)</li>
+<li>Polish (pl_PL)</li>
+<li>Russian (ru_RU)</li>
+<li>Spanish (es_ES)</li>
+</td>
+</tr>
+</table>
+
+<p>Localized UI strings match the locales that are accessible
+through Settings.</p>
+
+<h2 id="skins">Emulator Skins</h2>
+
+<p>The downloadable platform includes a set of emulator skins that you can
+use for modeling your application in different screen sizes and resolutions.
+The emulator skins are: </p>
+
+<ul>
+  <li>
+    QVGA (240x320, low density, small screen)
+  </li>
+  <li>
+    HVGA (320x480, medium density, normal screen)
+  </li>
+  <li>
+    WVGA800 (480x800, high density, normal screen)
+  </li>
+  <li>
+    WVGA854 (480x854 high density, normal screen)
+  </li>
+</ul>
+
+<p>For more information about how to develop an application that displays and functions properly on all Android-powered devices, see <a href="../../guide/practices/screens_support.html">Supporting Multiple Screens</a>.</p>
+
+    </div>
+
+    
+
+  </div> <!-- end jd-content -->
+
+
+
+<div class="wrap">
+  <div class="dac-footer">
+    <div class="cols dac-footer-main">
+      <div class="col-1of2">
+        <a class="dac-footer-getnews" id="newsletter" data-modal-toggle="newsletter" href="javascript:;">Get news &amp; tips <span
+          class="dac-fab dac-primary"><i class="dac-sprite dac-mail"></i></span></a>
+      </div>
+      <div class="col-1of2 dac-footer-reachout">
+        <div class="dac-footer-contact">
+          <a class="dac-footer-contact-link" href="http://android-developers.blogspot.com/">Blog</a>
+          <a class="dac-footer-contact-link" href="../../support.html">Support</a>
+        </div>
+        <div class="dac-footer-social">
+          <a class="dac-button-social dac-youtube dac-footer-social-link" href="https://www.youtube.com/user/androiddevelopers"><i class="dac-sprite dac-youtube"></i></a>
+          <a class="dac-button-social dac-gplus dac-footer-social-link" href="https://plus.google.com/+AndroidDevelopers"><i class="dac-sprite dac-gplus"></i></a>
+          <a class="dac-button-social dac-twitter dac-footer-social-link" href="https://twitter.com/AndroidDev"><i class="dac-sprite dac-twitter"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <hr class="dac-footer-separator"/>
+
+    
+      <p class="dac-footer-copyright">
+        
+  Except as noted, this content is
+  licensed under <a href="http://creativecommons.org/licenses/by/2.5/">
+  Creative Commons Attribution 2.5</a>. For details and
+  restrictions, see the <a href="../../license.html">Content
+  License</a>.
+
+      </p>
+    
+
+    <p class="dac-footer-links">
+      <a href="../android.html">About Android</a>
+      <a href="../../auto/index.html">Auto</a>
+      <a href="../../tv/index.html">TV</a>
+      <a href="../../wear/index.html">Wear</a>
+      <a href="../../legal.html">Legal</a>
+
+      <span id="language" class="locales">
+        <select name="language" onchange="changeLangPref(this.value, true)">
+          <option value="en" selected="selected">English</option>
+          <option value="es">Español</option>
+          <option value="in">Bahasa Indonesia</option>
+          <option value="ja">日本語</option>
+          <option value="ko">한국어</option>
+          <option value="pt-br">Português Brasileiro</option>
+          <option value="ru">Русский</option>
+          <option value="vi">tiếng Việt</option>
+          <option value="zh-cn">中文（简体)</option>
+          <option value="zh-tw">中文（繁體)</option>
+        </select>
+      </span>
+    </p>
+  </div>
+</div>
+<!-- end footer -->
+
+
+
+  
+
+
+
+<div data-modal="newsletter" data-newsletter data-swap class="dac-modal newsletter">
+  <div class="dac-modal-container">
+    <div class="dac-modal-window">
+      <header class="dac-modal-header">
+        <div class="dac-modal-header-actions">
+          <button class="dac-modal-header-close" data-modal-toggle></button>
+        </div>
+        <div class="dac-swap" data-swap-container>
+          <section class="dac-swap-section dac-active dac-down">
+            <h2 class="norule dac-modal-header-title" data-t="newsletter.title"></h2>
+            <p class="dac-modal-header-subtitle" data-t="newsletter.requiredHint"></p>
+          </section>
+          <section class="dac-swap-section dac-up">
+            <h2 class="norule dac-modal-header-title" data-t="newsletter.successTitle">Hooray!</h2>
+          </section>
+        </div>
+      </header>
+      <div class="dac-swap" data-swap-container>
+        <section class="dac-swap-section dac-active dac-left">
+          <form action="https://docs.google.com/forms/d/1QgnkzbEJIDu9lMEea0mxqWrXUJu0oBCLD7ar23V0Yys/formResponse" class="dac-form" method="post" target="dac-newsletter-iframe">
+            <input type="hidden" name="entry.935454734" data-newsletter-language>
+            <section class="dac-modal-content">
+              <fieldset class="dac-form-fieldset">
+                <div class="cols">
+                  <div class="col-1of2 newsletter-leftCol">
+                    <div class="dac-form-input-group">
+                      <label for="newsletter-full-name" class="dac-form-floatlabel" data-t="newsletter.name">Full name</label>
+                      <input type="text" class="dac-form-input" name="entry.1357890476" id="newsletter-full-name" required>
+                      <span class="dac-form-required">*</span>
+                    </div>
+                    <div class="dac-form-input-group">
+                      <label for="newsletter-email" class="dac-form-floatlabel" data-t="newsletter.email">Email address</label>
+                      <input type="email" class="dac-form-input" name="entry.472100832" id="newsletter-email" required>
+                      <span class="dac-form-required">*</span>
+                    </div>
+                  </div>
+                  <div class="col-1of2 newsletter-rightCol">
+                    <div class="dac-form-input-group">
+                      <label for="newsletter-company" class="dac-form-floatlabel" data-t="newsletter.company">Company / developer name</label>
+                      <input type="text" class="dac-form-input" name="entry.1664780309" id="newsletter-company">
+                    </div>
+                    <div class="dac-form-input-group">
+                      <label for="newsletter-play-store" class="dac-form-floatlabel" data-t="newsletter.appUrl">One of your Play Store app URLs</label>
+                      <input type="url" class="dac-form-input" name="entry.47013838" id="newsletter-play-store" required>
+                      <span class="dac-form-required">*</span>
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+              <fieldset class="dac-form-fieldset">
+                <div class="cols">
+                  <div class="col-1of2 newsletter-leftCol">
+                    <legend class="dac-form-legend"><span data-t="newsletter.business.label">Which best describes your business:</span><span class="dac-form-required">*</span>
+                    </legend>
+                    <div class="dac-form-radio-group">
+                      <input type="radio" value="Apps" class="dac-form-radio" name="entry.1796324055" id="newsletter-business-type-app" required>
+                      <label for="newsletter-business-type-app" class="dac-form-radio-button"></label>
+                      <label for="newsletter-business-type-app" class="dac-form-label" data-t="newsletter.business.apps">Apps</label>
+                    </div>
+                    <div class="dac-form-radio-group">
+                      <input type="radio" value="Games" class="dac-form-radio" name="entry.1796324055" id="newsletter-business-type-games" required>
+                      <label for="newsletter-business-type-games" class="dac-form-radio-button"></label>
+                      <label for="newsletter-business-type-games" class="dac-form-label" data-t="newsletter.business.games">Games</label>
+                    </div>
+                    <div class="dac-form-radio-group">
+                      <input type="radio" value="Apps and Games" class="dac-form-radio" name="entry.1796324055" id="newsletter-business-type-appsgames" required>
+                      <label for="newsletter-business-type-appsgames" class="dac-form-radio-button"></label>
+                      <label for="newsletter-business-type-appsgames" class="dac-form-label" data-t="newsletter.business.both">Apps &amp; Games</label>
+                    </div>
+                  </div>
+                  <div class="col-1of2 newsletter-rightCol newsletter-checkboxes">
+                    <div class="dac-form-radio-group">
+                      <div class="dac-media">
+                        <div class="dac-media-figure">
+                          <input type="checkbox" class="dac-form-checkbox" name="entry.732309842" id="newsletter-add" required value="Add me to the mailing list for the monthly newsletter and occasional emails about development and Google Play opportunities.">
+                          <label for="newsletter-add" class="dac-form-checkbox-button"></label>
+                        </div>
+                        <div class="dac-media-body">
+                          <label for="newsletter-add" class="dac-form-label dac-form-aside"><span data-t="newsletter.confirmMailingList"></span><span class="dac-form-required">*</span></label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="dac-form-radio-group">
+                      <div class="dac-media">
+                        <div class="dac-media-figure">
+                          <input type="checkbox" class="dac-form-checkbox" name="entry.2045036090" id="newsletter-terms" required value="I acknowledge that the information provided in this form will be subject to Google's privacy policy (https://www.google.com/policies/privacy/).">
+                          <label for="newsletter-terms" class="dac-form-checkbox-button"></label>
+                        </div>
+                        <div class="dac-media-body">
+                          <label for="newsletter-terms" class="dac-form-label dac-form-aside"><span data-t="newsletter.privacyPolicy" data-t-html></span><span class="dac-form-required">*</span></label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+            </section>
+            <footer class="dac-modal-footer">
+              <div class="cols">
+                <div class="col-2of5">
+                </div>
+              </div>
+              <button type="submit" value="Submit" class="dac-fab dac-primary dac-large dac-modal-action"><i class="dac-sprite dac-arrow-right"></i></button>
+            </footer>
+          </form>
+        </section>
+        <section class="dac-swap-section dac-right">
+          <div class="dac-modal-content">
+            <p class="newsletter-success-message" data-t="newsletter.successDetails"></p>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end newsletter modal -->
+
+<!-- start reset language header modal -->
+<div data-modal="langform" class="dac-modal" id="langform">
+  <div class="dac-modal-container">
+    <div class="dac-modal-window">
+      <header class="dac-modal-header">
+        <div class="dac-modal-header-actions">
+          <button class="dac-modal-header-close" data-modal-toggle></button>
+        </div>
+        <section class="dac-swap-section dac-active dac-down">
+          <h2 class="norule dac-modal-header-title"></h2>
+        </section>
+      </header>
+      <section class="dac-swap-section dac-active dac-left">
+          <section class="dac-modal-content">
+            <fieldset class="dac-form-fieldset">
+              <div class="cols">
+                <div class="col-2of2 langform-leftCol">
+                  <p id="resetLangText"></p>
+                  <p id="resetLangCta"></p>
+                </div>
+              </div>
+            </fieldset>
+          </section>
+          <footer class="dac-modal-footer" id="langfooter">
+            <div class="cols">
+              <div class="col-2of5">
+              </div>
+            </div>
+              <button class="button dac-primary dac-modal-action lang yes" data-t="newsletter.resetLangButtonYes" data-modal-toggle></button>
+              <button class="button dac-primary dac-modal-action lang no" data-t="newsletter.resetLangButtonNo" data-modal-toggle></button>
+            </a>
+          </footer>
+        </form>
+      </section>
+    </div>
+  </div>
+</div>
+<!-- end langreset modal -->
+
+
+</div> <!-- end body-content --> 
+
+
+
+
+<script src="../../ajax/developer.android.com/ytblogger_lists_unified.js" defer></script>
+<script src="/jd_lists_unified_en.js?v=17" defer></script>
+<script src="/reference/lists.js?v=17" defer></script>
+<script src="/reference/gcm_lists.js?v=17" defer></script>
+<script src="/reference/gms_lists.js?v=17" defer></script>
+<script>
+  // Load localized metadata.
+  (function(lang) {
+    if (lang === 'en') { return; }
+
+    // Write it to the document so it gets evaluated before DOMContentReady.
+    document.write('<script src="/jd_lists_unified_' + lang + '.js?v=14" defer></' + 'script>');
+  })(getLangPref())
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,1297 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+
+  
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
+<link rel="shortcut icon" type="image/x-icon" href="../../favicon.ico" />
+<link rel="alternate" href="http://developer.android.com/topic/performance/launch-time.html" hreflang="en" />
+<link rel="alternate" href="http://developer.android.com/intl/es/topic/performance/launch-time.html" hreflang="es" />
+<link rel="alternate" href="http://developer.android.com/intl/id/topic/performance/launch-time.html" hreflang="id" />
+<link rel="alternate" href="http://developer.android.com/intl/ja/topic/performance/launch-time.html" hreflang="ja" />
+<link rel="alternate" href="http://developer.android.com/intl/ko/topic/performance/launch-time.html" hreflang="ko" />
+<link rel="alternate" href="http://developer.android.com/intl/pt-br/topic/performance/launch-time.html" hreflang="pt-br" />
+<link rel="alternate" href="http://developer.android.com/intl/ru/topic/performance/launch-time.html" hreflang="ru" />
+<link rel="alternate" href="http://developer.android.com/intl/vi/topic/performance/launch-time.html" hreflang="vi" />
+<link rel="alternate" href="http://developer.android.com/intl/zh-cn/topic/performance/launch-time.html" hreflang="zh-cn" />
+<link rel="alternate" href="http://developer.android.com/intl/zh-tw/topic/performance/launch-time.html" hreflang="zh-tw" />
+
+
+<title>Launch-Time Performance | Android Developers
+</title>
+
+<meta name="description" content="Users expect apps to be responsive and fast to load. An app with a slow startup time doesn’t meet this expectation, and can be disappointing to users. This sort of poor experience may cause a user to rate your app poorly on the Play store, or even abandon…">
+
+<!-- STYLESHEETS -->
+<link rel="stylesheet"
+href="http://fonts.useso.com/css?family=Roboto+Condensed">
+<link rel="stylesheet" href="http://fonts.useso.com/css?family=Roboto:light,regular,medium,thin,italic,mediumitalic,bold"
+  title="roboto">
+
+<link href="../../assets/css/default.css?v=16" rel="stylesheet" type="text/css">
+
+<!-- JAVASCRIPT -->
+<script src="../../assets/js/android_3p-bundle.js" type="text/javascript"></script>
+<script type="text/javascript">
+  var toRoot = "../../";
+  var metaTags = [];
+  var devsite = false;
+  var useUpdatedTemplates = false;
+</script>
+<script src="../../assets/js/docs.js?v=17" type="text/javascript"></script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//../../ajax/www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-5831155-1', 'android.com');
+  ga('create', 'UA-49880327-2', 'android.com', {'name': 'universal'});  // New tracker);
+  ga('send', 'pageview');
+  ga('universal.send', 'pageview'); // Send page view for new tracker.
+</script>
+
+</head>
+
+<body class="gc-documentation
+
+
+" itemscope itemtype="http://schema.org/Article">
+  
+  <a name="top"></a>
+  <!-- Header -->
+  <div id="header-wrapper">
+    <div class="dac-header " id="header">
+      <div class="dac-header-inner">
+        <a class="dac-nav-toggle" data-dac-toggle-nav href="javascript:;" title="Open navigation">
+          <span class="dac-nav-hamburger">
+            <span class="dac-nav-hamburger-top"></span>
+            <span class="dac-nav-hamburger-mid"></span>
+            <span class="dac-nav-hamburger-bot"></span>
+          </span>
+        </a>
+        <a class="dac-header-logo" href="../../index.html">
+          <img class="dac-header-logo-image" src="../../assets/images/android_logo.png"
+              srcset="../../assets/images/android_logo@2x.png 2x"
+              width="32" height="36" alt="Android" /> Developers
+          </a>
+
+        <ul class="dac-header-tabs">
+          <li>
+          <a class="dac-header-tab" href="../../design/index.html"
+             zh-tw-lang="設計"
+             zh-cn-lang="设计"
+             ru-lang="Проектирование"
+             ko-lang="디자인"
+             ja-lang="設計"
+             es-lang="Diseñar">Design</a>
+          </li>
+          <li>
+          <a class="dac-header-tab" href="../../develop/index.html"
+             zh-tw-lang="開發"
+             zh-cn-lang="开发"
+             ru-lang="Разработка"
+             ko-lang="개발"
+             ja-lang="開発"
+             es-lang="Desarrollar">Develop</a>
+          </li>
+          <li>
+          <a class="dac-header-tab" href="../../distribute/index.html"
+             zh-tw-lang="發佈"
+             zh-cn-lang="分发"
+             ru-lang="Распространение"
+             ko-lang="배포"
+             ja-lang="配布"
+             es-lang="Distribuir">Distribute</a>
+          </li>
+        </ul>
+
+        <a class="dac-header-console-btn" href="https://play.google.com/apps/publish/">
+          <span class="dac-sprite dac-google-play"></span>
+          <span class="dac-visible-desktop-inline">Developer</span>
+          Console
+        </a>
+
+        
+        
+        
+  <form data-search class="dac-header-search">
+    <button class="dac-header-search-close" data-search-close>
+      <i class="dac-sprite dac-back-arrow"></i>
+    </button>
+
+    <div class="dac-header-search-inner">
+      <i class="dac-sprite dac-search-white dac-header-search-icon"></i>
+      <input id="search_autocomplete" type="text" value="" autocomplete="off" name="q" class="dac-header-search-input" placeholder="Search" />
+      <button class="dac-header-search-clear dac-hidden" data-search-clear>
+        <i class="dac-sprite dac-close-black"></i>
+      </button>
+    </div>
+  </form>
+
+        
+      </div><!-- end header-wrap.wrap -->
+    </div><!-- end header -->
+  </div> <!--end header-wrapper -->
+
+  
+  <!-- Navigation-->
+  <nav class="dac-nav">
+    <div class="dac-nav-dimmer" data-dac-toggle-nav></div>
+
+    <div class="dac-nav-sidebar" data-swap data-dynamic="false" data-transition-speed="300" data-dac-nav>
+      <div data-swap-container>
+        
+  
+    <a class="dac-nav-back-button dac-swap-section dac-up dac-no-anim" data-swap-button href="javascript:;">
+      <i class="dac-sprite dac-nav-back"></i> <span class="dac-nav-back-title">Back</span>
+    </a>
+    <div class="dac-nav-sub dac-swap-section dac-right dac-active" itemscope itemtype="http://schema.org/SiteNavigationElement">
+      
+        
+  <!-- Fullscreen toggler -->
+  <button data-fullscreen class="dac-nav-fullscreen">
+    <i class="dac-sprite dac-fullscreen"></i>
+  </button>
+
+  <script>$('[data-fullscreen]').dacFullscreen();</script>
+  <!-- End: Fullscreen toggler -->
+
+  
+    <div id="devdoc-nav">
+      <div id="api-nav-header">
+        <div id="api-level-toggle">
+          <label for="apiLevelCheckbox" class="disabled"
+                 title="Select your target API level to dim unavailable APIs">API level: </label>
+          <div class="select-wrapper">
+            <select id="apiLevelSelector">
+              <!-- option elements added by buildApiLevelSelector() -->
+            </select>
+          </div>
+        </div><!-- end toggle -->
+        <div id="api-nav-title">Android APIs</div>
+      </div><!-- end nav header -->
+      <script>
+        var SINCE_DATA = [  ];
+        buildApiLevelSelector();
+      </script>
+
+      <div class="dac-reference-nav" data-reference-tree>
+        <ul class="dac-reference-nav-list" data-reference-namespaces>
+          
+        </ul>
+
+        
+      </div>
+    </div>
+  
+
+      
+    </div>
+  
+
+        <ul id="dac-main-navigation" class="dac-nav-list dac-swap-section dac-left dac-no-anim">
+        <li class="dac-nav-item home">
+          <a class="dac-nav-link" href="../../index.html">Home</a>
+          <i class="dac-sprite dac-expand-more-black dac-nav-sub-slider"></i>
+          <ul class="dac-nav-secondary about">
+            <li class="dac-nav-item versions">
+              <a class="dac-nav-link" href="../../about/versions/marshmallow/index.html">Android</a>
+            </li>
+            <li class="dac-nav-item wear">
+              <a class="dac-nav-link" href="../../wear/index.html">Wear</a>
+            </li>
+            <li class="dac-nav-item tv">
+              <a class="dac-nav-link" href="../../tv/index.html">TV</a>
+            </li>
+            <li class="dac-nav-item auto">
+              <a class="dac-nav-link" href="../../auto/index.html">Auto</a>
+            </li>
+          </ul>
+        </li>
+        <li class="dac-nav-item design">
+          <a class="dac-nav-link" href="../../design/index.html"
+             zh-tw-lang="設計"
+             zh-cn-lang="设计"
+             ru-lang="Проектирование"
+             ko-lang="디자인"
+             ja-lang="設計"
+             es-lang="Diseñar">Design</a>
+        </li>
+        <li class="dac-nav-item develop">
+          <a class="dac-nav-link" href="../../develop/index.html"
+             zh-tw-lang="開發"
+             zh-cn-lang="开发"
+             ru-lang="Разработка"
+             ko-lang="개발"
+             ja-lang="開発"
+             es-lang="Desarrollar">Develop</a>
+          <i class="dac-sprite dac-expand-more-black dac-nav-sub-slider"></i>
+          <ul class="dac-nav-secondary develop">
+            <li class="dac-nav-item training">
+              <a class="dac-nav-link" href="../../training/index.html"
+                 zh-tw-lang="訓練課程"
+                 zh-cn-lang="培训"
+                 ru-lang="Курсы"
+                 ko-lang="교육"
+                 ja-lang="トレーニング"
+                 es-lang="Capacitación">Training</a>
+            </li>
+            <li class="dac-nav-item guide">
+              <a class="dac-nav-link" href="../../guide/index.html"
+                 zh-tw-lang="API 指南"
+                 zh-cn-lang="API 指南"
+                 ru-lang="Руководства по API"
+                 ko-lang="API 가이드"
+                 ja-lang="API ガイド"
+                 es-lang="Guías de la API">API Guides</a>
+            </li>
+            <li class="dac-nav-item reference">
+              <a class="dac-nav-link" href="../../reference/packages.html"
+                 zh-tw-lang="參考資源"
+                 zh-cn-lang="参考"
+                 ru-lang="Справочник"
+                 ko-lang="참조문서"
+                 ja-lang="リファレンス"
+                 es-lang="Referencia">Reference</a>
+            </li>
+            <li class="dac-nav-item tools">
+              <a class="dac-nav-link" href="../../sdk/index.html"
+                 zh-tw-lang="相關工具"
+                 zh-cn-lang="工具"
+                 ru-lang="Инструменты"
+                 ko-lang="도구"
+                 ja-lang="ツール"
+                 es-lang="Herramientas">Tools</a></li>
+            <li class="dac-nav-item google">
+              <a class="dac-nav-link" href="../../google/index.html">Google Services</a>
+            </li>
+            
+          </ul>
+        </li>
+        <li class="dac-nav-item distribute">
+          <a class="dac-nav-link" href="../../distribute/googleplay/index.html"
+             zh-tw-lang="發佈"
+             zh-cn-lang="分发"
+             ru-lang="Распространение"
+             ko-lang="배포"
+             ja-lang="配布"
+             es-lang="Distribuir">Distribute</a>
+          <i class="dac-sprite dac-expand-more-black dac-nav-sub-slider"></i>
+          <ul class="dac-nav-secondary distribute">
+            <li class="dac-nav-item googleplay">
+              <a class="dac-nav-link" href="../../distribute/googleplay/index.html">Google Play</a></li>
+            <li class="dac-nav-item essentials">
+              <a class="dac-nav-link" href="../../distribute/essentials/index.html">Essentials</a></li>
+            <li class="dac-nav-item users">
+              <a class="dac-nav-link" href="../../distribute/users/index.html">Get Users</a></li>
+            <li class="dac-nav-item engage">
+              <a class="dac-nav-link" href="../../distribute/engage/index.html">Engage &amp; Retain</a></li>
+            <li class="dac-nav-item monetize">
+              <a class="dac-nav-link" href="../../distribute/monetize/index.html">Earn</a>
+            </li>
+            <li class="dac-nav-item analyze">
+              <a class="dac-nav-link" href="../../distribute/analyze/index.html">Analyze</a>
+            </li>
+            <li class="dac-nav-item stories">
+              <a class="dac-nav-link" href="../../distribute/stories/index.html">Stories</a>
+            </li>
+          </ul>
+        </li>
+        <li class="dac-nav-item preview">
+          <a class="dac-nav-link" href="../../preview/index.html">Preview</a>
+        </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- end navigation-->
+  
+
+<!-- Nav Setup -->
+<script>$('[data-dac-nav]').dacNav();</script>
+
+
+
+  
+    
+  <div class="wrap clearfix" id="body-content">
+
+  
+
+  
+  <div id="search-results" class="dac-search-results">
+    <div id="dac-search-results-history" class="dac-search-results-history">
+      <div class="wrap dac-search-results-history-wrap">
+        <div class="cols">
+          <div class="col-1of2 col-tablet-1of2 col-mobile-1of1">
+            <h2>Most visited</h2>
+            <div class="resource-flow-layout" data-history-query="history:most/visited" data-maxresults="3" data-cardsizes="18x2"></div>
+          </div>
+
+          <div class="col-1of2 col-tablet-1of2 col-mobile-1of1">
+            <h2>Recently visited</h2>
+            <div class="resource-flow-layout cols" data-history-query="history:recent" data-allow-duplicates="true" data-maxresults="3" data-cardsizes="18x2"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="dac-search-results-content" class="dac-search-results-content">
+      <div class="dac-search-results-metadata wrap">
+        <div class="dac-search-results-for">
+          <h2>Results for <span id="search-results-for"></span></h2>
+        </div>
+
+        <div id="dac-search-results-hero"></div>
+
+        <div class="dac-search-results-hero cols">
+          <div id="dac-search-results-reference" class="col-3of6 col-tablet-1of2 col-mobile-1of1">
+            <div class="suggest-card reference no-display">
+              <ul class="dac-search-results-reference">
+              </ul>
+            </div>
+          </div>
+          <div id="dac-custom-search-results"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+
+
+
+  
+    
+      
+        <ul class="dac-header-crumbs">
+          
+        </ul>
+
+        <!-- Breadcrumb Setup -->
+        <p><script>$('.dac-nav-list').dacCurrentPage().dacCrumbs();</script></p>
+
+        <h1 itemprop="name" >Launch-Time Performance</h1>
+      
+    
+  
+
+
+  
+
+  
+  <div id="jd-content">
+    <div class="jd-descr" itemprop="articleBody">
+    
+
+    <div id="qv-wrapper">
+<div id="qv">
+
+<h2>In this document</h2>
+<ol>
+<li><a href="#internals">Launch Internals</a>
+  <ol>
+    <li><a href="#cold">Cold start</a></li>
+    <li><a href="#warm">Warm start</a></li>
+    <li><a href="#lukewarm">Lukewarm start</a></li>
+  </ol>
+</li>
+<li><a href="#profiling">Profiling Launch Performance</a>
+  <ol>
+    <li><a href="#time-initial">Time to initial display</a></li>
+    <li><a href="#time-full">Time to full display</a></li>
+  </ol>
+</li>
+<li><a href="#common">Common Issues</a>
+   <ol>
+      <li><a href="#heavy-app">Heavy app initialization</a></li>
+      <li><a href="#heavy-act">Heavy activity initialization</a></li>
+      <li><a href="#themed">Themed launch screens</a></li>
+   </ol>
+      </li>
+</ol>
+</div>
+</div>
+
+<p>
+Users expect apps to be responsive and fast to load. An app with a slow startup
+time doesn’t meet this expectation, and can be disappointing to users. This
+sort of poor experience may cause a user to rate your app poorly on the Play
+store, or even abandon your app altogether.
+</p>
+
+<p>
+This document provides information to help you optimize your app’s launch time.
+It begins by explaining the internals of the launch process. Next, it discusses
+how to profile startup performance. Last, it describes some common startup-time
+issues, and gives some hints on how to address them.
+</p>
+
+<h2 id="internals">Launch Internals</h2>
+
+<p>
+App launch can take place in one of three states, each affecting how
+long it takes for your app to become visible to the user: cold start,
+warm start, and lukewarm start. In a cold start, your app starts from scratch.
+In the other states, the system needs to bring the app from the background to
+the foreground. We recommend that you always optimize based on an assumption of
+a cold start. Doing so can improve the performance of warm and lukewarm starts,
+as well.
+</p>
+
+<p>
+To optimize your app for fast startup, it’s useful to understand what’s
+happening at the system and app levels, and how they interact, in each of
+these states.
+</p>
+
+<h3 id="cold">Cold start</h3>
+
+<p>
+A cold start refers to an app’s starting from scratch: the system’s process
+has not, until this start, created the app’s process. Cold starts happen in
+cases such as your app’s being launched for the first time since the device
+booted, or since the system killed the app. This type of start presents the
+greatest challenge in terms of minimizing startup time, because the system
+and app have more work to do than in the other launch states.
+</p>
+
+<p>
+At the beginning of a cold start, the system has three tasks. These tasks are:
+</p>
+
+<ol style="1">
+   <li>Loading and launching the app.</li>
+   <li>Displaying a blank starting window for the app immediately after launch.
+   </li>
+   <li>Creating the app
+   <a href="{docRoot}guide/components/processes-and-threads.html#Processes">
+   process.</a></li>
+</ol>
+<br/>
+<p>
+As soon as the system creates the app process, the app process is responsible
+for the next stages. These stages are:
+</p>
+
+<ol style="1">
+   <li>Creating the app object.</li>
+   <li>Launching the main thread.</li>
+   <li>Creating the main activity.</li>
+   <li>Inflating views.</li>
+   <li>Laying out the screen.</li>
+   <li>Performing the initial draw.</li>
+</ol>
+
+<p>
+Once the app process has completed the first draw, the system process swaps
+out the currently displayed background window, replacing it with the main
+activity. At this point, the user can start using the app.
+</p>
+
+<p>
+Figure 1 shows how the system and app processes hand off work between each
+other.
+</p>
+<br/>
+
+  <img src="../../topic/performance/images/cold-launch.png">
+  <p class="img-caption">
+    <strong>Figure 1.</strong> A visual representation of the important parts of
+    a cold application launch.
+  </p>
+
+<p>
+Performance issues can arise during creation of the app and
+creation of the activity.
+</p>
+
+<h4 id="app-creation">Application creation</h4>
+
+<p>
+When your application launches, the blank starting window remains on the screen
+until the system finishes drawing the app for the first time. At that point,
+the system process swaps out the starting window for your app, allowing the
+user to start interacting with the app.
+</p>
+
+<p>
+If you’ve overloaded <code><a href="../../reference/android/app/Application.html#onCreate()">Application.oncreate()</a></code>
+in your own app, the app starts by calling this
+method on your app object. Afterwards, the app spawns the main thread, also
+known as the UI thread, and tasks it with creating your main activity.
+</p>
+
+<p>
+From this point, system- and app-level processes proceed in accordance with
+the <a href="{docRoot}guide/topics/processes/process-lifecycle.html">
+app lifecycle stages</a>.
+</p>
+
+<h4 id="act-creation">Activity creation</h4>
+
+<p>
+After the app process creates your activity, the activity performs the
+following operations:
+</p>
+
+<ol style="1">
+   <li>Initializes values.</li>
+   <li>Calls constructors.</li>
+   <li>Calls the callback method, such as
+   <code><a href="../../reference/android/app/Activity.html#onCreate(android.os.Bundle)">Activity.onCreate()</a></code>,
+   appropriate to the current lifecycle state of the activity.</li>
+</ol>
+
+<p>
+Typically, the
+<code><a href="../../reference/android/app/Activity.html#onCreate(android.os.Bundle)">onCreate()</a></code>
+method has the greatest impact on load time, because it performs the work with
+the highest overhead: loading and inflating views, and initializing the objects
+needed for the activity to run.
+</p>
+
+<h3 id="warm">Warm start</h3>
+
+<p>
+A warm start of your application is much simpler and lower-overhead than a
+cold start. In a warm start, all the system does is bring your activity to
+the foreground. If all of your application’s activities are still resident in
+memory, then the app can avoid having to repeat object initialization, layout
+inflation, and rendering.
+</p>
+
+<p>
+However, if some memory has been purged in response to memory trimming
+events, such as
+<code><a href="../../reference/android/content/ComponentCallbacks2.html#onTrimMemory(int)">onTrimMemory()</a></code>,
+then those objects will need to be recreated in
+response to the warm start event.
+</p>
+
+<p>
+A warm start displays the same on-screen behavior as a cold start scenario:
+The system process displays a blank screen until the app has finished rendering
+the activity.
+</p>
+
+<h3 id="lukewarm">Lukewarm start</h3>
+
+<p>
+A lukewarm start encompasses some subset of the operations that
+take place during a cold start; at the same time, it represents less overhead
+than a warm start. There are many potential states that could be considered
+lukewarm starts. For instance:
+</p>
+
+<ul>
+   <li>The user backs out of your app, but then re-launches it. The process may
+       have continued to run, but the app must recreate the activity from scratch
+       via a call to
+       <code><a href="../../reference/android/app/Activity.html#onCreate(android.os.Bundle)">onCreate()</a></code>.</li>
+
+   <li>The system evicts your app from memory, and then the user re-launches it.
+       The process and the Activity need to be restarted, but the task can
+       benefit somewhat from the saved instance state bundle passed into
+       <code><a href="../../reference/android/app/Activity.html#onCreate(android.os.Bundle)">onCreate()</a></code>.</li>
+</ul>
+
+<h2 id="profiling">Profiling Launch Performance</h2>
+
+<p>
+In order to properly diagnose start time performance, you can track metrics
+that show how long it takes your application to start.
+</p>
+
+<h3 id="time-initial">Time to initial display</h3>
+
+<p>
+From Android 4.4 (API level 19), logcat includes an output line containing
+a value called <code>Displayed</code>. This value represents
+the amount of time elapsed between launching the process and finishing drawing
+the corresponding activity on the screen. The elapsed time encompasses the
+following sequence of events:
+</p>
+
+<ol style="1">
+   <li>Launch the process.</li>
+   <li>Initialize the objects.</li>
+   <li>Create and initialize the activity.</li>
+   <li>Inflate the layout.</li>
+   <li>Draw your application for the first time.</li>
+</ol>
+
+<p>
+The reported log line looks similar to the following example:
+</p>
+
+<pre class="no-pretty-print">
+ActivityManager: Displayed com.android.myexample/.StartupTiming: +3s534ms
+</pre>
+
+<p>
+If you’re tracking logcat output from the command line, or in a terminal,
+finding the elapsed time is straightforward. To find elapsed time in
+Android Studio, you must disable filters in your logcat view. Disabling the
+filters is necessary because the system server, not the app itself, serves
+this log.
+</p>
+
+<p>
+Once you’ve made the appropriate settings, you can easily search for the
+correct term to see the time. Figure 2 shows how to disable filters, and,
+in the second line of output from the bottom, an example of logcat output of
+the <code>Displayed</code> time.
+</p>
+<br/>
+
+  <img src="../../topic/performance/images/displayed-logcat.png">
+  <p class="img-caption">
+    <strong>Figure 2.</strong> Disabling filters, and
+    finding the <code>Displayed</code> value in logcat.
+  </p>
+
+<p>
+The <code>Displayed</code> metric in the logcat output does not necessarily capture
+the amount of time until all resources are loaded and displayed: it leaves out
+resources that are not referenced in the layout file or that the app creates
+as part of object initialization. It excludes these resources because loading
+them is an inline process, and does not block the app’s initial display.
+</p>
+
+<h3 id="time-full">Time to full display</h3>
+
+<p>
+You can use the <code><a href="../../reference/android/app/Activity.html#reportFullyDrawn()">reportFullyDrawn()</a></code> method to
+measure the elapsed time
+between application launch and complete display of all resources and view
+hierarchies. This can be valuable in cases where an app performs lazy loading.
+In lazy loading, an app does not block the initial drawing of the window, but
+instead asynchronously loads resources and updates the view hierarchy.
+</p>
+
+<p>
+If, due to lazy loading, an app’s initial display does not include all
+resources, you might consider the completed loading and display of all
+resources and views as a separate metric: For example, your UI might be
+fully loaded, with some text drawn, but not yet display images that the
+app must fetch from the network.
+</p>
+
+<p>
+To address this concern, you can manually call
+<code><a href="../../reference/android/app/Activity.html#reportFullyDrawn()">reportFullyDrawn()</a></code>
+to let the system know that your activity is
+finished with its lazy loading. When you use this method, the value
+that logcat displays is the time elapsed
+since the creation of the application object, and the moment
+<code><a href="../../reference/android/app/Activity.html#reportFullyDrawn()">reportFullyDrawn()</a></code> is called.
+</p>
+
+<p>
+If you learn that your display times are slower than you’d like, you can
+go on to try to identify the bottlenecks in the startup process.
+</p>
+
+<h4 id="bottlenecks">Identifying bottlenecks</h4>
+
+<p>
+Two good ways to look for bottlenecks are Android Studio’s Method Tracer tool
+and inline tracing. To learn about Method Tracer, see that tool’s
+<a href="{docRoot}studio/profile/am-methodtrace.html">documentation</a>.
+</p>
+
+<p>
+If you do not have access to the Method Tracer tool, or cannot start the tool
+at the correct time to gain log information, you can gain similar insight
+through inline tracing inside of your apps’ and activities’ <code>onCreate()</code>
+methods. To learn about inline tracing, see the reference documentation for
+the <code><a href="../../reference/android/os/Trace.html">Trace</a></code> functions, and for the
+<a href="{docRoot}studio/profile/systrace-commandline.html">Systrace</a> tool.
+</p>
+
+<h2 id="common">Common Issues</h2>
+
+<p>
+This section discusses several issues that often affect apps’ startup
+performance. These issues chiefly concern initializing app and activity
+objects, as well as the loading of screens.
+</p>
+
+<h3 id="heavy-app">Heavy app initialization</h3>
+
+<p>
+Launch performance can suffer when your code overrides the <code>Application</code>
+object, and executes heavy work or complex logic when initializing that object.
+Your app may waste time during startup if your Application subclasses perform
+initializations that don’t need to be done yet. Some initializations may be
+completely unnecessary: for example, initializing state information for the
+main activity, when the app has actually started up in response to an intent.
+With an intent, the app uses only a subset of the previously initialized state
+data.
+</p>
+
+<p>
+Other challenges during app initialization include garbage-collection events
+that are impactful or numerous, or disk I/O happening concurrently with
+initialization, further blocking the initialization process. Garbage collection
+is especially a consideration with the Dalvik runtime; the Art runtime performs
+garbage collection concurrently, minimizing that operation's impact.
+</p>
+
+<h4 id="diagnosing-1">Diagnosing the problem</h4>
+
+<p>
+You can use method tracing or inline tracing to try to diagnose the problem.
+</p>
+
+<h5>Method tracing</h5>
+
+<p>
+Running the Method Tracer tool reveals that the
+<code><a href="../../reference/android/app/Instrumentation.html#callApplicationOnCreate(android.app.Application)">callApplicationOnCreate()</a></code>
+method eventually calls your <code>com.example.customApplication.onCreate</code>
+method. If the tool shows that these
+methods are taking a long time to finish executing, you should explore further
+to see what work is occurring there.
+</p>
+
+<h5>Inline tracing</h5>
+
+<p>
+Use inline tracing to investigate likely culprits including:
+</p>
+
+<ul>
+   <li>Your app’s initial <code><a href="../../reference/android/app/Application.html#onCreate()">onCreate()</a></code>
+   function.</li>
+   <li>Any global singleton objects your app initializes.</li>
+   <li>Any disk I/O, deserialization, or tight loops that might be occurring
+   during the bottleneck.
+</ul>
+
+
+<h4 id="solutions-1">Solutions to the problem</h4>
+
+<p>
+Whether the problem lies with unnecessary initializations or disk I/O,
+the solution calls for lazy-initializing objects: initializing only those
+objects that are immediately needed. For example, rather than creating global
+static objects, instead, move to a singleton pattern, where the app initalizes
+objects only the first time it accesses them.
+</p>
+
+<h3 id="heavy-act">Heavy activity initialization</h4>
+
+<p>
+Activity creation often entails a lot of high-overhead work. Often, there are
+opportunities to optimize this work to achieve performance improvements. Such
+common issues include:
+</p>
+
+<ul>
+   <li>Inflating large or complex layouts.</li>
+   <li>Blocking screen drawing on disk, or network I/O.</li>
+   <li>Loading and decoding bitmaps.</li>
+   <li>Rasterizing <code><a href="../../reference/android/graphics/drawable/VectorDrawable.html">VectorDrawable</a></code> objects.</li>
+   <li>Initialization of other subsystems of the activity.</li>
+</ul>
+
+<h4 id="diagnosing-2">Diagnosing the problem</h4>
+
+<p>
+In this case, as well, both method tracing and inline tracing can prove useful.
+</p>
+
+<h5>Method tracing</h5>
+
+<p>
+When running the Method Tracer tool, the particular areas to
+focus on your your app’s <code><a href="../../reference/android/app/Application.html">Application</a></code> subclass constructors and
+<code>com.example.customApplication.onCreate()</code> methods.
+</p>
+
+<p>
+If the tool shows that these methods are taking a long time to finish
+executing, you should explore further to see what work is occurring there.
+</p>
+
+<h5>Inline tracing</h5>
+
+<p>
+Use inline tracing to investigate likely culprits including:
+</p>
+
+<ul>
+   <li>Your app’s initial <code><a href="../../reference/android/app/Application.html#onCreate()">onCreate()</a></code>
+   function.</li>
+   <li>Any global singleton objects it initializes.</li>
+   <li>Any disk I/O, deserialization, or tight loops that might be occurring
+   during the bottleneck.</li>
+</ul>
+
+<h4 id="solutions-2">Solutions to the problem</h4>
+
+<p>
+There are many potential bottlenecks, but two common problems and remedies
+are as follows:
+</p>
+
+<ul>
+   <li>The larger your view hierarchy, the more time the app takes to inflate
+   it. Two steps you can take to address this issue are:
+
+   <ul>
+      <li>Flattening your view hierarchy by reducing redundant or nested
+      layouts.</li>
+
+      <li>Not inflating parts of the UI that do not need to be visible during
+      launch. Instead, use use a <code><a href="../../reference/android/view/ViewStub.html">ViewStub</a></code> object as a
+      placeholder for sub-hierarchies that the app can inflate at a more
+      appropriate time.</li>
+   </ul>
+   </li>
+
+   <li>Having all of your resource initialization on the main
+       thread can also slow down startup. You can address this issue as follows:
+
+   <ul>
+      <li>Move all resource initialization so that the app can perform it
+      lazily on a different thread.</li>
+      <li>Allow the app to load and display your views, and then later
+      update visual properties that are dependent on bitmaps and other
+      resources.</li>
+   </ul>
+   </li>
+
+<h3 id="themed">Themed launch screens</h3>
+
+
+<p>
+You may wish to theme your app’s loading experience, so that the app’s
+launch screen is thematically consistent with the rest of the app, instead of
+with the system theming. Doing so can hide a slow activity launch.
+</p>
+
+<p>
+A common way to implement a themed launch screen is to use the the
+<code><a href="../../reference/android/R.attr.html#windowDisablePreview">windowDisablePreview</a></code> theme attribute to turn off
+the initial blank screen
+that the system process draws when launching the app. However, this approach
+can result in a longer startup time than apps that don’t suppress the preview
+window. Also, it forces the user to wait with no feedback while the activity
+launches, making them wonder if the app is functioning properly.
+</p>
+
+<h4 id="diagnosing-3">Diagnosing the problem</h4>
+
+<p>
+You can often diagnose this problem by observing a slow response when a user
+launches your app. In such a case, the screen may seem to be frozen, or to
+have stopped responding to input.
+</p>
+
+<h4 id="solutions-3">Solutions to the problem</h4>
+
+<p>
+We recommend that, rather than disabling the preview window, you
+follow the common
+<a href="http://www.google.com/design/spec/patterns/launch-screens.html#">
+Material Design</a> patterns. You can use the activity's
+<code>windowBackground</code> theme attribute to provide a simple custom drawable
+for the starting activity.
+</p>
+
+<p>
+For example, you might create a new drawable file and reference it from the
+layout XML and app manifest file as follows:
+</p>
+
+<p>Layout XML file:</p>
+
+<pre>
+&lt;layer-list xmlns:android="http://schemas.android.com/apk/res/android" android:opacity="opaque"&gt;
+  &lt;!-- The background color, preferably the same as your normal theme --&gt;
+  &lt;item android:drawable="@android:color/white"/&gt;
+  &lt;!-- Your product logo - 144dp color version of your app icon --&gt;
+  &lt;item&gt;
+    &lt;bitmap
+      android:src="@drawable/product_logo_144dp"
+      android:gravity="center"/&gt;
+  &lt;/item&gt;
+&lt;/layer-list&gt;
+</pre>
+
+<p>Manifest file:</p>
+
+<pre>
+&lt;activity ...
+android:theme="@style/AppTheme.Launcher" /&gt;
+</pre>
+
+<p>
+The easiest way to transition back to your normal theme is to call
+<code><a href="../../reference/android/view/ContextThemeWrapper.html#setTheme(int)">setTheme(R.style.AppTheme)</a></code>
+before calling <code>super.onCreate()</code> and <code>setContentView()</code>:
+</p>
+
+<pre class="no-pretty-print">
+public class MyMainActivity extends AppCompatActivity {
+  &#64;Override
+  protected void onCreate(Bundle savedInstanceState) {
+    // Make sure this is before calling super.onCreate
+    setTheme(R.style.Theme_MyApp);
+    super.onCreate(savedInstanceState);
+    // ...
+  }
+}
+</pre>
+
+    </div>
+
+    
+
+  </div> <!-- end jd-content -->
+
+
+
+<div class="wrap">
+  <div class="dac-footer">
+    <div class="cols dac-footer-main">
+      <div class="col-1of2">
+        <a class="dac-footer-getnews" id="newsletter" data-modal-toggle="newsletter" href="javascript:;">Get news &amp; tips <span
+          class="dac-fab dac-primary"><i class="dac-sprite dac-mail"></i></span></a>
+      </div>
+      <div class="col-1of2 dac-footer-reachout">
+        <div class="dac-footer-contact">
+          <a class="dac-footer-contact-link" href="http://android-developers.blogspot.com/">Blog</a>
+          <a class="dac-footer-contact-link" href="../../support.html">Support</a>
+        </div>
+        <div class="dac-footer-social">
+          <a class="dac-button-social dac-youtube dac-footer-social-link" href="https://www.youtube.com/user/androiddevelopers"><i class="dac-sprite dac-youtube"></i></a>
+          <a class="dac-button-social dac-gplus dac-footer-social-link" href="https://plus.google.com/+AndroidDevelopers"><i class="dac-sprite dac-gplus"></i></a>
+          <a class="dac-button-social dac-twitter dac-footer-social-link" href="https://twitter.com/AndroidDev"><i class="dac-sprite dac-twitter"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <hr class="dac-footer-separator"/>
+
+    
+      <p class="dac-footer-copyright">
+        
+  Except as noted, this content is
+  licensed under <a href="http://creativecommons.org/licenses/by/2.5/">
+  Creative Commons Attribution 2.5</a>. For details and
+  restrictions, see the <a href="../../license.html">Content
+  License</a>.
+
+      </p>
+    
+
+    <p class="dac-footer-links">
+      <a href="../../about/android.html">About Android</a>
+      <a href="../../auto/index.html">Auto</a>
+      <a href="../../tv/index.html">TV</a>
+      <a href="../../wear/index.html">Wear</a>
+      <a href="../../legal.html">Legal</a>
+
+      <span id="language" class="locales">
+        <select name="language" onchange="changeLangPref(this.value, true)">
+          <option value="en" selected="selected">English</option>
+          <option value="es">Español</option>
+          <option value="in">Bahasa Indonesia</option>
+          <option value="ja">日本語</option>
+          <option value="ko">한국어</option>
+          <option value="pt-br">Português Brasileiro</option>
+          <option value="ru">Русский</option>
+          <option value="vi">tiếng Việt</option>
+          <option value="zh-cn">中文（简体)</option>
+          <option value="zh-tw">中文（繁體)</option>
+        </select>
+      </span>
+    </p>
+  </div>
+</div>
+<!-- end footer -->
+
+
+
+  
+
+
+
+<div data-modal="newsletter" data-newsletter data-swap class="dac-modal newsletter">
+  <div class="dac-modal-container">
+    <div class="dac-modal-window">
+      <header class="dac-modal-header">
+        <div class="dac-modal-header-actions">
+          <button class="dac-modal-header-close" data-modal-toggle></button>
+        </div>
+        <div class="dac-swap" data-swap-container>
+          <section class="dac-swap-section dac-active dac-down">
+            <h2 class="norule dac-modal-header-title" data-t="newsletter.title"></h2>
+            <p class="dac-modal-header-subtitle" data-t="newsletter.requiredHint"></p>
+          </section>
+          <section class="dac-swap-section dac-up">
+            <h2 class="norule dac-modal-header-title" data-t="newsletter.successTitle">Hooray!</h2>
+          </section>
+        </div>
+      </header>
+      <div class="dac-swap" data-swap-container>
+        <section class="dac-swap-section dac-active dac-left">
+          <form action="https://docs.google.com/forms/d/1QgnkzbEJIDu9lMEea0mxqWrXUJu0oBCLD7ar23V0Yys/formResponse" class="dac-form" method="post" target="dac-newsletter-iframe">
+            <input type="hidden" name="entry.935454734" data-newsletter-language>
+            <section class="dac-modal-content">
+              <fieldset class="dac-form-fieldset">
+                <div class="cols">
+                  <div class="col-1of2 newsletter-leftCol">
+                    <div class="dac-form-input-group">
+                      <label for="newsletter-full-name" class="dac-form-floatlabel" data-t="newsletter.name">Full name</label>
+                      <input type="text" class="dac-form-input" name="entry.1357890476" id="newsletter-full-name" required>
+                      <span class="dac-form-required">*</span>
+                    </div>
+                    <div class="dac-form-input-group">
+                      <label for="newsletter-email" class="dac-form-floatlabel" data-t="newsletter.email">Email address</label>
+                      <input type="email" class="dac-form-input" name="entry.472100832" id="newsletter-email" required>
+                      <span class="dac-form-required">*</span>
+                    </div>
+                  </div>
+                  <div class="col-1of2 newsletter-rightCol">
+                    <div class="dac-form-input-group">
+                      <label for="newsletter-company" class="dac-form-floatlabel" data-t="newsletter.company">Company / developer name</label>
+                      <input type="text" class="dac-form-input" name="entry.1664780309" id="newsletter-company">
+                    </div>
+                    <div class="dac-form-input-group">
+                      <label for="newsletter-play-store" class="dac-form-floatlabel" data-t="newsletter.appUrl">One of your Play Store app URLs</label>
+                      <input type="url" class="dac-form-input" name="entry.47013838" id="newsletter-play-store" required>
+                      <span class="dac-form-required">*</span>
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+              <fieldset class="dac-form-fieldset">
+                <div class="cols">
+                  <div class="col-1of2 newsletter-leftCol">
+                    <legend class="dac-form-legend"><span data-t="newsletter.business.label">Which best describes your business:</span><span class="dac-form-required">*</span>
+                    </legend>
+                    <div class="dac-form-radio-group">
+                      <input type="radio" value="Apps" class="dac-form-radio" name="entry.1796324055" id="newsletter-business-type-app" required>
+                      <label for="newsletter-business-type-app" class="dac-form-radio-button"></label>
+                      <label for="newsletter-business-type-app" class="dac-form-label" data-t="newsletter.business.apps">Apps</label>
+                    </div>
+                    <div class="dac-form-radio-group">
+                      <input type="radio" value="Games" class="dac-form-radio" name="entry.1796324055" id="newsletter-business-type-games" required>
+                      <label for="newsletter-business-type-games" class="dac-form-radio-button"></label>
+                      <label for="newsletter-business-type-games" class="dac-form-label" data-t="newsletter.business.games">Games</label>
+                    </div>
+                    <div class="dac-form-radio-group">
+                      <input type="radio" value="Apps and Games" class="dac-form-radio" name="entry.1796324055" id="newsletter-business-type-appsgames" required>
+                      <label for="newsletter-business-type-appsgames" class="dac-form-radio-button"></label>
+                      <label for="newsletter-business-type-appsgames" class="dac-form-label" data-t="newsletter.business.both">Apps &amp; Games</label>
+                    </div>
+                  </div>
+                  <div class="col-1of2 newsletter-rightCol newsletter-checkboxes">
+                    <div class="dac-form-radio-group">
+                      <div class="dac-media">
+                        <div class="dac-media-figure">
+                          <input type="checkbox" class="dac-form-checkbox" name="entry.732309842" id="newsletter-add" required value="Add me to the mailing list for the monthly newsletter and occasional emails about development and Google Play opportunities.">
+                          <label for="newsletter-add" class="dac-form-checkbox-button"></label>
+                        </div>
+                        <div class="dac-media-body">
+                          <label for="newsletter-add" class="dac-form-label dac-form-aside"><span data-t="newsletter.confirmMailingList"></span><span class="dac-form-required">*</span></label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="dac-form-radio-group">
+                      <div class="dac-media">
+                        <div class="dac-media-figure">
+                          <input type="checkbox" class="dac-form-checkbox" name="entry.2045036090" id="newsletter-terms" required value="I acknowledge that the information provided in this form will be subject to Google's privacy policy (https://www.google.com/policies/privacy/).">
+                          <label for="newsletter-terms" class="dac-form-checkbox-button"></label>
+                        </div>
+                        <div class="dac-media-body">
+                          <label for="newsletter-terms" class="dac-form-label dac-form-aside"><span data-t="newsletter.privacyPolicy" data-t-html></span><span class="dac-form-required">*</span></label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+            </section>
+            <footer class="dac-modal-footer">
+              <div class="cols">
+                <div class="col-2of5">
+                </div>
+              </div>
+              <button type="submit" value="Submit" class="dac-fab dac-primary dac-large dac-modal-action"><i class="dac-sprite dac-arrow-right"></i></button>
+            </footer>
+          </form>
+        </section>
+        <section class="dac-swap-section dac-right">
+          <div class="dac-modal-content">
+            <p class="newsletter-success-message" data-t="newsletter.successDetails"></p>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end newsletter modal -->
+
+<!-- start reset language header modal -->
+<div data-modal="langform" class="dac-modal" id="langform">
+  <div class="dac-modal-container">
+    <div class="dac-modal-window">
+      <header class="dac-modal-header">
+        <div class="dac-modal-header-actions">
+          <button class="dac-modal-header-close" data-modal-toggle></button>
+        </div>
+        <section class="dac-swap-section dac-active dac-down">
+          <h2 class="norule dac-modal-header-title"></h2>
+        </section>
+      </header>
+      <section class="dac-swap-section dac-active dac-left">
+          <section class="dac-modal-content">
+            <fieldset class="dac-form-fieldset">
+              <div class="cols">
+                <div class="col-2of2 langform-leftCol">
+                  <p id="resetLangText"></p>
+                  <p id="resetLangCta"></p>
+                </div>
+              </div>
+            </fieldset>
+          </section>
+          <footer class="dac-modal-footer" id="langfooter">
+            <div class="cols">
+              <div class="col-2of5">
+              </div>
+            </div>
+              <button class="button dac-primary dac-modal-action lang yes" data-t="newsletter.resetLangButtonYes" data-modal-toggle></button>
+              <button class="button dac-primary dac-modal-action lang no" data-t="newsletter.resetLangButtonNo" data-modal-toggle></button>
+            </a>
+          </footer>
+        </form>
+      </section>
+    </div>
+  </div>
+</div>
+<!-- end langreset modal -->
+
+
+</div> <!-- end body-content --> 
+
+
+
+
+<script src="../../ajax/developer.android.com/ytblogger_lists_unified.js" defer></script>
+<script src="/jd_lists_unified_en.js?v=17" defer></script>
+<script src="/reference/lists.js?v=17" defer></script>
+<script src="/reference/gcm_lists.js?v=17" defer></script>
+<script src="/reference/gms_lists.js?v=17" defer></script>
+<script>
+  // Load localized metadata.
+  (function(lang) {
+    if (lang === 'en') { return; }
+
+    // Write it to the document so it gets evaluated before DOMContentReady.
+    document.write('<script src="/jd_lists_unified_' + lang + '.js?v=14" defer></' + 'script>');
+  })(getLangPref())
+</script>
+
+
+</body>
+</html>

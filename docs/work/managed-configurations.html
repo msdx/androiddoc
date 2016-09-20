@@ -1,0 +1,1234 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+
+  
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
+<link rel="shortcut icon" type="image/x-icon" href="../favicon.ico" />
+<link rel="alternate" href="http://developer.android.com/work/managed-configurations.html" hreflang="en" />
+<link rel="alternate" href="http://developer.android.com/intl/es/work/managed-configurations.html" hreflang="es" />
+<link rel="alternate" href="http://developer.android.com/intl/id/work/managed-configurations.html" hreflang="id" />
+<link rel="alternate" href="http://developer.android.com/intl/ja/work/managed-configurations.html" hreflang="ja" />
+<link rel="alternate" href="http://developer.android.com/intl/ko/work/managed-configurations.html" hreflang="ko" />
+<link rel="alternate" href="http://developer.android.com/intl/pt-br/work/managed-configurations.html" hreflang="pt-br" />
+<link rel="alternate" href="http://developer.android.com/intl/ru/work/managed-configurations.html" hreflang="ru" />
+<link rel="alternate" href="http://developer.android.com/intl/vi/work/managed-configurations.html" hreflang="vi" />
+<link rel="alternate" href="http://developer.android.com/intl/zh-cn/work/managed-configurations.html" hreflang="zh-cn" />
+<link rel="alternate" href="http://developer.android.com/intl/zh-tw/work/managed-configurations.html" hreflang="zh-tw" />
+
+
+<title>Set up Managed Configurations | Android Developers
+</title>
+
+<meta name="description" content="Learn how to implement managed configurations that can be changed by other apps on the same device.">
+
+<!-- STYLESHEETS -->
+<link rel="stylesheet"
+href="http://fonts.useso.com/css?family=Roboto+Condensed">
+<link rel="stylesheet" href="http://fonts.useso.com/css?family=Roboto:light,regular,medium,thin,italic,mediumitalic,bold"
+  title="roboto">
+
+<link href="../assets/css/default.css?v=16" rel="stylesheet" type="text/css">
+
+<!-- JAVASCRIPT -->
+<script src="../assets/js/android_3p-bundle.js" type="text/javascript"></script>
+<script type="text/javascript">
+  var toRoot = "../";
+  var metaTags = [];
+  var devsite = false;
+  var useUpdatedTemplates = false;
+</script>
+<script src="../assets/js/docs.js?v=17" type="text/javascript"></script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//../ajax/www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-5831155-1', 'android.com');
+  ga('create', 'UA-49880327-2', 'android.com', {'name': 'universal'});  // New tracker);
+  ga('send', 'pageview');
+  ga('universal.send', 'pageview'); // Send page view for new tracker.
+</script>
+
+</head>
+
+<body class="gc-documentation
+
+
+" itemscope itemtype="http://schema.org/Article">
+  
+  <a name="top"></a>
+  <!-- Header -->
+  <div id="header-wrapper">
+    <div class="dac-header " id="header">
+      <div class="dac-header-inner">
+        <a class="dac-nav-toggle" data-dac-toggle-nav href="javascript:;" title="Open navigation">
+          <span class="dac-nav-hamburger">
+            <span class="dac-nav-hamburger-top"></span>
+            <span class="dac-nav-hamburger-mid"></span>
+            <span class="dac-nav-hamburger-bot"></span>
+          </span>
+        </a>
+        <a class="dac-header-logo" href="../index.html">
+          <img class="dac-header-logo-image" src="../assets/images/android_logo.png"
+              srcset="../assets/images/android_logo@2x.png 2x"
+              width="32" height="36" alt="Android" /> Developers
+          </a>
+
+        <ul class="dac-header-tabs">
+          <li>
+          <a class="dac-header-tab" href="../design/index.html"
+             zh-tw-lang="設計"
+             zh-cn-lang="设计"
+             ru-lang="Проектирование"
+             ko-lang="디자인"
+             ja-lang="設計"
+             es-lang="Diseñar">Design</a>
+          </li>
+          <li>
+          <a class="dac-header-tab" href="../develop/index.html"
+             zh-tw-lang="開發"
+             zh-cn-lang="开发"
+             ru-lang="Разработка"
+             ko-lang="개발"
+             ja-lang="開発"
+             es-lang="Desarrollar">Develop</a>
+          </li>
+          <li>
+          <a class="dac-header-tab" href="../distribute/index.html"
+             zh-tw-lang="發佈"
+             zh-cn-lang="分发"
+             ru-lang="Распространение"
+             ko-lang="배포"
+             ja-lang="配布"
+             es-lang="Distribuir">Distribute</a>
+          </li>
+        </ul>
+
+        <a class="dac-header-console-btn" href="https://play.google.com/apps/publish/">
+          <span class="dac-sprite dac-google-play"></span>
+          <span class="dac-visible-desktop-inline">Developer</span>
+          Console
+        </a>
+
+        
+        
+        
+  <form data-search class="dac-header-search">
+    <button class="dac-header-search-close" data-search-close>
+      <i class="dac-sprite dac-back-arrow"></i>
+    </button>
+
+    <div class="dac-header-search-inner">
+      <i class="dac-sprite dac-search-white dac-header-search-icon"></i>
+      <input id="search_autocomplete" type="text" value="" autocomplete="off" name="q" class="dac-header-search-input" placeholder="Search" />
+      <button class="dac-header-search-clear dac-hidden" data-search-clear>
+        <i class="dac-sprite dac-close-black"></i>
+      </button>
+    </div>
+  </form>
+
+        
+      </div><!-- end header-wrap.wrap -->
+    </div><!-- end header -->
+  </div> <!--end header-wrapper -->
+
+  
+  <!-- Navigation-->
+  <nav class="dac-nav">
+    <div class="dac-nav-dimmer" data-dac-toggle-nav></div>
+
+    <div class="dac-nav-sidebar" data-swap data-dynamic="false" data-transition-speed="300" data-dac-nav>
+      <div data-swap-container>
+        
+  
+    <a class="dac-nav-back-button dac-swap-section dac-up dac-no-anim" data-swap-button href="javascript:;">
+      <i class="dac-sprite dac-nav-back"></i> <span class="dac-nav-back-title">Back</span>
+    </a>
+    <div class="dac-nav-sub dac-swap-section dac-right dac-active" itemscope itemtype="http://schema.org/SiteNavigationElement">
+      
+        
+  <!-- Fullscreen toggler -->
+  <button data-fullscreen class="dac-nav-fullscreen">
+    <i class="dac-sprite dac-fullscreen"></i>
+  </button>
+
+  <script>$('[data-fullscreen]').dacFullscreen();</script>
+  <!-- End: Fullscreen toggler -->
+
+  
+    <div id="devdoc-nav">
+      <div id="api-nav-header">
+        <div id="api-level-toggle">
+          <label for="apiLevelCheckbox" class="disabled"
+                 title="Select your target API level to dim unavailable APIs">API level: </label>
+          <div class="select-wrapper">
+            <select id="apiLevelSelector">
+              <!-- option elements added by buildApiLevelSelector() -->
+            </select>
+          </div>
+        </div><!-- end toggle -->
+        <div id="api-nav-title">Android APIs</div>
+      </div><!-- end nav header -->
+      <script>
+        var SINCE_DATA = [  ];
+        buildApiLevelSelector();
+      </script>
+
+      <div class="dac-reference-nav" data-reference-tree>
+        <ul class="dac-reference-nav-list" data-reference-namespaces>
+          
+        </ul>
+
+        
+      </div>
+    </div>
+  
+
+      
+    </div>
+  
+
+        <ul id="dac-main-navigation" class="dac-nav-list dac-swap-section dac-left dac-no-anim">
+        <li class="dac-nav-item home">
+          <a class="dac-nav-link" href="../index.html">Home</a>
+          <i class="dac-sprite dac-expand-more-black dac-nav-sub-slider"></i>
+          <ul class="dac-nav-secondary about">
+            <li class="dac-nav-item versions">
+              <a class="dac-nav-link" href="../about/versions/marshmallow/index.html">Android</a>
+            </li>
+            <li class="dac-nav-item wear">
+              <a class="dac-nav-link" href="../wear/index.html">Wear</a>
+            </li>
+            <li class="dac-nav-item tv">
+              <a class="dac-nav-link" href="../tv/index.html">TV</a>
+            </li>
+            <li class="dac-nav-item auto">
+              <a class="dac-nav-link" href="../auto/index.html">Auto</a>
+            </li>
+          </ul>
+        </li>
+        <li class="dac-nav-item design">
+          <a class="dac-nav-link" href="../design/index.html"
+             zh-tw-lang="設計"
+             zh-cn-lang="设计"
+             ru-lang="Проектирование"
+             ko-lang="디자인"
+             ja-lang="設計"
+             es-lang="Diseñar">Design</a>
+        </li>
+        <li class="dac-nav-item develop">
+          <a class="dac-nav-link" href="../develop/index.html"
+             zh-tw-lang="開發"
+             zh-cn-lang="开发"
+             ru-lang="Разработка"
+             ko-lang="개발"
+             ja-lang="開発"
+             es-lang="Desarrollar">Develop</a>
+          <i class="dac-sprite dac-expand-more-black dac-nav-sub-slider"></i>
+          <ul class="dac-nav-secondary develop">
+            <li class="dac-nav-item training">
+              <a class="dac-nav-link" href="../training/index.html"
+                 zh-tw-lang="訓練課程"
+                 zh-cn-lang="培训"
+                 ru-lang="Курсы"
+                 ko-lang="교육"
+                 ja-lang="トレーニング"
+                 es-lang="Capacitación">Training</a>
+            </li>
+            <li class="dac-nav-item guide">
+              <a class="dac-nav-link" href="../guide/index.html"
+                 zh-tw-lang="API 指南"
+                 zh-cn-lang="API 指南"
+                 ru-lang="Руководства по API"
+                 ko-lang="API 가이드"
+                 ja-lang="API ガイド"
+                 es-lang="Guías de la API">API Guides</a>
+            </li>
+            <li class="dac-nav-item reference">
+              <a class="dac-nav-link" href="../reference/packages.html"
+                 zh-tw-lang="參考資源"
+                 zh-cn-lang="参考"
+                 ru-lang="Справочник"
+                 ko-lang="참조문서"
+                 ja-lang="リファレンス"
+                 es-lang="Referencia">Reference</a>
+            </li>
+            <li class="dac-nav-item tools">
+              <a class="dac-nav-link" href="../sdk/index.html"
+                 zh-tw-lang="相關工具"
+                 zh-cn-lang="工具"
+                 ru-lang="Инструменты"
+                 ko-lang="도구"
+                 ja-lang="ツール"
+                 es-lang="Herramientas">Tools</a></li>
+            <li class="dac-nav-item google">
+              <a class="dac-nav-link" href="../google/index.html">Google Services</a>
+            </li>
+            
+          </ul>
+        </li>
+        <li class="dac-nav-item distribute">
+          <a class="dac-nav-link" href="../distribute/googleplay/index.html"
+             zh-tw-lang="發佈"
+             zh-cn-lang="分发"
+             ru-lang="Распространение"
+             ko-lang="배포"
+             ja-lang="配布"
+             es-lang="Distribuir">Distribute</a>
+          <i class="dac-sprite dac-expand-more-black dac-nav-sub-slider"></i>
+          <ul class="dac-nav-secondary distribute">
+            <li class="dac-nav-item googleplay">
+              <a class="dac-nav-link" href="../distribute/googleplay/index.html">Google Play</a></li>
+            <li class="dac-nav-item essentials">
+              <a class="dac-nav-link" href="../distribute/essentials/index.html">Essentials</a></li>
+            <li class="dac-nav-item users">
+              <a class="dac-nav-link" href="../distribute/users/index.html">Get Users</a></li>
+            <li class="dac-nav-item engage">
+              <a class="dac-nav-link" href="../distribute/engage/index.html">Engage &amp; Retain</a></li>
+            <li class="dac-nav-item monetize">
+              <a class="dac-nav-link" href="../distribute/monetize/index.html">Earn</a>
+            </li>
+            <li class="dac-nav-item analyze">
+              <a class="dac-nav-link" href="../distribute/analyze/index.html">Analyze</a>
+            </li>
+            <li class="dac-nav-item stories">
+              <a class="dac-nav-link" href="../distribute/stories/index.html">Stories</a>
+            </li>
+          </ul>
+        </li>
+        <li class="dac-nav-item preview">
+          <a class="dac-nav-link" href="../preview/index.html">Preview</a>
+        </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- end navigation-->
+  
+
+<!-- Nav Setup -->
+<script>$('[data-dac-nav]').dacNav();</script>
+
+
+
+  
+    
+  <div class="wrap clearfix" id="body-content">
+
+  
+
+  
+  <div id="search-results" class="dac-search-results">
+    <div id="dac-search-results-history" class="dac-search-results-history">
+      <div class="wrap dac-search-results-history-wrap">
+        <div class="cols">
+          <div class="col-1of2 col-tablet-1of2 col-mobile-1of1">
+            <h2>Most visited</h2>
+            <div class="resource-flow-layout" data-history-query="history:most/visited" data-maxresults="3" data-cardsizes="18x2"></div>
+          </div>
+
+          <div class="col-1of2 col-tablet-1of2 col-mobile-1of1">
+            <h2>Recently visited</h2>
+            <div class="resource-flow-layout cols" data-history-query="history:recent" data-allow-duplicates="true" data-maxresults="3" data-cardsizes="18x2"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="dac-search-results-content" class="dac-search-results-content">
+      <div class="dac-search-results-metadata wrap">
+        <div class="dac-search-results-for">
+          <h2>Results for <span id="search-results-for"></span></h2>
+        </div>
+
+        <div id="dac-search-results-hero"></div>
+
+        <div class="dac-search-results-hero cols">
+          <div id="dac-search-results-reference" class="col-3of6 col-tablet-1of2 col-mobile-1of1">
+            <div class="suggest-card reference no-display">
+              <ul class="dac-search-results-reference">
+              </ul>
+            </div>
+          </div>
+          <div id="dac-custom-search-results"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+
+
+
+  
+    
+      
+        <ul class="dac-header-crumbs">
+          
+        </ul>
+
+        <!-- Breadcrumb Setup -->
+        <p><script>$('.dac-nav-list').dacCurrentPage().dacCrumbs();</script></p>
+
+        <h1 itemprop="name" >Set up Managed Configurations</h1>
+      
+    
+  
+
+
+  
+
+  
+  <div id="jd-content">
+    <div class="jd-descr" itemprop="articleBody">
+    
+
+    <div id="qv-wrapper">
+  <div id="qv">
+    <h2>In this document</h2>
+    <ol>
+      <li><a href="#define-configuration">Define Managed Configurations</a></li>
+      <li><a href="#check-configuration">Check Managed Configurations</a></li>
+      <li><a href="#listen-configuration">Listen for Managed Configuration Changes</a></li>
+    </ol>
+  </div>
+</div>
+
+<p>
+  If you are developing apps for the enterprise market, you may need
+  to satisfy particular requirements set by a company's policies.
+  Managed configurations, previously known as <em>application restrictions</em>,
+  allow the enterprise administrator to remotely specify settings for
+  apps. This capability is particularly useful for enterprise-approved
+  apps deployed to a managed profile.
+</p>
+
+<p>For example, an enterprise might require that approved apps allow the
+enterprise administrator to:</p>
+
+<ul>
+  <li>Whitelist or blacklist URLs for a web browser</li>
+  <li>Configure whether an app is allowed to sync content via cellular, or just
+    by Wi-Fi</li>
+  <li>Configure the app's email settings</li>
+</ul>
+
+<p>
+  This guide shows how to implement managed configuration settings in
+  your app. If you're an EMM developer, refer to the
+  <a href="https://developers.google.com/android/work/build-dpc"
+  >Build a Device Policy Controller</a> guide.
+</p>
+
+<p class="note">
+  <strong>Note:</strong> For historical reasons, these configuration settings are known as
+  <em>restrictions,</em> and are implemented with files and classes that use this
+  term (such as <code><a href="../reference/android/content/RestrictionsManager.html">RestrictionsManager</a></code>). However, these
+  restrictions can actually implement a wide range of configuration options,
+  not just restrictions on app functionality.
+</p>
+
+<h2 id="overview">
+  Remote Configuration Overview
+</h2>
+
+<p>
+  Apps define the managed configuration options that can be remotely
+  set by an administrator. These are arbitrary settings that can be
+  changed by a managed configuration provider. If your app is running on an
+  enterprise device's managed profile, the enterprise administrator
+  can change your app's managed configuration.
+</p>
+
+<p>
+  The managed configurations provider is another app running on the same device.
+  This app is typically controlled by the enterprise administrator. The
+  enterprise administrator communicates configuration changes to the managed
+  configuration provider app. That app, in turn, changes the configurations on your app.
+</p>
+
+<p>
+  To provide externally managed configurations:
+</p>
+
+<ul>
+  <li>Declare the managed configurations in your app manifest. Doing
+    so allows the enterprise administrator to read the app's
+    configurations through Google Play APIs.
+  </li>
+
+  <li>Whenever the app resumes, use the <code><a href="../reference/android/content/RestrictionsManager.html">RestrictionsManager</a></code> object to check the current
+    managed configurations, and change your app's UI and behavior to
+    conform with those configurations.
+  </li>
+
+  <li>Listen for the
+    <code><a href="../reference/android/content/Intent.html#ACTION_APPLICATION_RESTRICTIONS_CHANGED">ACTION_APPLICATION_RESTRICTIONS_CHANGED</a></code> intent. When you receive this
+    broadcast, check the <code><a href="../reference/android/content/RestrictionsManager.html">RestrictionsManager</a></code> to see what
+    the current managed configurations are, and make any necessary changes to your
+    app's behavior.
+  </li>
+</ul>
+
+<h2 id="define-configuration">
+  Define Managed Configurations
+</h2>
+
+<p>
+  Your app can support any managed configuration you want to define. You declare the
+  app's managed configurations in a <em>managed configurations file</em>, and declare
+  the configurations file in the manifest. Creating a configurations file allows
+  other apps to examine the managed configurations your app provides. Enterprise
+  Mobility Management (EMM) partners can read your app's configurations by using
+  Google Play APIs.
+</p>
+
+<p>
+  To define your app's remote configuration options, put the following element
+  in your manifest's
+  <a href="../guide/topics/manifest/application-element.html">
+  <code>&lt;application&gt;</code></a> element:
+</p>
+
+<pre>&lt;meta-data android:name="android.content.APP_RESTRICTIONS"
+    android:resource="@xml/app_restrictions" /&gt;
+</pre>
+
+<p>
+  Create a file named <code>app_restrictions.xml</code> in your app's
+  <code>res/xml</code> directory. The structure of that file is described in
+  the reference for <code><a href="../reference/android/content/RestrictionsManager.html">RestrictionsManager</a></code>. The file has a
+  single top-level <code>&lt;restrictions&gt;</code> element, which contains
+  one <code>&lt;restriction&gt;</code> child element for every configuration
+  option the app has.
+</p>
+
+<p class="note">
+  <strong>Note:</strong> Do not create localized versions of the
+  managed configuration file. Your app is only allowed to have a
+  single managed configurations file, so configurations will be
+  consistent for your app in all locales.
+</p>
+
+<p>
+  In an enterprise environment, an EMM will typically use the managed
+  configuration schema to generate a remote console for IT
+  administrators, so the administrators can remotely configure your
+  application.
+</p>
+
+<p>
+  The managed configuration provider can query the app to find details
+  on the app's available configurations, including their description
+  text. The configurations provider and enterprise administrator can
+  change your app's managed configurations at any time, even when the
+  app is not running.
+</p>
+
+<p>
+  For example, suppose your app can be remotely configured to allow or forbid
+  it to download data over a cellular connection. Your app could have a
+  <code>&lt;restriction&gt;</code> element like this:
+</p>
+
+<pre>
+&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;restrictions xmlns:android="http://schemas.android.com/apk/res/android"&gt;
+
+  &lt;restriction
+    android:key="downloadOnCellular"
+    android:title="@string/download_on_cell_title"
+    android:restrictionType="bool"
+    android:description="@string/download_on_cell_description"
+    android:defaultValue="true" /&gt;
+
+&lt;/restrictions&gt;
+</pre>
+
+<p>
+  You use each configuration's <code>android:key</code> attribute to
+  read its value from a managed configuration bundle. For this reason,
+  each configuration must have a unique key string, and the string
+  <em>cannot</em> be localized. It must be specified with a string literal.
+</p>
+
+<p class="note">
+  <strong>Note:</strong> In a production app, <code>android:title</code> and
+  <code>android:description</code> should be drawn from a localized resource
+  file, as described in
+  <a href="../guide/topics/resources/localization.html"
+  >Localizing with Resources</a>.
+</p>
+
+<p id="nested-restrictions">
+  An app can define one or multiple nested restriction elements using
+  the restriction types
+  <code><a href="../reference/android/content/RestrictionEntry.html#TYPE_BUNDLE">bundle</a></code> and
+  <code><a href="../reference/android/content/RestrictionEntry.html#TYPE_BUNDLE_ARRAY">bundle_array</a></code>.
+  For example, an app with multiple VPN connection options could define
+  each VPN server configuration in a bundle, with multiple bundles grouped
+  together in a bundle array:
+</p>
+
+<pre>
+&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;restrictions xmlns:android="http://schemas.android.com/apk/res/android" &gt;
+
+  &lt;restriction
+    android:key="vpn_configuration_list"
+    android:restrictionType="bundle_array"&gt;
+    &lt;restriction
+      android:key="vpn_configuration"
+      android:restrictionType="bundle"&gt;
+      &lt;restriction
+        android:key="vpn_server"
+        android:restrictionType="string"/&gt;
+      &lt;restriction
+        android:key="vpn_username"
+        android:restrictionType="string"/&gt;
+      &lt;restriction
+        android:key="vpn_password"
+        android:restrictionType="string"/&gt;
+    &lt;/restriction&gt;
+  &lt;/restriction&gt;
+
+&lt;/restrictions&gt;
+</pre>
+
+<p>
+  The supported types for the <code>android:restrictionType</code> element
+  are listed in <a href="#restriction-types">Table 1</a> and documented in
+  the reference for <code><a href="../reference/android/content/RestrictionsManager.html">RestrictionsManager</a></code> and
+  <code><a href="../reference/android/content/RestrictionEntry.html">RestrictionEntry</a></code>.
+</p>
+
+<p class="table-caption" id="restriction-types">
+  <strong>Table 1.</strong> Restriction entry types and usage.
+</p>
+<table>
+  <tbody>
+    <tr>
+      <th>Type</th>
+      <th>android:restrictionType</th>
+      <th>Typical usage</th>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="../reference/android/content/RestrictionEntry.html#TYPE_BOOLEAN">TYPE_BOOLEAN</a></code>
+      </td>
+      <td><code>"bool"</code></td>
+      <td>
+        A boolean value, true or false.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="../reference/android/content/RestrictionEntry.html#TYPE_STRING">TYPE_STRING</a></code>
+      </td>
+      <td><code>"string"</code></td>
+      <td>
+        A string value, such as a name.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="../reference/android/content/RestrictionEntry.html#TYPE_INTEGER">TYPE_INTEGER</a></code>
+      </td>
+      <td><code>"integer"</code></td>
+      <td>
+        An integer with a value from
+        <code><a href="../reference/java/lang/Integer.html#MIN_VALUE">MIN_VALUE</a></code> to
+        <code><a href="../reference/java/lang/Integer.html#MAX_VALUE">MAX_VALUE</a></code>.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="../reference/android/content/RestrictionEntry.html#TYPE_CHOICE">TYPE_CHOICE</a></code>
+      </td>
+      <td><code>"choice"</code></td>
+      <td>
+        A string value, typically presented as a single-select list.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="../reference/android/content/RestrictionEntry.html#TYPE_MULTI_SELECT">TYPE_MULTI_SELECT</a></code>
+      </td>
+      <td><code>"multi-select"</code></td>
+      <td>
+        Use this for presenting a multi-select list where more than
+        one entry can be selected, such as for choosing specific
+        titles to white-list.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="../reference/android/content/RestrictionEntry.html#TYPE_NULL">TYPE_NULL</a></code>
+      </td>
+      <td><code>"hidden"</code></td>
+      <td>
+        Hidden restriction type. Use this type for information that
+        needs to be transferred across but shouldn't be presented to
+        the user in the UI. Stores a single string value.
+      </td>
+    </tr>
+    <tr>
+      <td><code><a href="../reference/android/content/RestrictionEntry.html#TYPE_BUNDLE">TYPE_BUNDLE</a></code></td>
+      <td><code>"bundle"</code></td>
+      <td>
+        Use this for storing <code><a href="../reference/android/os/Bundle.html">bundles</a></code> of
+        restrictions. Available in Android 6.0 (API level 23).
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code><a href="../reference/android/content/RestrictionEntry.html#TYPE_BUNDLE_ARRAY">TYPE_BUNDLE_ARRAY</a></code>
+      </td>
+      <td><code>"bundle_array"</code></td>
+      <td>
+        Use this for storing arrays of restriction
+        <a href="../reference/android/os/Bundle.html"
+        >bundles</a>. Available in Android 6.0 (API level 23).
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="check-configuration">
+  Check Managed Configurations
+</h2>
+
+<p>
+  Your app is not automatically notified when other apps change its
+  configuration settings. Instead, you need to check what the managed
+  configurations are when your app starts or resumes, and listen for a
+  system intent to find out if the configurations change while your
+  app is running.
+</p>
+
+<p>
+  To find out the current configuration settings, your app uses a
+  <code><a href="../reference/android/content/RestrictionsManager.html">RestrictionsManager</a></code> object. Your app should
+  check for the current managed configurations at the following times:
+</p>
+
+<ul>
+  <li>When the app starts or resumes, in its
+  <code><a href="../reference/android/app/Activity.html#onResume()">onResume()</a></code> method
+  </li>
+
+  <li>When the app is notified of a configuration change, as described in
+    <a href="#listen-configuration">Listen for Managed Configuration
+    Changes</a>
+  </li>
+</ul>
+
+<p>
+  To get a <code><a href="../reference/android/content/RestrictionsManager.html">RestrictionsManager</a></code> object, get the current
+  activity with <code><a href="../reference/android/app/Fragment.html#getActivity()">getActivity()</a></code>, then
+  call that activity's <code><a href="../reference/android/app/Activity.html#getSystemService(java.lang.String)">Activity.getSystemService()</a></code> method:
+</p>
+
+<pre>RestrictionsManager myRestrictionsMgr =
+    (RestrictionsManager) getActivity()
+        .getSystemService(Context.RESTRICTIONS_SERVICE);</pre>
+
+<p>
+  Once you have a <code><a href="../reference/android/content/RestrictionsManager.html">RestrictionsManager</a></code>, you can get the
+  current configuration settings by calling its
+  <code><a href="../reference/android/content/RestrictionsManager.html#getApplicationRestrictions()">getApplicationRestrictions()</a></code> method:
+</p>
+
+<pre>Bundle appRestrictions = myRestrictionsMgr.getApplicationRestrictions();</pre>
+
+<p class="note">
+  <strong>Note:</strong> For convenience, you can also fetch the current
+  configurations with a <code><a href="../reference/android/os/UserManager.html">UserManager</a></code>, by calling
+  <code><a href="../reference/android/os/UserManager.html#getApplicationRestrictions(java.lang.String)">UserManager.getApplicationRestrictions()</a></code>. This method behaves exactly the
+  same as <code><a href="../reference/android/content/RestrictionsManager.html#getApplicationRestrictions()">RestrictionsManager.getApplicationRestrictions()</a></code>.
+</p>
+
+<p>
+  The <code><a href="../reference/android/content/RestrictionsManager.html#getApplicationRestrictions()">getApplicationRestrictions()</a></code> method requires reading from data storage, so
+  it should be done sparingly. Do not call this method every time you need to
+  know the current configuration. Instead, you should call it once when your app
+  starts or resumes, and cache the fetched managed configurations bundle. Then listen
+  for the <code><a href="../reference/android/content/Intent.html#ACTION_APPLICATION_RESTRICTIONS_CHANGED">ACTION_APPLICATION_RESTRICTIONS_CHANGED</a></code> intent to find out if the configuration
+  change while your app is active, as described in
+  <a href="#listen-configuration">Listen for Managed Configuration Changes</a>.
+</p>
+
+<h3 id="read-configurations">
+  Reading and applying managed configurations
+</h3>
+
+<p>
+  The <code><a href="../reference/android/content/RestrictionsManager.html#getApplicationRestrictions()">getApplicationRestrictions()</a></code> method returns a <code><a href="../reference/android/os/Bundle.html">Bundle</a></code>
+  containing a key-value pair for each configuration that has been set. The
+  values are all of type <code>Boolean</code>, <code>int</code>,
+  <code>String</code>, and <code>String[]</code>. Once you have the
+  managed configurations <code><a href="../reference/android/os/Bundle.html">Bundle</a></code>, you can check the current
+  configuration settings with the standard <code><a href="../reference/android/os/Bundle.html">Bundle</a></code> methods for
+  those data types, such as <code><a href="../reference/android/os/BaseBundle.html#getBoolean(java.lang.String)">getBoolean()</a></code>
+  or
+  <code><a href="../reference/android/os/BaseBundle.html#getString(java.lang.String)">getString()</a></code>.
+</p>
+
+<p class="note">
+  <strong>Note:</strong> The managed configurations <code><a href="../reference/android/os/Bundle.html">Bundle</a></code>
+  contains one item for every configuration that has been explicitly set by a
+  managed configurations provider. However, you <em>cannot</em> assume that a
+  configuration will be present in the bundle just because you defined a default
+  value in the managed configurations XML file.
+</p>
+
+<p>
+  It is up to your app to take appropriate action based on the current
+  managed configuration settings. For example, if your app has a
+  configuration specifying whether it can download data over a
+  cellular connection, and you find that the configuration is set to
+  <code>false</code>, you would have to disable data download except when
+  the device has a Wi-Fi connection, as shown in the following example code:
+</p>
+
+<pre>
+boolean appCanUseCellular;
+
+if (appRestrictions.containsKey("downloadOnCellular")) {
+    appCanUseCellular = appRestrictions.getBoolean("downloadOnCellular");
+} else {
+    // cellularDefault is a boolean using the restriction's default value
+    appCanUseCellular = cellularDefault;
+}
+
+if (!appCanUseCellular) {
+    // ...turn off app's cellular-download functionality
+    // ...show appropriate notices to user
+}</pre>
+
+<p>
+  To apply multiple <a href="#nested-restrictions">nested restrictions</a>, read
+  the <code><a href="../reference/android/content/RestrictionEntry.html#TYPE_BUNDLE_ARRAY">bundle_array</a></code>
+  restriction entry as a collection of <code><a href="../reference/android/os/Parcelable.html">Parcelable</a></code> objects
+  and cast as a <code><a href="../reference/android/os/Bundle.html">Bundle</a></code>. In this example, each VPN's configuration
+  data is parsed and used to build a list of server connection choices:
+</p>
+
+<pre>
+// VpnConfig is a sample class used store config data, not defined
+List&lt;VpnConfig&gt; vpnConfigs = new ArrayList&lt;&gt;();
+
+Parcelable[] parcelables =
+    appRestrictions.getParcelableArray("vpn_configuration_list");
+
+if (parcelables != null && parcelables.length > 0) {
+    // iterate parcelables and cast as bundle
+    for (int i = 0; i < parcelables.length; i++) {
+        Bundle vpnConfigBundle = (Bundle) parcelables[i];
+        // parse bundle data and store in VpnConfig array
+        vpnConfigs.add(new VpnConfig()
+            .setServer(vpnConfigBundle.getString("vpn_server"))
+            .setUsername(vpnConfigBundle.getString("vpn_username"))
+            .setPassword(vpnConfigBundle.getString("vpn_password")));
+    }
+}
+
+if (!vpnConfigs.isEmpty()) {
+    // ...choose a VPN configuration or prompt user to select from list
+}</pre>
+
+<h2 id="listen-configuration">
+  Listen for Managed Configuration Changes
+</h2>
+
+<p>
+  Whenever an app's managed configurations are changed, the system fires the
+  <code><a href="../reference/android/content/Intent.html#ACTION_APPLICATION_RESTRICTIONS_CHANGED">ACTION_APPLICATION_RESTRICTIONS_CHANGED</a></code> intent. Your app has to listen for
+  this intent so you can change the app's behavior when the configuration settings
+  change.</p>
+
+<p class="note">
+  <strong>Note:</strong> The <code><a href="../reference/android/content/Intent.html#ACTION_APPLICATION_RESTRICTIONS_CHANGED">ACTION_APPLICATION_RESTRICTIONS_CHANGED</a></code> intent is sent only to listeners
+  that are dynamically registered, <em>not</em> to listeners that are declared
+  in the app manifest.
+</p>
+<p>
+  The following code shows how to dynamically register a broadcast receiver for
+  this intent:
+</p>
+
+<pre>IntentFilter restrictionsFilter =
+    new IntentFilter(Intent.ACTION_APPLICATION_RESTRICTIONS_CHANGED);
+
+BroadcastReceiver restrictionsReceiver = new BroadcastReceiver() {
+  &#64;Override public void onReceive(Context context, Intent intent) {
+
+    // Get the current configuration bundle
+    Bundle appRestrictions = myRestrictionsMgr.getApplicationRestrictions();
+
+    // Check current configuration settings, change your app's UI and
+    // functionality as necessary.
+  }
+};
+
+registerReceiver(restrictionsReceiver, restrictionsFilter);
+</pre>
+<p class="note">
+  <strong>Note:</strong> Ordinarily, your app does not need to be notified
+  about configuration changes when it is paused. Instead, you should unregister
+  your broadcast receiver when the app is paused. When the app resumes, you
+  first check for the current managed configurations (as discussed in
+  <a href="#check-configuration">Check Managed Configurations</a>), then register
+  your broadcast receiver to make sure you're notified about configuration changes
+  that happen while the app is active.
+</p>
+
+    </div>
+
+    
+
+  </div> <!-- end jd-content -->
+
+
+
+<div class="wrap">
+  <div class="dac-footer">
+    <div class="cols dac-footer-main">
+      <div class="col-1of2">
+        <a class="dac-footer-getnews" id="newsletter" data-modal-toggle="newsletter" href="javascript:;">Get news &amp; tips <span
+          class="dac-fab dac-primary"><i class="dac-sprite dac-mail"></i></span></a>
+      </div>
+      <div class="col-1of2 dac-footer-reachout">
+        <div class="dac-footer-contact">
+          <a class="dac-footer-contact-link" href="http://android-developers.blogspot.com/">Blog</a>
+          <a class="dac-footer-contact-link" href="../support.html">Support</a>
+        </div>
+        <div class="dac-footer-social">
+          <a class="dac-button-social dac-youtube dac-footer-social-link" href="https://www.youtube.com/user/androiddevelopers"><i class="dac-sprite dac-youtube"></i></a>
+          <a class="dac-button-social dac-gplus dac-footer-social-link" href="https://plus.google.com/+AndroidDevelopers"><i class="dac-sprite dac-gplus"></i></a>
+          <a class="dac-button-social dac-twitter dac-footer-social-link" href="https://twitter.com/AndroidDev"><i class="dac-sprite dac-twitter"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <hr class="dac-footer-separator"/>
+
+    
+      <p class="dac-footer-copyright">
+        
+  Except as noted, this content is
+  licensed under <a href="http://creativecommons.org/licenses/by/2.5/">
+  Creative Commons Attribution 2.5</a>. For details and
+  restrictions, see the <a href="../license.html">Content
+  License</a>.
+
+      </p>
+    
+
+    <p class="dac-footer-links">
+      <a href="../about/android.html">About Android</a>
+      <a href="../auto/index.html">Auto</a>
+      <a href="../tv/index.html">TV</a>
+      <a href="../wear/index.html">Wear</a>
+      <a href="../legal.html">Legal</a>
+
+      <span id="language" class="locales">
+        <select name="language" onchange="changeLangPref(this.value, true)">
+          <option value="en" selected="selected">English</option>
+          <option value="es">Español</option>
+          <option value="in">Bahasa Indonesia</option>
+          <option value="ja">日本語</option>
+          <option value="ko">한국어</option>
+          <option value="pt-br">Português Brasileiro</option>
+          <option value="ru">Русский</option>
+          <option value="vi">tiếng Việt</option>
+          <option value="zh-cn">中文（简体)</option>
+          <option value="zh-tw">中文（繁體)</option>
+        </select>
+      </span>
+    </p>
+  </div>
+</div>
+<!-- end footer -->
+
+
+
+  
+
+
+
+<div data-modal="newsletter" data-newsletter data-swap class="dac-modal newsletter">
+  <div class="dac-modal-container">
+    <div class="dac-modal-window">
+      <header class="dac-modal-header">
+        <div class="dac-modal-header-actions">
+          <button class="dac-modal-header-close" data-modal-toggle></button>
+        </div>
+        <div class="dac-swap" data-swap-container>
+          <section class="dac-swap-section dac-active dac-down">
+            <h2 class="norule dac-modal-header-title" data-t="newsletter.title"></h2>
+            <p class="dac-modal-header-subtitle" data-t="newsletter.requiredHint"></p>
+          </section>
+          <section class="dac-swap-section dac-up">
+            <h2 class="norule dac-modal-header-title" data-t="newsletter.successTitle">Hooray!</h2>
+          </section>
+        </div>
+      </header>
+      <div class="dac-swap" data-swap-container>
+        <section class="dac-swap-section dac-active dac-left">
+          <form action="https://docs.google.com/forms/d/1QgnkzbEJIDu9lMEea0mxqWrXUJu0oBCLD7ar23V0Yys/formResponse" class="dac-form" method="post" target="dac-newsletter-iframe">
+            <input type="hidden" name="entry.935454734" data-newsletter-language>
+            <section class="dac-modal-content">
+              <fieldset class="dac-form-fieldset">
+                <div class="cols">
+                  <div class="col-1of2 newsletter-leftCol">
+                    <div class="dac-form-input-group">
+                      <label for="newsletter-full-name" class="dac-form-floatlabel" data-t="newsletter.name">Full name</label>
+                      <input type="text" class="dac-form-input" name="entry.1357890476" id="newsletter-full-name" required>
+                      <span class="dac-form-required">*</span>
+                    </div>
+                    <div class="dac-form-input-group">
+                      <label for="newsletter-email" class="dac-form-floatlabel" data-t="newsletter.email">Email address</label>
+                      <input type="email" class="dac-form-input" name="entry.472100832" id="newsletter-email" required>
+                      <span class="dac-form-required">*</span>
+                    </div>
+                  </div>
+                  <div class="col-1of2 newsletter-rightCol">
+                    <div class="dac-form-input-group">
+                      <label for="newsletter-company" class="dac-form-floatlabel" data-t="newsletter.company">Company / developer name</label>
+                      <input type="text" class="dac-form-input" name="entry.1664780309" id="newsletter-company">
+                    </div>
+                    <div class="dac-form-input-group">
+                      <label for="newsletter-play-store" class="dac-form-floatlabel" data-t="newsletter.appUrl">One of your Play Store app URLs</label>
+                      <input type="url" class="dac-form-input" name="entry.47013838" id="newsletter-play-store" required>
+                      <span class="dac-form-required">*</span>
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+              <fieldset class="dac-form-fieldset">
+                <div class="cols">
+                  <div class="col-1of2 newsletter-leftCol">
+                    <legend class="dac-form-legend"><span data-t="newsletter.business.label">Which best describes your business:</span><span class="dac-form-required">*</span>
+                    </legend>
+                    <div class="dac-form-radio-group">
+                      <input type="radio" value="Apps" class="dac-form-radio" name="entry.1796324055" id="newsletter-business-type-app" required>
+                      <label for="newsletter-business-type-app" class="dac-form-radio-button"></label>
+                      <label for="newsletter-business-type-app" class="dac-form-label" data-t="newsletter.business.apps">Apps</label>
+                    </div>
+                    <div class="dac-form-radio-group">
+                      <input type="radio" value="Games" class="dac-form-radio" name="entry.1796324055" id="newsletter-business-type-games" required>
+                      <label for="newsletter-business-type-games" class="dac-form-radio-button"></label>
+                      <label for="newsletter-business-type-games" class="dac-form-label" data-t="newsletter.business.games">Games</label>
+                    </div>
+                    <div class="dac-form-radio-group">
+                      <input type="radio" value="Apps and Games" class="dac-form-radio" name="entry.1796324055" id="newsletter-business-type-appsgames" required>
+                      <label for="newsletter-business-type-appsgames" class="dac-form-radio-button"></label>
+                      <label for="newsletter-business-type-appsgames" class="dac-form-label" data-t="newsletter.business.both">Apps &amp; Games</label>
+                    </div>
+                  </div>
+                  <div class="col-1of2 newsletter-rightCol newsletter-checkboxes">
+                    <div class="dac-form-radio-group">
+                      <div class="dac-media">
+                        <div class="dac-media-figure">
+                          <input type="checkbox" class="dac-form-checkbox" name="entry.732309842" id="newsletter-add" required value="Add me to the mailing list for the monthly newsletter and occasional emails about development and Google Play opportunities.">
+                          <label for="newsletter-add" class="dac-form-checkbox-button"></label>
+                        </div>
+                        <div class="dac-media-body">
+                          <label for="newsletter-add" class="dac-form-label dac-form-aside"><span data-t="newsletter.confirmMailingList"></span><span class="dac-form-required">*</span></label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="dac-form-radio-group">
+                      <div class="dac-media">
+                        <div class="dac-media-figure">
+                          <input type="checkbox" class="dac-form-checkbox" name="entry.2045036090" id="newsletter-terms" required value="I acknowledge that the information provided in this form will be subject to Google's privacy policy (https://www.google.com/policies/privacy/).">
+                          <label for="newsletter-terms" class="dac-form-checkbox-button"></label>
+                        </div>
+                        <div class="dac-media-body">
+                          <label for="newsletter-terms" class="dac-form-label dac-form-aside"><span data-t="newsletter.privacyPolicy" data-t-html></span><span class="dac-form-required">*</span></label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+            </section>
+            <footer class="dac-modal-footer">
+              <div class="cols">
+                <div class="col-2of5">
+                </div>
+              </div>
+              <button type="submit" value="Submit" class="dac-fab dac-primary dac-large dac-modal-action"><i class="dac-sprite dac-arrow-right"></i></button>
+            </footer>
+          </form>
+        </section>
+        <section class="dac-swap-section dac-right">
+          <div class="dac-modal-content">
+            <p class="newsletter-success-message" data-t="newsletter.successDetails"></p>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end newsletter modal -->
+
+<!-- start reset language header modal -->
+<div data-modal="langform" class="dac-modal" id="langform">
+  <div class="dac-modal-container">
+    <div class="dac-modal-window">
+      <header class="dac-modal-header">
+        <div class="dac-modal-header-actions">
+          <button class="dac-modal-header-close" data-modal-toggle></button>
+        </div>
+        <section class="dac-swap-section dac-active dac-down">
+          <h2 class="norule dac-modal-header-title"></h2>
+        </section>
+      </header>
+      <section class="dac-swap-section dac-active dac-left">
+          <section class="dac-modal-content">
+            <fieldset class="dac-form-fieldset">
+              <div class="cols">
+                <div class="col-2of2 langform-leftCol">
+                  <p id="resetLangText"></p>
+                  <p id="resetLangCta"></p>
+                </div>
+              </div>
+            </fieldset>
+          </section>
+          <footer class="dac-modal-footer" id="langfooter">
+            <div class="cols">
+              <div class="col-2of5">
+              </div>
+            </div>
+              <button class="button dac-primary dac-modal-action lang yes" data-t="newsletter.resetLangButtonYes" data-modal-toggle></button>
+              <button class="button dac-primary dac-modal-action lang no" data-t="newsletter.resetLangButtonNo" data-modal-toggle></button>
+            </a>
+          </footer>
+        </form>
+      </section>
+    </div>
+  </div>
+</div>
+<!-- end langreset modal -->
+
+
+</div> <!-- end body-content --> 
+
+
+
+
+<script src="../ajax/developer.android.com/ytblogger_lists_unified.js" defer></script>
+<script src="/jd_lists_unified_en.js?v=17" defer></script>
+<script src="/reference/lists.js?v=17" defer></script>
+<script src="/reference/gcm_lists.js?v=17" defer></script>
+<script src="/reference/gms_lists.js?v=17" defer></script>
+<script>
+  // Load localized metadata.
+  (function(lang) {
+    if (lang === 'en') { return; }
+
+    // Write it to the document so it gets evaluated before DOMContentReady.
+    document.write('<script src="/jd_lists_unified_' + lang + '.js?v=14" defer></' + 'script>');
+  })(getLangPref())
+</script>
+
+
+</body>
+</html>

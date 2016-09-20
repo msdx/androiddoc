@@ -1,0 +1,1130 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+
+  
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
+<link rel="shortcut icon" type="image/x-icon" href="../../favicon.ico" />
+<link rel="alternate" href="http://developer.android.com/topic/arc/index.html" hreflang="en" />
+<link rel="alternate" href="http://developer.android.com/intl/es/topic/arc/index.html" hreflang="es" />
+<link rel="alternate" href="http://developer.android.com/intl/id/topic/arc/index.html" hreflang="id" />
+<link rel="alternate" href="http://developer.android.com/intl/ja/topic/arc/index.html" hreflang="ja" />
+<link rel="alternate" href="http://developer.android.com/intl/ko/topic/arc/index.html" hreflang="ko" />
+<link rel="alternate" href="http://developer.android.com/intl/pt-br/topic/arc/index.html" hreflang="pt-br" />
+<link rel="alternate" href="http://developer.android.com/intl/ru/topic/arc/index.html" hreflang="ru" />
+<link rel="alternate" href="http://developer.android.com/intl/vi/topic/arc/index.html" hreflang="vi" />
+<link rel="alternate" href="http://developer.android.com/intl/zh-cn/topic/arc/index.html" hreflang="zh-cn" />
+<link rel="alternate" href="http://developer.android.com/intl/zh-tw/topic/arc/index.html" hreflang="zh-tw" />
+
+
+<title>Optimizing Apps for Chromebooks | Android Developers
+</title>
+
+<meta name="description" content="Google Chromebooks now support the Google Play Store and Android apps. This document describes some ways that you can optimize your Android apps for Chromebooks. To begin optimizing your Android app for Chromebooks, update your manifest file ( AndroidManifest.xml…">
+
+<!-- STYLESHEETS -->
+<link rel="stylesheet"
+href="http://fonts.useso.com/css?family=Roboto+Condensed">
+<link rel="stylesheet" href="http://fonts.useso.com/css?family=Roboto:light,regular,medium,thin,italic,mediumitalic,bold"
+  title="roboto">
+
+<link href="../../assets/css/default.css?v=16" rel="stylesheet" type="text/css">
+
+<!-- JAVASCRIPT -->
+<script src="../../assets/js/android_3p-bundle.js" type="text/javascript"></script>
+<script type="text/javascript">
+  var toRoot = "../../";
+  var metaTags = [];
+  var devsite = false;
+  var useUpdatedTemplates = false;
+</script>
+<script src="../../assets/js/docs.js?v=17" type="text/javascript"></script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//../../ajax/www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-5831155-1', 'android.com');
+  ga('create', 'UA-49880327-2', 'android.com', {'name': 'universal'});  // New tracker);
+  ga('send', 'pageview');
+  ga('universal.send', 'pageview'); // Send page view for new tracker.
+</script>
+
+</head>
+
+<body class="gc-documentation
+
+
+" itemscope itemtype="http://schema.org/Article">
+  
+  <a name="top"></a>
+  <!-- Header -->
+  <div id="header-wrapper">
+    <div class="dac-header " id="header">
+      <div class="dac-header-inner">
+        <a class="dac-nav-toggle" data-dac-toggle-nav href="javascript:;" title="Open navigation">
+          <span class="dac-nav-hamburger">
+            <span class="dac-nav-hamburger-top"></span>
+            <span class="dac-nav-hamburger-mid"></span>
+            <span class="dac-nav-hamburger-bot"></span>
+          </span>
+        </a>
+        <a class="dac-header-logo" href="../../index.html">
+          <img class="dac-header-logo-image" src="../../assets/images/android_logo.png"
+              srcset="../../assets/images/android_logo@2x.png 2x"
+              width="32" height="36" alt="Android" /> Developers
+          </a>
+
+        <ul class="dac-header-tabs">
+          <li>
+          <a class="dac-header-tab" href="../../design/index.html"
+             zh-tw-lang="設計"
+             zh-cn-lang="设计"
+             ru-lang="Проектирование"
+             ko-lang="디자인"
+             ja-lang="設計"
+             es-lang="Diseñar">Design</a>
+          </li>
+          <li>
+          <a class="dac-header-tab" href="../../develop/index.html"
+             zh-tw-lang="開發"
+             zh-cn-lang="开发"
+             ru-lang="Разработка"
+             ko-lang="개발"
+             ja-lang="開発"
+             es-lang="Desarrollar">Develop</a>
+          </li>
+          <li>
+          <a class="dac-header-tab" href="../../distribute/index.html"
+             zh-tw-lang="發佈"
+             zh-cn-lang="分发"
+             ru-lang="Распространение"
+             ko-lang="배포"
+             ja-lang="配布"
+             es-lang="Distribuir">Distribute</a>
+          </li>
+        </ul>
+
+        <a class="dac-header-console-btn" href="https://play.google.com/apps/publish/">
+          <span class="dac-sprite dac-google-play"></span>
+          <span class="dac-visible-desktop-inline">Developer</span>
+          Console
+        </a>
+
+        
+        
+        
+  <form data-search class="dac-header-search">
+    <button class="dac-header-search-close" data-search-close>
+      <i class="dac-sprite dac-back-arrow"></i>
+    </button>
+
+    <div class="dac-header-search-inner">
+      <i class="dac-sprite dac-search-white dac-header-search-icon"></i>
+      <input id="search_autocomplete" type="text" value="" autocomplete="off" name="q" class="dac-header-search-input" placeholder="Search" />
+      <button class="dac-header-search-clear dac-hidden" data-search-clear>
+        <i class="dac-sprite dac-close-black"></i>
+      </button>
+    </div>
+  </form>
+
+        
+      </div><!-- end header-wrap.wrap -->
+    </div><!-- end header -->
+  </div> <!--end header-wrapper -->
+
+  
+  <!-- Navigation-->
+  <nav class="dac-nav">
+    <div class="dac-nav-dimmer" data-dac-toggle-nav></div>
+
+    <div class="dac-nav-sidebar" data-swap data-dynamic="false" data-transition-speed="300" data-dac-nav>
+      <div data-swap-container>
+        
+  
+    <a class="dac-nav-back-button dac-swap-section dac-up dac-no-anim" data-swap-button href="javascript:;">
+      <i class="dac-sprite dac-nav-back"></i> <span class="dac-nav-back-title">Back</span>
+    </a>
+    <div class="dac-nav-sub dac-swap-section dac-right dac-active" itemscope itemtype="http://schema.org/SiteNavigationElement">
+      
+        
+  <!-- Fullscreen toggler -->
+  <button data-fullscreen class="dac-nav-fullscreen">
+    <i class="dac-sprite dac-fullscreen"></i>
+  </button>
+
+  <script>$('[data-fullscreen]').dacFullscreen();</script>
+  <!-- End: Fullscreen toggler -->
+
+  
+    <div id="devdoc-nav">
+      <div id="api-nav-header">
+        <div id="api-level-toggle">
+          <label for="apiLevelCheckbox" class="disabled"
+                 title="Select your target API level to dim unavailable APIs">API level: </label>
+          <div class="select-wrapper">
+            <select id="apiLevelSelector">
+              <!-- option elements added by buildApiLevelSelector() -->
+            </select>
+          </div>
+        </div><!-- end toggle -->
+        <div id="api-nav-title">Android APIs</div>
+      </div><!-- end nav header -->
+      <script>
+        var SINCE_DATA = [  ];
+        buildApiLevelSelector();
+      </script>
+
+      <div class="dac-reference-nav" data-reference-tree>
+        <ul class="dac-reference-nav-list" data-reference-namespaces>
+          
+        </ul>
+
+        
+      </div>
+    </div>
+  
+
+      
+    </div>
+  
+
+        <ul id="dac-main-navigation" class="dac-nav-list dac-swap-section dac-left dac-no-anim">
+        <li class="dac-nav-item home">
+          <a class="dac-nav-link" href="../../index.html">Home</a>
+          <i class="dac-sprite dac-expand-more-black dac-nav-sub-slider"></i>
+          <ul class="dac-nav-secondary about">
+            <li class="dac-nav-item versions">
+              <a class="dac-nav-link" href="../../about/versions/marshmallow/index.html">Android</a>
+            </li>
+            <li class="dac-nav-item wear">
+              <a class="dac-nav-link" href="../../wear/index.html">Wear</a>
+            </li>
+            <li class="dac-nav-item tv">
+              <a class="dac-nav-link" href="../../tv/index.html">TV</a>
+            </li>
+            <li class="dac-nav-item auto">
+              <a class="dac-nav-link" href="../../auto/index.html">Auto</a>
+            </li>
+          </ul>
+        </li>
+        <li class="dac-nav-item design">
+          <a class="dac-nav-link" href="../../design/index.html"
+             zh-tw-lang="設計"
+             zh-cn-lang="设计"
+             ru-lang="Проектирование"
+             ko-lang="디자인"
+             ja-lang="設計"
+             es-lang="Diseñar">Design</a>
+        </li>
+        <li class="dac-nav-item develop">
+          <a class="dac-nav-link" href="../../develop/index.html"
+             zh-tw-lang="開發"
+             zh-cn-lang="开发"
+             ru-lang="Разработка"
+             ko-lang="개발"
+             ja-lang="開発"
+             es-lang="Desarrollar">Develop</a>
+          <i class="dac-sprite dac-expand-more-black dac-nav-sub-slider"></i>
+          <ul class="dac-nav-secondary develop">
+            <li class="dac-nav-item training">
+              <a class="dac-nav-link" href="../../training/index.html"
+                 zh-tw-lang="訓練課程"
+                 zh-cn-lang="培训"
+                 ru-lang="Курсы"
+                 ko-lang="교육"
+                 ja-lang="トレーニング"
+                 es-lang="Capacitación">Training</a>
+            </li>
+            <li class="dac-nav-item guide">
+              <a class="dac-nav-link" href="../../guide/index.html"
+                 zh-tw-lang="API 指南"
+                 zh-cn-lang="API 指南"
+                 ru-lang="Руководства по API"
+                 ko-lang="API 가이드"
+                 ja-lang="API ガイド"
+                 es-lang="Guías de la API">API Guides</a>
+            </li>
+            <li class="dac-nav-item reference">
+              <a class="dac-nav-link" href="../../reference/packages.html"
+                 zh-tw-lang="參考資源"
+                 zh-cn-lang="参考"
+                 ru-lang="Справочник"
+                 ko-lang="참조문서"
+                 ja-lang="リファレンス"
+                 es-lang="Referencia">Reference</a>
+            </li>
+            <li class="dac-nav-item tools">
+              <a class="dac-nav-link" href="../../sdk/index.html"
+                 zh-tw-lang="相關工具"
+                 zh-cn-lang="工具"
+                 ru-lang="Инструменты"
+                 ko-lang="도구"
+                 ja-lang="ツール"
+                 es-lang="Herramientas">Tools</a></li>
+            <li class="dac-nav-item google">
+              <a class="dac-nav-link" href="../../google/index.html">Google Services</a>
+            </li>
+            
+          </ul>
+        </li>
+        <li class="dac-nav-item distribute">
+          <a class="dac-nav-link" href="../../distribute/googleplay/index.html"
+             zh-tw-lang="發佈"
+             zh-cn-lang="分发"
+             ru-lang="Распространение"
+             ko-lang="배포"
+             ja-lang="配布"
+             es-lang="Distribuir">Distribute</a>
+          <i class="dac-sprite dac-expand-more-black dac-nav-sub-slider"></i>
+          <ul class="dac-nav-secondary distribute">
+            <li class="dac-nav-item googleplay">
+              <a class="dac-nav-link" href="../../distribute/googleplay/index.html">Google Play</a></li>
+            <li class="dac-nav-item essentials">
+              <a class="dac-nav-link" href="../../distribute/essentials/index.html">Essentials</a></li>
+            <li class="dac-nav-item users">
+              <a class="dac-nav-link" href="../../distribute/users/index.html">Get Users</a></li>
+            <li class="dac-nav-item engage">
+              <a class="dac-nav-link" href="../../distribute/engage/index.html">Engage &amp; Retain</a></li>
+            <li class="dac-nav-item monetize">
+              <a class="dac-nav-link" href="../../distribute/monetize/index.html">Earn</a>
+            </li>
+            <li class="dac-nav-item analyze">
+              <a class="dac-nav-link" href="../../distribute/analyze/index.html">Analyze</a>
+            </li>
+            <li class="dac-nav-item stories">
+              <a class="dac-nav-link" href="../../distribute/stories/index.html">Stories</a>
+            </li>
+          </ul>
+        </li>
+        <li class="dac-nav-item preview">
+          <a class="dac-nav-link" href="../../preview/index.html">Preview</a>
+        </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- end navigation-->
+  
+
+<!-- Nav Setup -->
+<script>$('[data-dac-nav]').dacNav();</script>
+
+
+
+  
+    
+  <div class="wrap clearfix" id="body-content">
+
+  
+
+  
+  <div id="search-results" class="dac-search-results">
+    <div id="dac-search-results-history" class="dac-search-results-history">
+      <div class="wrap dac-search-results-history-wrap">
+        <div class="cols">
+          <div class="col-1of2 col-tablet-1of2 col-mobile-1of1">
+            <h2>Most visited</h2>
+            <div class="resource-flow-layout" data-history-query="history:most/visited" data-maxresults="3" data-cardsizes="18x2"></div>
+          </div>
+
+          <div class="col-1of2 col-tablet-1of2 col-mobile-1of1">
+            <h2>Recently visited</h2>
+            <div class="resource-flow-layout cols" data-history-query="history:recent" data-allow-duplicates="true" data-maxresults="3" data-cardsizes="18x2"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="dac-search-results-content" class="dac-search-results-content">
+      <div class="dac-search-results-metadata wrap">
+        <div class="dac-search-results-for">
+          <h2>Results for <span id="search-results-for"></span></h2>
+        </div>
+
+        <div id="dac-search-results-hero"></div>
+
+        <div class="dac-search-results-hero cols">
+          <div id="dac-search-results-reference" class="col-3of6 col-tablet-1of2 col-mobile-1of1">
+            <div class="suggest-card reference no-display">
+              <ul class="dac-search-results-reference">
+              </ul>
+            </div>
+          </div>
+          <div id="dac-custom-search-results"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+
+
+
+  
+    
+      
+        <ul class="dac-header-crumbs">
+          
+        </ul>
+
+        <!-- Breadcrumb Setup -->
+        <p><script>$('.dac-nav-list').dacCurrentPage().dacCrumbs();</script></p>
+
+        <h1 itemprop="name" >Optimizing Apps for Chromebooks</h1>
+      
+    
+  
+
+
+  
+
+  
+  <div id="jd-content">
+    <div class="jd-descr" itemprop="articleBody">
+    
+
+    <div id="qv-wrapper">
+    <div id="qv">
+      <h2>On this page</h2>
+
+      <ol>
+        <li><a href="#update-manifest">Update Your App's Manifest File</a></li>
+        <li><a href="#leverage">Leverage Support for Multi-Window Mode</li>
+        <li><a href="#keyboard">Support the Keyboard, Trackpad, and Mouse</a></li>
+        <li><a href="#backup">Use Backup and Restore Effectively</a></li>
+        <li><a href="#update-ndk">Update the NDK Libraries</a></li>
+        <li><a href="#support-new-features">Plan Support for New Android Features</a></li>
+        <li><a href="#testing">Test Your App</a></li>
+        <li><a href="#setup">Set Up ADB</a></li>
+        <li><a href="#learning-materials">Additional Learning Materials</a></li>
+      </ol>
+    </div>
+  </div>
+
+<p>
+Google Chromebooks now support the Google Play Store and Android apps. This
+document describes some ways that you can optimize your Android apps for
+Chromebooks.
+</p>
+
+<h2 id="update-manifest">Update Your App's Manifest File</h2>
+
+<p>
+To begin optimizing your Android app for Chromebooks, update your manifest file
+(<code>AndroidManifest.xml</code>) to account for some key hardware and software
+differences between Chromebooks and other devices running Android.
+</p>
+
+<p>
+As of Chrome OS version M53, all Android apps that don't explicitly require the
+<a
+href="../../guide/topics/manifest/uses-feature-element.html#touchscreen-hw-features"><code>android.hardware.touchscreen</code></a>
+feature will also work on Chrome OS devices that support the
+<code>android.hardware.faketouch</code> feature. However, if you want your app
+to work on all Chromebooks in the best possible way, go to your manifest file
+and adjust the settings so that the <code>android.hardware.touchscreen</code>
+feature is not required, as shown in the following example. You should also
+review your mouse and keyboard interactions.
+</p>
+
+<pre>
+&lt;manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          ... &gt;
+    &lt;!-- Some Chromebooks don't support touch. Although not essential,
+         it's a good idea to explicitly include this declaration. --&gt;
+    &lt;uses-feature android:name="android.hardware.touchscreen"
+                  required="false" /&gt;
+&lt;/manifest&gt;
+</pre>
+
+<p>
+Different devices often have different sensors available in them. See the <a
+href="https://developer.android.com/guide/topics/sensors/sensors_overview.html">Sensors
+Overview</a> document for an overview of all sensors that the Android platform
+supports. Although Android handheld devices may have GPS and accelerometers,
+sensors are not guaranteed to be available in every Chromebook. However, there
+are cases where the functionality of a sensor is provided in another way. For
+example, Chromebooks may not have GPS sensors, but they still provide location
+data based on Wi-Fi connections. If you want your app to run on Chromebooks,
+regardless of sensor support, you should update your manifest file so that none
+of the sensors are required.
+</p>
+
+<p class="note"><strong>Note</strong>: If you don't require a particular sensor
+for your app but still use measurements from the sensor when it's available,
+make sure you dynamically check for the sensor's availability before trying to
+gather information from it in your app.
+</p>
+
+<p>
+Some software features are unsupported on Chromebooks. For example, apps that
+provide custom IMEs, app widgets, live wallpapers, and app launchers aren't
+supported and won't be available for installation on Chromebooks. For a complete
+list of software features that aren't currently supported on Chromebooks, see <a
+href="../../topic/arc/manifest.html#incompat-software-features">incompatible
+software features</a>.
+</p>
+
+<h2 id="leverage">Leverage Support for Multi-Window Mode</h2>
+
+<p>
+The implementation of Android apps on Chrome OS includes basic multi-window
+support. Instead of automatically drawing over the full screen, Android renders
+apps on Chrome OS into layouts that are appropriate for this form factor. Google
+provides support for the most common window layouts:
+
+<ul>
+  <li>
+    <strong>Portrait</strong> &ndash; Similar to Nexus 5.
+  </li>
+  <li>
+    <strong>Landscape</strong> &ndash; Similar to Nexus 7.
+  </li>
+  <li>
+    <strong>Maximized</strong> &ndash; Uses all available screen pixels.
+  </li>
+</ul>
+
+<p>
+In addition, end users are presented with window controls to toggle among all
+available layouts. By choosing the correct orientation option, you can ensure
+that the user has the correct layout upon launching the app. If an app is
+available in portrait and landscape, it defaults to landscape if possible. After
+this option is set, it is remembered on a per-app basis. Google recommends that
+you test your app to ensure that it handles changes in window size
+appropriately.
+</p>
+
+<h2 id="keyboard">Support the Keyboard, Trackpad, and Mouse</h2>
+
+<p>
+All Chromebooks have a physical keyboard and a trackpad, and some Chromebooks
+have a touchscreen as well. Some devices can even convert from a laptop to a
+tablet.
+</p>
+
+<p>
+Many existing apps already support mouse and trackpad interactions with no extra
+work required. However, it's always best to adjust your app's behavior
+appropriately when users interact with it using a trackpad instead of a
+touchscreen, and you should support and distinguish between both interfaces
+properly. Given the support for physical keyboards, you can now provide hotkeys
+to enable your app's users to be more productive. For example, if your app
+supports printing, you can use <strong>Ctrl+P</strong> to open a print dialog.
+</p>
+
+<h2 id="backup">Use Backup and Restore Effectively</h2>
+
+<p>
+One of the strongest features of Chromebooks is that users can easily migrate
+from one device to another. That is, if someone stops using one Chromebook and
+starts using another, they simply have to sign in, and all of their apps appear.
+</p>
+
+<p class="note"><strong>Tip: </strong> Although it's not mandatory, backing up
+your app's data to the cloud is a good idea.
+</p>
+
+<p>
+Chromebooks can also be shared among a large number of people, such as in
+schools. Since local storage is not infinite, entire accounts&mdash;together
+with their storage&mdash;can be removed from the device at any point. For
+educational settings, it's a good idea to keep this scenario in mind.
+</p>
+
+<h2 id="update-ndk">Update the NDK Libraries</h2>
+
+<p>
+If your app uses the Android NDK libraries, and its target SDK version is 23 or
+higher, ensure that text relocations are removed from both the ARM and x86
+versions of your NDK libraries, as they're not compatible in Android 6.0 (API
+level 23) and higher. By leaving text relocations in your NDK libraries, you may
+also cause incompatibility errors with Chromebooks, especially when running on
+a device that uses an x86 architecture.
+</p>
+
+<p class="note"><strong>Note: </strong>To view more details on updating NDK
+libraries properly, see the <a
+href="https://developer.android.com/about/versions/marshmallow/android-6.0-changes.html#behavior-runtime">
+Runtime</a> section of the Android 6.0 Changes document.
+</p>
+
+<h2 id="support-new-features">Plan Support for New Android Features</h2>
+
+<p>
+Android apps on Chromebooks initially ship with APIs for Android 6.0 (API level
+23). By following the best practices outlined above, your app is likely to be
+compatible with the multi-window improvements introduced in Android 7.0 (API
+level 24). It's good to plan support for the APIs and behaviors available as of
+Android 7.0, which feature several improvements. For example, multi-window
+support is better integrated, and you're able to resize activities arbitrarily,
+making them feel more natural. You can also access APIs for drag-and-drop
+operations across apps and mouse cursor control.
+</p>
+
+<h2 id="testing">Test Your App</h2>
+
+<p>
+To <a href="../../topic/arc/sideload.html">load</a> your app onto your
+Chromebook for testing, you must enter <em>Developer</em> mode on your Chrome OS
+device and enable <em>unknown sources</em>. See the <a class="external-link"
+href="https://www.chromium.org/chromium-os/poking-around-your-chrome-os-device#TOC-Putting-your-Chrome-OS-Device-into-Developer-Mode">
+Putting your Chrome OS Device into Developer Mode</a> document for detailed
+instructions about moving your device into Developer mode. After your device is
+in Developer mode, you can go to your Chrome settings and select <strong>Enable
+Unknown Sources</strong> under the <em>security in app</em> settings.
+</p>
+
+<p>
+After enabling Developer mode, you can load an Android app onto your Chrome OS
+device using one of several methods. For more details, see the <a
+href="../../topic/arc/sideload.html#load-app">Load Your App</a> section of
+the Loading Apps on Chromebooks page.
+</p>
+
+<p class="note"><strong>Note: </strong>To ensure that your Android app works
+well on a variety of Chromebook devices and available form factors, Google
+recommends that you test your app on an ARM-based Chromebook, an x86-based
+Chromebook, a device with a touchscreen and one without one, and on a
+convertible device (one that can change between a laptop and a tablet). To view
+the full list of supported devices, see the <a
+href="../../topic/arc/device-support.html">Chrome OS Device Support for
+Apps</a> page.</p>
+
+<h2 id="setup">Set Up ADB</h2>
+
+<p>
+Before attempting to set up an ADB connection, you must start your Chrome OS in
+<a class="external-link"
+href="https://www.chromium.org/chromium-os/poking-around-your-chrome-os-device">
+Developer Mode</a> so that you have the ability to install Android apps on the
+Chromebook.
+</p>
+
+<p class="caution"><strong>Caution: </strong>After switching your Chrome OS
+device to Developer mode, it restarts and clears all existing data on the
+device.
+</p>
+
+<p>
+To set up ADB, complete the following steps:
+</p>
+
+<ol>
+  <li>
+    Press <strong>Ctrl+D</strong> to start your device.
+  </li>
+  <li>
+    Finish the setup process.
+  </li>
+  <li>
+    Log into your test account.
+  </li>
+  <li>
+    Accept the Google Play Store terms and service conditions.
+  </li>
+</ol>
+
+<h3>Configure the firewall</h3>
+
+<p>
+To configure the Chrome OS firewall to allow incoming ADB connections, complete
+the following steps:
+</p>
+
+<ol>
+  <li>
+    Press <strong>Ctrl+Alt+T</strong> to start the Chrome OS terminal.
+  </li>
+  <li>
+    Type <strong>shell</strong> to get to the bash command shell:
+<pre class="no-pretty-print">
+crosh> shell
+chronos@localhost / $
+</pre>
+  </li>
+  <li>
+    Type the following commands to set up developer features and enable
+    disk-write access for the firewall settings changes:
+<pre class="no-pretty-print">
+chronos@localhost / $ sudo /usr/libexec/debugd/helpers/dev_features_rootfs_verification
+chronos@localhost / $ sudo reboot
+</pre>
+    The <em>sudo reboot</em> command restarts your Chromebook.
+<p class="note"><strong>Note</strong>: You can press the <strong>Tab</strong>
+key to enable autocompletion of file names.</p>
+  </li>
+  <li>
+    After your device restarts, log in to your test account and type the
+    following command to enable the <em>secure shell</em> and configure the
+    firewall properly:
+<pre class="no-pretty-print">
+chronos@localhost / $ sudo /usr/libexec/debugd/helpers/dev_features_ssh
+</pre>
+    You can now exit out of the shell.
+  </li>
+</ol>
+
+<p class="note"><strong>Note</strong>: You must complete this procedure only
+once on your Chromebook.</p>
+
+<h3>Check the IP address of your Chromebook</h3>
+
+<p>
+To verify the IP address of your Chromebook, complete the following steps:
+</p>
+
+<ol>
+  <li>
+    Click the clock icon in the bottom-right area of the screen.
+  </li>
+  <li>
+    Click <strong>Settings</strong>.
+  </li>
+  <li>
+    The <em>Internet Connection</em> section in the Settings area lists all of
+    the available networks. Select the one that you want to use for ADB.
+  </li>
+  <li>
+    Take note of the IP address that appears.
+  </li>
+</ol>
+
+<h3>Enable ADB debugging</h3>
+
+<p>
+To enable ADB debugging, complete the following steps:
+</p>
+
+<ol>
+  <li>
+    Click the clock icon in the bottom-right area of the screen.
+  </li>
+  <li>
+    Click <strong>Settings</strong>.
+  </li>
+  <li>
+    In the <em>Android Apps</em> section, click the <strong>Settings</strong>
+    link in the line that reads <em>Manage your Android apps in Settings</em>.
+    This brings up the Android apps settings.
+  </li>
+  <li>
+    Click <strong>About device</strong>.
+  </li>
+  <li>
+    Click <strong>Build number</strong> seven times to move into Developer mode.
+  </li>
+  <li>
+    Click the arrow in the top-left area of the window to go back to the main
+    Settings screen.
+  </li>
+  <li>
+    Click the new <strong>Developer options</strong> item, activate <strong>ADB
+    debugging</strong>, and then click <strong>OK</strong> to allow ADB
+    debugging.
+  </li>
+  <li>
+    Return to your development machine and use ADB to connect to your
+    Chromebook's using its IP address and port 22.
+  </li>
+  <li>
+    On your Chromebook, click <strong>Allow</strong> when prompted whether you
+    want to allow the debugger. Your ADB session is established.
+  </li>
+</ol>
+
+<h4>Troubleshooting ADB debugging</h4>
+
+<p>
+Sometimes the ADB device shows that it's offline when everything is connected
+properly. In this case, complete the following steps to troubleshoot the issue:
+</p>
+
+<ol>
+  <li>
+    Deactivate <strong>ADB debugging</strong> in <em>Developer options</em>.
+  </li>
+  <li>
+    In a terminal window, run <code>adb kill-server</code>.
+  </li>
+  <li>
+    Re-activate the <strong>ADB debugging</strong> option.
+  </li>
+  <li>
+    In a terminal window, attempt to run <code>adb connect</code>.
+  </li>
+  <li>
+    Click <strong>Allow</strong> when prompted whether you want to allow
+    debugging. Your ADB session is established.
+  </li>
+</ol>
+
+<h2 id="learning-materials">Additional Learning Materials</h2>
+
+<p>
+To learn more about optimizing your Android apps for Chromebooks, consult the
+following resources:
+</p>
+
+<ul>
+  <li>
+    Review the
+    <a class="external-link" href="http://android-developers.blogspot.com/2016/05/bring-your-android-app-to-chromebooks.html">
+    Bring your Android App to Chromebooks</a> I/O session.
+  </li>
+  <li>
+    Post a question on the <a class="external-link"
+    href="https://plus.sandbox.google.com/+AndroidDevelopers">Android developer
+    community</a> with hashtag <em>#AndroidAppsOnChromeOS</em>.
+  </li>
+</ul>
+
+    </div>
+
+    
+
+  </div> <!-- end jd-content -->
+
+
+
+<div class="wrap">
+  <div class="dac-footer">
+    <div class="cols dac-footer-main">
+      <div class="col-1of2">
+        <a class="dac-footer-getnews" id="newsletter" data-modal-toggle="newsletter" href="javascript:;">Get news &amp; tips <span
+          class="dac-fab dac-primary"><i class="dac-sprite dac-mail"></i></span></a>
+      </div>
+      <div class="col-1of2 dac-footer-reachout">
+        <div class="dac-footer-contact">
+          <a class="dac-footer-contact-link" href="http://android-developers.blogspot.com/">Blog</a>
+          <a class="dac-footer-contact-link" href="../../support.html">Support</a>
+        </div>
+        <div class="dac-footer-social">
+          <a class="dac-button-social dac-youtube dac-footer-social-link" href="https://www.youtube.com/user/androiddevelopers"><i class="dac-sprite dac-youtube"></i></a>
+          <a class="dac-button-social dac-gplus dac-footer-social-link" href="https://plus.google.com/+AndroidDevelopers"><i class="dac-sprite dac-gplus"></i></a>
+          <a class="dac-button-social dac-twitter dac-footer-social-link" href="https://twitter.com/AndroidDev"><i class="dac-sprite dac-twitter"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <hr class="dac-footer-separator"/>
+
+    
+      <p class="dac-footer-copyright">
+        
+  Except as noted, this content is
+  licensed under <a href="http://creativecommons.org/licenses/by/2.5/">
+  Creative Commons Attribution 2.5</a>. For details and
+  restrictions, see the <a href="../../license.html">Content
+  License</a>.
+
+      </p>
+    
+
+    <p class="dac-footer-links">
+      <a href="../../about/android.html">About Android</a>
+      <a href="../../auto/index.html">Auto</a>
+      <a href="../../tv/index.html">TV</a>
+      <a href="../../wear/index.html">Wear</a>
+      <a href="../../legal.html">Legal</a>
+
+      <span id="language" class="locales">
+        <select name="language" onchange="changeLangPref(this.value, true)">
+          <option value="en" selected="selected">English</option>
+          <option value="es">Español</option>
+          <option value="in">Bahasa Indonesia</option>
+          <option value="ja">日本語</option>
+          <option value="ko">한국어</option>
+          <option value="pt-br">Português Brasileiro</option>
+          <option value="ru">Русский</option>
+          <option value="vi">tiếng Việt</option>
+          <option value="zh-cn">中文（简体)</option>
+          <option value="zh-tw">中文（繁體)</option>
+        </select>
+      </span>
+    </p>
+  </div>
+</div>
+<!-- end footer -->
+
+
+
+  
+
+
+
+<div data-modal="newsletter" data-newsletter data-swap class="dac-modal newsletter">
+  <div class="dac-modal-container">
+    <div class="dac-modal-window">
+      <header class="dac-modal-header">
+        <div class="dac-modal-header-actions">
+          <button class="dac-modal-header-close" data-modal-toggle></button>
+        </div>
+        <div class="dac-swap" data-swap-container>
+          <section class="dac-swap-section dac-active dac-down">
+            <h2 class="norule dac-modal-header-title" data-t="newsletter.title"></h2>
+            <p class="dac-modal-header-subtitle" data-t="newsletter.requiredHint"></p>
+          </section>
+          <section class="dac-swap-section dac-up">
+            <h2 class="norule dac-modal-header-title" data-t="newsletter.successTitle">Hooray!</h2>
+          </section>
+        </div>
+      </header>
+      <div class="dac-swap" data-swap-container>
+        <section class="dac-swap-section dac-active dac-left">
+          <form action="https://docs.google.com/forms/d/1QgnkzbEJIDu9lMEea0mxqWrXUJu0oBCLD7ar23V0Yys/formResponse" class="dac-form" method="post" target="dac-newsletter-iframe">
+            <input type="hidden" name="entry.935454734" data-newsletter-language>
+            <section class="dac-modal-content">
+              <fieldset class="dac-form-fieldset">
+                <div class="cols">
+                  <div class="col-1of2 newsletter-leftCol">
+                    <div class="dac-form-input-group">
+                      <label for="newsletter-full-name" class="dac-form-floatlabel" data-t="newsletter.name">Full name</label>
+                      <input type="text" class="dac-form-input" name="entry.1357890476" id="newsletter-full-name" required>
+                      <span class="dac-form-required">*</span>
+                    </div>
+                    <div class="dac-form-input-group">
+                      <label for="newsletter-email" class="dac-form-floatlabel" data-t="newsletter.email">Email address</label>
+                      <input type="email" class="dac-form-input" name="entry.472100832" id="newsletter-email" required>
+                      <span class="dac-form-required">*</span>
+                    </div>
+                  </div>
+                  <div class="col-1of2 newsletter-rightCol">
+                    <div class="dac-form-input-group">
+                      <label for="newsletter-company" class="dac-form-floatlabel" data-t="newsletter.company">Company / developer name</label>
+                      <input type="text" class="dac-form-input" name="entry.1664780309" id="newsletter-company">
+                    </div>
+                    <div class="dac-form-input-group">
+                      <label for="newsletter-play-store" class="dac-form-floatlabel" data-t="newsletter.appUrl">One of your Play Store app URLs</label>
+                      <input type="url" class="dac-form-input" name="entry.47013838" id="newsletter-play-store" required>
+                      <span class="dac-form-required">*</span>
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+              <fieldset class="dac-form-fieldset">
+                <div class="cols">
+                  <div class="col-1of2 newsletter-leftCol">
+                    <legend class="dac-form-legend"><span data-t="newsletter.business.label">Which best describes your business:</span><span class="dac-form-required">*</span>
+                    </legend>
+                    <div class="dac-form-radio-group">
+                      <input type="radio" value="Apps" class="dac-form-radio" name="entry.1796324055" id="newsletter-business-type-app" required>
+                      <label for="newsletter-business-type-app" class="dac-form-radio-button"></label>
+                      <label for="newsletter-business-type-app" class="dac-form-label" data-t="newsletter.business.apps">Apps</label>
+                    </div>
+                    <div class="dac-form-radio-group">
+                      <input type="radio" value="Games" class="dac-form-radio" name="entry.1796324055" id="newsletter-business-type-games" required>
+                      <label for="newsletter-business-type-games" class="dac-form-radio-button"></label>
+                      <label for="newsletter-business-type-games" class="dac-form-label" data-t="newsletter.business.games">Games</label>
+                    </div>
+                    <div class="dac-form-radio-group">
+                      <input type="radio" value="Apps and Games" class="dac-form-radio" name="entry.1796324055" id="newsletter-business-type-appsgames" required>
+                      <label for="newsletter-business-type-appsgames" class="dac-form-radio-button"></label>
+                      <label for="newsletter-business-type-appsgames" class="dac-form-label" data-t="newsletter.business.both">Apps &amp; Games</label>
+                    </div>
+                  </div>
+                  <div class="col-1of2 newsletter-rightCol newsletter-checkboxes">
+                    <div class="dac-form-radio-group">
+                      <div class="dac-media">
+                        <div class="dac-media-figure">
+                          <input type="checkbox" class="dac-form-checkbox" name="entry.732309842" id="newsletter-add" required value="Add me to the mailing list for the monthly newsletter and occasional emails about development and Google Play opportunities.">
+                          <label for="newsletter-add" class="dac-form-checkbox-button"></label>
+                        </div>
+                        <div class="dac-media-body">
+                          <label for="newsletter-add" class="dac-form-label dac-form-aside"><span data-t="newsletter.confirmMailingList"></span><span class="dac-form-required">*</span></label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="dac-form-radio-group">
+                      <div class="dac-media">
+                        <div class="dac-media-figure">
+                          <input type="checkbox" class="dac-form-checkbox" name="entry.2045036090" id="newsletter-terms" required value="I acknowledge that the information provided in this form will be subject to Google's privacy policy (https://www.google.com/policies/privacy/).">
+                          <label for="newsletter-terms" class="dac-form-checkbox-button"></label>
+                        </div>
+                        <div class="dac-media-body">
+                          <label for="newsletter-terms" class="dac-form-label dac-form-aside"><span data-t="newsletter.privacyPolicy" data-t-html></span><span class="dac-form-required">*</span></label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+            </section>
+            <footer class="dac-modal-footer">
+              <div class="cols">
+                <div class="col-2of5">
+                </div>
+              </div>
+              <button type="submit" value="Submit" class="dac-fab dac-primary dac-large dac-modal-action"><i class="dac-sprite dac-arrow-right"></i></button>
+            </footer>
+          </form>
+        </section>
+        <section class="dac-swap-section dac-right">
+          <div class="dac-modal-content">
+            <p class="newsletter-success-message" data-t="newsletter.successDetails"></p>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end newsletter modal -->
+
+<!-- start reset language header modal -->
+<div data-modal="langform" class="dac-modal" id="langform">
+  <div class="dac-modal-container">
+    <div class="dac-modal-window">
+      <header class="dac-modal-header">
+        <div class="dac-modal-header-actions">
+          <button class="dac-modal-header-close" data-modal-toggle></button>
+        </div>
+        <section class="dac-swap-section dac-active dac-down">
+          <h2 class="norule dac-modal-header-title"></h2>
+        </section>
+      </header>
+      <section class="dac-swap-section dac-active dac-left">
+          <section class="dac-modal-content">
+            <fieldset class="dac-form-fieldset">
+              <div class="cols">
+                <div class="col-2of2 langform-leftCol">
+                  <p id="resetLangText"></p>
+                  <p id="resetLangCta"></p>
+                </div>
+              </div>
+            </fieldset>
+          </section>
+          <footer class="dac-modal-footer" id="langfooter">
+            <div class="cols">
+              <div class="col-2of5">
+              </div>
+            </div>
+              <button class="button dac-primary dac-modal-action lang yes" data-t="newsletter.resetLangButtonYes" data-modal-toggle></button>
+              <button class="button dac-primary dac-modal-action lang no" data-t="newsletter.resetLangButtonNo" data-modal-toggle></button>
+            </a>
+          </footer>
+        </form>
+      </section>
+    </div>
+  </div>
+</div>
+<!-- end langreset modal -->
+
+
+</div> <!-- end body-content --> 
+
+
+
+
+<script src="../../ajax/developer.android.com/ytblogger_lists_unified.js" defer></script>
+<script src="/jd_lists_unified_en.js?v=17" defer></script>
+<script src="/reference/lists.js?v=17" defer></script>
+<script src="/reference/gcm_lists.js?v=17" defer></script>
+<script src="/reference/gms_lists.js?v=17" defer></script>
+<script>
+  // Load localized metadata.
+  (function(lang) {
+    if (lang === 'en') { return; }
+
+    // Write it to the document so it gets evaluated before DOMContentReady.
+    document.write('<script src="/jd_lists_unified_' + lang + '.js?v=14" defer></' + 'script>');
+  })(getLangPref())
+</script>
+
+
+</body>
+</html>

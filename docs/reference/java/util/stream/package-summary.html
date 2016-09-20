@@ -1,0 +1,2146 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+
+  
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
+<link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico" />
+<link rel="alternate" href="http://developer.android.com/" hreflang="en" />
+<link rel="alternate" href="http://developer.android.com/intl/es/" hreflang="es" />
+<link rel="alternate" href="http://developer.android.com/intl/id/" hreflang="id" />
+<link rel="alternate" href="http://developer.android.com/intl/ja/" hreflang="ja" />
+<link rel="alternate" href="http://developer.android.com/intl/ko/" hreflang="ko" />
+<link rel="alternate" href="http://developer.android.com/intl/pt-br/" hreflang="pt-br" />
+<link rel="alternate" href="http://developer.android.com/intl/ru/" hreflang="ru" />
+<link rel="alternate" href="http://developer.android.com/intl/vi/" hreflang="vi" />
+<link rel="alternate" href="http://developer.android.com/intl/zh-cn/" hreflang="zh-cn" />
+<link rel="alternate" href="http://developer.android.com/intl/zh-tw/" hreflang="zh-tw" />
+
+
+<title>java.util.stream - Android SDK | Android Developers
+</title>
+
+
+<!-- STYLESHEETS -->
+<link rel="stylesheet"
+href="http://fonts.useso.com/css?family=Roboto+Condensed">
+<link rel="stylesheet" href="http://fonts.useso.com/css?family=Roboto:light,regular,medium,thin,italic,mediumitalic,bold"
+  title="roboto">
+
+<link href="../../../../assets/css/default.css?v=16" rel="stylesheet" type="text/css">
+
+<!-- JAVASCRIPT -->
+<script src="../../../../assets/js/android_3p-bundle.js" type="text/javascript"></script>
+<script type="text/javascript">
+  var toRoot = "../../../../";
+  var metaTags = [];
+  var devsite = false;
+  var useUpdatedTemplates = false;
+</script>
+<script src="../../../../assets/js/docs.js?v=17" type="text/javascript"></script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//../../../../ajax/www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-5831155-1', 'android.com');
+  ga('create', 'UA-49880327-2', 'android.com', {'name': 'universal'});  // New tracker);
+  ga('send', 'pageview');
+  ga('universal.send', 'pageview'); // Send page view for new tracker.
+</script>
+
+</head>
+
+<body class="gc-documentation develop reference api apilevel-24">
+<div id="doc-api-level" class="24" style="display:none"></div>
+
+
+  
+  <a name="top"></a>
+  <!-- Header -->
+  <div id="header-wrapper">
+    <div class="dac-header " id="header">
+      <div class="dac-header-inner">
+        <a class="dac-nav-toggle" data-dac-toggle-nav href="javascript:;" title="Open navigation">
+          <span class="dac-nav-hamburger">
+            <span class="dac-nav-hamburger-top"></span>
+            <span class="dac-nav-hamburger-mid"></span>
+            <span class="dac-nav-hamburger-bot"></span>
+          </span>
+        </a>
+        <a class="dac-header-logo" href="../../../../index.html">
+          <img class="dac-header-logo-image" src="../../../../assets/images/android_logo.png"
+              srcset="../../../../assets/images/android_logo@2x.png 2x"
+              width="32" height="36" alt="Android" /> Developers
+          </a>
+
+        <ul class="dac-header-tabs">
+          <li>
+          <a class="dac-header-tab" href="../../../../design/index.html"
+             zh-tw-lang="設計"
+             zh-cn-lang="设计"
+             ru-lang="Проектирование"
+             ko-lang="디자인"
+             ja-lang="設計"
+             es-lang="Diseñar">Design</a>
+          </li>
+          <li>
+          <a class="dac-header-tab" href="../../../../develop/index.html"
+             zh-tw-lang="開發"
+             zh-cn-lang="开发"
+             ru-lang="Разработка"
+             ko-lang="개발"
+             ja-lang="開発"
+             es-lang="Desarrollar">Develop</a>
+          </li>
+          <li>
+          <a class="dac-header-tab" href="../../../../distribute/index.html"
+             zh-tw-lang="發佈"
+             zh-cn-lang="分发"
+             ru-lang="Распространение"
+             ko-lang="배포"
+             ja-lang="配布"
+             es-lang="Distribuir">Distribute</a>
+          </li>
+        </ul>
+
+        <a class="dac-header-console-btn" href="https://play.google.com/apps/publish/">
+          <span class="dac-sprite dac-google-play"></span>
+          <span class="dac-visible-desktop-inline">Developer</span>
+          Console
+        </a>
+
+        
+        
+        
+  <form data-search class="dac-header-search">
+    <button class="dac-header-search-close" data-search-close>
+      <i class="dac-sprite dac-back-arrow"></i>
+    </button>
+
+    <div class="dac-header-search-inner">
+      <i class="dac-sprite dac-search-white dac-header-search-icon"></i>
+      <input id="search_autocomplete" type="text" value="" autocomplete="off" name="q" class="dac-header-search-input" placeholder="Search" />
+      <button class="dac-header-search-clear dac-hidden" data-search-clear>
+        <i class="dac-sprite dac-close-black"></i>
+      </button>
+    </div>
+  </form>
+
+        
+      </div><!-- end header-wrap.wrap -->
+    </div><!-- end header -->
+  </div> <!--end header-wrapper -->
+
+  
+  <!-- Navigation-->
+  <nav class="dac-nav">
+    <div class="dac-nav-dimmer" data-dac-toggle-nav></div>
+
+    <div class="dac-nav-sidebar" data-swap data-dynamic="false" data-transition-speed="300" data-dac-nav>
+      <div data-swap-container>
+        
+  
+    <a class="dac-nav-back-button dac-swap-section dac-up dac-no-anim" data-swap-button href="javascript:;">
+      <i class="dac-sprite dac-nav-back"></i> <span class="dac-nav-back-title">Back</span>
+    </a>
+    <div class="dac-nav-sub dac-swap-section dac-right dac-active" itemscope itemtype="http://schema.org/SiteNavigationElement">
+      
+        
+  <!-- Fullscreen toggler -->
+  <button data-fullscreen class="dac-nav-fullscreen">
+    <i class="dac-sprite dac-fullscreen"></i>
+  </button>
+
+  <script>$('[data-fullscreen]').dacFullscreen();</script>
+  <!-- End: Fullscreen toggler -->
+
+  
+    <div id="devdoc-nav">
+      <div id="api-nav-header">
+        <div id="api-level-toggle">
+          <label for="apiLevelCheckbox" class="disabled"
+                 title="Select your target API level to dim unavailable APIs">API level: </label>
+          <div class="select-wrapper">
+            <select id="apiLevelSelector">
+              <!-- option elements added by buildApiLevelSelector() -->
+            </select>
+          </div>
+        </div><!-- end toggle -->
+        <div id="api-nav-title">Android APIs</div>
+      </div><!-- end nav header -->
+      <script>
+        var SINCE_DATA = [ '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24' ];
+        buildApiLevelSelector();
+      </script>
+
+      <div class="dac-reference-nav" data-reference-tree>
+        <ul class="dac-reference-nav-list" data-reference-namespaces>
+          
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/package-summary.html">android</a></li>
+    <li class="api apilevel-4">
+  <a href="../../../../reference/android/accessibilityservice/package-summary.html">android.accessibilityservice</a></li>
+    <li class="api apilevel-5">
+  <a href="../../../../reference/android/accounts/package-summary.html">android.accounts</a></li>
+    <li class="api apilevel-11">
+  <a href="../../../../reference/android/animation/package-summary.html">android.animation</a></li>
+    <li class="api apilevel-16">
+  <a href="../../../../reference/android/annotation/package-summary.html">android.annotation</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/app/package-summary.html">android.app</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../../reference/android/app/admin/package-summary.html">android.app.admin</a></li>
+    <li class="api apilevel-23">
+  <a href="../../../../reference/android/app/assist/package-summary.html">android.app.assist</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../../reference/android/app/backup/package-summary.html">android.app.backup</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../../reference/android/app/job/package-summary.html">android.app.job</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../../reference/android/app/usage/package-summary.html">android.app.usage</a></li>
+    <li class="api apilevel-3">
+  <a href="../../../../reference/android/appwidget/package-summary.html">android.appwidget</a></li>
+    <li class="api apilevel-5">
+  <a href="../../../../reference/android/bluetooth/package-summary.html">android.bluetooth</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../../reference/android/bluetooth/le/package-summary.html">android.bluetooth.le</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/content/package-summary.html">android.content</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/content/pm/package-summary.html">android.content.pm</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/content/res/package-summary.html">android.content.res</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/database/package-summary.html">android.database</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/database/sqlite/package-summary.html">android.database.sqlite</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/databinding/package-summary.html">android.databinding</a></li>
+    <li class="api apilevel-11">
+  <a href="../../../../reference/android/drm/package-summary.html">android.drm</a></li>
+    <li class="api apilevel-4">
+  <a href="../../../../reference/android/gesture/package-summary.html">android.gesture</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/graphics/package-summary.html">android.graphics</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/graphics/drawable/package-summary.html">android.graphics.drawable</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/graphics/drawable/shapes/package-summary.html">android.graphics.drawable.shapes</a></li>
+    <li class="api apilevel-19">
+  <a href="../../../../reference/android/graphics/pdf/package-summary.html">android.graphics.pdf</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/hardware/package-summary.html">android.hardware</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../../reference/android/hardware/camera2/package-summary.html">android.hardware.camera2</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../../reference/android/hardware/camera2/params/package-summary.html">android.hardware.camera2.params</a></li>
+    <li class="api apilevel-17">
+  <a href="../../../../reference/android/hardware/display/package-summary.html">android.hardware.display</a></li>
+    <li class="api apilevel-23">
+  <a href="../../../../reference/android/hardware/fingerprint/package-summary.html">android.hardware.fingerprint</a></li>
+    <li class="api apilevel-16">
+  <a href="../../../../reference/android/hardware/input/package-summary.html">android.hardware.input</a></li>
+    <li class="api apilevel-12">
+  <a href="../../../../reference/android/hardware/usb/package-summary.html">android.hardware.usb</a></li>
+    <li class="api apilevel-24">
+  <a href="../../../../reference/android/icu/lang/package-summary.html">android.icu.lang</a></li>
+    <li class="api apilevel-24">
+  <a href="../../../../reference/android/icu/math/package-summary.html">android.icu.math</a></li>
+    <li class="api apilevel-24">
+  <a href="../../../../reference/android/icu/text/package-summary.html">android.icu.text</a></li>
+    <li class="api apilevel-24">
+  <a href="../../../../reference/android/icu/util/package-summary.html">android.icu.util</a></li>
+    <li class="api apilevel-3">
+  <a href="../../../../reference/android/inputmethodservice/package-summary.html">android.inputmethodservice</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/location/package-summary.html">android.location</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/media/package-summary.html">android.media</a></li>
+    <li class="api apilevel-9">
+  <a href="../../../../reference/android/media/audiofx/package-summary.html">android.media.audiofx</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../../reference/android/media/browse/package-summary.html">android.media.browse</a></li>
+    <li class="api apilevel-14">
+  <a href="../../../../reference/android/media/effect/package-summary.html">android.media.effect</a></li>
+    <li class="api apilevel-23">
+  <a href="../../../../reference/android/media/midi/package-summary.html">android.media.midi</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../../reference/android/media/projection/package-summary.html">android.media.projection</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../../reference/android/media/session/package-summary.html">android.media.session</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../../reference/android/media/tv/package-summary.html">android.media.tv</a></li>
+    <li class="api apilevel-12">
+  <a href="../../../../reference/android/mtp/package-summary.html">android.mtp</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/net/package-summary.html">android.net</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/net/http/package-summary.html">android.net.http</a></li>
+    <li class="api apilevel-16">
+  <a href="../../../../reference/android/net/nsd/package-summary.html">android.net.nsd</a></li>
+    <li class="api apilevel-12">
+  <a href="../../../../reference/android/net/rtp/package-summary.html">android.net.rtp</a></li>
+    <li class="api apilevel-9">
+  <a href="../../../../reference/android/net/sip/package-summary.html">android.net.sip</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/net/wifi/package-summary.html">android.net.wifi</a></li>
+    <li class="api apilevel-14">
+  <a href="../../../../reference/android/net/wifi/p2p/package-summary.html">android.net.wifi.p2p</a></li>
+    <li class="api apilevel-16">
+  <a href="../../../../reference/android/net/wifi/p2p/nsd/package-summary.html">android.net.wifi.p2p.nsd</a></li>
+    <li class="api apilevel-9">
+  <a href="../../../../reference/android/nfc/package-summary.html">android.nfc</a></li>
+    <li class="api apilevel-19">
+  <a href="../../../../reference/android/nfc/cardemulation/package-summary.html">android.nfc.cardemulation</a></li>
+    <li class="api apilevel-10">
+  <a href="../../../../reference/android/nfc/tech/package-summary.html">android.nfc.tech</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/opengl/package-summary.html">android.opengl</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/os/package-summary.html">android.os</a></li>
+    <li class="api apilevel-24">
+  <a href="../../../../reference/android/os/health/package-summary.html">android.os.health</a></li>
+    <li class="api apilevel-9">
+  <a href="../../../../reference/android/os/storage/package-summary.html">android.os.storage</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/preference/package-summary.html">android.preference</a></li>
+    <li class="api apilevel-19">
+  <a href="../../../../reference/android/print/package-summary.html">android.print</a></li>
+    <li class="api apilevel-19">
+  <a href="../../../../reference/android/print/pdf/package-summary.html">android.print.pdf</a></li>
+    <li class="api apilevel-19">
+  <a href="../../../../reference/android/printservice/package-summary.html">android.printservice</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/provider/package-summary.html">android.provider</a></li>
+    <li class="api apilevel-11">
+  <a href="../../../../reference/android/renderscript/package-summary.html">android.renderscript</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/sax/package-summary.html">android.sax</a></li>
+    <li class="api apilevel-14">
+  <a href="../../../../reference/android/security/package-summary.html">android.security</a></li>
+    <li class="api apilevel-23">
+  <a href="../../../../reference/android/security/keystore/package-summary.html">android.security.keystore</a></li>
+    <li class="api apilevel-22">
+  <a href="../../../../reference/android/service/carrier/package-summary.html">android.service.carrier</a></li>
+    <li class="api apilevel-23">
+  <a href="../../../../reference/android/service/chooser/package-summary.html">android.service.chooser</a></li>
+    <li class="api apilevel-17">
+  <a href="../../../../reference/android/service/dreams/package-summary.html">android.service.dreams</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../../reference/android/service/media/package-summary.html">android.service.media</a></li>
+    <li class="api apilevel-18">
+  <a href="../../../../reference/android/service/notification/package-summary.html">android.service.notification</a></li>
+    <li class="api apilevel-24">
+  <a href="../../../../reference/android/service/quicksettings/package-summary.html">android.service.quicksettings</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../../reference/android/service/restrictions/package-summary.html">android.service.restrictions</a></li>
+    <li class="api apilevel-14">
+  <a href="../../../../reference/android/service/textservice/package-summary.html">android.service.textservice</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../../reference/android/service/voice/package-summary.html">android.service.voice</a></li>
+    <li class="api apilevel-24">
+  <a href="../../../../reference/android/service/vr/package-summary.html">android.service.vr</a></li>
+    <li class="api apilevel-7">
+  <a href="../../../../reference/android/service/wallpaper/package-summary.html">android.service.wallpaper</a></li>
+    <li class="api apilevel-3">
+  <a href="../../../../reference/android/speech/package-summary.html">android.speech</a></li>
+    <li class="api apilevel-4">
+  <a href="../../../../reference/android/speech/tts/package-summary.html">android.speech.tts</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/annotation/package-summary.html">android.support.annotation</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/annotations/package-summary.html">android.support.annotations</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/app/recommendation/package-summary.html">android.support.app.recommendation</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/customtabs/package-summary.html">android.support.customtabs</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/design/package-summary.html">android.support.design</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/design/widget/package-summary.html">android.support.design.widget</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/graphics/drawable/package-summary.html">android.support.graphics.drawable</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/multidex/package-summary.html">android.support.multidex</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/percent/package-summary.html">android.support.percent</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/provider/package-summary.html">android.support.provider</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v13/app/package-summary.html">android.support.v13.app</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v13/view/package-summary.html">android.support.v13.view</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v14/preference/package-summary.html">android.support.v14.preference</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v17/leanback/package-summary.html">android.support.v17.leanback</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v17/leanback/app/package-summary.html">android.support.v17.leanback.app</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v17/leanback/database/package-summary.html">android.support.v17.leanback.database</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v17/leanback/graphics/package-summary.html">android.support.v17.leanback.graphics</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v17/leanback/system/package-summary.html">android.support.v17.leanback.system</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v17/leanback/widget/package-summary.html">android.support.v17.leanback.widget</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v17/leanback/widget/picker/package-summary.html">android.support.v17.leanback.widget.picker</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v17/preference/package-summary.html">android.support.v17.preference</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v4/package-summary.html">android.support.v4</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v4/accessibilityservice/package-summary.html">android.support.v4.accessibilityservice</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v4/app/package-summary.html">android.support.v4.app</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v4/content/package-summary.html">android.support.v4.content</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v4/content/pm/package-summary.html">android.support.v4.content.pm</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v4/content/res/package-summary.html">android.support.v4.content.res</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v4/database/package-summary.html">android.support.v4.database</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v4/graphics/package-summary.html">android.support.v4.graphics</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v4/graphics/drawable/package-summary.html">android.support.v4.graphics.drawable</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v4/hardware/display/package-summary.html">android.support.v4.hardware.display</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v4/hardware/fingerprint/package-summary.html">android.support.v4.hardware.fingerprint</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v4/media/package-summary.html">android.support.v4.media</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v4/media/session/package-summary.html">android.support.v4.media.session</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v4/net/package-summary.html">android.support.v4.net</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v4/os/package-summary.html">android.support.v4.os</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v4/print/package-summary.html">android.support.v4.print</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v4/provider/package-summary.html">android.support.v4.provider</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v4/text/package-summary.html">android.support.v4.text</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v4/util/package-summary.html">android.support.v4.util</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v4/view/package-summary.html">android.support.v4.view</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v4/view/accessibility/package-summary.html">android.support.v4.view.accessibility</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v4/view/animation/package-summary.html">android.support.v4.view.animation</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v4/widget/package-summary.html">android.support.v4.widget</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v7/app/package-summary.html">android.support.v7.app</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v7/appcompat/package-summary.html">android.support.v7.appcompat</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v7/cardview/package-summary.html">android.support.v7.cardview</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v7/content/res/package-summary.html">android.support.v7.content.res</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v7/graphics/package-summary.html">android.support.v7.graphics</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v7/graphics/drawable/package-summary.html">android.support.v7.graphics.drawable</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v7/gridlayout/package-summary.html">android.support.v7.gridlayout</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v7/media/package-summary.html">android.support.v7.media</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v7/mediarouter/package-summary.html">android.support.v7.mediarouter</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v7/palette/package-summary.html">android.support.v7.palette</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v7/preference/package-summary.html">android.support.v7.preference</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v7/recyclerview/package-summary.html">android.support.v7.recyclerview</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v7/util/package-summary.html">android.support.v7.util</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v7/view/package-summary.html">android.support.v7.view</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v7/widget/package-summary.html">android.support.v7.widget</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v7/widget/helper/package-summary.html">android.support.v7.widget.helper</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v7/widget/util/package-summary.html">android.support.v7.widget.util</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v8/renderscript/package-summary.html">android.support.v8.renderscript</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../../reference/android/system/package-summary.html">android.system</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../../reference/android/telecom/package-summary.html">android.telecom</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/telephony/package-summary.html">android.telephony</a></li>
+    <li class="api apilevel-5">
+  <a href="../../../../reference/android/telephony/cdma/package-summary.html">android.telephony.cdma</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/telephony/gsm/package-summary.html">android.telephony.gsm</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/test/package-summary.html">android.test</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/test/mock/package-summary.html">android.test.mock</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/test/suitebuilder/package-summary.html">android.test.suitebuilder</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/test/suitebuilder/annotation/package-summary.html">android.test.suitebuilder.annotation</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/text/package-summary.html">android.text</a></li>
+    <li class="api apilevel-3">
+  <a href="../../../../reference/android/text/format/package-summary.html">android.text.format</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/text/method/package-summary.html">android.text.method</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/text/style/package-summary.html">android.text.style</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/text/util/package-summary.html">android.text.util</a></li>
+    <li class="api apilevel-19">
+  <a href="../../../../reference/android/transition/package-summary.html">android.transition</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/util/package-summary.html">android.util</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/view/package-summary.html">android.view</a></li>
+    <li class="api apilevel-4">
+  <a href="../../../../reference/android/view/accessibility/package-summary.html">android.view.accessibility</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/view/animation/package-summary.html">android.view.animation</a></li>
+    <li class="api apilevel-3">
+  <a href="../../../../reference/android/view/inputmethod/package-summary.html">android.view.inputmethod</a></li>
+    <li class="api apilevel-14">
+  <a href="../../../../reference/android/view/textservice/package-summary.html">android.view.textservice</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/webkit/package-summary.html">android.webkit</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/widget/package-summary.html">android.widget</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/com/android/internal/backup/package-summary.html">com.android.internal.backup</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/com/android/internal/logging/package-summary.html">com.android.internal.logging</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/com/android/internal/os/package-summary.html">com.android.internal.os</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/com/android/internal/statusbar/package-summary.html">com.android.internal.statusbar</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/com/android/internal/widget/package-summary.html">com.android.internal.widget</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/com/android/test/runner/package-summary.html">com.android.test.runner</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/dalvik/annotation/package-summary.html">dalvik.annotation</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/dalvik/bytecode/package-summary.html">dalvik.bytecode</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/dalvik/system/package-summary.html">dalvik.system</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/awt/font/package-summary.html">java.awt.font</a></li>
+    <li class="api apilevel-3">
+  <a href="../../../../reference/java/beans/package-summary.html">java.beans</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/io/package-summary.html">java.io</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/lang/package-summary.html">java.lang</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/lang/annotation/package-summary.html">java.lang.annotation</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/lang/ref/package-summary.html">java.lang.ref</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/lang/reflect/package-summary.html">java.lang.reflect</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/math/package-summary.html">java.math</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/net/package-summary.html">java.net</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/nio/package-summary.html">java.nio</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/nio/channels/package-summary.html">java.nio.channels</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/nio/channels/spi/package-summary.html">java.nio.channels.spi</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/nio/charset/package-summary.html">java.nio.charset</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/nio/charset/spi/package-summary.html">java.nio.charset.spi</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/security/package-summary.html">java.security</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/security/acl/package-summary.html">java.security.acl</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/security/cert/package-summary.html">java.security.cert</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/security/interfaces/package-summary.html">java.security.interfaces</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/security/spec/package-summary.html">java.security.spec</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/sql/package-summary.html">java.sql</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/text/package-summary.html">java.text</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/util/package-summary.html">java.util</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/util/concurrent/package-summary.html">java.util.concurrent</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/util/concurrent/atomic/package-summary.html">java.util.concurrent.atomic</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/util/concurrent/locks/package-summary.html">java.util.concurrent.locks</a></li>
+    <li class="api apilevel-24">
+  <a href="../../../../reference/java/util/function/package-summary.html">java.util.function</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/util/jar/package-summary.html">java.util.jar</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/util/logging/package-summary.html">java.util.logging</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/util/prefs/package-summary.html">java.util.prefs</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/util/regex/package-summary.html">java.util.regex</a></li>
+    <li class="selected api apilevel-24">
+  <a href="../../../../reference/java/util/stream/package-summary.html">java.util.stream</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/util/zip/package-summary.html">java.util.zip</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/javax/crypto/package-summary.html">javax.crypto</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/javax/crypto/interfaces/package-summary.html">javax.crypto.interfaces</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/javax/crypto/spec/package-summary.html">javax.crypto.spec</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/javax/microedition/khronos/egl/package-summary.html">javax.microedition.khronos.egl</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/javax/microedition/khronos/opengles/package-summary.html">javax.microedition.khronos.opengles</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/javax/net/package-summary.html">javax.net</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/javax/net/ssl/package-summary.html">javax.net.ssl</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/javax/security/auth/package-summary.html">javax.security.auth</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/javax/security/auth/callback/package-summary.html">javax.security.auth.callback</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/javax/security/auth/login/package-summary.html">javax.security.auth.login</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/javax/security/auth/x500/package-summary.html">javax.security.auth.x500</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/javax/security/cert/package-summary.html">javax.security.cert</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/javax/sql/package-summary.html">javax.sql</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/javax/xml/package-summary.html">javax.xml</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../../reference/javax/xml/datatype/package-summary.html">javax.xml.datatype</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../../reference/javax/xml/namespace/package-summary.html">javax.xml.namespace</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/javax/xml/parsers/package-summary.html">javax.xml.parsers</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../../reference/javax/xml/transform/package-summary.html">javax.xml.transform</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../../reference/javax/xml/transform/dom/package-summary.html">javax.xml.transform.dom</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../../reference/javax/xml/transform/sax/package-summary.html">javax.xml.transform.sax</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../../reference/javax/xml/transform/stream/package-summary.html">javax.xml.transform.stream</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../../reference/javax/xml/validation/package-summary.html">javax.xml.validation</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../../reference/javax/xml/xpath/package-summary.html">javax.xml.xpath</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/junit/framework/package-summary.html">junit.framework</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/junit/runner/package-summary.html">junit.runner</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/apache/http/conn/package-summary.html">org.apache.http.conn</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/apache/http/conn/scheme/package-summary.html">org.apache.http.conn.scheme</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/apache/http/conn/ssl/package-summary.html">org.apache.http.conn.ssl</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/apache/http/params/package-summary.html">org.apache.http.params</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/json/package-summary.html">org.json</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/w3c/dom/package-summary.html">org.w3c.dom</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../../reference/org/w3c/dom/ls/package-summary.html">org.w3c.dom.ls</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/xml/sax/package-summary.html">org.xml.sax</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/xml/sax/ext/package-summary.html">org.xml.sax.ext</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/xml/sax/helpers/package-summary.html">org.xml.sax.helpers</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/xmlpull/v1/package-summary.html">org.xmlpull.v1</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/xmlpull/v1/sax2/package-summary.html">org.xmlpull.v1.sax2</a></li>
+        </ul>
+
+        
+        <ul data-reference-resources>
+          
+          
+    <li><h2>Interfaces</h2>
+      <ul>
+        <li class="api apilevel-24"><a href="../../../../reference/java/util/stream/BaseStream.html">BaseStream</a></li>
+        <li class="api apilevel-24"><a href="../../../../reference/java/util/stream/Collector.html">Collector</a></li>
+        <li class="api apilevel-24"><a href="../../../../reference/java/util/stream/DoubleStream.html">DoubleStream</a></li>
+        <li class="api apilevel-24"><a href="../../../../reference/java/util/stream/DoubleStream.Builder.html">DoubleStream.Builder</a></li>
+        <li class="api apilevel-24"><a href="../../../../reference/java/util/stream/IntStream.html">IntStream</a></li>
+        <li class="api apilevel-24"><a href="../../../../reference/java/util/stream/IntStream.Builder.html">IntStream.Builder</a></li>
+        <li class="api apilevel-24"><a href="../../../../reference/java/util/stream/LongStream.html">LongStream</a></li>
+        <li class="api apilevel-24"><a href="../../../../reference/java/util/stream/LongStream.Builder.html">LongStream.Builder</a></li>
+        <li class="api apilevel-24"><a href="../../../../reference/java/util/stream/Stream.html">Stream</a></li>
+        <li class="api apilevel-24"><a href="../../../../reference/java/util/stream/Stream.Builder.html">Stream.Builder</a></li>
+      </ul>
+    </li>
+          
+    <li><h2>Classes</h2>
+      <ul>
+        <li class="api apilevel-24"><a href="../../../../reference/java/util/stream/Collectors.html">Collectors</a></li>
+        <li class="api apilevel-24"><a href="../../../../reference/java/util/stream/StreamSupport.html">StreamSupport</a></li>
+      </ul>
+    </li>
+          
+    <li><h2>Enums</h2>
+      <ul>
+        <li class="api apilevel-24"><a href="../../../../reference/java/util/stream/Collector.Characteristics.html">Collector.Characteristics</a></li>
+      </ul>
+    </li>
+          
+          
+        </ul>
+        
+      </div>
+    </div>
+  
+
+      
+    </div>
+  
+
+        <ul id="dac-main-navigation" class="dac-nav-list dac-swap-section dac-left dac-no-anim">
+        <li class="dac-nav-item home">
+          <a class="dac-nav-link" href="../../../../index.html">Home</a>
+          <i class="dac-sprite dac-expand-more-black dac-nav-sub-slider"></i>
+          <ul class="dac-nav-secondary about">
+            <li class="dac-nav-item versions">
+              <a class="dac-nav-link" href="../../../../about/versions/marshmallow/index.html">Android</a>
+            </li>
+            <li class="dac-nav-item wear">
+              <a class="dac-nav-link" href="../../../../wear/index.html">Wear</a>
+            </li>
+            <li class="dac-nav-item tv">
+              <a class="dac-nav-link" href="../../../../tv/index.html">TV</a>
+            </li>
+            <li class="dac-nav-item auto">
+              <a class="dac-nav-link" href="../../../../auto/index.html">Auto</a>
+            </li>
+          </ul>
+        </li>
+        <li class="dac-nav-item design">
+          <a class="dac-nav-link" href="../../../../design/index.html"
+             zh-tw-lang="設計"
+             zh-cn-lang="设计"
+             ru-lang="Проектирование"
+             ko-lang="디자인"
+             ja-lang="設計"
+             es-lang="Diseñar">Design</a>
+        </li>
+        <li class="dac-nav-item develop">
+          <a class="dac-nav-link" href="../../../../develop/index.html"
+             zh-tw-lang="開發"
+             zh-cn-lang="开发"
+             ru-lang="Разработка"
+             ko-lang="개발"
+             ja-lang="開発"
+             es-lang="Desarrollar">Develop</a>
+          <i class="dac-sprite dac-expand-more-black dac-nav-sub-slider"></i>
+          <ul class="dac-nav-secondary develop">
+            <li class="dac-nav-item training">
+              <a class="dac-nav-link" href="../../../../training/index.html"
+                 zh-tw-lang="訓練課程"
+                 zh-cn-lang="培训"
+                 ru-lang="Курсы"
+                 ko-lang="교육"
+                 ja-lang="トレーニング"
+                 es-lang="Capacitación">Training</a>
+            </li>
+            <li class="dac-nav-item guide">
+              <a class="dac-nav-link" href="../../../../guide/index.html"
+                 zh-tw-lang="API 指南"
+                 zh-cn-lang="API 指南"
+                 ru-lang="Руководства по API"
+                 ko-lang="API 가이드"
+                 ja-lang="API ガイド"
+                 es-lang="Guías de la API">API Guides</a>
+            </li>
+            <li class="dac-nav-item reference">
+              <a class="dac-nav-link" href="../../../../reference/packages.html"
+                 zh-tw-lang="參考資源"
+                 zh-cn-lang="参考"
+                 ru-lang="Справочник"
+                 ko-lang="참조문서"
+                 ja-lang="リファレンス"
+                 es-lang="Referencia">Reference</a>
+            </li>
+            <li class="dac-nav-item tools">
+              <a class="dac-nav-link" href="../../../../sdk/index.html"
+                 zh-tw-lang="相關工具"
+                 zh-cn-lang="工具"
+                 ru-lang="Инструменты"
+                 ko-lang="도구"
+                 ja-lang="ツール"
+                 es-lang="Herramientas">Tools</a></li>
+            <li class="dac-nav-item google">
+              <a class="dac-nav-link" href="../../../../google/index.html">Google Services</a>
+            </li>
+            
+          </ul>
+        </li>
+        <li class="dac-nav-item distribute">
+          <a class="dac-nav-link" href="../../../../distribute/googleplay/index.html"
+             zh-tw-lang="發佈"
+             zh-cn-lang="分发"
+             ru-lang="Распространение"
+             ko-lang="배포"
+             ja-lang="配布"
+             es-lang="Distribuir">Distribute</a>
+          <i class="dac-sprite dac-expand-more-black dac-nav-sub-slider"></i>
+          <ul class="dac-nav-secondary distribute">
+            <li class="dac-nav-item googleplay">
+              <a class="dac-nav-link" href="../../../../distribute/googleplay/index.html">Google Play</a></li>
+            <li class="dac-nav-item essentials">
+              <a class="dac-nav-link" href="../../../../distribute/essentials/index.html">Essentials</a></li>
+            <li class="dac-nav-item users">
+              <a class="dac-nav-link" href="../../../../distribute/users/index.html">Get Users</a></li>
+            <li class="dac-nav-item engage">
+              <a class="dac-nav-link" href="../../../../distribute/engage/index.html">Engage &amp; Retain</a></li>
+            <li class="dac-nav-item monetize">
+              <a class="dac-nav-link" href="../../../../distribute/monetize/index.html">Earn</a>
+            </li>
+            <li class="dac-nav-item analyze">
+              <a class="dac-nav-link" href="../../../../distribute/analyze/index.html">Analyze</a>
+            </li>
+            <li class="dac-nav-item stories">
+              <a class="dac-nav-link" href="../../../../distribute/stories/index.html">Stories</a>
+            </li>
+          </ul>
+        </li>
+        <li class="dac-nav-item preview">
+          <a class="dac-nav-link" href="../../../../preview/index.html">Preview</a>
+        </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- end navigation-->
+  
+
+<!-- Nav Setup -->
+<script>$('[data-dac-nav]').dacNav();</script>
+
+
+
+  
+    
+  <div class="wrap clearfix" id="body-content">
+
+  
+
+  
+  <div id="search-results" class="dac-search-results">
+    <div id="dac-search-results-history" class="dac-search-results-history">
+      <div class="wrap dac-search-results-history-wrap">
+        <div class="cols">
+          <div class="col-1of2 col-tablet-1of2 col-mobile-1of1">
+            <h2>Most visited</h2>
+            <div class="resource-flow-layout" data-history-query="history:most/visited" data-maxresults="3" data-cardsizes="18x2"></div>
+          </div>
+
+          <div class="col-1of2 col-tablet-1of2 col-mobile-1of1">
+            <h2>Recently visited</h2>
+            <div class="resource-flow-layout cols" data-history-query="history:recent" data-allow-duplicates="true" data-maxresults="3" data-cardsizes="18x2"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="dac-search-results-content" class="dac-search-results-content">
+      <div class="dac-search-results-metadata wrap">
+        <div class="dac-search-results-for">
+          <h2>Results for <span id="search-results-for"></span></h2>
+        </div>
+
+        <div id="dac-search-results-hero"></div>
+
+        <div class="dac-search-results-hero cols">
+          <div id="dac-search-results-reference" class="col-3of6 col-tablet-1of2 col-mobile-1of1">
+            <div class="suggest-card reference no-display">
+              <ul class="dac-search-results-reference">
+              </ul>
+            </div>
+          </div>
+          <div id="dac-custom-search-results"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+
+
+<div id="naMessage"></div>
+
+<div id="api-info-block">
+<div class="api-level">
+  
+  Added in <a href="../../../../guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 24</a>
+  
+  
+
+</div>
+</div>
+<div class="api apilevel-24" id="jd-content">
+
+<h1>java.util.stream</h1>
+
+
+  Classes to support functional-style operations on streams of elements, such
+ as map-reduce transformations on collections.  For example:
+
+ <pre><code>int sum = widgets.stream()
+                      .filter(b -&gt; b.getColor() == RED)
+                      .mapToInt(b -&gt; b.getWeight())
+                      .sum();
+ </code></pre>
+
+ <p>Here we use <code>widgets</code>, a <code>Collection&lt;Widget&gt;</code>,
+ as a source for a stream, and then perform a filter-map-reduce on the stream
+ to obtain the sum of the weights of the red widgets.  (Summation is an
+ example of a <a href="package-summary.html#Reduction">reduction</a>
+ operation.)
+
+ <p>The key abstraction introduced in this package is <em>stream</em>.  The
+ classes <code><a href="../../../../reference/java/util/stream/Stream.html">Stream</a></code>, <code><a href="../../../../reference/java/util/stream/IntStream.html">IntStream</a></code>,
+ <code><a href="../../../../reference/java/util/stream/LongStream.html">LongStream</a></code>, and <code><a href="../../../../reference/java/util/stream/DoubleStream.html">DoubleStream</a></code>
+ are streams over objects and the primitive <code>int</code>, <code>long</code> and
+ <code>double</code> types.  Streams differ from collections in several ways:
+
+ <ul>
+     <li>No storage.  A stream is not a data structure that stores elements;
+     instead, it conveys elements from a source such as a data structure,
+     an array, a generator function, or an I/O channel, through a pipeline of
+     computational operations.</li>
+     <li>Functional in nature.  An operation on a stream produces a result,
+     but does not modify its source.  For example, filtering a <code>Stream</code>
+     obtained from a collection produces a new <code>Stream</code> without the
+     filtered elements, rather than removing elements from the source
+     collection.</li>
+     <li>Laziness-seeking.  Many stream operations, such as filtering, mapping,
+     or duplicate removal, can be implemented lazily, exposing opportunities
+     for optimization.  For example, "find the first <code>String</code> with
+     three consecutive vowels" need not examine all the input strings.
+     Stream operations are divided into intermediate (<code>Stream</code>-producing)
+     operations and terminal (value- or side-effect-producing) operations.
+     Intermediate operations are always lazy.</li>
+     <li>Possibly unbounded.  While collections have a finite size, streams
+     need not.  Short-circuiting operations such as <code>limit(n)</code> or
+     <code>findFirst()</code> can allow computations on infinite streams to
+     complete in finite time.</li>
+     <li>Consumable. The elements of a stream are only visited once during
+     the life of a stream. Like an <code><a href="../../../../reference/java/util/Iterator.html">Iterator</a></code>, a new stream
+     must be generated to revisit the same elements of the source.
+     </li>
+ </ul>
+
+ Streams can be obtained in a number of ways. Some examples include:
+ <ul>
+     <li>From a <code><a href="../../../../reference/java/util/Collection.html">Collection</a></code> via the <code>stream()</code> and
+     <code>parallelStream()</code> methods;</li>
+     <li>From an array via <code><a href="../../../../reference/java/util/Arrays.html#stream(T[])">stream(Object[])</a></code>;</li>
+     <li>From static factory methods on the stream classes, such as
+     <code><a href="../../../../reference/java/util/stream/Stream.html#of(T...)">of(Object[])</a></code>,
+     <code><a href="../../../../reference/java/util/stream/IntStream.html#range(int, int)">range(int, int)</a></code>
+     or <code><a href="../../../../reference/java/util/stream/Stream.html#iterate(T, java.util.function.UnaryOperator<T>)">iterate(Object, UnaryOperator)</a></code>;</li>
+     </li>
+ </ul>
+
+ <p>Additional stream sources can be provided by third-party libraries using
+ <a href="package-summary.html#StreamSources">these techniques</a>.
+
+ <h2><a name="StreamOps">Stream operations and pipelines</a></h2>
+
+ <p>Stream operations are divided into <em>intermediate</em> and
+ <em>terminal</em> operations, and are combined to form <em>stream
+ pipelines</em>.  A stream pipeline consists of a source (such as a
+ <code>Collection</code>, an array, a generator function, or an I/O channel);
+ followed by zero or more intermediate operations such as
+ <code>Stream.filter</code> or <code>Stream.map</code>; and a terminal operation such
+ as <code>Stream.forEach</code> or <code>Stream.reduce</code>.
+
+ <p>Intermediate operations return a new stream.  They are always
+ <em>lazy</em>; executing an intermediate operation such as
+ <code>filter()</code> does not actually perform any filtering, but instead
+ creates a new stream that, when traversed, contains the elements of
+ the initial stream that match the given predicate.  Traversal
+ of the pipeline source does not begin until the terminal operation of the
+ pipeline is executed.
+
+ <p>Terminal operations, such as <code>Stream.forEach</code> or
+ <code>IntStream.sum</code>, may traverse the stream to produce a result or a
+ side-effect. After the terminal operation is performed, the stream pipeline
+ is considered consumed, and can no longer be used; if you need to traverse
+ the same data source again, you must return to the data source to get a new
+ stream.  In almost all cases, terminal operations are <em>eager</em>,
+ completing their traversal of the data source and processing of the pipeline
+ before returning.  Only the terminal operations <code>iterator()</code> and
+ <code>spliterator()</code> are not; these are provided as an "escape hatch" to enable
+ arbitrary client-controlled pipeline traversals in the event that the
+ existing operations are not sufficient to the task.
+
+ <p> Processing streams lazily allows for significant efficiencies; in a
+ pipeline such as the filter-map-sum example above, filtering, mapping, and
+ summing can be fused into a single pass on the data, with minimal
+ intermediate state. Laziness also allows avoiding examining all the data
+ when it is not necessary; for operations such as "find the first string
+ longer than 1000 characters", it is only necessary to examine just enough
+ strings to find one that has the desired characteristics without examining
+ all of the strings available from the source. (This behavior becomes even
+ more important when the input stream is infinite and not merely large.)
+
+ <p>Intermediate operations are further divided into <em>stateless</em>
+ and <em>stateful</em> operations. Stateless operations, such as <code>filter</code>
+ and <code>map</code>, retain no state from previously seen element when processing
+ a new element -- each element can be processed
+ independently of operations on other elements.  Stateful operations, such as
+ <code>distinct</code> and <code>sorted</code>, may incorporate state from previously
+ seen elements when processing new elements.
+
+ <p>Stateful operations may need to process the entire input
+ before producing a result.  For example, one cannot produce any results from
+ sorting a stream until one has seen all elements of the stream.  As a result,
+ under parallel computation, some pipelines containing stateful intermediate
+ operations may require multiple passes on the data or may need to buffer
+ significant data.  Pipelines containing exclusively stateless intermediate
+ operations can be processed in a single pass, whether sequential or parallel,
+ with minimal data buffering.
+
+ <p>Further, some operations are deemed <em>short-circuiting</em> operations.
+ An intermediate operation is short-circuiting if, when presented with
+ infinite input, it may produce a finite stream as a result.  A terminal
+ operation is short-circuiting if, when presented with infinite input, it may
+ terminate in finite time.  Having a short-circuiting operation in the pipeline
+ is a necessary, but not sufficient, condition for the processing of an infinite
+ stream to terminate normally in finite time.
+
+ <h3>Parallelism</h3>
+
+ <p>Processing elements with an explicit <code>for-</code>loop is inherently serial.
+ Streams facilitate parallel execution by reframing the computation as a pipeline of
+ aggregate operations, rather than as imperative operations on each individual
+ element.  All streams operations can execute either in serial or in parallel.
+ The stream implementations in the JDK create serial streams unless parallelism is
+ explicitly requested.  For example, <code>Collection</code> has methods
+ <code><a href="../../../../reference/java/util/Collection.html#stream()">stream()</a></code> and <code><a href="../../../../reference/java/util/Collection.html#parallelStream()">parallelStream()</a></code>,
+ which produce sequential and parallel streams respectively; other
+ stream-bearing methods such as <code><a href="../../../../reference/java/util/stream/IntStream.html#range(int, int)">range(int, int)</a></code>
+ produce sequential streams but these streams can be efficiently parallelized by
+ invoking their <code><a href="../../../../reference/java/util/stream/BaseStream.html#parallel()">parallel()</a></code> method.
+ To execute the prior "sum of weights of widgets" query in parallel, we would
+ do:
+
+ <pre><code>int sumOfWeights = widgets.</code><code><b>parallelStream()</b></code><code>.filter(b -&gt; b.getColor() == RED)
+                               .mapToInt(b -&gt; b.getWeight())
+                               .sum();
+ </code></pre>
+
+ <p>The only difference between the serial and parallel versions of this
+ example is the creation of the initial stream, using "<code>parallelStream()</code>"
+ instead of "<code>stream()</code>".  When the terminal operation is initiated,
+ the stream pipeline is executed sequentially or in parallel depending on the
+ orientation of the stream on which it is invoked.  Whether a stream will execute in serial or
+ parallel can be determined with the <code>isParallel()</code> method, and the
+ orientation of a stream can be modified with the
+ <code><a href="../../../../reference/java/util/stream/BaseStream.html#sequential()">sequential()</a></code> and
+ <code><a href="../../../../reference/java/util/stream/BaseStream.html#parallel()">parallel()</a></code> operations.  When the terminal
+ operation is initiated, the stream pipeline is executed sequentially or in
+ parallel depending on the mode of the stream on which it is invoked.
+
+ <p>Except for operations identified as explicitly nondeterministic, such
+ as <code>findAny()</code>, whether a stream executes sequentially or in parallel
+ should not change the result of the computation.
+
+ <p>Most stream operations accept parameters that describe user-specified
+ behavior, which are often lambda expressions.  To preserve correct behavior,
+ these <em>behavioral parameters</em> must be <em>non-interfering</em>, and in
+ most cases must be <em>stateless</em>.  Such parameters are always instances
+ of a <a href="../function/package-summary.html">functional interface</a> such
+ as <code><a href="../../../../reference/java/util/function/Function.html">Function</a></code>, and are often lambda expressions or
+ method references.
+
+ <h3><a name="NonInterference">Non-interference</a></h3>
+
+ Streams enable you to execute possibly-parallel aggregate operations over a
+ variety of data sources, including even non-thread-safe collections such as
+ <code>ArrayList</code>. This is possible only if we can prevent
+ <em>interference</em> with the data source during the execution of a stream
+ pipeline.  Except for the escape-hatch operations <code>iterator()</code> and
+ <code>spliterator()</code>, execution begins when the terminal operation is
+ invoked, and ends when the terminal operation completes.  For most data
+ sources, preventing interference means ensuring that the data source is
+ <em>not modified at all</em> during the execution of the stream pipeline.
+ The notable exception to this are streams whose sources are concurrent
+ collections, which are specifically designed to handle concurrent modification.
+ Concurrent stream sources are those whose <code>Spliterator</code> reports the
+ <code>CONCURRENT</code> characteristic.
+
+ <p>Accordingly, behavioral parameters in stream pipelines whose source might
+ not be concurrent should never modify the stream's data source.
+ A behavioral parameter is said to <em>interfere</em> with a non-concurrent
+ data source if it modifies, or causes to be
+ modified, the stream's data source.  The need for non-interference applies
+ to all pipelines, not just parallel ones.  Unless the stream source is
+ concurrent, modifying a stream's data source during execution of a stream
+ pipeline can cause exceptions, incorrect answers, or nonconformant behavior.
+
+ For well-behaved stream sources, the source can be modified before the
+ terminal operation commences and those modifications will be reflected in
+ the covered elements.  For example, consider the following code:
+
+ <pre><code>List&lt;String&gt; l = new ArrayList(Arrays.asList("one", "two"));
+     Stream&lt;String&gt; sl = l.stream();
+     l.add("three");
+     String s = sl.collect(joining(" "));
+ </code></pre>
+
+ First a list is created consisting of two strings: "one"; and "two". Then a
+ stream is created from that list. Next the list is modified by adding a third
+ string: "three". Finally the elements of the stream are collected and joined
+ together. Since the list was modified before the terminal <code>collect</code>
+ operation commenced the result will be a string of "one two three". All the
+ streams returned from JDK collections, and most other JDK classes,
+ are well-behaved in this manner; for streams generated by other libraries, see
+ <a href="package-summary.html#StreamSources">Low-level stream
+ construction</a> for requirements for building well-behaved streams.
+
+ <h3><a name="Statelessness">Stateless behaviors</a></h3>
+
+ Stream pipeline results may be nondeterministic or incorrect if the behavioral
+ parameters to the stream operations are <em>stateful</em>.  A stateful lambda
+ (or other object implementing the appropriate functional interface) is one
+ whose result depends on any state which might change during the execution
+ of the stream pipeline.  An example of a stateful lambda is the parameter
+ to <code>map()</code> in:
+
+ <pre><code>Set&lt;Integer&gt; seen = Collections.synchronizedSet(new HashSet&lt;&gt;());
+     stream.parallel().map(e -&gt; { if (seen.add(e)) return 0; else return e; })...
+ </code></pre>
+
+ Here, if the mapping operation is performed in parallel, the results for the
+ same input could vary from run to run, due to thread scheduling differences,
+ whereas, with a stateless lambda expression the results would always be the
+ same.
+
+ <p>Note also that attempting to access mutable state from behavioral parameters
+ presents you with a bad choice with respect to safety and performance; if
+ you do not synchronize access to that state, you have a data race and
+ therefore your code is broken, but if you do synchronize access to that
+ state, you risk having contention undermine the parallelism you are seeking
+ to benefit from.  The best approach is to avoid stateful behavioral
+ parameters to stream operations entirely; there is usually a way to
+ restructure the stream pipeline to avoid statefulness.
+
+ <h3>Side-effects</h3>
+
+ Side-effects in behavioral parameters to stream operations are, in general,
+ discouraged, as they can often lead to unwitting violations of the
+ statelessness requirement, as well as other thread-safety hazards.
+
+ <p>If the behavioral parameters do have side-effects, unless explicitly
+ stated, there are no guarantees as to the
+ <a href="../concurrent/package-summary.html#MemoryVisibility"><i>visibility</i></a>
+ of those side-effects to other threads, nor are there any guarantees that
+ different operations on the "same" element within the same stream pipeline
+ are executed in the same thread.  Further, the ordering of those effects
+ may be surprising.  Even when a pipeline is constrained to produce a
+ <em>result</em> that is consistent with the encounter order of the stream
+ source (for example, <code>IntStream.range(0,5).parallel().map(x -&gt; x*2).toArray()</code>
+ must produce <code>[0, 2, 4, 6, 8]</code>), no guarantees are made as to the order
+ in which the mapper function is applied to individual elements, or in what
+ thread any behavioral parameter is executed for a given element.
+
+ <p>Many computations where one might be tempted to use side effects can be more
+ safely and efficiently expressed without side-effects, such as using
+ <a href="package-summary.html#Reduction">reduction</a> instead of mutable
+ accumulators. However, side-effects such as using <code>println()</code> for debugging
+ purposes are usually harmless.  A small number of stream operations, such as
+ <code>forEach()</code> and <code>peek()</code>, can operate only via side-effects;
+ these should be used with care.
+
+ <p>As an example of how to transform a stream pipeline that inappropriately
+ uses side-effects to one that does not, the following code searches a stream
+ of strings for those matching a given regular expression, and puts the
+ matches in a list.
+
+ <pre><code>ArrayList&lt;String&gt; results = new ArrayList&lt;&gt;();
+     stream.filter(s -&gt; pattern.matcher(s).matches())
+           .forEach(s -&gt; results.add(s));  // Unnecessary use of side-effects!
+ </code></pre>
+
+ This code unnecessarily uses side-effects.  If executed in parallel, the
+ non-thread-safety of <code>ArrayList</code> would cause incorrect results, and
+ adding needed synchronization would cause contention, undermining the
+ benefit of parallelism.  Furthermore, using side-effects here is completely
+ unnecessary; the <code>forEach()</code> can simply be replaced with a reduction
+ operation that is safer, more efficient, and more amenable to
+ parallelization:
+
+ <pre><code>List&lt;String&gt;results =
+         stream.filter(s -&gt; pattern.matcher(s).matches())
+               .collect(Collectors.toList());  // No side-effects!
+ </code></pre>
+
+ <h3><a name="Ordering">Ordering</a></h3>
+
+ <p>Streams may or may not have a defined <em>encounter order</em>.  Whether
+ or not a stream has an encounter order depends on the source and the
+ intermediate operations.  Certain stream sources (such as <code>List</code> or
+ arrays) are intrinsically ordered, whereas others (such as <code>HashSet</code>)
+ are not.  Some intermediate operations, such as <code>sorted()</code>, may impose
+ an encounter order on an otherwise unordered stream, and others may render an
+ ordered stream unordered, such as <code><a href="../../../../reference/java/util/stream/BaseStream.html#unordered()">unordered()</a></code>.
+ Further, some terminal operations may ignore encounter order, such as
+ <code>forEach()</code>.
+
+ <p>If a stream is ordered, most operations are constrained to operate on the
+ elements in their encounter order; if the source of a stream is a <code>List</code>
+ containing <code>[1, 2, 3]</code>, then the result of executing <code>map(x -&gt; x*2)</code>
+ must be <code>[2, 4, 6]</code>.  However, if the source has no defined encounter
+ order, then any permutation of the values <code>[2, 4, 6]</code> would be a valid
+ result.
+
+ <p>For sequential streams, the presence or absence of an encounter order does
+ not affect performance, only determinism.  If a stream is ordered, repeated
+ execution of identical stream pipelines on an identical source will produce
+ an identical result; if it is not ordered, repeated execution might produce
+ different results.
+
+ <p>For parallel streams, relaxing the ordering constraint can sometimes enable
+ more efficient execution.  Certain aggregate operations,
+ such as filtering duplicates (<code>distinct()</code>) or grouped reductions
+ (<code>Collectors.groupingBy()</code>) can be implemented more efficiently if ordering of elements
+ is not relevant.  Similarly, operations that are intrinsically tied to encounter order,
+ such as <code>limit()</code>, may require
+ buffering to ensure proper ordering, undermining the benefit of parallelism.
+ In cases where the stream has an encounter order, but the user does not
+ particularly <em>care</em> about that encounter order, explicitly de-ordering
+ the stream with <code><a href="../../../../reference/java/util/stream/BaseStream.html#unordered()">unordered()</a></code> may
+ improve parallel performance for some stateful or terminal operations.
+ However, most stream pipelines, such as the "sum of weight of blocks" example
+ above, still parallelize efficiently even under ordering constraints.
+
+ <h2><a name="Reduction">Reduction operations</a></h2>
+
+ A <em>reduction</em> operation (also called a <em>fold</em>) takes a sequence
+ of input elements and combines them into a single summary result by repeated
+ application of a combining operation, such as finding the sum or maximum of
+ a set of numbers, or accumulating elements into a list.  The streams classes have
+ multiple forms of general reduction operations, called
+ <code><a href="../../../../reference/java/util/stream/Stream.html#reduce(java.util.function.BinaryOperator<T>)">reduce()</a></code>
+ and <code><a href="../../../../reference/java/util/stream/Stream.html#collect(java.util.stream.Collector<? super T, A, R>)">collect()</a></code>,
+ as well as multiple specialized reduction forms such as
+ <code><a href="../../../../reference/java/util/stream/IntStream.html#sum()">sum()</a></code>, <code><a href="../../../../reference/java/util/stream/IntStream.html#max()">max()</a></code>,
+ or <code><a href="../../../../reference/java/util/stream/IntStream.html#count()">count()</a></code>.
+
+ <p>Of course, such operations can be readily implemented as simple sequential
+ loops, as in:
+ <pre><code>int sum = 0;
+    for (int x : numbers) {
+       sum += x;
+    }
+ </code></pre>
+ However, there are good reasons to prefer a reduce operation
+ over a mutative accumulation such as the above.  Not only is a reduction
+ "more abstract" -- it operates on the stream as a whole rather than individual
+ elements -- but a properly constructed reduce operation is inherently
+ parallelizable, so long as the function(s) used to process the elements
+ are <a href="package-summary.html#Associativity">associative</a> and
+ <a href="package-summary.html#NonInterfering">stateless</a>.
+ For example, given a stream of numbers for which we want to find the sum, we
+ can write:
+ <pre><code>int sum = numbers.stream().reduce(0, (x,y) -&gt; x+y);
+ </code></pre>
+ or:
+ <pre><code>int sum = numbers.stream().reduce(0, Integer::sum);
+ </code></pre>
+
+ <p>These reduction operations can run safely in parallel with almost no
+ modification:
+ <pre><code>int sum = numbers.parallelStream().reduce(0, Integer::sum);
+ </code></pre>
+
+ <p>Reduction parallellizes well because the implementation
+ can operate on subsets of the data in parallel, and then combine the
+ intermediate results to get the final correct answer.  (Even if the language
+ had a "parallel for-each" construct, the mutative accumulation approach would
+ still required the developer to provide
+ thread-safe updates to the shared accumulating variable <code>sum</code>, and
+ the required synchronization would then likely eliminate any performance gain from
+ parallelism.)  Using <code>reduce()</code> instead removes all of the
+ burden of parallelizing the reduction operation, and the library can provide
+ an efficient parallel implementation with no additional synchronization
+ required.
+
+ <p>The "widgets" examples shown earlier shows how reduction combines with
+ other operations to replace for loops with bulk operations.  If <code>widgets</code>
+ is a collection of <code>Widget</code> objects, which have a <code>getWeight</code> method,
+ we can find the heaviest widget with:
+ <pre><code>OptionalInt heaviest = widgets.parallelStream()
+                                   .mapToInt(Widget::getWeight)
+                                   .max();
+ </code></pre>
+
+ <p>In its more general form, a <code>reduce</code> operation on elements of type
+ <code>&lt;T&gt;</code> yielding a result of type <code>&lt;U&gt;</code> requires three parameters:
+ <pre><code>&lt;U&gt; U reduce(U identity,
+              BiFunction&lt;U, ? super T, U&gt; accumulator,
+              BinaryOperator&lt;U&gt; combiner);
+ </code></pre>
+ Here, the <em>identity</em> element is both an initial seed value for the reduction
+ and a default result if there are no input elements. The <em>accumulator</em>
+ function takes a partial result and the next element, and produces a new
+ partial result. The <em>combiner</em> function combines two partial results
+ to produce a new partial result.  (The combiner is necessary in parallel
+ reductions, where the input is partitioned, a partial accumulation computed
+ for each partition, and then the partial results are combined to produce a
+ final result.)
+
+ <p>More formally, the <code>identity</code> value must be an <em>identity</em> for
+ the combiner function. This means that for all <code>u</code>,
+ <code>combiner.apply(identity, u)</code> is equal to <code>u</code>. Additionally, the
+ <code>combiner</code> function must be <a href="package-summary.html#Associativity">associative</a> and
+ must be compatible with the <code>accumulator</code> function: for all <code>u</code>
+ and <code>t</code>, <code>combiner.apply(u, accumulator.apply(identity, t))</code> must
+ be <code>equals()</code> to <code>accumulator.apply(u, t)</code>.
+
+ <p>The three-argument form is a generalization of the two-argument form,
+ incorporating a mapping step into the accumulation step.  We could
+ re-cast the simple sum-of-weights example using the more general form as
+ follows:
+ <pre><code>int sumOfWeights = widgets.stream()
+                               .reduce(0,
+                                       (sum, b) -&gt; sum + b.getWeight())
+                                       Integer::sum);
+ </code></pre>
+ though the explicit map-reduce form is more readable and therefore should
+ usually be preferred. The generalized form is provided for cases where
+ significant work can be optimized away by combining mapping and reducing
+ into a single function.
+
+ <h3><a name="MutableReduction">Mutable reduction</a></h3>
+
+ A <em>mutable reduction operation</em> accumulates input elements into a
+ mutable result container, such as a <code>Collection</code> or <code>StringBuilder</code>,
+ as it processes the elements in the stream.
+
+ <p>If we wanted to take a stream of strings and concatenate them into a
+ single long string, we <em>could</em> achieve this with ordinary reduction:
+ <pre><code>String concatenated = strings.reduce("", String::concat)
+ </code></pre>
+
+ <p>We would get the desired result, and it would even work in parallel.  However,
+ we might not be happy about the performance!  Such an implementation would do
+ a great deal of string copying, and the run time would be <em>O(n^2)</em> in
+ the number of characters.  A more performant approach would be to accumulate
+ the results into a <code><a href="../../../../reference/java/lang/StringBuilder.html">StringBuilder</a></code>, which is a mutable
+ container for accumulating strings.  We can use the same technique to
+ parallelize mutable reduction as we do with ordinary reduction.
+
+ <p>The mutable reduction operation is called
+ <code><a href="../../../../reference/java/util/stream/Stream.html#collect(java.util.stream.Collector<? super T, A, R>)">collect()</a></code>,
+ as it collects together the desired results into a result container such
+ as a <code>Collection</code>.
+ A <code>collect</code> operation requires three functions:
+ a supplier function to construct new instances of the result container, an
+ accumulator function to incorporate an input element into a result
+ container, and a combining function to merge the contents of one result
+ container into another.  The form of this is very similar to the general
+ form of ordinary reduction:
+ <pre><code>&lt;R&gt; R collect(Supplier&lt;R&gt; supplier,
+               BiConsumer&lt;R, ? super T&gt; accumulator,
+               BiConsumer&lt;R, R&gt; combiner);
+ </code></pre>
+ <p>As with <code>reduce()</code>, a benefit of expressing <code>collect</code> in this
+ abstract way is that it is directly amenable to parallelization: we can
+ accumulate partial results in parallel and then combine them, so long as the
+ accumulation and combining functions satisfy the appropriate requirements.
+ For example, to collect the String representations of the elements in a
+ stream into an <code>ArrayList</code>, we could write the obvious sequential
+ for-each form:
+ <pre><code>ArrayList&lt;String&gt; strings = new ArrayList&lt;&gt;();
+     for (T element : stream) {
+         strings.add(element.toString());
+     }
+ </code></pre>
+ Or we could use a parallelizable collect form:
+ <pre><code>ArrayList&lt;String&gt; strings = stream.collect(() -&gt; new ArrayList&lt;&gt;(),
+                                                (c, e) -&gt; c.add(e.toString()),
+                                                (c1, c2) -&gt; c1.addAll(c2));
+ </code></pre>
+ or, pulling the mapping operation out of the accumulator function, we could
+ express it more succinctly as:
+ <pre><code>List&lt;String&gt; strings = stream.map(Object::toString)
+                                  .collect(ArrayList::new, ArrayList::add, ArrayList::addAll);
+ </code></pre>
+ Here, our supplier is just the <code><a href="../../../../reference/java/util/ArrayList.html#ArrayList()">ArrayList constructor</a></code>, the accumulator adds the stringified element to an
+ <code>ArrayList</code>, and the combiner simply uses <code><a href="../../../../reference/java/util/ArrayList.html#addAll(int, java.util.Collection<? extends E>)">addAll</a></code>
+ to copy the strings from one container into the other.
+
+ <p>The three aspects of <code>collect</code> -- supplier, accumulator, and
+ combiner -- are tightly coupled.  We can use the abstraction of a
+ <code><a href="../../../../reference/java/util/stream/Collector.html">Collector</a></code> to capture all three aspects.  The
+ above example for collecting strings into a <code>List</code> can be rewritten
+ using a standard <code>Collector</code> as:
+ <pre><code>List&lt;String&gt; strings = stream.map(Object::toString)
+                                  .collect(Collectors.toList());
+ </code></pre>
+
+ <p>Packaging mutable reductions into a Collector has another advantage:
+ composability.  The class <code><a href="../../../../reference/java/util/stream/Collectors.html">Collectors</a></code> contains a
+ number of predefined factories for collectors, including combinators
+ that transform one collector into another.  For example, suppose we have a
+ collector that computes the sum of the salaries of a stream of
+ employees, as follows:
+
+ <pre><code>Collector&lt;Employee, ?, Integer&gt; summingSalaries
+         = Collectors.summingInt(Employee::getSalary);
+ </code></pre>
+
+ (The <code>?</code> for the second type parameter merely indicates that we don't
+ care about the intermediate representation used by this collector.)
+ If we wanted to create a collector to tabulate the sum of salaries by
+ department, we could reuse <code>summingSalaries</code> using
+ <code><a href="../../../../reference/java/util/stream/Collectors.html#groupingBy(java.util.function.Function<? super T, ? extends K>, java.util.stream.Collector<? super T, A, D>)">groupingBy</a></code>:
+
+ <pre><code>Map&lt;Department, Integer&gt; salariesByDept
+         = employees.stream().collect(Collectors.groupingBy(Employee::getDepartment,
+                                                            summingSalaries));
+ </code></pre>
+
+ <p>As with the regular reduction operation, <code>collect()</code> operations can
+ only be parallelized if appropriate conditions are met.  For any partially
+ accumulated result, combining it with an empty result container must
+ produce an equivalent result.  That is, for a partially accumulated result
+ <code>p</code> that is the result of any series of accumulator and combiner
+ invocations, <code>p</code> must be equivalent to
+ <code>combiner.apply(p, supplier.get())</code>.
+
+ <p>Further, however the computation is split, it must produce an equivalent
+ result.  For any input elements <code>t1</code> and <code>t2</code>, the results
+ <code>r1</code> and <code>r2</code> in the computation below must be equivalent:
+ <pre><code>A a1 = supplier.get();
+     accumulator.accept(a1, t1);
+     accumulator.accept(a1, t2);
+     R r1 = finisher.apply(a1);  // result without splitting
+
+     A a2 = supplier.get();
+     accumulator.accept(a2, t1);
+     A a3 = supplier.get();
+     accumulator.accept(a3, t2);
+     R r2 = finisher.apply(combiner.apply(a2, a3));  // result with splitting
+ </code></pre>
+
+ <p>Here, equivalence generally means according to <code><a href="../../../../reference/java/lang/Object.html#equals(java.lang.Object)">equals(Object)</a></code>.
+ but in some cases equivalence may be relaxed to account for differences in
+ order.
+
+ <h3><a name="ConcurrentReduction">Reduction, concurrency, and ordering</a></h3>
+
+ With some complex reduction operations, for example a <code>collect()</code> that
+ produces a <code>Map</code>, such as:
+ <pre><code>Map&lt;Buyer, List&lt;Transaction&gt;&gt; salesByBuyer
+         = txns.parallelStream()
+               .collect(Collectors.groupingBy(Transaction::getBuyer));
+ </code></pre>
+ it may actually be counterproductive to perform the operation in parallel.
+ This is because the combining step (merging one <code>Map</code> into another by
+ key) can be expensive for some <code>Map</code> implementations.
+
+ <p>Suppose, however, that the result container used in this reduction
+ was a concurrently modifiable collection -- such as a
+ <code><a href="../../../../reference/java/util/concurrent/ConcurrentHashMap.html">ConcurrentHashMap</a></code>. In that case, the parallel
+ invocations of the accumulator could actually deposit their results
+ concurrently into the same shared result container, eliminating the need for
+ the combiner to merge distinct result containers. This potentially provides
+ a boost to the parallel execution performance. We call this a
+ <em>concurrent</em> reduction.
+
+ <p>A <code><a href="../../../../reference/java/util/stream/Collector.html">Collector</a></code> that supports concurrent reduction is
+ marked with the <code><a href="../../../../reference/java/util/stream/Collector.Characteristics.html#CONCURRENT">CONCURRENT</a></code>
+ characteristic.  However, a concurrent collection also has a downside.  If
+ multiple threads are depositing results concurrently into a shared container,
+ the order in which results are deposited is non-deterministic. Consequently,
+ a concurrent reduction is only possible if ordering is not important for the
+ stream being processed. The <code><a href="../../../../reference/java/util/stream/Stream.html#collect(java.util.stream.Collector<? super T, A, R>)">collect(Collector)</a></code>
+ implementation will only perform a concurrent reduction if
+ <ul>
+ <li>The stream is parallel;</li>
+ <li>The collector has the
+ <code><a href="../../../../reference/java/util/stream/Collector.Characteristics.html#CONCURRENT">CONCURRENT</a></code> characteristic,
+ and;</li>
+ <li>Either the stream is unordered, or the collector has the
+ <code><a href="../../../../reference/java/util/stream/Collector.Characteristics.html#UNORDERED">UNORDERED</a></code> characteristic.
+ </ul>
+ You can ensure the stream is unordered by using the
+ <code><a href="../../../../reference/java/util/stream/BaseStream.html#unordered()">unordered()</a></code> method.  For example:
+ <pre><code>Map&lt;Buyer, List&lt;Transaction&gt;&gt; salesByBuyer
+         = txns.parallelStream()
+               .unordered()
+               .collect(groupingByConcurrent(Transaction::getBuyer));
+ </code></pre>
+ (where <code><a href="../../../../reference/java/util/stream/Collectors.html#groupingByConcurrent(java.util.function.Function<? super T, ? extends K>)">groupingByConcurrent(Function<? super T, ? extends K>)</a></code> is the
+ concurrent equivalent of <code>groupingBy</code>).
+
+ <p>Note that if it is important that the elements for a given key appear in
+ the order they appear in the source, then we cannot use a concurrent
+ reduction, as ordering is one of the casualties of concurrent insertion.
+ We would then be constrained to implement either a sequential reduction or
+ a merge-based parallel reduction.
+
+ <h3><a name="Associativity">Associativity</a></h3>
+
+ An operator or function <code>op</code> is <em>associative</em> if the following
+ holds:
+ <pre><code>(a op b) op c == a op (b op c)
+ </code></pre>
+ The importance of this to parallel evaluation can be seen if we expand this
+ to four terms:
+ <pre><code>a op b op c op d == (a op b) op (c op d)
+ </code></pre>
+ So we can evaluate <code>(a op b)</code> in parallel with <code>(c op d)</code>, and
+ then invoke <code>op</code> on the results.
+
+ <p>Examples of associative operations include numeric addition, min, and
+ max, and string concatenation.
+
+ <h2><a name="StreamSources">Low-level stream construction</a></h2>
+
+ So far, all the stream examples have used methods like
+ <code><a href="../../../../reference/java/util/Collection.html#stream()">stream()</a></code> or <code><a href="../../../../reference/java/util/Arrays.html#stream(T[])">stream(Object[])</a></code>
+ to obtain a stream.  How are those stream-bearing methods implemented?
+
+ <p>The class <code><a href="../../../../reference/java/util/stream/StreamSupport.html">StreamSupport</a></code> has a number of
+ low-level methods for creating a stream, all using some form of a
+ <code><a href="../../../../reference/java/util/Spliterator.html">Spliterator</a></code>. A spliterator is the parallel analogue of an
+ <code><a href="../../../../reference/java/util/Iterator.html">Iterator</a></code>; it describes a (possibly infinite) collection of
+ elements, with support for sequentially advancing, bulk traversal, and
+ splitting off some portion of the input into another spliterator which can
+ be processed in parallel.  At the lowest level, all streams are driven by a
+ spliterator.
+
+ <p>There are a number of implementation choices in implementing a
+ spliterator, nearly all of which are tradeoffs between simplicity of
+ implementation and runtime performance of streams using that spliterator.
+ The simplest, but least performant, way to create a spliterator is to
+ create one from an iterator using
+ <code><a href="../../../../reference/java/util/Spliterators.html#spliteratorUnknownSize(java.util.Iterator<? extends T>, int)">spliteratorUnknownSize(java.util.Iterator, int)</a></code>.
+ While such a spliterator will work, it will likely offer poor parallel
+ performance, since we have lost sizing information (how big is the
+ underlying data set), as well as being constrained to a simplistic
+ splitting algorithm.
+
+ <p>A higher-quality spliterator will provide balanced and known-size
+ splits, accurate sizing information, and a number of other
+ <code><a href="../../../../reference/java/util/Spliterator.html#characteristics()">characteristics</a></code> of the
+ spliterator or data that can be used by implementations to optimize
+ execution.
+
+ <p>Spliterators for mutable data sources have an additional challenge;
+ timing of binding to the data, since the data could change between the time
+ the spliterator is created and the time the stream pipeline is executed.
+ Ideally, a spliterator for a stream would report a characteristic of
+
+ <code>IMMUTABLE</code> or <code>CONCURRENT</code>; if not it should be
+ <a href="../Spliterator.html#binding"><em>late-binding</em></a>. If a source
+ cannot directly supply a recommended spliterator, it may indirectly supply
+ a spliterator using a <code>Supplier</code>, and construct a stream via the
+ <code>Supplier</code>-accepting versions of
+ <code><a href="../../../../reference/java/util/stream/StreamSupport.html#stream(java.util.function.Supplier<? extends java.util.Spliterator<T>>, int, boolean)">stream()</a></code>.
+ The spliterator is obtained from the supplier only after the terminal
+ operation of the stream pipeline commences.
+
+ <p>These requirements significantly reduce the scope of potential
+ interference between mutations of the stream source and execution of stream
+ pipelines. Streams based on spliterators with the desired characteristics,
+ or those using the Supplier-based factory forms, are immune to
+ modifications of the data source prior to commencement of the terminal
+ operation (provided the behavioral parameters to the stream operations meet
+ the required criteria for non-interference and statelessness).  See
+ <a href="package-summary.html#NonInterference">Non-Interference</a>
+ for more details.
+
+
+
+
+
+  
+
+
+  
+    <h2>Interfaces</h2>
+    
+  
+  <table class="jd-sumtable-expando">
+    
+      <tr class="alt-color api apilevel-24" >
+        <td class="jd-linkcol"><a href="../../../../reference/java/util/stream/BaseStream.html">BaseStream</a>&lt;T,&nbsp;S&nbsp;extends&nbsp;<a href="../../../../reference/java/util/stream/BaseStream.html">BaseStream</a>&lt;T,&nbsp;S&gt;&gt;</td>
+        <td class="jd-descrcol" width="100%">
+          Base interface for streams, which are sequences of elements supporting
+ sequential and parallel aggregate operations.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-24" >
+        <td class="jd-linkcol"><a href="../../../../reference/java/util/stream/Collector.html">Collector</a>&lt;T,&nbsp;A,&nbsp;R&gt;</td>
+        <td class="jd-descrcol" width="100%">
+          A <a href="package-summary.html#Reduction">mutable reduction operation</a> that
+ accumulates input elements into a mutable result container, optionally transforming
+ the accumulated result into a final representation after all input elements
+ have been processed.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-24" >
+        <td class="jd-linkcol"><a href="../../../../reference/java/util/stream/DoubleStream.html">DoubleStream</a></td>
+        <td class="jd-descrcol" width="100%">
+          A sequence of primitive double-valued elements supporting sequential and parallel
+ aggregate operations.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-24" >
+        <td class="jd-linkcol"><a href="../../../../reference/java/util/stream/DoubleStream.Builder.html">DoubleStream.Builder</a></td>
+        <td class="jd-descrcol" width="100%">
+          A mutable builder for a <code>DoubleStream</code>.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-24" >
+        <td class="jd-linkcol"><a href="../../../../reference/java/util/stream/IntStream.html">IntStream</a></td>
+        <td class="jd-descrcol" width="100%">
+          A sequence of primitive int-valued elements supporting sequential and parallel
+ aggregate operations.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-24" >
+        <td class="jd-linkcol"><a href="../../../../reference/java/util/stream/IntStream.Builder.html">IntStream.Builder</a></td>
+        <td class="jd-descrcol" width="100%">
+          A mutable builder for an <code>IntStream</code>.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-24" >
+        <td class="jd-linkcol"><a href="../../../../reference/java/util/stream/LongStream.html">LongStream</a></td>
+        <td class="jd-descrcol" width="100%">
+          A sequence of primitive long-valued elements supporting sequential and parallel
+ aggregate operations.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-24" >
+        <td class="jd-linkcol"><a href="../../../../reference/java/util/stream/LongStream.Builder.html">LongStream.Builder</a></td>
+        <td class="jd-descrcol" width="100%">
+          A mutable builder for a <code>LongStream</code>.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-24" >
+        <td class="jd-linkcol"><a href="../../../../reference/java/util/stream/Stream.html">Stream</a>&lt;T&gt;</td>
+        <td class="jd-descrcol" width="100%">
+          A sequence of elements supporting sequential and parallel aggregate
+ operations.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-24" >
+        <td class="jd-linkcol"><a href="../../../../reference/java/util/stream/Stream.Builder.html">Stream.Builder</a>&lt;T&gt;</td>
+        <td class="jd-descrcol" width="100%">
+          A mutable builder for a <code>Stream</code>.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+  </table>
+
+  
+
+
+  
+    <h2>Classes</h2>
+    
+  
+  <table class="jd-sumtable-expando">
+    
+      <tr class="alt-color api apilevel-24" >
+        <td class="jd-linkcol"><a href="../../../../reference/java/util/stream/Collectors.html">Collectors</a></td>
+        <td class="jd-descrcol" width="100%">
+          Implementations of <code><a href="../../../../reference/java/util/stream/Collector.html">Collector</a></code> that implement various useful reduction
+ operations, such as accumulating elements into collections, summarizing
+ elements according to various criteria, etc.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-24" >
+        <td class="jd-linkcol"><a href="../../../../reference/java/util/stream/StreamSupport.html">StreamSupport</a></td>
+        <td class="jd-descrcol" width="100%">
+          Low-level utility methods for creating and manipulating streams.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+  </table>
+
+  
+
+
+  
+    <h2>Enums</h2>
+    
+  
+  <table class="jd-sumtable-expando">
+    
+      <tr class="alt-color api apilevel-24" >
+        <td class="jd-linkcol"><a href="../../../../reference/java/util/stream/Collector.Characteristics.html">Collector.Characteristics</a></td>
+        <td class="jd-descrcol" width="100%">
+          Characteristics indicating properties of a <code>Collector</code>, which can
+ be used to optimize reduction implementations.&nbsp;
+          
+    
+
+        </td>
+      </tr>
+      
+    
+  </table>
+
+  
+
+
+  
+
+
+  
+
+
+</div><!-- end apilevel -->
+
+
+
+
+
+<div class="wrap">
+  <div class="dac-footer">
+    <div class="cols dac-footer-main">
+      <div class="col-1of2">
+        <a class="dac-footer-getnews" id="newsletter" data-modal-toggle="newsletter" href="javascript:;">Get news &amp; tips <span
+          class="dac-fab dac-primary"><i class="dac-sprite dac-mail"></i></span></a>
+      </div>
+      <div class="col-1of2 dac-footer-reachout">
+        <div class="dac-footer-contact">
+          <a class="dac-footer-contact-link" href="http://android-developers.blogspot.com/">Blog</a>
+          <a class="dac-footer-contact-link" href="../../../../support.html">Support</a>
+        </div>
+        <div class="dac-footer-social">
+          <a class="dac-button-social dac-youtube dac-footer-social-link" href="https://www.youtube.com/user/androiddevelopers"><i class="dac-sprite dac-youtube"></i></a>
+          <a class="dac-button-social dac-gplus dac-footer-social-link" href="https://plus.google.com/+AndroidDevelopers"><i class="dac-sprite dac-gplus"></i></a>
+          <a class="dac-button-social dac-twitter dac-footer-social-link" href="https://twitter.com/AndroidDev"><i class="dac-sprite dac-twitter"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <hr class="dac-footer-separator"/>
+
+    
+      <p class="dac-footer-copyright">
+        
+  Except as noted, this content is licensed under <a
+  href="http://www.apache.org/licenses/LICENSE-2.0">Apache 2.0</a>.
+  For details and restrictions, see the <a href="../../../../license.html">
+  Content License</a>.
+
+      </p>
+      <p class="dac-footer-build">
+        
+  
+    Android 6.0&nbsp;r1 &mdash;
+  
+  <script src="../../../../timestamp.js" type="text/javascript"></script>
+  <script>document.write(BUILD_TIMESTAMP)</script>
+
+      </p>
+    
+
+    <p class="dac-footer-links">
+      <a href="../../../../about/android.html">About Android</a>
+      <a href="../../../../auto/index.html">Auto</a>
+      <a href="../../../../tv/index.html">TV</a>
+      <a href="../../../../wear/index.html">Wear</a>
+      <a href="../../../../legal.html">Legal</a>
+
+      <span id="language" class="locales">
+        <select name="language" onchange="changeLangPref(this.value, true)">
+          <option value="en" selected="selected">English</option>
+          <option value="es">Español</option>
+          <option value="in">Bahasa Indonesia</option>
+          <option value="ja">日本語</option>
+          <option value="ko">한국어</option>
+          <option value="pt-br">Português Brasileiro</option>
+          <option value="ru">Русский</option>
+          <option value="vi">tiếng Việt</option>
+          <option value="zh-cn">中文（简体)</option>
+          <option value="zh-tw">中文（繁體)</option>
+        </select>
+      </span>
+    </p>
+  </div>
+</div>
+<!-- end footer -->
+
+
+
+  
+
+
+
+<div data-modal="newsletter" data-newsletter data-swap class="dac-modal newsletter">
+  <div class="dac-modal-container">
+    <div class="dac-modal-window">
+      <header class="dac-modal-header">
+        <div class="dac-modal-header-actions">
+          <button class="dac-modal-header-close" data-modal-toggle></button>
+        </div>
+        <div class="dac-swap" data-swap-container>
+          <section class="dac-swap-section dac-active dac-down">
+            <h2 class="norule dac-modal-header-title" data-t="newsletter.title"></h2>
+            <p class="dac-modal-header-subtitle" data-t="newsletter.requiredHint"></p>
+          </section>
+          <section class="dac-swap-section dac-up">
+            <h2 class="norule dac-modal-header-title" data-t="newsletter.successTitle">Hooray!</h2>
+          </section>
+        </div>
+      </header>
+      <div class="dac-swap" data-swap-container>
+        <section class="dac-swap-section dac-active dac-left">
+          <form action="https://docs.google.com/forms/d/1QgnkzbEJIDu9lMEea0mxqWrXUJu0oBCLD7ar23V0Yys/formResponse" class="dac-form" method="post" target="dac-newsletter-iframe">
+            <input type="hidden" name="entry.935454734" data-newsletter-language>
+            <section class="dac-modal-content">
+              <fieldset class="dac-form-fieldset">
+                <div class="cols">
+                  <div class="col-1of2 newsletter-leftCol">
+                    <div class="dac-form-input-group">
+                      <label for="newsletter-full-name" class="dac-form-floatlabel" data-t="newsletter.name">Full name</label>
+                      <input type="text" class="dac-form-input" name="entry.1357890476" id="newsletter-full-name" required>
+                      <span class="dac-form-required">*</span>
+                    </div>
+                    <div class="dac-form-input-group">
+                      <label for="newsletter-email" class="dac-form-floatlabel" data-t="newsletter.email">Email address</label>
+                      <input type="email" class="dac-form-input" name="entry.472100832" id="newsletter-email" required>
+                      <span class="dac-form-required">*</span>
+                    </div>
+                  </div>
+                  <div class="col-1of2 newsletter-rightCol">
+                    <div class="dac-form-input-group">
+                      <label for="newsletter-company" class="dac-form-floatlabel" data-t="newsletter.company">Company / developer name</label>
+                      <input type="text" class="dac-form-input" name="entry.1664780309" id="newsletter-company">
+                    </div>
+                    <div class="dac-form-input-group">
+                      <label for="newsletter-play-store" class="dac-form-floatlabel" data-t="newsletter.appUrl">One of your Play Store app URLs</label>
+                      <input type="url" class="dac-form-input" name="entry.47013838" id="newsletter-play-store" required>
+                      <span class="dac-form-required">*</span>
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+              <fieldset class="dac-form-fieldset">
+                <div class="cols">
+                  <div class="col-1of2 newsletter-leftCol">
+                    <legend class="dac-form-legend"><span data-t="newsletter.business.label">Which best describes your business:</span><span class="dac-form-required">*</span>
+                    </legend>
+                    <div class="dac-form-radio-group">
+                      <input type="radio" value="Apps" class="dac-form-radio" name="entry.1796324055" id="newsletter-business-type-app" required>
+                      <label for="newsletter-business-type-app" class="dac-form-radio-button"></label>
+                      <label for="newsletter-business-type-app" class="dac-form-label" data-t="newsletter.business.apps">Apps</label>
+                    </div>
+                    <div class="dac-form-radio-group">
+                      <input type="radio" value="Games" class="dac-form-radio" name="entry.1796324055" id="newsletter-business-type-games" required>
+                      <label for="newsletter-business-type-games" class="dac-form-radio-button"></label>
+                      <label for="newsletter-business-type-games" class="dac-form-label" data-t="newsletter.business.games">Games</label>
+                    </div>
+                    <div class="dac-form-radio-group">
+                      <input type="radio" value="Apps and Games" class="dac-form-radio" name="entry.1796324055" id="newsletter-business-type-appsgames" required>
+                      <label for="newsletter-business-type-appsgames" class="dac-form-radio-button"></label>
+                      <label for="newsletter-business-type-appsgames" class="dac-form-label" data-t="newsletter.business.both">Apps &amp; Games</label>
+                    </div>
+                  </div>
+                  <div class="col-1of2 newsletter-rightCol newsletter-checkboxes">
+                    <div class="dac-form-radio-group">
+                      <div class="dac-media">
+                        <div class="dac-media-figure">
+                          <input type="checkbox" class="dac-form-checkbox" name="entry.732309842" id="newsletter-add" required value="Add me to the mailing list for the monthly newsletter and occasional emails about development and Google Play opportunities.">
+                          <label for="newsletter-add" class="dac-form-checkbox-button"></label>
+                        </div>
+                        <div class="dac-media-body">
+                          <label for="newsletter-add" class="dac-form-label dac-form-aside"><span data-t="newsletter.confirmMailingList"></span><span class="dac-form-required">*</span></label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="dac-form-radio-group">
+                      <div class="dac-media">
+                        <div class="dac-media-figure">
+                          <input type="checkbox" class="dac-form-checkbox" name="entry.2045036090" id="newsletter-terms" required value="I acknowledge that the information provided in this form will be subject to Google's privacy policy (https://www.google.com/policies/privacy/).">
+                          <label for="newsletter-terms" class="dac-form-checkbox-button"></label>
+                        </div>
+                        <div class="dac-media-body">
+                          <label for="newsletter-terms" class="dac-form-label dac-form-aside"><span data-t="newsletter.privacyPolicy" data-t-html></span><span class="dac-form-required">*</span></label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+            </section>
+            <footer class="dac-modal-footer">
+              <div class="cols">
+                <div class="col-2of5">
+                </div>
+              </div>
+              <button type="submit" value="Submit" class="dac-fab dac-primary dac-large dac-modal-action"><i class="dac-sprite dac-arrow-right"></i></button>
+            </footer>
+          </form>
+        </section>
+        <section class="dac-swap-section dac-right">
+          <div class="dac-modal-content">
+            <p class="newsletter-success-message" data-t="newsletter.successDetails"></p>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end newsletter modal -->
+
+<!-- start reset language header modal -->
+<div data-modal="langform" class="dac-modal" id="langform">
+  <div class="dac-modal-container">
+    <div class="dac-modal-window">
+      <header class="dac-modal-header">
+        <div class="dac-modal-header-actions">
+          <button class="dac-modal-header-close" data-modal-toggle></button>
+        </div>
+        <section class="dac-swap-section dac-active dac-down">
+          <h2 class="norule dac-modal-header-title"></h2>
+        </section>
+      </header>
+      <section class="dac-swap-section dac-active dac-left">
+          <section class="dac-modal-content">
+            <fieldset class="dac-form-fieldset">
+              <div class="cols">
+                <div class="col-2of2 langform-leftCol">
+                  <p id="resetLangText"></p>
+                  <p id="resetLangCta"></p>
+                </div>
+              </div>
+            </fieldset>
+          </section>
+          <footer class="dac-modal-footer" id="langfooter">
+            <div class="cols">
+              <div class="col-2of5">
+              </div>
+            </div>
+              <button class="button dac-primary dac-modal-action lang yes" data-t="newsletter.resetLangButtonYes" data-modal-toggle></button>
+              <button class="button dac-primary dac-modal-action lang no" data-t="newsletter.resetLangButtonNo" data-modal-toggle></button>
+            </a>
+          </footer>
+        </form>
+      </section>
+    </div>
+  </div>
+</div>
+<!-- end langreset modal -->
+
+
+</div> <!-- end body-content --> 
+
+
+
+
+<script src="../../../../ajax/developer.android.com/ytblogger_lists_unified.js" defer></script>
+<script src="/jd_lists_unified_en.js?v=17" defer></script>
+<script src="/reference/lists.js?v=17" defer></script>
+<script src="/reference/gcm_lists.js?v=17" defer></script>
+<script src="/reference/gms_lists.js?v=17" defer></script>
+<script>
+  // Load localized metadata.
+  (function(lang) {
+    if (lang === 'en') { return; }
+
+    // Write it to the document so it gets evaluated before DOMContentReady.
+    document.write('<script src="/jd_lists_unified_' + lang + '.js?v=14" defer></' + 'script>');
+  })(getLangPref())
+</script>
+
+
+</body>
+</html>

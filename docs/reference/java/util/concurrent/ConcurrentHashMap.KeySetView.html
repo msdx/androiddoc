@@ -1,0 +1,4456 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+
+  
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
+<link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico" />
+<link rel="alternate" href="http://developer.android.com/" hreflang="en" />
+<link rel="alternate" href="http://developer.android.com/intl/es/" hreflang="es" />
+<link rel="alternate" href="http://developer.android.com/intl/id/" hreflang="id" />
+<link rel="alternate" href="http://developer.android.com/intl/ja/" hreflang="ja" />
+<link rel="alternate" href="http://developer.android.com/intl/ko/" hreflang="ko" />
+<link rel="alternate" href="http://developer.android.com/intl/pt-br/" hreflang="pt-br" />
+<link rel="alternate" href="http://developer.android.com/intl/ru/" hreflang="ru" />
+<link rel="alternate" href="http://developer.android.com/intl/vi/" hreflang="vi" />
+<link rel="alternate" href="http://developer.android.com/intl/zh-cn/" hreflang="zh-cn" />
+<link rel="alternate" href="http://developer.android.com/intl/zh-tw/" hreflang="zh-tw" />
+
+
+<title>ConcurrentHashMap.KeySetView - Android SDK | Android Developers
+</title>
+
+
+<!-- STYLESHEETS -->
+<link rel="stylesheet"
+href="http://fonts.useso.com/css?family=Roboto+Condensed">
+<link rel="stylesheet" href="http://fonts.useso.com/css?family=Roboto:light,regular,medium,thin,italic,mediumitalic,bold"
+  title="roboto">
+
+<link href="../../../../assets/css/default.css?v=16" rel="stylesheet" type="text/css">
+
+<!-- JAVASCRIPT -->
+<script src="../../../../assets/js/android_3p-bundle.js" type="text/javascript"></script>
+<script type="text/javascript">
+  var toRoot = "../../../../";
+  var metaTags = [];
+  var devsite = false;
+  var useUpdatedTemplates = false;
+</script>
+<script src="../../../../assets/js/docs.js?v=17" type="text/javascript"></script>
+
+</head>
+
+<body class="gc-documentation develop reference api apilevel-24">
+<div id="doc-api-level" class="24" style="display:none"></div>
+
+
+  
+  <a name="top"></a>
+  <!-- Header -->
+  <div id="header-wrapper">
+    <div class="dac-header " id="header">
+      <div class="dac-header-inner">
+        <a class="dac-nav-toggle" data-dac-toggle-nav href="javascript:;" title="Open navigation">
+          <span class="dac-nav-hamburger">
+            <span class="dac-nav-hamburger-top"></span>
+            <span class="dac-nav-hamburger-mid"></span>
+            <span class="dac-nav-hamburger-bot"></span>
+          </span>
+        </a>
+        <a class="dac-header-logo" href="../../../../index.html">
+          <img class="dac-header-logo-image" src="../../../../assets/images/android_logo.png"
+              srcset="../../../../assets/images/android_logo@2x.png 2x"
+              width="32" height="36" alt="Android" /> Developers
+          </a>
+
+        <ul class="dac-header-tabs">
+          <li>
+          <a class="dac-header-tab" href="../../../../design/index.html"
+             zh-tw-lang="設計"
+             zh-cn-lang="设计"
+             ru-lang="Проектирование"
+             ko-lang="디자인"
+             ja-lang="設計"
+             es-lang="Diseñar">Design</a>
+          </li>
+          <li>
+          <a class="dac-header-tab" href="../../../../develop/index.html"
+             zh-tw-lang="開發"
+             zh-cn-lang="开发"
+             ru-lang="Разработка"
+             ko-lang="개발"
+             ja-lang="開発"
+             es-lang="Desarrollar">Develop</a>
+          </li>
+          <li>
+          <a class="dac-header-tab" href="../../../../distribute/index.html"
+             zh-tw-lang="發佈"
+             zh-cn-lang="分发"
+             ru-lang="Распространение"
+             ko-lang="배포"
+             ja-lang="配布"
+             es-lang="Distribuir">Distribute</a>
+          </li>
+        </ul>
+
+        <a class="dac-header-console-btn" href="https://play.google.com/apps/publish/">
+          <span class="dac-sprite dac-google-play"></span>
+          <span class="dac-visible-desktop-inline">Developer</span>
+          Console
+        </a>
+
+        
+        
+        
+  <form data-search class="dac-header-search">
+    <button class="dac-header-search-close" data-search-close>
+      <i class="dac-sprite dac-back-arrow"></i>
+    </button>
+
+    <div class="dac-header-search-inner">
+      <i class="dac-sprite dac-search-white dac-header-search-icon"></i>
+      <input id="search_autocomplete" type="text" value="" autocomplete="off" name="q" class="dac-header-search-input" placeholder="Search" />
+      <button class="dac-header-search-clear dac-hidden" data-search-clear>
+        <i class="dac-sprite dac-close-black"></i>
+      </button>
+    </div>
+  </form>
+
+        
+      </div><!-- end header-wrap.wrap -->
+    </div><!-- end header -->
+  </div> <!--end header-wrapper -->
+
+  
+  <!-- Navigation-->
+  <nav class="dac-nav">
+    <div class="dac-nav-dimmer" data-dac-toggle-nav></div>
+
+    <div class="dac-nav-sidebar" data-swap data-dynamic="false" data-transition-speed="300" data-dac-nav>
+      <div data-swap-container>
+        
+  
+    <a class="dac-nav-back-button dac-swap-section dac-up dac-no-anim" data-swap-button href="javascript:;">
+      <i class="dac-sprite dac-nav-back"></i> <span class="dac-nav-back-title">Back</span>
+    </a>
+    <div class="dac-nav-sub dac-swap-section dac-right dac-active" itemscope itemtype="http://schema.org/SiteNavigationElement">
+      
+        
+  <!-- Fullscreen toggler -->
+  <button data-fullscreen class="dac-nav-fullscreen">
+    <i class="dac-sprite dac-fullscreen"></i>
+  </button>
+
+  <script>$('[data-fullscreen]').dacFullscreen();</script>
+  <!-- End: Fullscreen toggler -->
+
+  
+    <div id="devdoc-nav">
+      <div id="api-nav-header">
+        <div id="api-level-toggle">
+          <label for="apiLevelCheckbox" class="disabled"
+                 title="Select your target API level to dim unavailable APIs">API level: </label>
+          <div class="select-wrapper">
+            <select id="apiLevelSelector">
+              <!-- option elements added by buildApiLevelSelector() -->
+            </select>
+          </div>
+        </div><!-- end toggle -->
+        <div id="api-nav-title">Android APIs</div>
+      </div><!-- end nav header -->
+      <script>
+        var SINCE_DATA = [ '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24' ];
+        buildApiLevelSelector();
+      </script>
+
+      <div class="dac-reference-nav" data-reference-tree>
+        <ul class="dac-reference-nav-list" data-reference-namespaces>
+          
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/package-summary.html">android</a></li>
+    <li class="api apilevel-4">
+  <a href="../../../../reference/android/accessibilityservice/package-summary.html">android.accessibilityservice</a></li>
+    <li class="api apilevel-5">
+  <a href="../../../../reference/android/accounts/package-summary.html">android.accounts</a></li>
+    <li class="api apilevel-11">
+  <a href="../../../../reference/android/animation/package-summary.html">android.animation</a></li>
+    <li class="api apilevel-16">
+  <a href="../../../../reference/android/annotation/package-summary.html">android.annotation</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/app/package-summary.html">android.app</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../../reference/android/app/admin/package-summary.html">android.app.admin</a></li>
+    <li class="api apilevel-23">
+  <a href="../../../../reference/android/app/assist/package-summary.html">android.app.assist</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../../reference/android/app/backup/package-summary.html">android.app.backup</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../../reference/android/app/job/package-summary.html">android.app.job</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../../reference/android/app/usage/package-summary.html">android.app.usage</a></li>
+    <li class="api apilevel-3">
+  <a href="../../../../reference/android/appwidget/package-summary.html">android.appwidget</a></li>
+    <li class="api apilevel-5">
+  <a href="../../../../reference/android/bluetooth/package-summary.html">android.bluetooth</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../../reference/android/bluetooth/le/package-summary.html">android.bluetooth.le</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/content/package-summary.html">android.content</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/content/pm/package-summary.html">android.content.pm</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/content/res/package-summary.html">android.content.res</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/database/package-summary.html">android.database</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/database/sqlite/package-summary.html">android.database.sqlite</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/databinding/package-summary.html">android.databinding</a></li>
+    <li class="api apilevel-11">
+  <a href="../../../../reference/android/drm/package-summary.html">android.drm</a></li>
+    <li class="api apilevel-4">
+  <a href="../../../../reference/android/gesture/package-summary.html">android.gesture</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/graphics/package-summary.html">android.graphics</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/graphics/drawable/package-summary.html">android.graphics.drawable</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/graphics/drawable/shapes/package-summary.html">android.graphics.drawable.shapes</a></li>
+    <li class="api apilevel-19">
+  <a href="../../../../reference/android/graphics/pdf/package-summary.html">android.graphics.pdf</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/hardware/package-summary.html">android.hardware</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../../reference/android/hardware/camera2/package-summary.html">android.hardware.camera2</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../../reference/android/hardware/camera2/params/package-summary.html">android.hardware.camera2.params</a></li>
+    <li class="api apilevel-17">
+  <a href="../../../../reference/android/hardware/display/package-summary.html">android.hardware.display</a></li>
+    <li class="api apilevel-23">
+  <a href="../../../../reference/android/hardware/fingerprint/package-summary.html">android.hardware.fingerprint</a></li>
+    <li class="api apilevel-16">
+  <a href="../../../../reference/android/hardware/input/package-summary.html">android.hardware.input</a></li>
+    <li class="api apilevel-12">
+  <a href="../../../../reference/android/hardware/usb/package-summary.html">android.hardware.usb</a></li>
+    <li class="api apilevel-24">
+  <a href="../../../../reference/android/icu/lang/package-summary.html">android.icu.lang</a></li>
+    <li class="api apilevel-24">
+  <a href="../../../../reference/android/icu/math/package-summary.html">android.icu.math</a></li>
+    <li class="api apilevel-24">
+  <a href="../../../../reference/android/icu/text/package-summary.html">android.icu.text</a></li>
+    <li class="api apilevel-24">
+  <a href="../../../../reference/android/icu/util/package-summary.html">android.icu.util</a></li>
+    <li class="api apilevel-3">
+  <a href="../../../../reference/android/inputmethodservice/package-summary.html">android.inputmethodservice</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/location/package-summary.html">android.location</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/media/package-summary.html">android.media</a></li>
+    <li class="api apilevel-9">
+  <a href="../../../../reference/android/media/audiofx/package-summary.html">android.media.audiofx</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../../reference/android/media/browse/package-summary.html">android.media.browse</a></li>
+    <li class="api apilevel-14">
+  <a href="../../../../reference/android/media/effect/package-summary.html">android.media.effect</a></li>
+    <li class="api apilevel-23">
+  <a href="../../../../reference/android/media/midi/package-summary.html">android.media.midi</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../../reference/android/media/projection/package-summary.html">android.media.projection</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../../reference/android/media/session/package-summary.html">android.media.session</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../../reference/android/media/tv/package-summary.html">android.media.tv</a></li>
+    <li class="api apilevel-12">
+  <a href="../../../../reference/android/mtp/package-summary.html">android.mtp</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/net/package-summary.html">android.net</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/net/http/package-summary.html">android.net.http</a></li>
+    <li class="api apilevel-16">
+  <a href="../../../../reference/android/net/nsd/package-summary.html">android.net.nsd</a></li>
+    <li class="api apilevel-12">
+  <a href="../../../../reference/android/net/rtp/package-summary.html">android.net.rtp</a></li>
+    <li class="api apilevel-9">
+  <a href="../../../../reference/android/net/sip/package-summary.html">android.net.sip</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/net/wifi/package-summary.html">android.net.wifi</a></li>
+    <li class="api apilevel-14">
+  <a href="../../../../reference/android/net/wifi/p2p/package-summary.html">android.net.wifi.p2p</a></li>
+    <li class="api apilevel-16">
+  <a href="../../../../reference/android/net/wifi/p2p/nsd/package-summary.html">android.net.wifi.p2p.nsd</a></li>
+    <li class="api apilevel-9">
+  <a href="../../../../reference/android/nfc/package-summary.html">android.nfc</a></li>
+    <li class="api apilevel-19">
+  <a href="../../../../reference/android/nfc/cardemulation/package-summary.html">android.nfc.cardemulation</a></li>
+    <li class="api apilevel-10">
+  <a href="../../../../reference/android/nfc/tech/package-summary.html">android.nfc.tech</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/opengl/package-summary.html">android.opengl</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/os/package-summary.html">android.os</a></li>
+    <li class="api apilevel-24">
+  <a href="../../../../reference/android/os/health/package-summary.html">android.os.health</a></li>
+    <li class="api apilevel-9">
+  <a href="../../../../reference/android/os/storage/package-summary.html">android.os.storage</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/preference/package-summary.html">android.preference</a></li>
+    <li class="api apilevel-19">
+  <a href="../../../../reference/android/print/package-summary.html">android.print</a></li>
+    <li class="api apilevel-19">
+  <a href="../../../../reference/android/print/pdf/package-summary.html">android.print.pdf</a></li>
+    <li class="api apilevel-19">
+  <a href="../../../../reference/android/printservice/package-summary.html">android.printservice</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/provider/package-summary.html">android.provider</a></li>
+    <li class="api apilevel-11">
+  <a href="../../../../reference/android/renderscript/package-summary.html">android.renderscript</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/sax/package-summary.html">android.sax</a></li>
+    <li class="api apilevel-14">
+  <a href="../../../../reference/android/security/package-summary.html">android.security</a></li>
+    <li class="api apilevel-23">
+  <a href="../../../../reference/android/security/keystore/package-summary.html">android.security.keystore</a></li>
+    <li class="api apilevel-22">
+  <a href="../../../../reference/android/service/carrier/package-summary.html">android.service.carrier</a></li>
+    <li class="api apilevel-23">
+  <a href="../../../../reference/android/service/chooser/package-summary.html">android.service.chooser</a></li>
+    <li class="api apilevel-17">
+  <a href="../../../../reference/android/service/dreams/package-summary.html">android.service.dreams</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../../reference/android/service/media/package-summary.html">android.service.media</a></li>
+    <li class="api apilevel-18">
+  <a href="../../../../reference/android/service/notification/package-summary.html">android.service.notification</a></li>
+    <li class="api apilevel-24">
+  <a href="../../../../reference/android/service/quicksettings/package-summary.html">android.service.quicksettings</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../../reference/android/service/restrictions/package-summary.html">android.service.restrictions</a></li>
+    <li class="api apilevel-14">
+  <a href="../../../../reference/android/service/textservice/package-summary.html">android.service.textservice</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../../reference/android/service/voice/package-summary.html">android.service.voice</a></li>
+    <li class="api apilevel-24">
+  <a href="../../../../reference/android/service/vr/package-summary.html">android.service.vr</a></li>
+    <li class="api apilevel-7">
+  <a href="../../../../reference/android/service/wallpaper/package-summary.html">android.service.wallpaper</a></li>
+    <li class="api apilevel-3">
+  <a href="../../../../reference/android/speech/package-summary.html">android.speech</a></li>
+    <li class="api apilevel-4">
+  <a href="../../../../reference/android/speech/tts/package-summary.html">android.speech.tts</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/annotation/package-summary.html">android.support.annotation</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/annotations/package-summary.html">android.support.annotations</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/app/recommendation/package-summary.html">android.support.app.recommendation</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/customtabs/package-summary.html">android.support.customtabs</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/design/package-summary.html">android.support.design</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/design/widget/package-summary.html">android.support.design.widget</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/graphics/drawable/package-summary.html">android.support.graphics.drawable</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/multidex/package-summary.html">android.support.multidex</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/percent/package-summary.html">android.support.percent</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/provider/package-summary.html">android.support.provider</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v13/app/package-summary.html">android.support.v13.app</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v13/view/package-summary.html">android.support.v13.view</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v14/preference/package-summary.html">android.support.v14.preference</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v17/leanback/package-summary.html">android.support.v17.leanback</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v17/leanback/app/package-summary.html">android.support.v17.leanback.app</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v17/leanback/database/package-summary.html">android.support.v17.leanback.database</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v17/leanback/graphics/package-summary.html">android.support.v17.leanback.graphics</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v17/leanback/system/package-summary.html">android.support.v17.leanback.system</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v17/leanback/widget/package-summary.html">android.support.v17.leanback.widget</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v17/leanback/widget/picker/package-summary.html">android.support.v17.leanback.widget.picker</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v17/preference/package-summary.html">android.support.v17.preference</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v4/package-summary.html">android.support.v4</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v4/accessibilityservice/package-summary.html">android.support.v4.accessibilityservice</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v4/app/package-summary.html">android.support.v4.app</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v4/content/package-summary.html">android.support.v4.content</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v4/content/pm/package-summary.html">android.support.v4.content.pm</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v4/content/res/package-summary.html">android.support.v4.content.res</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v4/database/package-summary.html">android.support.v4.database</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v4/graphics/package-summary.html">android.support.v4.graphics</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v4/graphics/drawable/package-summary.html">android.support.v4.graphics.drawable</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v4/hardware/display/package-summary.html">android.support.v4.hardware.display</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v4/hardware/fingerprint/package-summary.html">android.support.v4.hardware.fingerprint</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v4/media/package-summary.html">android.support.v4.media</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v4/media/session/package-summary.html">android.support.v4.media.session</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v4/net/package-summary.html">android.support.v4.net</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v4/os/package-summary.html">android.support.v4.os</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v4/print/package-summary.html">android.support.v4.print</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v4/provider/package-summary.html">android.support.v4.provider</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v4/text/package-summary.html">android.support.v4.text</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v4/util/package-summary.html">android.support.v4.util</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v4/view/package-summary.html">android.support.v4.view</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v4/view/accessibility/package-summary.html">android.support.v4.view.accessibility</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v4/view/animation/package-summary.html">android.support.v4.view.animation</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v4/widget/package-summary.html">android.support.v4.widget</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v7/app/package-summary.html">android.support.v7.app</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v7/appcompat/package-summary.html">android.support.v7.appcompat</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v7/cardview/package-summary.html">android.support.v7.cardview</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v7/content/res/package-summary.html">android.support.v7.content.res</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v7/graphics/package-summary.html">android.support.v7.graphics</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v7/graphics/drawable/package-summary.html">android.support.v7.graphics.drawable</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v7/gridlayout/package-summary.html">android.support.v7.gridlayout</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v7/media/package-summary.html">android.support.v7.media</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v7/mediarouter/package-summary.html">android.support.v7.mediarouter</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v7/palette/package-summary.html">android.support.v7.palette</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v7/preference/package-summary.html">android.support.v7.preference</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v7/recyclerview/package-summary.html">android.support.v7.recyclerview</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v7/util/package-summary.html">android.support.v7.util</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v7/view/package-summary.html">android.support.v7.view</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v7/widget/package-summary.html">android.support.v7.widget</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v7/widget/helper/package-summary.html">android.support.v7.widget.helper</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v7/widget/util/package-summary.html">android.support.v7.widget.util</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/android/support/v8/renderscript/package-summary.html">android.support.v8.renderscript</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../../reference/android/system/package-summary.html">android.system</a></li>
+    <li class="api apilevel-21">
+  <a href="../../../../reference/android/telecom/package-summary.html">android.telecom</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/telephony/package-summary.html">android.telephony</a></li>
+    <li class="api apilevel-5">
+  <a href="../../../../reference/android/telephony/cdma/package-summary.html">android.telephony.cdma</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/telephony/gsm/package-summary.html">android.telephony.gsm</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/test/package-summary.html">android.test</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/test/mock/package-summary.html">android.test.mock</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/test/suitebuilder/package-summary.html">android.test.suitebuilder</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/test/suitebuilder/annotation/package-summary.html">android.test.suitebuilder.annotation</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/text/package-summary.html">android.text</a></li>
+    <li class="api apilevel-3">
+  <a href="../../../../reference/android/text/format/package-summary.html">android.text.format</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/text/method/package-summary.html">android.text.method</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/text/style/package-summary.html">android.text.style</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/text/util/package-summary.html">android.text.util</a></li>
+    <li class="api apilevel-19">
+  <a href="../../../../reference/android/transition/package-summary.html">android.transition</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/util/package-summary.html">android.util</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/view/package-summary.html">android.view</a></li>
+    <li class="api apilevel-4">
+  <a href="../../../../reference/android/view/accessibility/package-summary.html">android.view.accessibility</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/view/animation/package-summary.html">android.view.animation</a></li>
+    <li class="api apilevel-3">
+  <a href="../../../../reference/android/view/inputmethod/package-summary.html">android.view.inputmethod</a></li>
+    <li class="api apilevel-14">
+  <a href="../../../../reference/android/view/textservice/package-summary.html">android.view.textservice</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/webkit/package-summary.html">android.webkit</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/android/widget/package-summary.html">android.widget</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/com/android/internal/backup/package-summary.html">com.android.internal.backup</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/com/android/internal/logging/package-summary.html">com.android.internal.logging</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/com/android/internal/os/package-summary.html">com.android.internal.os</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/com/android/internal/statusbar/package-summary.html">com.android.internal.statusbar</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/com/android/internal/widget/package-summary.html">com.android.internal.widget</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../reference/com/android/test/runner/package-summary.html">com.android.test.runner</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/dalvik/annotation/package-summary.html">dalvik.annotation</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/dalvik/bytecode/package-summary.html">dalvik.bytecode</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/dalvik/system/package-summary.html">dalvik.system</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/awt/font/package-summary.html">java.awt.font</a></li>
+    <li class="api apilevel-3">
+  <a href="../../../../reference/java/beans/package-summary.html">java.beans</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/io/package-summary.html">java.io</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/lang/package-summary.html">java.lang</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/lang/annotation/package-summary.html">java.lang.annotation</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/lang/ref/package-summary.html">java.lang.ref</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/lang/reflect/package-summary.html">java.lang.reflect</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/math/package-summary.html">java.math</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/net/package-summary.html">java.net</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/nio/package-summary.html">java.nio</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/nio/channels/package-summary.html">java.nio.channels</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/nio/channels/spi/package-summary.html">java.nio.channels.spi</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/nio/charset/package-summary.html">java.nio.charset</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/nio/charset/spi/package-summary.html">java.nio.charset.spi</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/security/package-summary.html">java.security</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/security/acl/package-summary.html">java.security.acl</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/security/cert/package-summary.html">java.security.cert</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/security/interfaces/package-summary.html">java.security.interfaces</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/security/spec/package-summary.html">java.security.spec</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/sql/package-summary.html">java.sql</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/text/package-summary.html">java.text</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/util/package-summary.html">java.util</a></li>
+    <li class="selected api apilevel-1">
+  <a href="../../../../reference/java/util/concurrent/package-summary.html">java.util.concurrent</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/util/concurrent/atomic/package-summary.html">java.util.concurrent.atomic</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/util/concurrent/locks/package-summary.html">java.util.concurrent.locks</a></li>
+    <li class="api apilevel-24">
+  <a href="../../../../reference/java/util/function/package-summary.html">java.util.function</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/util/jar/package-summary.html">java.util.jar</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/util/logging/package-summary.html">java.util.logging</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/util/prefs/package-summary.html">java.util.prefs</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/util/regex/package-summary.html">java.util.regex</a></li>
+    <li class="api apilevel-24">
+  <a href="../../../../reference/java/util/stream/package-summary.html">java.util.stream</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/java/util/zip/package-summary.html">java.util.zip</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/javax/crypto/package-summary.html">javax.crypto</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/javax/crypto/interfaces/package-summary.html">javax.crypto.interfaces</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/javax/crypto/spec/package-summary.html">javax.crypto.spec</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/javax/microedition/khronos/egl/package-summary.html">javax.microedition.khronos.egl</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/javax/microedition/khronos/opengles/package-summary.html">javax.microedition.khronos.opengles</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/javax/net/package-summary.html">javax.net</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/javax/net/ssl/package-summary.html">javax.net.ssl</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/javax/security/auth/package-summary.html">javax.security.auth</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/javax/security/auth/callback/package-summary.html">javax.security.auth.callback</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/javax/security/auth/login/package-summary.html">javax.security.auth.login</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/javax/security/auth/x500/package-summary.html">javax.security.auth.x500</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/javax/security/cert/package-summary.html">javax.security.cert</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/javax/sql/package-summary.html">javax.sql</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/javax/xml/package-summary.html">javax.xml</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../../reference/javax/xml/datatype/package-summary.html">javax.xml.datatype</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../../reference/javax/xml/namespace/package-summary.html">javax.xml.namespace</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/javax/xml/parsers/package-summary.html">javax.xml.parsers</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../../reference/javax/xml/transform/package-summary.html">javax.xml.transform</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../../reference/javax/xml/transform/dom/package-summary.html">javax.xml.transform.dom</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../../reference/javax/xml/transform/sax/package-summary.html">javax.xml.transform.sax</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../../reference/javax/xml/transform/stream/package-summary.html">javax.xml.transform.stream</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../../reference/javax/xml/validation/package-summary.html">javax.xml.validation</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../../reference/javax/xml/xpath/package-summary.html">javax.xml.xpath</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/junit/framework/package-summary.html">junit.framework</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/junit/runner/package-summary.html">junit.runner</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/apache/http/conn/package-summary.html">org.apache.http.conn</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/apache/http/conn/scheme/package-summary.html">org.apache.http.conn.scheme</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/apache/http/conn/ssl/package-summary.html">org.apache.http.conn.ssl</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/apache/http/params/package-summary.html">org.apache.http.params</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/json/package-summary.html">org.json</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/w3c/dom/package-summary.html">org.w3c.dom</a></li>
+    <li class="api apilevel-8">
+  <a href="../../../../reference/org/w3c/dom/ls/package-summary.html">org.w3c.dom.ls</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/xml/sax/package-summary.html">org.xml.sax</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/xml/sax/ext/package-summary.html">org.xml.sax.ext</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/xml/sax/helpers/package-summary.html">org.xml.sax.helpers</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/xmlpull/v1/package-summary.html">org.xmlpull.v1</a></li>
+    <li class="api apilevel-1">
+  <a href="../../../../reference/org/xmlpull/v1/sax2/package-summary.html">org.xmlpull.v1.sax2</a></li>
+        </ul>
+
+        
+        <ul data-reference-resources>
+          
+          
+    <li><h2>Interfaces</h2>
+      <ul>
+          <li class="api apilevel-9"><a href="../../../../reference/java/util/concurrent/BlockingDeque.html">BlockingDeque</a></li>
+          <li class="api apilevel-1"><a href="../../../../reference/java/util/concurrent/BlockingQueue.html">BlockingQueue</a></li>
+          <li class="api apilevel-1"><a href="../../../../reference/java/util/concurrent/Callable.html">Callable</a></li>
+          <li class="api apilevel-24"><a href="../../../../reference/java/util/concurrent/CompletableFuture.AsynchronousCompletionTask.html">CompletableFuture.AsynchronousCompletionTask</a></li>
+          <li class="api apilevel-1"><a href="../../../../reference/java/util/concurrent/CompletionService.html">CompletionService</a></li>
+          <li class="api apilevel-24"><a href="../../../../reference/java/util/concurrent/CompletionStage.html">CompletionStage</a></li>
+          <li class="api apilevel-1"><a href="../../../../reference/java/util/concurrent/ConcurrentMap.html">ConcurrentMap</a></li>
+          <li class="api apilevel-9"><a href="../../../../reference/java/util/concurrent/ConcurrentNavigableMap.html">ConcurrentNavigableMap</a></li>
+          <li class="api apilevel-1"><a href="../../../../reference/java/util/concurrent/Delayed.html">Delayed</a></li>
+          <li class="api apilevel-1"><a href="../../../../reference/java/util/concurrent/Executor.html">Executor</a></li>
+          <li class="api apilevel-1"><a href="../../../../reference/java/util/concurrent/ExecutorService.html">ExecutorService</a></li>
+          <li class="api apilevel-21"><a href="../../../../reference/java/util/concurrent/ForkJoinPool.ForkJoinWorkerThreadFactory.html">ForkJoinPool.ForkJoinWorkerThreadFactory</a></li>
+          <li class="api apilevel-21"><a href="../../../../reference/java/util/concurrent/ForkJoinPool.ManagedBlocker.html">ForkJoinPool.ManagedBlocker</a></li>
+          <li class="api apilevel-1"><a href="../../../../reference/java/util/concurrent/Future.html">Future</a></li>
+          <li class="api apilevel-1"><a href="../../../../reference/java/util/concurrent/RejectedExecutionHandler.html">RejectedExecutionHandler</a></li>
+          <li class="api apilevel-9"><a href="../../../../reference/java/util/concurrent/RunnableFuture.html">RunnableFuture</a></li>
+          <li class="api apilevel-9"><a href="../../../../reference/java/util/concurrent/RunnableScheduledFuture.html">RunnableScheduledFuture</a></li>
+          <li class="api apilevel-1"><a href="../../../../reference/java/util/concurrent/ScheduledExecutorService.html">ScheduledExecutorService</a></li>
+          <li class="api apilevel-1"><a href="../../../../reference/java/util/concurrent/ScheduledFuture.html">ScheduledFuture</a></li>
+          <li class="api apilevel-1"><a href="../../../../reference/java/util/concurrent/ThreadFactory.html">ThreadFactory</a></li>
+          <li class="api apilevel-21"><a href="../../../../reference/java/util/concurrent/TransferQueue.html">TransferQueue</a></li>
+      </ul>
+    </li>
+          
+    <li><h2>Classes</h2>
+      <ul>
+          <li class="api apilevel-1"><a href="../../../../reference/java/util/concurrent/AbstractExecutorService.html">AbstractExecutorService</a></li>
+          <li class="api apilevel-1"><a href="../../../../reference/java/util/concurrent/ArrayBlockingQueue.html">ArrayBlockingQueue</a></li>
+          <li class="api apilevel-24"><a href="../../../../reference/java/util/concurrent/CompletableFuture.html">CompletableFuture</a></li>
+          <li class="api apilevel-1"><a href="../../../../reference/java/util/concurrent/ConcurrentHashMap.html">ConcurrentHashMap</a></li>
+          <li class="selected api apilevel-24"><a href="../../../../reference/java/util/concurrent/ConcurrentHashMap.KeySetView.html">ConcurrentHashMap.KeySetView</a></li>
+          <li class="api apilevel-21"><a href="../../../../reference/java/util/concurrent/ConcurrentLinkedDeque.html">ConcurrentLinkedDeque</a></li>
+          <li class="api apilevel-1"><a href="../../../../reference/java/util/concurrent/ConcurrentLinkedQueue.html">ConcurrentLinkedQueue</a></li>
+          <li class="api apilevel-9"><a href="../../../../reference/java/util/concurrent/ConcurrentSkipListMap.html">ConcurrentSkipListMap</a></li>
+          <li class="api apilevel-9"><a href="../../../../reference/java/util/concurrent/ConcurrentSkipListSet.html">ConcurrentSkipListSet</a></li>
+          <li class="api apilevel-1"><a href="../../../../reference/java/util/concurrent/CopyOnWriteArrayList.html">CopyOnWriteArrayList</a></li>
+          <li class="api apilevel-1"><a href="../../../../reference/java/util/concurrent/CopyOnWriteArraySet.html">CopyOnWriteArraySet</a></li>
+          <li class="api apilevel-1"><a href="../../../../reference/java/util/concurrent/CountDownLatch.html">CountDownLatch</a></li>
+          <li class="api apilevel-24"><a href="../../../../reference/java/util/concurrent/CountedCompleter.html">CountedCompleter</a></li>
+          <li class="api apilevel-1"><a href="../../../../reference/java/util/concurrent/CyclicBarrier.html">CyclicBarrier</a></li>
+          <li class="api apilevel-1"><a href="../../../../reference/java/util/concurrent/DelayQueue.html">DelayQueue</a></li>
+          <li class="api apilevel-1"><a href="../../../../reference/java/util/concurrent/Exchanger.html">Exchanger</a></li>
+          <li class="api apilevel-1"><a href="../../../../reference/java/util/concurrent/ExecutorCompletionService.html">ExecutorCompletionService</a></li>
+          <li class="api apilevel-1"><a href="../../../../reference/java/util/concurrent/Executors.html">Executors</a></li>
+          <li class="api apilevel-21"><a href="../../../../reference/java/util/concurrent/ForkJoinPool.html">ForkJoinPool</a></li>
+          <li class="api apilevel-21"><a href="../../../../reference/java/util/concurrent/ForkJoinTask.html">ForkJoinTask</a></li>
+          <li class="api apilevel-21"><a href="../../../../reference/java/util/concurrent/ForkJoinWorkerThread.html">ForkJoinWorkerThread</a></li>
+          <li class="api apilevel-1"><a href="../../../../reference/java/util/concurrent/FutureTask.html">FutureTask</a></li>
+          <li class="api apilevel-9"><a href="../../../../reference/java/util/concurrent/LinkedBlockingDeque.html">LinkedBlockingDeque</a></li>
+          <li class="api apilevel-1"><a href="../../../../reference/java/util/concurrent/LinkedBlockingQueue.html">LinkedBlockingQueue</a></li>
+          <li class="api apilevel-21"><a href="../../../../reference/java/util/concurrent/LinkedTransferQueue.html">LinkedTransferQueue</a></li>
+          <li class="api apilevel-21"><a href="../../../../reference/java/util/concurrent/Phaser.html">Phaser</a></li>
+          <li class="api apilevel-1"><a href="../../../../reference/java/util/concurrent/PriorityBlockingQueue.html">PriorityBlockingQueue</a></li>
+          <li class="api apilevel-21"><a href="../../../../reference/java/util/concurrent/RecursiveAction.html">RecursiveAction</a></li>
+          <li class="api apilevel-21"><a href="../../../../reference/java/util/concurrent/RecursiveTask.html">RecursiveTask</a></li>
+          <li class="api apilevel-1"><a href="../../../../reference/java/util/concurrent/ScheduledThreadPoolExecutor.html">ScheduledThreadPoolExecutor</a></li>
+          <li class="api apilevel-1"><a href="../../../../reference/java/util/concurrent/Semaphore.html">Semaphore</a></li>
+          <li class="api apilevel-1"><a href="../../../../reference/java/util/concurrent/SynchronousQueue.html">SynchronousQueue</a></li>
+          <li class="api apilevel-21"><a href="../../../../reference/java/util/concurrent/ThreadLocalRandom.html">ThreadLocalRandom</a></li>
+          <li class="api apilevel-1"><a href="../../../../reference/java/util/concurrent/ThreadPoolExecutor.html">ThreadPoolExecutor</a></li>
+          <li class="api apilevel-1"><a href="../../../../reference/java/util/concurrent/ThreadPoolExecutor.AbortPolicy.html">ThreadPoolExecutor.AbortPolicy</a></li>
+          <li class="api apilevel-1"><a href="../../../../reference/java/util/concurrent/ThreadPoolExecutor.CallerRunsPolicy.html">ThreadPoolExecutor.CallerRunsPolicy</a></li>
+          <li class="api apilevel-1"><a href="../../../../reference/java/util/concurrent/ThreadPoolExecutor.DiscardOldestPolicy.html">ThreadPoolExecutor.DiscardOldestPolicy</a></li>
+          <li class="api apilevel-1"><a href="../../../../reference/java/util/concurrent/ThreadPoolExecutor.DiscardPolicy.html">ThreadPoolExecutor.DiscardPolicy</a></li>
+      </ul>
+    </li>
+          
+    <li><h2>Enums</h2>
+      <ul>
+          <li class="api apilevel-1"><a href="../../../../reference/java/util/concurrent/TimeUnit.html">TimeUnit</a></li>
+      </ul>
+    </li>
+          
+    <li><h2>Exceptions</h2>
+      <ul>
+          <li class="api apilevel-1"><a href="../../../../reference/java/util/concurrent/BrokenBarrierException.html">BrokenBarrierException</a></li>
+          <li class="api apilevel-1"><a href="../../../../reference/java/util/concurrent/CancellationException.html">CancellationException</a></li>
+          <li class="api apilevel-24"><a href="../../../../reference/java/util/concurrent/CompletionException.html">CompletionException</a></li>
+          <li class="api apilevel-1"><a href="../../../../reference/java/util/concurrent/ExecutionException.html">ExecutionException</a></li>
+          <li class="api apilevel-1"><a href="../../../../reference/java/util/concurrent/RejectedExecutionException.html">RejectedExecutionException</a></li>
+          <li class="api apilevel-1"><a href="../../../../reference/java/util/concurrent/TimeoutException.html">TimeoutException</a></li>
+      </ul>
+    </li>
+          
+        </ul>
+        
+      </div>
+    </div>
+  
+
+      
+    </div>
+  
+
+        <ul id="dac-main-navigation" class="dac-nav-list dac-swap-section dac-left dac-no-anim">
+        <li class="dac-nav-item home">
+          <a class="dac-nav-link" href="../../../../index.html">Home</a>
+          <i class="dac-sprite dac-expand-more-black dac-nav-sub-slider"></i>
+          <ul class="dac-nav-secondary about">
+            <li class="dac-nav-item versions">
+              <a class="dac-nav-link" href="../../../../about/versions/marshmallow/index.html">Android</a>
+            </li>
+            <li class="dac-nav-item wear">
+              <a class="dac-nav-link" href="../../../../wear/index.html">Wear</a>
+            </li>
+            <li class="dac-nav-item tv">
+              <a class="dac-nav-link" href="../../../../tv/index.html">TV</a>
+            </li>
+            <li class="dac-nav-item auto">
+              <a class="dac-nav-link" href="../../../../auto/index.html">Auto</a>
+            </li>
+          </ul>
+        </li>
+        <li class="dac-nav-item design">
+          <a class="dac-nav-link" href="../../../../design/index.html"
+             zh-tw-lang="設計"
+             zh-cn-lang="设计"
+             ru-lang="Проектирование"
+             ko-lang="디자인"
+             ja-lang="設計"
+             es-lang="Diseñar">Design</a>
+        </li>
+        <li class="dac-nav-item develop">
+          <a class="dac-nav-link" href="../../../../develop/index.html"
+             zh-tw-lang="開發"
+             zh-cn-lang="开发"
+             ru-lang="Разработка"
+             ko-lang="개발"
+             ja-lang="開発"
+             es-lang="Desarrollar">Develop</a>
+          <i class="dac-sprite dac-expand-more-black dac-nav-sub-slider"></i>
+          <ul class="dac-nav-secondary develop">
+            <li class="dac-nav-item training">
+              <a class="dac-nav-link" href="../../../../training/index.html"
+                 zh-tw-lang="訓練課程"
+                 zh-cn-lang="培训"
+                 ru-lang="Курсы"
+                 ko-lang="교육"
+                 ja-lang="トレーニング"
+                 es-lang="Capacitación">Training</a>
+            </li>
+            <li class="dac-nav-item guide">
+              <a class="dac-nav-link" href="../../../../guide/index.html"
+                 zh-tw-lang="API 指南"
+                 zh-cn-lang="API 指南"
+                 ru-lang="Руководства по API"
+                 ko-lang="API 가이드"
+                 ja-lang="API ガイド"
+                 es-lang="Guías de la API">API Guides</a>
+            </li>
+            <li class="dac-nav-item reference">
+              <a class="dac-nav-link" href="../../../../reference/packages.html"
+                 zh-tw-lang="參考資源"
+                 zh-cn-lang="参考"
+                 ru-lang="Справочник"
+                 ko-lang="참조문서"
+                 ja-lang="リファレンス"
+                 es-lang="Referencia">Reference</a>
+            </li>
+            <li class="dac-nav-item tools">
+              <a class="dac-nav-link" href="../../../../sdk/index.html"
+                 zh-tw-lang="相關工具"
+                 zh-cn-lang="工具"
+                 ru-lang="Инструменты"
+                 ko-lang="도구"
+                 ja-lang="ツール"
+                 es-lang="Herramientas">Tools</a></li>
+            <li class="dac-nav-item google">
+              <a class="dac-nav-link" href="../../../../google/index.html">Google Services</a>
+            </li>
+            
+          </ul>
+        </li>
+        <li class="dac-nav-item distribute">
+          <a class="dac-nav-link" href="../../../../distribute/googleplay/index.html"
+             zh-tw-lang="發佈"
+             zh-cn-lang="分发"
+             ru-lang="Распространение"
+             ko-lang="배포"
+             ja-lang="配布"
+             es-lang="Distribuir">Distribute</a>
+          <i class="dac-sprite dac-expand-more-black dac-nav-sub-slider"></i>
+          <ul class="dac-nav-secondary distribute">
+            <li class="dac-nav-item googleplay">
+              <a class="dac-nav-link" href="../../../../distribute/googleplay/index.html">Google Play</a></li>
+            <li class="dac-nav-item essentials">
+              <a class="dac-nav-link" href="../../../../distribute/essentials/index.html">Essentials</a></li>
+            <li class="dac-nav-item users">
+              <a class="dac-nav-link" href="../../../../distribute/users/index.html">Get Users</a></li>
+            <li class="dac-nav-item engage">
+              <a class="dac-nav-link" href="../../../../distribute/engage/index.html">Engage &amp; Retain</a></li>
+            <li class="dac-nav-item monetize">
+              <a class="dac-nav-link" href="../../../../distribute/monetize/index.html">Earn</a>
+            </li>
+            <li class="dac-nav-item analyze">
+              <a class="dac-nav-link" href="../../../../distribute/analyze/index.html">Analyze</a>
+            </li>
+            <li class="dac-nav-item stories">
+              <a class="dac-nav-link" href="../../../../distribute/stories/index.html">Stories</a>
+            </li>
+          </ul>
+        </li>
+        <li class="dac-nav-item preview">
+          <a class="dac-nav-link" href="../../../../preview/index.html">Preview</a>
+        </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- end navigation-->
+  
+
+<!-- Nav Setup -->
+<script>$('[data-dac-nav]').dacNav();</script>
+
+
+
+  
+    
+  <div class="wrap clearfix" id="body-content">
+
+  
+
+  
+  <div id="search-results" class="dac-search-results">
+    <div id="dac-search-results-history" class="dac-search-results-history">
+      <div class="wrap dac-search-results-history-wrap">
+        <div class="cols">
+          <div class="col-1of2 col-tablet-1of2 col-mobile-1of1">
+            <h2>Most visited</h2>
+            <div class="resource-flow-layout" data-history-query="history:most/visited" data-maxresults="3" data-cardsizes="18x2"></div>
+          </div>
+
+          <div class="col-1of2 col-tablet-1of2 col-mobile-1of1">
+            <h2>Recently visited</h2>
+            <div class="resource-flow-layout cols" data-history-query="history:recent" data-allow-duplicates="true" data-maxresults="3" data-cardsizes="18x2"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="dac-search-results-content" class="dac-search-results-content">
+      <div class="dac-search-results-metadata wrap">
+        <div class="dac-search-results-for">
+          <h2>Results for <span id="search-results-for"></span></h2>
+        </div>
+
+        <div id="dac-search-results-hero"></div>
+
+        <div class="dac-search-results-hero cols">
+          <div id="dac-search-results-reference" class="col-3of6 col-tablet-1of2 col-mobile-1of1">
+            <div class="suggest-card reference no-display">
+              <ul class="dac-search-results-reference">
+              </ul>
+            </div>
+          </div>
+          <div id="dac-custom-search-results"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+
+
+<div id="naMessage"></div>
+
+<div id="api-info-block">
+<div class="api-level">
+  
+  Added in <a href="../../../../guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 24</a>
+  
+  
+
+</div>
+
+
+
+  
+   
+  
+  
+  
+  
+
+  
+   
+  
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+   
+  
+  
+  
+  
+
+  
+   
+  
+  
+  
+  
+
+
+<div class="sum-details-links">
+
+Summary:
+
+
+
+
+
+
+
+
+
+
+
+  <a href="#pubmethods">Methods</a>
+  
+
+
+
+  &#124; <a href="#inhmethods">Inherited Methods</a>
+
+&#124; <a href="#" onclick="return toggleAllClassInherited()" id="toggleAllClassInherited">[Expand All]</a>
+
+</div><!-- end sum-details-links -->
+</div><!-- end api-info-block -->
+
+<div class="api apilevel-24" id="jd-content">
+
+<!-- ======== START OF CLASS DATA ======== -->
+
+<h1 class="api-title">ConcurrentHashMap.KeySetView</h1>
+<p>
+<code class="api-signature">
+  public
+  static
+  
+  
+  class
+  ConcurrentHashMap.KeySetView
+</code>
+<br>
+
+
+<code class="api-signature">
+  
+    extends <a href="../../../../reference/java/lang/Object.html">Object</a>
+  
+  
+  
+</code>
+
+<code class="api-signature">
+  
+  
+      implements
+      
+        <a href="../../../../reference/java/util/Collection.html">Collection</a>&lt;K&gt;, 
+      
+        <a href="../../../../reference/java/io/Serializable.html">Serializable</a>, 
+      
+        <a href="../../../../reference/java/util/Set.html">Set</a>&lt;K&gt;, 
+      
+        <a href="../../../../reference/java/io/Serializable.html">Serializable</a>
+      
+  
+  
+</code>
+
+</p><table class="jd-inheritance-table">
+
+
+  <tr>
+    
+    <td colspan="2" class="jd-inheritance-class-cell"><a href="../../../../reference/java/lang/Object.html">java.lang.Object</a>
+    </td>
+  </tr>
+  
+
+  <tr>
+    
+      <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
+    
+    <td colspan="1" class="jd-inheritance-class-cell">java.util.concurrent.ConcurrentHashMap.KeySetView&lt;K,&nbsp;V&gt;
+    </td>
+  </tr>
+  
+
+</table>
+  
+
+    
+
+<br><hr>
+
+
+  <p>A view of a ConcurrentHashMap as a <code><a href="../../../../reference/java/util/Set.html">Set</a></code> of keys, in
+ which additions may optionally be enabled by mapping to a
+ common value.  This class cannot be directly instantiated.
+ See <code><a href="../../../../reference/java/util/concurrent/ConcurrentHashMap.html#keySet(V)">keySet(V)</a></code>,
+ <code><a href="../../../../reference/java/util/concurrent/ConcurrentHashMap.html#newKeySet()">newKeySet()</a></code>,
+ <code><a href="../../../../reference/java/util/concurrent/ConcurrentHashMap.html#newKeySet(int)">newKeySet(int)</a></code>.</p>
+
+
+
+
+
+
+
+<h2 class="api-section">Summary</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ========== METHOD SUMMARY =========== -->
+<table id="pubmethods" class="responsive methods">
+<tr><th colspan="2"><h3>Public methods</h3></th></tr>
+
+
+
+  
+  <tr class="api apilevel-24" >
+  
+  
+    <td><code>
+        
+        
+        
+        
+        
+        boolean</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="../../../../reference/java/util/concurrent/ConcurrentHashMap.KeySetView.html#add(K)">add</a>(K e)
+      </code>
+      
+        <p>Adds the specified key to this set view by mapping the key to
+ the default mapped value in the backing map, if defined.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  
+  <tr class="api apilevel-24" >
+  
+  
+    <td><code>
+        
+        
+        
+        
+        
+        boolean</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="../../../../reference/java/util/concurrent/ConcurrentHashMap.KeySetView.html#addAll(java.util.Collection<? extends K>)">addAll</a>(<a href="../../../../reference/java/util/Collection.html">Collection</a>&lt;?&nbsp;extends&nbsp;K&gt; c)
+      </code>
+      
+        <p>Adds all of the elements in the specified collection to this set,
+ as if by calling <code><a href="../../../../reference/java/util/Set.html#add(E)">add(E)</a></code> on each one.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  
+  <tr class="api apilevel-24" >
+  
+  
+    <td><code>
+        
+        
+        
+        final
+        
+        void</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="../../../../reference/java/util/concurrent/ConcurrentHashMap.KeySetView.html#clear()">clear</a>()
+      </code>
+      
+        <p>Removes all of the elements from this view, by removing all
+ the mappings from the map backing this view.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  
+  <tr class="api apilevel-24" >
+  
+  
+    <td><code>
+        
+        
+        
+        
+        
+        boolean</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="../../../../reference/java/util/concurrent/ConcurrentHashMap.KeySetView.html#contains(java.lang.Object)">contains</a>(<a href="../../../../reference/java/lang/Object.html">Object</a> o)
+      </code>
+      
+        <p>Returns <tt>true</tt> if this collection contains the specified element.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  
+  <tr class="api apilevel-24" >
+  
+  
+    <td><code>
+        
+        
+        
+        final
+        
+        boolean</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="../../../../reference/java/util/concurrent/ConcurrentHashMap.KeySetView.html#containsAll(java.util.Collection<?>)">containsAll</a>(<a href="../../../../reference/java/util/Collection.html">Collection</a>&lt;?&gt; c)
+      </code>
+      
+        <p>Returns <tt>true</tt> if this collection contains all of the elements
+ in the specified collection.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  
+  <tr class="api apilevel-24" >
+  
+  
+    <td><code>
+        
+        
+        
+        
+        
+        boolean</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="../../../../reference/java/util/concurrent/ConcurrentHashMap.KeySetView.html#equals(java.lang.Object)">equals</a>(<a href="../../../../reference/java/lang/Object.html">Object</a> o)
+      </code>
+      
+        <p>Indicates whether some other object is "equal to" this one.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  
+  <tr class="api apilevel-24" >
+  
+  
+    <td><code>
+        
+        
+        
+        
+        
+        void</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="../../../../reference/java/util/concurrent/ConcurrentHashMap.KeySetView.html#forEach(java.util.function.Consumer<? super K>)">forEach</a>(<a href="../../../../reference/java/util/function/Consumer.html">Consumer</a>&lt;?&nbsp;super&nbsp;K&gt; action)
+      </code>
+      
+    </td>
+  </tr>
+  
+
+  
+  <tr class="api apilevel-24" >
+  
+  
+    <td><code>
+        
+        
+        
+        
+        
+        <a href="../../../../reference/java/util/concurrent/ConcurrentHashMap.html">ConcurrentHashMap</a>&lt;K,&nbsp;V&gt;</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="../../../../reference/java/util/concurrent/ConcurrentHashMap.KeySetView.html#getMap()">getMap</a>()
+      </code>
+      
+        <p>Returns the map backing this view.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  
+  <tr class="api apilevel-24" >
+  
+  
+    <td><code>
+        
+        
+        
+        
+        
+        V</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="../../../../reference/java/util/concurrent/ConcurrentHashMap.KeySetView.html#getMappedValue()">getMappedValue</a>()
+      </code>
+      
+        <p>Returns the default mapped value for additions,
+ or <code>null</code> if additions are not supported.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  
+  <tr class="api apilevel-24" >
+  
+  
+    <td><code>
+        
+        
+        
+        
+        
+        int</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="../../../../reference/java/util/concurrent/ConcurrentHashMap.KeySetView.html#hashCode()">hashCode</a>()
+      </code>
+      
+        <p>Returns a hash code value for the object.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  
+  <tr class="api apilevel-24" >
+  
+  
+    <td><code>
+        
+        
+        
+        final
+        
+        boolean</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="../../../../reference/java/util/concurrent/ConcurrentHashMap.KeySetView.html#isEmpty()">isEmpty</a>()
+      </code>
+      
+        <p>Returns <tt>true</tt> if this collection contains no elements.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  
+  <tr class="api apilevel-24" >
+  
+  
+    <td><code>
+        
+        
+        
+        
+        
+        <a href="../../../../reference/java/util/Iterator.html">Iterator</a>&lt;K&gt;</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="../../../../reference/java/util/concurrent/ConcurrentHashMap.KeySetView.html#iterator()">iterator</a>()
+      </code>
+      
+        <p>Returns an iterator over the elements in this collection.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  
+  <tr class="api apilevel-24" >
+  
+  
+    <td><code>
+        
+        
+        
+        
+        
+        boolean</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="../../../../reference/java/util/concurrent/ConcurrentHashMap.KeySetView.html#remove(java.lang.Object)">remove</a>(<a href="../../../../reference/java/lang/Object.html">Object</a> o)
+      </code>
+      
+        <p>Removes the key from this map view, by removing the key (and its
+ corresponding value) from the backing map.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  
+  <tr class="api apilevel-24" >
+  
+  
+    <td><code>
+        
+        
+        
+        final
+        
+        boolean</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="../../../../reference/java/util/concurrent/ConcurrentHashMap.KeySetView.html#removeAll(java.util.Collection<?>)">removeAll</a>(<a href="../../../../reference/java/util/Collection.html">Collection</a>&lt;?&gt; c)
+      </code>
+      
+        <p>Removes all of this collection's elements that are also contained in the
+ specified collection (optional operation).
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  
+  <tr class="api apilevel-24" >
+  
+  
+    <td><code>
+        
+        
+        
+        final
+        
+        boolean</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="../../../../reference/java/util/concurrent/ConcurrentHashMap.KeySetView.html#retainAll(java.util.Collection<?>)">retainAll</a>(<a href="../../../../reference/java/util/Collection.html">Collection</a>&lt;?&gt; c)
+      </code>
+      
+        <p>Retains only the elements in this collection that are contained in the
+ specified collection (optional operation).
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  
+  <tr class="api apilevel-24" >
+  
+  
+    <td><code>
+        
+        
+        
+        final
+        
+        int</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="../../../../reference/java/util/concurrent/ConcurrentHashMap.KeySetView.html#size()">size</a>()
+      </code>
+      
+        <p>Returns the number of elements in this collection.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  
+  <tr class="api apilevel-24" >
+  
+  
+    <td><code>
+        
+        
+        
+        
+        
+        <a href="../../../../reference/java/util/Spliterator.html">Spliterator</a>&lt;K&gt;</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="../../../../reference/java/util/concurrent/ConcurrentHashMap.KeySetView.html#spliterator()">spliterator</a>()
+      </code>
+      
+        <p>Creates a <code><a href="../../../../reference/java/util/Spliterator.html">Spliterator</a></code> over the elements in this collection.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  
+  <tr class="api apilevel-24" >
+  
+  
+    <td><code>
+        
+        
+        
+        final
+        &lt;T&gt;
+        T[]</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="../../../../reference/java/util/concurrent/ConcurrentHashMap.KeySetView.html#toArray(T[])">toArray</a>(T[] a)
+      </code>
+      
+        <p>Returns an array containing all of the elements in this collection;
+ the runtime type of the returned array is that of the specified array.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  
+  <tr class="api apilevel-24" >
+  
+  
+    <td><code>
+        
+        
+        
+        final
+        
+        <a href="../../../../reference/java/lang/Object.html">Object[]</a></code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="../../../../reference/java/util/concurrent/ConcurrentHashMap.KeySetView.html#toArray()">toArray</a>()
+      </code>
+      
+        <p>Returns an array containing all of the elements in this collection.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  
+  <tr class="api apilevel-24" >
+  
+  
+    <td><code>
+        
+        
+        
+        final
+        
+        <a href="../../../../reference/java/lang/String.html">String</a></code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="../../../../reference/java/util/concurrent/ConcurrentHashMap.KeySetView.html#toString()">toString</a>()
+      </code>
+      
+        <p>Returns a string representation of this collection.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+
+</table>
+
+
+
+
+
+
+
+<!-- ========== METHOD SUMMARY =========== -->
+<table id="inhmethods" class="methods inhtable">
+<tr><th><h3>Inherited methods</h3></th></tr>
+
+
+<tr class="api apilevel-" >
+<td colspan="2">
+
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-java.lang.Object" class="jd-expando-trigger closed"
+          ><img height="34" id="inherited-methods-java.lang.Object-trigger"
+          src="../../../../assets/images/styles/disclosure_down.png"
+          class="jd-expando-trigger-img" /></a>From
+class
+<code>
+  
+    <a href="../../../../reference/java/lang/Object.html">java.lang.Object</a>
+  
+</code>
+<div id="inherited-methods-java.lang.Object">
+  <div id="inherited-methods-java.lang.Object-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-methods-java.lang.Object-summary" style="display: none;">
+    <table class="jd-sumtable-expando responsive">
+      
+
+
+  
+  <tr class="api apilevel-1" >
+  
+  
+    <td><code>
+        
+        
+        
+        
+        
+        <a href="../../../../reference/java/lang/Object.html">Object</a></code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="../../../../reference/java/lang/Object.html#clone()">clone</a>()
+      </code>
+      
+        <p>Creates and returns a copy of this object.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  
+  <tr class="api apilevel-1" >
+  
+  
+    <td><code>
+        
+        
+        
+        
+        
+        boolean</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="../../../../reference/java/lang/Object.html#equals(java.lang.Object)">equals</a>(<a href="../../../../reference/java/lang/Object.html">Object</a> obj)
+      </code>
+      
+        <p>Indicates whether some other object is "equal to" this one.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  
+  <tr class="api apilevel-1" >
+  
+  
+    <td><code>
+        
+        
+        
+        
+        
+        void</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="../../../../reference/java/lang/Object.html#finalize()">finalize</a>()
+      </code>
+      
+        <p>Called by the garbage collector on an object when garbage collection
+ determines that there are no more references to the object.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  
+  <tr class="api apilevel-1" >
+  
+  
+    <td><code>
+        
+        
+        
+        final
+        
+        <a href="../../../../reference/java/lang/Class.html">Class</a>&lt;?&gt;</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="../../../../reference/java/lang/Object.html#getClass()">getClass</a>()
+      </code>
+      
+        <p>Returns the runtime class of this <code>Object</code>.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  
+  <tr class="api apilevel-1" >
+  
+  
+    <td><code>
+        
+        
+        
+        
+        
+        int</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="../../../../reference/java/lang/Object.html#hashCode()">hashCode</a>()
+      </code>
+      
+        <p>Returns a hash code value for the object.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  
+  <tr class="api apilevel-1" >
+  
+  
+    <td><code>
+        
+        
+        
+        final
+        
+        void</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="../../../../reference/java/lang/Object.html#notify()">notify</a>()
+      </code>
+      
+        <p>Wakes up a single thread that is waiting on this object's
+ monitor.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  
+  <tr class="api apilevel-1" >
+  
+  
+    <td><code>
+        
+        
+        
+        final
+        
+        void</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="../../../../reference/java/lang/Object.html#notifyAll()">notifyAll</a>()
+      </code>
+      
+        <p>Wakes up all threads that are waiting on this object's monitor.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  
+  <tr class="api apilevel-1" >
+  
+  
+    <td><code>
+        
+        
+        
+        
+        
+        <a href="../../../../reference/java/lang/String.html">String</a></code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="../../../../reference/java/lang/Object.html#toString()">toString</a>()
+      </code>
+      
+        <p>Returns a string representation of the object.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  
+  <tr class="api apilevel-1" >
+  
+  
+    <td><code>
+        
+        
+        
+        final
+        
+        void</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="../../../../reference/java/lang/Object.html#wait(long, int)">wait</a>(long millis, int nanos)
+      </code>
+      
+        <p>Causes the current thread to wait until another thread invokes the
+ <code><a href="../../../../reference/java/lang/Object.html#notify()">notify()</a></code> method or the
+ <code><a href="../../../../reference/java/lang/Object.html#notifyAll()">notifyAll()</a></code> method for this object, or
+ some other thread interrupts the current thread, or a certain
+ amount of real time has elapsed.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  
+  <tr class="api apilevel-1" >
+  
+  
+    <td><code>
+        
+        
+        
+        final
+        
+        void</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="../../../../reference/java/lang/Object.html#wait(long)">wait</a>(long millis)
+      </code>
+      
+        <p>Causes the current thread to wait until either another thread invokes the
+ <code><a href="../../../../reference/java/lang/Object.html#notify()">notify()</a></code> method or the
+ <code><a href="../../../../reference/java/lang/Object.html#notifyAll()">notifyAll()</a></code> method for this object, or a
+ specified amount of time has elapsed.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  
+  <tr class="api apilevel-1" >
+  
+  
+    <td><code>
+        
+        
+        
+        final
+        
+        void</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="../../../../reference/java/lang/Object.html#wait()">wait</a>()
+      </code>
+      
+        <p>Causes the current thread to wait until another thread invokes the
+ <code><a href="../../../../reference/java/lang/Object.html#notify()">notify()</a></code> method or the
+ <code><a href="../../../../reference/java/lang/Object.html#notifyAll()">notifyAll()</a></code> method for this object.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+
+    </table>
+  </div>
+</div>
+</td></tr>
+
+
+
+<tr class="api apilevel-" >
+<td colspan="2">
+
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-java.util.Collection" class="jd-expando-trigger closed"
+          ><img height="34" id="inherited-methods-java.util.Collection-trigger"
+          src="../../../../assets/images/styles/disclosure_down.png"
+          class="jd-expando-trigger-img" /></a>From
+interface
+<code>
+  
+    <a href="../../../../reference/java/util/Collection.html">java.util.Collection</a>
+  
+</code>
+<div id="inherited-methods-java.util.Collection">
+  <div id="inherited-methods-java.util.Collection-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-methods-java.util.Collection-summary" style="display: none;">
+    <table class="jd-sumtable-expando responsive">
+      
+
+
+  
+  <tr class="api apilevel-1" >
+  
+  
+    <td><code>
+        abstract
+        
+        
+        
+        
+        boolean</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="../../../../reference/java/util/Collection.html#add(E)">add</a>(K e)
+      </code>
+      
+        <p>Ensures that this collection contains the specified element (optional
+ operation).
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  
+  <tr class="api apilevel-1" >
+  
+  
+    <td><code>
+        abstract
+        
+        
+        
+        
+        boolean</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="../../../../reference/java/util/Collection.html#addAll(java.util.Collection<? extends E>)">addAll</a>(<a href="../../../../reference/java/util/Collection.html">Collection</a>&lt;?&nbsp;extends&nbsp;E&gt; c)
+      </code>
+      
+        <p>Adds all of the elements in the specified collection to this collection
+ (optional operation).
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  
+  <tr class="api apilevel-1" >
+  
+  
+    <td><code>
+        abstract
+        
+        
+        
+        
+        void</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="../../../../reference/java/util/Collection.html#clear()">clear</a>()
+      </code>
+      
+        <p>Removes all of the elements from this collection (optional operation).
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  
+  <tr class="api apilevel-1" >
+  
+  
+    <td><code>
+        abstract
+        
+        
+        
+        
+        boolean</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="../../../../reference/java/util/Collection.html#contains(java.lang.Object)">contains</a>(<a href="../../../../reference/java/lang/Object.html">Object</a> o)
+      </code>
+      
+        <p>Returns <tt>true</tt> if this collection contains the specified element.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  
+  <tr class="api apilevel-1" >
+  
+  
+    <td><code>
+        abstract
+        
+        
+        
+        
+        boolean</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="../../../../reference/java/util/Collection.html#containsAll(java.util.Collection<?>)">containsAll</a>(<a href="../../../../reference/java/util/Collection.html">Collection</a>&lt;?&gt; c)
+      </code>
+      
+        <p>Returns <tt>true</tt> if this collection contains all of the elements
+ in the specified collection.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  
+  <tr class="api apilevel-1" >
+  
+  
+    <td><code>
+        abstract
+        
+        
+        
+        
+        boolean</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="../../../../reference/java/util/Collection.html#equals(java.lang.Object)">equals</a>(<a href="../../../../reference/java/lang/Object.html">Object</a> o)
+      </code>
+      
+        <p>Compares the specified object with this collection for equality.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  
+  <tr class="api apilevel-1" >
+  
+  
+    <td><code>
+        abstract
+        
+        
+        
+        
+        int</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="../../../../reference/java/util/Collection.html#hashCode()">hashCode</a>()
+      </code>
+      
+        <p>Returns the hash code value for this collection.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  
+  <tr class="api apilevel-1" >
+  
+  
+    <td><code>
+        abstract
+        
+        
+        
+        
+        boolean</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="../../../../reference/java/util/Collection.html#isEmpty()">isEmpty</a>()
+      </code>
+      
+        <p>Returns <tt>true</tt> if this collection contains no elements.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  
+  <tr class="api apilevel-1" >
+  
+  
+    <td><code>
+        abstract
+        
+        
+        
+        
+        <a href="../../../../reference/java/util/Iterator.html">Iterator</a>&lt;K&gt;</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="../../../../reference/java/util/Collection.html#iterator()">iterator</a>()
+      </code>
+      
+        <p>Returns an iterator over the elements in this collection.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  
+  <tr class="api apilevel-24" >
+  
+  
+    <td><code>
+        
+        default
+        
+        
+        
+        <a href="../../../../reference/java/util/stream/Stream.html">Stream</a>&lt;K&gt;</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="../../../../reference/java/util/Collection.html#parallelStream()">parallelStream</a>()
+      </code>
+      
+        <p>Returns a possibly parallel <code>Stream</code> with this collection as its
+ source.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  
+  <tr class="api apilevel-1" >
+  
+  
+    <td><code>
+        abstract
+        
+        
+        
+        
+        boolean</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="../../../../reference/java/util/Collection.html#remove(java.lang.Object)">remove</a>(<a href="../../../../reference/java/lang/Object.html">Object</a> o)
+      </code>
+      
+        <p>Removes a single instance of the specified element from this
+ collection, if it is present (optional operation).
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  
+  <tr class="api apilevel-1" >
+  
+  
+    <td><code>
+        abstract
+        
+        
+        
+        
+        boolean</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="../../../../reference/java/util/Collection.html#removeAll(java.util.Collection<?>)">removeAll</a>(<a href="../../../../reference/java/util/Collection.html">Collection</a>&lt;?&gt; c)
+      </code>
+      
+        <p>Removes all of this collection's elements that are also contained in the
+ specified collection (optional operation).
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  
+  <tr class="api apilevel-24" >
+  
+  
+    <td><code>
+        
+        default
+        
+        
+        
+        boolean</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="../../../../reference/java/util/Collection.html#removeIf(java.util.function.Predicate<? super E>)">removeIf</a>(<a href="../../../../reference/java/util/function/Predicate.html">Predicate</a>&lt;?&nbsp;super&nbsp;E&gt; filter)
+      </code>
+      
+        <p>Removes all of the elements of this collection that satisfy the given
+ predicate.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  
+  <tr class="api apilevel-1" >
+  
+  
+    <td><code>
+        abstract
+        
+        
+        
+        
+        boolean</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="../../../../reference/java/util/Collection.html#retainAll(java.util.Collection<?>)">retainAll</a>(<a href="../../../../reference/java/util/Collection.html">Collection</a>&lt;?&gt; c)
+      </code>
+      
+        <p>Retains only the elements in this collection that are contained in the
+ specified collection (optional operation).
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  
+  <tr class="api apilevel-1" >
+  
+  
+    <td><code>
+        abstract
+        
+        
+        
+        
+        int</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="../../../../reference/java/util/Collection.html#size()">size</a>()
+      </code>
+      
+        <p>Returns the number of elements in this collection.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  
+  <tr class="api apilevel-" >
+  
+  
+    <td><code>
+        
+        default
+        
+        
+        
+        <a href="../../../../reference/java/util/Spliterator.html">Spliterator</a>&lt;K&gt;</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="../../../../reference/java/util/Collection.html#spliterator()">spliterator</a>()
+      </code>
+      
+        <p>Creates a <code><a href="../../../../reference/java/util/Spliterator.html">Spliterator</a></code> over the elements in this collection.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  
+  <tr class="api apilevel-24" >
+  
+  
+    <td><code>
+        
+        default
+        
+        
+        
+        <a href="../../../../reference/java/util/stream/Stream.html">Stream</a>&lt;K&gt;</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="../../../../reference/java/util/Collection.html#stream()">stream</a>()
+      </code>
+      
+        <p>Returns a sequential <code>Stream</code> with this collection as its source.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  
+  <tr class="api apilevel-1" >
+  
+  
+    <td><code>
+        abstract
+        
+        
+        
+        &lt;T&gt;
+        T[]</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="../../../../reference/java/util/Collection.html#toArray(T[])">toArray</a>(T[] a)
+      </code>
+      
+        <p>Returns an array containing all of the elements in this collection;
+ the runtime type of the returned array is that of the specified array.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  
+  <tr class="api apilevel-1" >
+  
+  
+    <td><code>
+        abstract
+        
+        
+        
+        
+        <a href="../../../../reference/java/lang/Object.html">Object[]</a></code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="../../../../reference/java/util/Collection.html#toArray()">toArray</a>()
+      </code>
+      
+        <p>Returns an array containing all of the elements in this collection.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+
+    </table>
+  </div>
+</div>
+</td></tr>
+
+
+
+
+
+<tr class="api apilevel-" >
+<td colspan="2">
+
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-java.util.Set" class="jd-expando-trigger closed"
+          ><img height="34" id="inherited-methods-java.util.Set-trigger"
+          src="../../../../assets/images/styles/disclosure_down.png"
+          class="jd-expando-trigger-img" /></a>From
+interface
+<code>
+  
+    <a href="../../../../reference/java/util/Set.html">java.util.Set</a>
+  
+</code>
+<div id="inherited-methods-java.util.Set">
+  <div id="inherited-methods-java.util.Set-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-methods-java.util.Set-summary" style="display: none;">
+    <table class="jd-sumtable-expando responsive">
+      
+
+
+  
+  <tr class="api apilevel-1" >
+  
+  
+    <td><code>
+        abstract
+        
+        
+        
+        
+        boolean</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="../../../../reference/java/util/Set.html#add(E)">add</a>(K e)
+      </code>
+      
+        <p>Adds the specified element to this set if it is not already present
+ (optional operation).
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  
+  <tr class="api apilevel-1" >
+  
+  
+    <td><code>
+        abstract
+        
+        
+        
+        
+        boolean</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="../../../../reference/java/util/Set.html#addAll(java.util.Collection<? extends E>)">addAll</a>(<a href="../../../../reference/java/util/Collection.html">Collection</a>&lt;?&nbsp;extends&nbsp;E&gt; c)
+      </code>
+      
+        <p>Adds all of the elements in the specified collection to this set if
+ they're not already present (optional operation).
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  
+  <tr class="api apilevel-1" >
+  
+  
+    <td><code>
+        abstract
+        
+        
+        
+        
+        void</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="../../../../reference/java/util/Set.html#clear()">clear</a>()
+      </code>
+      
+        <p>Removes all of the elements from this set (optional operation).
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  
+  <tr class="api apilevel-1" >
+  
+  
+    <td><code>
+        abstract
+        
+        
+        
+        
+        boolean</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="../../../../reference/java/util/Set.html#contains(java.lang.Object)">contains</a>(<a href="../../../../reference/java/lang/Object.html">Object</a> o)
+      </code>
+      
+        <p>Returns <tt>true</tt> if this set contains the specified element.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  
+  <tr class="api apilevel-1" >
+  
+  
+    <td><code>
+        abstract
+        
+        
+        
+        
+        boolean</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="../../../../reference/java/util/Set.html#containsAll(java.util.Collection<?>)">containsAll</a>(<a href="../../../../reference/java/util/Collection.html">Collection</a>&lt;?&gt; c)
+      </code>
+      
+        <p>Returns <tt>true</tt> if this set contains all of the elements of the
+ specified collection.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  
+  <tr class="api apilevel-1" >
+  
+  
+    <td><code>
+        abstract
+        
+        
+        
+        
+        boolean</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="../../../../reference/java/util/Set.html#equals(java.lang.Object)">equals</a>(<a href="../../../../reference/java/lang/Object.html">Object</a> o)
+      </code>
+      
+        <p>Compares the specified object with this set for equality.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  
+  <tr class="api apilevel-1" >
+  
+  
+    <td><code>
+        abstract
+        
+        
+        
+        
+        int</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="../../../../reference/java/util/Set.html#hashCode()">hashCode</a>()
+      </code>
+      
+        <p>Returns the hash code value for this set.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  
+  <tr class="api apilevel-1" >
+  
+  
+    <td><code>
+        abstract
+        
+        
+        
+        
+        boolean</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="../../../../reference/java/util/Set.html#isEmpty()">isEmpty</a>()
+      </code>
+      
+        <p>Returns <tt>true</tt> if this set contains no elements.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  
+  <tr class="api apilevel-1" >
+  
+  
+    <td><code>
+        abstract
+        
+        
+        
+        
+        <a href="../../../../reference/java/util/Iterator.html">Iterator</a>&lt;K&gt;</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="../../../../reference/java/util/Set.html#iterator()">iterator</a>()
+      </code>
+      
+        <p>Returns an iterator over the elements in this set.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  
+  <tr class="api apilevel-1" >
+  
+  
+    <td><code>
+        abstract
+        
+        
+        
+        
+        boolean</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="../../../../reference/java/util/Set.html#remove(java.lang.Object)">remove</a>(<a href="../../../../reference/java/lang/Object.html">Object</a> o)
+      </code>
+      
+        <p>Removes the specified element from this set if it is present
+ (optional operation).
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  
+  <tr class="api apilevel-1" >
+  
+  
+    <td><code>
+        abstract
+        
+        
+        
+        
+        boolean</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="../../../../reference/java/util/Set.html#removeAll(java.util.Collection<?>)">removeAll</a>(<a href="../../../../reference/java/util/Collection.html">Collection</a>&lt;?&gt; c)
+      </code>
+      
+        <p>Removes from this set all of its elements that are contained in the
+ specified collection (optional operation).
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  
+  <tr class="api apilevel-1" >
+  
+  
+    <td><code>
+        abstract
+        
+        
+        
+        
+        boolean</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="../../../../reference/java/util/Set.html#retainAll(java.util.Collection<?>)">retainAll</a>(<a href="../../../../reference/java/util/Collection.html">Collection</a>&lt;?&gt; c)
+      </code>
+      
+        <p>Retains only the elements in this set that are contained in the
+ specified collection (optional operation).
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  
+  <tr class="api apilevel-1" >
+  
+  
+    <td><code>
+        abstract
+        
+        
+        
+        
+        int</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="../../../../reference/java/util/Set.html#size()">size</a>()
+      </code>
+      
+        <p>Returns the number of elements in this set (its cardinality).
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  
+  <tr class="api apilevel-" >
+  
+  
+    <td><code>
+        
+        default
+        
+        
+        
+        <a href="../../../../reference/java/util/Spliterator.html">Spliterator</a>&lt;K&gt;</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="../../../../reference/java/util/Set.html#spliterator()">spliterator</a>()
+      </code>
+      
+        <p>Creates a <code>Spliterator</code> over the elements in this set.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  
+  <tr class="api apilevel-1" >
+  
+  
+    <td><code>
+        abstract
+        
+        
+        
+        &lt;T&gt;
+        T[]</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="../../../../reference/java/util/Set.html#toArray(T[])">toArray</a>(T[] a)
+      </code>
+      
+        <p>Returns an array containing all of the elements in this set; the
+ runtime type of the returned array is that of the specified array.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  
+  <tr class="api apilevel-1" >
+  
+  
+    <td><code>
+        abstract
+        
+        
+        
+        
+        <a href="../../../../reference/java/lang/Object.html">Object[]</a></code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="../../../../reference/java/util/Set.html#toArray()">toArray</a>()
+      </code>
+      
+        <p>Returns an array containing all of the elements in this set.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+
+    </table>
+  </div>
+</div>
+</td></tr>
+
+
+
+<tr class="api apilevel-" >
+<td colspan="2">
+
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-java.lang.Iterable" class="jd-expando-trigger closed"
+          ><img height="34" id="inherited-methods-java.lang.Iterable-trigger"
+          src="../../../../assets/images/styles/disclosure_down.png"
+          class="jd-expando-trigger-img" /></a>From
+interface
+<code>
+  
+    <a href="../../../../reference/java/lang/Iterable.html">java.lang.Iterable</a>
+  
+</code>
+<div id="inherited-methods-java.lang.Iterable">
+  <div id="inherited-methods-java.lang.Iterable-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-methods-java.lang.Iterable-summary" style="display: none;">
+    <table class="jd-sumtable-expando responsive">
+      
+
+
+  
+  <tr class="api apilevel-24" >
+  
+  
+    <td><code>
+        
+        default
+        
+        
+        
+        void</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="../../../../reference/java/lang/Iterable.html#forEach(java.util.function.Consumer<? super T>)">forEach</a>(<a href="../../../../reference/java/util/function/Consumer.html">Consumer</a>&lt;?&nbsp;super&nbsp;T&gt; action)
+      </code>
+      
+        <p>Performs the given action for each element of the <code>Iterable</code>
+ until all elements have been processed or the action throws an
+ exception.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  
+  <tr class="api apilevel-1" >
+  
+  
+    <td><code>
+        abstract
+        
+        
+        
+        
+        <a href="../../../../reference/java/util/Iterator.html">Iterator</a>&lt;K&gt;</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="../../../../reference/java/lang/Iterable.html#iterator()">iterator</a>()
+      </code>
+      
+        <p>Returns an iterator over elements of type <code>T</code>.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+  
+  <tr class="api apilevel-24" >
+  
+  
+    <td><code>
+        
+        default
+        
+        
+        
+        <a href="../../../../reference/java/util/Spliterator.html">Spliterator</a>&lt;K&gt;</code>
+    </td>
+  
+    <td width="100%">
+      <code>
+      <a href="../../../../reference/java/lang/Iterable.html#spliterator()">spliterator</a>()
+      </code>
+      
+        <p>Creates a <code><a href="../../../../reference/java/util/Spliterator.html">Spliterator</a></code> over the elements described by this
+ <code>Iterable</code>.
+        
+    
+</p>
+      
+    </td>
+  </tr>
+  
+
+
+    </table>
+  </div>
+</div>
+</td></tr>
+
+
+</table>
+
+
+
+<!-- XML Attributes -->
+
+
+<!-- Enum Values -->
+
+
+<!-- Constants -->
+
+
+<!-- Fields -->
+
+
+<!-- Public ctors -->
+
+
+
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<!-- Protected ctors -->
+
+
+
+<!-- ========= METHOD DETAIL ======== -->
+<!-- Public methdos -->
+
+<h2 class="api-section">Public methods</h2>
+
+
+
+<A NAME="add(K)"></A>
+
+<div class="api apilevel-24">
+    <h3 class="api-name">add</h3>
+    <div class="api-level">
+      <div>
+  Added in <a href="../../../../guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 24</a></div>
+      
+  
+
+    </div>
+<pre class="api-signature no-pretty-print">
+boolean add (K e)</pre>
+    
+    
+
+    
+  <p>Adds the specified key to this set view by mapping the key to
+ the default mapped value in the backing map, if defined.</p>
+    <table class="responsive">
+    <tr><th colspan=2>Parameters</th></tr>
+      <tr>
+        <td><code>e</code></td>
+        <td width="100%">
+          <code>K</code>:
+          key to be added</td>
+      </tr>
+    </table>
+    <table class="responsive">
+      <tr><th colspan=2>Returns</th></tr>
+      <tr>
+        <td><code>boolean</code></td>
+        <td width="100%"><code>true</code> if this set changed as a result of the call</td>
+      </tr>
+    </table>
+      <table class="responsive">
+      <tr><th colspan=2>Throws</th></tr>
+        <tr>
+          <td><code><a href="../../../../reference/java/lang/NullPointerException.html">NullPointerException</a></code></td>
+          <td width="100%">if the specified key is null</td>
+        </tr>
+        <tr>
+          <td><code><a href="../../../../reference/java/lang/UnsupportedOperationException.html">UnsupportedOperationException</a></code></td>
+          <td width="100%">if no default mapped value
+ for additions was provided
+</td>
+        </tr>
+      </table>
+  
+
+</div>
+
+
+<A NAME="addAll(java.util.Collection<? extends K>)"></A>
+
+<div class="api apilevel-24">
+    <h3 class="api-name">addAll</h3>
+    <div class="api-level">
+      <div>
+  Added in <a href="../../../../guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 24</a></div>
+      
+  
+
+    </div>
+<pre class="api-signature no-pretty-print">
+boolean addAll (<a href="../../../../reference/java/util/Collection.html">Collection</a>&lt;?&nbsp;extends&nbsp;K&gt; c)</pre>
+    
+    
+
+    
+  <p>Adds all of the elements in the specified collection to this set,
+ as if by calling <code><a href="../../../../reference/java/util/Set.html#add(E)">add(E)</a></code> on each one.</p>
+    <table class="responsive">
+    <tr><th colspan=2>Parameters</th></tr>
+      <tr>
+        <td><code>c</code></td>
+        <td width="100%">
+          <code>Collection</code>:
+          the elements to be inserted into this set</td>
+      </tr>
+    </table>
+    <table class="responsive">
+      <tr><th colspan=2>Returns</th></tr>
+      <tr>
+        <td><code>boolean</code></td>
+        <td width="100%"><code>true</code> if this set changed as a result of the call</td>
+      </tr>
+    </table>
+      <table class="responsive">
+      <tr><th colspan=2>Throws</th></tr>
+        <tr>
+          <td><code><a href="../../../../reference/java/lang/NullPointerException.html">NullPointerException</a></code></td>
+          <td width="100%">if the collection or any of its
+ elements are <code>null</code></td>
+        </tr>
+        <tr>
+          <td><code><a href="../../../../reference/java/lang/UnsupportedOperationException.html">UnsupportedOperationException</a></code></td>
+          <td width="100%">if no default mapped value
+ for additions was provided
+</td>
+        </tr>
+      </table>
+  
+
+</div>
+
+
+<A NAME="clear()"></A>
+
+<div class="api apilevel-24">
+    <h3 class="api-name">clear</h3>
+    <div class="api-level">
+      <div>
+  Added in <a href="../../../../guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 24</a></div>
+      
+  
+
+    </div>
+<pre class="api-signature no-pretty-print">
+void clear ()</pre>
+    
+    
+
+    
+  <p>Removes all of the elements from this view, by removing all
+ the mappings from the map backing this view.
+</p>
+
+</div>
+
+
+<A NAME="contains(java.lang.Object)"></A>
+
+<div class="api apilevel-24">
+    <h3 class="api-name">contains</h3>
+    <div class="api-level">
+      <div>
+  Added in <a href="../../../../guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 24</a></div>
+      
+  
+
+    </div>
+<pre class="api-signature no-pretty-print">
+boolean contains (<a href="../../../../reference/java/lang/Object.html">Object</a> o)</pre>
+    
+    
+
+    
+  <p>Returns <tt>true</tt> if this collection contains the specified element.
+ More formally, returns <tt>true</tt> if and only if this collection
+ contains at least one element <tt>e</tt> such that
+ <tt>(o==null&nbsp;?&nbsp;e==null&nbsp;:&nbsp;o.equals(e))</tt>.</p>
+    <table class="responsive">
+    <tr><th colspan=2>Parameters</th></tr>
+      <tr>
+        <td><code>o</code></td>
+        <td width="100%">
+          <code>Object</code>:
+          element whose presence in this collection is to be tested</td>
+      </tr>
+    </table>
+    <table class="responsive">
+      <tr><th colspan=2>Returns</th></tr>
+      <tr>
+        <td><code>boolean</code></td>
+        <td width="100%"><tt>true</tt> if this collection contains the specified
+         element</td>
+      </tr>
+    </table>
+      <table class="responsive">
+      <tr><th colspan=2>Throws</th></tr>
+        <tr>
+          <td><code><a href="../../../../reference/java/lang/NullPointerException.html">NullPointerException</a></code></td>
+          <td width="100%">if the specified key is null
+</td>
+        </tr>
+      </table>
+  
+
+</div>
+
+
+<A NAME="containsAll(java.util.Collection<?>)"></A>
+
+<div class="api apilevel-24">
+    <h3 class="api-name">containsAll</h3>
+    <div class="api-level">
+      <div>
+  Added in <a href="../../../../guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 24</a></div>
+      
+  
+
+    </div>
+<pre class="api-signature no-pretty-print">
+boolean containsAll (<a href="../../../../reference/java/util/Collection.html">Collection</a>&lt;?&gt; c)</pre>
+    
+    
+
+    
+  <p>Returns <tt>true</tt> if this collection contains all of the elements
+ in the specified collection.</p>
+    <table class="responsive">
+    <tr><th colspan=2>Parameters</th></tr>
+      <tr>
+        <td><code>c</code></td>
+        <td width="100%">
+          <code>Collection</code>:
+          collection to be checked for containment in this collection</td>
+      </tr>
+    </table>
+    <table class="responsive">
+      <tr><th colspan=2>Returns</th></tr>
+      <tr>
+        <td><code>boolean</code></td>
+        <td width="100%"><tt>true</tt> if this collection contains all of the elements
+         in the specified collection</td>
+      </tr>
+    </table>
+
+</div>
+
+
+<A NAME="equals(java.lang.Object)"></A>
+
+<div class="api apilevel-24">
+    <h3 class="api-name">equals</h3>
+    <div class="api-level">
+      <div>
+  Added in <a href="../../../../guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 24</a></div>
+      
+  
+
+    </div>
+<pre class="api-signature no-pretty-print">
+boolean equals (<a href="../../../../reference/java/lang/Object.html">Object</a> o)</pre>
+    
+    
+
+    
+  <p>Indicates whether some other object is "equal to" this one.
+ <p>
+ The <code>equals</code> method implements an equivalence relation
+ on non-null object references:
+ <ul>
+ <li>It is <i>reflexive</i>: for any non-null reference value
+     <code>x</code>, <code>x.equals(x)</code> should return
+     <code>true</code>.
+ <li>It is <i>symmetric</i>: for any non-null reference values
+     <code>x</code> and <code>y</code>, <code>x.equals(y)</code>
+     should return <code>true</code> if and only if
+     <code>y.equals(x)</code> returns <code>true</code>.
+ <li>It is <i>transitive</i>: for any non-null reference values
+     <code>x</code>, <code>y</code>, and <code>z</code>, if
+     <code>x.equals(y)</code> returns <code>true</code> and
+     <code>y.equals(z)</code> returns <code>true</code>, then
+     <code>x.equals(z)</code> should return <code>true</code>.
+ <li>It is <i>consistent</i>: for any non-null reference values
+     <code>x</code> and <code>y</code>, multiple invocations of
+     <code>x.equals(y)</code> consistently return <code>true</code>
+     or consistently return <code>false</code>, provided no
+     information used in <code>equals</code> comparisons on the
+     objects is modified.
+ <li>For any non-null reference value <code>x</code>,
+     <code>x.equals(null)</code> should return <code>false</code>.
+ </ul>
+ <p>
+ The <code>equals</code> method for class <code>Object</code> implements
+ the most discriminating possible equivalence relation on objects;
+ that is, for any non-null reference values <code>x</code> and
+ <code>y</code>, this method returns <code>true</code> if and only
+ if <code>x</code> and <code>y</code> refer to the same object
+ (<code>x == y</code> has the value <code>true</code>).
+ <p>
+ Note that it is generally necessary to override the <code>hashCode</code>
+ method whenever this method is overridden, so as to maintain the
+ general contract for the <code>hashCode</code> method, which states
+ that equal objects must have equal hash codes.</p>
+    <table class="responsive">
+    <tr><th colspan=2>Parameters</th></tr>
+      <tr>
+        <td><code>o</code></td>
+        <td width="100%">
+          <code>Object</code>:
+          the reference object with which to compare.</td>
+      </tr>
+    </table>
+    <table class="responsive">
+      <tr><th colspan=2>Returns</th></tr>
+      <tr>
+        <td><code>boolean</code></td>
+        <td width="100%"><code>true</code> if this object is the same as the obj
+          argument; <code>false</code> otherwise.</td>
+      </tr>
+    </table>
+
+</div>
+
+
+<A NAME="forEach(java.util.function.Consumer<? super K>)"></A>
+
+<div class="api apilevel-24">
+    <h3 class="api-name">forEach</h3>
+    <div class="api-level">
+      <div>
+  Added in <a href="../../../../guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 24</a></div>
+      
+  
+
+    </div>
+<pre class="api-signature no-pretty-print">
+void forEach (<a href="../../../../reference/java/util/function/Consumer.html">Consumer</a>&lt;?&nbsp;super&nbsp;K&gt; action)</pre>
+    
+    
+
+    
+  <p></p>
+    <table class="responsive">
+    <tr><th colspan=2>Parameters</th></tr>
+      <tr>
+        <td><code>action</code></td>
+        <td width="100%">
+          <code>Consumer</code>
+          <!-- no parameter comment --></td>
+      </tr>
+    </table>
+
+</div>
+
+
+<A NAME="getMap()"></A>
+
+<div class="api apilevel-24">
+    <h3 class="api-name">getMap</h3>
+    <div class="api-level">
+      <div>
+  Added in <a href="../../../../guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 24</a></div>
+      
+  
+
+    </div>
+<pre class="api-signature no-pretty-print">
+<a href="../../../../reference/java/util/concurrent/ConcurrentHashMap.html">ConcurrentHashMap</a>&lt;K,&nbsp;V&gt; getMap ()</pre>
+    
+    
+
+    
+  <p>Returns the map backing this view.</p>
+    <table class="responsive">
+      <tr><th colspan=2>Returns</th></tr>
+      <tr>
+        <td><code><a href="../../../../reference/java/util/concurrent/ConcurrentHashMap.html">ConcurrentHashMap</a>&lt;K,&nbsp;V&gt;</code></td>
+        <td width="100%">the map backing this view
+</td>
+      </tr>
+    </table>
+
+</div>
+
+
+<A NAME="getMappedValue()"></A>
+
+<div class="api apilevel-24">
+    <h3 class="api-name">getMappedValue</h3>
+    <div class="api-level">
+      <div>
+  Added in <a href="../../../../guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 24</a></div>
+      
+  
+
+    </div>
+<pre class="api-signature no-pretty-print">
+V getMappedValue ()</pre>
+    
+    
+
+    
+  <p>Returns the default mapped value for additions,
+ or <code>null</code> if additions are not supported.</p>
+    <table class="responsive">
+      <tr><th colspan=2>Returns</th></tr>
+      <tr>
+        <td><code>V</code></td>
+        <td width="100%">the default mapped value for additions, or <code>null</code>
+ if not supported
+</td>
+      </tr>
+    </table>
+
+</div>
+
+
+<A NAME="hashCode()"></A>
+
+<div class="api apilevel-24">
+    <h3 class="api-name">hashCode</h3>
+    <div class="api-level">
+      <div>
+  Added in <a href="../../../../guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 24</a></div>
+      
+  
+
+    </div>
+<pre class="api-signature no-pretty-print">
+int hashCode ()</pre>
+    
+    
+
+    
+  <p>Returns a hash code value for the object. This method is
+ supported for the benefit of hash tables such as those provided by
+ <code><a href="../../../../reference/java/util/HashMap.html">HashMap</a></code>.
+ <p>
+ The general contract of <code>hashCode</code> is:
+ <ul>
+ <li>Whenever it is invoked on the same object more than once during
+     an execution of a Java application, the <code>hashCode</code> method
+     must consistently return the same integer, provided no information
+     used in <code>equals</code> comparisons on the object is modified.
+     This integer need not remain consistent from one execution of an
+     application to another execution of the same application.
+ <li>If two objects are equal according to the <code>equals(Object)</code>
+     method, then calling the <code>hashCode</code> method on each of
+     the two objects must produce the same integer result.
+ <li>It is <em>not</em> required that if two objects are unequal
+     according to the <code><a href="../../../../reference/java/lang/Object.html#equals(java.lang.Object)">equals(java.lang.Object)</a></code>
+     method, then calling the <code>hashCode</code> method on each of the
+     two objects must produce distinct integer results.  However, the
+     programmer should be aware that producing distinct integer results
+     for unequal objects may improve the performance of hash tables.
+ </ul>
+ <p>
+ As much as is reasonably practical, the hashCode method defined by
+ class <code>Object</code> does return distinct integers for distinct
+ objects. (This is typically implemented by converting the internal
+ address of the object into an integer, but this implementation
+ technique is not required by the
+ Java<font size="-2"><sup>TM</sup></font> programming language.)</p>
+    <table class="responsive">
+      <tr><th colspan=2>Returns</th></tr>
+      <tr>
+        <td><code>int</code></td>
+        <td width="100%">a hash code value for this object.</td>
+      </tr>
+    </table>
+
+</div>
+
+
+<A NAME="isEmpty()"></A>
+
+<div class="api apilevel-24">
+    <h3 class="api-name">isEmpty</h3>
+    <div class="api-level">
+      <div>
+  Added in <a href="../../../../guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 24</a></div>
+      
+  
+
+    </div>
+<pre class="api-signature no-pretty-print">
+boolean isEmpty ()</pre>
+    
+    
+
+    
+  <p>Returns <tt>true</tt> if this collection contains no elements.</p>
+    <table class="responsive">
+      <tr><th colspan=2>Returns</th></tr>
+      <tr>
+        <td><code>boolean</code></td>
+        <td width="100%"><tt>true</tt> if this collection contains no elements
+</td>
+      </tr>
+    </table>
+
+</div>
+
+
+<A NAME="iterator()"></A>
+
+<div class="api apilevel-24">
+    <h3 class="api-name">iterator</h3>
+    <div class="api-level">
+      <div>
+  Added in <a href="../../../../guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 24</a></div>
+      
+  
+
+    </div>
+<pre class="api-signature no-pretty-print">
+<a href="../../../../reference/java/util/Iterator.html">Iterator</a>&lt;K&gt; iterator ()</pre>
+    
+    
+
+    
+  <p>Returns an iterator over the elements in this collection.
+
+ <p>The returned iterator is
+ <a href="package-summary.html#Weakly"><i>weakly consistent</i></a>.</p>
+    <table class="responsive">
+      <tr><th colspan=2>Returns</th></tr>
+      <tr>
+        <td><code><a href="../../../../reference/java/util/Iterator.html">Iterator</a>&lt;K&gt;</code></td>
+        <td width="100%">an iterator over the keys of the backing map
+</td>
+      </tr>
+    </table>
+
+</div>
+
+
+<A NAME="remove(java.lang.Object)"></A>
+
+<div class="api apilevel-24">
+    <h3 class="api-name">remove</h3>
+    <div class="api-level">
+      <div>
+  Added in <a href="../../../../guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 24</a></div>
+      
+  
+
+    </div>
+<pre class="api-signature no-pretty-print">
+boolean remove (<a href="../../../../reference/java/lang/Object.html">Object</a> o)</pre>
+    
+    
+
+    
+  <p>Removes the key from this map view, by removing the key (and its
+ corresponding value) from the backing map.  This method does
+ nothing if the key is not in the map.</p>
+    <table class="responsive">
+    <tr><th colspan=2>Parameters</th></tr>
+      <tr>
+        <td><code>o</code></td>
+        <td width="100%">
+          <code>Object</code>:
+          the key to be removed from the backing map</td>
+      </tr>
+    </table>
+    <table class="responsive">
+      <tr><th colspan=2>Returns</th></tr>
+      <tr>
+        <td><code>boolean</code></td>
+        <td width="100%"><code>true</code> if the backing map contained the specified key</td>
+      </tr>
+    </table>
+      <table class="responsive">
+      <tr><th colspan=2>Throws</th></tr>
+        <tr>
+          <td><code><a href="../../../../reference/java/lang/NullPointerException.html">NullPointerException</a></code></td>
+          <td width="100%">if the specified key is null
+</td>
+        </tr>
+      </table>
+  
+
+</div>
+
+
+<A NAME="removeAll(java.util.Collection<?>)"></A>
+
+<div class="api apilevel-24">
+    <h3 class="api-name">removeAll</h3>
+    <div class="api-level">
+      <div>
+  Added in <a href="../../../../guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 24</a></div>
+      
+  
+
+    </div>
+<pre class="api-signature no-pretty-print">
+boolean removeAll (<a href="../../../../reference/java/util/Collection.html">Collection</a>&lt;?&gt; c)</pre>
+    
+    
+
+    
+  <p>Removes all of this collection's elements that are also contained in the
+ specified collection (optional operation).  After this call returns,
+ this collection will contain no elements in common with the specified
+ collection.</p>
+    <table class="responsive">
+    <tr><th colspan=2>Parameters</th></tr>
+      <tr>
+        <td><code>c</code></td>
+        <td width="100%">
+          <code>Collection</code>:
+          collection containing elements to be removed from this collection</td>
+      </tr>
+    </table>
+    <table class="responsive">
+      <tr><th colspan=2>Returns</th></tr>
+      <tr>
+        <td><code>boolean</code></td>
+        <td width="100%"><tt>true</tt> if this collection changed as a result of the
+         call</td>
+      </tr>
+    </table>
+
+</div>
+
+
+<A NAME="retainAll(java.util.Collection<?>)"></A>
+
+<div class="api apilevel-24">
+    <h3 class="api-name">retainAll</h3>
+    <div class="api-level">
+      <div>
+  Added in <a href="../../../../guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 24</a></div>
+      
+  
+
+    </div>
+<pre class="api-signature no-pretty-print">
+boolean retainAll (<a href="../../../../reference/java/util/Collection.html">Collection</a>&lt;?&gt; c)</pre>
+    
+    
+
+    
+  <p>Retains only the elements in this collection that are contained in the
+ specified collection (optional operation).  In other words, removes from
+ this collection all of its elements that are not contained in the
+ specified collection.</p>
+    <table class="responsive">
+    <tr><th colspan=2>Parameters</th></tr>
+      <tr>
+        <td><code>c</code></td>
+        <td width="100%">
+          <code>Collection</code>:
+          collection containing elements to be retained in this collection</td>
+      </tr>
+    </table>
+    <table class="responsive">
+      <tr><th colspan=2>Returns</th></tr>
+      <tr>
+        <td><code>boolean</code></td>
+        <td width="100%"><tt>true</tt> if this collection changed as a result of the call</td>
+      </tr>
+    </table>
+
+</div>
+
+
+<A NAME="size()"></A>
+
+<div class="api apilevel-24">
+    <h3 class="api-name">size</h3>
+    <div class="api-level">
+      <div>
+  Added in <a href="../../../../guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 24</a></div>
+      
+  
+
+    </div>
+<pre class="api-signature no-pretty-print">
+int size ()</pre>
+    
+    
+
+    
+  <p>Returns the number of elements in this collection.  If this collection
+ contains more than <tt>Integer.MAX_VALUE</tt> elements, returns
+ <tt>Integer.MAX_VALUE</tt>.</p>
+    <table class="responsive">
+      <tr><th colspan=2>Returns</th></tr>
+      <tr>
+        <td><code>int</code></td>
+        <td width="100%">the number of elements in this collection
+</td>
+      </tr>
+    </table>
+
+</div>
+
+
+<A NAME="spliterator()"></A>
+
+<div class="api apilevel-24">
+    <h3 class="api-name">spliterator</h3>
+    <div class="api-level">
+      <div>
+  Added in <a href="../../../../guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 24</a></div>
+      
+  
+
+    </div>
+<pre class="api-signature no-pretty-print">
+<a href="../../../../reference/java/util/Spliterator.html">Spliterator</a>&lt;K&gt; spliterator ()</pre>
+    
+    
+
+    
+  <p>Creates a <code><a href="../../../../reference/java/util/Spliterator.html">Spliterator</a></code> over the elements in this collection.
+
+ Implementations should document characteristic values reported by the
+ spliterator.  Such characteristic values are not required to be reported
+ if the spliterator reports <code><a href="../../../../reference/java/util/Spliterator.html#SIZED">SIZED</a></code> and this collection
+ contains no elements.
+
+ <p>The default implementation should be overridden by subclasses that
+ can return a more efficient spliterator.  In order to
+ preserve expected laziness behavior for the <code><a href="../../../../reference/java/util/Collection.html#stream()">stream()</a></code> and
+ <code><a href="../../../../reference/java/util/Collection.html#parallelStream()">parallelStream()</a></code>} methods, spliterators should either have the
+ characteristic of <code>IMMUTABLE</code> or <code>CONCURRENT</code>, or be
+ <em><a href="Spliterator.html#binding">late-binding</a></em>.
+ If none of these is practical, the overriding class should describe the
+ spliterator's documented policy of binding and structural interference,
+ and should override the <code><a href="../../../../reference/java/util/Collection.html#stream()">stream()</a></code> and <code><a href="../../../../reference/java/util/Collection.html#parallelStream()">parallelStream()</a></code>
+ methods to create streams using a <code>Supplier</code> of the spliterator,
+ as in:
+ <pre><code>Stream&lt;E&gt; s = StreamSupport.stream(() -&gt; spliterator(), spliteratorCharacteristics)
+ </code></pre>
+ <p>These requirements ensure that streams produced by the
+ <code><a href="../../../../reference/java/util/Collection.html#stream()">stream()</a></code> and <code><a href="../../../../reference/java/util/Collection.html#parallelStream()">parallelStream()</a></code> methods will reflect the
+ contents of the collection as of initiation of the terminal stream
+ operation.</p>
+    <table class="responsive">
+      <tr><th colspan=2>Returns</th></tr>
+      <tr>
+        <td><code><a href="../../../../reference/java/util/Spliterator.html">Spliterator</a>&lt;K&gt;</code></td>
+        <td width="100%">a <code>Spliterator</code> over the elements in this collection</td>
+      </tr>
+    </table>
+
+</div>
+
+
+<A NAME="toArray(T[])"></A>
+
+<div class="api apilevel-24">
+    <h3 class="api-name">toArray</h3>
+    <div class="api-level">
+      <div>
+  Added in <a href="../../../../guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 24</a></div>
+      
+  
+
+    </div>
+<pre class="api-signature no-pretty-print">
+T[] toArray (T[] a)</pre>
+    
+    
+
+    
+  <p>Returns an array containing all of the elements in this collection;
+ the runtime type of the returned array is that of the specified array.
+ If the collection fits in the specified array, it is returned therein.
+ Otherwise, a new array is allocated with the runtime type of the
+ specified array and the size of this collection.
+
+ <p>If this collection fits in the specified array with room to spare
+ (i.e., the array has more elements than this collection), the element
+ in the array immediately following the end of the collection is set to
+ <tt>null</tt>.  (This is useful in determining the length of this
+ collection <i>only</i> if the caller knows that this collection does
+ not contain any <tt>null</tt> elements.)
+
+ <p>If this collection makes any guarantees as to what order its elements
+ are returned by its iterator, this method must return the elements in
+ the same order.
+
+ <p>Like the <code><a href="../../../../reference/java/util/Collection.html#toArray()">toArray()</a></code> method, this method acts as bridge between
+ array-based and collection-based APIs.  Further, this method allows
+ precise control over the runtime type of the output array, and may,
+ under certain circumstances, be used to save allocation costs.
+
+ <p>Suppose <tt>x</tt> is a collection known to contain only strings.
+ The following code can be used to dump the collection into a newly
+ allocated array of <tt>String</tt>:
+
+ <pre>
+     String[] y = x.toArray(new String[0]);</pre>
+
+ Note that <tt>toArray(new Object[0])</tt> is identical in function to
+ <tt>toArray()</tt>.</p>
+    <table class="responsive">
+    <tr><th colspan=2>Parameters</th></tr>
+      <tr>
+        <td><code>a</code></td>
+        <td width="100%">
+          <code>T</code>:
+          the array into which the elements of this collection are to be
+        stored, if it is big enough; otherwise, a new array of the same
+        runtime type is allocated for this purpose.</td>
+      </tr>
+    </table>
+    <table class="responsive">
+      <tr><th colspan=2>Returns</th></tr>
+      <tr>
+        <td><code>T[]</code></td>
+        <td width="100%">an array containing all of the elements in this collection</td>
+      </tr>
+    </table>
+
+</div>
+
+
+<A NAME="toArray()"></A>
+
+<div class="api apilevel-24">
+    <h3 class="api-name">toArray</h3>
+    <div class="api-level">
+      <div>
+  Added in <a href="../../../../guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 24</a></div>
+      
+  
+
+    </div>
+<pre class="api-signature no-pretty-print">
+<a href="../../../../reference/java/lang/Object.html">Object[]</a> toArray ()</pre>
+    
+    
+
+    
+  <p>Returns an array containing all of the elements in this collection.
+ If this collection makes any guarantees as to what order its elements
+ are returned by its iterator, this method must return the elements in
+ the same order.
+
+ <p>The returned array will be "safe" in that no references to it are
+ maintained by this collection.  (In other words, this method must
+ allocate a new array even if this collection is backed by an array).
+ The caller is thus free to modify the returned array.
+
+ <p>This method acts as bridge between array-based and collection-based
+ APIs.</p>
+    <table class="responsive">
+      <tr><th colspan=2>Returns</th></tr>
+      <tr>
+        <td><code><a href="../../../../reference/java/lang/Object.html">Object[]</a></code></td>
+        <td width="100%">an array containing all of the elements in this collection
+</td>
+      </tr>
+    </table>
+
+</div>
+
+
+<A NAME="toString()"></A>
+
+<div class="api apilevel-24">
+    <h3 class="api-name">toString</h3>
+    <div class="api-level">
+      <div>
+  Added in <a href="../../../../guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 24</a></div>
+      
+  
+
+    </div>
+<pre class="api-signature no-pretty-print">
+<a href="../../../../reference/java/lang/String.html">String</a> toString ()</pre>
+    
+    
+
+    
+  <p>Returns a string representation of this collection.
+ The string representation consists of the string representations
+ of the collection's elements in the order they are returned by
+ its iterator, enclosed in square brackets (<code>"[]"</code>).
+ Adjacent elements are separated by the characters <code>", "</code>
+ (comma and space).  Elements are converted to strings as by
+ <code><a href="../../../../reference/java/lang/String.html#valueOf(java.lang.Object)">valueOf(Object)</a></code>.</p>
+    <table class="responsive">
+      <tr><th colspan=2>Returns</th></tr>
+      <tr>
+        <td><code><a href="../../../../reference/java/lang/String.html">String</a></code></td>
+        <td width="100%">a string representation of this collection
+</td>
+      </tr>
+    </table>
+
+</div>
+
+
+
+
+
+<!-- ========= METHOD DETAIL ======== -->
+
+
+
+<!-- ========= END OF CLASS DATA ========= -->
+
+</div><!-- end jd-content -->
+
+
+
+
+
+<div class="wrap">
+  <div class="dac-footer">
+    <div class="cols dac-footer-main">
+      <div class="col-1of2">
+        <a class="dac-footer-getnews" id="newsletter" data-modal-toggle="newsletter" href="javascript:;">Get news &amp; tips <span
+          class="dac-fab dac-primary"><i class="dac-sprite dac-mail"></i></span></a>
+      </div>
+      <div class="col-1of2 dac-footer-reachout">
+        <div class="dac-footer-contact">
+          <a class="dac-footer-contact-link" href="http://android-developers.blogspot.com/">Blog</a>
+          <a class="dac-footer-contact-link" href="../../../../support.html">Support</a>
+        </div>
+        <div class="dac-footer-social">
+          <a class="dac-button-social dac-youtube dac-footer-social-link" href="https://www.youtube.com/user/androiddevelopers"><i class="dac-sprite dac-youtube"></i></a>
+          <a class="dac-button-social dac-gplus dac-footer-social-link" href="https://plus.google.com/+AndroidDevelopers"><i class="dac-sprite dac-gplus"></i></a>
+          <a class="dac-button-social dac-twitter dac-footer-social-link" href="https://twitter.com/AndroidDev"><i class="dac-sprite dac-twitter"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <hr class="dac-footer-separator"/>
+
+    
+      <p class="dac-footer-copyright">
+        
+  Except as noted, this content is licensed under <a
+  href="http://www.apache.org/licenses/LICENSE-2.0">Apache 2.0</a>.
+  For details and restrictions, see the <a href="../../../../license.html">
+  Content License</a>.
+
+      </p>
+      <p class="dac-footer-build">
+        
+  
+    Android 6.0&nbsp;r1 &mdash;
+  
+  <script src="../../../../timestamp.js" type="text/javascript"></script>
+  <script>document.write(BUILD_TIMESTAMP)</script>
+
+      </p>
+    
+
+    <p class="dac-footer-links">
+      <a href="../../../../about/android.html">About Android</a>
+      <a href="../../../../auto/index.html">Auto</a>
+      <a href="../../../../tv/index.html">TV</a>
+      <a href="../../../../wear/index.html">Wear</a>
+      <a href="../../../../legal.html">Legal</a>
+
+      <span id="language" class="locales">
+        <select name="language" onchange="changeLangPref(this.value, true)">
+          <option value="en" selected="selected">English</option>
+          <option value="es">Español</option>
+          <option value="in">Bahasa Indonesia</option>
+          <option value="ja">日本語</option>
+          <option value="ko">한국어</option>
+          <option value="pt-br">Português Brasileiro</option>
+          <option value="ru">Русский</option>
+          <option value="vi">tiếng Việt</option>
+          <option value="zh-cn">中文（简体)</option>
+          <option value="zh-tw">中文（繁體)</option>
+        </select>
+      </span>
+    </p>
+  </div>
+</div>
+<!-- end footer -->
+
+
+
+  
+
+
+
+<div data-modal="newsletter" data-newsletter data-swap class="dac-modal newsletter">
+  <div class="dac-modal-container">
+    <div class="dac-modal-window">
+      <header class="dac-modal-header">
+        <div class="dac-modal-header-actions">
+          <button class="dac-modal-header-close" data-modal-toggle></button>
+        </div>
+        <div class="dac-swap" data-swap-container>
+          <section class="dac-swap-section dac-active dac-down">
+            <h2 class="norule dac-modal-header-title" data-t="newsletter.title"></h2>
+            <p class="dac-modal-header-subtitle" data-t="newsletter.requiredHint"></p>
+          </section>
+          <section class="dac-swap-section dac-up">
+            <h2 class="norule dac-modal-header-title" data-t="newsletter.successTitle">Hooray!</h2>
+          </section>
+        </div>
+      </header>
+      <div class="dac-swap" data-swap-container>
+        <section class="dac-swap-section dac-active dac-left">
+          <form action="https://docs.google.com/forms/d/1QgnkzbEJIDu9lMEea0mxqWrXUJu0oBCLD7ar23V0Yys/formResponse" class="dac-form" method="post" target="dac-newsletter-iframe">
+            <input type="hidden" name="entry.935454734" data-newsletter-language>
+            <section class="dac-modal-content">
+              <fieldset class="dac-form-fieldset">
+                <div class="cols">
+                  <div class="col-1of2 newsletter-leftCol">
+                    <div class="dac-form-input-group">
+                      <label for="newsletter-full-name" class="dac-form-floatlabel" data-t="newsletter.name">Full name</label>
+                      <input type="text" class="dac-form-input" name="entry.1357890476" id="newsletter-full-name" required>
+                      <span class="dac-form-required">*</span>
+                    </div>
+                    <div class="dac-form-input-group">
+                      <label for="newsletter-email" class="dac-form-floatlabel" data-t="newsletter.email">Email address</label>
+                      <input type="email" class="dac-form-input" name="entry.472100832" id="newsletter-email" required>
+                      <span class="dac-form-required">*</span>
+                    </div>
+                  </div>
+                  <div class="col-1of2 newsletter-rightCol">
+                    <div class="dac-form-input-group">
+                      <label for="newsletter-company" class="dac-form-floatlabel" data-t="newsletter.company">Company / developer name</label>
+                      <input type="text" class="dac-form-input" name="entry.1664780309" id="newsletter-company">
+                    </div>
+                    <div class="dac-form-input-group">
+                      <label for="newsletter-play-store" class="dac-form-floatlabel" data-t="newsletter.appUrl">One of your Play Store app URLs</label>
+                      <input type="url" class="dac-form-input" name="entry.47013838" id="newsletter-play-store" required>
+                      <span class="dac-form-required">*</span>
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+              <fieldset class="dac-form-fieldset">
+                <div class="cols">
+                  <div class="col-1of2 newsletter-leftCol">
+                    <legend class="dac-form-legend"><span data-t="newsletter.business.label">Which best describes your business:</span><span class="dac-form-required">*</span>
+                    </legend>
+                    <div class="dac-form-radio-group">
+                      <input type="radio" value="Apps" class="dac-form-radio" name="entry.1796324055" id="newsletter-business-type-app" required>
+                      <label for="newsletter-business-type-app" class="dac-form-radio-button"></label>
+                      <label for="newsletter-business-type-app" class="dac-form-label" data-t="newsletter.business.apps">Apps</label>
+                    </div>
+                    <div class="dac-form-radio-group">
+                      <input type="radio" value="Games" class="dac-form-radio" name="entry.1796324055" id="newsletter-business-type-games" required>
+                      <label for="newsletter-business-type-games" class="dac-form-radio-button"></label>
+                      <label for="newsletter-business-type-games" class="dac-form-label" data-t="newsletter.business.games">Games</label>
+                    </div>
+                    <div class="dac-form-radio-group">
+                      <input type="radio" value="Apps and Games" class="dac-form-radio" name="entry.1796324055" id="newsletter-business-type-appsgames" required>
+                      <label for="newsletter-business-type-appsgames" class="dac-form-radio-button"></label>
+                      <label for="newsletter-business-type-appsgames" class="dac-form-label" data-t="newsletter.business.both">Apps &amp; Games</label>
+                    </div>
+                  </div>
+                  <div class="col-1of2 newsletter-rightCol newsletter-checkboxes">
+                    <div class="dac-form-radio-group">
+                      <div class="dac-media">
+                        <div class="dac-media-figure">
+                          <input type="checkbox" class="dac-form-checkbox" name="entry.732309842" id="newsletter-add" required value="Add me to the mailing list for the monthly newsletter and occasional emails about development and Google Play opportunities.">
+                          <label for="newsletter-add" class="dac-form-checkbox-button"></label>
+                        </div>
+                        <div class="dac-media-body">
+                          <label for="newsletter-add" class="dac-form-label dac-form-aside"><span data-t="newsletter.confirmMailingList"></span><span class="dac-form-required">*</span></label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="dac-form-radio-group">
+                      <div class="dac-media">
+                        <div class="dac-media-figure">
+                          <input type="checkbox" class="dac-form-checkbox" name="entry.2045036090" id="newsletter-terms" required value="I acknowledge that the information provided in this form will be subject to Google's privacy policy (https://www.google.com/policies/privacy/).">
+                          <label for="newsletter-terms" class="dac-form-checkbox-button"></label>
+                        </div>
+                        <div class="dac-media-body">
+                          <label for="newsletter-terms" class="dac-form-label dac-form-aside"><span data-t="newsletter.privacyPolicy" data-t-html></span><span class="dac-form-required">*</span></label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+            </section>
+            <footer class="dac-modal-footer">
+              <div class="cols">
+                <div class="col-2of5">
+                </div>
+              </div>
+              <button type="submit" value="Submit" class="dac-fab dac-primary dac-large dac-modal-action"><i class="dac-sprite dac-arrow-right"></i></button>
+            </footer>
+          </form>
+        </section>
+        <section class="dac-swap-section dac-right">
+          <div class="dac-modal-content">
+            <p class="newsletter-success-message" data-t="newsletter.successDetails"></p>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end newsletter modal -->
+
+<!-- start reset language header modal -->
+<div data-modal="langform" class="dac-modal" id="langform">
+  <div class="dac-modal-container">
+    <div class="dac-modal-window">
+      <header class="dac-modal-header">
+        <div class="dac-modal-header-actions">
+          <button class="dac-modal-header-close" data-modal-toggle></button>
+        </div>
+        <section class="dac-swap-section dac-active dac-down">
+          <h2 class="norule dac-modal-header-title"></h2>
+        </section>
+      </header>
+      <section class="dac-swap-section dac-active dac-left">
+          <section class="dac-modal-content">
+            <fieldset class="dac-form-fieldset">
+              <div class="cols">
+                <div class="col-2of2 langform-leftCol">
+                  <p id="resetLangText"></p>
+                  <p id="resetLangCta"></p>
+                </div>
+              </div>
+            </fieldset>
+          </section>
+          <footer class="dac-modal-footer" id="langfooter">
+            <div class="cols">
+              <div class="col-2of5">
+              </div>
+            </div>
+              <button class="button dac-primary dac-modal-action lang yes" data-t="newsletter.resetLangButtonYes" data-modal-toggle></button>
+              <button class="button dac-primary dac-modal-action lang no" data-t="newsletter.resetLangButtonNo" data-modal-toggle></button>
+            </a>
+          </footer>
+        </form>
+      </section>
+    </div>
+  </div>
+</div>
+<!-- end langreset modal -->
+
+
+</div> <!-- end body-content --> 
+
+
+
+
+<script src="../../../../ajax/developer.android.com/ytblogger_lists_unified.js" defer></script>
+<script src="/jd_lists_unified_en.js?v=17" defer></script>
+<script src="/reference/lists.js?v=17" defer></script>
+<script src="/reference/gcm_lists.js?v=17" defer></script>
+<script src="/reference/gms_lists.js?v=17" defer></script>
+<script>
+  // Load localized metadata.
+  (function(lang) {
+    if (lang === 'en') { return; }
+
+    // Write it to the document so it gets evaluated before DOMContentReady.
+    document.write('<script src="/jd_lists_unified_' + lang + '.js?v=14" defer></' + 'script>');
+  })(getLangPref())
+</script>
+
+
+</body>
+</html>

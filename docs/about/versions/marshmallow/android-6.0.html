@@ -1,0 +1,1353 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+
+  
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico" />
+<link rel="alternate" href="http://developer.android.com/about/versions/marshmallow/android-6.0.html" hreflang="en" />
+<link rel="alternate" href="http://developer.android.com/intl/es/about/versions/marshmallow/android-6.0.html" hreflang="es" />
+<link rel="alternate" href="http://developer.android.com/intl/id/about/versions/marshmallow/android-6.0.html" hreflang="id" />
+<link rel="alternate" href="http://developer.android.com/intl/ja/about/versions/marshmallow/android-6.0.html" hreflang="ja" />
+<link rel="alternate" href="http://developer.android.com/intl/ko/about/versions/marshmallow/android-6.0.html" hreflang="ko" />
+<link rel="alternate" href="http://developer.android.com/intl/pt-br/about/versions/marshmallow/android-6.0.html" hreflang="pt-br" />
+<link rel="alternate" href="http://developer.android.com/intl/ru/about/versions/marshmallow/android-6.0.html" hreflang="ru" />
+<link rel="alternate" href="http://developer.android.com/intl/vi/about/versions/marshmallow/android-6.0.html" hreflang="vi" />
+<link rel="alternate" href="http://developer.android.com/intl/zh-cn/about/versions/marshmallow/android-6.0.html" hreflang="zh-cn" />
+<link rel="alternate" href="http://developer.android.com/intl/zh-tw/about/versions/marshmallow/android-6.0.html" hreflang="zh-tw" />
+
+
+<title>Android 6.0 APIs | Android Developers
+</title>
+
+<meta name="description" content="Get to know the new developer features in Android 6.0 Marshmallow.">
+
+<!-- STYLESHEETS -->
+<link rel="stylesheet"
+href="http://fonts.useso.com/css?family=Roboto+Condensed">
+<link rel="stylesheet" href="http://fonts.useso.com/css?family=Roboto:light,regular,medium,thin,italic,mediumitalic,bold"
+  title="roboto">
+
+<link href="../../../assets/css/default.css?v=16" rel="stylesheet" type="text/css">
+
+<!-- JAVASCRIPT -->
+<script src="../../../assets/js/android_3p-bundle.js" type="text/javascript"></script>
+<script type="text/javascript">
+  var toRoot = "../../../";
+  var metaTags = ["androidm","marshmallow"];
+  var devsite = false;
+  var useUpdatedTemplates = false;
+</script>
+<script src="../../../assets/js/docs.js?v=17" type="text/javascript"></script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//../../../ajax/www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-5831155-1', 'android.com');
+  ga('create', 'UA-49880327-2', 'android.com', {'name': 'universal'});  // New tracker);
+  ga('send', 'pageview');
+  ga('universal.send', 'pageview'); // Send page view for new tracker.
+</script>
+
+</head>
+
+<body class="gc-documentation
+
+
+ about" itemscope itemtype="http://schema.org/Article">
+  
+  <a name="top"></a>
+  <!-- Header -->
+  <div id="header-wrapper">
+    <div class="dac-header " id="header">
+      <div class="dac-header-inner">
+        <a class="dac-nav-toggle" data-dac-toggle-nav href="javascript:;" title="Open navigation">
+          <span class="dac-nav-hamburger">
+            <span class="dac-nav-hamburger-top"></span>
+            <span class="dac-nav-hamburger-mid"></span>
+            <span class="dac-nav-hamburger-bot"></span>
+          </span>
+        </a>
+        <a class="dac-header-logo" href="../../../index.html">
+          <img class="dac-header-logo-image" src="../../../assets/images/android_logo.png"
+              srcset="../../../assets/images/android_logo@2x.png 2x"
+              width="32" height="36" alt="Android" /> Developers
+          </a>
+
+        <ul class="dac-header-tabs">
+          <li>
+          <a class="dac-header-tab" href="../../../design/index.html"
+             zh-tw-lang="設計"
+             zh-cn-lang="设计"
+             ru-lang="Проектирование"
+             ko-lang="디자인"
+             ja-lang="設計"
+             es-lang="Diseñar">Design</a>
+          </li>
+          <li>
+          <a class="dac-header-tab" href="../../../develop/index.html"
+             zh-tw-lang="開發"
+             zh-cn-lang="开发"
+             ru-lang="Разработка"
+             ko-lang="개발"
+             ja-lang="開発"
+             es-lang="Desarrollar">Develop</a>
+          </li>
+          <li>
+          <a class="dac-header-tab" href="../../../distribute/index.html"
+             zh-tw-lang="發佈"
+             zh-cn-lang="分发"
+             ru-lang="Распространение"
+             ko-lang="배포"
+             ja-lang="配布"
+             es-lang="Distribuir">Distribute</a>
+          </li>
+        </ul>
+
+        <a class="dac-header-console-btn" href="https://play.google.com/apps/publish/">
+          <span class="dac-sprite dac-google-play"></span>
+          <span class="dac-visible-desktop-inline">Developer</span>
+          Console
+        </a>
+
+        
+        
+        
+  <form data-search class="dac-header-search">
+    <button class="dac-header-search-close" data-search-close>
+      <i class="dac-sprite dac-back-arrow"></i>
+    </button>
+
+    <div class="dac-header-search-inner">
+      <i class="dac-sprite dac-search-white dac-header-search-icon"></i>
+      <input id="search_autocomplete" type="text" value="" autocomplete="off" name="q" class="dac-header-search-input" placeholder="Search" />
+      <button class="dac-header-search-clear dac-hidden" data-search-clear>
+        <i class="dac-sprite dac-close-black"></i>
+      </button>
+    </div>
+  </form>
+
+        
+      </div><!-- end header-wrap.wrap -->
+    </div><!-- end header -->
+  </div> <!--end header-wrapper -->
+
+  
+  <!-- Navigation-->
+  <nav class="dac-nav">
+    <div class="dac-nav-dimmer" data-dac-toggle-nav></div>
+
+    <div class="dac-nav-sidebar" data-swap data-dynamic="false" data-transition-speed="300" data-dac-nav>
+      <div data-swap-container>
+        
+  
+    <a class="dac-nav-back-button dac-swap-section dac-up dac-no-anim" data-swap-button href="javascript:;">
+      <i class="dac-sprite dac-nav-back"></i> <span class="dac-nav-back-title">Back</span>
+    </a>
+    <div class="dac-nav-sub dac-swap-section dac-right dac-active" itemscope itemtype="http://schema.org/SiteNavigationElement">
+      
+        <ul id="nav">
+  <li class="nav-section">
+    <div class="nav-section-header"><a href="../../../about/versions/marshmallow/index.html">
+      <span class="en">Marshmallow</span></a></div>
+      <ul>
+        <li><a href="../../../about/versions/marshmallow/android-6.0.html">
+        Android 6.0 APIs</a></li>
+        <li><a href="../../../about/versions/marshmallow/android-6.0-changes.html">
+        Android 6.0 Changes</a></li>
+        <li><a href="../../../about/versions/marshmallow/samples.html">
+        Android 6.0 Samples</a></li>
+      </ul>
+  </li>
+  <li class="nav-section">
+    <div class="nav-section-header"><a href="../../../about/versions/lollipop.html"
+              zh-tw-lang="Lollipop"
+              zh-cn-lang="Lollipop"
+              ru-lang="Lollipop"
+              ko-lang="Lollipop"
+              ja-lang="Lollipop"
+              es-lang="Lollipop">
+      <span class="en">Lollipop</span></a></div>
+      <ul>
+        <li><a href="../../../about/versions/android-5.1.html">Android 5.1 APIs</a></li>
+        <li><a href="../../../about/versions/android-5.0.html"
+              zh-tw-lang="Android 5.0 API"
+              zh-cn-lang="Android 5.0 API"
+              ru-lang="API для Android 5.0"
+              ko-lang="Android 5.0 API"
+              ja-lang="Android 5.0 API"
+              es-lang="API de Android 5.0">
+              Android 5.0 APIs</a></li>
+        <li><a href="../../../about/versions/android-5.0-changes.html">
+
+        Android 5.0 Changes</a></li>
+      </ul>
+  </li>
+  <li class="nav-section">
+    <div class="nav-section-header"><a href="../../../about/versions/kitkat.html">
+      <span class="en">KitKat</span></a></div>
+      <ul>
+        <li><a href="../../../about/versions/android-4.4.html">Android 4.4 APIs</a></li>
+      </ul>
+  </li>
+  <li class="nav-section">
+    <div class="nav-section-header"><a href="../../../about/versions/jelly-bean.html">
+      <span class="en">Jelly Bean</span></a></div>
+      <ul>
+        <li><a href="../../../about/versions/android-4.3.html">Android 4.3 APIs</a></li>
+        <li><a href="../../../about/versions/android-4.2.html">Android 4.2 APIs</a></li>
+        <li><a href="../../../about/versions/android-4.1.html">Android 4.1 APIs</a></li>
+      </ul>
+  </li>
+
+  <!-- <li class="nav-section">
+    <div class="nav-section-header"><a href="../../../about/versions/android-4.0-highlights.html">
+      <span class="en">Ice Cream Sandwich</span></a></div>
+      <ul>
+        <li><a href="../../../about/versions/android-4.0.3.html">Android 4.0.3 APIs</a></li>
+        <li><a href="../../../about/versions/android-4.0.html">Android 4.0 APIs</a> </li>
+      </ul>
+  </li> -->
+
+  <li class="nav-section">
+    <div class="nav-section-header empty"><a href="../../../about/android.html">About Android</a></div>
+  </li>
+
+  <li class="nav-section">
+    <div class="nav-section-header empty"><a href="../../../about/dashboards/index.html">Dashboards</a></div>
+  </li>
+
+</ul>
+      
+    </div>
+  
+
+        <ul id="dac-main-navigation" class="dac-nav-list dac-swap-section dac-left dac-no-anim">
+        <li class="dac-nav-item home">
+          <a class="dac-nav-link" href="../../../index.html">Home</a>
+          <i class="dac-sprite dac-expand-more-black dac-nav-sub-slider"></i>
+          <ul class="dac-nav-secondary about">
+            <li class="dac-nav-item versions">
+              <a class="dac-nav-link" href="../../../about/versions/marshmallow/index.html">Android</a>
+            </li>
+            <li class="dac-nav-item wear">
+              <a class="dac-nav-link" href="../../../wear/index.html">Wear</a>
+            </li>
+            <li class="dac-nav-item tv">
+              <a class="dac-nav-link" href="../../../tv/index.html">TV</a>
+            </li>
+            <li class="dac-nav-item auto">
+              <a class="dac-nav-link" href="../../../auto/index.html">Auto</a>
+            </li>
+          </ul>
+        </li>
+        <li class="dac-nav-item design">
+          <a class="dac-nav-link" href="../../../design/index.html"
+             zh-tw-lang="設計"
+             zh-cn-lang="设计"
+             ru-lang="Проектирование"
+             ko-lang="디자인"
+             ja-lang="設計"
+             es-lang="Diseñar">Design</a>
+        </li>
+        <li class="dac-nav-item develop">
+          <a class="dac-nav-link" href="../../../develop/index.html"
+             zh-tw-lang="開發"
+             zh-cn-lang="开发"
+             ru-lang="Разработка"
+             ko-lang="개발"
+             ja-lang="開発"
+             es-lang="Desarrollar">Develop</a>
+          <i class="dac-sprite dac-expand-more-black dac-nav-sub-slider"></i>
+          <ul class="dac-nav-secondary develop">
+            <li class="dac-nav-item training">
+              <a class="dac-nav-link" href="../../../training/index.html"
+                 zh-tw-lang="訓練課程"
+                 zh-cn-lang="培训"
+                 ru-lang="Курсы"
+                 ko-lang="교육"
+                 ja-lang="トレーニング"
+                 es-lang="Capacitación">Training</a>
+            </li>
+            <li class="dac-nav-item guide">
+              <a class="dac-nav-link" href="../../../guide/index.html"
+                 zh-tw-lang="API 指南"
+                 zh-cn-lang="API 指南"
+                 ru-lang="Руководства по API"
+                 ko-lang="API 가이드"
+                 ja-lang="API ガイド"
+                 es-lang="Guías de la API">API Guides</a>
+            </li>
+            <li class="dac-nav-item reference">
+              <a class="dac-nav-link" href="../../../reference/packages.html"
+                 zh-tw-lang="參考資源"
+                 zh-cn-lang="参考"
+                 ru-lang="Справочник"
+                 ko-lang="참조문서"
+                 ja-lang="リファレンス"
+                 es-lang="Referencia">Reference</a>
+            </li>
+            <li class="dac-nav-item tools">
+              <a class="dac-nav-link" href="../../../sdk/index.html"
+                 zh-tw-lang="相關工具"
+                 zh-cn-lang="工具"
+                 ru-lang="Инструменты"
+                 ko-lang="도구"
+                 ja-lang="ツール"
+                 es-lang="Herramientas">Tools</a></li>
+            <li class="dac-nav-item google">
+              <a class="dac-nav-link" href="../../../google/index.html">Google Services</a>
+            </li>
+            
+          </ul>
+        </li>
+        <li class="dac-nav-item distribute">
+          <a class="dac-nav-link" href="../../../distribute/googleplay/index.html"
+             zh-tw-lang="發佈"
+             zh-cn-lang="分发"
+             ru-lang="Распространение"
+             ko-lang="배포"
+             ja-lang="配布"
+             es-lang="Distribuir">Distribute</a>
+          <i class="dac-sprite dac-expand-more-black dac-nav-sub-slider"></i>
+          <ul class="dac-nav-secondary distribute">
+            <li class="dac-nav-item googleplay">
+              <a class="dac-nav-link" href="../../../distribute/googleplay/index.html">Google Play</a></li>
+            <li class="dac-nav-item essentials">
+              <a class="dac-nav-link" href="../../../distribute/essentials/index.html">Essentials</a></li>
+            <li class="dac-nav-item users">
+              <a class="dac-nav-link" href="../../../distribute/users/index.html">Get Users</a></li>
+            <li class="dac-nav-item engage">
+              <a class="dac-nav-link" href="../../../distribute/engage/index.html">Engage &amp; Retain</a></li>
+            <li class="dac-nav-item monetize">
+              <a class="dac-nav-link" href="../../../distribute/monetize/index.html">Earn</a>
+            </li>
+            <li class="dac-nav-item analyze">
+              <a class="dac-nav-link" href="../../../distribute/analyze/index.html">Analyze</a>
+            </li>
+            <li class="dac-nav-item stories">
+              <a class="dac-nav-link" href="../../../distribute/stories/index.html">Stories</a>
+            </li>
+          </ul>
+        </li>
+        <li class="dac-nav-item preview">
+          <a class="dac-nav-link" href="../../../preview/index.html">Preview</a>
+        </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- end navigation-->
+  
+
+<!-- Nav Setup -->
+<script>$('[data-dac-nav]').dacNav();</script>
+
+
+
+  
+    
+  <div class="wrap clearfix" id="body-content">
+
+  
+
+  
+  <div id="search-results" class="dac-search-results">
+    <div id="dac-search-results-history" class="dac-search-results-history">
+      <div class="wrap dac-search-results-history-wrap">
+        <div class="cols">
+          <div class="col-1of2 col-tablet-1of2 col-mobile-1of1">
+            <h2>Most visited</h2>
+            <div class="resource-flow-layout" data-history-query="history:most/visited" data-maxresults="3" data-cardsizes="18x2"></div>
+          </div>
+
+          <div class="col-1of2 col-tablet-1of2 col-mobile-1of1">
+            <h2>Recently visited</h2>
+            <div class="resource-flow-layout cols" data-history-query="history:recent" data-allow-duplicates="true" data-maxresults="3" data-cardsizes="18x2"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="dac-search-results-content" class="dac-search-results-content">
+      <div class="dac-search-results-metadata wrap">
+        <div class="dac-search-results-for">
+          <h2>Results for <span id="search-results-for"></span></h2>
+        </div>
+
+        <div id="dac-search-results-hero"></div>
+
+        <div class="dac-search-results-hero cols">
+          <div id="dac-search-results-reference" class="col-3of6 col-tablet-1of2 col-mobile-1of1">
+            <div class="suggest-card reference no-display">
+              <ul class="dac-search-results-reference">
+              </ul>
+            </div>
+          </div>
+          <div id="dac-custom-search-results"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+
+
+
+  
+    
+      
+        <ul class="dac-header-crumbs">
+          
+        </ul>
+
+        <!-- Breadcrumb Setup -->
+        <p><script>$('.dac-nav-list').dacCurrentPage().dacCrumbs();</script></p>
+
+        <h1 itemprop="name" >Android 6.0 APIs</h1>
+      
+    
+  
+
+
+  
+
+  
+  <div id="jd-content">
+    <div class="jd-descr" itemprop="articleBody">
+    
+
+    <div id="qv-wrapper">
+<div id="qv">
+
+<h2>In this document
+    <a href="#" onclick="hideNestedItems('#toc44',this);return false;" class="header-toggle">
+        <span class="more">show more</span>
+        <span class="less" style="display:none">show less</span></a></h2>
+
+<ol id="toc44" class="hide-nested">
+
+  <li><a href="#fingerprint-authentication">Fingerprint Authentication</a></li>
+  <li><a href="#confirm-credential">Confirm Credential</a></li>
+  <li><a href="#app-linking">App Linking</a></li>
+  <li><a href="#backup">Auto Backup for Apps</a></li>
+  <li><a href="#direct-share">Direct Share</a></li>
+  <li><a href="#voice-interactions">Voice Interactions</a></li>
+  <li><a href="#assist">Assist API</a></li>
+  <li><a href="#adoptable-storage">Adoptable Storage</a></li>
+  <li><a href="#notifications">Notifications</a></li>
+  <li><a href="#bluetooth-stylus">Bluetooth Stylus Support</a></li>
+  <li><a href="#ble-scanning">Improved Bluetooth Low Energy Scanning</a></li>
+  <li><a href="#hotspot">Hotspot 2.0 Release 1 Support</a></li>
+  <li><a href="#4K-display">4K Display Mode</a></li>
+  <li><a href="#behavior-themeable-colorstatelists">Themeable ColorStateLists</a></li>
+  <li><a href="#audio">Audio Features</a></li>
+  <li><a href="#video">Video Features</a></li>
+  <li><a href="#camera">Camera Features</a>
+    <ol>
+      <li><a href="#flashlight">Flashlight API</a></li>
+      <li><a href="#reprocessing">Camera Reprocessing</a></li>
+    </ol>
+  </li>
+  <li><a href="#afw">Android for Work Features</a></li>
+</ol>
+
+<h2>API Differences</h2>
+<ol>
+<li><a href="../../../sdk/api_diff/23/changes.html">API level 22 to 23 &raquo;</a> </li>
+</ol>
+
+</div>
+</div>
+
+<p>Android 6.0 (<a href="../../../reference/android/os/Build.VERSION_CODES.html#M">M</a>)
+offers new features for users and app developers. This document provides an introduction to the
+most notable APIs.</p>
+
+<h3 id="Start">Start developing</h3>
+
+<p>To start building apps for Android 6.0, you must first <a href="../../../studio/index.html">get
+the Android SDK</a>. Then use the <a href="../../../tools/help/sdk-manager.html">SDK Manager</a>
+to download the Android 6.0 SDK Platform and System Images.</p>
+
+
+<h3 id="ApiLevel">Update your target API level</h3>
+
+<p>To better optimize your app for devices running Android ,
+  set your <a
+href="../../../guide/topics/manifest/uses-sdk-element.html#target"><code>targetSdkVersion</code></a> to
+<code>"23"</code>, install your app on an Android
+ system image, test it, then publish the updated app with
+this change.</p>
+
+<p>You can use Android  APIs while also supporting older
+versions by adding conditions to your code that check for the system API level
+before executing APIs not supported by your <a
+href="../../../guide/topics/manifest/uses-sdk-element.html#min"><code>minSdkVersion</code></a>.
+To learn more about maintaining backward compatibility, read <a
+href="../../../training/basics/supporting-devices/platforms.html">Supporting
+Different Platform Versions</a>.</p>
+
+<p>For more information about how API levels work, read <a
+href="../../../guide/topics/manifest/uses-sdk-element.html#ApiLevels">What is API
+Level?</a></p>
+
+<h2 id="fingerprint-authentication">Fingerprint Authentication</h2>
+
+<p>This release offers new APIs to let you authenticate users by using their fingerprint scans on
+supported devices, Use these APIs in conjunction with
+the <a href="../../../training/articles/keystore.html">Android Keystore system</a>.</p>
+
+<p>To authenticate users via fingerprint scan, get an instance of the new
+<code><a href="../../../reference/android/hardware/fingerprint/FingerprintManager.html">FingerprintManager</a></code> class and call the
+<code><a href="../../../reference/android/hardware/fingerprint/FingerprintManager.html#authenticate(android.hardware.fingerprint.FingerprintManager.CryptoObject, android.os.CancellationSignal, int, android.hardware.fingerprint.FingerprintManager.AuthenticationCallback, android.os.Handler)">authenticate()</a></code>
+method. Your app must be running on a compatible
+device with a fingerprint sensor. You must implement the user interface for the fingerprint
+authentication flow on your app, and use the standard Android fingerprint icon in your UI.
+The Android fingerprint icon (<code>c_fp_40px.png</code>) is included in the
+<a href="../../../samples/FingerprintDialog/index.html">Fingerprint Dialog sample</a>. If you are
+developing multiple apps that use fingerprint authentication, note that each app must authenticate
+the user’s fingerprint independently.
+</p>
+
+<p>To use this feature in your app, first add the
+  <code><a href="../../../reference/android/Manifest.permission.html#USE_FINGERPRINT">USE_FINGERPRINT</a></code> permission in your manifest.</p>
+
+<pre>
+&lt;uses-permission
+        android:name="android.permission.USE_FINGERPRINT" /&gt;
+</pre>
+<img src="../../../images/android-6.0/fingerprint-screen.png"
+srcset="../../../images/android-6.0/fingerprint-screen.png 1x, ../../../images/android-6.0/fingerprint-screen_2x.png 2x"
+style="float:right; margin:0 0 10px 20px" width="282" height="476" />
+
+<p>To see an app implementation of fingerprint authentication, refer to the
+<a href="../../../samples/FingerprintDialog/index.html">Fingerprint Dialog sample</a>. For a
+demonstration of how you can use these authentication
+  APIs in conjunction with other Android APIs, see the video
+  <a class="video-shadowbox-button" href="https://www.youtube.com/watch?v=VOn7VrTRlA4">
+  Fingerprint and Payment APIs</a>.</p>
+
+<p>If you are testing this feature, follow these steps:</p>
+<ol>
+<li>Install Android SDK Tools Revision 24.3, if you have not done so.</li>
+<li>Enroll a new fingerprint in the emulator by going to
+<strong>Settings > Security > Fingerprint</strong>, then follow the enrollment instructions.</li>
+<li>Use an emulator to emulate fingerprint touch events with the
+following command. Use the same command to emulate fingerprint touch events on the lockscreen or
+in your app.
+<pre class="no-prettyprint">
+adb -e emu finger touch &lt;finger_id&gt;
+</pre>
+<p>On Windows, you may have to run <code>telnet 127.0.0.1 &lt;emulator-id&gt;</code> followed by
+  <code>finger touch &lt;finger_id&gt;</code>.
+</p>
+</li>
+</ol>
+
+<h2 id="confirm-credential">Confirm Credential</h2>
+<p>Your app can authenticate users based on how recently they last unlocked their device. This
+feature frees users from having to remember additional app-specific passwords, and avoids the need
+for you to implement your own authentication user interface. Your app should use this feature in
+conjunction with a public or secret key implementation for user authentication.</p>
+
+<p>To set the timeout duration for which the same key can be re-used after a user is successfully
+authenticated, call the new
+<code><a href="../../../reference/android/security/keystore/KeyGenParameterSpec.Builder.html#setUserAuthenticationValidityDurationSeconds(int)">setUserAuthenticationValidityDurationSeconds()</a></code>
+method when you set up a <code><a href="../../../reference/javax/crypto/KeyGenerator.html">KeyGenerator</a></code> or
+<code><a href="../../../reference/java/security/KeyPairGenerator.html">KeyPairGenerator</a></code>.</p>
+
+<p>Avoid showing the re-authentication dialog excessively -- your apps should try using the
+cryptographic object first and if the the timeout expires, use the
+<code><a href="../../../reference/android/app/KeyguardManager.html#createConfirmDeviceCredentialIntent(java.lang.CharSequence, java.lang.CharSequence)">createConfirmDeviceCredentialIntent()</a></code>
+method to re-authenticate the user within your app.
+</p>
+
+<p>To see an app implementation of this feature, refer to the
+<a href="../../../samples/ConfirmCredential/index.html">
+  Confirm Credential sample</a>.</p>
+
+<h2 id="app-linking">App Linking</h2>
+<p>This release enhances Android’s intent system by providing more powerful app linking.
+This feature allows you to associate an app with a web domain you own. Based on this
+association, the platform can determine the default app to use to handle a particular
+web link and skip prompting users to select an app. To learn how to implement this feature, see
+<a href="../../../training/app-links/index.html">Handling App Links</a>.
+
+<h2 id="backup">Auto Backup for Apps</h2>
+<p>The system now performs automatic full data backup and restore for apps. Your app must target
+  Android 6.0 (API level 23) to enable this behavior; you do not need to add any additional code.
+  If users delete their Google accounts, their backup data is deleted as well. To learn how this
+  feature works and how to configure what to back up on the file system, see
+  <a href="../../../training/backup/autosyncapi.html">Configuring Auto Backup for Apps</a>.</p>
+
+<h2 id="direct-share">Direct Share</h2>
+
+<img src="../../../images/android-6.0/direct-share-screen.png"
+srcset="../../../images/android-6.0/direct-share-screen.png 1x, ../../../images/android-6.0/direct-share-screen_2x.png 2x"
+style="float:right; margin:0 0 20px 30px" width="312" height="329" />
+
+<p>This release provides you with APIs to make sharing intuitive and quick for users. You can now
+define <em>direct share targets</em> that launch a specific activity in your app. These direct share
+targets are exposed to users via the <em>Share</em> menu. This feature allows users to share
+content to targets, such as contacts, within other apps. For example, the direct share target might
+launch an activity in another social network app, which lets the user share content directly to a
+specific friend or community in that app.</p>
+
+<p>To enable direct share targets you must define a class that extends the
+<code><a href="../../../reference/android/service/chooser/ChooserTargetService.html">ChooserTargetService</a></code> class. Declare your
+service in the manifest. Within that declaration, specify the
+<code><a href="../../../reference/android/Manifest.permission.html#BIND_CHOOSER_TARGET_SERVICE">BIND_CHOOSER_TARGET_SERVICE</a></code> permission and an
+intent filter using the
+<code><a href="../../../reference/android/service/chooser/ChooserTargetService.html#SERVICE_INTERFACE">SERVICE_INTERFACE</a></code> action.</p>
+<p>The following example shows how you might declare the
+<code><a href="../../../reference/android/service/chooser/ChooserTargetService.html">ChooserTargetService</a></code> in your manifest.</p>
+<pre>
+&lt;service android:name=".ChooserTargetService"
+        android:label="&#64;string/service_name"
+        android:permission="android.permission.BIND_CHOOSER_TARGET_SERVICE"&gt;
+    &lt;intent-filter&gt;
+        &lt;action android:name="android.service.chooser.ChooserTargetService" /&gt;
+    &lt;/intent-filter&gt;
+&lt;/service&gt;
+</pre>
+
+<p>For each activity that you want to expose to
+<code><a href="../../../reference/android/service/chooser/ChooserTargetService.html">ChooserTargetService</a></code>, add a
+<code>&lt;meta-data&gt;</code> element with the name
+<code>"android.service.chooser.chooser_target_service"</code> in your app manifest.
+</p>
+
+<pre>
+&lt;activity android:name=".MyShareActivity”
+        android:label="&#64;string/share_activity_label"&gt;
+    &lt;intent-filter>
+        &lt;action android:name="android.intent.action.SEND" /&gt;
+    &lt;/intent-filter>
+&lt;meta-data
+        android:name="android.service.chooser.chooser_target_service"
+        android:value=".ChooserTargetService" /&gt;
+&lt;/activity>
+</pre>
+
+<h2 id="voice-interactions">Voice Interactions</h2>
+<p>
+This release provides a new voice interaction API which, together with
+<a href="https://developers.google.com/voice-actions/" class="external-link">Voice Actions</a>,
+allows you to build conversational voice experiences into your apps. Call the
+<code><a href="../../../reference/android/app/Activity.html#isVoiceInteraction()">isVoiceInteraction()</a></code> method to determine if a voice action triggered
+your activity. If so, your app can use the
+<code><a href="../../../reference/android/app/VoiceInteractor.html">VoiceInteractor</a></code> class to request a voice confirmation from the user, select
+from a list of options, and more.</p>
+
+<p>Most voice interactions originate from a user voice action. A voice interaction activity can
+also, however, start without user input. For example, another app launched through a voice
+interaction can also send an intent to launch a voice interaction. To determine if your activity
+launched from a user voice query or from another voice interaction app, call the
+<code><a href="../../../reference/android/app/Activity.html#isVoiceInteractionRoot()">isVoiceInteractionRoot()</a></code> method. If another app launched your
+activity, the method returns <code>false</code>. Your app may then prompt the user to confirm that
+they intended this action.</p>
+
+<p>To learn more about implementing voice actions, see the
+<a href="https://developers.google.com/voice-actions/interaction/"
+class="external-link">Voice Actions developer site</a>.
+</p>
+
+<h2 id="assist">Assist API</h2>
+<p>
+This release offers a new way for users to engage with your apps through an assistant. To use this
+feature, the user must enable the assistant to use the current context. Once enabled, the user
+can summon the assistant within any app, by long-pressing on the <strong>Home</strong> button.</p>
+<p>Your app can elect to not share the current context with the assistant by setting the
+<code><a href="../../../reference/android/view/WindowManager.LayoutParams.html#FLAG_SECURE">FLAG_SECURE</a></code> flag. In addition to the
+standard set of information that the platform passes to the assistant, your app can share
+additional information by using the new <code><a href="../../../reference/android/app/assist/AssistContent.html">AssistContent</a></code> class.</p>
+
+<p>To provide the assistant with additional context from your app, follow these steps:</p>
+
+<ol>
+<li>Implement the <code><a href="../../../reference/android/app/Application.OnProvideAssistDataListener.html">Application.OnProvideAssistDataListener</a></code> interface.</li>
+<li>Register this listener by using
+<code><a href="../../../reference/android/app/Application.html#registerOnProvideAssistDataListener(android.app.Application.OnProvideAssistDataListener)">registerOnProvideAssistDataListener()</a></code>.</li>
+<li>In order to provide activity-specific contextual information, override the
+<code><a href="../../../reference/android/app/Activity.html#onProvideAssistData(android.os.Bundle)">onProvideAssistData()</a></code>
+callback and, optionally, the new
+<code><a href="../../../reference/android/app/Activity.html#onProvideAssistContent(android.app.assist.AssistContent)">onProvideAssistContent()</a></code>
+callback.
+</ol>
+
+<h2 id="adoptable-storage">Adoptable Storage Devices</h2>
+<p>
+With this release, users can <em>adopt</em> external storage devices such as SD cards. Adopting an
+external storage device encrypts and formats the device to behave like internal storage. This
+feature allows users to move both apps and private data of those apps between storage devices. When
+moving apps, the system respects the
+<a href="../../../guide/topics/manifest/manifest-element.html#install"><code>android:installLocation</code></a>
+preference in the manifest.</p>
+
+<p>If your app accesses the following APIs or fields, be aware that the file paths they return
+will dynamically change when the app is moved between internal and external storage devices.
+When building file paths, it is strongly recommended that you always call these APIs dynamically.
+Don’t use hardcoded file paths or persist fully-qualified file paths that were built previously.</p>
+
+<ul>
+<li><code><a href="../../../reference/android/content/Context.html">Context</a></code> methods:
+    <ul>
+        <li><code><a href="../../../reference/android/content/Context.html#getFilesDir()">getFilesDir()</a></code></li>
+        <li><code><a href="../../../reference/android/content/Context.html#getCacheDir()">getCacheDir()</a></code></li>
+        <li><code><a href="../../../reference/android/content/Context.html#getCodeCacheDir()">getCodeCacheDir()</a></code></li>
+        <li><code><a href="../../../reference/android/content/Context.html#getDatabasePath(java.lang.String)">getDatabasePath()</a></code></li>
+        <li><code><a href="../../../reference/android/content/Context.html#getDir(java.lang.String, int)">getDir()</a></code></li>
+        <li><code><a href="../../../reference/android/content/Context.html#getNoBackupFilesDir()">getNoBackupFilesDir()</a></code></li>
+        <li><code><a href="../../../reference/android/content/Context.html#getFileStreamPath(java.lang.String)">getFileStreamPath()</a></code></li>
+        <li><code><a href="../../../reference/android/content/Context.html#getPackageCodePath()">getPackageCodePath()</a></code></li>
+        <li><code><a href="../../../reference/android/content/Context.html#getPackageResourcePath()">getPackageResourcePath()</a></code></li>
+    </ul>
+</li>
+<li><code><a href="../../../reference/android/content/pm/ApplicationInfo.html">ApplicationInfo</a></code> fields:
+    <ul>
+        <li><code><a href="../../../reference/android/content/pm/ApplicationInfo.html#dataDir">dataDir</a></code></li>
+        <li><code><a href="../../../reference/android/content/pm/ApplicationInfo.html#sourceDir">sourceDir</a></code></li>
+        <li><code><a href="../../../reference/android/content/pm/ApplicationInfo.html#nativeLibraryDir">nativeLibraryDir</a></code></li>
+        <li><code><a href="../../../reference/android/content/pm/ApplicationInfo.html#publicSourceDir">publicSourceDir</a></code></li>
+        <li><code><a href="../../../reference/android/content/pm/ApplicationInfo.html#splitSourceDirs">splitSourceDirs</a></code></li>
+        <li><code><a href="../../../reference/android/content/pm/ApplicationInfo.html#splitPublicSourceDirs">splitPublicSourceDirs</a></code></li>
+    </ul>
+</li>
+</ul>
+
+<p>To debug this feature, you can enable adoption of a USB drive that is
+connected to an Android device through a USB On-The-Go (OTG) cable, by running this command:</p>
+
+<pre class="no-prettyprint">
+$ adb shell sm set-force-adoptable true
+</pre>
+
+<h2 id="notifications">Notifications</h2>
+<p>This release adds the following API changes for notifications:</p>
+<ul>
+  <li>New <code><a href="../../../reference/android/app/NotificationManager.html#INTERRUPTION_FILTER_ALARMS">INTERRUPTION_FILTER_ALARMS</a></code> filter level that
+    corresponds to the new <em>Alarms only</em> do not disturb mode.</li>
+  <li>New <code><a href="../../../reference/android/app/Notification.html#CATEGORY_REMINDER">CATEGORY_REMINDER</a></code> category value that is used to
+  distinguish user-scheduled reminders from other events
+  (<code><a href="../../../reference/android/app/Notification.html#CATEGORY_EVENT">CATEGORY_EVENT</a></code>) and alarms
+  (<code><a href="../../../reference/android/app/Notification.html#CATEGORY_ALARM">CATEGORY_ALARM</a></code>).</li>
+  <li>New <code><a href="../../../reference/android/graphics/drawable/Icon.html">Icon</a></code> class that you can attach to your notifications
+  via the
+  <code><a href="../../../reference/android/app/Notification.Builder.html#setSmallIcon(android.graphics.drawable.Icon)">setSmallIcon()</a></code>
+  and <code><a href="../../../reference/android/app/Notification.Builder.html#setLargeIcon(android.graphics.drawable.Icon)">setLargeIcon()</a></code>
+  methods. Similarly, the
+  <code><a href="../../../reference/android/app/Notification.Builder.html#addAction(int, java.lang.CharSequence, android.app.PendingIntent)">addAction()</a></code> method now accepts an <code><a href="../../../reference/android/graphics/drawable/Icon.html">Icon</a></code> object instead of a
+  drawable resource ID.</li>
+  <li>New <code><a href="../../../reference/android/app/NotificationManager.html#getActiveNotifications()">getActiveNotifications()</a></code> method that allows your
+  apps to find out which of their notifications are currently alive. To see an app implementation
+  that uses this feature, see the
+  <a href="../../../samples/ActiveNotifications/index.html">Active Notifications sample</a>.</li>
+</ul>
+
+<h2 id="bluetooth-stylus">Bluetooth Stylus Support</h2>
+<p>This release provides improved support for user input using a Bluetooth stylus. Users can pair
+and connect a compatible Bluetooth stylus with their phone or tablet.  While connected, position
+information from the touch screen is fused with pressure and button information from the stylus to
+provide a greater range of expression than with the touch screen alone. Your app can listen for
+stylus button presses and perform secondary actions, by registering
+<code><a href="../../../reference/android/view/View.OnContextClickListener.html">View.OnContextClickListener</a></code> and
+<code><a href="../../../reference/android/view/GestureDetector.OnContextClickListener.html">GestureDetector.OnContextClickListener</a></code> objects in your activity.</p>
+
+<p>Use the <code><a href="../../../reference/android/view/MotionEvent.html">MotionEvent</a></code> methods and constants to detect stylus button
+interactions:</p>
+<ul>
+<li>If the user touches a stylus with a button on the screen of your app, the
+<code><a href="../../../reference/android/view/MotionEvent.html#getToolType(int)">getTooltype()</a></code> method returns
+<code><a href="../../../reference/android/view/MotionEvent.html#TOOL_TYPE_STYLUS">TOOL_TYPE_STYLUS</a></code>.</li>
+<li>For apps targeting Android 6.0 (API level 23), the
+<code><a href="../../../reference/android/view/MotionEvent.html#getButtonState()">getButtonState()</a></code>
+method returns <code><a href="../../../reference/android/view/MotionEvent.html#BUTTON_STYLUS_PRIMARY">BUTTON_STYLUS_PRIMARY</a></code> when the user
+presses the primary stylus button. If the stylus has a second button, the same method returns
+<code><a href="../../../reference/android/view/MotionEvent.html#BUTTON_STYLUS_SECONDARY">BUTTON_STYLUS_SECONDARY</a></code> when the user presses it. If the user presses
+both buttons simultaneously, the method returns both values OR'ed together
+(<code><a href="../../../reference/android/view/MotionEvent.html#BUTTON_STYLUS_PRIMARY">BUTTON_STYLUS_PRIMARY</a></code>|<code><a href="../../../reference/android/view/MotionEvent.html#BUTTON_STYLUS_SECONDARY">BUTTON_STYLUS_SECONDARY</a></code>).</li>
+<li>
+For apps targeting a lower platform version, the
+<code><a href="../../../reference/android/view/MotionEvent.html#getButtonState()">getButtonState()</a></code> method returns
+<code><a href="../../../reference/android/view/MotionEvent.html#BUTTON_SECONDARY">BUTTON_SECONDARY</a></code> (for primary stylus button press),
+<code><a href="../../../reference/android/view/MotionEvent.html#BUTTON_TERTIARY">BUTTON_TERTIARY</a></code> (for secondary stylus button press), or both.
+</li>
+</ul>
+
+<h2 id="ble-scanning">Improved Bluetooth Low Energy Scanning</h2>
+<p>
+If your app performs performs Bluetooth Low Energy scans, use the new
+<code><a href="../../../reference/android/bluetooth/le/ScanSettings.Builder.html#setCallbackType(int)">setCallbackType()</a></code>
+method to specify that you want the system to notify callbacks when it first finds, or sees after a
+long time, an advertisement packet matching the set <code><a href="../../../reference/android/bluetooth/le/ScanFilter.html">ScanFilter</a></code>. This
+approach to scanning is more power-efficient than what’s provided in the previous platform version.
+</p>
+
+<h2 id="hotspot">Hotspot 2.0 Release 1 Support</h2>
+<p>
+This release adds support for the Hotspot 2.0 Release 1 spec on Nexus 6 and Nexus 9 devices. To
+provision Hotspot 2.0 credentials in your app, use the new methods of the
+<code><a href="../../../reference/android/net/wifi/WifiEnterpriseConfig.html">WifiEnterpriseConfig</a></code> class, such as
+<code><a href="../../../reference/android/net/wifi/WifiEnterpriseConfig.html#setPlmn(java.lang.String)">setPlmn()</a></code> and
+<code><a href="../../../reference/android/net/wifi/WifiEnterpriseConfig.html#setRealm(java.lang.String)">setRealm()</a></code>. In the
+<code><a href="../../../reference/android/net/wifi/WifiConfiguration.html">WifiConfiguration</a></code> object, you can set the
+<code><a href="../../../reference/android/net/wifi/WifiConfiguration.html#FQDN">FQDN</a></code> and the
+<code><a href="../../../reference/android/net/wifi/WifiConfiguration.html#providerFriendlyName">providerFriendlyName</a></code> fields.
+The new <code><a href="../../../reference/android/net/wifi/ScanResult.html#isPasspointNetwork()">isPasspointNetwork()</a></code> method indicates if a detected
+network represents a Hotspot 2.0 access point.
+</p>
+
+<h2 id="4K-display">4K Display Mode</h2>
+<p>The platform now allows apps to request that the display resolution be upgraded to 4K rendering
+on compatible hardware. To query the current physical resolution, use the new
+<code><a href="../../../reference/android/view/Display.Mode.html">Display.Mode</a></code> APIs. If the UI is drawn at a lower logical resolution and is
+upscaled to a larger physical resolution, be aware that the physical resolution the
+<code><a href="../../../reference/android/view/Display.Mode.html#getPhysicalWidth()">getPhysicalWidth()</a></code> method returns may differ from the logical
+resolution reported by <code><a href="../../../reference/android/view/Display.html#getSize(android.graphics.Point)">getSize()</a></code>.</p>
+
+<p>You can request the system to change the physical resolution in your app as it runs, by setting
+the <code><a href="../../../reference/android/view/WindowManager.LayoutParams.html#preferredDisplayModeId">preferredDisplayModeId</a></code> property of your app’s
+window.  This feature is useful if you want to switch to 4K display resolution. While in 4K display
+mode, the UI continues to be rendered at the original resolution (such as 1080p) and is upscaled to
+4K, but <code><a href="../../../reference/android/view/SurfaceView.html">SurfaceView</a></code> objects may show content at the native resolution.</p>
+
+<h2 id="behavior-themeable-colorstatelists">Themeable ColorStateLists</h2>
+<p>Theme attributes are now supported in
+<code><a href="../../../reference/android/content/res/ColorStateList.html">ColorStateList</a></code> for devices running on Android 6.0 (API level 23). The
+<code><a href="../../../reference/android/content/res/Resources.html#getColorStateList(int)">Resources.getColorStateList()</a></code> and
+<code><a href="../../../reference/android/content/res/Resources.html#getColor(int)">Resources.getColor()</a></code> methods have been
+deprecated. If you are calling these APIs, call the new
+<code><a href="../../../reference/android/content/Context.html#getColorStateList(int)">Context.getColorStateList()</a></code> or
+<code><a href="../../../reference/android/content/Context.html#getColor(int)">Context.getColor()</a></code> methods instead. These methods are
+also available in the v4 appcompat library via <code><a href="../../../reference/android/support/v4/content/ContextCompat.html">ContextCompat</a></code>.</p>
+
+<h2 id="audio">Audio Features</h2>
+
+<p>This release adds enhancements to audio processing on Android, including: </p>
+<ul>
+  <li>Support for the <a href="http://en.wikipedia.org/wiki/MIDI" class="external-link">MIDI</a>
+protocol, with the new <code><a href="../../../reference/android/media/midi/package-summary.html">android.media.midi</a></code> APIs. Use these APIs to send and receive MIDI
+events.</li>
+  <li>New <code><a href="../../../reference/android/media/AudioRecord.Builder.html">AudioRecord.Builder</a></code> and <code><a href="../../../reference/android/media/AudioTrack.Builder.html">AudioTrack.Builder</a></code>
+classes to create digital audio capture and playback objects respectively, and configure audio
+source and sink properties to override the system defaults.</li>
+  <li>API hooks for associating audio and input devices. This is particularly useful if your app
+allows users to start a voice search from a game controller or remote control connected to Android
+TV. The system invokes the new
+<code><a href="../../../reference/android/app/Activity.html#onSearchRequested(android.view.SearchEvent)">onSearchRequested()</a></code>
+callback when the user starts a search. To determine if the user's input device has a built-in
+microphone, retrieve the <code><a href="../../../reference/android/view/InputDevice.html">InputDevice</a></code> object from that callback, then call the
+new <code><a href="../../../reference/android/view/InputDevice.html#hasMicrophone()">hasMicrophone()</a></code> method.</li>
+  <li>New <code><a href="../../../reference/android/media/AudioManager.html#getDevices(int)">getDevices()</a></code> method which lets you
+retrieve a list of all audio devices currently connected to the system. You can also register an
+<code><a href="../../../reference/android/media/AudioDeviceCallback.html">AudioDeviceCallback</a></code> object if you want the system to notify your app
+when an audio device connects or disconnects.</li>
+</ul>
+
+<h2 id="video">Video Features</h2>
+<p>This release adds new capabilities to the video processing APIs, including:</p>
+<ul>
+<li>New <code><a href="../../../reference/android/media/MediaSync.html">MediaSync</a></code> class which helps applications to synchronously render
+audio and video streams. The audio buffers are submitted in non-blocking fashion and are
+returned via a callback. It also supports dynamic playback rate.
+</li>
+<li>New <code><a href="../../../reference/android/media/MediaDrm.html#EVENT_SESSION_RECLAIMED">EVENT_SESSION_RECLAIMED</a></code> event, which indicates that a
+session opened by the app has been reclaimed by the resource manager. If your app uses DRM sessions,
+you should handle this event and make sure not to use a reclaimed session.
+</li>
+<li>New <code><a href="../../../reference/android/media/MediaCodec.CodecException.html#ERROR_RECLAIMED">ERROR_RECLAIMED</a></code> error code, which indicates
+that the resource manager reclaimed the media resource used by the codec. With this exception, the
+codec must be released, as it has moved to terminal state.
+</li>
+<li>New <code><a href="../../../reference/android/media/MediaCodecInfo.CodecCapabilities.html#getMaxSupportedInstances()">getMaxSupportedInstances()</a></code> interface to get a hint for the max number of the supported
+concurrent codec instances.
+</li>
+<li>New <code><a href="../../../reference/android/media/MediaPlayer.html#setPlaybackParams(android.media.PlaybackParams)">setPlaybackParams()</a></code> method to set the media playback rate for fast or
+slow motion playback. It also stretches or speeds up the audio playback automatically in
+conjunction with the video.</li>
+</ul>
+
+<h2 id="camera">Camera Features</h2>
+<p>This release includes the following new APIs for accessing the camera’s flashlight and for
+camera reprocessing of images:</p>
+
+<h3 id="flashlight">Flashlight API</h3>
+<p>If a camera device has a flash unit, you can call the
+<code><a href="../../../reference/android/hardware/camera2/CameraManager.html#setTorchMode(java.lang.String, boolean)">setTorchMode()</a></code>
+method to switch the flash unit’s torch mode on or off without opening the camera device. The app
+does not have exclusive ownership of the flash unit or the camera device. The torch mode is turned
+off and becomes unavailable whenever the camera device becomes unavailable, or when other camera
+resources keeping the torch on become unavailable. Other apps can also call
+<code><a href="../../../reference/android/hardware/camera2/CameraManager.html#setTorchMode(java.lang.String, boolean)">setTorchMode()</a></code>
+to turn off the torch mode. When the last app that turned on the torch mode is closed, the torch
+mode is turned off.</p>
+
+<p>You can register a callback to be notified about torch mode status by calling the
+<code><a href="../../../reference/android/hardware/camera2/CameraManager.html#registerTorchCallback(android.hardware.camera2.CameraManager.TorchCallback, android.os.Handler)">registerTorchCallback()</a></code>
+method. The first time the callback is registered, it is immediately called with the torch mode
+status of all currently known camera devices with a flash unit. If the torch mode is turned on or
+off successfully, the
+<code><a href="../../../reference/android/hardware/camera2/CameraManager.TorchCallback.html#onTorchModeChanged(java.lang.String, boolean)">onTorchModeChanged()</a></code>
+method is invoked.</p>
+
+<h3 id="reprocessing">Reprocessing API</h3>
+<p>The <code><a href="../../../reference/android/hardware/camera2/package-summary.html">Camera2</a></code> API is extended to support YUV and private
+opaque format image reprocessing. To determine if these reprocessing capabilities are available,
+call <code><a href="../../../reference/android/hardware/camera2/CameraManager.html#getCameraCharacteristics(java.lang.String)">getCameraCharacteristics()</a></code> and check for the
+<code><a href="../../../reference/android/hardware/camera2/CameraCharacteristics.html#REPROCESS_MAX_CAPTURE_STALL">REPROCESS_MAX_CAPTURE_STALL</a></code> key. If a
+device supports reprocessing, you can create a reprocessable camera capture session by calling
+<a href="../../../reference/android/hardware/camera2/CameraDevice.html#createReprocessableCaptureSession(android.hardware.camera2.params.InputConfiguration, java.util.List<android.view.Surface>, android.hardware.camera2.CameraCaptureSession.StateCallback, android.os.Handler)"><code>createReprocessableCaptureSession()</code></a>,
+and create requests for input buffer reprocessing.</p>
+
+<p>Use the <code><a href="../../../reference/android/media/ImageWriter.html">ImageWriter</a></code> class to connect the input buffer flow to the camera
+reprocessing input. To get an empty buffer, follow this programming model:</p>
+
+<ol>
+<li>Call the <code><a href="../../../reference/android/media/ImageWriter.html#dequeueInputImage()">dequeueInputImage()</a></code> method.</li>
+<li>Fill the data into the input buffer.</li>
+<li>Send the buffer to the  camera by calling the
+<code><a href="../../../reference/android/media/ImageWriter.html#queueInputImage(android.media.Image)">queueInputImage()</a></code> method.</li>
+</ol>
+
+<p>If you are using a <code><a href="../../../reference/android/media/ImageWriter.html">ImageWriter</a></code> object together with an
+<code><a href="../../../reference/android/graphics/ImageFormat.html#PRIVATE">PRIVATE</a></code> image, your app cannot access the image
+data directly. Instead, pass the <code><a href="../../../reference/android/graphics/ImageFormat.html#PRIVATE">PRIVATE</a></code> image directly to the
+<code><a href="../../../reference/android/media/ImageWriter.html">ImageWriter</a></code> by calling the
+<code><a href="../../../reference/android/media/ImageWriter.html#queueInputImage(android.media.Image)">queueInputImage()</a></code> method
+without any buffer copy.</p>
+
+<p>The <code><a href="../../../reference/android/media/ImageReader.html">ImageReader</a></code> class now supports
+<code><a href="../../../reference/android/graphics/ImageFormat.html#PRIVATE">PRIVATE</a></code> format image streams. This support allows your app to
+maintain a circular image queue of <code><a href="../../../reference/android/media/ImageReader.html">ImageReader</a></code> output images, select one or
+more images, and send them to the <code><a href="../../../reference/android/media/ImageWriter.html">ImageWriter</a></code> for camera reprocessing.</p>
+
+<h2 id="afw">Android for Work Features</h2>
+<p>This release includes the following new APIs for Android for Work:</p>
+<ul>
+  <li><strong>Enhanced controls for Corporate-Owned, Single-Use devices:</strong> The Device Owner
+can now control the following settings to improve management of
+Corporate-Owned, Single-Use (COSU) devices:
+  <ul>
+    <li>Disable or re-enable the keyguard with the
+<code><a href="../../../reference/android/app/admin/DevicePolicyManager.html#setKeyguardDisabled(android.content.ComponentName, boolean)">setKeyguardDisabled()</a></code> method.</li>
+    <li>Disable or re-enable the status bar (including quick settings, notifications, and the
+navigation swipe-up gesture that launches Google Now) with the
+<code><a href="../../../reference/android/app/admin/DevicePolicyManager.html#setStatusBarDisabled(android.content.ComponentName, boolean)">setStatusBarDisabled()</a></code>
+method.</li>
+    <li>Disable or re-enable safe boot with the <code><a href="../../../reference/android/os/UserManager.html">UserManager</a></code> constant
+<code><a href="../../../reference/android/os/UserManager.html#DISALLOW_SAFE_BOOT">DISALLOW_SAFE_BOOT</a></code>.</li>
+    <li>Prevent the screen from turning off while plugged in with the
+  <code><a href="../../../reference/android/provider/Settings.Global.html#STAY_ON_WHILE_PLUGGED_IN">STAY_ON_WHILE_PLUGGED_IN</a></code> constant.</li>
+  </ul>
+  </li>
+  <li><strong>Silent install and uninstall of apps by Device Owner:</strong> A Device Owner can now
+silently install and uninstall applications using the <code><a href="../../../reference/android/content/pm/PackageInstaller.html">PackageInstaller</a></code>
+APIs, independent of Google Play for Work. You can now provision devices through a Device Owner that
+fetches and installs apps without user interaction. This feature is useful for enabling one-touch
+provisioning of kiosks or other such devices without activating a Google account.</li>
+<li><strong>Silent enterprise certificate access: </strong> When an app calls
+<code><a href="../../../reference/android/security/KeyChain.html#choosePrivateKeyAlias(android.app.Activity, android.security.KeyChainAliasCallback, java.lang.String[], java.security.Principal[], java.lang.String, int, java.lang.String)">choosePrivateKeyAlias()</a></code>,
+prior to the user being prompted to select a certificate, the Profile or Device Owner can now call
+the <code><a href="../../../reference/android/app/admin/DeviceAdminReceiver.html#onChoosePrivateKeyAlias(android.content.Context, android.content.Intent, int, android.net.Uri, java.lang.String)">onChoosePrivateKeyAlias()</a></code>
+method to provide the alias silently to the requesting application. This feature lets you grant
+managed apps access to certificates without user interaction.</li>
+<li><strong>Auto-acceptance of system updates.</strong> By setting a system update policy with
+<code><a href="../../../reference/android/app/admin/DevicePolicyManager.html#setSystemUpdatePolicy(android.content.ComponentName, android.app.admin.SystemUpdatePolicy)">setSystemUpdatePolicy()</a></code>,
+a Device Owner can now auto-accept a system
+update, for instance in the case of a kiosk device, or postpone the update and prevent it being
+taken by the user for up to 30 days. Furthermore, an administrator can set a daily time window in
+which an update must be taken, for example during the hours when a kiosk device is not in use. When
+a system update is available, the system checks if the device policy controller app has set a system
+update policy, and behaves accordingly.
+</li>
+<li>
+<strong>Delegated certificate installation:</strong> A Profile or Device Owner can now grant a
+third-party app the ability to call these <code><a href="../../../reference/android/app/admin/DevicePolicyManager.html">DevicePolicyManager</a></code> certificate
+management APIs:
+<ul>
+  <li><code><a href="../../../reference/android/app/admin/DevicePolicyManager.html#getInstalledCaCerts(android.content.ComponentName)">getInstalledCaCerts()</a></code></li>
+  <li><code><a href="../../../reference/android/app/admin/DevicePolicyManager.html#hasCaCertInstalled(android.content.ComponentName, byte[])">hasCaCertInstalled()</a></code></li>
+  <li><code><a href="../../../reference/android/app/admin/DevicePolicyManager.html#installCaCert(android.content.ComponentName, byte[])">installCaCert()</a></code></li>
+  <li><code><a href="../../../reference/android/app/admin/DevicePolicyManager.html#uninstallCaCert(android.content.ComponentName, byte[])">uninstallCaCert()</a></code></li>
+  <li><code><a href="../../../reference/android/app/admin/DevicePolicyManager.html#uninstallAllUserCaCerts(android.content.ComponentName)">uninstallAllUserCaCerts()</a></code></li>
+  <li><code><a href="../../../reference/android/app/admin/DevicePolicyManager.html#installKeyPair(android.content.ComponentName, java.security.PrivateKey, java.security.cert.Certificate, java.lang.String)">installKeyPair()</a></code></li>
+</ul>
+</li>
+<img src="../../../images/android-6.0/work-profile-screen.png"
+srcset="../../../images/android-6.0/work-profile-screen.png 1x, ../../../images/android-6.0/work-profile-screen_2x.png 2x"
+style="float:right; margin:0 0 10px 20px" width="282" height="476" />
+<li><strong>Data usage tracking.</strong> A Profile or Device Owner can now query for the
+data usage statistics visible in <strong>Settings > Data</strong> usage by using the new
+<code><a href="../../../reference/android/app/usage/NetworkStatsManager.html">NetworkStatsManager</a></code> methods. Profile Owners are automatically granted
+permission to query data on the profile they manage, while Device Owners get access to usage data
+of the managed primary user.</li>
+<li><strong>Runtime permission management:</strong>
+<p>A Profile or Device Owner can set a permission policy
+for all runtime requests of all applications using
+<code><a href="../../../reference/android/app/admin/DevicePolicyManager.html#setPermissionPolicy(android.content.ComponentName, int)">setPermissionPolicy()</a></code>, to either prompt the user to grant the permission or automatically grant or
+deny the permission silently. If the latter policy is set, the user cannot
+modify the selection made by the Profile or Device Owner within the app’s permissions screen in
+<strong>Settings</strong>.</p></li>
+<li><strong>VPN in Settings:</strong> VPN apps are now visible in
+    <strong>Settings > More > VPN</strong>.
+Additionally, the notifications that accompany VPN usage are now specific to how that VPN is
+configured. For Profile Owner, the notifications are specific to whether the VPN is configured
+for a managed profile, a personal profile, or both. For a Device Owner, the notifications are
+specific to whether the VPN is configured for the entire device.</li>
+<li><strong>Work status notification:</strong> A status bar briefcase icon now appears whenever
+an app from the managed profile has an activity in the foreground. Furthermore, if the device is
+unlocked directly to the activity of an app in the managed profile, a toast is displayed notifying
+the user that they are within the work profile.
+</li>
+</ul>
+
+    </div>
+
+    
+
+  </div> <!-- end jd-content -->
+
+
+
+<div class="wrap">
+  <div class="dac-footer">
+    <div class="cols dac-footer-main">
+      <div class="col-1of2">
+        <a class="dac-footer-getnews" id="newsletter" data-modal-toggle="newsletter" href="javascript:;">Get news &amp; tips <span
+          class="dac-fab dac-primary"><i class="dac-sprite dac-mail"></i></span></a>
+      </div>
+      <div class="col-1of2 dac-footer-reachout">
+        <div class="dac-footer-contact">
+          <a class="dac-footer-contact-link" href="http://android-developers.blogspot.com/">Blog</a>
+          <a class="dac-footer-contact-link" href="../../../support.html">Support</a>
+        </div>
+        <div class="dac-footer-social">
+          <a class="dac-button-social dac-youtube dac-footer-social-link" href="https://www.youtube.com/user/androiddevelopers"><i class="dac-sprite dac-youtube"></i></a>
+          <a class="dac-button-social dac-gplus dac-footer-social-link" href="https://plus.google.com/+AndroidDevelopers"><i class="dac-sprite dac-gplus"></i></a>
+          <a class="dac-button-social dac-twitter dac-footer-social-link" href="https://twitter.com/AndroidDev"><i class="dac-sprite dac-twitter"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <hr class="dac-footer-separator"/>
+
+    
+      <p class="dac-footer-copyright">
+        
+  Except as noted, this content is
+  licensed under <a href="http://creativecommons.org/licenses/by/2.5/">
+  Creative Commons Attribution 2.5</a>. For details and
+  restrictions, see the <a href="../../../license.html">Content
+  License</a>.
+
+      </p>
+    
+
+    <p class="dac-footer-links">
+      <a href="../../android.html">About Android</a>
+      <a href="../../../auto/index.html">Auto</a>
+      <a href="../../../tv/index.html">TV</a>
+      <a href="../../../wear/index.html">Wear</a>
+      <a href="../../../legal.html">Legal</a>
+
+      <span id="language" class="locales">
+        <select name="language" onchange="changeLangPref(this.value, true)">
+          <option value="en" selected="selected">English</option>
+          <option value="es">Español</option>
+          <option value="in">Bahasa Indonesia</option>
+          <option value="ja">日本語</option>
+          <option value="ko">한국어</option>
+          <option value="pt-br">Português Brasileiro</option>
+          <option value="ru">Русский</option>
+          <option value="vi">tiếng Việt</option>
+          <option value="zh-cn">中文（简体)</option>
+          <option value="zh-tw">中文（繁體)</option>
+        </select>
+      </span>
+    </p>
+  </div>
+</div>
+<!-- end footer -->
+
+
+
+  
+
+
+
+<div data-modal="newsletter" data-newsletter data-swap class="dac-modal newsletter">
+  <div class="dac-modal-container">
+    <div class="dac-modal-window">
+      <header class="dac-modal-header">
+        <div class="dac-modal-header-actions">
+          <button class="dac-modal-header-close" data-modal-toggle></button>
+        </div>
+        <div class="dac-swap" data-swap-container>
+          <section class="dac-swap-section dac-active dac-down">
+            <h2 class="norule dac-modal-header-title" data-t="newsletter.title"></h2>
+            <p class="dac-modal-header-subtitle" data-t="newsletter.requiredHint"></p>
+          </section>
+          <section class="dac-swap-section dac-up">
+            <h2 class="norule dac-modal-header-title" data-t="newsletter.successTitle">Hooray!</h2>
+          </section>
+        </div>
+      </header>
+      <div class="dac-swap" data-swap-container>
+        <section class="dac-swap-section dac-active dac-left">
+          <form action="https://docs.google.com/forms/d/1QgnkzbEJIDu9lMEea0mxqWrXUJu0oBCLD7ar23V0Yys/formResponse" class="dac-form" method="post" target="dac-newsletter-iframe">
+            <input type="hidden" name="entry.935454734" data-newsletter-language>
+            <section class="dac-modal-content">
+              <fieldset class="dac-form-fieldset">
+                <div class="cols">
+                  <div class="col-1of2 newsletter-leftCol">
+                    <div class="dac-form-input-group">
+                      <label for="newsletter-full-name" class="dac-form-floatlabel" data-t="newsletter.name">Full name</label>
+                      <input type="text" class="dac-form-input" name="entry.1357890476" id="newsletter-full-name" required>
+                      <span class="dac-form-required">*</span>
+                    </div>
+                    <div class="dac-form-input-group">
+                      <label for="newsletter-email" class="dac-form-floatlabel" data-t="newsletter.email">Email address</label>
+                      <input type="email" class="dac-form-input" name="entry.472100832" id="newsletter-email" required>
+                      <span class="dac-form-required">*</span>
+                    </div>
+                  </div>
+                  <div class="col-1of2 newsletter-rightCol">
+                    <div class="dac-form-input-group">
+                      <label for="newsletter-company" class="dac-form-floatlabel" data-t="newsletter.company">Company / developer name</label>
+                      <input type="text" class="dac-form-input" name="entry.1664780309" id="newsletter-company">
+                    </div>
+                    <div class="dac-form-input-group">
+                      <label for="newsletter-play-store" class="dac-form-floatlabel" data-t="newsletter.appUrl">One of your Play Store app URLs</label>
+                      <input type="url" class="dac-form-input" name="entry.47013838" id="newsletter-play-store" required>
+                      <span class="dac-form-required">*</span>
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+              <fieldset class="dac-form-fieldset">
+                <div class="cols">
+                  <div class="col-1of2 newsletter-leftCol">
+                    <legend class="dac-form-legend"><span data-t="newsletter.business.label">Which best describes your business:</span><span class="dac-form-required">*</span>
+                    </legend>
+                    <div class="dac-form-radio-group">
+                      <input type="radio" value="Apps" class="dac-form-radio" name="entry.1796324055" id="newsletter-business-type-app" required>
+                      <label for="newsletter-business-type-app" class="dac-form-radio-button"></label>
+                      <label for="newsletter-business-type-app" class="dac-form-label" data-t="newsletter.business.apps">Apps</label>
+                    </div>
+                    <div class="dac-form-radio-group">
+                      <input type="radio" value="Games" class="dac-form-radio" name="entry.1796324055" id="newsletter-business-type-games" required>
+                      <label for="newsletter-business-type-games" class="dac-form-radio-button"></label>
+                      <label for="newsletter-business-type-games" class="dac-form-label" data-t="newsletter.business.games">Games</label>
+                    </div>
+                    <div class="dac-form-radio-group">
+                      <input type="radio" value="Apps and Games" class="dac-form-radio" name="entry.1796324055" id="newsletter-business-type-appsgames" required>
+                      <label for="newsletter-business-type-appsgames" class="dac-form-radio-button"></label>
+                      <label for="newsletter-business-type-appsgames" class="dac-form-label" data-t="newsletter.business.both">Apps &amp; Games</label>
+                    </div>
+                  </div>
+                  <div class="col-1of2 newsletter-rightCol newsletter-checkboxes">
+                    <div class="dac-form-radio-group">
+                      <div class="dac-media">
+                        <div class="dac-media-figure">
+                          <input type="checkbox" class="dac-form-checkbox" name="entry.732309842" id="newsletter-add" required value="Add me to the mailing list for the monthly newsletter and occasional emails about development and Google Play opportunities.">
+                          <label for="newsletter-add" class="dac-form-checkbox-button"></label>
+                        </div>
+                        <div class="dac-media-body">
+                          <label for="newsletter-add" class="dac-form-label dac-form-aside"><span data-t="newsletter.confirmMailingList"></span><span class="dac-form-required">*</span></label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="dac-form-radio-group">
+                      <div class="dac-media">
+                        <div class="dac-media-figure">
+                          <input type="checkbox" class="dac-form-checkbox" name="entry.2045036090" id="newsletter-terms" required value="I acknowledge that the information provided in this form will be subject to Google's privacy policy (https://www.google.com/policies/privacy/).">
+                          <label for="newsletter-terms" class="dac-form-checkbox-button"></label>
+                        </div>
+                        <div class="dac-media-body">
+                          <label for="newsletter-terms" class="dac-form-label dac-form-aside"><span data-t="newsletter.privacyPolicy" data-t-html></span><span class="dac-form-required">*</span></label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+            </section>
+            <footer class="dac-modal-footer">
+              <div class="cols">
+                <div class="col-2of5">
+                </div>
+              </div>
+              <button type="submit" value="Submit" class="dac-fab dac-primary dac-large dac-modal-action"><i class="dac-sprite dac-arrow-right"></i></button>
+            </footer>
+          </form>
+        </section>
+        <section class="dac-swap-section dac-right">
+          <div class="dac-modal-content">
+            <p class="newsletter-success-message" data-t="newsletter.successDetails"></p>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end newsletter modal -->
+
+<!-- start reset language header modal -->
+<div data-modal="langform" class="dac-modal" id="langform">
+  <div class="dac-modal-container">
+    <div class="dac-modal-window">
+      <header class="dac-modal-header">
+        <div class="dac-modal-header-actions">
+          <button class="dac-modal-header-close" data-modal-toggle></button>
+        </div>
+        <section class="dac-swap-section dac-active dac-down">
+          <h2 class="norule dac-modal-header-title"></h2>
+        </section>
+      </header>
+      <section class="dac-swap-section dac-active dac-left">
+          <section class="dac-modal-content">
+            <fieldset class="dac-form-fieldset">
+              <div class="cols">
+                <div class="col-2of2 langform-leftCol">
+                  <p id="resetLangText"></p>
+                  <p id="resetLangCta"></p>
+                </div>
+              </div>
+            </fieldset>
+          </section>
+          <footer class="dac-modal-footer" id="langfooter">
+            <div class="cols">
+              <div class="col-2of5">
+              </div>
+            </div>
+              <button class="button dac-primary dac-modal-action lang yes" data-t="newsletter.resetLangButtonYes" data-modal-toggle></button>
+              <button class="button dac-primary dac-modal-action lang no" data-t="newsletter.resetLangButtonNo" data-modal-toggle></button>
+            </a>
+          </footer>
+        </form>
+      </section>
+    </div>
+  </div>
+</div>
+<!-- end langreset modal -->
+
+
+</div> <!-- end body-content --> 
+
+
+
+
+<script src="../../../ajax/developer.android.com/ytblogger_lists_unified.js" defer></script>
+<script src="/jd_lists_unified_en.js?v=17" defer></script>
+<script src="/reference/lists.js?v=17" defer></script>
+<script src="/reference/gcm_lists.js?v=17" defer></script>
+<script src="/reference/gms_lists.js?v=17" defer></script>
+<script>
+  // Load localized metadata.
+  (function(lang) {
+    if (lang === 'en') { return; }
+
+    // Write it to the document so it gets evaluated before DOMContentReady.
+    document.write('<script src="/jd_lists_unified_' + lang + '.js?v=14" defer></' + 'script>');
+  })(getLangPref())
+</script>
+
+
+</body>
+</html>
