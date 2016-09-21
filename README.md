@@ -3,15 +3,15 @@ ANDROID API镜像站
 
 本项目将android doc文档的页面进行处理，以加快打开速度，目前已将其部署在七牛空间以及github.io，
 
-访问地址：
+Android 7.0 文档访问地址：
 
-Android 6.0: [http://androiddoc.qiniudn.com](http://androiddoc.qiniudn.com)
+七牛: [http://androiddoc.qiniudn.com](http://androiddoc.qiniudn.com)
 
-Android 6.0: [http://7ktv9b.com1.z0.glb.clouddn.com](http://7ktv9b.com1.z0.glb.clouddn.com)
+七牛: [http://7ktv9b.com1.z0.glb.clouddn.com](http://7ktv9b.com1.z0.glb.clouddn.com)
 
-N Developer Preview 1: [http://msdx.github.io/androiddoc/docs/](http://msdx.github.io/androiddoc/docs/)
+Github: [http://msdx.github.io/androiddoc/docs/](http://msdx.github.io/androiddoc/docs/)
 
-当前版本：Android N Developer Preview 1，如想使用6.0请转至[tag 6.0](https://github.com/msdx/androiddoc/tree/6.0)。欢迎检出及部署。
+欢迎检出及部署。
 
 ---
 
